@@ -58,7 +58,8 @@
         },
         {
           "__type": "ShipDebug",
-          "__enabled": true
+          "__enabled": true,
+          "UpdateInterval": 0.5
         }
       ],
       "Children": [
