@@ -52,7 +52,7 @@
           "__type": "ShipController",
           "__enabled": true,
           "PartsContainer": "c874c91b-fa93-44dd-a28f-0296f3426330",
-          "RetrorocketForce": 200,
+          "RetrorocketForceScale": 150,
           "Rigidbody": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
           "Speed": 100
         },
@@ -121,6 +121,25 @@
                   "ShouldCastShadows": true,
                   "Tint": "1,1,1,1"
                 }
+              ],
+              "Children": [
+                {
+                  "Id": "24779972-924f-4dd1-8fdf-8d4f5777974e",
+                  "Name": "Forward Retrorocket",
+                  "Position": "33.33148,0,0",
+                  "Scale": "2,0.016,0.006750001",
+                  "Enabled": true,
+                  "Components": [
+                    {
+                      "__type": "Thruster",
+                      "__enabled": true,
+                      "Controller": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
+                      "EffectPrefab": "prefabs/effects/thruster_fire.prefab",
+                      "LifetimeScale": 0.1,
+                      "Retrorocket": true
+                    }
+                  ]
+                }
               ]
             },
             {
@@ -177,6 +196,43 @@
                   "ShouldCastShadows": true,
                   "Tint": "1,1,1,1"
                 }
+              ],
+              "Children": [
+                {
+                  "Id": "e2d98aa4-d297-4143-8df8-dd37afe56a65",
+                  "Name": "Main Thruster",
+                  "Position": "-27.48664,0,0",
+                  "Rotation": "-0.00000005470048,0.00000001637869,-1,-0.0000006397578",
+                  "Enabled": true,
+                  "Components": [
+                    {
+                      "__type": "Thruster",
+                      "__enabled": true,
+                      "Controller": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
+                      "EffectPrefab": "prefabs/effects/thruster_fire.prefab",
+                      "LifetimeScale": 3,
+                      "Retrorocket": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "dec56a65-fc98-4d1e-a782-d6d8776c4614",
+                  "Name": "Left Retrorocket",
+                  "Position": "17.35204,30.23171,0",
+                  "Rotation": "0.00000004807746,-0.00000003368148,0.707107,0.7071065",
+                  "Scale": "1,0.2,0.15",
+                  "Enabled": true,
+                  "Components": [
+                    {
+                      "__type": "Thruster",
+                      "__enabled": true,
+                      "Controller": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
+                      "EffectPrefab": "prefabs/effects/thruster_fire.prefab",
+                      "LifetimeScale": 0.1,
+                      "Retrorocket": true
+                    }
+                  ]
+                }
               ]
             },
             {
@@ -195,6 +251,44 @@
                   "Model": "models/dev/box.vmdl",
                   "ShouldCastShadows": true,
                   "Tint": "1,1,1,1"
+                }
+              ],
+              "Children": [
+                {
+                  "Id": "c6539304-6340-446b-9872-b308b2d53b1e",
+                  "Name": "Main Thruster",
+                  "Position": "-27.48664,0,0",
+                  "Rotation": "-0.00000005470048,0.00000001637869,-1,-0.0000006397578",
+                  "Scale": "1,0.04,0.0225",
+                  "Enabled": true,
+                  "Components": [
+                    {
+                      "__type": "Thruster",
+                      "__enabled": true,
+                      "Controller": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
+                      "EffectPrefab": "prefabs/effects/thruster_fire.prefab",
+                      "LifetimeScale": 3,
+                      "Retrorocket": false
+                    }
+                  ]
+                },
+                {
+                  "Id": "fb4d4d7d-b63c-4ee8-ad61-8970d3b0a4b7",
+                  "Name": "Right Retrorocket",
+                  "Position": "17.35204,-36.951,0",
+                  "Rotation": "-0.00000003368153,-0.00000004807748,-0.707107,0.7071065",
+                  "Scale": "1,0.008,0.003375",
+                  "Enabled": true,
+                  "Components": [
+                    {
+                      "__type": "Thruster",
+                      "__enabled": true,
+                      "Controller": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
+                      "EffectPrefab": "prefabs/effects/thruster_fire.prefab",
+                      "LifetimeScale": 0.1,
+                      "Retrorocket": true
+                    }
+                  ]
                 }
               ]
             }
