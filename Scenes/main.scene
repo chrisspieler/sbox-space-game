@@ -1,0 +1,238 @@
+{
+  "GameObjects": [
+    {
+      "Id": "50985c72-fec4-48cf-bd58-355bbd47aec5",
+      "Name": "Skybox",
+      "Position": "-153.2278,-2.648744,23.53833",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "SkyBox2D",
+          "__enabled": true,
+          "SkyMaterial": "raw/starmapmilkyway.vmat",
+          "Tint": "0.10124,0.10837,0.13366,1"
+        },
+        {
+          "__type": "SkyScroller",
+          "__enabled": true,
+          "ScrollFactor": 0.003,
+          "Target": "f420d6b9-e323-4efe-b1fb-1ac54134cac0"
+        }
+      ]
+    },
+    {
+      "Id": "5006bd90-e749-4329-a52f-f676bfc80725",
+      "Name": "Sun",
+      "Position": "200,0,0",
+      "Rotation": "-0.3936001,0.3763543,0.4468399,0.7097672",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "DirectionalLight",
+          "__enabled": true,
+          "LightColor": "0.11386,0.11386,0.11386,1",
+          "Shadows": true,
+          "SkyColor": "0.00392,0.00392,0.00392,1"
+        }
+      ]
+    },
+    {
+      "Id": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
+      "Name": "Ship",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "PhysicsComponent",
+          "__enabled": true,
+          "AngularDamping": 0,
+          "Gravity": false,
+          "LinearDamping": 0
+        },
+        {
+          "__type": "ShipController",
+          "__enabled": true,
+          "PartsContainer": "c874c91b-fa93-44dd-a28f-0296f3426330",
+          "RetrorocketForce": 200,
+          "Rigidbody": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
+          "Speed": 100
+        },
+        {
+          "__type": "ShipDebug",
+          "__enabled": true
+        }
+      ],
+      "Children": [
+        {
+          "Id": "4014bc3a-0475-4e40-9f41-2793f567762a",
+          "Name": "Camera",
+          "Position": "0,-0.000000009572649,600",
+          "Rotation": "0,0.707107,0,0.7071065",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "CameraComponent",
+              "__enabled": true,
+              "BackgroundColor": "0.33333,0.46275,0.52157,1",
+              "ClearFlags": "All",
+              "FieldOfView": 90,
+              "Orthographic": false,
+              "OrthographicHeight": 1204,
+              "RenderExcludeTags": "",
+              "RenderTags": "",
+              "TargetEye": "None",
+              "ZFar": 10000,
+              "ZNear": 10
+            },
+            {
+              "__type": "ShipCamera",
+              "__enabled": true,
+              "HighPitch": 88,
+              "HighPosition": "-120,0,1500",
+              "LowPitch": 70,
+              "LowPosition": "-230,0,600",
+              "PitchLerpSpeed": 1,
+              "PositionLerpSpeed": 1,
+              "Target": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
+              "TargetVelocityHighThreshold": 2500,
+              "TargetVelocityLowThreshold": 200
+            }
+          ]
+        },
+        {
+          "Id": "c874c91b-fa93-44dd-a28f-0296f3426330",
+          "Name": "Parts",
+          "Enabled": true,
+          "Children": [
+            {
+              "Id": "47c8e566-aaf4-42de-8964-bd66500ba360",
+              "Name": "Cockpit",
+              "Position": "29.73928,0.000000004105452,-0.00000000000000001666383",
+              "Scale": "0.5,0.6,0.5",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "ModelRenderer",
+                  "__enabled": true,
+                  "BodyGroups": 18446744073709551615,
+                  "MaterialGroup": null,
+                  "MaterialOverride": null,
+                  "Model": "models/dev/sphere.vmdl",
+                  "ShouldCastShadows": true,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            },
+            {
+              "Id": "acbd1984-0908-45d0-869a-d75e9caf1813",
+              "Name": "Main Hull",
+              "Scale": "1,0.4,0.4",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "ModelRenderer",
+                  "__enabled": true,
+                  "BodyGroups": 18446744073709551615,
+                  "MaterialGroup": null,
+                  "MaterialOverride": null,
+                  "Model": "models/dev/box.vmdl",
+                  "ShouldCastShadows": true,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            },
+            {
+              "Id": "9f1aba35-eea9-427d-a148-b3f28c9efd4e",
+              "Name": "Rear Beam",
+              "Position": "-23.33452,0.00000003136669,8.521406",
+              "Scale": "0.3,1,0.2",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "ModelRenderer",
+                  "__enabled": true,
+                  "BodyGroups": 18446744073709551615,
+                  "MaterialGroup": null,
+                  "MaterialOverride": null,
+                  "Model": "models/dev/box.vmdl",
+                  "ShouldCastShadows": true,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            },
+            {
+              "Id": "6de72c4a-2b68-434d-ae98-a5e1d4d006e6",
+              "Name": "Left Nacelle",
+              "Position": "-22.16811,17.26161,17.39656",
+              "Scale": "1,0.2,0.15",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "ModelRenderer",
+                  "__enabled": true,
+                  "BodyGroups": 18446744073709551615,
+                  "MaterialGroup": null,
+                  "MaterialOverride": null,
+                  "Model": "models/dev/box.vmdl",
+                  "ShouldCastShadows": true,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            },
+            {
+              "Id": "d26c9337-fa69-4c79-acd1-a19f11447962",
+              "Name": "Right Nacelle",
+              "Position": "-22.16811,-18.48013,17.39656",
+              "Scale": "1,0.2,0.15",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "ModelRenderer",
+                  "__enabled": true,
+                  "BodyGroups": 18446744073709551615,
+                  "MaterialGroup": null,
+                  "MaterialOverride": null,
+                  "Model": "models/dev/box.vmdl",
+                  "ShouldCastShadows": true,
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Id": "b95bc5b6-db79-4b7b-9cb5-c9d2b127a0ac",
+      "Name": "Plane",
+      "Position": "500,500,-100",
+      "Scale": "10,10,10",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "__enabled": true,
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/dev/plane.vmdl",
+          "ShouldCastShadows": true,
+          "Tint": "1,1,1,1"
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 60,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true
+  },
+  "Title": "main",
+  "Description": "",
+  "__references": [
+    "dopamine.starmapmilkyway"
+  ]
+}
