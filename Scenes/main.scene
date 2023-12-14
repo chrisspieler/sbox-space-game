@@ -66,6 +66,14 @@
           "__type": "PlaneConstraint",
           "__enabled": true,
           "Rigidbody": null
+        },
+        {
+          "__type": "Jettison",
+          "__enabled": true,
+          "EjectionSource": "0556d2e7-4a01-49e4-8fda-bb2b1f3a8cae",
+          "EjectionSpeed": 300,
+          "EjectionSpin": 5,
+          "Prefab": "prefabs/obstacles/lightball.prefab"
         }
       ],
       "Children": [
@@ -312,6 +320,14 @@
                   ]
                 }
               ]
+            },
+            {
+              "Id": "0556d2e7-4a01-49e4-8fda-bb2b1f3a8cae",
+              "Name": "Ejection Source",
+              "Position": "-69.42393,-0.00007347894,0",
+              "Rotation": "0,0,1,-0.0000006397578",
+              "Tags": "player,ship",
+              "Enabled": true
             }
           ]
         },
@@ -353,119 +369,170 @@
       ]
     },
     {
-      "Id": "09e5bcf4-04be-4844-8b46-9587d2a36274",
+      "Id": "76bd2696-1db5-4fbf-8e4a-977fcce6da2c",
       "Name": "asteroid",
-      "Position": "-11.45514,-189.3009,0",
-      "Rotation": "-0.3653021,-0.4992831,-0.2334984,0.7501662",
-      "Scale": "1.173164,1.173164,1.173164",
+      "Position": "0,-211.3869,0",
+      "Rotation": "0,0.707107,0,0.7071065",
       "Enabled": true,
       "__Prefab": "prefabs/asteroids/asteroid.prefab"
     },
     {
-      "Id": "5b05ca3c-7e02-455a-8af2-94f4f958fc71",
-      "Name": "asteroid (7)",
-      "Position": "124.0012,-177.0983,0",
-      "Rotation": "0.3906795,0.844348,-0.09982989,-0.3528172",
-      "Scale": "1.363614,1.363614,1.363614",
-      "Enabled": true,
-      "__Prefab": "prefabs/asteroids/asteroid.prefab"
-    },
-    {
-      "Id": "a20fd1c6-c500-41aa-b1f5-408efe74434c",
-      "Name": "asteroid (8)",
-      "Position": "-16.44571,126.3539,-0.000008371289",
-      "Rotation": "-0.06537036,-0.1808979,-0.4361853,0.8790592",
-      "Scale": "1.363614,1.363614,1.363614",
-      "Enabled": true,
-      "__Prefab": "prefabs/asteroids/asteroid.prefab"
-    },
-    {
-      "Id": "dc04e5fa-f178-463f-b1e1-3c357787f812",
-      "Name": "asteroid (9)",
-      "Position": "-142.7639,71.56507,-0.00001590044",
-      "Rotation": "0.258306,0.4284136,-0.04476801,0.864717",
-      "Scale": "1.363614,1.363614,1.363614",
-      "Enabled": true,
-      "__Prefab": "prefabs/asteroids/asteroid.prefab"
-    },
-    {
-      "Id": "0a2918fa-5645-41d0-8356-c4008f6e5634",
-      "Name": "asteroid (10)",
-      "Position": "-145.1383,-49.05485,-0.00001604196",
-      "Rotation": "0.1660577,-0.05521902,-0.5271541,0.8315554",
-      "Scale": "1.363614,1.363614,1.363614",
-      "Enabled": true,
-      "__Prefab": "prefabs/asteroids/asteroid.prefab"
-    },
-    {
-      "Id": "db84b214-f78c-444c-801a-821e85b35284",
-      "Name": "asteroid (11)",
-      "Position": "-161.7626,-154.6788,-0.00001703284",
-      "Rotation": "0.1661497,-0.8370943,-0.1312915,-0.5044105",
-      "Scale": "1.363614,1.363614,1.363614",
-      "Enabled": true,
-      "__Prefab": "prefabs/asteroids/asteroid.prefab"
-    },
-    {
-      "Id": "c3fbb850-0ed9-4f25-81c6-a24c1c962044",
-      "Name": "asteroid (12)",
-      "Position": "168.587,-97.16261,0.000002657529",
-      "Rotation": "0.1283986,-0.9353356,0.1127636,-0.3097505",
-      "Scale": "1.363614,1.363614,1.363614",
-      "Enabled": true,
-      "__Prefab": "prefabs/asteroids/asteroid.prefab"
-    },
-    {
-      "Id": "5c38406e-b10e-42c3-b4ad-4fcb74abfdc0",
+      "Id": "c28526a4-bbf4-42bb-8746-ac7b38de41be",
       "Name": "asteroid (1)",
-      "Position": "294.865,-124.2784,-0.00006604228",
-      "Rotation": "-0.6071475,-0.1179306,-0.7754806,0.1268627",
-      "Scale": "1.221241,1.221241,1.221241",
+      "Position": "90.04322,-154.55,0.00001186039",
+      "Rotation": "0,0.707107,0,0.7071065",
       "Enabled": true,
       "__Prefab": "prefabs/asteroids/asteroid.prefab"
     },
     {
-      "Id": "a325ce1a-cf16-4826-bb02-37eea2cfd34e",
+      "Id": "931f155d-312e-4cd9-a0dc-ad13bd5ce7db",
       "Name": "asteroid (2)",
-      "Position": "146.2797,129.4514,-0.00006604228",
-      "Rotation": "0.5918036,0.3207247,0.5846801,0.4528281",
-      "Scale": "0.8558323,0.8558323,0.8558323",
+      "Position": "-100.2044,-136.8912,0.0000230514",
+      "Rotation": "0,0.707107,0,0.7071065",
       "Enabled": true,
       "__Prefab": "prefabs/asteroids/asteroid.prefab"
     },
     {
-      "Id": "9070dfdb-aada-45b2-b02c-5df0491b8422",
+      "Id": "f99f5567-a44a-45e0-90a7-27ebac1d844b",
       "Name": "asteroid (3)",
-      "Position": "306.2413,153.0067,-0.00006278489",
-      "Rotation": "0.3506638,-0.4875646,-0.2220024,-0.7681345",
-      "Scale": "1.25441,1.25441,1.25441",
+      "Position": "-112.1643,-222.8014,0.00003018007",
+      "Rotation": "0,0.707107,0,0.7071065",
       "Enabled": true,
       "__Prefab": "prefabs/asteroids/asteroid.prefab"
     },
     {
-      "Id": "a92e74ce-f064-41d0-bcfd-7d85e4e14dd8",
-      "Name": "asteroid (6)",
-      "Position": "376.1811,55.28045,-0.00005861615",
-      "Rotation": "0.4466405,-0.3718576,-0.6797041,0.4474781",
-      "Scale": "0.8574138,0.8574138,0.8574138",
-      "Enabled": true,
-      "__Prefab": "prefabs/asteroids/asteroid.prefab"
-    },
-    {
-      "Id": "dd4e3322-00aa-42d6-9829-bbadb3f7d6c9",
-      "Name": "asteroid (5)",
-      "Position": "258.5576,224.1715,-0.00006562707",
-      "Rotation": "-0.6718988,-0.1174661,-0.01486282,-0.7311175",
-      "Scale": "0.7270566,0.7270566,0.7270566",
-      "Enabled": true,
-      "__Prefab": "prefabs/asteroids/asteroid.prefab"
-    },
-    {
-      "Id": "e2064e66-9306-40c4-891f-6511b181d61c",
+      "Id": "0732283b-f383-4d6d-a0ba-6dab496d44a8",
       "Name": "asteroid (4)",
-      "Position": "259.1613,33.12516,0",
-      "Rotation": "0.8817372,-0.3305338,0.1343666,0.3085977",
-      "Scale": "0.6308761,0.6308761,0.6308761",
+      "Position": "9.336979,-112.6596,0.00008673325",
+      "Rotation": "0,0.707107,0,0.7071065",
+      "Enabled": true,
+      "__Prefab": "prefabs/asteroids/asteroid.prefab"
+    },
+    {
+      "Id": "c36568c7-9694-4af0-9e38-e99ba53d56ca",
+      "Name": "asteroid (5)",
+      "Position": "162.2548,-51.87903,-0.000004902392",
+      "Rotation": "0,0.707107,0,0.7071065",
+      "Enabled": true,
+      "__Prefab": "prefabs/asteroids/asteroid.prefab"
+    },
+    {
+      "Id": "8c95ae47-762b-4d4d-a7fc-2e83eb27dc50",
+      "Name": "asteroid (6)",
+      "Position": "230.308,49.69051,-0.00004546526",
+      "Rotation": "0,0.707107,0,0.7071065",
+      "Enabled": true,
+      "__Prefab": "prefabs/asteroids/asteroid.prefab"
+    },
+    {
+      "Id": "a24cd509-8de6-45e3-b264-2b4b179fc579",
+      "Name": "asteroid (7)",
+      "Position": "232.5656,229.4892,-0.00004681095",
+      "Rotation": "0,0.707107,0,0.7071065",
+      "Enabled": true,
+      "__Prefab": "prefabs/asteroids/asteroid.prefab"
+    },
+    {
+      "Id": "09d80b55-7549-408d-b293-cfb799708889",
+      "Name": "asteroid (8)",
+      "Position": "183.1832,314.9189,-0.00001737673",
+      "Rotation": "0,0.707107,0,0.7071065",
+      "Enabled": true,
+      "__Prefab": "prefabs/asteroids/asteroid.prefab"
+    },
+    {
+      "Id": "faf88585-849c-4b3f-b81a-12410511b5d3",
+      "Name": "asteroid (9)",
+      "Position": "-18.48412,231.3296,0.0001028264",
+      "Rotation": "0,0.707107,0,0.7071065",
+      "Enabled": true,
+      "__Prefab": "prefabs/asteroids/asteroid.prefab"
+    },
+    {
+      "Id": "dea9b047-35f7-46f6-bebf-2570de2eba97",
+      "Name": "asteroid (10)",
+      "Position": "74.88139,382.8025,0.00004717621",
+      "Rotation": "0,0.707107,0,0.7071065",
+      "Enabled": true,
+      "__Prefab": "prefabs/asteroids/asteroid.prefab"
+    },
+    {
+      "Id": "e4cc6fa6-93be-4311-9cd9-0f2454e21474",
+      "Name": "asteroid (11)",
+      "Position": "92.54556,170.2757,0.00003664755",
+      "Rotation": "0,0.707107,0,0.7071065",
+      "Enabled": true,
+      "__Prefab": "prefabs/asteroids/asteroid.prefab"
+    },
+    {
+      "Id": "80448788-8271-45d3-9865-42c3de35bcff",
+      "Name": "asteroid (12)",
+      "Position": "-29.20879,389.5388,0.0001092189",
+      "Rotation": "0,0.707107,0,0.7071065",
+      "Enabled": true,
+      "__Prefab": "prefabs/asteroids/asteroid.prefab"
+    },
+    {
+      "Id": "0741e5a6-afdb-4a2d-bc5f-a80dceef2773",
+      "Name": "asteroid (13)",
+      "Position": "-232.6563,182.6704,0.0002304831",
+      "Rotation": "0,0.707107,0,0.7071065",
+      "Enabled": true,
+      "__Prefab": "prefabs/asteroids/asteroid.prefab"
+    },
+    {
+      "Id": "2b87c0c1-a4b8-41b3-ab19-7f0b545b9f80",
+      "Name": "asteroid (14)",
+      "Position": "-120.2166,260.3172,0.000188445",
+      "Rotation": "0,0.707107,0,0.7071065",
+      "Enabled": true,
+      "__Prefab": "prefabs/asteroids/asteroid.prefab"
+    },
+    {
+      "Id": "aa6e6600-5559-4ab6-8215-43827cc884fb",
+      "Name": "asteroid (15)",
+      "Position": "-234.6676,80.68712,0.0002143706",
+      "Rotation": "0,0.707107,0,0.7071065",
+      "Enabled": true,
+      "__Prefab": "prefabs/asteroids/asteroid.prefab"
+    },
+    {
+      "Id": "14063920-1d36-4c7d-9846-315f5d0d08ce",
+      "Name": "asteroid (17)",
+      "Position": "-238.0457,-35.17341,0.0001983019",
+      "Rotation": "0,0.707107,0,0.7071065",
+      "Enabled": true,
+      "__Prefab": "prefabs/asteroids/asteroid.prefab"
+    },
+    {
+      "Id": "dbdccf1b-69e2-42dd-965f-c15fa1cf8e00",
+      "Name": "asteroid (18)",
+      "Position": "-137.5227,41.68202,0.0001931523",
+      "Rotation": "0,0.707107,0,0.7071065",
+      "Enabled": true,
+      "__Prefab": "prefabs/asteroids/asteroid.prefab"
+    },
+    {
+      "Id": "b570ee9c-25e3-45ca-873c-7dc0ace5dfc8",
+      "Name": "asteroid (19)",
+      "Position": "-218.5226,-141.7602,0.0002606402",
+      "Rotation": "0,0.707107,0,0.7071065",
+      "Enabled": true,
+      "__Prefab": "prefabs/asteroids/asteroid.prefab"
+    },
+    {
+      "Id": "5adb0c5e-fd99-4b83-80d9-03b2a02270f9",
+      "Name": "asteroid (20)",
+      "Position": "-156.6358,-74.38738,0.0002237527",
+      "Rotation": "0,0.707107,0,0.7071065",
+      "Enabled": true,
+      "__Prefab": "prefabs/asteroids/asteroid.prefab"
+    },
+    {
+      "Id": "b6895eb5-a062-4642-a10a-1a13650496f1",
+      "Name": "asteroid (16)",
+      "Position": "-139.4296,141.6626,0.0001745782",
+      "Rotation": "0,0.707107,0,0.7071065",
       "Enabled": true,
       "__Prefab": "prefabs/asteroids/asteroid.prefab"
     }

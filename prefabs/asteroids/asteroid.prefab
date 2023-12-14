@@ -1,8 +1,7 @@
 {
   "RootObject": {
-    "Id": "7247a67f-05c2-4d62-9364-f177795b3c30",
+    "Id": "547305c2-1573-42ff-ada8-cf7bf0295ade",
     "Name": "asteroid",
-    "Scale": "0,0,0",
     "Enabled": true,
     "Components": [
       {
@@ -54,7 +53,7 @@
         "RandomizeScale": true,
         "RandomizeVelocity": true,
         "RandomVelocityScale": 50,
-        "Rigidbody": "7247a67f-05c2-4d62-9364-f177795b3c30"
+        "Rigidbody": "547305c2-1573-42ff-ada8-cf7bf0295ade"
       }
     ]
   },

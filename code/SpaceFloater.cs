@@ -1,7 +1,7 @@
 ﻿using System;
 using Sandbox;
 
-public sealed class SpaceFloater : Component, Component.ExecuteInEditor
+public sealed class SpaceFloater : Component
 {
 	[Property] public bool RandomizeRotation { get; set; } = true;
 	[Property] public bool RandomizeScale { get; set; } = true;
@@ -15,20 +15,6 @@ public sealed class SpaceFloater : Component, Component.ExecuteInEditor
 	[Property] public float RandomAngularVelocityScale { get; set; } = 0.5f;
 	[Property] public Vector3 InitialAngularVelocity { get; set; }
 
-	protected override void OnEnabled()
-	{
-		Transform.Position = Transform.Position.WithZ( 0f );
-
-		if ( RandomizeRotation )
-		{
-			Transform.Rotation = Rotation.Random;
-		}
-		if ( RandomizeScale )
-		{
-			Transform.Scale = Transform.Scale * Game.Random.Float( MinRandomScale, MaxRandomScale );
-		}
-	}
-
 	protected override void OnStart()
 	{
 		Rigidbody ??= Components.GetOrCreate<Rigidbody>();
@@ -39,9 +25,10 @@ public sealed class SpaceFloater : Component, Component.ExecuteInEditor
 		{
 			Transform.Rotation = Rotation.Random;
 		}
-
-		if ( !GameManager.IsPlaying )
-			return;
+		if ( RandomizeScale )
+		{
+			Transform.Scale = Transform.Scale * Game.Random.Float( MinRandomScale, MaxRandomScale );
+		}
 
 		if ( RandomizeVelocity )
 			InitialVelocity = RandomVelocityScale * Vector3.Random;

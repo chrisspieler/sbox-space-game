@@ -1,0 +1,57 @@
+{
+  "RootObject": {
+    "Id": "fa00437b-53d4-4582-8832-40c2c298d7bf",
+    "Name": "Lightball",
+    "Position": "145.9753,17.70703,0.0001222804",
+    "Scale": "0.25,0.25,0.25",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "ModelRenderer",
+        "__enabled": true,
+        "BodyGroups": 18446744073709551615,
+        "MaterialGroup": null,
+        "MaterialOverride": "materials/dev/primary_white_emissive.vmat",
+        "Model": "models/dev/sphere.vmdl",
+        "ShouldCastShadows": true,
+        "Tint": "1,1,1,1"
+      },
+      {
+        "__type": "PointLight",
+        "__enabled": true,
+        "LightColor": "1,1,1,1",
+        "Radius": 400
+      },
+      {
+        "__type": "LightBall",
+        "__enabled": true,
+        "Light": "fa00437b-53d4-4582-8832-40c2c298d7bf",
+        "Model": "fa00437b-53d4-4582-8832-40c2c298d7bf"
+      },
+      {
+        "__type": "Rigidbody",
+        "__enabled": true,
+        "AngularDamping": 0,
+        "Gravity": false,
+        "LinearDamping": 0
+      },
+      {
+        "__type": "PlaneConstraint",
+        "__enabled": true,
+        "Rigidbody": "fa00437b-53d4-4582-8832-40c2c298d7bf"
+      },
+      {
+        "__type": "ColliderSphereComponent",
+        "__enabled": true,
+        "IsTrigger": false,
+        "Radius": 10,
+        "Static": false,
+        "Surface": null
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}
