@@ -10,7 +10,7 @@
           "__type": "SkyBox2D",
           "__enabled": true,
           "SkyMaterial": "raw/starmapmilkyway.vmat",
-          "Tint": "0.10124,0.10837,0.13366,1"
+          "Tint": "0.02463,0.02466,0.02475,1"
         },
         {
           "__type": "SkyScroller",
@@ -42,7 +42,7 @@
       "Enabled": true,
       "Components": [
         {
-          "__type": "PhysicsComponent",
+          "__type": "Rigidbody",
           "__enabled": true,
           "AngularDamping": 0,
           "Gravity": false,
@@ -60,6 +60,11 @@
           "__type": "ShipDebug",
           "__enabled": true,
           "UpdateInterval": 0.5
+        },
+        {
+          "__type": "PlaneConstraint",
+          "__enabled": true,
+          "Rigidbody": null
         }
       ],
       "Children": [
@@ -76,11 +81,16 @@
               "BackgroundColor": "0.33333,0.46275,0.52157,1",
               "ClearFlags": "All",
               "FieldOfView": 90,
+              "IsMainCamera": true,
               "Orthographic": false,
               "OrthographicHeight": 1204,
+              "Priority": 1,
               "RenderExcludeTags": "",
               "RenderTags": "",
               "TargetEye": "None",
+              "Viewport": {
+                "Size": "1,1"
+              },
               "ZFar": 10000,
               "ZNear": 10
             },
@@ -293,6 +303,21 @@
               ]
             }
           ]
+        },
+        {
+          "Id": "2e66ea98-6497-46ec-b4ba-99bcb119379c",
+          "Name": "Collider",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ColliderSphereComponent",
+              "__enabled": true,
+              "IsTrigger": false,
+              "Radius": 57.53339,
+              "Static": false,
+              "Surface": null
+            }
+          ]
         }
       ]
     },
@@ -314,6 +339,70 @@
           "Tint": "1,1,1,1"
         }
       ]
+    },
+    {
+      "Id": "09e5bcf4-04be-4844-8b46-9587d2a36274",
+      "Name": "asteroid",
+      "Position": "-11.45514,-189.3009,0.0003920208",
+      "Rotation": "0,0.707107,0,0.7071065",
+      "Enabled": true,
+      "__Prefab": "prefabs/asteroids/asteroid.prefab"
+    },
+    {
+      "Id": "5b05ca3c-7e02-455a-8af2-94f4f958fc71",
+      "Name": "asteroid (7)",
+      "Position": "124.0012,-177.0983,0.0003449232",
+      "Rotation": "-0.3538862,-0.4330728,0.5323327,-0.6354797",
+      "Enabled": true,
+      "__Prefab": "prefabs/asteroids/asteroid.prefab"
+    },
+    {
+      "Id": "5c38406e-b10e-42c3-b4ad-4fcb74abfdc0",
+      "Name": "asteroid (1)",
+      "Position": "294.865,-124.2784,-0.00006604228",
+      "Rotation": "0.7317544,-0.614887,-0.1162648,0.270059",
+      "Enabled": true,
+      "__Prefab": "prefabs/asteroids/asteroid.prefab"
+    },
+    {
+      "Id": "a325ce1a-cf16-4826-bb02-37eea2cfd34e",
+      "Name": "asteroid (2)",
+      "Position": "146.2797,129.4514,-0.00006604228",
+      "Rotation": "-0.1682945,0.0337179,0.7452998,-0.6442579",
+      "Enabled": true,
+      "__Prefab": "prefabs/asteroids/asteroid.prefab"
+    },
+    {
+      "Id": "9070dfdb-aada-45b2-b02c-5df0491b8422",
+      "Name": "asteroid (3)",
+      "Position": "306.2413,153.0067,-0.00006278489",
+      "Rotation": "-0.2497761,-0.8195657,0.05749588,-0.512463",
+      "Enabled": true,
+      "__Prefab": "prefabs/asteroids/asteroid.prefab"
+    },
+    {
+      "Id": "a92e74ce-f064-41d0-bcfd-7d85e4e14dd8",
+      "Name": "asteroid (6)",
+      "Position": "376.1811,55.28045,-0.00005861615",
+      "Rotation": "-0.5775312,0.3742118,-0.5095248,-0.5165345",
+      "Enabled": true,
+      "__Prefab": "prefabs/asteroids/asteroid.prefab"
+    },
+    {
+      "Id": "dd4e3322-00aa-42d6-9829-bbadb3f7d6c9",
+      "Name": "asteroid (5)",
+      "Position": "258.5576,224.1715,-0.00006562707",
+      "Rotation": "-0.877809,0.1989404,0.2491582,0.3574836",
+      "Enabled": true,
+      "__Prefab": "prefabs/asteroids/asteroid.prefab"
+    },
+    {
+      "Id": "e2064e66-9306-40c4-891f-6511b181d61c",
+      "Name": "asteroid (4)",
+      "Position": "259.1613,33.12516,-0.0001746329",
+      "Rotation": "-0.1150396,-0.8462037,-0.4468953,0.266439",
+      "Enabled": true,
+      "__Prefab": "prefabs/asteroids/asteroid.prefab"
     }
   ],
   "SceneProperties": {
