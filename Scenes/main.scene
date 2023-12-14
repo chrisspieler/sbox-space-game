@@ -371,6 +371,51 @@
       "__Prefab": "prefabs/asteroids/asteroid.prefab"
     },
     {
+      "Id": "a20fd1c6-c500-41aa-b1f5-408efe74434c",
+      "Name": "asteroid (8)",
+      "Position": "-16.44571,126.3539,-0.000008371289",
+      "Rotation": "-0.06537036,-0.1808979,-0.4361853,0.8790592",
+      "Scale": "1.363614,1.363614,1.363614",
+      "Enabled": true,
+      "__Prefab": "prefabs/asteroids/asteroid.prefab"
+    },
+    {
+      "Id": "dc04e5fa-f178-463f-b1e1-3c357787f812",
+      "Name": "asteroid (9)",
+      "Position": "-142.7639,71.56507,-0.00001590044",
+      "Rotation": "0.258306,0.4284136,-0.04476801,0.864717",
+      "Scale": "1.363614,1.363614,1.363614",
+      "Enabled": true,
+      "__Prefab": "prefabs/asteroids/asteroid.prefab"
+    },
+    {
+      "Id": "0a2918fa-5645-41d0-8356-c4008f6e5634",
+      "Name": "asteroid (10)",
+      "Position": "-145.1383,-49.05485,-0.00001604196",
+      "Rotation": "0.1660577,-0.05521902,-0.5271541,0.8315554",
+      "Scale": "1.363614,1.363614,1.363614",
+      "Enabled": true,
+      "__Prefab": "prefabs/asteroids/asteroid.prefab"
+    },
+    {
+      "Id": "db84b214-f78c-444c-801a-821e85b35284",
+      "Name": "asteroid (11)",
+      "Position": "-161.7626,-154.6788,-0.00001703284",
+      "Rotation": "0.1661497,-0.8370943,-0.1312915,-0.5044105",
+      "Scale": "1.363614,1.363614,1.363614",
+      "Enabled": true,
+      "__Prefab": "prefabs/asteroids/asteroid.prefab"
+    },
+    {
+      "Id": "c3fbb850-0ed9-4f25-81c6-a24c1c962044",
+      "Name": "asteroid (12)",
+      "Position": "168.587,-97.16261,0.000002657529",
+      "Rotation": "0.1283986,-0.9353356,0.1127636,-0.3097505",
+      "Scale": "1.363614,1.363614,1.363614",
+      "Enabled": true,
+      "__Prefab": "prefabs/asteroids/asteroid.prefab"
+    },
+    {
       "Id": "5c38406e-b10e-42c3-b4ad-4fcb74abfdc0",
       "Name": "asteroid (1)",
       "Position": "294.865,-124.2784,-0.00006604228",

@@ -33,8 +33,6 @@ public sealed class SpaceFloater : Component, Component.ExecuteInEditor
 	{
 		Rigidbody ??= Components.GetOrCreate<Rigidbody>();
 
-		Log.Info( "onstart" );
-
 		Transform.Position = Transform.Position.WithZ( 0f );
 
 		if ( RandomizeRotation )

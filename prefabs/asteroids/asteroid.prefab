@@ -2,8 +2,7 @@
   "RootObject": {
     "Id": "7247a67f-05c2-4d62-9364-f177795b3c30",
     "Name": "asteroid",
-    "Rotation": "0.3430909,0.1206195,-0.7747114,-0.5172637",
-    "Scale": "0.8414096,0.8414096,0.8414096",
+    "Scale": "0,0,0",
     "Enabled": true,
     "Components": [
       {
