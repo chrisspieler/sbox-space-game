@@ -2,6 +2,8 @@
 
 public sealed class Bouncer : Component, Component.ICollisionListener
 {
+	[Property] public float BounceFactor { get; set; } = 1f;
+
 	protected override void OnEnabled()
 	{
 		GameObject.Tags.Add( "bouncer" );
@@ -15,7 +17,7 @@ public sealed class Bouncer : Component, Component.ICollisionListener
 		// Reflect the velocity of the other normal across the normal
 		var reflectedVelocity = otherBody.Velocity - 2 * otherBody.Velocity.Dot( normal ) * normal;
 		reflectedVelocity = reflectedVelocity.WithZ( 0f );
-		otherBody.Velocity = reflectedVelocity;
+		otherBody.Velocity = reflectedVelocity * BounceFactor;
 	}
 
 	public void OnCollisionStop( CollisionStop other )
