@@ -1,0 +1,30 @@
+﻿using Sandbox;
+
+public sealed class Bouncer : Component, Component.ICollisionListener
+{
+	protected override void OnEnabled()
+	{
+		GameObject.Tags.Add( "bouncer" );
+	}
+
+	public void OnCollisionStart( Collision other )
+	{
+		// Bounce the other object, like pong
+		var otherBody = other.Other.Body;
+		var normal = other.Contact.Normal;
+		// Reflect the velocity of the other normal across the normal
+		var reflectedVelocity = otherBody.Velocity - 2 * otherBody.Velocity.Dot( normal ) * normal;
+		reflectedVelocity = reflectedVelocity.WithZ( 0f );
+		otherBody.Velocity = reflectedVelocity;
+	}
+
+	public void OnCollisionStop( CollisionStop other )
+	{
+
+	}
+
+	public void OnCollisionUpdate( Collision other )
+	{
+
+	}
+}

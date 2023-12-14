@@ -25,7 +25,7 @@ public sealed class ShipDebug : Component
 		if ( _lastUpdateTime >= UpdateInterval )
 		{
 			_lastPosition = Transform.Position;
-			_lastVelocity = Components.Get<PhysicsComponent>()?.Velocity ?? Vector3.Zero;
+			_lastVelocity = Components.Get<Rigidbody>()?.Velocity ?? Vector3.Zero;
 			_lastUpdateTime = 0f;
 		}
 

@@ -1,0 +1,63 @@
+{
+  "RootObject": {
+    "Id": "7247a67f-05c2-4d62-9364-f177795b3c30",
+    "Name": "asteroid",
+    "Position": "343.5923,102.8658,0.00004545626",
+    "Rotation": "0.5599393,0.7041753,-0.06432568,0.4318196",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "ModelRenderer",
+        "__enabled": true,
+        "BodyGroups": 18446744073709551615,
+        "MaterialGroup": null,
+        "MaterialOverride": null,
+        "Model": "models/rust_nature/rocks/rock_small_c.vmdl",
+        "ShouldCastShadows": true,
+        "Tint": "1,1,1,1"
+      },
+      {
+        "__type": "ModelCollider",
+        "__enabled": true,
+        "IsTrigger": false,
+        "Model": "models/rust_nature/rocks/rock_small_c.vmdl",
+        "Static": false,
+        "Surface": null
+      },
+      {
+        "__type": "Rigidbody",
+        "__enabled": true,
+        "AngularDamping": 0,
+        "Gravity": false,
+        "LinearDamping": 0
+      },
+      {
+        "__type": "Bouncer",
+        "__enabled": true
+      },
+      {
+        "__type": "PlaneConstraint",
+        "__enabled": true,
+        "Rigidbody": null
+      },
+      {
+        "__type": "SpaceFloater",
+        "__enabled": true,
+        "InitialAngularVelocity": "0,0,0",
+        "InitialVelocity": "0,0,0",
+        "RandomAngularVelocityScale": 3,
+        "RandomizeAngularVelocity": true,
+        "RandomizeRotation": true,
+        "RandomizeVelocity": true,
+        "RandomVelocityScale": 10,
+        "Rigidbody": null
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": [
+    "rust.rock_small_c"
+  ]
+}

@@ -14,7 +14,7 @@ public sealed class ShipCamera : Component
 
 	protected override void OnUpdate()
 	{
-		if ( Target?.Components?.TryGet<PhysicsComponent>( out var targetPhysics ) != true )
+		if ( Target?.Components?.TryGet<Rigidbody>( out var targetPhysics ) != true )
 			return;
 
 		var targetVelocity = targetPhysics.Velocity.Length;

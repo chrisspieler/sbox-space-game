@@ -3,7 +3,7 @@ using Sandbox;
 
 public sealed class ShipController : Component
 {
-	[Property] public PhysicsComponent Rigidbody { get; set; }
+	[Property] public Rigidbody Rigidbody { get; set; }
 	[Property] public GameObject PartsContainer { get; set; }
 	[Property] public float Speed { get; set; } = 100f;
 	[Property] public float RetrorocketForceScale { get; set; } = 150f;
@@ -12,6 +12,8 @@ public sealed class ShipController : Component
 
 	protected override void OnUpdate()
 	{
+		Transform.Rotation = Transform.Rotation.Angles().WithRoll( 0f );
+		Rigidbody.AngularVelocity = Vector3.Zero;
 		var inputDir = Input.AnalogMove;
 		MainThrusterForce = inputDir * Speed * Time.Delta;
 		var velocity = Rigidbody.Velocity;
