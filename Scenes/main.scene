@@ -39,6 +39,7 @@
     {
       "Id": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
       "Name": "Ship",
+      "Tags": "player,ship",
       "Enabled": true,
       "Components": [
         {
@@ -73,6 +74,7 @@
           "Name": "Camera",
           "Position": "0,-0.000000009572649,600",
           "Rotation": "0,0.707107,0,0.7071065",
+          "Tags": "player,ship",
           "Enabled": true,
           "Components": [
             {
@@ -110,6 +112,7 @@
         {
           "Id": "c874c91b-fa93-44dd-a28f-0296f3426330",
           "Name": "Parts",
+          "Tags": "player,ship",
           "Enabled": true,
           "Children": [
             {
@@ -117,6 +120,7 @@
               "Name": "Cockpit",
               "Position": "29.73928,0.000000004105452,-0.00000000000000001666383",
               "Scale": "0.5,0.6,0.5",
+              "Tags": "player,ship",
               "Enabled": true,
               "Components": [
                 {
@@ -136,6 +140,7 @@
                   "Name": "Forward Retrorocket",
                   "Position": "33.33148,0,0",
                   "Scale": "2,0.016,0.006750001",
+                  "Tags": "player,ship",
                   "Enabled": true,
                   "Components": [
                     {
@@ -154,6 +159,7 @@
               "Id": "acbd1984-0908-45d0-869a-d75e9caf1813",
               "Name": "Main Hull",
               "Scale": "1,0.4,0.4",
+              "Tags": "player,ship",
               "Enabled": true,
               "Components": [
                 {
@@ -173,6 +179,7 @@
               "Name": "Rear Beam",
               "Position": "-23.33452,0.00000003136669,8.521406",
               "Scale": "0.3,1,0.2",
+              "Tags": "player,ship",
               "Enabled": true,
               "Components": [
                 {
@@ -192,6 +199,7 @@
               "Name": "Left Nacelle",
               "Position": "-22.16811,17.26161,17.39656",
               "Scale": "1,0.2,0.15",
+              "Tags": "player,ship",
               "Enabled": true,
               "Components": [
                 {
@@ -211,6 +219,7 @@
                   "Name": "Main Thruster",
                   "Position": "-27.48664,0,0",
                   "Rotation": "-0.00000005470048,0.00000001637869,-1,-0.0000006397578",
+                  "Tags": "player,ship",
                   "Enabled": true,
                   "Components": [
                     {
@@ -229,6 +238,7 @@
                   "Position": "17.35204,30.23171,0",
                   "Rotation": "0.00000004807746,-0.00000003368148,0.707107,0.7071065",
                   "Scale": "1,0.2,0.15",
+                  "Tags": "player,ship",
                   "Enabled": true,
                   "Components": [
                     {
@@ -248,6 +258,7 @@
               "Name": "Right Nacelle",
               "Position": "-22.16811,-18.48013,17.39656",
               "Scale": "1,0.2,0.15",
+              "Tags": "player,ship",
               "Enabled": true,
               "Components": [
                 {
@@ -268,6 +279,7 @@
                   "Position": "-27.48664,0,0",
                   "Rotation": "-0.00000005470048,0.00000001637869,-1,-0.0000006397578",
                   "Scale": "1,0.04,0.0225",
+                  "Tags": "player,ship",
                   "Enabled": true,
                   "Components": [
                     {
@@ -286,6 +298,7 @@
                   "Position": "17.35204,-36.951,0",
                   "Rotation": "-0.00000003368153,-0.00000004807748,-0.707107,0.7071065",
                   "Scale": "1,0.008,0.003375",
+                  "Tags": "player,ship",
                   "Enabled": true,
                   "Components": [
                     {
@@ -305,6 +318,7 @@
         {
           "Id": "2e66ea98-6497-46ec-b4ba-99bcb119379c",
           "Name": "Collider",
+          "Tags": "player,ship",
           "Enabled": true,
           "Components": [
             {
@@ -342,7 +356,8 @@
       "Id": "09e5bcf4-04be-4844-8b46-9587d2a36274",
       "Name": "asteroid",
       "Position": "-11.45514,-189.3009,0",
-      "Rotation": "0.467939,0.05222104,-0.6530714,0.5931305",
+      "Rotation": "-0.3653021,-0.4992831,-0.2334984,0.7501662",
+      "Scale": "1.173164,1.173164,1.173164",
       "Enabled": true,
       "__Prefab": "prefabs/asteroids/asteroid.prefab"
     },
@@ -350,7 +365,8 @@
       "Id": "5b05ca3c-7e02-455a-8af2-94f4f958fc71",
       "Name": "asteroid (7)",
       "Position": "124.0012,-177.0983,0",
-      "Rotation": "0.5907286,0.699136,-0.309559,0.2577242",
+      "Rotation": "0.3906795,0.844348,-0.09982989,-0.3528172",
+      "Scale": "1.363614,1.363614,1.363614",
       "Enabled": true,
       "__Prefab": "prefabs/asteroids/asteroid.prefab"
     },
@@ -358,7 +374,8 @@
       "Id": "5c38406e-b10e-42c3-b4ad-4fcb74abfdc0",
       "Name": "asteroid (1)",
       "Position": "294.865,-124.2784,-0.00006604228",
-      "Rotation": "0.7156454,-0.4519762,-0.2029271,-0.4923311",
+      "Rotation": "-0.6071475,-0.1179306,-0.7754806,0.1268627",
+      "Scale": "1.221241,1.221241,1.221241",
       "Enabled": true,
       "__Prefab": "prefabs/asteroids/asteroid.prefab"
     },
@@ -366,7 +383,8 @@
       "Id": "a325ce1a-cf16-4826-bb02-37eea2cfd34e",
       "Name": "asteroid (2)",
       "Position": "146.2797,129.4514,-0.00006604228",
-      "Rotation": "-0.6681211,0.5035499,-0.5477628,-0.00274622",
+      "Rotation": "0.5918036,0.3207247,0.5846801,0.4528281",
+      "Scale": "0.8558323,0.8558323,0.8558323",
       "Enabled": true,
       "__Prefab": "prefabs/asteroids/asteroid.prefab"
     },
@@ -374,7 +392,8 @@
       "Id": "9070dfdb-aada-45b2-b02c-5df0491b8422",
       "Name": "asteroid (3)",
       "Position": "306.2413,153.0067,-0.00006278489",
-      "Rotation": "0.4208401,-0.7106076,-0.4866512,0.2847826",
+      "Rotation": "0.3506638,-0.4875646,-0.2220024,-0.7681345",
+      "Scale": "1.25441,1.25441,1.25441",
       "Enabled": true,
       "__Prefab": "prefabs/asteroids/asteroid.prefab"
     },
@@ -382,7 +401,8 @@
       "Id": "a92e74ce-f064-41d0-bcfd-7d85e4e14dd8",
       "Name": "asteroid (6)",
       "Position": "376.1811,55.28045,-0.00005861615",
-      "Rotation": "0.5275623,-0.5763288,0.1467392,0.6066225",
+      "Rotation": "0.4466405,-0.3718576,-0.6797041,0.4474781",
+      "Scale": "0.8574138,0.8574138,0.8574138",
       "Enabled": true,
       "__Prefab": "prefabs/asteroids/asteroid.prefab"
     },
@@ -390,7 +410,8 @@
       "Id": "dd4e3322-00aa-42d6-9829-bbadb3f7d6c9",
       "Name": "asteroid (5)",
       "Position": "258.5576,224.1715,-0.00006562707",
-      "Rotation": "0.9411873,-0.01137738,-0.3233837,-0.0972624",
+      "Rotation": "-0.6718988,-0.1174661,-0.01486282,-0.7311175",
+      "Scale": "0.7270566,0.7270566,0.7270566",
       "Enabled": true,
       "__Prefab": "prefabs/asteroids/asteroid.prefab"
     },
@@ -398,7 +419,8 @@
       "Id": "e2064e66-9306-40c4-891f-6511b181d61c",
       "Name": "asteroid (4)",
       "Position": "259.1613,33.12516,0",
-      "Rotation": "-0.7988381,-0.1533254,0.5026885,-0.2926657",
+      "Rotation": "0.8817372,-0.3305338,0.1343666,0.3085977",
+      "Scale": "0.6308761,0.6308761,0.6308761",
       "Enabled": true,
       "__Prefab": "prefabs/asteroids/asteroid.prefab"
     }

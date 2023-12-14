@@ -1,8 +1,11 @@
 ﻿using Sandbox;
+using System.Diagnostics;
+using System.Linq;
 
 public sealed class Bouncer : Component, Component.ICollisionListener
 {
 	[Property] public float BounceFactor { get; set; } = 1f;
+	[Property] public TagSet BouncedTags { get; set; }
 
 	protected override void OnEnabled()
 	{
@@ -11,6 +14,21 @@ public sealed class Bouncer : Component, Component.ICollisionListener
 
 	public void OnCollisionStart( Collision other )
 	{
+		if ( BouncedTags != null && BouncedTags.TryGetAll().Any() )
+		{
+			var hasBouncedTag = false;
+			foreach ( var tag in BouncedTags.TryGetAll() )
+			{
+				if ( other.Other.GameObject.Tags.Has( tag ) )
+				{
+					hasBouncedTag = true;
+					break;
+				}
+			}
+			if ( !hasBouncedTag )
+				return;
+		}
+		
 		// Bounce the other object, like pong
 		var otherBody = other.Other.Body;
 		var normal = other.Contact.Normal;

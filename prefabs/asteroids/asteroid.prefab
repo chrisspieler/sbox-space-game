@@ -2,7 +2,8 @@
   "RootObject": {
     "Id": "7247a67f-05c2-4d62-9364-f177795b3c30",
     "Name": "asteroid",
-    "Rotation": "0.01742534,0.8859883,-0.4352888,0.1588854",
+    "Rotation": "0.3430909,0.1206195,-0.7747114,-0.5172637",
+    "Scale": "0.8414096,0.8414096,0.8414096",
     "Enabled": true,
     "Components": [
       {
@@ -33,7 +34,8 @@
       {
         "__type": "Bouncer",
         "__enabled": true,
-        "BounceFactor": 0.8
+        "BouncedTags": "ship",
+        "BounceFactor": 1.4
       },
       {
         "__type": "PlaneConstraint",
@@ -45,9 +47,12 @@
         "__enabled": true,
         "InitialAngularVelocity": "0,0,0",
         "InitialVelocity": "0,0,0",
+        "MaxRandomScale": 1.3,
+        "MinRandomScale": 0.7,
         "RandomAngularVelocityScale": 0.5,
         "RandomizeAngularVelocity": true,
         "RandomizeRotation": true,
+        "RandomizeScale": true,
         "RandomizeVelocity": true,
         "RandomVelocityScale": 50,
         "Rigidbody": "7247a67f-05c2-4d62-9364-f177795b3c30"
