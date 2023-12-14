@@ -59,7 +59,7 @@
         },
         {
           "__type": "ShipDebug",
-          "__enabled": false,
+          "__enabled": true,
           "UpdateInterval": 0.5
         },
         {
@@ -74,6 +74,11 @@
           "EjectionSpeed": 300,
           "EjectionSpin": 5,
           "Prefab": "prefabs/obstacles/lightball.prefab"
+        },
+        {
+          "__type": "FloatingOriginPlayer",
+          "__enabled": true,
+          "WorldResetDistance": 10000
         }
       ],
       "Children": [

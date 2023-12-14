@@ -32,6 +32,11 @@ public sealed class ShipDebug : Component
 		Gizmo.Draw.Color = Color.White;
 		
 		Gizmo.Draw.ScreenText( $"Position: {_lastPosition}, Velocity: {_lastVelocity}", new Vector2( 25f, 25f ), "Consolas", 12, TextFlag.Left );
+		if ( Components.TryGet<FloatingOriginPlayer>( out var floatingOrigin ) )
+		{
+			Gizmo.Draw.ScreenText( $"Origin Shift: {floatingOrigin.TotalOriginShift}", new Vector2( 25f, 50f ), "Consolas", 12, TextFlag.Left );
+		}
+		
 		var shipController = Components.Get<ShipController>();
 		if ( shipController is null )
 			return;
