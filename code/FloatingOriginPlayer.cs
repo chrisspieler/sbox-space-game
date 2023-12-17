@@ -3,11 +3,11 @@ using Sandbox;
 public sealed class FloatingOriginPlayer : Component
 {
 	[Property] public float WorldResetDistance { get; set; } = 500f;
-	public Vector3 TotalOriginShift { get; private set; }
+	public FloatingOriginSystem OriginSystem => Scene.GetSystem<FloatingOriginSystem>();
 
-	protected override void OnStart()
+	public Vector3 AbsolutePosition
 	{
-		var floatingOriginSystem = Scene.GetSystem<FloatingOriginSystem>();
-		floatingOriginSystem.OnWorldReset += diff => TotalOriginShift -= diff;
+		get => GameObject.GetAbsolutePosition();
+		set => GameObject.SetAbsolutePosition( value );
 	}
 }

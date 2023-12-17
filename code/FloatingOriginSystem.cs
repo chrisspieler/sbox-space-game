@@ -5,8 +5,8 @@ using Sandbox;
 
 public sealed class FloatingOriginSystem : GameObjectSystem
 {
-	public static FloatingOriginSystem Instance { get; private set; }
-
+	public FloatingOriginPlayer Origin { get; private set; }
+	public Vector3 TotalOriginShift { get; private set; }
 	public event Action<Vector3> OnWorldReset;
 
 	public FloatingOriginSystem( Scene scene ) : base( scene )
@@ -16,14 +16,14 @@ public sealed class FloatingOriginSystem : GameObjectSystem
 
 	private void Tick()
 	{
-		var player = Scene.GetAllComponents<FloatingOriginPlayer>().FirstOrDefault();
+		Origin = Scene.GetAllComponents<FloatingOriginPlayer>().FirstOrDefault();
 
-		if ( player is null )
+		if ( Origin is null )
 			return;
 
-		if ( player.Transform.Position.Distance( Vector3.Zero) > player.WorldResetDistance )
+		if ( Origin.Transform.Position.Distance( Vector3.Zero) > Origin.WorldResetDistance )
 		{
-			ResetWorld( player.GameObject );
+			ResetWorld( Origin.GameObject );
 		}
 	}
 
@@ -31,6 +31,7 @@ public sealed class FloatingOriginSystem : GameObjectSystem
 	{
 		var gameObjects = origin.Scene.Children.Where( go => go != origin );
 		var offset = -origin.Transform.Position;
+		TotalOriginShift -= offset;
 		OnWorldReset?.Invoke( offset );
 		origin.Transform.Position = Vector3.Zero;
 		foreach ( var go in gameObjects )

@@ -34,7 +34,8 @@ public sealed class ShipDebug : Component
 		Gizmo.Draw.ScreenText( $"Position: {_lastPosition}, Velocity: {_lastVelocity}", new Vector2( 25f, 25f ), "Consolas", 12, TextFlag.Left );
 		if ( Components.TryGet<FloatingOriginPlayer>( out var floatingOrigin ) )
 		{
-			Gizmo.Draw.ScreenText( $"Origin Shift: {floatingOrigin.TotalOriginShift}", new Vector2( 25f, 50f ), "Consolas", 12, TextFlag.Left );
+			var currentChunk = Scene.GetSystem<WorldChunker>().WorldToChunk( floatingOrigin.AbsolutePosition );
+			Gizmo.Draw.ScreenText( $"Origin Shift: {floatingOrigin.OriginSystem.TotalOriginShift}, Absolute Position: {floatingOrigin.AbsolutePosition}, Current Chunk: {currentChunk}", new Vector2( 25f, 50f ), "Consolas", 12, TextFlag.Left );
 		}
 		
 		var shipController = Components.Get<ShipController>();

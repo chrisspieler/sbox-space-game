@@ -2,6 +2,7 @@
   "RootObject": {
     "Id": "547305c2-1573-42ff-ada8-cf7bf0295ade",
     "Name": "asteroid",
+    "Tags": "solid",
     "Enabled": true,
     "Components": [
       {

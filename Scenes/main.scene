@@ -39,7 +39,7 @@
     {
       "Id": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
       "Name": "Ship",
-      "Tags": "player,ship",
+      "Tags": "player,ship,solid",
       "Enabled": true,
       "Components": [
         {
@@ -78,7 +78,12 @@
         {
           "__type": "FloatingOriginPlayer",
           "__enabled": true,
-          "WorldResetDistance": 10000
+          "WorldResetDistance": 16000
+        },
+        {
+          "__type": "Teleporter",
+          "__enabled": true,
+          "AbsoluteDestination": "15990,0,0"
         }
       ],
       "Children": [
@@ -87,7 +92,7 @@
           "Name": "Camera",
           "Position": "0,-0.000000009572649,600",
           "Rotation": "0,0.707107,0,0.7071065",
-          "Tags": "player,ship",
+          "Tags": "player,ship,solid",
           "Enabled": true,
           "Components": [
             {
@@ -125,7 +130,7 @@
         {
           "Id": "c874c91b-fa93-44dd-a28f-0296f3426330",
           "Name": "Parts",
-          "Tags": "player,ship",
+          "Tags": "player,ship,solid",
           "Enabled": true,
           "Children": [
             {
@@ -133,7 +138,7 @@
               "Name": "Cockpit",
               "Position": "29.73928,0.000000004105452,-0.00000000000000001666383",
               "Scale": "0.5,0.6,0.5",
-              "Tags": "player,ship",
+              "Tags": "player,ship,solid",
               "Enabled": true,
               "Components": [
                 {
@@ -153,7 +158,7 @@
                   "Name": "Forward Retrorocket",
                   "Position": "33.33148,0,0",
                   "Scale": "2,0.016,0.006750001",
-                  "Tags": "player,ship",
+                  "Tags": "player,ship,solid",
                   "Enabled": true,
                   "Components": [
                     {
@@ -172,7 +177,7 @@
               "Id": "acbd1984-0908-45d0-869a-d75e9caf1813",
               "Name": "Main Hull",
               "Scale": "1,0.4,0.4",
-              "Tags": "player,ship",
+              "Tags": "player,ship,solid",
               "Enabled": true,
               "Components": [
                 {
@@ -192,7 +197,7 @@
               "Name": "Rear Beam",
               "Position": "-23.33452,0.00000003136669,8.521406",
               "Scale": "0.3,1,0.2",
-              "Tags": "player,ship",
+              "Tags": "player,ship,solid",
               "Enabled": true,
               "Components": [
                 {
@@ -212,7 +217,7 @@
               "Name": "Left Nacelle",
               "Position": "-22.16811,17.26161,17.39656",
               "Scale": "1,0.2,0.15",
-              "Tags": "player,ship",
+              "Tags": "player,ship,solid",
               "Enabled": true,
               "Components": [
                 {
@@ -232,7 +237,7 @@
                   "Name": "Main Thruster",
                   "Position": "-27.48664,0,0",
                   "Rotation": "-0.00000005470048,0.00000001637869,-1,-0.0000006397578",
-                  "Tags": "player,ship",
+                  "Tags": "player,ship,solid",
                   "Enabled": true,
                   "Components": [
                     {
@@ -251,7 +256,7 @@
                   "Position": "17.35204,30.23171,0",
                   "Rotation": "0.00000004807746,-0.00000003368148,0.707107,0.7071065",
                   "Scale": "1,0.2,0.15",
-                  "Tags": "player,ship",
+                  "Tags": "player,ship,solid",
                   "Enabled": true,
                   "Components": [
                     {
@@ -271,7 +276,7 @@
               "Name": "Right Nacelle",
               "Position": "-22.16811,-18.48013,17.39656",
               "Scale": "1,0.2,0.15",
-              "Tags": "player,ship",
+              "Tags": "player,ship,solid",
               "Enabled": true,
               "Components": [
                 {
@@ -292,7 +297,7 @@
                   "Position": "-27.48664,0,0",
                   "Rotation": "-0.00000005470048,0.00000001637869,-1,-0.0000006397578",
                   "Scale": "1,0.04,0.0225",
-                  "Tags": "player,ship",
+                  "Tags": "player,ship,solid",
                   "Enabled": true,
                   "Components": [
                     {
@@ -311,7 +316,7 @@
                   "Position": "17.35204,-36.951,0",
                   "Rotation": "-0.00000003368153,-0.00000004807748,-0.707107,0.7071065",
                   "Scale": "1,0.008,0.003375",
-                  "Tags": "player,ship",
+                  "Tags": "player,ship,solid",
                   "Enabled": true,
                   "Components": [
                     {
@@ -331,7 +336,7 @@
               "Name": "Ejection Source",
               "Position": "-69.42393,-0.00007347894,0",
               "Rotation": "0,0,1,-0.0000006397578",
-              "Tags": "player,ship",
+              "Tags": "player,ship,solid",
               "Enabled": true
             }
           ]
@@ -339,7 +344,7 @@
         {
           "Id": "2e66ea98-6497-46ec-b4ba-99bcb119379c",
           "Name": "Collider",
-          "Tags": "player,ship",
+          "Tags": "player,ship,solid",
           "Enabled": true,
           "Components": [
             {
@@ -349,6 +354,20 @@
               "Radius": 57.53339,
               "Static": false,
               "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "0972e6bf-8232-4c1d-9786-14e1549e992b",
+          "Name": "Asteroid Spawner",
+          "Position": "-310.004,-64.80212,824.1406",
+          "Tags": "player,ship,solid",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "AsteroidSpawner",
+              "__enabled": true,
+              "Origin": null
             }
           ]
         }
@@ -372,174 +391,6 @@
           "Tint": "1,1,1,1"
         }
       ]
-    },
-    {
-      "Id": "76bd2696-1db5-4fbf-8e4a-977fcce6da2c",
-      "Name": "asteroid",
-      "Position": "0,-211.3869,0",
-      "Rotation": "0,0.707107,0,0.7071065",
-      "Enabled": true,
-      "__Prefab": "prefabs/asteroids/asteroid.prefab"
-    },
-    {
-      "Id": "c28526a4-bbf4-42bb-8746-ac7b38de41be",
-      "Name": "asteroid (1)",
-      "Position": "90.04322,-154.55,0.00001186039",
-      "Rotation": "0,0.707107,0,0.7071065",
-      "Enabled": true,
-      "__Prefab": "prefabs/asteroids/asteroid.prefab"
-    },
-    {
-      "Id": "931f155d-312e-4cd9-a0dc-ad13bd5ce7db",
-      "Name": "asteroid (2)",
-      "Position": "-100.2044,-136.8912,0.0000230514",
-      "Rotation": "0,0.707107,0,0.7071065",
-      "Enabled": true,
-      "__Prefab": "prefabs/asteroids/asteroid.prefab"
-    },
-    {
-      "Id": "f99f5567-a44a-45e0-90a7-27ebac1d844b",
-      "Name": "asteroid (3)",
-      "Position": "-112.1643,-222.8014,0.00003018007",
-      "Rotation": "0,0.707107,0,0.7071065",
-      "Enabled": true,
-      "__Prefab": "prefabs/asteroids/asteroid.prefab"
-    },
-    {
-      "Id": "0732283b-f383-4d6d-a0ba-6dab496d44a8",
-      "Name": "asteroid (4)",
-      "Position": "9.336979,-112.6596,0.00008673325",
-      "Rotation": "0,0.707107,0,0.7071065",
-      "Enabled": true,
-      "__Prefab": "prefabs/asteroids/asteroid.prefab"
-    },
-    {
-      "Id": "c36568c7-9694-4af0-9e38-e99ba53d56ca",
-      "Name": "asteroid (5)",
-      "Position": "162.2548,-51.87903,-0.000004902392",
-      "Rotation": "0,0.707107,0,0.7071065",
-      "Enabled": true,
-      "__Prefab": "prefabs/asteroids/asteroid.prefab"
-    },
-    {
-      "Id": "8c95ae47-762b-4d4d-a7fc-2e83eb27dc50",
-      "Name": "asteroid (6)",
-      "Position": "230.308,49.69051,-0.00004546526",
-      "Rotation": "0,0.707107,0,0.7071065",
-      "Enabled": true,
-      "__Prefab": "prefabs/asteroids/asteroid.prefab"
-    },
-    {
-      "Id": "a24cd509-8de6-45e3-b264-2b4b179fc579",
-      "Name": "asteroid (7)",
-      "Position": "232.5656,229.4892,-0.00004681095",
-      "Rotation": "0,0.707107,0,0.7071065",
-      "Enabled": true,
-      "__Prefab": "prefabs/asteroids/asteroid.prefab"
-    },
-    {
-      "Id": "09d80b55-7549-408d-b293-cfb799708889",
-      "Name": "asteroid (8)",
-      "Position": "183.1832,314.9189,-0.00001737673",
-      "Rotation": "0,0.707107,0,0.7071065",
-      "Enabled": true,
-      "__Prefab": "prefabs/asteroids/asteroid.prefab"
-    },
-    {
-      "Id": "faf88585-849c-4b3f-b81a-12410511b5d3",
-      "Name": "asteroid (9)",
-      "Position": "-18.48412,231.3296,0.0001028264",
-      "Rotation": "0,0.707107,0,0.7071065",
-      "Enabled": true,
-      "__Prefab": "prefabs/asteroids/asteroid.prefab"
-    },
-    {
-      "Id": "dea9b047-35f7-46f6-bebf-2570de2eba97",
-      "Name": "asteroid (10)",
-      "Position": "74.88139,382.8025,0.00004717621",
-      "Rotation": "0,0.707107,0,0.7071065",
-      "Enabled": true,
-      "__Prefab": "prefabs/asteroids/asteroid.prefab"
-    },
-    {
-      "Id": "e4cc6fa6-93be-4311-9cd9-0f2454e21474",
-      "Name": "asteroid (11)",
-      "Position": "92.54556,170.2757,0.00003664755",
-      "Rotation": "0,0.707107,0,0.7071065",
-      "Enabled": true,
-      "__Prefab": "prefabs/asteroids/asteroid.prefab"
-    },
-    {
-      "Id": "80448788-8271-45d3-9865-42c3de35bcff",
-      "Name": "asteroid (12)",
-      "Position": "-29.20879,389.5388,0.0001092189",
-      "Rotation": "0,0.707107,0,0.7071065",
-      "Enabled": true,
-      "__Prefab": "prefabs/asteroids/asteroid.prefab"
-    },
-    {
-      "Id": "0741e5a6-afdb-4a2d-bc5f-a80dceef2773",
-      "Name": "asteroid (13)",
-      "Position": "-232.6563,182.6704,0.0002304831",
-      "Rotation": "0,0.707107,0,0.7071065",
-      "Enabled": true,
-      "__Prefab": "prefabs/asteroids/asteroid.prefab"
-    },
-    {
-      "Id": "2b87c0c1-a4b8-41b3-ab19-7f0b545b9f80",
-      "Name": "asteroid (14)",
-      "Position": "-120.2166,260.3172,0.000188445",
-      "Rotation": "0,0.707107,0,0.7071065",
-      "Enabled": true,
-      "__Prefab": "prefabs/asteroids/asteroid.prefab"
-    },
-    {
-      "Id": "aa6e6600-5559-4ab6-8215-43827cc884fb",
-      "Name": "asteroid (15)",
-      "Position": "-234.6676,80.68712,0.0002143706",
-      "Rotation": "0,0.707107,0,0.7071065",
-      "Enabled": true,
-      "__Prefab": "prefabs/asteroids/asteroid.prefab"
-    },
-    {
-      "Id": "14063920-1d36-4c7d-9846-315f5d0d08ce",
-      "Name": "asteroid (17)",
-      "Position": "-238.0457,-35.17341,0.0001983019",
-      "Rotation": "0,0.707107,0,0.7071065",
-      "Enabled": true,
-      "__Prefab": "prefabs/asteroids/asteroid.prefab"
-    },
-    {
-      "Id": "dbdccf1b-69e2-42dd-965f-c15fa1cf8e00",
-      "Name": "asteroid (18)",
-      "Position": "-137.5227,41.68202,0.0001931523",
-      "Rotation": "0,0.707107,0,0.7071065",
-      "Enabled": true,
-      "__Prefab": "prefabs/asteroids/asteroid.prefab"
-    },
-    {
-      "Id": "b570ee9c-25e3-45ca-873c-7dc0ace5dfc8",
-      "Name": "asteroid (19)",
-      "Position": "-218.5226,-141.7602,0.0002606402",
-      "Rotation": "0,0.707107,0,0.7071065",
-      "Enabled": true,
-      "__Prefab": "prefabs/asteroids/asteroid.prefab"
-    },
-    {
-      "Id": "5adb0c5e-fd99-4b83-80d9-03b2a02270f9",
-      "Name": "asteroid (20)",
-      "Position": "-156.6358,-74.38738,0.0002237527",
-      "Rotation": "0,0.707107,0,0.7071065",
-      "Enabled": true,
-      "__Prefab": "prefabs/asteroids/asteroid.prefab"
-    },
-    {
-      "Id": "b6895eb5-a062-4642-a10a-1a13650496f1",
-      "Name": "asteroid (16)",
-      "Position": "-139.4296,141.6626,0.0001745782",
-      "Rotation": "0,0.707107,0,0.7071065",
-      "Enabled": true,
-      "__Prefab": "prefabs/asteroids/asteroid.prefab"
     }
   ],
   "SceneProperties": {
