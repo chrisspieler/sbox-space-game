@@ -1,12 +1,11 @@
 using Sandbox;
-using Sandbox.Diagnostics;
 
-public sealed class WorldChunker : GameObjectSystem
+public sealed partial class WorldChunker : GameObjectSystem
 {
 	/// <summary>
 	/// The size of each world chunk in units. 
 	/// </summary>
-	[Property] public float ChunkSize { get; set; } = 1000f;
+	public float ChunkSize { get; set; } = 1000f;
 
 	// This number is based on a chunk size of 1000 units.
 	// Perhaps it should be calculated based on the chunk size.
@@ -14,8 +13,9 @@ public sealed class WorldChunker : GameObjectSystem
 
 	public WorldChunker( Scene scene ) : base( scene )
 	{
-		Listen( Stage.PhysicsStep, 0, OnUpdate, "World Chunker" );
+		Listen( Stage.UpdateBones, 0, OnUpdate, "World Chunker" );
 	}
+
 	private void OnUpdate()
 	{
 		var origin = Scene.GetSystem<FloatingOriginSystem>().Origin;
@@ -26,15 +26,19 @@ public sealed class WorldChunker : GameObjectSystem
 		if ( IsPositionTooFar( origin.AbsolutePosition ) )
 		{
 			origin.AbsolutePosition = Vector3.Zero;
-			return;
 		}
+
+		UpdateChunks( WorldToChunk( origin.AbsolutePosition ) );
 	}
 
-	public Vector2Int WorldToChunk( Vector3 worldPosition )
+	/// <summary>
+	/// Given an absolute world position, returns the chunk that contains it.
+	/// </summary>
+	public Vector2Int WorldToChunk( Vector3 absolutePosition )
 	{
-		worldPosition.Abs();
-		var chunkX = (int)( worldPosition.x / ChunkSize );
-		var chunkY = (int)( worldPosition.y / ChunkSize );
+		absolutePosition.Abs();
+		var chunkX = MathX.CeilToInt( absolutePosition.x / ChunkSize ) - 1;
+		var chunkY = MathX.CeilToInt( absolutePosition.y / ChunkSize ) - 1;
 		return new Vector2Int( chunkX, chunkY );
 	}
 

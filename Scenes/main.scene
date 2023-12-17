@@ -4,6 +4,7 @@
       "Id": "50985c72-fec4-48cf-bd58-355bbd47aec5",
       "Name": "Skybox",
       "Position": "-153.2278,-2.648744,23.53833",
+      "Rotation": "-0.006544801,0.006544801,0.00004283625,0.9999572",
       "Enabled": true,
       "Components": [
         {
@@ -39,6 +40,7 @@
     {
       "Id": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
       "Name": "Ship",
+      "Position": "250,250,-0.0003515341",
       "Tags": "player,ship,solid",
       "Enabled": true,
       "Components": [
@@ -82,7 +84,7 @@
         },
         {
           "__type": "Teleporter",
-          "__enabled": true,
+          "__enabled": false,
           "AbsoluteDestination": "15990,0,0"
         }
       ],
@@ -130,6 +132,7 @@
         {
           "Id": "c874c91b-fa93-44dd-a28f-0296f3426330",
           "Name": "Parts",
+          "Position": "0,0,0",
           "Tags": "player,ship,solid",
           "Enabled": true,
           "Children": [
@@ -176,6 +179,7 @@
             {
               "Id": "acbd1984-0908-45d0-869a-d75e9caf1813",
               "Name": "Main Hull",
+              "Position": "0,0,0",
               "Scale": "1,0.4,0.4",
               "Tags": "player,ship,solid",
               "Enabled": true,
@@ -344,12 +348,14 @@
         {
           "Id": "2e66ea98-6497-46ec-b4ba-99bcb119379c",
           "Name": "Collider",
+          "Position": "0,0,0",
           "Tags": "player,ship,solid",
           "Enabled": true,
           "Components": [
             {
-              "__type": "ColliderSphereComponent",
+              "__type": "SphereCollider",
               "__enabled": true,
+              "Center": "0,0,0",
               "IsTrigger": false,
               "Radius": 57.53339,
               "Static": false,
@@ -376,8 +382,8 @@
     {
       "Id": "b95bc5b6-db79-4b7b-9cb5-c9d2b127a0ac",
       "Name": "Plane",
-      "Position": "500,500,-100",
-      "Scale": "10,10,10",
+      "Position": "1000,1000,-100",
+      "Scale": "20,20,20",
       "Enabled": true,
       "Components": [
         {
