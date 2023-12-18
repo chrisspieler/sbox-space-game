@@ -7,14 +7,16 @@ public sealed partial class WorldChunker : GameObjectSystem
 	/// <summary>
 	/// Determines how many layers of chunks are loaded in all eight directions from the origin.
 	/// </summary>
-	public int ChunkLoadDistance { get; set; } = 2;
-	public int MaxLoadedChunks { get; set; } = 30;
+	public int ChunkLoadDistance { get; set; } = 3;
+	public int MaxLoadedChunks { get; set; } = 80;
 	public bool DebugDraw { get; set; } = true;
 
-	private readonly Dictionary<Vector2Int, object> _worldChunks = new();
+	private readonly Dictionary<Vector2Int, GameObject> _worldChunks = new();
 	private readonly List<Vector2Int> _chunkOrder = new();
 
 	private Vector2Int _previousOrigin = new Vector2Int( -999 );
+
+
 
 	public int ChunkCount => _worldChunks.Count;
 	public bool IsChunkLoaded( Vector2Int chunk ) => _worldChunks.ContainsKey( chunk );
@@ -39,22 +41,36 @@ public sealed partial class WorldChunker : GameObjectSystem
 		DrawDebugInfo();
 	}
 
-	private void LoadChunk( Vector2Int chunk )
+	private void LoadChunk( Vector2Int chunkPos )
 	{
-		if ( _worldChunks.ContainsKey( chunk ) )
+		if ( _worldChunks.ContainsKey( chunkPos ) )
 			return;
 
-		_worldChunks[chunk] = new();
-		_chunkOrder.Add( chunk );
+		var newChunkTx = new Transform()
+			.WithPosition( ChunkToWorldRelative( chunkPos ) )
+			.WithRotation( Rotation.Identity )
+			.WithScale( 1f );
+		// TODO: Cache chunks instead of creating new ones every time.
+		var chunk = SceneUtility.Instantiate( _chunkZoo.AsteroidField, newChunkTx );
+		chunk.Name = $"Chunk {chunkPos}";
+		_worldChunks[chunkPos] = chunk;
+		_chunkOrder.Add( chunkPos );
 	}
 
-	private void UnloadChunk( Vector2Int chunk )
+	private void UnloadChunk( Vector2Int chunkPos )
 	{
-		if ( !_worldChunks.ContainsKey( chunk ) )
+		if ( !_worldChunks.ContainsKey( chunkPos ) )
 			return;
 
-		_worldChunks.Remove( chunk );
-		_chunkOrder.Remove( chunk );
+		var chunk = _worldChunks[chunkPos];
+		var children = chunk.Children.ToArray();
+		foreach( var child in children )
+		{
+			child.DestroyImmediate();
+		}
+		chunk.Destroy();
+		_worldChunks.Remove( chunkPos );
+		_chunkOrder.Remove( chunkPos );
 	}
 
 	private void LoadSquare( Vector2Int origin, int diameter )

@@ -14,6 +14,19 @@ public sealed class FloatingOriginSystem : GameObjectSystem
 		Listen( Stage.PhysicsStep, -1, Tick, "Floating Origin System" );
 	}
 
+	public Vector3 RelativeToAbsolute( Vector3 relativePos )
+	{
+		return Origin != null 
+			? relativePos + TotalOriginShift
+			: relativePos;
+	}
+	public Vector3 AbsoluteToRelative( Vector3 absolutePos )
+	{
+		return Origin != null 
+			? absolutePos - TotalOriginShift
+			: absolutePos;
+	}
+
 	private void Tick()
 	{
 		Origin = Scene.GetAllComponents<FloatingOriginPlayer>().FirstOrDefault();

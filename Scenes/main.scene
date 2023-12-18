@@ -1,9 +1,21 @@
 {
   "GameObjects": [
     {
+      "Id": "73b4927a-e713-4cf7-880c-ae54c7e1eff0",
+      "Name": "ChunkPrefabZoo",
+      "Position": "-1152.337,-36.85667,1722.952",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ChunkPrefabZoo",
+          "__enabled": true,
+          "AsteroidField": "prefabs/chunks/asteroid_field.prefab"
+        }
+      ]
+    },
+    {
       "Id": "50985c72-fec4-48cf-bd58-355bbd47aec5",
       "Name": "Skybox",
-      "Position": "-153.2278,-2.648744,23.53833",
       "Rotation": "-0.006544801,0.006544801,0.00004283625,0.9999572",
       "Enabled": true,
       "Components": [
@@ -84,8 +96,8 @@
         },
         {
           "__type": "Teleporter",
-          "__enabled": false,
-          "AbsoluteDestination": "15990,0,0"
+          "__enabled": true,
+          "AbsoluteDestination": "0,0,0"
         }
       ],
       "Children": [
@@ -151,7 +163,7 @@
                   "MaterialGroup": null,
                   "MaterialOverride": null,
                   "Model": "models/dev/sphere.vmdl",
-                  "ShouldCastShadows": true,
+                  "RenderType": "On",
                   "Tint": "1,1,1,1"
                 }
               ],
@@ -191,7 +203,7 @@
                   "MaterialGroup": null,
                   "MaterialOverride": null,
                   "Model": "models/dev/box.vmdl",
-                  "ShouldCastShadows": true,
+                  "RenderType": "On",
                   "Tint": "1,1,1,1"
                 }
               ]
@@ -211,7 +223,7 @@
                   "MaterialGroup": null,
                   "MaterialOverride": null,
                   "Model": "models/dev/box.vmdl",
-                  "ShouldCastShadows": true,
+                  "RenderType": "On",
                   "Tint": "1,1,1,1"
                 }
               ]
@@ -231,7 +243,7 @@
                   "MaterialGroup": null,
                   "MaterialOverride": null,
                   "Model": "models/dev/box.vmdl",
-                  "ShouldCastShadows": true,
+                  "RenderType": "On",
                   "Tint": "1,1,1,1"
                 }
               ],
@@ -290,7 +302,7 @@
                   "MaterialGroup": null,
                   "MaterialOverride": null,
                   "Model": "models/dev/box.vmdl",
-                  "ShouldCastShadows": true,
+                  "RenderType": "On",
                   "Tint": "1,1,1,1"
                 }
               ],
@@ -362,20 +374,6 @@
               "Surface": null
             }
           ]
-        },
-        {
-          "Id": "0972e6bf-8232-4c1d-9786-14e1549e992b",
-          "Name": "Asteroid Spawner",
-          "Position": "-310.004,-64.80212,824.1406",
-          "Tags": "player,ship,solid",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "AsteroidSpawner",
-              "__enabled": true,
-              "Origin": null
-            }
-          ]
         }
       ]
     },
@@ -393,7 +391,7 @@
           "MaterialGroup": null,
           "MaterialOverride": null,
           "Model": "models/dev/plane.vmdl",
-          "ShouldCastShadows": true,
+          "RenderType": "On",
           "Tint": "1,1,1,1"
         }
       ]

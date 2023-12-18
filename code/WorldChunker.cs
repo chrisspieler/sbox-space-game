@@ -1,15 +1,18 @@
 using Sandbox;
+using System.Linq;
 
 public sealed partial class WorldChunker : GameObjectSystem
 {
 	/// <summary>
 	/// The size of each world chunk in units. 
 	/// </summary>
-	public float ChunkSize { get; set; } = 1000f;
+	public static int ChunkSize = 1000;
 
 	// This number is based on a chunk size of 1000 units.
 	// Perhaps it should be calculated based on the chunk size.
 	private float _maxPosition { get; set; } = 1_000_000_000f;
+	private FloatingOriginSystem _originSystem { get; set; }
+	private ChunkPrefabZoo _chunkZoo { get; set; }
 
 	public WorldChunker( Scene scene ) : base( scene )
 	{
@@ -18,7 +21,10 @@ public sealed partial class WorldChunker : GameObjectSystem
 
 	private void OnUpdate()
 	{
-		var origin = Scene.GetSystem<FloatingOriginSystem>().Origin;
+		_originSystem ??= Scene.GetSystem<FloatingOriginSystem>();
+		_chunkZoo ??= Scene.GetAllComponents<ChunkPrefabZoo>().FirstOrDefault();
+
+		var origin = _originSystem.Origin;
 
 		if ( !origin.IsValid() )
 			return;
@@ -28,18 +34,27 @@ public sealed partial class WorldChunker : GameObjectSystem
 			origin.AbsolutePosition = Vector3.Zero;
 		}
 
-		UpdateChunks( WorldToChunk( origin.AbsolutePosition ) );
+		UpdateChunks( WorldToChunkAbsolute( origin.AbsolutePosition ) );
 	}
 
 	/// <summary>
 	/// Given an absolute world position, returns the chunk that contains it.
 	/// </summary>
-	public Vector2Int WorldToChunk( Vector3 absolutePosition )
+	public Vector2Int WorldToChunkAbsolute( Vector3 absPosition )
 	{
-		absolutePosition.Abs();
-		var chunkX = MathX.CeilToInt( absolutePosition.x / ChunkSize ) - 1;
-		var chunkY = MathX.CeilToInt( absolutePosition.y / ChunkSize ) - 1;
+		absPosition.Abs();
+		var chunkX = MathX.CeilToInt( absPosition.x / ChunkSize ) - 1;
+		var chunkY = MathX.CeilToInt( absPosition.y / ChunkSize ) - 1;
 		return new Vector2Int( chunkX, chunkY );
+	}
+
+	/// <summary>
+	/// Returns the origin-shifted position of the given chunk.
+	/// </summary>
+	public Vector3 ChunkToWorldRelative( Vector2Int chunk )
+	{
+		var absPosition = new Vector3( chunk.X * ChunkSize, chunk.Y * ChunkSize, 0f );
+		return _originSystem.AbsoluteToRelative( absPosition );
 	}
 
 	/// <summary>

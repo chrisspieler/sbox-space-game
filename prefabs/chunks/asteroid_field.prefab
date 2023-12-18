@@ -1,0 +1,23 @@
+{
+  "RootObject": {
+    "Id": "cf38d26f-e842-49c6-ab6f-0752edb82e84",
+    "Name": "asteroid_field",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "AsteroidSpawner",
+        "__enabled": true,
+        "AsteroidPrefab": "prefabs/asteroids/asteroid.prefab",
+        "NoiseScale": 0.005,
+        "ProbabilityBias": 0,
+        "ProbabilityScale": 0.01,
+        "Spacing": 128,
+        "SpawnManyOnStart": true
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}
