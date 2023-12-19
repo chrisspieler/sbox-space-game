@@ -12,7 +12,6 @@ public sealed partial class WorldChunker : GameObjectSystem
 	// Perhaps it should be calculated based on the chunk size.
 	private float _maxPosition { get; set; } = 1_000_000_000f;
 	private FloatingOriginSystem _originSystem { get; set; }
-	private ChunkPrefabZoo _chunkZoo { get; set; }
 
 	public WorldChunker( Scene scene ) : base( scene )
 	{
@@ -22,7 +21,6 @@ public sealed partial class WorldChunker : GameObjectSystem
 	private void OnUpdate()
 	{
 		_originSystem ??= Scene.GetSystem<FloatingOriginSystem>();
-		_chunkZoo ??= Scene.GetAllComponents<ChunkPrefabZoo>().FirstOrDefault();
 
 		var origin = _originSystem.Origin;
 

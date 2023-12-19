@@ -51,7 +51,9 @@ public sealed partial class WorldChunker : GameObjectSystem
 			.WithRotation( Rotation.Identity )
 			.WithScale( 1f );
 		// TODO: Cache chunks instead of creating new ones every time.
-		var chunk = SceneUtility.Instantiate( _chunkZoo.AsteroidField, newChunkTx );
+		var prefabFile = ResourceLibrary.Get<PrefabFile>( "prefabs/chunks/asteroid_field.prefab" );
+		var chunk = SceneUtility.Instantiate( SceneUtility.GetPrefabScene( prefabFile ), newChunkTx );
+		chunk.BreakFromPrefab();
 		chunk.Name = $"Chunk {chunkPos}";
 		_worldChunks[chunkPos] = chunk;
 		_chunkOrder.Add( chunkPos );
