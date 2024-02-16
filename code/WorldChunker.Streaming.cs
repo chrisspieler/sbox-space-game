@@ -10,12 +10,12 @@ public sealed partial class WorldChunker : GameObjectSystem
 	public int ChunkLoadDistance { get; set; } = 3;
 	public int MaxLoadedChunks { get; set; } = 80;
 	public bool DebugDraw { get; set; } = true;
+	public GameObject ChunkContainer { get; private set; }
 
 	private readonly Dictionary<Vector2Int, GameObject> _worldChunks = new();
 	private readonly List<Vector2Int> _chunkOrder = new();
 
 	private Vector2Int _previousOrigin = new Vector2Int( -999 );
-
 
 
 	public int ChunkCount => _worldChunks.Count;
@@ -41,18 +41,28 @@ public sealed partial class WorldChunker : GameObjectSystem
 		DrawDebugInfo();
 	}
 
+	private void EnsureChunkContainer()
+	{
+		if ( ChunkContainer.IsValid() )
+			return;
+
+		ChunkContainer = new GameObject( true, "Streamed Chunks" );
+	}
+
 	private void LoadChunk( Vector2Int chunkPos )
 	{
 		if ( _worldChunks.ContainsKey( chunkPos ) )
 			return;
 
+		EnsureChunkContainer();
 		var newChunkTx = new Transform()
 			.WithPosition( ChunkToWorldRelative( chunkPos ) )
 			.WithRotation( Rotation.Identity )
 			.WithScale( 1f );
 		// TODO: Cache chunks instead of creating new ones every time.
 		var prefabFile = ResourceLibrary.Get<PrefabFile>( "prefabs/chunks/asteroid_field.prefab" );
-		var chunk = SceneUtility.Instantiate( SceneUtility.GetPrefabScene( prefabFile ), newChunkTx );
+		var prefabScene = SceneUtility.GetPrefabScene( prefabFile );
+		var chunk = prefabScene.Clone( newChunkTx, ChunkContainer );
 		chunk.BreakFromPrefab();
 		chunk.Name = $"Chunk {chunkPos}";
 		_worldChunks[chunkPos] = chunk;
