@@ -25,8 +25,7 @@ public sealed class AsteroidSpawner : Component
 
 	public void SpawnOne( Transform tx)
 	{
-		var go = SceneUtility.Instantiate( AsteroidPrefab, tx );
-		go.Parent = GameObject;
+		AsteroidPrefab.Clone( tx, GameObject );
 	}
 
 	private IEnumerable<Vector3> GetSpawnPoints()
@@ -78,7 +77,7 @@ public sealed class AsteroidSpawner : Component
 			var probability = GetSpawnProbability( point );
 			var color = Color.Lerp( Color.Red, Color.Green, probability / ProbabilityScale );
 			Gizmo.Draw.Color = color; 
-			Gizmo.Draw.SolidBox( new BBox(point, 10f ) );
+			Gizmo.Draw.SolidBox( BBox.FromPositionAndSize( point, 10f ) );
 		}
 	}
 }

@@ -19,10 +19,9 @@ public sealed class Thruster : Component
 
 		if ( _effectInstance == null )
 		{
-			_effectInstance = SceneUtility.Instantiate( EffectPrefab );
+			_effectInstance = EffectPrefab.Clone();
 			_effectInstance.Parent = GameObject;
-			_effectInstance.Transform.Position = Transform.Position;
-			_effectInstance.Transform.Rotation = Transform.Rotation;
+			_effectInstance.Transform.World = Transform.World.WithScale( 1f );
 		}
 		var particle = _effectInstance.Components.Get<ParticleEmitter>( true );
 		var normalDot = (dot + 1) / 2;

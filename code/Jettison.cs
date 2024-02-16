@@ -11,7 +11,7 @@ public sealed class Jettison : Component
 	{
 		if ( Input.Pressed( "flashlight" ) )
 		{
-			var jettisoned = SceneUtility.Instantiate( Prefab, EjectionSource.Transform.World );
+			var jettisoned = Prefab.Clone( EjectionSource.Transform.World );
 			var jettisonedRb = jettisoned.Components.Get<Rigidbody>();
 			var launchVelocity = EjectionSpeed * EjectionSource.Transform.Rotation.Forward;
 			if ( jettisonedRb is not null )
