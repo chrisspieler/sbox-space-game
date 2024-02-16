@@ -9,7 +9,9 @@ public sealed partial class WorldChunker : GameObjectSystem
 	/// </summary>
 	public int ChunkLoadDistance { get; set; } = 3;
 	public int MaxLoadedChunks { get; set; } = 80;
-	public bool DebugDraw { get; set; } = true;
+
+	[ConVar("world_streaming_debug")]
+	public bool DebugStreaming { get; set; }
 	public GameObject ChunkContainer { get; private set; }
 
 	private readonly Dictionary<Vector2Int, GameObject> _worldChunks = new();
@@ -117,7 +119,7 @@ public sealed partial class WorldChunker : GameObjectSystem
 
 	private void DrawDebugInfo()
 	{
-		if ( !DebugDraw )
+		if ( !DebugStreaming )
 			return;
 
 		Gizmo.Draw.ScreenText( $"Loaded {ChunkCount}/{MaxLoadedChunks} chunks", new Vector2( 25, 75 ), "Consolas", 12, TextFlag.Left );

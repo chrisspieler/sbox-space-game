@@ -5,29 +5,40 @@ public sealed class ShipController : Component
 {
 	[Property] public Rigidbody Rigidbody { get; set; }
 	[Property] public GameObject PartsContainer { get; set; }
-	[Property] public float Speed { get; set; } = 100f;
+	[Property] public float Acceleration { get; set; } = 200f;
 	[Property] public float RetrorocketForceScale { get; set; } = 150f;
 	public Vector3 MainThrusterForce { get; private set; }
 	public Vector3 RetrorocketForce { get; private set; }
+	public Rotation TargetRotation { get; private set; }
+
+	[Property] public Vector3 LastInputDir => _lastInputDir;
+	private Vector3 _lastInputDir { get; set; } = Vector3.Forward;
 
 	protected override void OnUpdate()
 	{
 		Transform.Rotation = Transform.Rotation.Angles().WithRoll( 0f );
 		Rigidbody.AngularVelocity = Vector3.Zero;
 		var inputDir = Input.AnalogMove;
-		MainThrusterForce = inputDir * Speed * Time.Delta;
+		if ( !inputDir.IsNearZeroLength )
+		{
+			_lastInputDir = inputDir;
+		}
 		var velocity = Rigidbody.Velocity;
+		MainThrusterForce = GetMainThrusterForce( inputDir );
 		velocity += MainThrusterForce;
 		RetrorocketForce = GetRetrorocketForce( inputDir, velocity );
 		velocity += RetrorocketForce;
 		Rigidbody.Velocity = velocity;
-		if ( inputDir.LengthSquared < 0.01f )
-		{
-			return;
-		}
 		var fromRot = PartsContainer.Transform.Rotation;
-		var toRot = Rotation.LookAt( inputDir, Vector3.Up );
-		PartsContainer.Transform.Rotation = Rotation.Lerp( fromRot, toRot, 3f * Time.Delta );
+		TargetRotation = Rotation.LookAt( _lastInputDir, Vector3.Up );
+		PartsContainer.Transform.Rotation = Rotation.Lerp( fromRot, TargetRotation, 1.5f * Time.Delta );
+	}
+
+	private Vector3 GetMainThrusterForce( Vector3 inputDir )
+	{
+		var acceleration = Acceleration * (Input.Down( "jump" ) ? 1f : 0f);
+		var direction = inputDir.IsNearZeroLength ? _lastInputDir : inputDir;
+		return direction * acceleration * Time.Delta;
 	}
 
 	private Vector3 GetRetrorocketForce( Vector3 inputDir, Vector3 velocity )

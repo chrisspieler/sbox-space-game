@@ -60,6 +60,8 @@
         },
         {
           "__type": "ShipController",
+          "Acceleration": 200,
+          "LastInputDir": "0,0,0",
           "PartsContainer": {
             "_type": "gameobject",
             "go": "c874c91b-fa93-44dd-a28f-0296f3426330"
@@ -69,11 +71,11 @@
             "_type": "component",
             "go": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
             "component_type": "Rigidbody"
-          },
-          "Speed": 100
+          }
         },
         {
           "__type": "ShipDebug",
+          "__enabled": false,
           "UpdateInterval": 0.5
         },
         {
@@ -432,7 +434,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-16T10:35:52.5308266-07:00",
+  "LastSaved": "2024-02-16T12:26:51.0220894-07:00",
   "__references": [
     "dopamine.starmapmilkyway"
   ]
