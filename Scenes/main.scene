@@ -60,13 +60,15 @@
         },
         {
           "__type": "ShipController",
-          "Acceleration": 200,
-          "LastInputDir": "0,0,0",
+          "Acceleration": 250,
+          "LastInputDir": "1,0,0",
+          "MainThrusterForce": "0,0,0",
           "PartsContainer": {
             "_type": "gameobject",
             "go": "c874c91b-fa93-44dd-a28f-0296f3426330"
           },
-          "RetrorocketForceScale": 150,
+          "RetrorocketForce": "0,0,0",
+          "RetrorocketForceScale": 50,
           "Rigidbody": {
             "_type": "component",
             "go": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
@@ -434,7 +436,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-16T12:26:51.0220894-07:00",
+  "LastSaved": "2024-02-16T13:35:47.1103565-07:00",
   "__references": [
     "dopamine.starmapmilkyway"
   ]
