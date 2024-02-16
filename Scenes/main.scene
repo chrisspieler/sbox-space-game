@@ -390,6 +390,15 @@
               "Radius": 57.53339,
               "Static": false,
               "Surface": null
+            },
+            {
+              "__type": "Shield",
+              "BouncedTags": "solid",
+              "BounceFactor": 0.9,
+              "CurrentHealth": 0,
+              "MaxHealth": 100,
+              "RegenDelay": 1,
+              "RegenRate": 20
             }
           ]
         }
@@ -437,7 +446,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-16T13:52:41.0892337-07:00",
+  "LastSaved": "2024-02-16T14:46:24.0396112-07:00",
   "__references": [
     "dopamine.starmapmilkyway"
   ]
