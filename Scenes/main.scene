@@ -35,7 +35,7 @@
           "__type": "DirectionalLight",
           "FogMode": "Enabled",
           "FogStrength": 1,
-          "LightColor": "0.11386,0.11386,0.11386,1",
+          "LightColor": "0.23922,0.23922,0.23922,1",
           "Shadows": true,
           "SkyColor": "0.00392,0.00392,0.00392,1"
         }
@@ -73,7 +73,8 @@
             "_type": "component",
             "go": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
             "component_type": "Rigidbody"
-          }
+          },
+          "TurnSpeed": 1.5
         },
         {
           "__type": "ShipDebug",
@@ -110,8 +111,8 @@
         {
           "Id": "4014bc3a-0475-4e40-9f41-2793f567762a",
           "Name": "Camera",
-          "Position": "0,-0.000000009572649,600",
-          "Rotation": "0,0.707107,0,0.7071065",
+          "Position": "-200,-0.000000009572649,1000",
+          "Rotation": "0,0.6427876,0,0.7660444",
           "Enabled": true,
           "Components": [
             {
@@ -134,8 +135,8 @@
               "__type": "ShipCamera",
               "HighPitch": 88,
               "HighPosition": "-120,0,1500",
-              "LowPitch": 70,
-              "LowPosition": "-230,0,600",
+              "LowPitch": 80,
+              "LowPosition": "-200,0,1000",
               "PitchLerpSpeed": 1,
               "PositionLerpSpeed": 1,
               "Target": {
@@ -378,7 +379,7 @@
         },
         {
           "Id": "2e66ea98-6497-46ec-b4ba-99bcb119379c",
-          "Name": "Collider",
+          "Name": "Shield Collider",
           "Position": "0,0,0",
           "Enabled": true,
           "Components": [
@@ -436,7 +437,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-16T13:35:47.1103565-07:00",
+  "LastSaved": "2024-02-16T13:52:41.0892337-07:00",
   "__references": [
     "dopamine.starmapmilkyway"
   ]
