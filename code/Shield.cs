@@ -2,24 +2,25 @@
 using Sandbox.Utility;
 using System;
 
-public sealed class Shield : Component, Component.ICollisionListener
+public sealed class Shield : Component
 {
 	[Property] public float MaxHealth { get; set; } = 100f;
 	[Property] public float CurrentHealth { get; set; }
 	[Property] public float RegenRate { get; set; } = 20f;
 	[Property] public float RegenDelay { get; set; } = 1f;
-	private TimeUntil _regenStart;
-	[Property] public TintCombiner Tinter { get; set; }
 	[Property] public Collider Collider { get; set; }
-	[Property, Category("Bounce")] public float BounceFactor { get; set; } = 1f;
-	[Property, Category("Bounce")] public TagSet BouncedTags { get; set; }
+	[Property] public Bouncy Bounce { get; set; }
 
+	private TimeUntil _regenStart;
 
 	protected override void OnEnabled()
 	{
-		GameObject.Tags.Add( "bouncer" );
-		Tinter ??= Components.Get<TintCombiner>();
 		Collider ??= Components.Get<Collider>( true );
+		Bounce ??= Components.Get<Bouncy>( );
+		if ( Bounce.IsValid() )
+		{
+			Bounce.OnBounce += Hit;
+		}
 	}
 
 	protected override void OnUpdate()
@@ -41,29 +42,18 @@ public sealed class Shield : Component, Component.ICollisionListener
 		_regenStart = RegenDelay;
 	}
 
-	public void Hit( float damage )
+	public void Hit( Collision collision )
 	{
+		var damage = collision.GetDamage();
 		CurrentHealth = Math.Max( 0f, CurrentHealth - damage );
 		ResetRegen();
-		Tinter.AddTint( Color.Cyan.WithAlpha( 0.5f ), 0.5f, ColorBlendMode.Normal, Easing.GetFunction( "ease-out" ) );
+		var effect = new TintEffect
+		{
+			Tint = Color.Cyan.WithAlpha( 0.5f ),
+			UntilFadeEnd = 0.5f,
+			BlendMode = ColorBlendMode.Normal,
+			EasingFunction = Easing.GetFunction( "ease-out" )
+		};
+		GameObject.ColorFlash( effect );
 	}
-
-	public void OnCollisionStart( Collision other )
-	{
-		if ( !CanBounceFrom( other.Other.GameObject ) )
-			return;
-
-		other.Pongify( BounceFactor );
-		Hit( other.GetDamage() );
-	}
-
-	private bool CanBounceFrom( GameObject other )
-	{
-		return BouncedTags is null
-			|| BouncedTags.IsEmpty
-			|| other.Tags.HasAny( BouncedTags );
-	}
-
-	public void OnCollisionStop( CollisionStop other ) { }
-	public void OnCollisionUpdate( Collision other ) { }
 }
