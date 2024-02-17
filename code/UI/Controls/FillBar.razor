@@ -1,0 +1,20 @@
+﻿@using System;
+@using Sandbox;
+@using Sandbox.UI;
+@inherits Panel
+@attribute [StyleSheet]
+
+<root>
+    <div class="icon">@Icon</div>
+    <div class="bar">
+        <div class="fill" style="width: @(FillPercentGetter?.Invoke())%; background-color: @(FillColor.Hex);"></div>
+    </div>
+</root>
+
+@code {
+    public string Icon { get; set; } = "bolt";
+    public Func<float> FillPercentGetter { get; set; }
+    public Color FillColor { get; set; } = Color.Yellow;
+
+    protected override int BuildHash() => System.HashCode.Combine(FillPercentGetter?.Invoke(), FillColor, Icon);
+}

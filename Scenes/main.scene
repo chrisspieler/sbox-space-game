@@ -2,6 +2,35 @@
   "Id": "605299cf-fbf6-425c-a382-ebdd7ca982e5",
   "GameObjects": [
     {
+      "Id": "0a3105b7-d645-4200-93c9-b57b4133cc6a",
+      "Name": "Screen UI",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ScreenPanel",
+          "AutoScreenScale": true,
+          "Opacity": 1,
+          "Scale": 1,
+          "ZIndex": 100
+        }
+      ],
+      "Children": [
+        {
+          "Id": "b8c346f0-faad-462c-bdad-1fdd1801e747",
+          "Name": "Hud",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "HudPanel",
+              "HullColor": "0.74884,0.11145,0.14332,1",
+              "ShieldColor": "0.36863,0.84706,0.95686,1",
+              "Ship": null
+            }
+          ]
+        }
+      ]
+    },
+    {
       "Id": "50985c72-fec4-48cf-bd58-355bbd47aec5",
       "Name": "Skybox",
       "Rotation": "-0.006544801,0.006544801,0.00004283625,0.9999572",
@@ -53,7 +82,12 @@
           "AngularDamping": 0,
           "Gravity": false,
           "LinearDamping": 0,
-          "Locking": {},
+          "Locking": {
+            "Z": true,
+            "Pitch": true,
+            "Yaw": true,
+            "Roll": true
+          },
           "MassOverride": 0,
           "RigidbodyFlags": 0,
           "StartAsleep": false
@@ -549,7 +583,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-16T17:16:37.0122016-07:00",
+  "LastSaved": "2024-02-17T00:55:56.1314903-07:00",
   "__references": [
     "dopamine.starmapmilkyway"
   ]

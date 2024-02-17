@@ -1,0 +1,52 @@
+@using System.Linq;
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+
+<root>
+	<div id="bottomBars">
+        <FillBar Icon="offline_bolt" FillColor=@ShieldColor FillPercentGetter=@GetShieldPercent/>
+        <FillBar Icon="security" FillColor=@HullColor FillPercentGetter=@GetHullPercent/>
+    </div>
+</root>
+
+@code
+{
+    [Property] public ShipController Ship { get; set; }
+    [Property, Category("Style")] public Color ShieldColor { get; set; } = Color.Cyan;
+    [Property, Category("Style")] public Color HullColor { get; set; } = Color.Red;
+
+    private Shield _shipShield;
+    private ShipHull _shipHull;
+
+    protected override int BuildHash() => System.HashCode.Combine( ShieldColor, HullColor );
+
+    protected override void OnStart()
+    {
+        Ship ??= Scene.GetAllComponents<ShipController>().FirstOrDefault();
+        // TODO: Call UpdateShipEquipment any time the equipment on the ship changes.
+        UpdateShipEquipment();
+    }
+
+    private void UpdateShipEquipment()
+    {
+        _shipShield = Ship?.Components?.GetInDescendantsOrSelf<Shield>();
+        _shipHull = Ship?.Components?.GetInDescendantsOrSelf<ShipHull>();
+    }
+
+    private float GetShieldPercent()
+    {
+        if ( !_shipShield.IsValid() )
+            return 0f;
+
+        return ( _shipShield.CurrentHealth / _shipShield.MaxHealth ) * 100f;
+    }
+
+    private float GetHullPercent()
+    {
+        if ( !_shipHull.IsValid() )
+            return 0f;
+
+        return ( _shipHull.CurrentHealth / _shipHull.MaxHealth ) * 100f;
+    }
+}

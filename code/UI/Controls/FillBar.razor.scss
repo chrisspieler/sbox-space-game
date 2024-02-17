@@ -1,0 +1,17 @@
+﻿@import "../Styles/main.scss";
+
+FillBar {
+    color: white;
+    align-items: center;
+
+    .bar {
+        border: 1px solid white;
+        border-radius: 5px;
+        padding: 2px;
+        width: 100%;
+
+        .fill {
+            border-radius: 0px 5px 5px 0px;
+        }
+    }
+}
