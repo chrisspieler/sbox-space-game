@@ -12,6 +12,10 @@
           "Opacity": 1,
           "Scale": 1,
           "ZIndex": 100
+        },
+        {
+          "__type": "CursorPanel",
+          "CursorImagePath": "ui/img/crosshair.svg"
         }
       ],
       "Children": [
@@ -108,7 +112,7 @@
             "go": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
             "component_type": "Rigidbody"
           },
-          "TurnSpeed": 1.5
+          "TurnSpeed": 3
         },
         {
           "__type": "ShipDebug",
@@ -532,7 +536,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-17T12:48:08.5674547-07:00",
+  "LastSaved": "2024-02-17T15:14:35.3626836-07:00",
   "__references": [
     "dopamine.starmapmilkyway"
   ]
