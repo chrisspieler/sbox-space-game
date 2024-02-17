@@ -15,4 +15,10 @@ public static class CollisionExtensions
 		reflectedVelocity = reflectedVelocity.WithZ( 0f );
 		selfBody.Velocity = reflectedVelocity * bounceFactor;
 	}
+
+	public static float GetDamage( this Collision collision )
+	{
+		var speed = collision.Contact.Speed.Length;
+		return MathX.Remap( speed, 0f, 5000f, 1f, 1000f );
+	}
 }

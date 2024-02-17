@@ -169,6 +169,16 @@
                   "Model": "models/dev/sphere.vmdl",
                   "RenderType": "On",
                   "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "TintCombiner",
+                  "BaseTint": "1,1,1,1",
+                  "Renderer": {
+                    "_type": "component",
+                    "go": "47c8e566-aaf4-42de-8964-bd66500ba360",
+                    "component_type": "ModelRenderer"
+                  },
+                  "TintCount": 0
                 }
               ],
               "Children": [
@@ -212,6 +222,16 @@
                   "Model": "models/dev/box.vmdl",
                   "RenderType": "On",
                   "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "TintCombiner",
+                  "BaseTint": "1,1,1,1",
+                  "Renderer": {
+                    "_type": "component",
+                    "go": "acbd1984-0908-45d0-869a-d75e9caf1813",
+                    "component_type": "ModelRenderer"
+                  },
+                  "TintCount": 0
                 }
               ]
             },
@@ -230,6 +250,16 @@
                   "Model": "models/dev/box.vmdl",
                   "RenderType": "On",
                   "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "TintCombiner",
+                  "BaseTint": "1,1,1,1",
+                  "Renderer": {
+                    "_type": "component",
+                    "go": "9f1aba35-eea9-427d-a148-b3f28c9efd4e",
+                    "component_type": "ModelRenderer"
+                  },
+                  "TintCount": 0
                 }
               ]
             },
@@ -248,6 +278,16 @@
                   "Model": "models/dev/box.vmdl",
                   "RenderType": "On",
                   "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "TintCombiner",
+                  "BaseTint": "1,1,1,1",
+                  "Renderer": {
+                    "_type": "component",
+                    "go": "6de72c4a-2b68-434d-ae98-a5e1d4d006e6",
+                    "component_type": "ModelRenderer"
+                  },
+                  "TintCount": 0
                 }
               ],
               "Children": [
@@ -315,6 +355,16 @@
                   "Model": "models/dev/box.vmdl",
                   "RenderType": "On",
                   "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "TintCombiner",
+                  "BaseTint": "1,1,1,1",
+                  "Renderer": {
+                    "_type": "component",
+                    "go": "d26c9337-fa69-4c79-acd1-a19f11447962",
+                    "component_type": "ModelRenderer"
+                  },
+                  "TintCount": 0
                 }
               ],
               "Children": [
@@ -379,15 +429,17 @@
         },
         {
           "Id": "2e66ea98-6497-46ec-b4ba-99bcb119379c",
-          "Name": "Shield Collider",
+          "Name": "Shield",
           "Position": "0,0,0",
+          "Scale": "2,2,2",
           "Enabled": true,
           "Components": [
             {
               "__type": "SphereCollider",
+              "__enabled": false,
               "Center": "0,0,0",
               "IsTrigger": false,
-              "Radius": 57.53339,
+              "Radius": 32,
               "Static": false,
               "Surface": null
             },
@@ -395,10 +447,61 @@
               "__type": "Shield",
               "BouncedTags": "solid",
               "BounceFactor": 0.9,
+              "Collider": null,
               "CurrentHealth": 0,
               "MaxHealth": 100,
-              "RegenDelay": 1,
-              "RegenRate": 20
+              "RegenDelay": 10,
+              "RegenRate": 20,
+              "Tinter": {
+                "_type": "component",
+                "go": "2e66ea98-6497-46ec-b4ba-99bcb119379c",
+                "component_type": "TintCombiner"
+              }
+            },
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/dev/sphere.vmdl",
+              "RenderType": "On",
+              "Tint": "0,1,1,0"
+            },
+            {
+              "__type": "TintCombiner",
+              "BaseTint": "0,1,1,0",
+              "Renderer": {
+                "_type": "component",
+                "go": "2e66ea98-6497-46ec-b4ba-99bcb119379c",
+                "component_type": "ModelRenderer"
+              },
+              "TintCount": 0
+            }
+          ]
+        },
+        {
+          "Id": "aa63d0b2-925b-4068-bf6f-d8545e58f3d7",
+          "Name": "Hull",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "SphereCollider",
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Radius": 32,
+              "Static": false,
+              "Surface": null
+            },
+            {
+              "__type": "ShipHull",
+              "CurrentHealth": 0,
+              "HitTags": "solid",
+              "MaxHealth": 100,
+              "PartsContainer": {
+                "_type": "gameobject",
+                "go": "c874c91b-fa93-44dd-a28f-0296f3426330"
+              }
             }
           ]
         }
@@ -446,7 +549,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-16T14:46:24.0396112-07:00",
+  "LastSaved": "2024-02-16T17:16:37.0122016-07:00",
   "__references": [
     "dopamine.starmapmilkyway"
   ]
