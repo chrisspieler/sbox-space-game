@@ -40,7 +40,7 @@ public sealed class GrappleBeam : Component
 		Joint.Body = null;
 		Joint.Enabled = false;
 		_currentTarget = null;
-		DestroyBeam();
+		DestroyParticleRope();
 	}
 
 	private void Connect( GameObject target )
@@ -51,12 +51,13 @@ public sealed class GrappleBeam : Component
 		_currentTarget = target;
 		Joint.Body = _currentTarget;
 		Joint.MinLength = 0f;
+		// Don't ask me why I scale by damping. I don't know why I do anything.
 		Joint.MaxLength = Transform.Position.Distance( target.Transform.Position ) * (1f - Joint.Damping);
 		Joint.Enabled = true;
-		CreateBeam();
+		CreateParticleRope();
 	}
 
-	private void CreateBeam()
+	private void CreateParticleRope()
 	{
 		if ( BeamAsset is null )
 			return;
@@ -85,7 +86,7 @@ public sealed class GrappleBeam : Component
 		Particles.Enabled = true;
 	}
 
-	private void DestroyBeam()
+	private void DestroyParticleRope()
 	{
 		if ( !Particles.IsValid() )
 			return;
