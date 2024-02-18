@@ -5,8 +5,7 @@ public sealed class SpaceFloater : Component
 {
 	[Property] public bool RandomizeRotation { get; set; } = true;
 	[Property] public bool RandomizeScale { get; set; } = true;
-	[Property] public float MinRandomScale { get; set; } = 0.7f;
-	[Property] public float MaxRandomScale { get; set; } = 1.3f;
+	[Property] public Curve ScaleCurve { get; set; }
 	[Property] public Rigidbody Rigidbody { get; set; }
 	[Property] public bool RandomizeVelocity { get; set; } = true;
 	[Property] public float RandomVelocityScale { get; set; } = 1f;
@@ -27,7 +26,7 @@ public sealed class SpaceFloater : Component
 		}
 		if ( RandomizeScale )
 		{
-			Transform.Scale = Transform.Scale * Game.Random.Float( MinRandomScale, MaxRandomScale );
+			Transform.Scale = Transform.Scale * ScaleCurve.Evaluate( Random.Shared.NextSingle() );
 		}
 
 		if ( RandomizeVelocity )

@@ -61,7 +61,6 @@
     {
       "Id": "50985c72-fec4-48cf-bd58-355bbd47aec5",
       "Name": "Skybox",
-      "Rotation": "-0.006544801,0.006544801,0.00004283625,0.9999572",
       "Tags": "skybox",
       "Enabled": true,
       "Components": [
@@ -101,7 +100,7 @@
     {
       "Id": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
       "Name": "Ship",
-      "Position": "250,250,-0.0003515341",
+      "Position": "0,0,-0.0003515341",
       "Tags": "player,ship,solid",
       "Enabled": true,
       "Components": [
@@ -221,7 +220,7 @@
               "RenderTags": "",
               "TargetEye": "None",
               "Viewport": "0,0,1,1",
-              "ZFar": 10000,
+              "ZFar": 100000,
               "ZNear": 10
             },
             {
@@ -238,6 +237,41 @@
               },
               "TargetVelocityHighThreshold": 2500,
               "TargetVelocityLowThreshold": 200
+            },
+            {
+              "__type": "Bloom",
+              "BloomColor": {
+                "color": [
+                  {
+                    "c": "1,1,1,1"
+                  },
+                  {
+                    "t": 1,
+                    "c": "1,1,1,1"
+                  }
+                ],
+                "alpha": []
+              },
+              "BloomCurve": [
+                {
+                  "y": 0.5
+                },
+                {
+                  "x": 1,
+                  "y": 1
+                }
+              ],
+              "Mode": "Additive",
+              "Strength": 3,
+              "Threshold": 0.3,
+              "ThresholdWidth": 0
+            },
+            {
+              "__type": "ColorAdjustments",
+              "Brightness": 1.1,
+              "Contrast": 1,
+              "HueRotate": 0,
+              "Saturation": 1.1
             }
           ]
         },
@@ -534,7 +568,7 @@
               "__type": "ModelRenderer",
               "BodyGroups": 18446744073709551615,
               "MaterialGroup": null,
-              "MaterialOverride": null,
+              "MaterialOverride": "materials/dev/primary_white_emissive.vmat",
               "Model": "models/dev/sphere.vmdl",
               "RenderType": "On",
               "Tint": "0,1,1,0"
@@ -585,13 +619,30 @@
               "RehitDelay": 0.5
             }
           ]
+        },
+        {
+          "Id": "5a204e98-b86c-4727-accc-d522082427fd",
+          "Name": "Fog Volume",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "VolumetricFogVolume",
+              "Bounds": {
+                "Mins": "-2000,-2000,-150",
+                "Maxs": "2000,2000,150"
+              },
+              "FalloffExponent": 1,
+              "Strength": 0.2
+            }
+          ]
         }
       ]
     },
     {
       "Id": "b95bc5b6-db79-4b7b-9cb5-c9d2b127a0ac",
-      "Name": "Plane",
-      "Position": "1000,1000,-100",
+      "Name": "The Cube",
+      "Position": "0,0,-600.0001",
       "Scale": "20,20,20",
       "Enabled": true,
       "Components": [
@@ -599,8 +650,8 @@
           "__type": "ModelRenderer",
           "BodyGroups": 18446744073709551615,
           "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Model": "models/dev/plane.vmdl",
+          "MaterialOverride": "materials/shared/metals/metal_aluminium_03.vmat",
+          "Model": "models/dev/box.vmdl",
           "RenderType": "On",
           "Tint": "1,1,1,1"
         }
@@ -630,8 +681,9 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-17T21:24:18.1361745-07:00",
+  "LastSaved": "2024-02-18T00:30:05.9162794-07:00",
   "__references": [
-    "dopamine.starmapmilkyway"
+    "dopamine.starmapmilkyway",
+    "eurorp.aluminium_03"
   ]
 }

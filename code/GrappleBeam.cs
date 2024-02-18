@@ -21,8 +21,14 @@ public sealed class GrappleBeam : Component
 	}
 	private GameObject _currentTarget;
 
+	private SceneLight _light;
+
 	protected override void OnUpdate()
 	{
+		if ( _light.IsValid() && CurrentTarget.IsValid() )
+		{
+			_light.Position = Joint.Transform.Position.LerpTo( _currentTarget.Transform.Position, 0.5f );
+		}
 		if ( Input.Pressed( "grapple" ) )
 		{
 			if ( CurrentTarget is not null )
@@ -41,6 +47,7 @@ public sealed class GrappleBeam : Component
 		Joint.Enabled = false;
 		_currentTarget = null;
 		DestroyParticleRope();
+		DestroyLight();
 	}
 
 	private void Connect( GameObject target )
@@ -55,6 +62,7 @@ public sealed class GrappleBeam : Component
 		Joint.MaxLength = Transform.Position.Distance( target.Transform.Position ) * (1f - Joint.Damping);
 		Joint.Enabled = true;
 		CreateParticleRope();
+		CreateLight();
 	}
 
 	private void CreateParticleRope()
@@ -92,5 +100,26 @@ public sealed class GrappleBeam : Component
 			return;
 
 		Particles.Enabled = false;
+	}
+
+	private void CreateLight()
+	{
+		if ( _light.IsValid() )
+		{
+			_light.Delete();
+		}
+
+		_light = new SceneLight( Scene.SceneWorld );
+		_light.ShadowsEnabled = false;
+		_light.LightColor = Color.Cyan;
+		_light.Radius = 2000f;
+	}
+
+	private void DestroyLight()
+	{
+		if ( _light.IsValid() )
+		{
+			_light.Delete();
+		}
 	}
 }

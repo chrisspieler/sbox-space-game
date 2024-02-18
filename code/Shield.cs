@@ -1,6 +1,7 @@
 ﻿using Sandbox;
 using Sandbox.Utility;
 using System;
+using System.Threading.Tasks;
 
 public sealed class Shield : Component
 {
@@ -12,6 +13,7 @@ public sealed class Shield : Component
 	[Property] public Bouncy Bounce { get; set; }
 
 	private TimeUntil _regenStart;
+	private SceneLight _hitLight;
 
 	protected override void OnEnabled()
 	{
@@ -47,13 +49,52 @@ public sealed class Shield : Component
 		var damage = collision.GetDamage();
 		CurrentHealth = Math.Max( 0f, CurrentHealth - damage );
 		ResetRegen();
+		var fadeTime = 0.8f;
 		var effect = new TintEffect
 		{
-			Tint = Color.Cyan.WithAlpha( 0.5f ),
-			UntilFadeEnd = 0.5f,
+			Tint = Color.Cyan.WithAlpha( 0.3f ),
+			UntilFadeEnd = fadeTime,
 			BlendMode = ColorBlendMode.Normal,
 			EasingFunction = Easing.GetFunction( "ease-out" )
 		};
 		GameObject.ColorFlash( effect );
+		CreateHitLight( Color.Cyan, fadeTime );
+	}
+
+	private void CreateHitLight( Color color, float time )
+	{
+		_hitLight?.Delete();
+		_hitLight = new( Scene.SceneWorld )
+		{
+			Position = Transform.Position,
+			ShadowsEnabled = false,
+			LightColor = color,
+			Radius = 2000f
+		};
+		_ = FadeOutLight( _hitLight, time );
+	}
+
+	private async Task FadeOutLight( SceneLight light, float seconds )
+	{
+		var initialColor = light.LightColor;
+		var endColor = Color.Black;
+		TimeUntil untilDestroyLight = seconds;
+		while( !untilDestroyLight )
+		{
+			if ( !light.IsValid() )
+			{
+				break;
+			}
+			var eased = Easing.EaseOut( untilDestroyLight.Fraction );
+			light.LightColor = Color.Lerp( initialColor, endColor, eased );
+			light.Position = Transform.Position;
+			await Task.Frame();
+		}
+
+		if ( light.IsValid() )
+			light.Delete();
+
+		if ( _hitLight == light )
+			_hitLight = null;
 	}
 }

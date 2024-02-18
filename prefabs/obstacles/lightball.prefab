@@ -1,54 +1,70 @@
 {
   "RootObject": {
-    "Id": "fa00437b-53d4-4582-8832-40c2c298d7bf",
-    "Name": "Lightball",
-    "Position": "145.9753,17.70703,0.0001222804",
+    "Id": "e80dcc5e-49c2-4e84-8a68-34cd058fb29b",
+    "Name": "lightball",
     "Scale": "0.25,0.25,0.25",
+    "Tags": "light_point,light",
     "Enabled": true,
     "Components": [
       {
         "__type": "ModelRenderer",
-        "__enabled": true,
         "BodyGroups": 18446744073709551615,
         "MaterialGroup": null,
         "MaterialOverride": "materials/dev/primary_white_emissive.vmat",
         "Model": "models/dev/sphere.vmdl",
-        "ShouldCastShadows": true,
+        "RenderType": "On",
         "Tint": "1,1,1,1"
       },
       {
         "__type": "PointLight",
-        "__enabled": true,
+        "Attenuation": 1,
+        "FogMode": "Enabled",
+        "FogStrength": 1,
         "LightColor": "1,1,1,1",
-        "Radius": 400
+        "Radius": 400,
+        "Shadows": false
       },
       {
         "__type": "LightBall",
-        "__enabled": true,
-        "Light": "fa00437b-53d4-4582-8832-40c2c298d7bf",
-        "Model": "fa00437b-53d4-4582-8832-40c2c298d7bf"
+        "Light": {
+          "_type": "component",
+          "go": "e80dcc5e-49c2-4e84-8a68-34cd058fb29b",
+          "component_type": "PointLight"
+        },
+        "Model": {
+          "_type": "component",
+          "go": "e80dcc5e-49c2-4e84-8a68-34cd058fb29b",
+          "component_type": "ModelRenderer"
+        }
       },
       {
         "__type": "Rigidbody",
-        "__enabled": true,
         "AngularDamping": 0,
         "Gravity": false,
-        "LinearDamping": 0
+        "LinearDamping": 0,
+        "Locking": {},
+        "MassOverride": 0,
+        "RigidbodyFlags": 0,
+        "StartAsleep": false
       },
       {
         "__type": "PlaneConstraint",
-        "__enabled": true,
-        "Rigidbody": "fa00437b-53d4-4582-8832-40c2c298d7bf"
+        "Rigidbody": {
+          "_type": "component",
+          "go": "e80dcc5e-49c2-4e84-8a68-34cd058fb29b",
+          "component_type": "Rigidbody"
+        }
       },
       {
-        "__type": "ColliderSphereComponent",
-        "__enabled": true,
+        "__type": "SphereCollider",
+        "Center": "0,0,0",
         "IsTrigger": false,
         "Radius": 10,
         "Static": false,
         "Surface": null
       }
-    ]
+    ],
+    "Children": []
   },
   "ShowInMenu": false,
   "MenuPath": null,
