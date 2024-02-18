@@ -1,0 +1,31 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+
+<root>
+	<FloatingPanel style="transform: rotate(@CurrentRotation)" Target=@Target>
+        <Body>
+            <img style="background-image: url(@Image);"/>
+        </Body>
+    </FloatingPanel>
+</root>
+
+@code
+{
+    [Property] public string Image { get; set; } = "ui/img/select.svg";
+    [Property] public float RotationSpeed { get; set; } = 0f;
+    [Property] public GameObject Target { get; set; }
+
+    private float CurrentRotation { get; set; }
+    private FloatingPanel Content { get; set; }
+
+    /// <summary>
+    /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+    /// </summary>
+    protected override int BuildHash() => System.HashCode.Combine( Image, CurrentRotation, Target );
+
+    protected override void OnUpdate()
+    {
+        CurrentRotation += Time.Delta * RotationSpeed;
+    }
+}

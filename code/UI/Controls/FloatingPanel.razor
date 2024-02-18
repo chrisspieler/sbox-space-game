@@ -1,0 +1,38 @@
+﻿@using Sandbox;
+@using Sandbox.UI;
+@using Sandbox.Razor;
+@inherits Panel
+
+<root>
+    <div class="body">@Body</div>
+</root>
+
+@code {
+    public RenderFragment Body { get; set; }
+    public GameObject Target { get; set; }
+    public Vector2 Offset { get; set; }
+    public bool TickSelf { get; set; } = true;
+
+    public override void Tick()
+    {
+        if ( TickSelf)
+        {
+            OnUpdate();
+        }
+    }
+
+    public void OnUpdate()
+    {
+        if (!Target.IsValid())
+        {
+            Delete(true);
+            return;
+        }
+        var targetPos = Target.GetBounds().Center;
+        var position = Scene.Camera.PointToScreenNormal(targetPos);
+        position += Offset;
+        Style.Top = Length.Percent(position.y * 100);
+        Style.Left = Length.Percent(position.x * 100);
+        StateHasChanged();
+    }
+}

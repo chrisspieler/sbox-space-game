@@ -12,10 +12,6 @@
           "Opacity": 1,
           "Scale": 1,
           "ZIndex": 100
-        },
-        {
-          "__type": "CursorPanel",
-          "CursorImagePath": "ui/img/crosshair.svg"
         }
       ],
       "Children": [
@@ -29,6 +25,34 @@
               "HullColor": "0.74884,0.11145,0.14332,1",
               "ShieldColor": "0.36863,0.84706,0.95686,1",
               "Ship": null
+            }
+          ]
+        },
+        {
+          "Id": "279df759-c7fd-4122-9fee-f69cccae0af0",
+          "Name": "Cursor",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "CursorPanel",
+              "CursorImagePath": "ui/img/crosshair.svg"
+            }
+          ]
+        },
+        {
+          "Id": "8d08a576-e21b-4e68-9a8b-33fe08fd6191",
+          "Name": "Hovered Selection",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "SelectionPanel",
+              "__enabled": false,
+              "Image": "ui/img/select.svg",
+              "RotationSpeed": 150,
+              "Target": {
+                "_type": "gameobject",
+                "go": "f420d6b9-e323-4efe-b1fb-1ac54134cac0"
+              }
             }
           ]
         }
@@ -155,6 +179,11 @@
           "FilterWithAny": "solid",
           "FilterWithoutAny": "player",
           "Hovered": null,
+          "HoveredIcon": {
+            "_type": "component",
+            "go": "8d08a576-e21b-4e68-9a8b-33fe08fd6191",
+            "component_type": "SelectionPanel"
+          },
           "OnHoveredChanged": null
         },
         {
@@ -601,7 +630,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-17T18:40:48.471478-07:00",
+  "LastSaved": "2024-02-17T21:18:05.981346-07:00",
   "__references": [
     "dopamine.starmapmilkyway"
   ]
