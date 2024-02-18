@@ -90,7 +90,7 @@
 		{
 			_class = "C_OP_InterpolateRadius"
 			m_flEndTime = 0.1
-			m_flStartScale = 30.0
+			m_flStartScale = 10.0
 			m_flEndScale = 3.0
 		},
 	]

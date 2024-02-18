@@ -114,9 +114,7 @@ public sealed class ShipController : Component
 
 	private Rotation GetTargetRotation()
 	{
-		return (!Grapple.IsValid() || Grapple.IsSlack)
-			? Rotation.LookAt( _lastInputDir, Vector3.Up )
-			: Rotation.LookAt( Rigidbody.Velocity );
+		return Rotation.LookAt( _lastInputDir, Vector3.Up );
 	}
 
 	private float GetRotationSpeed()

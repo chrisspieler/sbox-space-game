@@ -51,7 +51,7 @@ public sealed class GrappleBeam : Component
 		_currentTarget = target;
 		Joint.Body = _currentTarget;
 		Joint.MinLength = 0f;
-		Joint.MaxLength = Joint.Transform.Position.Distance( target.Transform.Position );
+		Joint.MaxLength = Transform.Position.Distance( target.Transform.Position ) * (1f - Joint.Damping);
 		Joint.Enabled = true;
 		CreateBeam();
 	}
@@ -78,7 +78,7 @@ public sealed class GrappleBeam : Component
 			new ParticleControlPoint()
 			{
 				Value = ParticleControlPoint.ControlPointValueInput.Float,
-				FloatValue = -2f,
+				FloatValue = -1f,
 				StringCP = "2"
 			}
 		};

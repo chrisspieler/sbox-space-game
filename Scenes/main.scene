@@ -163,9 +163,9 @@
           "Body": null,
           "BreakForce": 0,
           "BreakTorque": 0,
-          "Damping": 0.7,
+          "Damping": 0.2,
           "EnableCollision": true,
-          "Frequency": 5,
+          "Frequency": 2,
           "MaxLength": 300,
           "MinLength": 0,
           "OnBreak": null
@@ -498,7 +498,7 @@
               },
               "CurrentHealth": 100,
               "MaxHealth": 100,
-              "RegenDelay": 10,
+              "RegenDelay": 5,
               "RegenRate": 20
             },
             {
@@ -601,7 +601,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-17T17:19:36.2539762-07:00",
+  "LastSaved": "2024-02-17T18:40:48.471478-07:00",
   "__references": [
     "dopamine.starmapmilkyway"
   ]
