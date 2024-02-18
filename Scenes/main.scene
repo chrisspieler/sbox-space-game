@@ -92,13 +92,18 @@
             "Yaw": true,
             "Roll": true
           },
-          "MassOverride": 0,
+          "MassOverride": 50,
           "RigidbodyFlags": 0,
           "StartAsleep": false
         },
         {
           "__type": "ShipController",
           "Acceleration": 250,
+          "Grapple": {
+            "_type": "component",
+            "go": "35c315ef-865f-49a7-83a1-2bcc3c9c7908",
+            "component_type": "GrappleBeam"
+          },
           "LastInputDir": "1,0,0",
           "MainThrusterForce": "0,0,0",
           "PartsContainer": {
@@ -142,7 +147,28 @@
         },
         {
           "__type": "Teleporter",
+          "__enabled": false,
           "AbsoluteDestination": "0,0,0"
+        },
+        {
+          "__type": "MouseSelector",
+          "FilterWithAny": "solid",
+          "FilterWithoutAny": "player",
+          "Hovered": null,
+          "OnHoveredChanged": null
+        },
+        {
+          "__type": "SpringJoint",
+          "__enabled": false,
+          "Body": null,
+          "BreakForce": 0,
+          "BreakTorque": 0,
+          "Damping": 0.7,
+          "EnableCollision": true,
+          "Frequency": 5,
+          "MaxLength": 300,
+          "MinLength": 0,
+          "OnBreak": null
         }
       ],
       "Children": [
@@ -250,6 +276,33 @@
                   "Model": "models/dev/box.vmdl",
                   "RenderType": "On",
                   "Tint": "1,1,1,1"
+                }
+              ],
+              "Children": [
+                {
+                  "Id": "35c315ef-865f-49a7-83a1-2bcc3c9c7908",
+                  "Name": "Grapple",
+                  "Position": "45,0,-30",
+                  "Enabled": true,
+                  "Components": [
+                    {
+                      "__type": "GrappleBeam",
+                      "BeamAsset": "particles/slack_rope.vpcf",
+                      "CurrentTarget": null,
+                      "FilterWithAny": "solid",
+                      "Joint": {
+                        "_type": "component",
+                        "go": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
+                        "component_type": "SpringJoint"
+                      },
+                      "MouseSelector": {
+                        "_type": "component",
+                        "go": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
+                        "component_type": "MouseSelector"
+                      },
+                      "Particles": null
+                    }
+                  ]
                 }
               ]
             },
@@ -433,8 +486,16 @@
             },
             {
               "__type": "Shield",
-              "Bounce": null,
-              "Collider": null,
+              "Bounce": {
+                "_type": "component",
+                "go": "2e66ea98-6497-46ec-b4ba-99bcb119379c",
+                "component_type": "Bouncy"
+              },
+              "Collider": {
+                "_type": "component",
+                "go": "2e66ea98-6497-46ec-b4ba-99bcb119379c",
+                "component_type": "SphereCollider"
+              },
               "CurrentHealth": 100,
               "MaxHealth": 100,
               "RegenDelay": 10,
@@ -474,8 +535,12 @@
             },
             {
               "__type": "ShipHull",
-              "Bounce": null,
-              "CurrentHealth": 0,
+              "Bounce": {
+                "_type": "component",
+                "go": "aa63d0b2-925b-4068-bf6f-d8545e58f3d7",
+                "component_type": "Bouncy"
+              },
+              "CurrentHealth": 100,
               "HitTags": "solid",
               "MaxHealth": 100,
               "PartsContainer": {
@@ -536,7 +601,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-17T15:14:35.3626836-07:00",
+  "LastSaved": "2024-02-17T17:19:36.2539762-07:00",
   "__references": [
     "dopamine.starmapmilkyway"
   ]

@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using Sandbox;
 
 public sealed class ShipController : Component
@@ -13,6 +12,9 @@ public sealed class ShipController : Component
 	[Property] public Vector3 RetrorocketForce => _retrorocketForce;
 	private Vector3 _retrorocketForce;
 	public Rotation TargetRotation { get; private set; }
+
+	[Property, Category( "Equipment" )]
+	public GrappleBeam Grapple { get; set; }
 
 	[Property] public Vector3 LastInputDir => _lastInputDir;
 	private Vector3 _lastInputDir { get; set; } = Vector3.Forward;
@@ -34,8 +36,9 @@ public sealed class ShipController : Component
 		velocity += _retrorocketForce;
 		Rigidbody.Velocity = velocity;
 		var fromRot = PartsContainer.Transform.Rotation;
-		TargetRotation = Rotation.LookAt( _lastInputDir, Vector3.Up );
-		PartsContainer.Transform.Rotation = Rotation.Lerp( fromRot, TargetRotation, TurnSpeed * Time.Delta );
+		TargetRotation = GetTargetRotation();
+		var rotationSpeed = GetRotationSpeed();
+		PartsContainer.Transform.Rotation = Rotation.Lerp( fromRot, TargetRotation, rotationSpeed * Time.Delta );
 	}
 
 	[ConVar("input_diagonal_key_grace")] 
@@ -105,5 +108,21 @@ public sealed class ShipController : Component
 			force += Vector3.Zero.WithY( yForce );
 		}
 		return force;
+	}
+
+	public bool IsGrappling => Grapple.IsValid() && Grapple.IsSlack;
+
+	private Rotation GetTargetRotation()
+	{
+		return (!Grapple.IsValid() || Grapple.IsSlack)
+			? Rotation.LookAt( _lastInputDir, Vector3.Up )
+			: Rotation.LookAt( Rigidbody.Velocity );
+	}
+
+	private float GetRotationSpeed()
+	{
+		return (!Grapple.IsValid() || Grapple.IsSlack)
+			? TurnSpeed
+			: TurnSpeed * 3f;
 	}
 }
