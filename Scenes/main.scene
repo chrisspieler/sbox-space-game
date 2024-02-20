@@ -134,11 +134,15 @@
             "go": "c874c91b-fa93-44dd-a28f-0296f3426330"
           },
           "RetrorocketForce": "0,0,0",
-          "RetrorocketForceScale": 50,
           "Rigidbody": {
             "_type": "component",
             "go": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
             "component_type": "Rigidbody"
+          },
+          "Stabilizer": {
+            "_type": "component",
+            "go": "3c781afd-c2c2-4bcb-9e5d-e8358f9c8dee",
+            "component_type": "Stabilizer"
           },
           "TurnSpeed": 3
         },
@@ -672,6 +676,31 @@
               "Strength": 0.2
             }
           ]
+        },
+        {
+          "Id": "3c781afd-c2c2-4bcb-9e5d-e8358f9c8dee",
+          "Name": "Stabilizer",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Stabilizer",
+              "Rigidbody": {
+                "_type": "component",
+                "go": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
+                "component_type": "Rigidbody"
+              },
+              "Selector": {
+                "_type": "component",
+                "go": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
+                "component_type": "MouseSelector"
+              },
+              "StabilizerPower": 100,
+              "VelocityMatchedThreshold": 3,
+              "VelocityMatchMaxDistance": 1000,
+              "VelocityMatchTarget": null
+            }
+          ]
         }
       ]
     },
@@ -717,7 +746,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-20T01:50:07.5867262-07:00",
+  "LastSaved": "2024-02-20T14:26:34.788976-07:00",
   "__references": [
     "dopamine.starmapmilkyway",
     "eurorp.aluminium_03"

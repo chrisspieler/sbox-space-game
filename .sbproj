@@ -87,7 +87,7 @@
           "GroupName": "Actions"
         },
         {
-          "Name": "reload",
+          "Name": "stabilizer",
           "KeyboardCode": "r",
           "GamepadCode": "X",
           "GroupName": "Actions"
