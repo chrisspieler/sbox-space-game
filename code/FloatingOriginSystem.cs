@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 using Sandbox;
@@ -13,7 +13,6 @@ public sealed class FloatingOriginSystem : GameObjectSystem
 
 	public FloatingOriginPlayer Origin { get; private set; }
 	public Vector3 TotalOriginShift { get; private set; }
-	public event Action<Vector3> OnWorldReset;
 
 	public FloatingOriginSystem( Scene scene ) : base( scene )
 	{
@@ -42,24 +41,47 @@ public sealed class FloatingOriginSystem : GameObjectSystem
 
 		if ( Origin.Transform.Position.Distance( Vector3.Zero) > OriginShiftDistance )
 		{
-			ResetWorld( Origin.GameObject );
+			var listeners = Scene.GetAllComponents<IOriginShiftListener>().ToList();
+			var offset = -Origin.Transform.Position;
+			BeforeOriginShift( offset, listeners );
+			ResetWorld( Origin.GameObject, offset );
+			AfterOriginShift( offset, listeners );
+			return;
 		}
 	}
 
-	public void ResetWorld( GameObject origin )
+	public void ResetWorld( GameObject origin, Vector3 offset )
 	{
-		var gameObjects = origin.Scene.Children.Where( go => go != origin );
-		var offset = -origin.Transform.Position;
 		TotalOriginShift -= offset;
-		OnWorldReset?.Invoke( offset );
 		origin.Transform.Position = Vector3.Zero;
 		if ( Debug )
 		{
 			Gizmo.Draw.FollowText( $"Shifted Origin: {offset}", origin );
 		}
+		var gameObjects = origin.Scene.Children.Where( go => go != origin );
 		foreach ( var go in gameObjects )
 		{
 			go.Transform.Position += offset;
+		}
+	}
+
+	private void BeforeOriginShift( Vector3 offset, List<IOriginShiftListener> listeners )
+	{
+		foreach ( var shifted in listeners )
+		{
+			shifted.OnBeforeOriginShift( offset );
+		}
+	}
+
+	private void AfterOriginShift( Vector3 offset, List<IOriginShiftListener> listeners )
+	{
+		foreach ( var shifted in listeners )
+		{
+			// It's possible that an origin shift listener was invalidated during BeforeOriginShift.
+			if ( !(shifted as Component).IsValid() )
+				continue;
+
+			shifted.OnAfterOriginShift( offset );
 		}
 	}
 }
