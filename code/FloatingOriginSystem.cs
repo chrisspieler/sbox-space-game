@@ -5,13 +5,19 @@ using Sandbox;
 
 public sealed class FloatingOriginSystem : GameObjectSystem
 {
+	[ConVar( "origin_shift_debug" )]
+	public static bool Debug { get; set; } 
+
+	[ConVar( "origin_shift_distance" )]
+	public static float OriginShiftDistance { get; set; } = 16_000f;
+
 	public FloatingOriginPlayer Origin { get; private set; }
 	public Vector3 TotalOriginShift { get; private set; }
 	public event Action<Vector3> OnWorldReset;
 
 	public FloatingOriginSystem( Scene scene ) : base( scene )
 	{
-		Listen( Stage.PhysicsStep, -1, Tick, "Floating Origin System" );
+		Listen( Stage.PhysicsStep, 0, Tick, "Floating Origin System" );
 	}
 
 	public Vector3 RelativeToAbsolute( Vector3 relativePos )
@@ -34,7 +40,7 @@ public sealed class FloatingOriginSystem : GameObjectSystem
 		if ( Origin is null )
 			return;
 
-		if ( Origin.Transform.Position.Distance( Vector3.Zero) > Origin.WorldResetDistance )
+		if ( Origin.Transform.Position.Distance( Vector3.Zero) > OriginShiftDistance )
 		{
 			ResetWorld( Origin.GameObject );
 		}
@@ -47,10 +53,13 @@ public sealed class FloatingOriginSystem : GameObjectSystem
 		TotalOriginShift -= offset;
 		OnWorldReset?.Invoke( offset );
 		origin.Transform.Position = Vector3.Zero;
+		if ( Debug )
+		{
+			Gizmo.Draw.FollowText( $"Shifted Origin: {offset}", origin );
+		}
 		foreach ( var go in gameObjects )
 		{
 			go.Transform.Position += offset;
 		}
-		Log.Info( $"Floating origin world reset: {offset}" );
 	}
 }

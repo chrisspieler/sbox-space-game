@@ -170,7 +170,7 @@
         },
         {
           "__type": "FloatingOriginPlayer",
-          "WorldResetDistance": 16000
+          "WorldResetDistance": 500
         },
         {
           "__type": "Teleporter",
@@ -721,6 +721,17 @@
           "Tint": "1,1,1,1"
         }
       ]
+    },
+    {
+      "Id": "c322191f-b390-4df7-923f-69357d93aa22",
+      "Name": "Debug",
+      "Position": "145.2207,2.180313,-17.20678",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "GizmoDrawComponent"
+        }
+      ]
     }
   ],
   "SceneProperties": {
@@ -746,7 +757,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-20T14:26:34.788976-07:00",
+  "LastSaved": "2024-02-20T15:10:39.6248602-07:00",
   "__references": [
     "dopamine.starmapmilkyway",
     "eurorp.aluminium_03"

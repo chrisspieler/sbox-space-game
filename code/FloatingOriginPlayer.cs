@@ -2,7 +2,6 @@ using Sandbox;
 
 public sealed class FloatingOriginPlayer : Component
 {
-	[Property] public float WorldResetDistance { get; set; } = 500f;
 	public FloatingOriginSystem OriginSystem => Scene.GetSystem<FloatingOriginSystem>();
 
 	/// <summary>
