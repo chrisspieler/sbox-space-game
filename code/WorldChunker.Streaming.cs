@@ -11,7 +11,7 @@ public sealed partial class WorldChunker : GameObjectSystem
 	public int MaxLoadedChunks { get; set; } = 80;
 
 	[ConVar("world_streaming_debug")]
-	public bool DebugStreaming { get; set; }
+	public static bool DebugStreaming { get; set; }
 	public GameObject ChunkContainer { get; private set; }
 
 	private readonly Dictionary<Vector2Int, GameObject> _worldChunks = new();
