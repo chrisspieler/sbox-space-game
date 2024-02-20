@@ -283,19 +283,19 @@
           "Children": [
             {
               "Id": "47c8e566-aaf4-42de-8964-bd66500ba360",
-              "Name": "Cockpit",
-              "Position": "29.73928,0.000000004105452,-0.00000000000000001666383",
-              "Scale": "0.5,0.6,0.5",
+              "Name": "Nose",
+              "Position": "24.53654,0.000000004105452,5.912427",
+              "Scale": "0.5,0.3,0.15",
               "Enabled": true,
               "Components": [
                 {
                   "__type": "ModelRenderer",
                   "BodyGroups": 18446744073709551615,
                   "MaterialGroup": null,
-                  "MaterialOverride": null,
+                  "MaterialOverride": "materials/dev/dev_metal_rough60.vmat",
                   "Model": "models/dev/sphere.vmdl",
                   "RenderType": "On",
-                  "Tint": "1,1,1,1"
+                  "Tint": "0.46667,0.43922,0.43922,1"
                 }
               ],
               "Children": [
@@ -327,18 +327,18 @@
             {
               "Id": "acbd1984-0908-45d0-869a-d75e9caf1813",
               "Name": "Main Hull",
-              "Position": "0,0,0",
-              "Scale": "1,0.4,0.4",
+              "Position": "0,0,5.816418",
+              "Scale": "1,0.4,0.2073509",
               "Enabled": true,
               "Components": [
                 {
                   "__type": "ModelRenderer",
                   "BodyGroups": 18446744073709551615,
                   "MaterialGroup": null,
-                  "MaterialOverride": null,
+                  "MaterialOverride": "materials/dev/dev_metal_rough60.vmat",
                   "Model": "models/dev/box.vmdl",
                   "RenderType": "On",
-                  "Tint": "1,1,1,1"
+                  "Tint": "0.46512,0.44132,0.44132,1"
                 }
               ],
               "Children": [
@@ -372,36 +372,36 @@
             {
               "Id": "9f1aba35-eea9-427d-a148-b3f28c9efd4e",
               "Name": "Rear Beam",
-              "Position": "-23.33452,0.00000003136669,8.521406",
-              "Scale": "0.3,1,0.2",
+              "Position": "-16.22762,0.00000003136669,11.4799",
+              "Scale": "0.1224915,1,0.06980363",
               "Enabled": true,
               "Components": [
                 {
                   "__type": "ModelRenderer",
                   "BodyGroups": 18446744073709551615,
                   "MaterialGroup": null,
-                  "MaterialOverride": null,
+                  "MaterialOverride": "materials/dev/dev_metal_rough60.vmat",
                   "Model": "models/dev/box.vmdl",
                   "RenderType": "On",
-                  "Tint": "1,1,1,1"
+                  "Tint": "0.16279,0.16279,0.16279,1"
                 }
               ]
             },
             {
               "Id": "6de72c4a-2b68-434d-ae98-a5e1d4d006e6",
               "Name": "Left Nacelle",
-              "Position": "-22.16811,17.26161,17.39656",
-              "Scale": "1,0.2,0.15",
+              "Position": "-15.0612,20,15",
+              "Scale": "1,0.2,0.09994344",
               "Enabled": true,
               "Components": [
                 {
                   "__type": "ModelRenderer",
                   "BodyGroups": 18446744073709551615,
                   "MaterialGroup": null,
-                  "MaterialOverride": null,
+                  "MaterialOverride": "materials/dev/dev_metal_rough60.vmat",
                   "Model": "models/dev/box.vmdl",
                   "RenderType": "On",
-                  "Tint": "1,1,1,1"
+                  "Tint": "0.46512,0.44132,0.44132,1"
                 }
               ],
               "Children": [
@@ -457,18 +457,18 @@
             {
               "Id": "d26c9337-fa69-4c79-acd1-a19f11447962",
               "Name": "Right Nacelle",
-              "Position": "-22.16811,-18.48013,17.39656",
-              "Scale": "1,0.2,0.15",
+              "Position": "-15.0612,-20,15",
+              "Scale": "1,0.2,0.1",
               "Enabled": true,
               "Components": [
                 {
                   "__type": "ModelRenderer",
                   "BodyGroups": 18446744073709551615,
                   "MaterialGroup": null,
-                  "MaterialOverride": null,
+                  "MaterialOverride": "materials/dev/dev_metal_rough60.vmat",
                   "Model": "models/dev/box.vmdl",
                   "RenderType": "On",
-                  "Tint": "1,1,1,1"
+                  "Tint": "0.46512,0.44132,0.44132,1"
                 }
               ],
               "Children": [
@@ -528,6 +528,42 @@
               "Position": "-69.42393,-0.00007347894,0",
               "Rotation": "0,0,1,-0.0000006397578",
               "Enabled": true
+            },
+            {
+              "Id": "8f5b04b0-b012-44e5-984b-b4d784a6f789",
+              "Name": "Glass Dome (Forward)",
+              "Position": "15.33756,0,8.994429",
+              "Scale": "0.25,0.25,0.25",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "ModelRenderer",
+                  "BodyGroups": 18446744073709551615,
+                  "MaterialGroup": null,
+                  "MaterialOverride": "materials/dev/dev_nonmetal_rough00.vmat",
+                  "Model": "models/dev/sphere.vmdl",
+                  "RenderType": "On",
+                  "Tint": "0.06284,0.05279,0.09302,1"
+                }
+              ]
+            },
+            {
+              "Id": "419918f4-24db-4304-94ba-59c298682e46",
+              "Name": "Glass Dome (Backward)",
+              "Position": "-2.700479,0,8.994429",
+              "Scale": "0.25,0.25,0.25",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "ModelRenderer",
+                  "BodyGroups": 18446744073709551615,
+                  "MaterialGroup": null,
+                  "MaterialOverride": "materials/dev/dev_nonmetal_rough00.vmat",
+                  "Model": "models/dev/sphere.vmdl",
+                  "RenderType": "On",
+                  "Tint": "0.06284,0.05279,0.09302,1"
+                }
+              ]
             }
           ]
         },
@@ -681,7 +717,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-18T00:30:05.9162794-07:00",
+  "LastSaved": "2024-02-20T01:50:07.5867262-07:00",
   "__references": [
     "dopamine.starmapmilkyway",
     "eurorp.aluminium_03"

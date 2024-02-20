@@ -1,20 +1,23 @@
 {
   "RootObject": {
-    "Id": "cf38d26f-e842-49c6-ab6f-0752edb82e84",
+    "Id": "2d78518e-52a7-4954-a6cf-d532c5709c52",
     "Name": "asteroid_field",
     "Enabled": true,
     "Components": [
       {
         "__type": "AsteroidSpawner",
-        "__enabled": true,
-        "AsteroidPrefab": "prefabs/asteroids/asteroid.prefab",
+        "AsteroidPrefab": {
+          "_type": "gameobject",
+          "prefab": "prefabs/asteroids/asteroid.prefab"
+        },
         "NoiseScale": 0.005,
         "ProbabilityBias": 0,
-        "ProbabilityScale": 0.01,
+        "ProbabilityScale": 0.02,
         "Spacing": 128,
         "SpawnManyOnStart": true
       }
-    ]
+    ],
+    "Children": []
   },
   "ShowInMenu": false,
   "MenuPath": null,
