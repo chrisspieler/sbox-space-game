@@ -835,7 +835,7 @@
             {
               "__type": "SkinnedModelRenderer",
               "AnimationGraph": null,
-              "BodyGroups": 1,
+              "BodyGroups": 341,
               "BoneMergeTarget": null,
               "CreateBoneObjects": true,
               "MaterialGroup": null,
@@ -856,59 +856,21 @@
                 "component_type": "SkinnedModelRenderer"
               },
               "RigidbodyFlags": "DisableCollisionSounds"
+            },
+            {
+              "__type": "MeatDresser",
+              "Clothes": [
+                "models/citizen_clothes/full_outfit/scifi_trooper_armour/scifi_trooper_armour_yellow.clothing",
+                "models/citizen_clothes/hat/scifi_trooper_helmet/scifi_trooper_helmet.clothing"
+              ],
+              "Model": {
+                "_type": "component",
+                "go": "8ede2f42-0609-4c27-b88e-758c976eb0bb",
+                "component_type": "SkinnedModelRenderer"
+              }
             }
           ],
           "Children": [
-            {
-              "Id": "eff98a7f-6015-4424-8731-769f66701ca5",
-              "Name": "Chest",
-              "Position": "0,0,0",
-              "Tags": "clothing",
-              "Enabled": true,
-              "Components": [
-                {
-                  "__type": "SkinnedModelRenderer",
-                  "AnimationGraph": null,
-                  "BodyGroups": 18446744073709551615,
-                  "BoneMergeTarget": {
-                    "_type": "component",
-                    "go": "8ede2f42-0609-4c27-b88e-758c976eb0bb",
-                    "component_type": "SkinnedModelRenderer"
-                  },
-                  "CreateBoneObjects": false,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/citizen_clothes/full_outfit/scifi_trooper_armour/models/scifi_trooper_armour_yellow.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                }
-              ]
-            },
-            {
-              "Id": "10fbb795-a253-4ea0-aff4-01ab5ca1bc43",
-              "Name": "Chest",
-              "Position": "0,0,0",
-              "Tags": "clothing",
-              "Enabled": true,
-              "Components": [
-                {
-                  "__type": "SkinnedModelRenderer",
-                  "AnimationGraph": null,
-                  "BodyGroups": 18446744073709551615,
-                  "BoneMergeTarget": {
-                    "_type": "component",
-                    "go": "8ede2f42-0609-4c27-b88e-758c976eb0bb",
-                    "component_type": "SkinnedModelRenderer"
-                  },
-                  "CreateBoneObjects": false,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/citizen_clothes/hat/scifi_trooper_helmet/models/scifi_trooper_helmet.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                }
-              ]
-            },
             {
               "Id": "a5f115fe-a847-458a-85c7-c6bb27ef79d0",
               "Name": "pelvis",
@@ -1462,8 +1424,8 @@
                                             {
                                               "Id": "be8514bf-d44e-4e8a-9b0a-cd63992c4502",
                                               "Name": "arm_elbow_helper_R",
-                                              "Position": "0,0,0",
-                                              "Rotation": "-0.0000007599592,0.0000002980232,0.7577677,-0.6525244",
+                                              "Position": "0.0000002853849,0.00009389796,-0.0001056717",
+                                              "Rotation": "-0.0000007972121,0.0000004470348,0.757768,-0.6525244",
                                               "Enabled": true
                                             }
                                           ]
@@ -1748,7 +1710,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-20T21:44:26.687439-07:00",
+  "LastSaved": "2024-02-20T21:55:27.8358069-07:00",
   "__references": [
     "dopamine.starmapmilkyway",
     "eurorp.aluminium_03"
