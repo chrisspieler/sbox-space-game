@@ -112,9 +112,8 @@ public sealed partial class ShipController
 
 	private void HideHud()
 	{
-		Component hud = Scene.GetAllComponents<HudPanel>().FirstOrDefault();
-		hud.Enabled = false;
-		Component cursor = Scene.GetAllComponents<CursorPanel>().FirstOrDefault();
-		cursor.Enabled = false;
+		ScreenManager.SetHudEnabled( false );
+		ScreenManager.SetCursorEnabled( false );
+		ScreenManager.ShowDeathScreen();
 	}
 }

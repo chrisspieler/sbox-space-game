@@ -1,0 +1,42 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+
+<root>
+    @if ( ShowDeathText )
+    {
+        <h1 id="deathText">@DeathText</h1>
+    }
+    @if ( ShowInstruction )
+    {
+        <h3 id="instruction">@InstructionText</h3>
+    }
+</root>
+
+@code
+{
+    [Property] public string DeathText { get; set; } = "You Died";
+    // TODO: Use a glyph instead of text.
+    [Property] public string InstructionText { get; set; } = "Press R to Restart";
+    [Property] public SceneFile ReloadScene { get; set; }
+
+    private bool ShowDeathText { get; set; } = false;
+    private bool ShowInstruction { get; set; } = false;
+
+    protected override void OnStart()
+    {
+        _ = Task.DelaySeconds(3f).ContinueWith(_ => ShowDeathText = true);
+        _ = Task.DelaySeconds(6f).ContinueWith(_ => ShowInstruction = true);
+    }
+
+    protected override int BuildHash() 
+        => System.HashCode.Combine(DeathText, InstructionText, ShowDeathText, ShowInstruction);
+
+    protected override void OnUpdate()
+    {
+        if ( Input.Pressed( "stabilizer" ) )
+        {
+            Scene.Load( ReloadScene );
+        }
+    }
+}

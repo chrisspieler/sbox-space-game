@@ -13,6 +13,24 @@
           "Opacity": 1,
           "Scale": 1,
           "ZIndex": 100
+        },
+        {
+          "__type": "ScreenManager",
+          "CursorPanel": {
+            "_type": "component",
+            "go": "279df759-c7fd-4122-9fee-f69cccae0af0",
+            "component_type": "CursorPanel"
+          },
+          "HudPanel": {
+            "_type": "component",
+            "go": "b8c346f0-faad-462c-bdad-1fdd1801e747",
+            "component_type": "HudPanel"
+          },
+          "RestartPanel": {
+            "_type": "component",
+            "go": "231cb05f-5d34-4930-addf-bfe5060a2afc",
+            "component_type": "RestartPanel"
+          }
         }
       ],
       "Children": [
@@ -57,6 +75,21 @@
                 "_type": "gameobject",
                 "go": "f420d6b9-e323-4efe-b1fb-1ac54134cac0"
               }
+            }
+          ]
+        },
+        {
+          "Id": "231cb05f-5d34-4930-addf-bfe5060a2afc",
+          "Name": "Restart Screen",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "RestartPanel",
+              "__enabled": false,
+              "DeathText": "You Died",
+              "InstructionText": "Press R to Restart",
+              "ReloadScene": "scenes/main.scene"
             }
           ]
         }
@@ -1781,7 +1814,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-21T15:20:50.401897-07:00",
+  "LastSaved": "2024-02-21T15:38:30.2929556-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03"

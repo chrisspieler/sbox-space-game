@@ -1,0 +1,29 @@
+RestartPanel {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	font-family: Poppins;
+	color: #fff;
+
+	h1 {
+		font-size: 144px;
+	}
+
+	h3 {
+		font-size: 48px;
+	}
+
+	#deathText {
+		position: absolute;
+		top: 5%;
+		left: 50%;
+		transform: translate( -50% );
+	}
+
+	#instruction {
+		position: absolute;
+		bottom: 5%;
+		left: 50%;
+		transform: translateX( -50% );
+	}
+}
