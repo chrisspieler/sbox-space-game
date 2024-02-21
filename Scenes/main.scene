@@ -137,6 +137,11 @@
         {
           "__type": "ShipController",
           "Acceleration": 250,
+          "Fog": {
+            "_type": "component",
+            "go": "5a204e98-b86c-4727-accc-d522082427fd",
+            "component_type": "VolumetricFogVolume"
+          },
           "Grapple": {
             "_type": "component",
             "go": "35c315ef-865f-49a7-83a1-2bcc3c9c7908",
@@ -219,6 +224,23 @@
         }
       ],
       "Children": [
+        {
+          "Id": "5a204e98-b86c-4727-accc-d522082427fd",
+          "Name": "Fog Volume",
+          "Position": "0.0001525879,0,0.00006103516",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "VolumetricFogVolume",
+              "Bounds": {
+                "Mins": "-2000,-2000,-150",
+                "Maxs": "2000,2000,150"
+              },
+              "FalloffExponent": 1,
+              "Strength": 0.2
+            }
+          ]
+        },
         {
           "Id": "c874c91b-fa93-44dd-a28f-0296f3426330",
           "Name": "Parts",
@@ -693,22 +715,6 @@
               "Contrast": 1,
               "HueRotate": 0,
               "Saturation": 1.1
-            }
-          ]
-        },
-        {
-          "Id": "5a204e98-b86c-4727-accc-d522082427fd",
-          "Name": "Fog Volume",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "VolumetricFogVolume",
-              "Bounds": {
-                "Mins": "-2000,-2000,-150",
-                "Maxs": "2000,2000,150"
-              },
-              "FalloffExponent": 1,
-              "Strength": 0.2
             }
           ]
         },
@@ -1710,7 +1716,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-20T21:55:27.8358069-07:00",
+  "LastSaved": "2024-02-20T22:08:05.3961188-07:00",
   "__references": [
     "dopamine.starmapmilkyway",
     "eurorp.aluminium_03"

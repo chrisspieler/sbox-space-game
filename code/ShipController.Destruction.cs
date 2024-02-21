@@ -3,7 +3,8 @@ using System.Linq;
 
 public sealed partial class ShipController
 {
-	[Property] public GameObject Meat { get; set; }
+	[Property, Category("Death")] public GameObject Meat { get; set; }
+	[Property, Category("Death")] public VolumetricFogVolume Fog { get; set; }
 
 	[ConCmd("ship_explode")]
 	public static void ExplodeCommand()
@@ -80,5 +81,9 @@ public sealed partial class ShipController
 		renderer.SceneModel.UseAnimGraph = false;
 		var deathCam = Meat.Components.GetInDescendantsOrSelf<DeathCamConfig>( true );
 		deathCam.Enabled = true;
+		// Move the fog from the ship to the death cam.
+		Fog.GameObject.Parent = null;
+		var follower = Fog.Components.Create<Follower>();
+		follower.Target = deathCam.GameObject;
 	}
 }
