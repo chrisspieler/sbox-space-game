@@ -4,7 +4,7 @@
     {
       "Id": "0a3105b7-d645-4200-93c9-b57b4133cc6a",
       "Name": "Screen UI",
-      "Position": "200,0,0",
+      "Position": "200,0,0.0003515341",
       "Enabled": true,
       "Components": [
         {
@@ -65,7 +65,7 @@
     {
       "Id": "c322191f-b390-4df7-923f-69357d93aa22",
       "Name": "Debug",
-      "Position": "100,0,0",
+      "Position": "100,0,0.0003515341",
       "Enabled": true,
       "Components": [
         {
@@ -76,7 +76,7 @@
     {
       "Id": "50985c72-fec4-48cf-bd58-355bbd47aec5",
       "Name": "Skybox",
-      "Position": "-100,0,0",
+      "Position": "-100,0,0.0003515341",
       "Tags": "skybox",
       "Enabled": true,
       "Components": [
@@ -98,7 +98,7 @@
     {
       "Id": "5006bd90-e749-4329-a52f-f676bfc80725",
       "Name": "Sun",
-      "Position": "-200,0,0",
+      "Position": "-200,0,0.0003515341",
       "Rotation": "-0.3936001,0.3763543,0.4468399,0.7097672",
       "Tags": "light_directional,light",
       "Enabled": true,
@@ -116,7 +116,6 @@
     {
       "Id": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
       "Name": "Ship",
-      "Position": "0,0,-0.0003515341",
       "Tags": "player,ship,solid",
       "Enabled": true,
       "Components": [
@@ -190,6 +189,7 @@
         },
         {
           "__type": "MouseSelector",
+          "DeselectTime": 0.2,
           "FilterWithAny": "solid",
           "FilterWithoutAny": "player",
           "Hovered": null,
@@ -218,7 +218,6 @@
         {
           "Id": "c874c91b-fa93-44dd-a28f-0296f3426330",
           "Name": "Parts",
-          "Position": "0,0,0",
           "Enabled": true,
           "Children": [
             {
@@ -586,7 +585,6 @@
         {
           "Id": "2e66ea98-6497-46ec-b4ba-99bcb119379c",
           "Name": "Shield",
-          "Position": "0,0,0",
           "Scale": "2,2,2",
           "Enabled": true,
           "Components": [
@@ -637,7 +635,6 @@
         {
           "Id": "aa63d0b2-925b-4068-bf6f-d8545e58f3d7",
           "Name": "Hull",
-          "Position": "0,0,0",
           "Enabled": true,
           "Components": [
             {
@@ -675,7 +672,6 @@
         {
           "Id": "5a204e98-b86c-4727-accc-d522082427fd",
           "Name": "Fog Volume",
-          "Position": "0,0,0",
           "Enabled": true,
           "Components": [
             {
@@ -692,7 +688,6 @@
         {
           "Id": "3c781afd-c2c2-4bcb-9e5d-e8358f9c8dee",
           "Name": "Stabilizer",
-          "Position": "0,0,0",
           "Enabled": true,
           "Components": [
             {
@@ -719,7 +714,7 @@
     {
       "Id": "b95bc5b6-db79-4b7b-9cb5-c9d2b127a0ac",
       "Name": "The Cube",
-      "Position": "0,0,-600.0001",
+      "Position": "0,0,-599.9998",
       "Scale": "20,20,20",
       "Enabled": true,
       "Components": [
@@ -758,7 +753,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-20T18:15:43.6193692-07:00",
+  "LastSaved": "2024-02-20T18:33:34.5489001-07:00",
   "__references": [
     "dopamine.starmapmilkyway",
     "eurorp.aluminium_03"
