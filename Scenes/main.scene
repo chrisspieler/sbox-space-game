@@ -82,8 +82,8 @@
       "Components": [
         {
           "__type": "SkyBox2D",
-          "SkyMaterial": "raw/starmapmilkyway.vmat",
-          "Tint": "0.02463,0.02466,0.02475,1"
+          "SkyMaterial": "materials/starmap_8k/starmap_2020_8k.vmat",
+          "Tint": "0.03922,0.03922,0.03922,1"
         },
         {
           "__type": "SkyScroller",
@@ -142,11 +142,7 @@
             "go": "5a204e98-b86c-4727-accc-d522082427fd",
             "component_type": "VolumetricFogVolume"
           },
-          "Grapple": {
-            "_type": "component",
-            "go": "35c315ef-865f-49a7-83a1-2bcc3c9c7908",
-            "component_type": "GrappleBeam"
-          },
+          "Grapple": null,
           "LastInputDir": "1,0,0",
           "MainThrusterForce": "0,0,0",
           "Meat": {
@@ -163,11 +159,7 @@
             "go": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
             "component_type": "Rigidbody"
           },
-          "Stabilizer": {
-            "_type": "component",
-            "go": "3c781afd-c2c2-4bcb-9e5d-e8358f9c8dee",
-            "component_type": "Stabilizer"
-          },
+          "Stabilizer": null,
           "TurnSpeed": 3
         },
         {
@@ -236,8 +228,8 @@
                 "Mins": "-2000,-2000,-300",
                 "Maxs": "2000,2000,300"
               },
-              "FalloffExponent": 1,
-              "Strength": 0.1
+              "FalloffExponent": 3,
+              "Strength": 0.2
             }
           ]
         },
@@ -422,7 +414,7 @@
             {
               "Id": "6de72c4a-2b68-434d-ae98-a5e1d4d006e6",
               "Name": "Left Nacelle",
-              "Position": "-15.0612,70,38.34743",
+              "Position": "-53.42448,70,38.34743",
               "Scale": "3,0.6,0.3",
               "Tags": "break_debris",
               "Enabled": true,
@@ -511,7 +503,7 @@
             {
               "Id": "d26c9337-fa69-4c79-acd1-a19f11447962",
               "Name": "Right Nacelle",
-              "Position": "-15.0612,-70,38.34743",
+              "Position": "-53.42448,-70,38.34743",
               "Scale": "3,0.6,0.3",
               "Tags": "break_debris",
               "Enabled": true,
@@ -705,8 +697,8 @@
                 }
               ],
               "Mode": "Additive",
-              "Strength": 3,
-              "Threshold": 0.3,
+              "Strength": 3.5,
+              "Threshold": 0.2,
               "ThresholdWidth": 0
             },
             {
@@ -736,6 +728,7 @@
             },
             {
               "__type": "Shield",
+              "__enabled": false,
               "Bounce": {
                 "_type": "component",
                 "go": "2e66ea98-6497-46ec-b4ba-99bcb119379c",
@@ -772,7 +765,8 @@
         {
           "Id": "aa63d0b2-925b-4068-bf6f-d8545e58f3d7",
           "Name": "Hull",
-          "Scale": "3,3,3",
+          "Position": "-14.23427,0,0",
+          "Scale": "4.2,4.2,4.2",
           "Tags": "equipment",
           "Enabled": true,
           "Components": [
@@ -1716,9 +1710,9 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-20T22:23:26.5724774-07:00",
+  "LastSaved": "2024-02-21T01:30:07.3134575-07:00",
   "__references": [
-    "dopamine.starmapmilkyway",
+    "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03"
   ]
 }
