@@ -4,6 +4,7 @@
     {
       "Id": "0a3105b7-d645-4200-93c9-b57b4133cc6a",
       "Name": "Screen UI",
+      "Position": "200,0,0",
       "Enabled": true,
       "Components": [
         {
@@ -18,6 +19,7 @@
         {
           "Id": "b8c346f0-faad-462c-bdad-1fdd1801e747",
           "Name": "Hud",
+          "Position": "0,0,0",
           "Enabled": true,
           "Components": [
             {
@@ -31,6 +33,7 @@
         {
           "Id": "279df759-c7fd-4122-9fee-f69cccae0af0",
           "Name": "Cursor",
+          "Position": "0,0,0",
           "Enabled": true,
           "Components": [
             {
@@ -42,6 +45,7 @@
         {
           "Id": "8d08a576-e21b-4e68-9a8b-33fe08fd6191",
           "Name": "Hovered Selection",
+          "Position": "0,0,0",
           "Enabled": true,
           "Components": [
             {
@@ -59,8 +63,20 @@
       ]
     },
     {
+      "Id": "c322191f-b390-4df7-923f-69357d93aa22",
+      "Name": "Debug",
+      "Position": "100,0,0",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "GizmoDrawComponent"
+        }
+      ]
+    },
+    {
       "Id": "50985c72-fec4-48cf-bd58-355bbd47aec5",
       "Name": "Skybox",
+      "Position": "-100,0,0",
       "Tags": "skybox",
       "Enabled": true,
       "Components": [
@@ -82,7 +98,7 @@
     {
       "Id": "5006bd90-e749-4329-a52f-f676bfc80725",
       "Name": "Sun",
-      "Position": "200,0,0",
+      "Position": "-200,0,0",
       "Rotation": "-0.3936001,0.3763543,0.4468399,0.7097672",
       "Tags": "light_directional,light",
       "Enabled": true,
@@ -152,10 +168,6 @@
           "UpdateInterval": 0.5
         },
         {
-          "__type": "PlaneConstraint",
-          "Rigidbody": null
-        },
-        {
           "__type": "Jettison",
           "EjectionSource": {
             "_type": "gameobject",
@@ -203,81 +215,6 @@
         }
       ],
       "Children": [
-        {
-          "Id": "4014bc3a-0475-4e40-9f41-2793f567762a",
-          "Name": "Camera",
-          "Position": "-200,-0.000000009572649,1000",
-          "Rotation": "0,0.6427876,0,0.7660444",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "CameraComponent",
-              "BackgroundColor": "0.33333,0.46275,0.52157,1",
-              "ClearFlags": "All",
-              "FieldOfView": 90,
-              "IsMainCamera": true,
-              "Orthographic": false,
-              "OrthographicHeight": 1204,
-              "Priority": 1,
-              "RenderExcludeTags": "",
-              "RenderTags": "",
-              "TargetEye": "None",
-              "Viewport": "0,0,1,1",
-              "ZFar": 100000,
-              "ZNear": 10
-            },
-            {
-              "__type": "ShipCamera",
-              "HighPitch": 88,
-              "HighPosition": "-120,0,1500",
-              "LowPitch": 80,
-              "LowPosition": "-200,0,1000",
-              "PitchLerpSpeed": 1,
-              "PositionLerpSpeed": 1,
-              "Target": {
-                "_type": "gameobject",
-                "go": "f420d6b9-e323-4efe-b1fb-1ac54134cac0"
-              },
-              "TargetVelocityHighThreshold": 2500,
-              "TargetVelocityLowThreshold": 200
-            },
-            {
-              "__type": "Bloom",
-              "BloomColor": {
-                "color": [
-                  {
-                    "c": "1,1,1,1"
-                  },
-                  {
-                    "t": 1,
-                    "c": "1,1,1,1"
-                  }
-                ],
-                "alpha": []
-              },
-              "BloomCurve": [
-                {
-                  "y": 0.5
-                },
-                {
-                  "x": 1,
-                  "y": 1
-                }
-              ],
-              "Mode": "Additive",
-              "Strength": 3,
-              "Threshold": 0.3,
-              "ThresholdWidth": 0
-            },
-            {
-              "__type": "ColorAdjustments",
-              "Brightness": 1.1,
-              "Contrast": 1,
-              "HueRotate": 0,
-              "Saturation": 1.1
-            }
-          ]
-        },
         {
           "Id": "c874c91b-fa93-44dd-a28f-0296f3426330",
           "Name": "Parts",
@@ -571,6 +508,82 @@
           ]
         },
         {
+          "Id": "4014bc3a-0475-4e40-9f41-2793f567762a",
+          "Name": "Camera",
+          "Position": "-200,-0.000000009572649,1000",
+          "Rotation": "0,0.6427876,0,0.7660444",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "CameraComponent",
+              "BackgroundColor": "0.33333,0.46275,0.52157,1",
+              "ClearFlags": "All",
+              "FieldOfView": 90,
+              "IsMainCamera": true,
+              "Orthographic": false,
+              "OrthographicHeight": 1204,
+              "Priority": 1,
+              "RenderExcludeTags": "",
+              "RenderTags": "",
+              "TargetEye": "None",
+              "Viewport": "0,0,1,1",
+              "ZFar": 100000,
+              "ZNear": 10
+            },
+            {
+              "__type": "ShipCamera",
+              "__enabled": false,
+              "HighPitch": 88,
+              "HighPosition": "-120,0,1500",
+              "LowPitch": 80,
+              "LowPosition": "-200,0,1000",
+              "PitchLerpSpeed": 1,
+              "PositionLerpSpeed": 1,
+              "Target": {
+                "_type": "gameobject",
+                "go": "f420d6b9-e323-4efe-b1fb-1ac54134cac0"
+              },
+              "TargetVelocityHighThreshold": 2500,
+              "TargetVelocityLowThreshold": 200
+            },
+            {
+              "__type": "Bloom",
+              "BloomColor": {
+                "color": [
+                  {
+                    "c": "1,1,1,1"
+                  },
+                  {
+                    "t": 1,
+                    "c": "1,1,1,1"
+                  }
+                ],
+                "alpha": []
+              },
+              "BloomCurve": [
+                {
+                  "y": 0.5
+                },
+                {
+                  "x": 1,
+                  "y": 1
+                }
+              ],
+              "Mode": "Additive",
+              "Strength": 3,
+              "Threshold": 0.3,
+              "ThresholdWidth": 0
+            },
+            {
+              "__type": "ColorAdjustments",
+              "Brightness": 1.1,
+              "Contrast": 1,
+              "HueRotate": 0,
+              "Saturation": 1.1
+            }
+          ]
+        },
+        {
           "Id": "2e66ea98-6497-46ec-b4ba-99bcb119379c",
           "Name": "Shield",
           "Position": "0,0,0",
@@ -720,17 +733,6 @@
           "Tint": "1,1,1,1"
         }
       ]
-    },
-    {
-      "Id": "c322191f-b390-4df7-923f-69357d93aa22",
-      "Name": "Debug",
-      "Position": "145.2207,2.180313,-17.20678",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "GizmoDrawComponent"
-        }
-      ]
     }
   ],
   "SceneProperties": {
@@ -756,7 +758,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-20T15:54:31.2229194-07:00",
+  "LastSaved": "2024-02-20T18:15:43.6193692-07:00",
   "__references": [
     "dopamine.starmapmilkyway",
     "eurorp.aluminium_03"

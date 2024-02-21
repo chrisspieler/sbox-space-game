@@ -16,6 +16,7 @@ public sealed class FloatingOriginSystem : GameObjectSystem
 
 	public FloatingOriginSystem( Scene scene ) : base( scene )
 	{
+		// If an origin shift occurs outside of PhysicsStep, rigidbodies may jump around unexpectedly.
 		Listen( Stage.PhysicsStep, 0, Tick, "Floating Origin System" );
 	}
 
@@ -54,13 +55,13 @@ public sealed class FloatingOriginSystem : GameObjectSystem
 	{
 		TotalOriginShift -= offset;
 		origin.Transform.Position = Vector3.Zero;
-		if ( Debug )
-		{
-			Gizmo.Draw.FollowText( $"Shifted Origin: {offset}", origin );
-		}
 		var gameObjects = origin.Scene.Children.Where( go => go != origin );
 		foreach ( var go in gameObjects )
 		{
+			if ( Debug )
+			{
+				Gizmo.Draw.FollowText( $"({go.Name}) Shifted Origin: {offset}", go );
+			}
 			go.Transform.Position += offset;
 		}
 	}
@@ -75,6 +76,10 @@ public sealed class FloatingOriginSystem : GameObjectSystem
 
 	private void AfterOriginShift( Vector3 offset, List<IOriginShiftListener> listeners )
 	{
+		if ( Debug )
+		{
+			Gizmo.Draw.FollowText( $"Shifted Origin: {offset}", Origin.GameObject );
+		}
 		foreach ( var shifted in listeners )
 		{
 			// It's possible that an origin shift listener was invalidated during BeforeOriginShift.
