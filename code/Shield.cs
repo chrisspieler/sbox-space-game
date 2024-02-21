@@ -18,7 +18,7 @@ public sealed class Shield : Component
 	protected override void OnEnabled()
 	{
 		Collider ??= Components.Get<Collider>( true );
-		Bounce ??= Components.Get<Bouncy>( );
+		Bounce ??= Components.Get<Bouncy>( true );
 		if ( Bounce.IsValid() )
 		{
 			Bounce.OnBounce += Hit;
@@ -28,6 +28,7 @@ public sealed class Shield : Component
 	protected override void OnUpdate()
 	{
 		Collider.Enabled = CurrentHealth > 0f;
+		Bounce.Enabled = CurrentHealth > 0f;
 		UpdateRegen();
 	}
 
@@ -46,6 +47,9 @@ public sealed class Shield : Component
 
 	public void Hit( Collision collision )
 	{
+		if ( !Active || CurrentHealth <= 0f )
+			return;
+
 		var damage = collision.GetDamage();
 		CurrentHealth = Math.Max( 0f, CurrentHealth - damage );
 		ResetRegen();

@@ -26,6 +26,9 @@ public sealed class Bouncy : Component, Component.ICollisionListener
 
 	public void OnCollisionStart( Collision other )
 	{
+		if ( !Active )
+			return;
+
 		if ( !CanBounceFrom( other.Other.GameObject ) )
 			return;
 

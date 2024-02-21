@@ -7,7 +7,7 @@
   "Schema": 1,
   "HasAssets": true,
   "AssetsPath": "",
-  "Resources": null,
+  "Resources": "*.svg\n*.scss",
   "MenuResources": "*",
   "HasCode": true,
   "CodePath": "/code/",

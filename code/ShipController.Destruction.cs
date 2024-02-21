@@ -23,14 +23,15 @@ public sealed partial class ShipController
 
 	public void Explode()
 	{
+		DestroyEquipment( GameObject );
 		ReleaseDebris();
-		DestroyNonDebris();
-		DestroyEquipment();
+		DestroyRemainingChildren();
 		DeployMeat();
 		SpillCargo();
+		Scene.Camera.GameObject.Parent = null;
 		HideHud();
 		Rigidbody.Velocity = Vector3.Zero;
-		Enabled = false;
+		GameObject.Destroy();
 	}
 
 	private void ReleaseDebris()
@@ -41,6 +42,7 @@ public sealed partial class ShipController
 		foreach( var debris in parts )
 		{
 			var oldTx = debris.Transform.World;
+			debris.Name = $"(Debris) {debris.Name}";
 			debris.Parent = null;
 			debris.Transform.World = oldTx;
 			debris.Tags.Add( "solid" );
@@ -52,7 +54,7 @@ public sealed partial class ShipController
 		}
 	}
 
-	private void DestroyNonDebris()
+	private void DestroyRemainingChildren()
 	{
 		foreach( var toDestroy in PartsContainer.Children.ToList() )
 		{
@@ -60,14 +62,18 @@ public sealed partial class ShipController
 		}
 	}
 
-	private void DestroyEquipment()
+	private void DestroyEquipment( GameObject go )
 	{
-		var equipment = GameObject.Children
-			.Where( c => c.Tags.Has( "equipment" ) )
-			.ToList();
-		foreach ( var item in equipment )
+		foreach ( var item in go.Children.ToList() )
 		{
-			item.Destroy();
+			if ( item.Tags.Has( "equipment" ) )
+			{
+				item.Destroy();
+			}
+			else
+			{
+				DestroyEquipment( item );
+			}
 		}
 	}
 
@@ -108,5 +114,7 @@ public sealed partial class ShipController
 	{
 		Component hud = Scene.GetAllComponents<HudPanel>().FirstOrDefault();
 		hud.Enabled = false;
+		Component cursor = Scene.GetAllComponents<CursorPanel>().FirstOrDefault();
+		cursor.Enabled = false;
 	}
 }

@@ -284,6 +284,7 @@
                   "Name": "Forward Retrorocket",
                   "Position": "33.33148,0,0",
                   "Scale": "2,0.016,0.006750001",
+                  "Tags": "equipment",
                   "Enabled": true,
                   "Components": [
                     {
@@ -345,13 +346,68 @@
               ],
               "Children": [
                 {
+                  "Id": "2e66ea98-6497-46ec-b4ba-99bcb119379c",
+                  "Name": "Shield",
+                  "Position": "0,0,0",
+                  "Scale": "1.667,4.167,4.026",
+                  "Tags": "equipment",
+                  "Components": [
+                    {
+                      "__type": "SphereCollider",
+                      "__enabled": false,
+                      "Center": "0,0,0",
+                      "IsTrigger": false,
+                      "Radius": 32,
+                      "Static": false,
+                      "Surface": null
+                    },
+                    {
+                      "__type": "Shield",
+                      "__enabled": false,
+                      "Bounce": {
+                        "_type": "component",
+                        "go": "2e66ea98-6497-46ec-b4ba-99bcb119379c",
+                        "component_type": "Bouncy"
+                      },
+                      "Collider": {
+                        "_type": "component",
+                        "go": "2e66ea98-6497-46ec-b4ba-99bcb119379c",
+                        "component_type": "SphereCollider"
+                      },
+                      "CurrentHealth": 100,
+                      "MaxHealth": 100,
+                      "RegenDelay": 5,
+                      "RegenRate": 20
+                    },
+                    {
+                      "__type": "ModelRenderer",
+                      "BodyGroups": 18446744073709551615,
+                      "MaterialGroup": null,
+                      "MaterialOverride": "materials/dev/primary_white_emissive.vmat",
+                      "Model": "models/dev/sphere.vmdl",
+                      "RenderType": "On",
+                      "Tint": "0,1,1,0"
+                    },
+                    {
+                      "__type": "Bouncy",
+                      "__enabled": false,
+                      "BouncedTags": "solid",
+                      "BounceFactor": 0.9,
+                      "OnBounce": null,
+                      "RehitDelay": 0.5
+                    }
+                  ]
+                },
+                {
                   "Id": "35c315ef-865f-49a7-83a1-2bcc3c9c7908",
                   "Name": "Grapple",
-                  "Position": "45,0,-30",
+                  "Position": "30,0,-20",
+                  "Tags": "equipment",
                   "Enabled": true,
                   "Components": [
                     {
                       "__type": "GrappleBeam",
+                      "__enabled": false,
                       "BeamAsset": "particles/slack_rope.vpcf",
                       "CurrentTarget": null,
                       "FilterWithAny": "solid",
@@ -368,13 +424,53 @@
                       "Particles": null
                     }
                   ]
+                },
+                {
+                  "Id": "aa63d0b2-925b-4068-bf6f-d8545e58f3d7",
+                  "Name": "Hull",
+                  "Position": "-4.744757,0,-9.366213",
+                  "Scale": "1.4,3.5,6.763285",
+                  "Tags": "equipment",
+                  "Enabled": true,
+                  "Components": [
+                    {
+                      "__type": "SphereCollider",
+                      "Center": "0,0,0",
+                      "IsTrigger": false,
+                      "Radius": 32,
+                      "Static": false,
+                      "Surface": null
+                    },
+                    {
+                      "__type": "ShipHull",
+                      "Bounce": {
+                        "_type": "component",
+                        "go": "aa63d0b2-925b-4068-bf6f-d8545e58f3d7",
+                        "component_type": "Bouncy"
+                      },
+                      "CurrentHealth": 100,
+                      "HitTags": "solid",
+                      "MaxHealth": 100,
+                      "PartsContainer": {
+                        "_type": "gameobject",
+                        "go": "c874c91b-fa93-44dd-a28f-0296f3426330"
+                      }
+                    },
+                    {
+                      "__type": "Bouncy",
+                      "BouncedTags": "solid",
+                      "BounceFactor": 0.2,
+                      "OnBounce": null,
+                      "RehitDelay": 0.5
+                    }
+                  ]
                 }
               ]
             },
             {
               "Id": "9f1aba35-eea9-427d-a148-b3f28c9efd4e",
               "Name": "Rear Beam",
-              "Position": "-57.71675,0.00000003136669,26.18691",
+              "Position": "-65.30208,0.00000003136669,26.18691",
               "Scale": "0.366,3,0.21",
               "Tags": "break_debris",
               "Enabled": true,
@@ -386,7 +482,7 @@
                   "MaterialOverride": "materials/dev/dev_metal_rough60.vmat",
                   "Model": "models/dev/box.vmdl",
                   "RenderType": "On",
-                  "Tint": "0.16279,0.16279,0.16279,1"
+                  "Tint": "0.2,0.19608,0.21176,1"
                 },
                 {
                   "__type": "BoxCollider",
@@ -414,8 +510,8 @@
             {
               "Id": "6de72c4a-2b68-434d-ae98-a5e1d4d006e6",
               "Name": "Left Nacelle",
-              "Position": "-53.42448,70,38.34743",
-              "Scale": "3,0.6,0.3",
+              "Position": "-61.0098,70,38.34743",
+              "Scale": "1.675781,0.6,0.3",
               "Tags": "break_debris",
               "Enabled": true,
               "Components": [
@@ -456,6 +552,7 @@
                   "Name": "Main Thruster",
                   "Position": "-27.48664,0,0",
                   "Rotation": "-0.00000005470048,0.00000001637869,-1,-0.0000006397578",
+                  "Tags": "equipment",
                   "Enabled": true,
                   "Components": [
                     {
@@ -480,6 +577,7 @@
                   "Position": "17.35204,30.23171,0",
                   "Rotation": "0.00000004807746,-0.00000003368148,0.707107,0.7071065",
                   "Scale": "1,0.2,0.15",
+                  "Tags": "equipment",
                   "Enabled": true,
                   "Components": [
                     {
@@ -503,8 +601,8 @@
             {
               "Id": "d26c9337-fa69-4c79-acd1-a19f11447962",
               "Name": "Right Nacelle",
-              "Position": "-53.42448,-70,38.34743",
-              "Scale": "3,0.6,0.3",
+              "Position": "-61.0098,-70,38.34743",
+              "Scale": "1.675781,0.6,0.3",
               "Tags": "break_debris",
               "Enabled": true,
               "Components": [
@@ -546,6 +644,7 @@
                   "Position": "-27.48664,0,0",
                   "Rotation": "-0.00000005470048,0.00000001637869,-1,-0.0000006397578",
                   "Scale": "1,0.04,0.0225",
+                  "Tags": "equipment",
                   "Enabled": true,
                   "Components": [
                     {
@@ -570,6 +669,7 @@
                   "Position": "17.35204,-36.951,0",
                   "Rotation": "-0.00000003368153,-0.00000004807748,-0.707107,0.7071065",
                   "Scale": "1,0.008,0.003375",
+                  "Tags": "equipment",
                   "Enabled": true,
                   "Components": [
                     {
@@ -593,13 +693,13 @@
             {
               "Id": "0556d2e7-4a01-49e4-8fda-bb2b1f3a8cae",
               "Name": "Ejection Source",
-              "Position": "-69.42393,-0.00007347894,0",
+              "Position": "-77.97468,-0.00008441976,0",
               "Rotation": "0,0,1,-0.0000006397578",
               "Enabled": true
             },
             {
               "Id": "8f5b04b0-b012-44e5-984b-b4d784a6f789",
-              "Name": "Glass Dome (Forward)",
+              "Name": "Glass Dome",
               "Position": "48.90003,0,22.0556",
               "Scale": "0.75,0.75,0.75",
               "Enabled": true,
@@ -616,20 +716,82 @@
               ]
             },
             {
-              "Id": "0621f5ef-5228-44e1-a024-a3ef5d35d2d9",
-              "Name": "Glass Dome (Forward)",
-              "Position": "-11.62814,0,22.0556",
-              "Scale": "0.75,0.75,0.75",
+              "Id": "7336e9a2-b085-4f95-9ede-b2a47301db78",
+              "Name": "Top Hull",
+              "Position": "1.337998,0,40.52026",
+              "Scale": "1.98426,1,0.7594082",
+              "Tags": "break_debris",
               "Enabled": true,
               "Components": [
                 {
                   "__type": "ModelRenderer",
                   "BodyGroups": 18446744073709551615,
                   "MaterialGroup": null,
-                  "MaterialOverride": "materials/dev/dev_nonmetal_rough00.vmat",
-                  "Model": "models/dev/sphere.vmdl",
+                  "MaterialOverride": "materials/dev/dev_metal_rough60.vmat",
+                  "Model": "models/dev/box.vmdl",
                   "RenderType": "On",
-                  "Tint": "0.06284,0.05279,0.09302,1"
+                  "Tint": "0.20095,0.19803,0.21395,1"
+                },
+                {
+                  "__type": "BoxCollider",
+                  "Center": "0,0,0",
+                  "IsTrigger": false,
+                  "Scale": "50,50,50",
+                  "Static": false,
+                  "Surface": null
+                },
+                {
+                  "__type": "Rigidbody",
+                  "__enabled": false,
+                  "AngularDamping": 0,
+                  "Gravity": false,
+                  "LinearDamping": 0,
+                  "Locking": {
+                    "Z": true
+                  },
+                  "MassOverride": 0,
+                  "RigidbodyFlags": 0,
+                  "StartAsleep": false
+                }
+              ]
+            },
+            {
+              "Id": "edebffa1-2349-4a37-9b90-951093ac509a",
+              "Name": "Bottom Hull",
+              "Position": "1.337998,0,-21.36586",
+              "Scale": "2.86053,1,0.5201874",
+              "Tags": "break_debris",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "ModelRenderer",
+                  "BodyGroups": 18446744073709551615,
+                  "MaterialGroup": null,
+                  "MaterialOverride": "materials/dev/dev_metal_rough60.vmat",
+                  "Model": "models/dev/box.vmdl",
+                  "RenderType": "On",
+                  "Tint": "0.46512,0.44132,0.44132,1"
+                },
+                {
+                  "__type": "BoxCollider",
+                  "Center": "0,0,0",
+                  "IsTrigger": false,
+                  "Scale": "50,50,50",
+                  "Static": false,
+                  "Surface": null
+                },
+                {
+                  "__type": "Rigidbody",
+                  "__enabled": false,
+                  "AngularDamping": 0,
+                  "Gravity": false,
+                  "LinearDamping": 0,
+                  "Locking": {
+                    "Z": true
+                  },
+                  "MassOverride": 0,
+                  "RigidbodyFlags": 0,
+                  "StartAsleep": false
                 }
               ]
             }
@@ -711,98 +873,6 @@
           ]
         },
         {
-          "Id": "2e66ea98-6497-46ec-b4ba-99bcb119379c",
-          "Name": "Shield",
-          "Scale": "5,5,5",
-          "Tags": "equipment",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "SphereCollider",
-              "__enabled": false,
-              "Center": "0,0,0",
-              "IsTrigger": false,
-              "Radius": 32,
-              "Static": false,
-              "Surface": null
-            },
-            {
-              "__type": "Shield",
-              "__enabled": false,
-              "Bounce": {
-                "_type": "component",
-                "go": "2e66ea98-6497-46ec-b4ba-99bcb119379c",
-                "component_type": "Bouncy"
-              },
-              "Collider": {
-                "_type": "component",
-                "go": "2e66ea98-6497-46ec-b4ba-99bcb119379c",
-                "component_type": "SphereCollider"
-              },
-              "CurrentHealth": 100,
-              "MaxHealth": 100,
-              "RegenDelay": 5,
-              "RegenRate": 20
-            },
-            {
-              "__type": "ModelRenderer",
-              "BodyGroups": 18446744073709551615,
-              "MaterialGroup": null,
-              "MaterialOverride": "materials/dev/primary_white_emissive.vmat",
-              "Model": "models/dev/sphere.vmdl",
-              "RenderType": "On",
-              "Tint": "0,1,1,0"
-            },
-            {
-              "__type": "Bouncy",
-              "BouncedTags": "solid",
-              "BounceFactor": 0.9,
-              "OnBounce": null,
-              "RehitDelay": 0.5
-            }
-          ]
-        },
-        {
-          "Id": "aa63d0b2-925b-4068-bf6f-d8545e58f3d7",
-          "Name": "Hull",
-          "Position": "-14.23427,0,0",
-          "Scale": "4.2,4.2,4.2",
-          "Tags": "equipment",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "SphereCollider",
-              "Center": "0,0,0",
-              "IsTrigger": false,
-              "Radius": 32,
-              "Static": false,
-              "Surface": null
-            },
-            {
-              "__type": "ShipHull",
-              "Bounce": {
-                "_type": "component",
-                "go": "aa63d0b2-925b-4068-bf6f-d8545e58f3d7",
-                "component_type": "Bouncy"
-              },
-              "CurrentHealth": 100,
-              "HitTags": "solid",
-              "MaxHealth": 100,
-              "PartsContainer": {
-                "_type": "gameobject",
-                "go": "c874c91b-fa93-44dd-a28f-0296f3426330"
-              }
-            },
-            {
-              "__type": "Bouncy",
-              "BouncedTags": "solid",
-              "BounceFactor": 0.2,
-              "OnBounce": null,
-              "RehitDelay": 0.5
-            }
-          ]
-        },
-        {
           "Id": "3c781afd-c2c2-4bcb-9e5d-e8358f9c8dee",
           "Name": "Stabilizer",
           "Tags": "equipment",
@@ -810,6 +880,7 @@
           "Components": [
             {
               "__type": "Stabilizer",
+              "__enabled": false,
               "Rigidbody": {
                 "_type": "component",
                 "go": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
@@ -1710,7 +1781,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-21T01:42:30.5854149-07:00",
+  "LastSaved": "2024-02-21T15:20:50.401897-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03"
