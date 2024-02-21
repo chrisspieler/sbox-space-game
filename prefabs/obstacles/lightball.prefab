@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "Id": "e80dcc5e-49c2-4e84-8a68-34cd058fb29b",
+    "Id": "30bd9120-3908-44ab-bea3-e7c9d2d90fcd",
     "Name": "lightball",
     "Scale": "0.25,0.25,0.25",
     "Tags": "light_point,light",
@@ -21,19 +21,19 @@
         "FogMode": "Enabled",
         "FogStrength": 1,
         "LightColor": "1,1,1,1",
-        "Radius": 400,
+        "Radius": 1000,
         "Shadows": false
       },
       {
         "__type": "LightBall",
         "Light": {
           "_type": "component",
-          "go": "e80dcc5e-49c2-4e84-8a68-34cd058fb29b",
+          "go": "30bd9120-3908-44ab-bea3-e7c9d2d90fcd",
           "component_type": "PointLight"
         },
         "Model": {
           "_type": "component",
-          "go": "e80dcc5e-49c2-4e84-8a68-34cd058fb29b",
+          "go": "30bd9120-3908-44ab-bea3-e7c9d2d90fcd",
           "component_type": "ModelRenderer"
         }
       },
@@ -42,18 +42,12 @@
         "AngularDamping": 0,
         "Gravity": false,
         "LinearDamping": 0,
-        "Locking": {},
+        "Locking": {
+          "Z": true
+        },
         "MassOverride": 0,
         "RigidbodyFlags": 0,
         "StartAsleep": false
-      },
-      {
-        "__type": "PlaneConstraint",
-        "Rigidbody": {
-          "_type": "component",
-          "go": "e80dcc5e-49c2-4e84-8a68-34cd058fb29b",
-          "component_type": "Rigidbody"
-        }
       },
       {
         "__type": "SphereCollider",

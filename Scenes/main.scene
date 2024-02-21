@@ -233,11 +233,11 @@
             {
               "__type": "VolumetricFogVolume",
               "Bounds": {
-                "Mins": "-2000,-2000,-150",
-                "Maxs": "2000,2000,150"
+                "Mins": "-2000,-2000,-300",
+                "Maxs": "2000,2000,300"
               },
               "FalloffExponent": 1,
-              "Strength": 0.2
+              "Strength": 0.1
             }
           ]
         },
@@ -836,7 +836,7 @@
         {
           "Id": "8ede2f42-0609-4c27-b88e-758c976eb0bb",
           "Name": "Meat",
-          "Position": "128.2716,0.000003493886,-10.90743",
+          "Position": "140.1222,0.000009294552,-37.89985",
           "Components": [
             {
               "__type": "SkinnedModelRenderer",
@@ -1716,7 +1716,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-20T22:08:05.3961188-07:00",
+  "LastSaved": "2024-02-20T22:23:26.5724774-07:00",
   "__references": [
     "dopamine.starmapmilkyway",
     "eurorp.aluminium_03"

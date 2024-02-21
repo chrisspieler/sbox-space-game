@@ -1,4 +1,5 @@
 ﻿using Sandbox;
+using System;
 using System.Linq;
 
 public sealed partial class ShipController
@@ -26,6 +27,7 @@ public sealed partial class ShipController
 		DestroyNonDebris();
 		DestroyEquipment();
 		DeployMeat();
+		SpillCargo();
 		Rigidbody.Velocity = Vector3.Zero;
 		Enabled = false;
 	}
@@ -85,5 +87,19 @@ public sealed partial class ShipController
 		Fog.GameObject.Parent = null;
 		var follower = Fog.Components.Create<Follower>();
 		follower.Target = deathCam.GameObject;
+	}
+
+	private void SpillCargo()
+	{
+		for (int i = 0; i < 20; i ++ )
+		{
+			var prefabFile = ResourceLibrary.Get<PrefabFile>( "prefabs/obstacles/lightball.prefab" );
+			var prefabScene = SceneUtility.GetPrefabScene( prefabFile );
+			var go = prefabScene.Clone();
+			go.Transform.Position = Transform.Position + Random.Shared.VectorInSphere( 20f );
+			var rb = go.Components.Get<Rigidbody>();
+			rb.Velocity = Rigidbody.Velocity;
+			rb.Velocity += Vector3.Random * Random.Shared.Float( 20f, 150f );
+		}
 	}
 }
