@@ -36,7 +36,7 @@ public sealed class ShipController : Component
 
 	private void UpdateThrusters( Vector3 inputDir )
 	{
-		_mainThrusterForce = PartsContainer.Transform.Rotation.Forward * GetMainThrusterForce( inputDir );
+		_mainThrusterForce = PartsContainer.Transform.Rotation.Forward * GetMainThrusterForce();
 		_retrorocketForce = Stabilizer?.GetStabilizerForce() ?? Vector3.Zero;
 		Rigidbody.Velocity += _mainThrusterForce;
 		Rigidbody.Velocity += _retrorocketForce;
@@ -73,7 +73,7 @@ public sealed class ShipController : Component
 		return input.Normal;
 	}
 
-	private float GetMainThrusterForce( Vector3 inputDir )
+	private float GetMainThrusterForce()
 	{
 		var acceleration = Acceleration * (Input.Down( "thrust" ) ? 1f : 0f);
 		return acceleration * Time.Delta;
