@@ -5,7 +5,10 @@
 
 <root>
 	<div id="bottomBars">
-        <FillBar Icon="offline_bolt" FillColor=@ShieldColor FillPercentGetter=@GetShieldPercent/>
+        @if ( _shipShield.IsValid() && _shipShield.CurrentHealth > 0f )
+        {
+            <FillBar Icon="offline_bolt" FillColor=@ShieldColor FillPercentGetter=@GetShieldPercent/>
+        }
         <FillBar Icon="security" FillColor=@HullColor FillPercentGetter=@GetHullPercent/>
     </div>
 </root>
@@ -19,7 +22,7 @@
     private Shield _shipShield;
     private ShipHull _shipHull;
 
-    protected override int BuildHash() => System.HashCode.Combine( ShieldColor, HullColor );
+    protected override int BuildHash() => System.HashCode.Combine( ShieldColor, HullColor, _shipShield?.CurrentHealth );
 
     protected override void OnStart()
     {

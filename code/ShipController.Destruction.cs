@@ -28,6 +28,7 @@ public sealed partial class ShipController
 		DestroyEquipment();
 		DeployMeat();
 		SpillCargo();
+		HideHud();
 		Rigidbody.Velocity = Vector3.Zero;
 		Enabled = false;
 	}
@@ -101,5 +102,11 @@ public sealed partial class ShipController
 			rb.Velocity = Rigidbody.Velocity;
 			rb.Velocity += Vector3.Random * Random.Shared.Float( 20f, 150f );
 		}
+	}
+
+	private void HideHud()
+	{
+		Component hud = Scene.GetAllComponents<HudPanel>().FirstOrDefault();
+		hud.Enabled = false;
 	}
 }
