@@ -1,7 +1,6 @@
-using System;
 using Sandbox;
 
-public sealed class ShipController : Component
+public sealed partial class ShipController : Component
 {
 	[Property] public Rigidbody Rigidbody { get; set; }
 	[Property] public GameObject PartsContainer { get; set; }

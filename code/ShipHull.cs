@@ -26,7 +26,8 @@ public sealed class ShipHull : Component
 		CurrentHealth = Math.Max( 0f, CurrentHealth - damage );
 		if ( CurrentHealth <= 0f )
 		{
-			Log.Info( "TODO: Make the ship explode" );
+			var controller = Components.GetInAncestorsOrSelf<ShipController>();
+			controller.Explode();
 			return;
 		}
 		var effect = new TintEffect
