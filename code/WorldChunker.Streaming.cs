@@ -94,7 +94,8 @@ public sealed partial class WorldChunker : GameObjectSystem
 
 	private void LoadSquare( Vector2Int origin, int diameter )
 	{
-		Log.Info( $"Load {diameter} diameter square around: {origin}" );
+		if ( Debug ) { Log.Info( $"Load {diameter} diameter square around: {origin}" ); }
+
 		for ( int x = -diameter; x <= diameter; x++ )
 		{
 			for ( int y = -diameter; y <= diameter; y++ )
