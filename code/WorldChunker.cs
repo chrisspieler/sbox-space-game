@@ -6,7 +6,8 @@ public sealed partial class WorldChunker : GameObjectSystem
 	/// <summary>
 	/// The size of each world chunk in units. 
 	/// </summary>
-	public static int ChunkSize = 1000;
+	[ConVar( "world_chunk_size" )]
+	public static int ChunkSize { get; set; } = 5_000;
 
 	// This number is based on a chunk size of 1000 units.
 	// Perhaps it should be calculated based on the chunk size.

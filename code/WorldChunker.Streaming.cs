@@ -7,8 +7,10 @@ public sealed partial class WorldChunker : GameObjectSystem
 	/// <summary>
 	/// Determines how many layers of chunks are loaded in all eight directions from the origin.
 	/// </summary>
-	public int ChunkLoadDistance { get; set; } = 3;
-	public int MaxLoadedChunks { get; set; } = 80;
+	[ConVar("world_streaming_depth")]
+	public static int ChunkLoadDistance { get; set; } = 1;
+	[ConVar("world_streaming_max_loaded_chunks")]
+	public static int MaxLoadedChunks { get; set; } = 15;
 
 	[ConVar("world_streaming_debug")]
 	public static bool DebugStreaming { get; set; }
