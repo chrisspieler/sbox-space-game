@@ -36,6 +36,7 @@ public sealed partial class ShipController : Component
 		TargetRotation = GetTargetRotation();
 		var rotationSpeed = GetRotationSpeed();
 		PartsContainer.Transform.Rotation = Rotation.Lerp( fromRot, TargetRotation, rotationSpeed * Time.Delta );
+		UpdateDebugInfo();
 	}
 
 	private void UpdateThrusters( Vector3 inputDir )

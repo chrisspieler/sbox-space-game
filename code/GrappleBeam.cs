@@ -3,11 +3,11 @@ using Sandbox;
 public sealed class GrappleBeam : Component
 {
 	[Property] public SpringJoint Joint { get; set; }
-	[Property] public MouseSelector MouseSelector { get; set; }
 	[Property] public TagSet FilterWithAny { get; set; }
 	[Property] public ParticleSystem BeamAsset { get; set; }
 	[Property] public LegacyParticleSystem Particles { get; set; }
 	[Property] public GameObject CurrentTarget => _currentTarget;
+
 	public bool IsSlack
 	{
 		get
@@ -34,10 +34,11 @@ public sealed class GrappleBeam : Component
 			if ( CurrentTarget is not null )
 				Disconnect();
 
-			if ( MouseSelector.Hovered?.Tags?.Has( "solid" ) != true )
+			var mouseSelector = MouseSelector.Instance;
+			if ( mouseSelector.Hovered?.Tags?.Has( "solid" ) != true )
 				return;
 
-			Connect( MouseSelector.Hovered );
+			Connect( mouseSelector.Hovered );
 		}
 	}
 

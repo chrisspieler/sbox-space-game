@@ -1,7 +1,6 @@
 ﻿using Sandbox;
 using System;
 using System.Linq;
-using System.Runtime.CompilerServices;
 
 public sealed partial class ShipController
 {
@@ -9,14 +8,11 @@ public sealed partial class ShipController
 	public static int MeatRagdollWackiness { get; set; } = 10;
 
 	[Property, Category("Death")] public GameObject Meat { get; set; }
-	[Property, Category("Death")] public VolumetricFogVolume Fog { get; set; }
 
 	[ConCmd("ship_explode")]
 	public static void ExplodeCommand()
 	{
-		var controller = GameManager.ActiveScene
-			.GetAllComponents<ShipController>()
-			.FirstOrDefault();
+		var controller = GetCurrent();
 		if ( !controller.IsValid() )
 		{
 			Log.Info( "Unable to find ship controller." );
@@ -93,9 +89,10 @@ public sealed partial class ShipController
 		ApplyRagdollTwirl( Meat, MeatRagdollWackiness );
 		var deathCam = Meat.Components.GetInDescendantsOrSelf<DeathCamConfig>( true );
 		deathCam.Enabled = true;
+		var fog = Scene.GetAllComponents<VolumetricFogVolume>().First();
 		// Move the fog from the ship to the death cam.
-		Fog.GameObject.Parent = null;
-		var follower = Fog.Components.Create<Follower>();
+		fog.GameObject.Parent = null;
+		var follower = fog.Components.GetOrCreate<Follower>();
 		follower.Target = deathCam.GameObject;
 	}
 

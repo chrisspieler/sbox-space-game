@@ -3,6 +3,8 @@ using System;
 
 public sealed class MouseSelector : Component
 {
+	public static MouseSelector Instance { get; private set; }
+
 	[Property] public Action<GameObject> OnHoveredChanged { get; set; }
 	
 	[Property] public GameObject Hovered => _hovered;
@@ -10,9 +12,13 @@ public sealed class MouseSelector : Component
 	[Property] public TagSet FilterWithAny { get; set; }
 	[Property] public TagSet FilterWithoutAny { get; set; }
 	[Property] public float DeselectTime { get; set; } = 1f;
-	[Property] public SelectionPanel HoveredIcon { get; set; }
 
 	private TimeUntil _untilDeselect;
+
+	protected override void OnStart()
+	{
+		Instance = this;
+	}
 
 	protected override void OnUpdate()
 	{
@@ -39,11 +45,7 @@ public sealed class MouseSelector : Component
 	public void SetHovered( GameObject hovered )
 	{
 		_hovered = hovered;
-		if ( HoveredIcon is not null )
-		{
-			HoveredIcon.Target = _hovered;
-			HoveredIcon.Enabled = _hovered.IsValid();
-		}
+		ScreenManager.SetHoveredSelection( _hovered );
 		OnHoveredChanged?.Invoke( _hovered );
 	}
 

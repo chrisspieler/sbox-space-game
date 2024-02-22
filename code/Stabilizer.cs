@@ -8,14 +8,13 @@ public sealed class Stabilizer : Component
 	[Property] public Rigidbody VelocityMatchTarget { get; set; }
 	[Property] public float VelocityMatchedThreshold { get; set; } = 3f;
 	[Property] public float VelocityMatchMaxDistance { get; set; } = 1000f;
-	[Property] public MouseSelector Selector { get; set; }
 	[Property] public float StabilizerPower { get; set; }
 
 	private Rigidbody _hoveredRigidbody;
 
 	protected override void OnStart()
 	{
-		Selector.OnHoveredChanged += OnHoveredChanged;
+		MouseSelector.Instance.OnHoveredChanged += OnHoveredChanged;
 	}
 
 	private void OnHoveredChanged( GameObject hovered )
