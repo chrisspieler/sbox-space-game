@@ -32,7 +32,7 @@ public sealed partial class ShipController
 		DestroyRemainingChildren();
 		DeployMeat();
 		SpillCargo();
-		Scene.Camera.GameObject.Parent = null;
+		ReleaseSceneCamera();
 		HideHud();
 		Rigidbody.Velocity = Vector3.Zero;
 		GameObject.Destroy();
@@ -135,5 +135,14 @@ public sealed partial class ShipController
 		ScreenManager.SetHudEnabled( false );
 		ScreenManager.SetCursorEnabled( false );
 		ScreenManager.ShowDeathScreen();
+	}
+
+	private void ReleaseSceneCamera()
+	{
+		var camera = Scene.Camera;
+		// Workaround issue #4926: Orphaned GameObjects have their world position set to their former local position
+		var oldPos = camera.Transform.Position;
+		camera.GameObject.Parent = null;
+		camera.GameObject.Transform.Position = oldPos;
 	}
 }

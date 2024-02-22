@@ -152,8 +152,8 @@
                 "Id": 2,
                 "Type": "property.get",
                 "Properties": {
-                  "_name": "PhysicsWorld",
-                  "_type": "Sandbox.Game/Sandbox.Scene"
+                  "_type": "Sandbox.Game/Sandbox.Scene",
+                  "_name": "PhysicsWorld"
                 },
                 "UserData": {
                   "Position": "64,64"
@@ -163,8 +163,8 @@
                 "Id": 3,
                 "Type": "property.set",
                 "Properties": {
-                  "_name": "Gravity",
-                  "_type": "Sandbox.Engine/Sandbox.PhysicsWorld"
+                  "_type": "Sandbox.Engine/Sandbox.PhysicsWorld",
+                  "_name": "Gravity"
                 },
                 "UserData": {
                   "Position": "352,0"
@@ -1970,7 +1970,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-21T21:26:56.7493926-07:00",
+  "LastSaved": "2024-02-21T23:51:32.399868-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03"
