@@ -152,8 +152,8 @@
                 "Id": 2,
                 "Type": "property.get",
                 "Properties": {
-                  "_type": "Sandbox.Game/Sandbox.Scene",
-                  "_name": "PhysicsWorld"
+                  "_name": "PhysicsWorld",
+                  "_type": "Sandbox.Game/Sandbox.Scene"
                 },
                 "UserData": {
                   "Position": "64,64"
@@ -163,8 +163,8 @@
                 "Id": 3,
                 "Type": "property.set",
                 "Properties": {
-                  "_type": "Sandbox.Engine/Sandbox.PhysicsWorld",
-                  "_name": "Gravity"
+                  "_name": "Gravity",
+                  "_type": "Sandbox.Engine/Sandbox.PhysicsWorld"
                 },
                 "UserData": {
                   "Position": "352,0"
@@ -474,7 +474,7 @@
                   "Name": "Shield",
                   "Position": "0,0,0",
                   "Scale": "1.667,4.167,4.026",
-                  "Tags": "equipment",
+                  "Tags": "equipment,player_shield",
                   "Components": [
                     {
                       "__type": "SphereCollider",
@@ -515,8 +515,10 @@
                     {
                       "__type": "Bouncy",
                       "__enabled": false,
+                      "AddedVelocity": 0,
                       "BouncedTags": "solid",
                       "BounceFactor": 0.9,
+                      "IgnoredTags": null,
                       "OnBounce": null,
                       "RehitDelay": 0.5
                     }
@@ -582,8 +584,10 @@
                     },
                     {
                       "__type": "Bouncy",
+                      "AddedVelocity": 0,
                       "BouncedTags": "solid",
                       "BounceFactor": 0.2,
+                      "IgnoredTags": null,
                       "OnBounce": null,
                       "RehitDelay": 0.5
                     }
@@ -1864,7 +1868,7 @@
     {
       "Id": "b95bc5b6-db79-4b7b-9cb5-c9d2b127a0ac",
       "Name": "The Cube",
-      "Position": "0,0,-599.9998",
+      "Position": "0,0,-700",
       "Scale": "20,20,20",
       "Enabled": true,
       "Components": [
@@ -1876,6 +1880,69 @@
           "Model": "models/dev/box.vmdl",
           "RenderType": "On",
           "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "BoxCollider",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "50,50,50",
+          "Static": false,
+          "Surface": null
+        }
+      ],
+      "Children": [
+        {
+          "Id": "ccc59e16-bb57-417c-bb76-17079140fa74",
+          "Name": "Base Shield",
+          "Position": "0,0,0",
+          "Scale": "2,2,2",
+          "Tags": "player_shield",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Shield",
+              "Bounce": {
+                "_type": "component",
+                "go": "ccc59e16-bb57-417c-bb76-17079140fa74",
+                "component_type": "Bouncy"
+              },
+              "Collider": {
+                "_type": "component",
+                "go": "ccc59e16-bb57-417c-bb76-17079140fa74",
+                "component_type": "SphereCollider"
+              },
+              "CurrentHealth": 10000,
+              "MaxHealth": 10000,
+              "RegenDelay": 0.1,
+              "RegenRate": 1000
+            },
+            {
+              "__type": "Bouncy",
+              "AddedVelocity": 500,
+              "BouncedTags": "solid",
+              "BounceFactor": 1,
+              "IgnoredTags": "player",
+              "OnBounce": null,
+              "RehitDelay": 0.5
+            },
+            {
+              "__type": "SphereCollider",
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Radius": 32,
+              "Static": false,
+              "Surface": null
+            },
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/primary_white_emissive.vmat",
+              "Model": "models/dev/sphere.vmdl",
+              "RenderType": "On",
+              "Tint": "0,1,1,0"
+            }
+          ]
         }
       ]
     }
@@ -1903,7 +1970,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-21T19:11:29.0628951-07:00",
+  "LastSaved": "2024-02-21T21:19:33.032209-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03"
