@@ -13,7 +13,7 @@ public sealed partial class WorldChunker : GameObjectSystem
 	public static int MaxLoadedChunks { get; set; } = 15;
 
 	[ConVar("world_streaming_debug")]
-	public static bool DebugStreaming { get; set; }
+	public static bool Debug { get; set; }
 	public GameObject ChunkContainer { get; private set; }
 
 	private readonly Dictionary<Vector2Int, GameObject> _worldChunks = new();
@@ -55,6 +55,8 @@ public sealed partial class WorldChunker : GameObjectSystem
 
 	private void LoadChunk( Vector2Int chunkPos )
 	{
+		if ( Debug ) { Log.Info( $"Load chunk: {chunkPos}" ); }
+
 		if ( _worldChunks.ContainsKey( chunkPos ) )
 			return;
 
@@ -75,6 +77,8 @@ public sealed partial class WorldChunker : GameObjectSystem
 
 	private void UnloadChunk( Vector2Int chunkPos )
 	{
+		if ( Debug ) { Log.Info( $"Unload chunk: {chunkPos}" ); }
+
 		if ( !_worldChunks.ContainsKey( chunkPos ) )
 			return;
 
@@ -91,6 +95,7 @@ public sealed partial class WorldChunker : GameObjectSystem
 
 	private void LoadSquare( Vector2Int origin, int diameter )
 	{
+		Log.Info( $"Load {diameter} diameter square around: {origin}" );
 		for ( int x = -diameter; x <= diameter; x++ )
 		{
 			for ( int y = -diameter; y <= diameter; y++ )
@@ -121,7 +126,7 @@ public sealed partial class WorldChunker : GameObjectSystem
 
 	private void DrawDebugInfo()
 	{
-		if ( !DebugStreaming )
+		if ( !Debug )
 			return;
 
 		Gizmo.Draw.ScreenText( $"Loaded {ChunkCount}/{MaxLoadedChunks} chunks", new Vector2( 25, 75 ), "Consolas", 12, TextFlag.Left );

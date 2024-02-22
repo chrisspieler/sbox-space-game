@@ -99,6 +99,7 @@
       "Id": "50985c72-fec4-48cf-bd58-355bbd47aec5",
       "Name": "Skybox",
       "Position": "-100,0,0.0003515341",
+      "Rotation": "-0.0652631,0.0652631,0.00427757,0.9957225",
       "Tags": "skybox",
       "Enabled": true,
       "Components": [
@@ -240,6 +241,7 @@
     {
       "Id": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
       "Name": "Ship",
+      "Position": "2500,2500,0",
       "Tags": "player,ship,solid",
       "Enabled": true,
       "Components": [
@@ -364,6 +366,7 @@
         {
           "Id": "c874c91b-fa93-44dd-a28f-0296f3426330",
           "Name": "Parts",
+          "Position": "0,0,0",
           "Enabled": true,
           "Children": [
             {
@@ -1006,6 +1009,7 @@
         {
           "Id": "3c781afd-c2c2-4bcb-9e5d-e8358f9c8dee",
           "Name": "Stabilizer",
+          "Position": "0,0,0",
           "Tags": "equipment",
           "Enabled": true,
           "Components": [
@@ -1871,7 +1875,7 @@
     {
       "Id": "b95bc5b6-db79-4b7b-9cb5-c9d2b127a0ac",
       "Name": "The Cube",
-      "Position": "0,0,-700",
+      "Position": "2500,2500,-700",
       "Scale": "20,20,20",
       "Enabled": true,
       "Components": [
@@ -1973,7 +1977,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-22T02:32:14.1757991-07:00",
+  "LastSaved": "2024-02-22T02:39:42.9721181-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03"

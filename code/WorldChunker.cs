@@ -57,6 +57,15 @@ public sealed partial class WorldChunker : GameObjectSystem
 	}
 
 	/// <summary>
+	/// Returns the origin-shifted position of the center of the given chunk.
+	/// </summary>
+	public Vector3 ChunkCenterToWorldRelative( Vector2Int chunk )
+	{
+		var chunkPos = ChunkToWorldRelative( chunk );
+		return chunkPos + new Vector3( 1, 1, 0 ) * ChunkSize / 2;
+	}
+
+	/// <summary>
 	/// Checks whether a position is so far from the origin that the step
 	/// size of one or more of its components risks exceeding the chunk size.
 	/// </summary>
