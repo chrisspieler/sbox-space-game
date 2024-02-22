@@ -10,6 +10,7 @@ public sealed class SpaceFloater : Component
 	[Property] public bool RandomizeVelocity { get; set; } = true;
 	[Property] public float RandomVelocityScale { get; set; } = 1f;
 	[Property] public Vector3 InitialVelocity { get; set; }
+	[Property] public float MassOverride { get; set; } = 1000f;
 	[Property] public bool RandomizeAngularVelocity { get; set; } = true;
 	[Property] public float RandomAngularVelocityScale { get; set; } = 0.5f;
 	[Property] public Vector3 InitialAngularVelocity { get; set; }
@@ -28,6 +29,8 @@ public sealed class SpaceFloater : Component
 		{
 			Transform.Scale = Transform.Scale * ScaleCurve.Evaluate( Random.Shared.NextSingle() );
 		}
+
+		Rigidbody.MassOverride = MassOverride * Transform.Scale.Length;
 
 		if ( RandomizeVelocity )
 			InitialVelocity = RandomVelocityScale * Vector3.Random;
