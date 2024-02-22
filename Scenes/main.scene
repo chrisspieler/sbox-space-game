@@ -99,7 +99,7 @@
       "Id": "50985c72-fec4-48cf-bd58-355bbd47aec5",
       "Name": "Skybox",
       "Position": "-100,0,0.0003515341",
-      "Rotation": "-0.0652631,0.0652631,0.00427757,0.9957225",
+      "Rotation": "-0.08349869,0.06517375,0.005472793,0.9943593",
       "Tags": "skybox",
       "Enabled": true,
       "Components": [
@@ -241,7 +241,7 @@
     {
       "Id": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
       "Name": "Ship",
-      "Position": "2500,2500,0",
+      "Position": "2500,3200,0",
       "Tags": "player,ship,solid",
       "Enabled": true,
       "Components": [
@@ -367,6 +367,7 @@
           "Id": "c874c91b-fa93-44dd-a28f-0296f3426330",
           "Name": "Parts",
           "Position": "0,0,0",
+          "Rotation": "0,0,0.7071068,0.7071068",
           "Enabled": true,
           "Children": [
             {
@@ -1950,6 +1951,71 @@
               "Tint": "0,1,1,0"
             }
           ]
+        },
+        {
+          "Id": "fa056831-a9c3-4510-b888-b7f61087ae3e",
+          "Name": "Shop",
+          "Position": "0,0,34.84475",
+          "Scale": "0.4,0.4,0.4",
+          "Tags": "solid",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/generic/metal_brushed.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ],
+          "Children": [
+            {
+              "Id": "8e7015c5-960f-422e-8d18-c2a2ce5ef943",
+              "Name": "Point Light",
+              "Position": "-40.09875,6.522308,20.3388",
+              "Tags": "light_point,light",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "PointLight",
+                  "Attenuation": 0.39,
+                  "FogMode": "Enabled",
+                  "FogStrength": 1,
+                  "LightColor": "0,0.18333,1,1",
+                  "Radius": 1000,
+                  "Shadows": true
+                }
+              ]
+            },
+            {
+              "Id": "4a3d5584-8540-4ee1-b432-6b7453205768",
+              "Name": "Point Light",
+              "Position": "2.364838,40.86362,20.33878",
+              "Tags": "light_point,light",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "PointLight",
+                  "Attenuation": 0.39,
+                  "FogMode": "Enabled",
+                  "FogStrength": 1,
+                  "LightColor": "0,0.18333,1,1",
+                  "Radius": 1000,
+                  "Shadows": true
+                }
+              ]
+            }
+          ]
         }
       ]
     }
@@ -1977,9 +2043,10 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-22T02:47:45.7017575-07:00",
+  "LastSaved": "2024-02-22T03:48:30.7526786-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
-    "eurorp.aluminium_03"
+    "eurorp.aluminium_03",
+    "facepunch.metal_brushed"
   ]
 }

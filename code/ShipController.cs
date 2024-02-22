@@ -11,13 +11,18 @@ public sealed partial class ShipController : Component
 	[Property, Category("Debug")] public Vector3 RetrorocketForce => _retrorocketForce;
 	private Vector3 _retrorocketForce;
 	[Property, Category("Debug")] public Vector3 LastInputDir => _lastInputDir;
-	private Vector3 _lastInputDir { get; set; } = Vector3.Forward;
+	private Vector3 _lastInputDir { get; set; }
 	[Property, Category( "Equipment" )]
 	public GrappleBeam Grapple { get; set; }
 	[Property, Category( "Equipment" )]
 	public Stabilizer Stabilizer { get; set; }
 
 	public Rotation TargetRotation { get; private set; }
+
+	protected override void OnStart()
+	{
+		_lastInputDir = PartsContainer.Transform.Rotation.Forward.WithZ( 0f );
+	}
 
 	protected override void OnUpdate()
 	{
