@@ -43,6 +43,11 @@ public sealed class AsteroidSpawner : Component
 
 	public float GetSpawnProbability( Vector3 position )
 	{
+		// Make sure that no asteroids spawn at the world origin.
+		// This is to prevent the player from getting telefragged on scene load.
+		if ( position.Length < 1500f )
+			return 0f;
+
 		var originSystem = Scene?.GetSystem<FloatingOriginSystem>();
 		if ( originSystem is not null )
 		{
