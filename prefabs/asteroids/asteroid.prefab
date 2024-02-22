@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "Id": "e3968aeb-3148-421d-bcaa-3f253a0fa47d",
+    "Id": "ed892e3f-544b-4628-9496-28a900bc605a",
     "Name": "asteroid",
     "Tags": "solid",
     "Enabled": true,
@@ -12,7 +12,7 @@
         "MaterialOverride": null,
         "Model": "models/rust_nature/rocks/rock_small_c.vmdl",
         "RenderType": "On",
-        "Tint": "0.34938,0.35247,0.40099,1"
+        "Tint": "0.28511,0.28749,0.32093,1"
       },
       {
         "__type": "ModelCollider",
@@ -45,33 +45,33 @@
         "RandomVelocityScale": 50,
         "Rigidbody": {
           "_type": "component",
-          "go": "e3968aeb-3148-421d-bcaa-3f253a0fa47d",
+          "go": "ed892e3f-544b-4628-9496-28a900bc605a",
           "component_type": "Rigidbody"
         },
         "ScaleCurve": {
-          "rangey": "0.1,6",
+          "rangey": "0.5,20",
           "frames": [
             {
-              "in": -2.1052632,
-              "out": 2.1052632
+              "in": -0.09090924,
+              "out": 0.09090924
             },
             {
-              "x": 0.17559524,
-              "y": 0.43670756,
-              "in": 0.28779042,
-              "out": -0.28779042
+              "x": 0.25892857,
+              "y": 0.08298411,
+              "in": -0.734619,
+              "out": 0.734619
             },
             {
-              "x": 0.9389881,
-              "y": 0.091627814,
-              "in": -0.3706688,
-              "out": 0.3706688
+              "x": 0.9494048,
+              "y": 0.19535121,
+              "in": -0.16502072,
+              "out": 0.16502072
             },
             {
               "x": 1,
               "y": 1,
-              "in": -8.153846,
-              "out": 8.153846
+              "in": -5.6296277,
+              "out": 5.6296277
             }
           ]
         }
@@ -81,7 +81,7 @@
         "__enabled": false,
         "Rigidbody": {
           "_type": "component",
-          "go": "e3968aeb-3148-421d-bcaa-3f253a0fa47d",
+          "go": "ed892e3f-544b-4628-9496-28a900bc605a",
           "component_type": "Rigidbody"
         }
       }
