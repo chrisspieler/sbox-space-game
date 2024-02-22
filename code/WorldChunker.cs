@@ -48,6 +48,14 @@ public sealed partial class WorldChunker : GameObjectSystem
 	}
 
 	/// <summary>
+	/// Given a relative world position, returns the chunk that contains it.
+	/// </summary>
+	public Vector2Int WorldToChunkRelative( Vector3 relativePos )
+	{
+		return WorldToChunkAbsolute( _originSystem.RelativeToAbsolute( relativePos ) );
+	}
+
+	/// <summary>
 	/// Returns the origin-shifted position of the given chunk.
 	/// </summary>
 	public Vector3 ChunkToWorldRelative( Vector2Int chunk )

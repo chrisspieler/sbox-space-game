@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-
 using Sandbox;
 
 public sealed partial class WorldChunker : GameObjectSystem
@@ -146,6 +145,20 @@ public sealed partial class WorldChunker : GameObjectSystem
 				Gizmo.Draw.Color = color;
 				Gizmo.Draw.ScreenText( "■", chunkPos, "Consolas", 24, TextFlag.Left );
 			}
+		}
+		foreach( var (coords, _) in _worldChunks )
+		{
+			Gizmo.Draw.Color = Color.Yellow;
+			var position = ChunkCenterToWorldRelative( coords );
+			Gizmo.Draw.Text( coords.ToString(), new Transform( position ), "Consolas" );
+			var bbox = BBox.FromPositionAndSize( position, new Vector3( ChunkSize ).WithZ( 1f ) );
+			Gizmo.Draw.LineBBox( bbox );
+		}
+		var player = _originSystem.Origin;
+		if ( player.IsValid() )
+		{
+			var chunk = WorldToChunkRelative( player.Transform.Position );
+			Gizmo.Draw.Text( chunk.ToString(), player.Transform.World, "Consolas" );
 		}
 	}
 }
