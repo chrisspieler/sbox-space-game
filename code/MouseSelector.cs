@@ -28,6 +28,16 @@ public sealed class MouseSelector : Component
 		if ( _hovered.IsValid() && !hovered.IsValid() && !_untilDeselect )
 			return;
 
+		SetHovered( hovered );
+	}
+
+	protected override void OnDisabled()
+	{
+		SetHovered( null );
+	}
+
+	public void SetHovered( GameObject hovered )
+	{
 		_hovered = hovered;
 		if ( HoveredIcon is not null )
 		{

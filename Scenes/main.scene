@@ -96,17 +96,6 @@
       ]
     },
     {
-      "Id": "c322191f-b390-4df7-923f-69357d93aa22",
-      "Name": "Debug",
-      "Position": "100,0,0.0003515341",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "GizmoDrawComponent"
-        }
-      ]
-    },
-    {
       "Id": "50985c72-fec4-48cf-bd58-355bbd47aec5",
       "Name": "Skybox",
       "Position": "-100,0,0.0003515341",
@@ -125,6 +114,108 @@
             "_type": "gameobject",
             "go": "f420d6b9-e323-4efe-b1fb-1ac54134cac0"
           }
+        }
+      ]
+    },
+    {
+      "Id": "1a6ffc42-c514-40bc-bb30-80d4d56b021a",
+      "Name": "Game",
+      "Position": "100,0,0",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "StartActionComponent",
+          "Action": {
+            "Version": 5,
+            "UserData": {
+              "Title": "Action",
+              "id": "22910874-7696-4951-a40f-18aa66aab2d6",
+              "ReferencedComponentTypes": []
+            },
+            "Variables": [],
+            "Nodes": [
+              {
+                "Id": 0,
+                "Type": "input"
+              },
+              {
+                "Id": 1,
+                "Type": "property.get",
+                "Properties": {
+                  "_name": "Scene"
+                },
+                "UserData": {
+                  "Position": "-128,64"
+                }
+              },
+              {
+                "Id": 2,
+                "Type": "property.get",
+                "Properties": {
+                  "_type": "Sandbox.Game/Sandbox.Scene",
+                  "_name": "PhysicsWorld"
+                },
+                "UserData": {
+                  "Position": "64,64"
+                }
+              },
+              {
+                "Id": 3,
+                "Type": "property.set",
+                "Properties": {
+                  "_type": "Sandbox.Engine/Sandbox.PhysicsWorld",
+                  "_name": "Gravity"
+                },
+                "UserData": {
+                  "Position": "352,0"
+                }
+              }
+            ],
+            "Links": [
+              {
+                "SrcId": 0,
+                "SrcName": "_target",
+                "DstId": 1,
+                "DstName": "_target"
+              },
+              {
+                "SrcId": 1,
+                "SrcName": "_result",
+                "DstId": 2,
+                "DstName": "_target"
+              },
+              {
+                "SrcId": 0,
+                "SrcName": "_signal",
+                "DstId": 3,
+                "DstName": "_signal"
+              },
+              {
+                "SrcId": 2,
+                "SrcName": "_result",
+                "DstId": 3,
+                "DstName": "_target"
+              },
+              {
+                "Value": "0,0,0",
+                "DstId": 3,
+                "DstName": "_value"
+              }
+            ]
+          }
+        }
+      ],
+      "Children": [
+        {
+          "Id": "c322191f-b390-4df7-923f-69357d93aa22",
+          "Name": "Debug",
+          "Position": "0,0,0.0003515341",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "GizmoDrawComponent"
+            }
+          ]
         }
       ]
     },
@@ -950,9 +1041,7 @@
             },
             {
               "__type": "ModelPhysics",
-              "Locking": {
-                "Z": true
-              },
+              "Locking": {},
               "Model": "models/citizen/citizen.vmdl",
               "Renderer": {
                 "_type": "component",
@@ -1814,7 +1903,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-21T15:38:30.2929556-07:00",
+  "LastSaved": "2024-02-21T19:11:29.0628951-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03"

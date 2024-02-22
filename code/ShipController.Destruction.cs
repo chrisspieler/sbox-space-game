@@ -1,9 +1,13 @@
 ﻿using Sandbox;
 using System;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 public sealed partial class ShipController
 {
+	[ConVar( "ragdoll_wackiness" )]
+	public static int MeatRagdollWackiness { get; set; } = 10;
+
 	[Property, Category("Death")] public GameObject Meat { get; set; }
 	[Property, Category("Death")] public VolumetricFogVolume Fog { get; set; }
 
@@ -83,17 +87,33 @@ public sealed partial class ShipController
 		Meat.Parent = null;
 		Meat.Transform.World = oldTx;
 		Meat.Enabled = true;
-		var phys = Meat.Components.Get<ModelPhysics>();
-		phys.PhysicsGroup.AddVelocity( Vector3.Random * 100f );
-		phys.PhysicsGroup.AddAngularVelocity( Vector3.Random * 100f );
 		var renderer = Meat.Components.Get<SkinnedModelRenderer>();
+		// Stop animations so the meat does not blink.
 		renderer.SceneModel.UseAnimGraph = false;
+		ApplyRagdollTwirl( Meat, MeatRagdollWackiness );
 		var deathCam = Meat.Components.GetInDescendantsOrSelf<DeathCamConfig>( true );
 		deathCam.Enabled = true;
 		// Move the fog from the ship to the death cam.
 		Fog.GameObject.Parent = null;
 		var follower = Fog.Components.Create<Follower>();
 		follower.Target = deathCam.GameObject;
+	}
+
+	private void ApplyRagdollTwirl( GameObject ragdoll, int wackiness = 10 )
+	{
+		var phys = ragdoll.Components.Get<ModelPhysics>();
+		if ( !phys.IsValid() )
+			return;
+
+		for( int i = 0; i < wackiness; i++ )
+		{
+			var randomVelocity = (Vector3.Random * 100f).WithZ( 0f );
+			randomVelocity *= Random.Shared.Float( 0.5f, 2f );
+			var randomBodyIndex = Random.Shared.Int( 0, phys.PhysicsGroup.BodyCount - 1 );
+			var randomBody = phys.PhysicsGroup.GetBody( randomBodyIndex );
+			randomBody.Velocity += randomVelocity + Rigidbody.Velocity / 2;
+			randomBody.AngularVelocity += Vector3.Random * 100f * Random.Shared.Float( 0.5f, 2f );
+		}
 	}
 
 	private void SpillCargo()
