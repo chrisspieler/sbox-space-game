@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "Id": "30bd9120-3908-44ab-bea3-e7c9d2d90fcd",
+    "Id": "e15ff364-770d-47ed-a884-43e8644b1edb",
     "Name": "lightball",
     "Scale": "0.25,0.25,0.25",
     "Tags": "light_point,light",
@@ -28,12 +28,12 @@
         "__type": "LightBall",
         "Light": {
           "_type": "component",
-          "go": "30bd9120-3908-44ab-bea3-e7c9d2d90fcd",
+          "go": "e15ff364-770d-47ed-a884-43e8644b1edb",
           "component_type": "PointLight"
         },
         "Model": {
           "_type": "component",
-          "go": "30bd9120-3908-44ab-bea3-e7c9d2d90fcd",
+          "go": "e15ff364-770d-47ed-a884-43e8644b1edb",
           "component_type": "ModelRenderer"
         }
       },
@@ -45,7 +45,7 @@
         "Locking": {
           "Z": true
         },
-        "MassOverride": 0,
+        "MassOverride": 20,
         "RigidbodyFlags": 0,
         "StartAsleep": false
       },

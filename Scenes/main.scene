@@ -157,8 +157,8 @@
                 "Id": 2,
                 "Type": "property.get",
                 "Properties": {
-                  "_name": "PhysicsWorld",
-                  "_type": "Sandbox.Game/Sandbox.Scene"
+                  "_type": "Sandbox.Game/Sandbox.Scene",
+                  "_name": "PhysicsWorld"
                 },
                 "UserData": {
                   "Position": "64,64"
@@ -465,7 +465,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-23T01:22:14.2163509-07:00",
+  "LastSaved": "2024-02-23T01:54:17.8628259-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03",
