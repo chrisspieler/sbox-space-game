@@ -9,7 +9,7 @@ public sealed class ScreenManager : Component
 	[Property] public PanelComponent CursorPanel { get; set; }
 	[Property] public PanelComponent HoveredSelectionPanel { get; set; }
 
-	protected override void OnStart()
+	protected override void OnAwake()
 	{
 		Instance = this;
 	}

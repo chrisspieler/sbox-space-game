@@ -254,6 +254,7 @@
                 "Components": [
                   {
                     "__type": "Stabilizer",
+                    "__enabled": false,
                     "Rigidbody": {
                       "_type": "component",
                       "go": "e1c7a2cd-fcf8-41ac-9482-e0dcc6cbf4f8",
