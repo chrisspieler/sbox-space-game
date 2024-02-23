@@ -76,13 +76,11 @@ public sealed partial class ShipController
 	{
 		foreach ( var item in go.Children.ToList() )
 		{
+			DestroyEquipment( item );
+
 			if ( item.Tags.Has( "equipment" ) )
 			{
 				item.Destroy();
-			}
-			else
-			{
-				DestroyEquipment( item );
 			}
 		}
 	}

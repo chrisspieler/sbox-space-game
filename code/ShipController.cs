@@ -24,6 +24,7 @@ public sealed partial class ShipController : Component
 		ScreenManager.SetHudEnabled( true );
 		ScreenManager.SetCursorEnabled( true );
 		ScreenManager.UpdateShip( this );
+		GameObject.BreakFromPrefab();
 	}
 
 	protected override void OnUpdate()

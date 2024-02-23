@@ -20,6 +20,7 @@ public sealed class Thruster : Component
 		if ( _effectInstance == null )
 		{
 			_effectInstance = EffectPrefab.Clone();
+			_effectInstance.BreakFromPrefab();
 			_effectInstance.Parent = GameObject;
 			_effectInstance.Transform.World = Transform.World.WithScale( 1f );
 		}
@@ -43,5 +44,10 @@ public sealed class Thruster : Component
 	{
 		_effectInstance?.Destroy();
 		_effectInstance = null;
+	}
+
+	protected override void OnDestroy()
+	{
+		_effectInstance?.Destroy();
 	}
 }
