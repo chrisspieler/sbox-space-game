@@ -15,7 +15,7 @@ public sealed class MouseSelector : Component
 
 	private TimeUntil _untilDeselect;
 
-	protected override void OnStart()
+	protected override void OnAwake()
 	{
 		Instance = this;
 	}

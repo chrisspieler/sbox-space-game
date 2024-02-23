@@ -1,12 +1,13 @@
 {
   "RootObject": {
-    "Id": "cec1e317-c6a9-4ed5-b4fa-ce004c58bc93",
+    "Id": "fd63b27b-4df9-4d4f-b9ac-012fe4c91666",
     "Name": "thruster_fire",
+    "Position": "56.11745,0,0",
+    "Tags": "particles",
     "Enabled": true,
     "Components": [
       {
         "__type": "ParticleEffect",
-        "__enabled": true,
         "Alpha": {
           "Type": "Curve",
           "CurveA": [
@@ -14,10 +15,10 @@
               "y": 1
             },
             {
-              "x": 0.48029557,
-              "y": 1,
-              "in": 1.5365853,
-              "out": -1.5365853
+              "x": 0.81809324,
+              "y": 0.38031915,
+              "in": 1.9870397,
+              "out": -1.9870397
             },
             {
               "x": 1,
@@ -28,7 +29,7 @@
           "Constants": "1,0,0,0"
         },
         "ApplyColor": true,
-        "ApplyRotation": false,
+        "ApplyRotation": true,
         "ApplyShape": true,
         "Bounce": {
           "Constants": "1,0,0,0"
@@ -87,28 +88,28 @@
         "PushStrength": {},
         "Roll": {
           "Type": "Range",
-          "Evaluation": "Particle",
-          "Constants": "0,360,0,0"
+          "Evaluation": "Frame",
+          "Constants": "80,100,0,0"
         },
         "Scale": {
           "Type": "Curve",
           "CurveA": {
-            "rangey": "0,3",
+            "rangey": "0,8",
             "frames": [
               {
                 "in": -9.333329,
                 "out": 9.333329
               },
               {
-                "y": 0.26472205,
+                "y": 0.26472196,
                 "in": 0.65974325,
                 "out": -0.65974325
               },
               {
                 "x": 0.03325123,
                 "y": 1,
-                "in": -0.056075174,
-                "out": 0.056075174
+                "in": 2.2239797,
+                "out": -2.2239797
               },
               {
                 "x": 1,
@@ -124,28 +125,31 @@
           "Constants": "1,0,0,0"
         },
         "SequenceTime": {
-          "Constants": "1,0,0,0"
+          "Type": "Range",
+          "Evaluation": "Frame",
+          "Constants": "0,1,0,0"
         },
-        "SheetSequence": false,
-        "Space": "World",
+        "SheetSequence": true,
+        "Space": "Local",
         "StartVelocity": {
           "Type": "Range",
           "Evaluation": "Particle",
-          "Constants": "100,200,0,0"
+          "Constants": "100,500,0,0"
         },
-        "Stretch": {},
+        "Stretch": {
+          "Constants": "1,0,0,0"
+        },
         "TimeScale": 1,
         "Tint": "1,1,1,1"
       },
       {
         "__type": "ParticleSpriteRenderer",
-        "__enabled": true,
         "Additive": true,
-        "BlurAmount": 0.06,
-        "BlurOpacity": 0.52,
-        "BlurSpacing": 0.35,
-        "DepthFeather": 0,
-        "FaceVelocity": false,
+        "BlurAmount": 0.2,
+        "BlurOpacity": 0.6,
+        "BlurSpacing": 0.3,
+        "DepthFeather": 10,
+        "FaceVelocity": true,
         "FogStrength": 1,
         "LeadingTrail": true,
         "MotionBlur": true,
@@ -154,26 +158,47 @@
         "Scale": 5,
         "Shadows": false,
         "SortMode": "Unsorted",
-        "Texture": "materials/particle/particle_flares/particle_flare_004.vtex"
+        "Texture": "particles/fire/flame001_side.vtex"
       },
       {
         "__type": "ParticleConeEmitter",
-        "__enabled": true,
         "Burst": 0,
         "ConeAngle": 1.7,
         "ConeFar": 50,
         "ConeNear": 1,
         "Delay": 0,
+        "DestroyOnEnd": false,
         "Duration": 1,
         "InVolume": false,
         "Loop": true,
         "OnEdge": false,
-        "Rate": 200
+        "Rate": 50
+      }
+    ],
+    "Children": [
+      {
+        "Id": "b2a4081d-90fb-4af6-a3dc-03ce897c68b6",
+        "Name": "Point Light",
+        "Tags": "light_point,light",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "PointLight",
+            "Attenuation": 1,
+            "FogMode": "Enabled",
+            "FogStrength": 0.5,
+            "LightColor": "1,0.35,0,1",
+            "Radius": 400,
+            "Shadows": true
+          }
+        ]
       }
     ]
   },
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
-  "__references": []
+  "__references": [
+    "facepunch.flame001_side"
+  ]
 }

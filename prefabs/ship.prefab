@@ -238,6 +238,7 @@
               {
                 "Id": "3c781afd-c2c2-4bcb-9e5d-e8358f9c8dee",
                 "Name": "Stabilizer",
+                "Position": "0,0,0",
                 "Rotation": "0,0,-0.7071068,0.7071068",
                 "Scale": "0.3333333,0.8333333,0.9345794",
                 "Tags": "equipment",

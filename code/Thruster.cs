@@ -27,7 +27,7 @@ public sealed class Thruster : Component
 		var normalDot = (dot + 1) / 2;
 		if ( normalDot > 0.5f )
 		{
-			particle.Enabled = true;
+			_effectInstance.Enabled = true;
 			particle.Rate = MathX.Lerp( 20, 250, normalDot );
 			var effect = _effectInstance.Components.Get<ParticleEffect>();
 			var lifetimeLerped = MathX.LerpInverse( movementValue.Length, 0, 5000 );
@@ -35,7 +35,7 @@ public sealed class Thruster : Component
 		}
 		else
 		{
-			particle.Enabled = false;
+			_effectInstance.Enabled = false;
 		}
 	}
 
