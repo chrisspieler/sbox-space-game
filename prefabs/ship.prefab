@@ -2,7 +2,7 @@
   "RootObject": {
     "Id": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
     "Name": "ship",
-    "Tags": "player,ship,solid",
+    "Tags": "solid,ship,player",
     "Enabled": true,
     "Components": [
       {
@@ -76,77 +76,10 @@
         "Enabled": true,
         "Children": [
           {
-            "Id": "47c8e566-aaf4-42de-8964-bd66500ba360",
-            "Name": "Nose",
-            "Position": "69.40582,0.000000004105452,5.912427",
-            "Scale": "1.5,0.9,0.45",
-            "Tags": "break_debris",
-            "Enabled": true,
-            "Components": [
-              {
-                "__type": "ModelRenderer",
-                "BodyGroups": 18446744073709551615,
-                "MaterialGroup": null,
-                "MaterialOverride": "materials/dev/dev_metal_rough60.vmat",
-                "Model": "models/dev/sphere.vmdl",
-                "RenderType": "On",
-                "Tint": "0.46667,0.43922,0.43922,1"
-              },
-              {
-                "__type": "CapsuleCollider",
-                "End": "0,0,0",
-                "IsTrigger": false,
-                "Radius": 32,
-                "Start": "0,0,0",
-                "Static": false,
-                "Surface": null
-              },
-              {
-                "__type": "Rigidbody",
-                "__enabled": false,
-                "AngularDamping": 0,
-                "Gravity": false,
-                "LinearDamping": 0,
-                "Locking": {
-                  "Z": true
-                },
-                "MassOverride": 0,
-                "RigidbodyFlags": 0,
-                "StartAsleep": false
-              }
-            ],
-            "Children": [
-              {
-                "Id": "24779972-924f-4dd1-8fdf-8d4f5777974e",
-                "Name": "Forward Retrorocket",
-                "Position": "33.33148,0,0",
-                "Scale": "2,0.016,0.006750001",
-                "Tags": "equipment",
-                "Enabled": true,
-                "Components": [
-                  {
-                    "__type": "Thruster",
-                    "Controller": {
-                      "_type": "component",
-                      "go": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
-                      "component_type": "ShipController"
-                    },
-                    "EffectPrefab": {
-                      "_type": "gameobject",
-                      "prefab": "prefabs/effects/thruster_fire.prefab"
-                    },
-                    "LifetimeScale": 0.1,
-                    "Retrorocket": true
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "Id": "acbd1984-0908-45d0-869a-d75e9caf1813",
+            "Id": "a7bdbd61-2c54-4432-9ffa-58cf89ef84ba",
             "Name": "Main Hull",
-            "Position": "0,0,5.816418",
-            "Scale": "3,1.2,0.621",
+            "Position": "1.337998,0.00005120051,-5.41",
+            "Scale": "3,1.2,1.07",
             "Tags": "break_debris",
             "Enabled": true,
             "Components": [
@@ -157,7 +90,7 @@
                 "MaterialOverride": "materials/dev/dev_metal_rough60.vmat",
                 "Model": "models/dev/box.vmdl",
                 "RenderType": "On",
-                "Tint": "0.46512,0.44132,0.44132,1"
+                "Tint": "0.2,0.19608,0.21176,1"
               },
               {
                 "__type": "BoxCollider",
@@ -185,8 +118,8 @@
               {
                 "Id": "2e66ea98-6497-46ec-b4ba-99bcb119379c",
                 "Name": "Shield",
-                "Position": "0,0,0",
-                "Scale": "1.667,4.167,4.026",
+                "Position": "-0.4459994,-0.00004286647,0.00007442224",
+                "Scale": "1.667,4.167,4.024988",
                 "Tags": "equipment,player_shield",
                 "Components": [
                   {
@@ -240,7 +173,8 @@
               {
                 "Id": "35c315ef-865f-49a7-83a1-2bcc3c9c7908",
                 "Name": "Grapple",
-                "Position": "30,0,-20",
+                "Position": "29.554,-0.00002945543,-19.9949",
+                "Scale": "1,1,0.9997485",
                 "Tags": "equipment",
                 "Enabled": true,
                 "Components": [
@@ -262,8 +196,8 @@
               {
                 "Id": "aa63d0b2-925b-4068-bf6f-d8545e58f3d7",
                 "Name": "Hull",
-                "Position": "-4.744757,0,-9.366213",
-                "Scale": "1.4,3.5,6.763285",
+                "Position": "-5.190757,-0.00004498754,-9.363784",
+                "Scale": "1.4,3.5,6.761584",
                 "Tags": "equipment",
                 "Enabled": true,
                 "Components": [
@@ -298,6 +232,681 @@
                     "IgnoredTags": null,
                     "OnBounce": null,
                     "RehitDelay": 0.5
+                  }
+                ]
+              },
+              {
+                "Id": "3c781afd-c2c2-4bcb-9e5d-e8358f9c8dee",
+                "Name": "Stabilizer",
+                "Rotation": "0,0,-0.7071068,0.7071068",
+                "Scale": "0.3333333,0.8333333,0.9345794",
+                "Tags": "equipment",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Stabilizer",
+                    "__enabled": false,
+                    "Rigidbody": {
+                      "_type": "component",
+                      "go": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
+                      "component_type": "Rigidbody"
+                    },
+                    "StabilizerPower": 100,
+                    "VelocityMatchedThreshold": 3,
+                    "VelocityMatchMaxDistance": 1000,
+                    "VelocityMatchTarget": null
+                  }
+                ]
+              },
+              {
+                "Id": "24779972-924f-4dd1-8fdf-8d4f5777974e",
+                "Name": "Forward Retrorocket",
+                "Position": "24.5808,0.000008492942,0.1546392",
+                "Scale": "1,0.012,0.004890075",
+                "Tags": "equipment",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Thruster",
+                    "Controller": {
+                      "_type": "component",
+                      "go": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
+                      "component_type": "ShipController"
+                    },
+                    "EffectPrefab": {
+                      "_type": "gameobject",
+                      "prefab": "prefabs/effects/thruster_fire.prefab"
+                    },
+                    "LifetimeScale": 0.1,
+                    "Retrorocket": true
+                  }
+                ]
+              },
+              {
+                "Id": "2c917114-0a77-4060-b221-a382f3b261ef",
+                "Name": "airduct_a_panel_48x32",
+                "Position": "-25.11516,-25.08047,25.27324",
+                "Rotation": "0.00000004214685,0.00000004214685,-0.7071067,0.7071067",
+                "Scale": "0.6272329,2.613088,1.078818",
+                "Tags": "break_child",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "ModelRenderer",
+                    "BodyGroups": 18446744073709551615,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/sbox_props/airducts/airduct_a_panel_b_48x32.vmdl",
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  }
+                ]
+              },
+              {
+                "Id": "fc4b703b-110d-4209-b232-398d1440dda0",
+                "Name": "airduct_a_panel_48x32",
+                "Position": "25.04309,-25.07446,-25.29937",
+                "Rotation": "0.7071067,-0.7071068,-0.00000001123822,-0.00000007305547",
+                "Scale": "0.6238388,2.602213,1.078818",
+                "Tags": "break_child",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "ModelRenderer",
+                    "BodyGroups": 18446744073709551615,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/sbox_props/airducts/airduct_a_panel_48x32.vmdl",
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  }
+                ]
+              },
+              {
+                "Id": "b5d0a0de-c1f0-4228-aa26-58e63a9afd6b",
+                "Name": "airduct_a_panel_48x32",
+                "Position": "-25.0229,25.02548,24.99133",
+                "Rotation": "-0.5,-0.5,-0.5,0.5",
+                "Scale": "1.110509,2.599926,1.078819",
+                "Tags": "break_child",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "ModelRenderer",
+                    "BodyGroups": 18446744073709551615,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/sbox_props/airducts/airduct_a_panel_48x16.vmdl",
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  }
+                ]
+              },
+              {
+                "Id": "2764dcc7-14a2-4ccf-9a01-908a1932b353",
+                "Name": "airduct_a_panel_48x32",
+                "Position": "-25.04535,-24.98963,24.99129",
+                "Rotation": "0,-0.7071068,0,0.7071068",
+                "Scale": "0.5527735,1.561759,1.078819",
+                "Tags": "break_child",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "ModelRenderer",
+                    "BodyGroups": 18446744073709551615,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/sbox_props/airducts/airduct_a_panel_32x32.vmdl",
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  }
+                ]
+              },
+              {
+                "Id": "df7d158a-dfeb-44a8-ad99-a845fd065714",
+                "Name": "airduct_a_panel_48x32",
+                "Position": "25.03216,24.92591,24.99134",
+                "Rotation": "0.7071067,0.00000002980232,0.7071067,-0.00000002980232",
+                "Scale": "0.5622033,1.561759,1.078819",
+                "Tags": "break_child",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "ModelRenderer",
+                    "BodyGroups": 18446744073709551615,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/sbox_props/airducts/airduct_a_panel_32x32.vmdl",
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  }
+                ]
+              },
+              {
+                "Id": "75580de0-d051-4706-8ffb-1621f02470a5",
+                "Name": "airduct_a_panel_48x32",
+                "Position": "24.97214,-25.02853,24.99123",
+                "Rotation": "0.5,-0.5,0.5,0.5",
+                "Scale": "1.099827,2.600693,1.078819",
+                "Tags": "break_child",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "ModelRenderer",
+                    "BodyGroups": 18446744073709551615,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/sbox_props/airducts/airduct_a_panel_48x16.vmdl",
+                    "RenderType": "On",
+                    "Tint": "1,1,1,1"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Id": "0e37cee3-c0ae-442a-bd7c-aa95fbc085f3",
+            "Name": "Top Hull",
+            "Position": "1.337998,0.0000009570108,40.53075",
+            "Scale": "1.98426,1,0.7594082",
+            "Tags": "break_debris",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "ModelRenderer",
+                "BodyGroups": 18446744073709551615,
+                "MaterialGroup": null,
+                "MaterialOverride": "materials/dev/dev_metal_rough60.vmat",
+                "Model": "models/dev/box.vmdl",
+                "RenderType": "On",
+                "Tint": "0.2,0.19608,0.21176,1"
+              },
+              {
+                "__type": "BoxCollider",
+                "Center": "0,0,0",
+                "IsTrigger": false,
+                "Scale": "50,50,50",
+                "Static": false,
+                "Surface": null
+              },
+              {
+                "__type": "Rigidbody",
+                "__enabled": false,
+                "AngularDamping": 0,
+                "Gravity": false,
+                "LinearDamping": 0,
+                "Locking": {
+                  "Z": true
+                },
+                "MassOverride": 0,
+                "RigidbodyFlags": 0,
+                "StartAsleep": false
+              }
+            ],
+            "Children": [
+              {
+                "Id": "bf720ee3-af9c-468d-bcf3-a9dcceee5b97",
+                "Name": "airduct_a_panel_48x32",
+                "Position": "-25.11516,-25.08536,25.27324",
+                "Rotation": "0.00000004214685,0.00000004214685,-0.7071067,0.7071067",
+                "Scale": "0.7861729,2.069245,1.032295",
+                "Tags": "break_child",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "ModelRenderer",
+                    "BodyGroups": 18446744073709551615,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/sbox_props/airducts/airduct_a_panel_48x32.vmdl",
+                    "RenderType": "On",
+                    "Tint": "0.2,0.19608,0.21176,1"
+                  }
+                ]
+              },
+              {
+                "Id": "bbbdbec1-1074-4048-8f23-ebd2f213ed2c",
+                "Name": "airduct_a_panel_48x32",
+                "Position": "25.04399,-25.07267,-25.29937",
+                "Rotation": "0.7071067,-0.7071068,-0.00000001123822,-0.00000007305547",
+                "Scale": "0.7841341,2.073926,1.078818",
+                "Tags": "break_child",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "ModelRenderer",
+                    "BodyGroups": 18446744073709551615,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/sbox_props/airducts/airduct_a_panel_48x32.vmdl",
+                    "RenderType": "On",
+                    "Tint": "0.2,0.19608,0.21176,1"
+                  }
+                ]
+              },
+              {
+                "Id": "0f2458fa-2c3d-463b-85a5-64f1018eb74b",
+                "Name": "airduct_a_panel_48x32",
+                "Position": "-25.02365,25.02398,24.99133",
+                "Rotation": "-0.5,-0.5,-0.5,0.5",
+                "Scale": "1.188732,2.063484,1.078819",
+                "Tags": "break_child",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "ModelRenderer",
+                    "BodyGroups": 18446744073709551615,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/sbox_props/airducts/airduct_a_panel_48x16.vmdl",
+                    "RenderType": "On",
+                    "Tint": "0.2,0.19608,0.21176,1"
+                  }
+                ]
+              },
+              {
+                "Id": "21de6a5b-ef6b-448d-b3de-26d5604942a2",
+                "Name": "airduct_a_panel_48x32",
+                "Position": "-25.04535,-24.9902,24.99129",
+                "Rotation": "0,-0.7071068,0,0.7071068",
+                "Scale": "0.5962434,1.561759,1.078819",
+                "Tags": "break_child",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "ModelRenderer",
+                    "BodyGroups": 18446744073709551615,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/sbox_props/airducts/airduct_a_panel_32x32.vmdl",
+                    "RenderType": "On",
+                    "Tint": "0.2,0.19608,0.21176,1"
+                  }
+                ]
+              },
+              {
+                "Id": "f993b578-9678-4903-81bc-1c9ab49b1012",
+                "Name": "airduct_a_panel_48x32",
+                "Position": "25.03216,24.92699,24.99134",
+                "Rotation": "0.7071067,0.00000002980232,0.7071067,-0.00000002980232",
+                "Scale": "0.6018363,1.561759,1.078819",
+                "Tags": "break_child",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "ModelRenderer",
+                    "BodyGroups": 18446744073709551615,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/sbox_props/airducts/airduct_a_panel_32x32.vmdl",
+                    "RenderType": "On",
+                    "Tint": "0.2,0.19608,0.21176,1"
+                  }
+                ]
+              },
+              {
+                "Id": "82fa656f-5712-4f3d-a650-cc3d4e5c41ea",
+                "Name": "airduct_a_panel_48x32",
+                "Position": "24.97379,-25.02526,24.99123",
+                "Rotation": "0.5,-0.5,0.5,0.5",
+                "Scale": "1.195234,2.06557,1.141477",
+                "Tags": "break_child",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "ModelRenderer",
+                    "BodyGroups": 18446744073709551615,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/sbox_props/airducts/airduct_a_panel_48x16.vmdl",
+                    "RenderType": "On",
+                    "Tint": "0.2,0.19608,0.21176,1"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Id": "edebffa1-2349-4a37-9b90-951093ac509a",
+            "Name": "Bottom Hull",
+            "Position": "1.337998,0.00005191829,-55.47075",
+            "Scale": "3.690156,1.929722,0.9269406",
+            "Tags": "break_debris",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "ModelRenderer",
+                "BodyGroups": 18446744073709551615,
+                "MaterialGroup": null,
+                "MaterialOverride": "materials/dev/dev_metal_rough60.vmat",
+                "Model": "models/dev/box.vmdl",
+                "RenderType": "On",
+                "Tint": "0.2,0.19608,0.21176,1"
+              },
+              {
+                "__type": "BoxCollider",
+                "Center": "0,0,0",
+                "IsTrigger": false,
+                "Scale": "50,50,50",
+                "Static": false,
+                "Surface": null
+              },
+              {
+                "__type": "Rigidbody",
+                "__enabled": false,
+                "AngularDamping": 0,
+                "Gravity": false,
+                "LinearDamping": 0,
+                "Locking": {
+                  "Z": true
+                },
+                "MassOverride": 0,
+                "RigidbodyFlags": 0,
+                "StartAsleep": false
+              }
+            ],
+            "Children": [
+              {
+                "Id": "e7a785d8-c7b9-463d-8754-f363927178fb",
+                "Name": "Cargo Hold",
+                "Position": "0,0,0",
+                "Tags": "equipment",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Jettison",
+                    "EjectionSource": {
+                      "_type": "gameobject",
+                      "go": "0556d2e7-4a01-49e4-8fda-bb2b1f3a8cae"
+                    },
+                    "EjectionSpeed": 600,
+                    "EjectionSpin": 5,
+                    "Prefab": {
+                      "_type": "gameobject",
+                      "prefab": "prefabs/obstacles/lightball.prefab"
+                    },
+                    "SelfRigidbody": {
+                      "_type": "component",
+                      "go": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
+                      "component_type": "Rigidbody"
+                    }
+                  }
+                ],
+                "Children": [
+                  {
+                    "Id": "0556d2e7-4a01-49e4-8fda-bb2b1f3a8cae",
+                    "Name": "Ejection Source",
+                    "Position": "-50,0,0",
+                    "Rotation": "0,0,1,-0.00000004371139",
+                    "Enabled": true
+                  }
+                ]
+              },
+              {
+                "Id": "a967345b-87b4-412d-bc98-669eef19825c",
+                "Name": "Point Light",
+                "Position": "22.39249,-21.01703,29.72829",
+                "Tags": "light_point,light",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "PointLight",
+                    "Attenuation": 3,
+                    "FogMode": "Enabled",
+                    "FogStrength": 1,
+                    "LightColor": "0.46793,0.64767,0.95814,1",
+                    "Radius": 1000,
+                    "Shadows": false
+                  },
+                  {
+                    "__type": "Rigidbody",
+                    "__enabled": false,
+                    "AngularDamping": 0,
+                    "Gravity": false,
+                    "LinearDamping": 0,
+                    "Locking": {},
+                    "MassOverride": 0,
+                    "RigidbodyFlags": 0,
+                    "StartAsleep": false
+                  },
+                  {
+                    "__type": "SphereCollider",
+                    "Center": "0,0,0",
+                    "IsTrigger": false,
+                    "Radius": 1,
+                    "Static": false,
+                    "Surface": null
+                  }
+                ]
+              },
+              {
+                "Id": "e382d69b-7f8c-4b04-ac1b-36a15f9dab0d",
+                "Name": "Point Light",
+                "Position": "22.39249,21.60733,29.72829",
+                "Tags": "light_point,light",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "PointLight",
+                    "Attenuation": 3,
+                    "FogMode": "Enabled",
+                    "FogStrength": 1,
+                    "LightColor": "0.46793,0.64767,0.95814,1",
+                    "Radius": 1000,
+                    "Shadows": false
+                  },
+                  {
+                    "__type": "Rigidbody",
+                    "__enabled": false,
+                    "AngularDamping": 0,
+                    "Gravity": false,
+                    "LinearDamping": 0,
+                    "Locking": {},
+                    "MassOverride": 0,
+                    "RigidbodyFlags": 0,
+                    "StartAsleep": false
+                  },
+                  {
+                    "__type": "SphereCollider",
+                    "Center": "0,0,0",
+                    "IsTrigger": false,
+                    "Radius": 1,
+                    "Static": false,
+                    "Surface": null
+                  }
+                ]
+              },
+              {
+                "Id": "1fc0996f-475f-4cb0-8c4f-b219e24b8a20",
+                "Name": "Point Light",
+                "Position": "-23.24086,-21.01704,29.72829",
+                "Tags": "light_point,light",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "PointLight",
+                    "Attenuation": 3,
+                    "FogMode": "Enabled",
+                    "FogStrength": 1,
+                    "LightColor": "0.46793,0.64767,0.95814,1",
+                    "Radius": 1000,
+                    "Shadows": false
+                  },
+                  {
+                    "__type": "Rigidbody",
+                    "__enabled": false,
+                    "AngularDamping": 0,
+                    "Gravity": false,
+                    "LinearDamping": 0,
+                    "Locking": {},
+                    "MassOverride": 0,
+                    "RigidbodyFlags": 0,
+                    "StartAsleep": false
+                  },
+                  {
+                    "__type": "SphereCollider",
+                    "Center": "0,0,0",
+                    "IsTrigger": false,
+                    "Radius": 1,
+                    "Static": false,
+                    "Surface": null
+                  }
+                ]
+              },
+              {
+                "Id": "0da6e8ba-6cd0-45c0-a997-715520e75b11",
+                "Name": "Point Light",
+                "Position": "-23.24086,21.60728,29.72829",
+                "Tags": "light_point,light",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "PointLight",
+                    "Attenuation": 3,
+                    "FogMode": "Enabled",
+                    "FogStrength": 1,
+                    "LightColor": "0.46793,0.64767,0.95814,1",
+                    "Radius": 1000,
+                    "Shadows": false
+                  },
+                  {
+                    "__type": "Rigidbody",
+                    "__enabled": false,
+                    "AngularDamping": 0,
+                    "Gravity": false,
+                    "LinearDamping": 0,
+                    "Locking": {},
+                    "MassOverride": 0,
+                    "RigidbodyFlags": 0,
+                    "StartAsleep": false
+                  },
+                  {
+                    "__type": "SphereCollider",
+                    "Center": "0,0,0",
+                    "IsTrigger": false,
+                    "Radius": 1,
+                    "Static": false,
+                    "Surface": null
+                  }
+                ]
+              },
+              {
+                "Id": "f3832410-fbd2-4e45-850f-0103a6838a18",
+                "Name": "airduct_a_panel_48x32",
+                "Position": "-25.11516,-25.07689,25.27324",
+                "Rotation": "0.00000004214685,0.00000004214685,-0.7071067,0.7071067",
+                "Scale": "0.8193424,1.993609,1.078818",
+                "Tags": "break_child",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "ModelRenderer",
+                    "BodyGroups": 18446744073709551615,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/sbox_props/airducts/airduct_a_panel_b_48x32.vmdl",
+                    "RenderType": "On",
+                    "Tint": "0.14365,0.15142,0.18605,1"
+                  }
+                ]
+              },
+              {
+                "Id": "3f8209b3-03b4-4a69-9ec5-25762d1d05fd",
+                "Name": "airduct_a_panel_48x32",
+                "Position": "25.04309,-25.07693,-25.29937",
+                "Rotation": "0.7071067,-0.7071068,-0.00000001123822,-0.00000007305547",
+                "Scale": "0.8193424,1.993609,1.078818",
+                "Tags": "break_child",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "ModelRenderer",
+                    "BodyGroups": 18446744073709551615,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/sbox_props/airducts/airduct_a_panel_48x32.vmdl",
+                    "RenderType": "On",
+                    "Tint": "0.14365,0.15142,0.18605,1"
+                  }
+                ]
+              },
+              {
+                "Id": "7ee0f440-6ff7-4254-be54-04e78c669acc",
+                "Name": "airduct_a_panel_48x32",
+                "Position": "-25.0229,25.02909,24.99133",
+                "Rotation": "-0.4999999,-0.4999999,-0.5,0.5",
+                "Scale": "0.7822994,2.000192,1.078819",
+                "Tags": "break_child",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "ModelRenderer",
+                    "BodyGroups": 18446744073709551615,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/sbox_props/airducts/airduct_a_panel_48x16.vmdl",
+                    "RenderType": "On",
+                    "Tint": "0.14365,0.15142,0.18605,1"
+                  }
+                ]
+              },
+              {
+                "Id": "0cdcc753-63a0-47bb-98bd-109f420b8ce7",
+                "Name": "airduct_a_panel_48x32",
+                "Position": "-25.04535,-24.98763,24.99129",
+                "Rotation": "0,-0.7071068,0,0.7071068",
+                "Scale": "0.3940465,1.561759,1.078819",
+                "Tags": "break_child",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "ModelRenderer",
+                    "BodyGroups": 18446744073709551615,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/sbox_props/airducts/airduct_a_panel_32x32.vmdl",
+                    "RenderType": "On",
+                    "Tint": "0.14365,0.15142,0.18605,1"
+                  }
+                ]
+              },
+              {
+                "Id": "fd7a5b8f-c568-4c8f-b539-3923bfab552a",
+                "Name": "airduct_a_panel_48x32",
+                "Position": "25.03216,24.92361,24.99134",
+                "Rotation": "0.7071067,0.00000002980232,0.7071067,-0.00000002980232",
+                "Scale": "0.3940465,1.561759,1.078819",
+                "Tags": "break_child",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "ModelRenderer",
+                    "BodyGroups": 18446744073709551615,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/sbox_props/airducts/airduct_a_panel_32x32.vmdl",
+                    "RenderType": "On",
+                    "Tint": "0.14365,0.15142,0.18605,1"
+                  }
+                ]
+              },
+              {
+                "Id": "19cdc0e8-ce4d-415f-aaaf-d06b987b026f",
+                "Name": "airduct_a_panel_48x32",
+                "Position": "24.97214,-25.03197,24.99123",
+                "Rotation": "0.5,-0.5,0.5,0.5",
+                "Scale": "0.7822994,2.000192,1.078819",
+                "Tags": "break_child",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "ModelRenderer",
+                    "BodyGroups": 18446744073709551615,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/sbox_props/airducts/airduct_a_panel_48x16.vmdl",
+                    "RenderType": "On",
+                    "Tint": "0.14365,0.15142,0.18605,1"
                   }
                 ]
               }
@@ -529,7 +1138,7 @@
           {
             "Id": "8f5b04b0-b012-44e5-984b-b4d784a6f789",
             "Name": "Glass Dome",
-            "Position": "48.90003,0,22.0556",
+            "Position": "48.90004,0.00003497603,34.51328",
             "Scale": "0.75,0.75,0.75",
             "Enabled": true,
             "Components": [
@@ -537,128 +1146,10 @@
                 "__type": "ModelRenderer",
                 "BodyGroups": 18446744073709551615,
                 "MaterialGroup": null,
-                "MaterialOverride": "materials/dev/dev_nonmetal_rough00.vmat",
+                "MaterialOverride": "materials/glass/glass_opaque_a.vmat",
                 "Model": "models/dev/sphere.vmdl",
                 "RenderType": "On",
-                "Tint": "0.06284,0.05279,0.09302,1"
-              }
-            ]
-          },
-          {
-            "Id": "7336e9a2-b085-4f95-9ede-b2a47301db78",
-            "Name": "Top Hull",
-            "Position": "1.337998,0,40.52026",
-            "Scale": "1.98426,1,0.7594082",
-            "Tags": "break_debris",
-            "Enabled": true,
-            "Components": [
-              {
-                "__type": "ModelRenderer",
-                "BodyGroups": 18446744073709551615,
-                "MaterialGroup": null,
-                "MaterialOverride": "materials/dev/dev_metal_rough60.vmat",
-                "Model": "models/dev/box.vmdl",
-                "RenderType": "On",
-                "Tint": "0.20095,0.19803,0.21395,1"
-              },
-              {
-                "__type": "BoxCollider",
-                "Center": "0,0,0",
-                "IsTrigger": false,
-                "Scale": "50,50,50",
-                "Static": false,
-                "Surface": null
-              },
-              {
-                "__type": "Rigidbody",
-                "__enabled": false,
-                "AngularDamping": 0,
-                "Gravity": false,
-                "LinearDamping": 0,
-                "Locking": {
-                  "Z": true
-                },
-                "MassOverride": 0,
-                "RigidbodyFlags": 0,
-                "StartAsleep": false
-              }
-            ]
-          },
-          {
-            "Id": "edebffa1-2349-4a37-9b90-951093ac509a",
-            "Name": "Bottom Hull",
-            "Position": "1.337998,0,-21.36586",
-            "Scale": "2.86053,1,0.5201874",
-            "Tags": "break_debris",
-            "Enabled": true,
-            "Components": [
-              {
-                "__type": "ModelRenderer",
-                "BodyGroups": 18446744073709551615,
-                "MaterialGroup": null,
-                "MaterialOverride": "materials/dev/dev_metal_rough60.vmat",
-                "Model": "models/dev/box.vmdl",
-                "RenderType": "On",
-                "Tint": "0.46512,0.44132,0.44132,1"
-              },
-              {
-                "__type": "BoxCollider",
-                "Center": "0,0,0",
-                "IsTrigger": false,
-                "Scale": "50,50,50",
-                "Static": false,
-                "Surface": null
-              },
-              {
-                "__type": "Rigidbody",
-                "__enabled": false,
-                "AngularDamping": 0,
-                "Gravity": false,
-                "LinearDamping": 0,
-                "Locking": {
-                  "Z": true
-                },
-                "MassOverride": 0,
-                "RigidbodyFlags": 0,
-                "StartAsleep": false
-              }
-            ],
-            "Children": [
-              {
-                "Id": "e7a785d8-c7b9-463d-8754-f363927178fb",
-                "Name": "Cargo Hold",
-                "Position": "0,0,0",
-                "Tags": "equipment",
-                "Enabled": true,
-                "Components": [
-                  {
-                    "__type": "Jettison",
-                    "EjectionSource": {
-                      "_type": "gameobject",
-                      "go": "0556d2e7-4a01-49e4-8fda-bb2b1f3a8cae"
-                    },
-                    "EjectionSpeed": 600,
-                    "EjectionSpin": 5,
-                    "Prefab": {
-                      "_type": "gameobject",
-                      "prefab": "prefabs/obstacles/lightball.prefab"
-                    },
-                    "SelfRigidbody": {
-                      "_type": "component",
-                      "go": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
-                      "component_type": "Rigidbody"
-                    }
-                  }
-                ],
-                "Children": [
-                  {
-                    "Id": "0556d2e7-4a01-49e4-8fda-bb2b1f3a8cae",
-                    "Name": "Ejection Source",
-                    "Position": "-50,0,0",
-                    "Rotation": "0,0,1,-0.00000004371139",
-                    "Enabled": true
-                  }
-                ]
+                "Tint": "0.0133,0.0116,0.03721,1"
               }
             ]
           }
@@ -667,8 +1158,8 @@
       {
         "Id": "4014bc3a-0475-4e40-9f41-2793f567762a",
         "Name": "Camera",
-        "Position": "-200,-0.000000009572649,1000",
-        "Rotation": "0,0.6427876,0,0.7660444",
+        "Position": "-350,-0.000000009572649,1000",
+        "Rotation": "0,0.5735765,0,0.8191521",
         "Enabled": true,
         "Components": [
           {
@@ -691,8 +1182,8 @@
             "__type": "ShipCamera",
             "HighPitch": 88,
             "HighPosition": "-120,0,3000",
-            "LowPitch": 80,
-            "LowPosition": "-200,0,1000",
+            "LowPitch": 70,
+            "LowPosition": "-350,0,1000",
             "PitchLerpSpeed": 1,
             "PositionLerpSpeed": 1,
             "Target": {
@@ -740,30 +1231,10 @@
         ]
       },
       {
-        "Id": "3c781afd-c2c2-4bcb-9e5d-e8358f9c8dee",
-        "Name": "Stabilizer",
-        "Tags": "equipment",
-        "Enabled": true,
-        "Components": [
-          {
-            "__type": "Stabilizer",
-            "__enabled": false,
-            "Rigidbody": {
-              "_type": "component",
-              "go": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
-              "component_type": "Rigidbody"
-            },
-            "StabilizerPower": 100,
-            "VelocityMatchedThreshold": 3,
-            "VelocityMatchMaxDistance": 1000,
-            "VelocityMatchTarget": null
-          }
-        ]
-      },
-      {
         "Id": "8ede2f42-0609-4c27-b88e-758c976eb0bb",
         "Name": "Meat",
-        "Position": "140.1222,0.000009294552,-37.89985",
+        "Position": "1.078623,86.68445,-25.02827",
+        "Rotation": "0,0,0.7071067,0.7071068",
         "Components": [
           {
             "__type": "SkinnedModelRenderer",
@@ -833,8 +1304,8 @@
                           {
                             "Id": "a5f8f56f-c7b7-4257-b4f8-69b53d7ec174",
                             "Name": "neck_0",
-                            "Position": "5.820022,-0.09348499,-0.002967819",
-                            "Rotation": "0.0000820905,-0.0002510548,0.01994133,-0.9998012",
+                            "Position": "5.820023,-0.09348471,-0.002971248",
+                            "Rotation": "-0.00008219201,0.0002511621,-0.01994135,0.9998013",
                             "Enabled": true,
                             "Children": [
                               {
@@ -847,15 +1318,15 @@
                                   {
                                     "Id": "04a59559-0912-426f-82bc-31622dc0791d",
                                     "Name": "eye_L",
-                                    "Position": "6.90887,5.14046,3.23467",
-                                    "Rotation": "-0.7071078,-0.7071055,-0.000003457069,0.000004142523",
+                                    "Position": "6.908867,5.140468,3.234677",
+                                    "Rotation": "0.707108,0.7071056,0.000003546476,-0.000004142523",
                                     "Enabled": true
                                   },
                                   {
                                     "Id": "056106e8-8570-4a96-9b2d-44402d5b8a36",
                                     "Name": "eye_R",
-                                    "Position": "6.908858,5.140486,-3.234592",
-                                    "Rotation": "-0.7071078,-0.7071055,-0.000003457069,0.000004142523",
+                                    "Position": "6.908857,5.140499,-3.234588",
+                                    "Rotation": "0.707108,0.7071056,0.000003546476,-0.000004142523",
                                     "Enabled": true
                                   },
                                   {
@@ -868,36 +1339,36 @@
                                   {
                                     "Id": "8c6d6da4-11ad-492a-a6b0-323decf188e1",
                                     "Name": "face_lid_lower_L",
-                                    "Position": "6.908896,5.14046,3.234681",
-                                    "Rotation": "0.338692,-0.930547,-0.1307825,-0.04760008",
+                                    "Position": "6.908894,5.140468,3.234687",
+                                    "Rotation": "-0.3386919,0.9305471,0.1307825,0.04760027",
                                     "Enabled": true
                                   },
                                   {
                                     "Id": "8240cd64-edd0-4a9e-bbe2-71ed0e671cab",
                                     "Name": "face_lid_upper_L",
-                                    "Position": "6.908885,5.140444,3.234678",
-                                    "Rotation": "-0.8974876,-0.4185046,-0.0588173,0.1261353",
+                                    "Position": "6.908883,5.140452,3.234683",
+                                    "Rotation": "0.8974878,0.4185046,0.0588173,-0.1261354",
                                     "Enabled": true
                                   },
                                   {
                                     "Id": "7423ff8a-c030-4659-84c3-7e623fd73370",
                                     "Name": "face_lid_upper_R",
-                                    "Position": "6.908873,5.140501,-3.234584",
-                                    "Rotation": "-0.8974882,-0.4185047,0.05881581,-0.1261319",
+                                    "Position": "6.908873,5.140514,-3.23458",
+                                    "Rotation": "0.8974884,0.4185047,-0.05881572,0.1261318",
                                     "Enabled": true
                                   },
                                   {
                                     "Id": "945a667f-07f7-493d-bcdb-49032c07943e",
                                     "Name": "ear_R",
-                                    "Position": "5.621446,-0.4154348,-5.929165",
-                                    "Rotation": "0.04624298,-0.6935211,0.1379467,-0.7055923",
+                                    "Position": "5.621446,-0.4154313,-5.929165",
+                                    "Rotation": "-0.04624289,0.6935211,-0.1379467,0.7055924",
                                     "Enabled": true
                                   },
                                   {
                                     "Id": "6dbf4768-220e-45e9-a08d-19d120e346ac",
                                     "Name": "ear_L",
-                                    "Position": "5.621475,-0.4155201,5.92907",
-                                    "Rotation": "-0.7055931,0.1379532,-0.6935185,0.04625106",
+                                    "Position": "5.621477,-0.4155166,5.929075",
+                                    "Rotation": "0.705593,-0.1379533,0.6935187,-0.0462511",
                                     "Enabled": true
                                   },
                                   {
@@ -1355,8 +1826,8 @@
                                           {
                                             "Id": "be8514bf-d44e-4e8a-9b0a-cd63992c4502",
                                             "Name": "arm_elbow_helper_R",
-                                            "Position": "0.0000002853849,0.00009389796,-0.0001056717",
-                                            "Rotation": "-0.0000007972121,0.0000004470348,0.757768,-0.6525244",
+                                            "Position": "-0.00001638277,0.00005106141,-0.0001017449",
+                                            "Rotation": "0.0000008791685,-0.0000001788139,-0.757768,0.6525243",
                                             "Enabled": true
                                           }
                                         ]
@@ -1382,8 +1853,8 @@
                           {
                             "Id": "72385e45-4b58-4dab-b21c-5995b678fc49",
                             "Name": "neck_clothing",
-                            "Position": "5.820022,-0.09348499,-0.002967819",
-                            "Rotation": "0.0000820905,-0.0002510548,0.01994133,-0.9998012",
+                            "Position": "5.820023,-0.09348471,-0.002971248",
+                            "Rotation": "-0.00008219201,0.0002511621,-0.01994135,0.9998013",
                             "Enabled": true
                           }
                         ]
@@ -1460,7 +1931,7 @@
                     "Id": "688e4617-298b-4034-839e-20aa704da1b6",
                     "Name": "leg_glute_helper_R",
                     "Position": "0,0,0",
-                    "Rotation": "-0.0000009675612,-0.0000006556511,-0.7071051,0.7071084",
+                    "Rotation": "0.0000009834766,0.0000005739178,0.7071053,-0.7071084",
                     "Enabled": true
                   }
                 ]
@@ -1532,7 +2003,7 @@
                     "Id": "0e161a03-acc6-418f-9e5f-076d3af4a6ed",
                     "Name": "leg_glute_helper_L",
                     "Position": "0,0,0",
-                    "Rotation": "-0.0000009520198,-0.0000007748604,-0.7071055,0.7071081",
+                    "Rotation": "0.0000008642673,0.0000007527318,0.7071055,-0.707108",
                     "Enabled": true
                   }
                 ]
@@ -1602,5 +2073,11 @@
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
-  "__references": []
+  "__references": [
+    "facepunch.airduct_a_panel_32x32",
+    "facepunch.airduct_a_panel_48x16",
+    "facepunch.airduct_a_panel_48x32",
+    "facepunch.airduct_a_panel_b_48x32",
+    "facepunch.glass_opaque_a"
+  ]
 }

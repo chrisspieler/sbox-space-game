@@ -24,7 +24,7 @@ public sealed partial class ShipController
 	public void Explode()
 	{
 		DestroyEquipment( GameObject );
-		ReleaseDebris();
+		ReleaseDebris( PartsContainer );
 		DestroyRemainingChildren();
 		DeployMeat();
 		SpillCargo();
@@ -34,10 +34,10 @@ public sealed partial class ShipController
 		GameObject.Destroy();
 	}
 
-	private void ReleaseDebris()
+	private void ReleaseDebris( GameObject go )
 	{
-		var parts = PartsContainer.Children
-			.Where( c => c.Tags.Has( "break_debris" ) )
+		var parts = go.Children
+			.Where( c => c.Tags.Has( "break_debris" ) && !c.Tags.Has( "break_child" ) )
 			.ToList();
 		foreach( var debris in parts )
 		{
@@ -46,11 +46,16 @@ public sealed partial class ShipController
 			debris.Parent = null;
 			debris.Transform.World = oldTx;
 			debris.Tags.Add( "solid" );
-			var rb = debris.Components.Get<Rigidbody>( true );
-			rb.Enabled = true;
-			rb.Velocity = Rigidbody.Velocity;
-			rb.Velocity += Vector3.Random.WithZ( 0f ) * 200f;
-			rb.AngularVelocity += Vector3.Random * 3f;
+
+			if ( debris.Components.TryGet<Rigidbody>(out var rb, FindMode.EverythingInSelf ) )
+			{
+				rb.Enabled = true;
+				rb.Velocity = Rigidbody.Velocity;
+				rb.Velocity += Vector3.Random.WithZ( 0f ) * 200f;
+				rb.AngularVelocity += Vector3.Random * 3f;
+			}
+			
+			ReleaseDebris( debris );
 		}
 	}
 
@@ -115,16 +120,7 @@ public sealed partial class ShipController
 
 	private void SpillCargo()
 	{
-		for (int i = 0; i < 20; i ++ )
-		{
-			var prefabFile = ResourceLibrary.Get<PrefabFile>( "prefabs/obstacles/lightball.prefab" );
-			var prefabScene = SceneUtility.GetPrefabScene( prefabFile );
-			var go = prefabScene.Clone();
-			go.Transform.Position = Transform.Position + Random.Shared.VectorInSphere( 20f );
-			var rb = go.Components.Get<Rigidbody>();
-			rb.Velocity = Rigidbody.Velocity;
-			rb.Velocity += Vector3.Random * Random.Shared.Float( 20f, 150f );
-		}
+		// TODO: Empty the cargo hold out in to the world.
 	}
 
 	private void HideHud()
