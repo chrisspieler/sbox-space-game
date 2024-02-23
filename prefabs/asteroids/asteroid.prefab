@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "Id": "340518fa-5214-46a1-983b-3409a0753f75",
+    "Id": "8bc97931-82c6-4696-8a3b-8c551f82ed1d",
     "Name": "asteroid",
     "Tags": "solid",
     "Enabled": true,
@@ -37,7 +37,7 @@
         "__type": "SpaceFloater",
         "InitialAngularVelocity": "0,0,0",
         "InitialVelocity": "0,0,0",
-        "MassOverride": 1000,
+        "MassOverride": 40,
         "RandomAngularVelocityScale": 0.5,
         "RandomizeAngularVelocity": true,
         "RandomizeRotation": true,
@@ -46,7 +46,7 @@
         "RandomVelocityScale": 50,
         "Rigidbody": {
           "_type": "component",
-          "go": "340518fa-5214-46a1-983b-3409a0753f75",
+          "go": "8bc97931-82c6-4696-8a3b-8c551f82ed1d",
           "component_type": "Rigidbody"
         },
         "ScaleCurve": {
@@ -82,7 +82,7 @@
         "__enabled": false,
         "Rigidbody": {
           "_type": "component",
-          "go": "340518fa-5214-46a1-983b-3409a0753f75",
+          "go": "8bc97931-82c6-4696-8a3b-8c551f82ed1d",
           "component_type": "Rigidbody"
         }
       }

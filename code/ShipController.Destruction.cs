@@ -44,6 +44,8 @@ public sealed partial class ShipController
 			.ToList();
 		foreach( var debris in parts )
 		{
+			ReleaseDebris( debris );
+
 			var oldTx = debris.Transform.World;
 			debris.Name = $"(Debris) {debris.Name}";
 			debris.Parent = null;
@@ -59,8 +61,6 @@ public sealed partial class ShipController
 				rb.Velocity += Vector3.Random.WithZ( 0f ) * 200f;
 				rb.AngularVelocity += Vector3.Random * 3f;
 			}
-			
-			ReleaseDebris( debris );
 		}
 	}
 

@@ -1,17 +1,24 @@
 {
   "RootObject": {
-    "Id": "1b2ccd91-8da2-489e-846c-5a7ee5fe72ee",
+    "Id": "7a3bf36f-9fa0-43aa-9203-420d31a37cb5",
     "Name": "ship_explosion",
     "Enabled": true,
     "Components": [
       {
         "__type": "SelfDestruct",
-        "Delay": 20
+        "Delay": 5
+      },
+      {
+        "__type": "BlastSource",
+        "BlastOnEnable": true,
+        "DestroyAfterBlast": true,
+        "Force": 20000,
+        "Radius": 1500
       }
     ],
     "Children": [
       {
-        "Id": "265a619a-0d55-44d8-8d30-9534d4491038",
+        "Id": "df6434a6-9ba1-41f6-9cb5-48ae3461dab4",
         "Name": "Burst",
         "Tags": "particles",
         "Enabled": true,
@@ -19,16 +26,17 @@
           {
             "__type": "ParticleEffect",
             "Alpha": {
+              "Type": "Curve",
               "CurveA": [
                 {
                   "y": 1,
-                  "in": 0.4399999,
-                  "out": -0.4399999
+                  "in": 2.4444437,
+                  "out": -2.4444437
                 },
                 {
                   "x": 1,
-                  "in": 2,
-                  "out": -2
+                  "in": 0.18181837,
+                  "out": -0.18181837
                 }
               ],
               "Constants": "1,0,0,0"
@@ -81,12 +89,12 @@
                     "c": "1,0.39535,0.06977,1"
                   },
                   {
-                    "t": 0.53846157,
-                    "c": "1,0.28333,0,1"
+                    "t": 0.33974358,
+                    "c": "0.16744,0.15851,0.15498,1"
                   },
                   {
-                    "t": 0.9337607,
-                    "c": "0.10698,0.10698,0.10698,1"
+                    "t": 0.76282054,
+                    "c": "0.1814,0.1814,0.1814,1"
                   }
                 ],
                 "alpha": [
@@ -104,7 +112,7 @@
                   },
                   {
                     "t": 0.5833333,
-                    "a": 0.91
+                    "a": 1
                   }
                 ]
               },
@@ -121,7 +129,7 @@
               "ConstantB": "0,0,0,1"
             },
             "Lifetime": {
-              "Constants": "10,2,0,0"
+              "Constants": "5,2,0,0"
             },
             "MaxParticles": 5000,
             "PerParticleTimeScale": {
@@ -153,7 +161,7 @@
                   "out": -1.7872342
                 }
               ],
-              "Constants": "0.5,0,0,0"
+              "Constants": "1,0,0,0"
             },
             "SequenceId": {},
             "SequenceSpeed": {
@@ -167,7 +175,7 @@
             "StartVelocity": {
               "Type": "Range",
               "Evaluation": "Particle",
-              "Constants": "2,20,0,0"
+              "Constants": "50,100,0,0"
             },
             "Stretch": {
               "Constants": "-1,0,0,0"
@@ -198,28 +206,28 @@
             "Burst": 200,
             "Delay": 0,
             "DestroyOnEnd": false,
-            "Duration": 10,
+            "Duration": 5,
             "Loop": false,
             "OnEdge": true,
             "Radius": 20,
             "Rate": 0,
-            "Velocity": 100
+            "Velocity": 200
           }
         ]
       },
       {
-        "Id": "77893bcc-7645-49ad-b55a-6e98978a8bbe",
+        "Id": "b229481f-26eb-4cf5-b655-2dc9ccf08292",
         "Name": "Point Light",
         "Tags": "light_point,light",
         "Enabled": true,
         "Components": [
           {
             "__type": "PointLight",
-            "Attenuation": 0.5,
+            "Attenuation": 0.2,
             "FogMode": "Enabled",
-            "FogStrength": 1,
+            "FogStrength": 2,
             "LightColor": "1,0.46667,0,1",
-            "Radius": 1500,
+            "Radius": 6000,
             "Shadows": true
           },
           {
@@ -229,7 +237,7 @@
         ]
       },
       {
-        "Id": "f93a0afb-b1e2-4093-96a9-3649a66bf640",
+        "Id": "444f8a76-791b-4ce9-bd52-2df7e0e024c5",
         "Name": "Smoke",
         "Tags": "particles",
         "Enabled": true,
@@ -240,25 +248,26 @@
               "Type": "Curve",
               "CurveA": [
                 {
-                  "in": -1.2631577,
-                  "out": 1.2631577
+                  "y": 0.10106383,
+                  "in": 0.04545452,
+                  "out": -0.04545452
                 },
                 {
-                  "x": 0.03273811,
-                  "y": 0.28989363,
+                  "x": 0.15029763,
+                  "y": 0.10372341,
                   "in": -0.066666484,
                   "out": 0.066666484
                 },
                 {
-                  "x": 0.16964285,
-                  "y": 0.07059495,
-                  "in": 0.18792167,
-                  "out": -0.18792167
+                  "x": 0.4672619,
+                  "y": 0.025382183,
+                  "in": 0.17281507,
+                  "out": -0.17281507
                 },
                 {
                   "x": 1,
-                  "in": 0.03125016,
-                  "out": -0.03125016
+                  "in": -0.026666552,
+                  "out": 0.026666552
                 }
               ],
               "Constants": "1,0,0,0"
@@ -313,7 +322,7 @@
               "ConstantB": "1,1,1,1"
             },
             "Lifetime": {
-              "Constants": "10,8,0,0"
+              "Constants": "3,8,0,0"
             },
             "MaxParticles": 5000,
             "PerParticleTimeScale": {
@@ -329,23 +338,29 @@
             "Scale": {
               "Type": "Curve",
               "CurveA": {
-                "rangey": "0,500",
+                "rangey": "0,400",
                 "frames": [
                   {
                     "in": -0.04999981,
                     "out": 0.04999981
                   },
                   {
-                    "x": 0.035714287,
-                    "y": 0.06382979,
-                    "in": -0.28205135,
-                    "out": 0.28205135
+                    "x": 0.013392846,
+                    "y": 0.17021276,
+                    "in": -1.5600001,
+                    "out": 1.5600001
+                  },
+                  {
+                    "x": 0.31994048,
+                    "y": 0.7964749,
+                    "in": -1.0853297,
+                    "out": 1.0853297
                   },
                   {
                     "x": 1,
                     "y": 1,
-                    "in": -1.1320752,
-                    "out": 1.1320752
+                    "in": -0.06451602,
+                    "out": 0.06451602
                   }
                 ]
               },
@@ -392,7 +407,7 @@
             "Burst": 30,
             "Delay": 0,
             "DestroyOnEnd": true,
-            "Duration": 10,
+            "Duration": 5,
             "Loop": false,
             "OnEdge": false,
             "Radius": 32,
@@ -402,7 +417,7 @@
         ]
       },
       {
-        "Id": "b2aa95cb-8cc0-404f-ac48-46a674eed2f6",
+        "Id": "7db029f3-a011-4ce9-aea1-b1f484523c9f",
         "Name": "Fire",
         "Tags": "particles",
         "Enabled": true,
@@ -438,7 +453,7 @@
               "Constants": "1,0,0,0"
             },
             "Brightness": {
-              "Constants": "1,0,0,0"
+              "Constants": "2,0,0,0"
             },
             "Bumpiness": {},
             "Collision": false,
@@ -455,7 +470,6 @@
               "Constants": "1,0,0,0"
             },
             "Gradient": {
-              "Type": "Range",
               "Evaluation": "Particle",
               "GradientA": {
                 "color": [
@@ -475,7 +489,7 @@
                 ],
                 "alpha": []
               },
-              "ConstantA": "0.18317,0.18317,0.18317,1",
+              "ConstantA": "1,1,1,1",
               "ConstantB": "1,1,1,1"
             },
             "Lifetime": {
@@ -495,7 +509,7 @@
             "Scale": {
               "Type": "Curve",
               "CurveA": {
-                "rangey": "30,120",
+                "rangey": "30,240",
                 "frames": [
                   {},
                   {
@@ -555,7 +569,7 @@
             "Burst": 50,
             "Delay": 0,
             "DestroyOnEnd": true,
-            "Duration": 10,
+            "Duration": 5,
             "Loop": false,
             "OnEdge": false,
             "Radius": 80,

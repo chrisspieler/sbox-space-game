@@ -30,7 +30,6 @@
           "_type": "gameobject",
           "prefab": "prefabs/effects/ship_explosion.prefab"
         },
-        "ExplosionScale": 5,
         "Grapple": {
           "_type": "component",
           "go": "35c315ef-865f-49a7-83a1-2bcc3c9c7908",

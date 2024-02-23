@@ -30,7 +30,7 @@ public sealed class SpaceFloater : Component
 			Transform.Scale = Transform.Scale * ScaleCurve.Evaluate( Random.Shared.NextSingle() );
 		}
 
-		Rigidbody.MassOverride = MassOverride * Transform.Scale.Length;
+		Rigidbody.PhysicsBody.Mass = MassOverride * Transform.Scale.Length;
 
 		if ( RandomizeVelocity )
 			InitialVelocity = RandomVelocityScale * Vector3.Random;
