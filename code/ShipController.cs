@@ -6,12 +6,11 @@ public sealed partial class ShipController : Component
 	[Property] public GameObject PartsContainer { get; set; }
 	[Property] public float Acceleration { get; set; } = 200f;
 	[Property] public float TurnSpeed { get; set; } = 1.5f;
+	[Property] public Vector3 FacingDirection { get; set; }
 	[Property, Category("Debug")] public Vector3 MainThrusterForce => _mainThrusterForce;
 	private Vector3 _mainThrusterForce;
 	[Property, Category("Debug")] public Vector3 RetrorocketForce => _retrorocketForce;
 	private Vector3 _retrorocketForce;
-	[Property, Category("Debug")] public Vector3 LastInputDir => _lastInputDir;
-	private Vector3 _lastInputDir { get; set; }
 	[Property, Category( "Equipment" )]
 	public GrappleBeam Grapple { get; set; }
 	[Property, Category( "Equipment" )]
@@ -21,7 +20,10 @@ public sealed partial class ShipController : Component
 
 	protected override void OnStart()
 	{
-		_lastInputDir = PartsContainer.Transform.Rotation.Forward.WithZ( 0f );
+		FacingDirection = PartsContainer.Transform.Rotation.Forward.WithZ( 0f );
+		ScreenManager.SetHudEnabled( true );
+		ScreenManager.SetCursorEnabled( true );
+		ScreenManager.UpdateShip( this );
 	}
 
 	protected override void OnUpdate()
@@ -29,7 +31,7 @@ public sealed partial class ShipController : Component
 		var inputDir = Input.AnalogMove;
 		if ( !inputDir.IsNearZeroLength )
 		{
-			_lastInputDir = GetLastKeyboardDirection();
+			FacingDirection = GetLastKeyboardDirection();
 		}
 		UpdateThrusters( inputDir );
 		var fromRot = PartsContainer.Transform.Rotation;
@@ -88,7 +90,7 @@ public sealed partial class ShipController : Component
 
 	private Rotation GetTargetRotation()
 	{
-		return Rotation.LookAt( _lastInputDir, Vector3.Up );
+		return Rotation.LookAt( FacingDirection, Vector3.Up );
 	}
 
 	private float GetRotationSpeed()

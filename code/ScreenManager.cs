@@ -14,6 +14,12 @@ public sealed class ScreenManager : Component
 		Instance = this;
 	}
 
+	public static void UpdateShip( ShipController ship )
+	{
+		var hudPanel = Instance.HudPanel as HudPanel;
+		hudPanel.UpdateShip( ship );
+	}
+
 	public static void SetHudEnabled( bool enabled )
 	{
 		Instance.HudPanel.Enabled = enabled;

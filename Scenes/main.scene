@@ -93,8 +93,7 @@
               "__type": "RestartPanel",
               "__enabled": false,
               "DeathText": "You Died",
-              "InstructionText": "Press R to Restart",
-              "ReloadScene": "scenes/main.scene"
+              "InstructionText": "Press R to Restart"
             }
           ]
         }
@@ -284,6 +283,19 @@
       "__Prefab": "prefabs/ship.prefab"
     },
     {
+      "Id": "f9cb08c3-3e7a-4d19-b21d-88cdf807ed36",
+      "Name": "Spawn Point",
+      "Position": "2500,3200,0",
+      "Rotation": "0,0,0.7071068,0.7071068",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "SpawnPoint",
+          "Color": "0,0.11667,1,1"
+        }
+      ]
+    },
+    {
       "Id": "b95bc5b6-db79-4b7b-9cb5-c9d2b127a0ac",
       "Name": "The Cube",
       "Position": "2500,2500,-700",
@@ -453,7 +465,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-23T00:06:56.9646368-07:00",
+  "LastSaved": "2024-02-23T01:15:36.8125991-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03",

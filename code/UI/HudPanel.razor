@@ -22,17 +22,17 @@
     private Shield _shipShield;
     private ShipHull _shipHull;
 
-    protected override int BuildHash() => System.HashCode.Combine( ShieldColor, HullColor, _shipShield?.CurrentHealth );
+    protected override int BuildHash() => System.HashCode.Combine( ShieldColor, HullColor, _shipShield?.CurrentHealth, _shipHull?.CurrentHealth );
 
     protected override void OnStart()
     {
-        Ship ??= Scene.GetAllComponents<ShipController>().FirstOrDefault();
-        // TODO: Call UpdateShipEquipment any time the equipment on the ship changes.
-        UpdateShipEquipment();
+        var ship = Scene.GetAllComponents<ShipController>().FirstOrDefault();
+        UpdateShip( ship );
     }
 
-    private void UpdateShipEquipment()
+    public void UpdateShip( ShipController ship )
     {
+        Ship = ship;
         _shipShield = Ship?.Components?.GetInDescendantsOrSelf<Shield>();
         _shipHull = Ship?.Components?.GetInDescendantsOrSelf<ShipHull>();
     }
