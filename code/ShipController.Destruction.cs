@@ -8,6 +8,7 @@ public sealed partial class ShipController
 	public static int MeatRagdollWackiness { get; set; } = 10;
 
 	[Property, Category("Death")] public GameObject Meat { get; set; }
+	[Property, Category( "Death" )] public GameObject ExplosionPrefab { get; set; }
 
 	[ConCmd("ship_explode")]
 	public static void ExplodeCommand()
@@ -30,7 +31,9 @@ public sealed partial class ShipController
 		SpillCargo();
 		ReleaseSceneCamera();
 		HideHud();
+		SpawnExplosion();
 		Rigidbody.Velocity = Vector3.Zero;
+
 		GameObject.Destroy();
 	}
 
@@ -46,6 +49,8 @@ public sealed partial class ShipController
 			debris.Parent = null;
 			debris.Transform.World = oldTx;
 			debris.Tags.Add( "solid" );
+			// To prevent being ejected by the base shield.
+			debris.Tags.Add( "player" );
 
 			if ( debris.Components.TryGet<Rigidbody>(out var rb, FindMode.EverythingInSelf ) )
 			{
@@ -88,6 +93,8 @@ public sealed partial class ShipController
 		Meat.Parent = null;
 		Meat.Transform.World = oldTx;
 		Meat.Enabled = true;
+		// To avoid being ejected by the base shield.
+		Meat.Tags.Add( "player" );
 		var renderer = Meat.Components.Get<SkinnedModelRenderer>();
 		// Stop animations so the meat does not blink.
 		renderer.SceneModel.UseAnimGraph = false;
@@ -137,5 +144,26 @@ public sealed partial class ShipController
 		var oldPos = camera.Transform.Position;
 		camera.GameObject.Parent = null;
 		camera.GameObject.Transform.Position = oldPos;
+	}
+
+	private void SpawnExplosion()
+	{
+		if ( ExplosionPrefab is null )
+			return;
+
+		var go = ExplosionPrefab.Clone( Transform.Position );
+		go.Name = $"{GameObject.Name} Explosion";
+		var particleEffects = go.Components.GetAll<ParticleEffect>( FindMode.EnabledInSelfAndDescendants );
+		foreach( var effect in particleEffects )
+		{
+			// For effects that use force, inherit velocity from the ship.
+			effect.ForceDirection = (effect.ForceDirection + Rigidbody.Velocity.Normal).Normal;
+			effect.ForceScale = effect.ForceScale.ConstantValue + Rigidbody.Velocity.Length;
+			effect.CollisionIgnore ??= new TagSet();
+			// Don't collide with released debris.
+			effect.CollisionIgnore.Add( "player" );
+			// Don't collide with the base shield.
+			effect.CollisionIgnore.Add( "player_shield" );
+		}
 	}
 }
