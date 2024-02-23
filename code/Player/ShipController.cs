@@ -11,10 +11,6 @@ public sealed partial class ShipController : Component
 	private Vector3 _mainThrusterForce;
 	[Property, Category("Debug")] public Vector3 RetrorocketForce => _retrorocketForce;
 	private Vector3 _retrorocketForce;
-	[Property, Category( "Equipment" )]
-	public GrappleBeam Grapple { get; set; }
-	[Property, Category( "Equipment" )]
-	public Stabilizer Stabilizer { get; set; }
 
 	public Rotation TargetRotation { get; private set; }
 
@@ -24,6 +20,7 @@ public sealed partial class ShipController : Component
 		ScreenManager.SetHudEnabled( true );
 		ScreenManager.SetCursorEnabled( true );
 		ScreenManager.UpdateShip( this );
+		FindEquipmentInChildren();
 		GameObject.BreakFromPrefab();
 	}
 
@@ -44,10 +41,20 @@ public sealed partial class ShipController : Component
 
 	private void UpdateThrusters( Vector3 inputDir )
 	{
-		_mainThrusterForce = PartsContainer.Transform.Rotation.Forward * GetMainThrusterForce();
 		_retrorocketForce = Stabilizer?.GetStabilizerForce() ?? Vector3.Zero;
-		Rigidbody.Velocity += _mainThrusterForce;
-		Rigidbody.Velocity += _retrorocketForce;
+		_mainThrusterForce = Vector3.Zero;
+		foreach( var thruster in Thrusters )
+		{
+			thruster.ShouldFire = thruster.Retrorocket
+				? ShouldFireRetrorockets()
+				: ShouldFireMainThrusters();
+
+			// Store main thruster force for debug visualization.
+			if ( thruster.ShouldFire && !thruster.Retrorocket )
+			{
+				_mainThrusterForce += thruster.GetForce();
+			}
+		}
 	}
 
 	[ConVar("input_diagonal_key_grace")] 
@@ -81,10 +88,14 @@ public sealed partial class ShipController : Component
 		return input.Normal;
 	}
 
-	private float GetMainThrusterForce()
+	private bool ShouldFireMainThrusters()
 	{
-		var acceleration = Acceleration * (Input.Down( "thrust" ) ? 1f : 0f);
-		return acceleration * Time.Delta;
+		return Input.Down( "thrust" );
+	}
+
+	private bool ShouldFireRetrorockets()
+	{
+		return !_retrorocketForce.IsNearZeroLength;
 	}
 
 	public bool IsGrappling => Grapple.IsValid() && Grapple.IsSlack;

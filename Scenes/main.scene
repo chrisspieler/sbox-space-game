@@ -47,6 +47,7 @@
           "Components": [
             {
               "__type": "HudPanel",
+              "FuelColor": "1,1,0,1",
               "HullColor": "0.74884,0.11145,0.14332,1",
               "ShieldColor": "0.36863,0.84706,0.95686,1",
               "Ship": null
@@ -157,8 +158,8 @@
                 "Id": 2,
                 "Type": "property.get",
                 "Properties": {
-                  "_type": "Sandbox.Game/Sandbox.Scene",
-                  "_name": "PhysicsWorld"
+                  "_name": "PhysicsWorld",
+                  "_type": "Sandbox.Game/Sandbox.Scene"
                 },
                 "UserData": {
                   "Position": "64,64"
@@ -278,7 +279,7 @@
       "Id": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
       "Name": "Ship",
       "Position": "2500,3200,0",
-      "Tags": "solid,ship,player",
+      "Tags": "player,ship,solid",
       "Enabled": true,
       "__Prefab": "prefabs/ship.prefab"
     },
@@ -465,7 +466,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-23T02:24:02.6009583-07:00",
+  "LastSaved": "2024-02-23T05:07:35.5816029-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03",

@@ -33,8 +33,8 @@ public partial class ShipController
 			Gizmo.Draw.ScreenText( $"Origin Shift: {floatingOrigin.OriginSystem.TotalOriginShift}, Absolute Position: {floatingOrigin.AbsolutePosition}, Current Chunk: {currentChunk}", new Vector2( 25f, 50f ), "Consolas", 12, TextFlag.Left );
 		}
 
-		DrawForceArrow( -MainThrusterForce, Color.Blue );
-		DrawForceArrow( -RetrorocketForce, Color.Red );
+		DrawForceArrow( -MainThrusterForce * Time.Delta, Color.Blue );
+		DrawForceArrow( -RetrorocketForce * Time.Delta, Color.Red );
 	}
 
 	private void DrawForceArrow( Vector3 force, Color color )

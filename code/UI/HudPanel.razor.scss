@@ -6,13 +6,17 @@ HudPanel
 
 	#bottomBars {
 		position: absolute;
-		bottom: 3%;
+		bottom: 5%;
 		width: 100%;
 		justify-content: space-between;
 
 		FillBar {
 			width: 15%;
-			margin: 0% 2.5%;
+			margin: 0% 3.5%;
+
+			&.hidden {
+				opacity: 0;
+			}
 
 			.icon {
 				font-size: 36px;

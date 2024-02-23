@@ -90,7 +90,7 @@ public sealed class Stabilizer : Component
 		// Move our velocity towards the target's velocity.
 		var delta = VelocityMatchTarget.Velocity - Rigidbody.Velocity;
 		delta = delta.Clamp( -StabilizerPower, StabilizerPower );
-		return delta * Time.Delta;
+		return delta;
 	}
 
 	private void DrawDebug( Vector3 currentVelocity )
