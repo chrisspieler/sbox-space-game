@@ -50,7 +50,6 @@ public sealed partial class ShipController
 			debris.Name = $"(Debris) {debris.Name}";
 			debris.Parent = null;
 			debris.Transform.World = oldTx;
-			debris.Tags.Add( "solid" );
 			// To prevent being ejected by the base shield.
 			debris.Tags.Add( "player" );
 
@@ -59,6 +58,8 @@ public sealed partial class ShipController
 				rb.Enabled = true;
 				rb.Velocity = Rigidbody.Velocity;
 				rb.Velocity += Vector3.Random.WithZ( 0f ) * 200f;
+				// Make sure the mass of each piece of ship debris is low enough that the ship can push it.
+				rb.PhysicsBody.Mass = Math.Min( rb.PhysicsBody.Mass, 100f );
 				rb.AngularVelocity += Vector3.Random * 3f;
 			}
 		}
