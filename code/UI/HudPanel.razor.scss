@@ -1,8 +1,28 @@
+@import "Styles/main.scss";
+
 HudPanel
 {
 	position: absolute;
 	width: 100%;
 	height: 100%;
+	color: white;
+	font-family: 'UAV OSD Sans Mono';
+
+	#shopIndicator {
+		position: absolute;
+		right: 4%;
+		bottom: 18%;
+		opacity: 0;
+		font-size: 1.1vh;
+
+		&.visible {
+			opacity: 1;
+		}
+
+		.icon {
+			font-size: 7vh;
+		}
+	}
 
 	#bottomBars {
 		position: absolute;
@@ -12,6 +32,7 @@ HudPanel
 
 		FillBar {
 			width: 15%;
+			height: 2vh;
 			margin: 0% 3.5%;
 
 			&.hidden {

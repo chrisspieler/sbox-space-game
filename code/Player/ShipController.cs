@@ -124,6 +124,8 @@ public sealed partial class ShipController : Component
 
 	public bool IsGrappling => Grapple.IsValid() && Grapple.IsSlack;
 
+	public bool IsAlive => Hull.IsValid() && Hull.CurrentHealth > 0f;
+
 	private Rotation GetTargetRotation()
 	{
 		return Rotation.LookAt( FacingDirection, Vector3.Up );

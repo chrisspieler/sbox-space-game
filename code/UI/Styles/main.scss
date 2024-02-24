@@ -1,4 +1,27 @@
-﻿.icon {
+﻿.button {
+    color: white;
+    border: 1px solid white;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+
+    &:hover {
+        background-color: white;
+        color: black;
+    }
+}
+
+.column {
+    flex-direction: column;
+}
+
+.center-content {
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
     font-family: 'Material Icons';
     font-size: 28px;
     margin: 5px;

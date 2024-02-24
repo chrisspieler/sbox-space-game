@@ -24,7 +24,6 @@
 
     protected override void OnStart()
     {
-        Log.Info("enabled");
         _ = Task.DelaySeconds(3f).ContinueWith(_ => ShowDeathText = true);
         _ = Task.DelaySeconds(6f).ContinueWith(_ => ShowInstruction = true);
     }

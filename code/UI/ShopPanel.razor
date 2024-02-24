@@ -1,0 +1,104 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+
+<root class="column">
+    <div id="mainPanel">
+        <div id="leftPanel" class="column">
+            <div id="maintenancePanel" class="column">
+                <div class="column button" onmousedown=@(() => _holdingRefuel = true ) onmouseup=@(() => _holdingRefuel = false)>
+                    <FillBar Icon="local_gas_station" FillColor=@Color.Yellow FillPercentGetter=@GetFuelPercent/>
+                    <p>REFUEL</p>
+                    <p class="price">@GetFuelPricePerUnit() CR / UNIT (@GetFuelTopOffPrice() TO FILL)</p>
+                </div>
+                <div id="repairButton" class="button column" onclick=@RepairShip>
+                    <div class="center-content">
+                        <div class="icon">security</div>
+                        <p>REPAIR HULL</p>
+                    </div>
+                    <p class="price">@GetRepairPrice() CR</p>
+                </div>
+            </div>
+            <div id="sellPanel" class="column">
+                <div id="sellTitle" class="center-content header">SELL MINERALS</div>
+                <!--TODO: List every saleable item in the ship's cargo hold.-->
+            </div>
+        </div>
+        <div id="buyPanel" class="column">
+            <div id="buyTitle" class="center-content header">BUY EQUIPMENT</div>
+            <!--TODO: List all of the cool things you can buy.-->
+        </div>
+    </div>
+    <div id="bottomBar">
+        <p id="creditsDisplay">@(Career.Active.Money) CREDITS</p>
+        <div id="exitButton" class="button" @onclick=@(() => { Enabled = false; })>EXIT</div>
+    </div>
+</root>
+
+@code
+{
+
+    /// <summary>
+    /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+    /// </summary>
+    protected override int BuildHash() => System.HashCode.Combine( GetFuelPercent(), GetRepairPrice(), Career.Active.Money );
+
+    [Property] public Shop Shop { get; set; }
+    [Property] public ShipController Ship { get; set; }
+
+    private bool _holdingRefuel;
+
+    protected override void OnEnabled()
+    {
+        base.OnEnabled();
+
+        Ship = ShipController.GetCurrent();
+    }
+
+    protected override void OnUpdate()
+    {
+        if ( _holdingRefuel )
+        {
+            TickRefuel();
+        }
+    }
+
+    private float GetFuelPercent()
+    {
+        if (!Ship.IsValid() || !Ship.Fuel.IsValid())
+            return 0f;
+
+        return Ship.Fuel.CurrentAmount / Ship.Fuel.MaxCapacity * 100f;
+    }
+
+    private int GetFuelPricePerUnit()
+    {
+        return (int)Shop.FuelCostPerUnit;
+    }
+
+    private int GetFuelTopOffPrice()
+    {
+        if (!Ship.IsValid() || !Ship.Fuel.IsValid())
+            return 0;
+
+        var topOffAmount = Ship.Fuel.MaxCapacity - Ship.Fuel.CurrentAmount;
+        return (int)(Shop.FuelCostPerUnit * topOffAmount);
+    }
+
+    private void TickRefuel()
+    {
+        Log.Info("refuel tick");
+        Shop.TickRefuel( Ship );
+    }
+
+    private int GetRepairPrice()
+    {
+        return Shop.GetRepairPrice( Ship );
+    }
+
+    private void RepairShip()
+    {
+        Log.Info("repair");
+        Shop.Repair( Ship );
+    }
+}

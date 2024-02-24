@@ -1,0 +1,92 @@
+@import "Styles/main.scss";
+
+ShopPanel {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backdrop-filter: blur(10px);
+	pointer-events: all;
+	color: white;
+	font-family: 'UAV OSD Sans Mono';
+
+	#mainPanel {
+		height: 90%;
+	}
+
+	#bottomBar {
+		height: 10%;
+		width: 100%;
+		padding: 10px;
+		justify-content: space-between;
+		align-items: center;
+		background-color: #000C;
+		font-size: 2vh;
+
+		#creditsDisplay {
+			left: 10%;
+		}
+
+		#exitButton {
+			height: 100%;
+			width: 10%;
+		}
+	}
+
+	#mainPanel {
+		padding: 25px;
+	}
+
+	#leftPanel {
+		width: 35%;
+		justify-content: space-between;
+
+		#maintenancePanel {
+			width: 100%;
+			align-items: center;
+			margin-bottom: 25px;
+
+			.button {
+				width: 100%;
+				font-size: 1.5vh;
+				margin: 5px;
+
+				&:hover {
+					FillBar {
+						color: black;
+
+						.bar {
+							border-color: black;
+						}
+					}
+				}
+
+				FillBar {
+					width: 80%;
+				}
+			}
+
+			.price {
+				margin-left: 20px;
+				color: dodgerblue;
+			}
+		}
+
+		#sellPanel {
+			flex-grow: 1;
+			border: 1px solid white;
+		}
+	}
+
+	.header {
+		background-color: white;
+		color: black;
+		font-size: 2vh;
+		padding: 5px;
+	}
+
+	#buyPanel {
+		flex-grow: 1;
+		border: 1px solid white;
+		margin: 5px 5px 0px 25px;
+	}
+}

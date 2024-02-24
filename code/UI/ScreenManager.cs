@@ -1,4 +1,5 @@
 using Sandbox;
+using System.Security.Cryptography.X509Certificates;
 
 public sealed class ScreenManager : Component
 {
@@ -8,6 +9,7 @@ public sealed class ScreenManager : Component
 	[Property] public PanelComponent HudPanel { get; set; }
 	[Property] public PanelComponent CursorPanel { get; set; }
 	[Property] public PanelComponent HoveredSelectionPanel { get; set; }
+	[Property] public PanelComponent ShopPanel { get; set; }
 
 	protected override void OnAwake()
 	{
@@ -46,5 +48,29 @@ public sealed class ScreenManager : Component
 		SelectionPanel panel = Instance.HoveredSelectionPanel as SelectionPanel;
 		panel.Target = selection;
 		panel.Enabled = selection.IsValid();
+	}
+
+	public static bool IsShopOpen()
+	{
+		return Instance.ShopPanel.Enabled;
+	}
+
+	public static void OpenShopPanel( Shop shop )
+	{
+		ShopPanel shopPanel = Instance.ShopPanel as ShopPanel;
+		shopPanel.Shop = shop;
+		shopPanel.Enabled = true;
+		ShipController.GetCurrent().IsInvincible = true;
+	}
+
+	public static void CloseShopPanel()
+	{
+		Instance.ShopPanel.Enabled = false;
+		ShipController.GetCurrent().IsInvincible = ShipController.GodMode;
+	}
+
+	public static void SetNearbyShopIndicator( bool isShopNearby )
+	{
+		(Instance.HudPanel as HudPanel).IsShopNearby = isShopNearby;
 	}
 }

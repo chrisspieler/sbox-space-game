@@ -35,10 +35,37 @@
             "_type": "component",
             "go": "231cb05f-5d34-4930-addf-bfe5060a2afc",
             "component_type": "RestartPanel"
+          },
+          "ShopPanel": {
+            "_type": "component",
+            "go": "f9f94a44-d995-4551-9bb6-a0b2107d5610",
+            "component_type": "ShopPanel"
           }
         }
       ],
       "Children": [
+        {
+          "Id": "f9f94a44-d995-4551-9bb6-a0b2107d5610",
+          "Name": "Shop Screen",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ShopPanel",
+              "__enabled": false,
+              "Ship": {
+                "_type": "component",
+                "go": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
+                "component_type": "ShipController"
+              },
+              "Shop": {
+                "_type": "component",
+                "go": "fa056831-a9c3-4510-b888-b7f61087ae3e",
+                "component_type": "Shop"
+              }
+            }
+          ]
+        },
         {
           "Id": "b8c346f0-faad-462c-bdad-1fdd1801e747",
           "Name": "Hud",
@@ -49,6 +76,7 @@
               "__type": "HudPanel",
               "FuelColor": "1,1,0,1",
               "HullColor": "0.74884,0.11145,0.14332,1",
+              "IsShopNearby": false,
               "ShieldColor": "0.36863,0.84706,0.95686,1",
               "Ship": null
             }
@@ -94,7 +122,7 @@
               "__type": "RestartPanel",
               "__enabled": false,
               "DeathText": "You Died",
-              "InstructionText": "Press R to Restart"
+              "InstructionText": "Press R to Respawn"
             }
           ]
         }
@@ -158,8 +186,8 @@
                 "Id": 2,
                 "Type": "property.get",
                 "Properties": {
-                  "_type": "Sandbox.Game/Sandbox.Scene",
-                  "_name": "PhysicsWorld"
+                  "_name": "PhysicsWorld",
+                  "_type": "Sandbox.Game/Sandbox.Scene"
                 },
                 "UserData": {
                   "Position": "64,64"
@@ -169,8 +197,8 @@
                 "Id": 3,
                 "Type": "property.set",
                 "Properties": {
-                  "_type": "Sandbox.Engine/Sandbox.PhysicsWorld",
-                  "_name": "Gravity"
+                  "_name": "Gravity",
+                  "_type": "Sandbox.Engine/Sandbox.PhysicsWorld"
                 },
                 "UserData": {
                   "Position": "352,0"
@@ -217,6 +245,9 @@
           "FilterWithoutAny": "player",
           "Hovered": null,
           "OnHoveredChanged": null
+        },
+        {
+          "__type": "SaveManager"
         }
       ],
       "Children": [
@@ -284,19 +315,6 @@
       "__Prefab": "prefabs/ship.prefab"
     },
     {
-      "Id": "f9cb08c3-3e7a-4d19-b21d-88cdf807ed36",
-      "Name": "Spawn Point",
-      "Position": "2500,3200,0",
-      "Rotation": "0,0,0.7071068,0.7071068",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "SpawnPoint",
-          "Color": "0,0.11667,1,1"
-        }
-      ]
-    },
-    {
       "Id": "b95bc5b6-db79-4b7b-9cb5-c9d2b127a0ac",
       "Name": "The Cube",
       "Position": "2500,2500,-700",
@@ -323,6 +341,20 @@
       ],
       "Children": [
         {
+          "Id": "f9cb08c3-3e7a-4d19-b21d-88cdf807ed36",
+          "Name": "Spawn Point",
+          "Position": "0,35,35",
+          "Rotation": "0,0,0.7071068,0.7071068",
+          "Scale": "0.05,0.05,0.05",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "SpawnPoint",
+              "Color": "0,0.11667,1,1"
+            }
+          ]
+        },
+        {
           "Id": "ccc59e16-bb57-417c-bb76-17079140fa74",
           "Name": "Base Shield",
           "Position": "0,0,0",
@@ -342,6 +374,7 @@
                 "go": "ccc59e16-bb57-417c-bb76-17079140fa74",
                 "component_type": "SphereCollider"
               },
+              "Controller": null,
               "CurrentHealth": 10000,
               "MaxHealth": 10000,
               "RegenDelay": 0.1,
@@ -378,7 +411,7 @@
         {
           "Id": "fa056831-a9c3-4510-b888-b7f61087ae3e",
           "Name": "Shop",
-          "Position": "0,0,34.84475",
+          "Position": "0,0,35",
           "Scale": "0.4,0.4,0.4",
           "Tags": "solid",
           "Enabled": true,
@@ -397,6 +430,21 @@
               "Center": "0,0,0",
               "IsTrigger": false,
               "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            },
+            {
+              "__type": "Shop",
+              "BaseRepairCost": 20,
+              "FuelCostPerUnit": 10,
+              "RefuelAmountPerSecond": 3,
+              "RepairCostPerHitPoint": 0.5
+            },
+            {
+              "__type": "SphereCollider",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Radius": 80,
               "Static": false,
               "Surface": null
             }
@@ -466,7 +514,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-23T16:49:18.3979299-07:00",
+  "LastSaved": "2024-02-24T01:51:50.906856-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03",
