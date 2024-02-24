@@ -9,6 +9,7 @@ public sealed class Shield : Component
 	[Property] public float CurrentHealth { get; set; }
 	[Property] public float RegenRate { get; set; } = 20f;
 	[Property] public float RegenDelay { get; set; } = 1f;
+	[Property] public ShipController Controller { get; set; }
 	[Property] public Collider Collider { get; set; }
 	[Property] public Bouncy Bounce { get; set; }
 
@@ -17,6 +18,7 @@ public sealed class Shield : Component
 
 	protected override void OnEnabled()
 	{
+		Controller ??= Components.GetInAncestorsOrSelf<ShipController>();
 		Collider ??= Components.Get<Collider>( true );
 		Bounce ??= Components.Get<Bouncy>( true );
 		if ( Bounce.IsValid() )
@@ -50,7 +52,9 @@ public sealed class Shield : Component
 		if ( !Active || CurrentHealth <= 0f )
 			return;
 
-		var damage = collision.GetDamage();
+		var damage = ( Controller.IsValid() && Controller.IsInvincible ) 
+			? 0f 
+			: collision.GetDamage();
 		CurrentHealth = Math.Max( 0f, CurrentHealth - damage );
 		ResetRegen();
 		var fadeTime = 0.8f;

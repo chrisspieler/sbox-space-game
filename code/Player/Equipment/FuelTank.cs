@@ -10,14 +10,14 @@ public sealed class FuelTank : Component
 		CurrentAmount = MaxCapacity;
 	}
 
-	public bool HasFuel( float amount ) => CurrentAmount >= amount;
+	public bool HasFuel( float amount ) => ShipController.GodMode || CurrentAmount >= amount;
 
 	public bool TryBurnFuel( float amount )
 	{
 		if ( !HasFuel( amount ) || amount < 0f )
 			return false;
 
-		CurrentAmount -= amount;
+		CurrentAmount -= ShipController.GodMode ? 0f : amount;
 		return true;
 	}
 

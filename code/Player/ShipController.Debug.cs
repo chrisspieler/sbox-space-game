@@ -6,6 +6,21 @@ public partial class ShipController
 	public static bool Debug { get; set; }
 	[ConVar("ship_debug_update_interval")]
 	public static float UpdateInterval { get; set; } = 0.15f;
+	[ConVar( "ship_god_mode" )]
+	public static bool GodMode 
+	{
+		get => _godMode;
+		set
+		{
+			_godMode = value;
+			var ship = GetCurrent();
+			if ( ship.IsValid() )
+			{
+				ship.IsInvincible = value;
+			}
+		}
+	}
+	private static bool _godMode;
 
 
 	private TimeSince _lastUpdateTime = 0f;

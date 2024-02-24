@@ -1,12 +1,34 @@
 using Sandbox;
+using Sandbox.Utility;
 
 public sealed partial class ShipController : Component
 {
+	[ConVar( "ship_spawn_invincibility_time" )]
+	public static float SpawnInvincibilitySeconds { get; set; } = 1f;
 	[Property] public Rigidbody Rigidbody { get; set; }
 	[Property] public GameObject PartsContainer { get; set; }
 	[Property] public float Acceleration { get; set; } = 200f;
 	[Property] public float TurnSpeed { get; set; } = 1.5f;
 	[Property] public Vector3 FacingDirection { get; set; }
+	[Property] public bool IsInvincible 
+	{
+		get => _isInvincible;
+		set
+		{
+			_isInvincible = value;
+			if ( !GameManager.IsPlaying || !_isInvincible )
+				return;
+			var tintEffect = new TintEffect()
+			{
+				BlendMode = ColorBlendMode.Normal,
+				Tint = Color.White,
+				EasingFunction = Easing.GetFunction( "ease-in" ),
+				UntilFadeEnd = SpawnInvincibilitySeconds
+			};
+			GameObject.ColorFlash( tintEffect );
+		}
+	}
+	private bool _isInvincible;
 	[Property, Category("Debug")] public Vector3 MainThrusterForce => _mainThrusterForce;
 	private Vector3 _mainThrusterForce;
 	[Property, Category("Debug")] public Vector3 RetrorocketForce => _retrorocketForce;
@@ -22,6 +44,8 @@ public sealed partial class ShipController : Component
 		ScreenManager.UpdateShip( this );
 		FindEquipmentInChildren();
 		GameObject.BreakFromPrefab();
+		IsInvincible = true;
+		_ = Task.DelaySeconds( SpawnInvincibilitySeconds ).ContinueWith( _ => IsInvincible = GodMode );
 	}
 
 	protected override void OnUpdate()

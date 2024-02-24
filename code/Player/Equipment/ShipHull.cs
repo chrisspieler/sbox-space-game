@@ -4,6 +4,7 @@ using System;
 
 public sealed class ShipHull : Component
 {
+	[Property] public ShipController Controller { get; set; }
 	[Property] public GameObject PartsContainer { get; set; }
 	[Property] public TagSet HitTags { get; set; }
 	[Property] public float MaxHealth { get; set; } = 100f;
@@ -13,6 +14,7 @@ public sealed class ShipHull : Component
 	protected override void OnStart()
 	{
 		CurrentHealth = MaxHealth;
+		Controller ??= Components.GetInAncestorsOrSelf<ShipController>();
 		Bounce ??= Components.Get<Bouncy>();
 		if ( Bounce.IsValid() )
 		{
@@ -22,7 +24,7 @@ public sealed class ShipHull : Component
 
 	public void Hit( Collision collision )
 	{
-		var damage = collision.GetDamage();
+		var damage = Controller.IsInvincible ? 0f : collision.GetDamage();
 		CurrentHealth = Math.Max( 0f, CurrentHealth - damage );
 		if ( CurrentHealth <= 0f )
 		{

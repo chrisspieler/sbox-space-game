@@ -41,9 +41,9 @@ public sealed class TintCombiner : Component
 		var progress = effect.UntilFadeEnd.Value.Fraction;
 		if ( effect.EasingFunction != null )
 		{
-			progress = effect.EasingFunction( progress );
+			progress = effect.EasingFunction( (float)progress );
 		}
-		return Color.Lerp( Color.Transparent, effect.Tint, 1f - progress );
+		return Color.Lerp( Color.Transparent, effect.Tint, 1f - (float)progress );
 	}
 
 	private void RemoveExpiredEffects()
@@ -70,7 +70,7 @@ public sealed class TintCombiner : Component
 		return _activeTints.Count - 1;
 	}
 
-	public int AddTint( Color color, TimeUntil untilFadeEnd, ColorBlendMode blendMode = ColorBlendMode.Normal, Easing.Function easingFunction = null )
+	public int AddTint( Color color, RealTimeUntil untilFadeEnd, ColorBlendMode blendMode = ColorBlendMode.Normal, Easing.Function easingFunction = null )
 	{
 		_activeTints.Add( new TintEffect
 		{
