@@ -53,6 +53,13 @@ public sealed partial class ShipController
 			// To prevent being ejected by the base shield.
 			debris.Tags.Add( "player" );
 
+			// To allow for the ship hitbox to be smaller than the visible model,
+			// all colliders for ship parts should remain disabled until they are released as debris.
+			if ( debris.Components.TryGet<Collider>( out var collider, FindMode.EverythingInSelf ) )
+			{
+				collider.Enabled = true;
+			}
+
 			if ( debris.Components.TryGet<Rigidbody>(out var rb, FindMode.EverythingInSelf ) )
 			{
 				rb.Enabled = true;

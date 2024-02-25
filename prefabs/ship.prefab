@@ -38,6 +38,7 @@
           "component_type": "GrappleBeam"
         },
         "Hull": null,
+        "IsInvincible": false,
         "MainThrusterForce": "0,0,0",
         "Meat": {
           "_type": "gameobject",
@@ -102,6 +103,7 @@
               },
               {
                 "__type": "BoxCollider",
+                "__enabled": false,
                 "Center": "0,0,0",
                 "IsTrigger": false,
                 "Scale": "50,50,50",
@@ -152,6 +154,7 @@
                       "go": "c4c7b6ad-8972-43ff-bd21-8b965d278fab",
                       "component_type": "SphereCollider"
                     },
+                    "Controller": null,
                     "CurrentHealth": 100,
                     "MaxHealth": 100,
                     "RegenDelay": 5,
@@ -204,8 +207,8 @@
               {
                 "Id": "c6bf6623-e204-4466-a2c4-f516ae5a89f9",
                 "Name": "Hull",
-                "Position": "-5.190757,-0.00004498754,-9.363784",
-                "Scale": "1.4,3.5,6.761584",
+                "Position": "0,-0.00004498754,0",
+                "Scale": "0.9,1.2,1.9",
                 "Tags": "equipment",
                 "Enabled": true,
                 "Components": [
@@ -224,6 +227,7 @@
                       "go": "c6bf6623-e204-4466-a2c4-f516ae5a89f9",
                       "component_type": "Bouncy"
                     },
+                    "Controller": null,
                     "CurrentHealth": 100,
                     "HitTags": "solid",
                     "MaxHealth": 100,
@@ -435,6 +439,7 @@
               },
               {
                 "__type": "BoxCollider",
+                "__enabled": false,
                 "Center": "0,0,0",
                 "IsTrigger": false,
                 "Scale": "50,50,50",
@@ -597,6 +602,7 @@
               },
               {
                 "__type": "BoxCollider",
+                "__enabled": false,
                 "Center": "0,0,0",
                 "IsTrigger": false,
                 "Scale": "50,50,50",
@@ -699,6 +705,7 @@
                   },
                   {
                     "__type": "SphereCollider",
+                    "__enabled": false,
                     "Center": "0,0,0",
                     "IsTrigger": false,
                     "Radius": 1,
@@ -748,6 +755,7 @@
                   },
                   {
                     "__type": "SphereCollider",
+                    "__enabled": false,
                     "Center": "0,0,0",
                     "IsTrigger": false,
                     "Radius": 1,
@@ -797,6 +805,7 @@
                   },
                   {
                     "__type": "SphereCollider",
+                    "__enabled": false,
                     "Center": "0,0,0",
                     "IsTrigger": false,
                     "Radius": 1,
@@ -846,6 +855,7 @@
                   },
                   {
                     "__type": "SphereCollider",
+                    "__enabled": false,
                     "Center": "0,0,0",
                     "IsTrigger": false,
                     "Radius": 1,
@@ -1004,6 +1014,7 @@
               },
               {
                 "__type": "BoxCollider",
+                "__enabled": false,
                 "Center": "0,0,0",
                 "IsTrigger": false,
                 "Scale": "50,50,50",
@@ -1044,6 +1055,7 @@
               },
               {
                 "__type": "BoxCollider",
+                "__enabled": false,
                 "Center": "0,0,0",
                 "IsTrigger": false,
                 "Scale": "50,50,50",
@@ -1141,6 +1153,7 @@
               },
               {
                 "__type": "BoxCollider",
+                "__enabled": false,
                 "Center": "0,0,0",
                 "IsTrigger": false,
                 "Scale": "50,50,50",
