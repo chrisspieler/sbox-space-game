@@ -155,7 +155,7 @@ public sealed partial class WorldChunker : GameObjectSystem
 			var bbox = BBox.FromPositionAndSize( position, new Vector3( ChunkSize ).WithZ( 1f ) );
 			Gizmo.Draw.LineBBox( bbox );
 		}
-		var player = _originSystem.Origin;
+		var player = _originSystem?.Origin;
 		if ( player.IsValid() )
 		{
 			var chunk = WorldToChunkRelative( player.Transform.Position );
