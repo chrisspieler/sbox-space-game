@@ -44,7 +44,7 @@ public sealed class Bouncy : Component, Component.ICollisionListener
 
 	private bool CanBounceFrom( GameObject other )
 	{
-		if ( _recentlyHit.ContainsKey( other ) )
+		if ( !other.IsValid() || _recentlyHit.ContainsKey( other ) )
 			return false;
 
 		return (BouncedTags is null || BouncedTags.IsEmpty || other.Tags.HasAny( BouncedTags ))
