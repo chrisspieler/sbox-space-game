@@ -140,6 +140,7 @@ public sealed partial class ShipController
 	{
 		ScreenManager.SetHudEnabled( false );
 		ScreenManager.SetCursorEnabled( false );
+		ScreenManager.SetBeaconVisibility( false );
 		ScreenManager.ShowDeathScreen();
 	}
 

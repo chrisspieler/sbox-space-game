@@ -42,6 +42,7 @@ public sealed partial class ShipController : Component
 		ScreenManager.SetHudEnabled( true );
 		ScreenManager.SetCursorEnabled( true );
 		ScreenManager.UpdateShip( this );
+		ScreenManager.SetBeaconVisibility( true );
 		FindEquipmentInChildren();
 		GameObject.BreakFromPrefab();
 		IsInvincible = true;

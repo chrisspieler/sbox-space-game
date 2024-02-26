@@ -1,0 +1,32 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+
+<root>
+	<FloatingPanel Target=@Target?.GameObject ConfineToScreen=@true ConfinementMargin=@(new Vector2( 0.04f, 0.03f ) )>
+        <Body>
+            <p>@(Target?.Name ?? "null") @GetDistanceText()</p>
+        </Body>
+    </FloatingPanel>
+</root>
+
+@code
+{
+    [Property] public Beacon Target { get; set; }
+
+    /// <summary>
+    /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+    /// </summary>
+    protected override int BuildHash() => System.HashCode.Combine( Target, Target?.Name );
+
+    public string GetDistanceText()
+    {
+        if (Target is null) 
+            return string.Empty;
+
+        var metersFromPlayer = Target.GetMetersFromOrigin();
+        return metersFromPlayer >= 1_000f
+            ? $"{(metersFromPlayer / 1_000f):F2}km"
+            : $"{metersFromPlayer:F0}m";
+    }
+}

@@ -16,6 +16,10 @@
         },
         {
           "__type": "ScreenManager",
+          "BeaconContainer": {
+            "_type": "gameobject",
+            "go": "aac41955-0da3-4198-a83a-db4bb8a72110"
+          },
           "CursorPanel": {
             "_type": "component",
             "go": "279df759-c7fd-4122-9fee-f69cccae0af0",
@@ -125,6 +129,12 @@
               "InstructionText": "Press R to Respawn"
             }
           ]
+        },
+        {
+          "Id": "aac41955-0da3-4198-a83a-db4bb8a72110",
+          "Name": "Beacon Container",
+          "Position": "0,0,0",
+          "Enabled": true
         }
       ]
     },
@@ -447,6 +457,10 @@
               "Radius": 80,
               "Static": false,
               "Surface": null
+            },
+            {
+              "__type": "Beacon",
+              "Name": "Shop"
             }
           ],
           "Children": [
@@ -514,7 +528,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-25T17:00:43.3583435-07:00",
+  "LastSaved": "2024-02-25T17:20:25.8869957-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03",

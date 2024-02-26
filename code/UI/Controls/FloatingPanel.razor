@@ -11,6 +11,8 @@
     public RenderFragment Body { get; set; }
     public GameObject Target { get; set; }
     public Vector2 Offset { get; set; }
+    public bool ConfineToScreen { get; set; }
+    public Vector2 ConfinementMargin { get; set; } = new Vector2(0.05f);
     public bool TickSelf { get; set; } = true;
 
     public override void Tick()
@@ -30,6 +32,10 @@
         }
         var targetPos = Target.GetBounds().Center;
         var position = Scene.Camera.PointToScreenNormal(targetPos);
+        if ( ConfineToScreen)
+        {
+            position = position.Clamp( ConfinementMargin, 1f - ConfinementMargin );
+        }
         position += Offset;
         Style.Top = Length.Percent(position.y * 100);
         Style.Left = Length.Percent(position.x * 100);
