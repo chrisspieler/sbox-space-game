@@ -5,6 +5,7 @@
       "Id": "0a3105b7-d645-4200-93c9-b57b4133cc6a",
       "Name": "Screen UI",
       "Position": "200,0,0.0003515341",
+      "Tags": "no_chunk",
       "Enabled": true,
       "Components": [
         {
@@ -143,7 +144,7 @@
       "Name": "Skybox",
       "Position": "-100,0,0.0003515341",
       "Rotation": "-0.08349869,0.06517375,0.005472793,0.9943593",
-      "Tags": "skybox",
+      "Tags": "skybox,no_chunk",
       "Enabled": true,
       "Components": [
         {
@@ -165,6 +166,7 @@
       "Id": "1a6ffc42-c514-40bc-bb30-80d4d56b021a",
       "Name": "Game",
       "Position": "100,0,0",
+      "Tags": "no_chunk",
       "Enabled": true,
       "Components": [
         {
@@ -279,7 +281,7 @@
       "Name": "Sun",
       "Position": "-200,0,0.0003515341",
       "Rotation": "-0.3936001,0.3763543,0.4468399,0.7097672",
-      "Tags": "light_directional,light",
+      "Tags": "light_directional,light,no_chunk",
       "Enabled": true,
       "Components": [
         {
@@ -296,6 +298,7 @@
       "Id": "5a204e98-b86c-4727-accc-d522082427fd",
       "Name": "Fog Volume",
       "Position": "2500,3200,0.00006103516",
+      "Tags": "no_chunk",
       "Enabled": true,
       "Components": [
         {
@@ -320,7 +323,7 @@
       "Id": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
       "Name": "Ship",
       "Position": "2500,3200,0",
-      "Tags": "solid,ship,player",
+      "Tags": "solid,ship,player,no_chunk",
       "Enabled": true,
       "__Prefab": "prefabs/ship.prefab"
     },
@@ -329,6 +332,7 @@
       "Name": "The Cube",
       "Position": "2500,2500,-700",
       "Scale": "20,20,20",
+      "Tags": "no_chunk",
       "Enabled": true,
       "Components": [
         {
@@ -528,7 +532,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-25T18:24:04.5600622-07:00",
+  "LastSaved": "2024-02-25T22:05:02.7836812-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03",

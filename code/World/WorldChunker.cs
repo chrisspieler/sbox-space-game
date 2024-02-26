@@ -16,7 +16,8 @@ public sealed partial class WorldChunker : GameObjectSystem
 
 	public WorldChunker( Scene scene ) : base( scene )
 	{
-		Listen( Stage.UpdateBones, 0, OnUpdate, "World Chunker" );
+		Listen( Stage.UpdateBones, 0, DrawDebugInfo, "World Chunker Draw Debug Info" );
+		Listen( Stage.PhysicsStep, 1, OnUpdate, "World Chunker" );
 	}
 
 	private void OnUpdate()
@@ -34,6 +35,8 @@ public sealed partial class WorldChunker : GameObjectSystem
 		}
 
 		UpdateChunks( WorldToChunkAbsolute( origin.AbsolutePosition ) );
+		RehomeDrifters();
+		RehomeOrphans();
 	}
 
 	/// <summary>

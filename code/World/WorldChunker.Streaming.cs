@@ -41,7 +41,6 @@ public sealed partial class WorldChunker : GameObjectSystem
 			_previousOrigin = originChunk;
 		}
 		FreeExcessChunks( originChunk );
-		DrawDebugInfo();
 	}
 
 	private void EnsureChunkContainer()
@@ -50,6 +49,7 @@ public sealed partial class WorldChunker : GameObjectSystem
 			return;
 
 		ChunkContainer = new GameObject( true, "Streamed Chunks" );
+		ChunkContainer.Tags.Add( "no_chunk" );
 	}
 
 	private void LoadChunk( Vector2Int chunkPos )
