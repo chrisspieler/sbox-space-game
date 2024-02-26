@@ -60,15 +60,19 @@ public sealed partial class WorldChunker : GameObjectSystem
 			return;
 
 		EnsureChunkContainer();
-		var newChunkTx = new Transform()
-			.WithPosition( ChunkToWorldRelative( chunkPos ) )
-			.WithRotation( Rotation.Identity )
-			.WithScale( 1f );
 		// TODO: Cache chunks instead of creating new ones every time.
 		var prefabFile = ResourceLibrary.Get<PrefabFile>( "prefabs/chunks/asteroid_field.prefab" );
 		var prefabScene = SceneUtility.GetPrefabScene( prefabFile );
-		var chunk = prefabScene.Clone( newChunkTx, ChunkContainer );
+		var chunk = prefabScene.Clone();
 		chunk.BreakFromPrefab();
+		chunk.Parent = ChunkContainer;
+		// Not sure why, but only setting the position here isn't good enough because after going beyond
+		// the starting 9 chunks, the newly loaded chunks will have an incorrect position. As a workaround,
+		// ChunkData sets the position again in OnUpdate, which is probably overkill,
+		// but is probably a lot easier than understanding why this is broken.
+		chunk.Transform.Position = ChunkToWorldRelative( chunkPos );
+		var chunkData = chunk.Components.GetOrCreate<ChunkData>();
+		chunkData.Position = chunkPos;
 		chunk.Name = $"Chunk {chunkPos}";
 		_worldChunks[chunkPos] = chunk;
 		_chunkOrder.Add( chunkPos );
@@ -131,7 +135,7 @@ public sealed partial class WorldChunker : GameObjectSystem
 
 		Gizmo.Draw.ScreenText( $"Loaded {ChunkCount}/{MaxLoadedChunks} chunks", new Vector2( 25, 75 ), "Consolas", 12, TextFlag.Left );
 		var startPos = new Vector2( 200f, 250f );
-		var distance = 7;
+		var distance = ChunkLoadDistance + 2;
 		for ( int x = -distance; x <= distance; x++ )
 		{
 			for ( int y = -distance; y <= distance; y++ )

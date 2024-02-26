@@ -22,6 +22,10 @@ public sealed class AsteroidSpawner : Component
 	{
 		_chunkSystem = Scene.GetSystem<WorldChunker>();
 		_originSystem = Scene.GetSystem<FloatingOriginSystem>();
+		if ( Components.TryGet<ChunkData>( out var data ) )
+		{
+			Transform.Position = _chunkSystem.ChunkToWorldRelative( data.Position );
+		}
 
 		if ( SpawnManyOnStart )
 		{
@@ -31,8 +35,9 @@ public sealed class AsteroidSpawner : Component
 
 	public void SpawnOne( Vector3 position)
 	{
-		var go = AsteroidPrefab.Clone( position );
+		var go = AsteroidPrefab.Clone();
 		go.Parent = GameObject;
+		go.Transform.LocalPosition = position;
 	}
 
 	/// <summary>
@@ -92,9 +97,24 @@ public sealed class AsteroidSpawner : Component
 		if ( !Debug )
 			return;
 
+		var chunkPos = GameObject.GetWorldChunk();
+		var chunkCenter = _chunkSystem.ChunkCenterToWorldRelative( chunkPos );
+		chunkCenter = Transform.World.PointToLocal( chunkCenter );
+		Gizmo.Draw.Text( chunkPos.ToString(), new Transform( chunkCenter ), "Consolas" );
+		var bboxSize = new Vector3( WorldChunker.ChunkSize, WorldChunker.ChunkSize, 200f );
+		var bbox = BBox.FromPositionAndSize( chunkCenter, bboxSize );
+		Gizmo.Hitbox.BBox( bbox );
+
+		if ( !Gizmo.IsSelected && !Gizmo.IsHovered )
+			return;
+
+		Gizmo.Draw.Color = Gizmo.IsSelected
+			? Color.White
+			: Color.Gray;
+		Gizmo.Draw.LineBBox( bbox );
+
 		using ( Gizmo.Scope( "Asteroid Spawn Probability" ) )
 		{
-			Gizmo.Draw.LineSphere( Vector3.Zero, 200, 8 );
 			foreach ( var (point, probability) in _spawnPoints )
 			{
 				var color = Color.Lerp( Color.Red, Color.Green, probability / ProbabilityScale );

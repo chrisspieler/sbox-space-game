@@ -42,7 +42,7 @@ public sealed partial class WorldChunker : GameObjectSystem
 	/// <summary>
 	/// Given an absolute world position, returns the chunk that contains it.
 	/// </summary>
-	public Vector2Int WorldToChunkAbsolute( Vector3 absPosition )
+	public static Vector2Int WorldToChunkAbsolute( Vector3 absPosition )
 	{
 		absPosition.Abs();
 		var chunkX = MathX.CeilToInt( absPosition.x / ChunkSize ) - 1;

@@ -22,6 +22,16 @@ public static class GameObjectExtensions
 		gameObject.Transform.Position = position - originSystem.TotalOriginShift;
 	}
 
+	public static Vector2Int GetWorldChunk( this GameObject gameObject )
+	{
+		if ( !gameObject.IsValid() )
+			return Vector2Int.Zero;
+
+		var absolutePosition = gameObject.GetAbsolutePosition();
+		absolutePosition += 1f;
+		return WorldChunker.WorldToChunkAbsolute( absolutePosition );
+	}
+
 	public static void ColorFlash( this GameObject obj, TintEffect effect )
 	{
 		HashSet<GameObject> reached = new();
