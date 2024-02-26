@@ -15,14 +15,15 @@ public sealed class Jettison : Component
 			var jettisoned = Prefab.Clone( EjectionSource.Transform.World.WithScale( 1f ) );
 			var jettisonedRb = jettisoned.Components.Get<Rigidbody>();
 			var launchVelocity = EjectionSpeed * EjectionSource.Transform.Rotation.Forward;
+			if ( SelfRigidbody is not null )
+			{
+				SelfRigidbody.Velocity -= launchVelocity * 0.3f;
+				launchVelocity += SelfRigidbody.Velocity;
+			}
 			if ( jettisonedRb is not null )
 			{
 				jettisonedRb.Velocity = launchVelocity;
 				jettisonedRb.AngularVelocity = EjectionSpin * Vector3.Random;
-			}
-			if ( SelfRigidbody is not null )
-			{
-				SelfRigidbody.Velocity -= launchVelocity * 0.3f;
 			}
 		}
 	}

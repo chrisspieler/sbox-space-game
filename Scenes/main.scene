@@ -310,7 +310,7 @@
       "Id": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
       "Name": "Ship",
       "Position": "2500,3200,0",
-      "Tags": "player,ship,solid",
+      "Tags": "solid,ship,player",
       "Enabled": true,
       "__Prefab": "prefabs/ship.prefab"
     },
@@ -514,7 +514,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-25T16:43:06.7298398-07:00",
+  "LastSaved": "2024-02-25T17:00:43.3583435-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03",
