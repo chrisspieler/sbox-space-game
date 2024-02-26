@@ -15,6 +15,13 @@ public class Career
 	}
 	private int _money;
 
+	[ConCmd("career_status")]
+	public static void PrintStatus()
+	{
+		Log.Info( $"Active Career: {Active is not null}" );
+		Log.Info( $"Career Credits: {Active?.Money ?? 0}" );
+	}
+
 	[ConCmd("add_money")]
 	public static void AddMoney( int money )
 	{

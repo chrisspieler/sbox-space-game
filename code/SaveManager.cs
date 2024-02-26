@@ -9,6 +9,5 @@ public sealed class SaveManager : Component
 		{
 			Money = 250
 		};
-		Log.Info( $"Career credits: {Career.Active.Money}" );
 	}
 }
