@@ -639,15 +639,25 @@
                     },
                     "EjectionSpeed": 1000,
                     "EjectionSpin": 5,
-                    "Prefab": {
+                    "ItemSource": {
+                      "_type": "component",
+                      "go": "92fc1746-4330-499e-bcb0-38851fbf7024",
+                      "component_type": "CargoHold"
+                    },
+                    "PickupPrefab": {
                       "_type": "gameobject",
-                      "prefab": "prefabs/obstacles/lightball.prefab"
+                      "prefab": "prefabs/pickup_base.prefab"
                     },
                     "SelfRigidbody": {
                       "_type": "component",
                       "go": "bad0f859-65de-483c-bc15-0a9558e54830",
                       "component_type": "Rigidbody"
                     }
+                  },
+                  {
+                    "__type": "CargoHold",
+                    "Items": [],
+                    "MaxItems": 6
                   }
                 ],
                 "Children": [

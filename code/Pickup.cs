@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 public sealed class Pickup : Component, Component.ITriggerListener
 {
 	[Property] public CargoItem Item { get; set; }
+	[Property] public bool DisablePickup { get; set; }
 	[Property] public GameObject PickupEffectPrefab { get; set; }
 	[Property, Category( "Animation" )]
 	public float AnimationDuration { get; set; } = 0.4f;
@@ -29,7 +30,11 @@ public sealed class Pickup : Component, Component.ITriggerListener
 
 	public void OnTriggerEnter( Collider other ) 
 	{
-		if ( _triggered || !other.IsPlayer() )
+		if ( _triggered || DisablePickup || !other.IsPlayer() )
+			return;
+
+		var cargoHold = ShipController.GetCurrent().Cargo;
+		if ( !cargoHold.IsValid() || !cargoHold.TryAddItem( Item ) )
 			return;
 
 		_triggered = true;
@@ -40,7 +45,6 @@ public sealed class Pickup : Component, Component.ITriggerListener
 			effectGo.Transform.Position = Transform.Position;
 		}
 		_ = DoAnimation();
-		// TODO: Add pickup to player cargo.
 	}
 
 	public void OnTriggerExit( Collider other ) { }

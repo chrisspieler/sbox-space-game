@@ -14,6 +14,8 @@ public partial class ShipController
 	[Property, Category( "Equipment" )]
 	public Stabilizer Stabilizer { get; set; }
 	[Property, Category( "Equipment" )]
+	public CargoHold Cargo { get; set; }
+	[Property, Category( "Equipment" )]
 	public List<Thruster> Thrusters { get; set; } = new();
 
 	private void FindEquipmentInChildren()
@@ -23,6 +25,7 @@ public partial class ShipController
 		if ( !Fuel.IsValid() ) Fuel = Components.GetInDescendantsOrSelf<FuelTank>();
 		if ( !Grapple.IsValid() ) Grapple = Components.GetInDescendantsOrSelf<GrappleBeam>();
 		if ( !Stabilizer.IsValid() ) Stabilizer = Components.GetInDescendantsOrSelf<Stabilizer>();
+		if ( !Cargo.IsValid() ) Cargo = Components.GetInDescendantsOrSelf<CargoHold>();
 		foreach( var thruster in Components.GetAll<Thruster>( FindMode.EnabledInSelfAndDescendants ) )
 		{
 			if ( !Thrusters.Contains( thruster ) )
@@ -31,6 +34,4 @@ public partial class ShipController
 			}
 		}
 	}
-
-	
 }

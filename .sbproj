@@ -180,7 +180,7 @@
           "GroupName": "Other"
         },
         {
-          "Name": "Flashlight",
+          "Name": "jettison",
           "KeyboardCode": "f",
           "GamepadCode": "DpadNorth",
           "GroupName": "Other"
