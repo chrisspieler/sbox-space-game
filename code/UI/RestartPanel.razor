@@ -7,17 +7,29 @@
     {
         <h1 id="deathText">@DeathText</h1>
     }
+
     @if ( ShowInstruction )
     {
-        <h3 id="instruction">@InstructionText</h3>
+        <div id="instruction" class="column center-content">
+            <div>
+                <h4>@RespawnFeeLabel</h4>
+                <h4 class="cost">@RespawnFeeCost</h4>
+            </div>
+            <h3>@InstructionText</h3>
+        </div>
     }
 </root>
 
 @code
 {
-    [Property] public string DeathText { get; set; } = "You Died";
+    [Property] public string DeathText { get; set; } = "Ship Lost";
+    [Property] public string RespawnFeeLabel { get; set; } = "Ship Replacement Fee:";
     // TODO: Use a glyph instead of text.
     [Property] public string InstructionText { get; set; } = "Press R to Respawn";
+
+    private string RespawnFeeCost => Career.HasMoney()
+        ? $"{Career.RespawnFee} CREDITS"
+        : $"ALL REMAINING CREDITS";
 
     private bool ShowDeathText { get; set; } = false;
     private bool ShowInstruction { get; set; } = false;
@@ -25,11 +37,11 @@
     protected override void OnStart()
     {
         _ = Task.DelaySeconds(3f).ContinueWith(_ => ShowDeathText = true);
-        _ = Task.DelaySeconds(6f).ContinueWith(_ => ShowInstruction = true);
+        _ = Task.DelaySeconds(3.5f).ContinueWith(_ => ShowInstruction = true);
     }
 
     protected override int BuildHash() 
-        => System.HashCode.Combine(DeathText, InstructionText, ShowDeathText, ShowInstruction);
+        => System.HashCode.Combine(DeathText, InstructionText, ShowDeathText, ShowInstruction, RespawnFeeLabel );
 
     protected override void OnUpdate()
     {

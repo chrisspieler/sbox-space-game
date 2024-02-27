@@ -3,6 +3,9 @@ using Sandbox;
 
 public class Career
 {
+	[ConVar("career_respawn_fee")]
+	public static int RespawnFee { get; set; } = 100;
+
 	public static Career Active { get; set; }
 
 	public int Money
@@ -38,7 +41,10 @@ public class Career
 			return;
 
 		Active.Money -= money;
+		Active.Money = Math.Max( 0, Active.Money );
 	}
+
+	public static bool HasMoney() => HasMoney( 1 );
 
 	public static bool HasMoney( int money )
 	{

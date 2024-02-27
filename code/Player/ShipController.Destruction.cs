@@ -33,7 +33,7 @@ public sealed partial class ShipController
 		HideHud();
 		SpawnExplosion();
 		Rigidbody.Velocity = Vector3.Zero;
-
+		Career.RemoveMoney( Career.RespawnFee );
 		GameObject.Destroy();
 	}
 
