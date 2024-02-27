@@ -48,6 +48,17 @@ public sealed class Shop : Component, Component.ITriggerListener
 		}
 	}
 
+	public void SellItem( CargoItem item, ShipController ship )
+	{
+		if ( !ship.IsValid() || !ship.Cargo.IsValid() )
+			return;
+
+		if ( !ship.Cargo.RemoveItem( item ) )
+			return;
+
+		Career.AddMoney( item.Value );
+	}
+
 	public bool CanRefuel( ShipController ship )
 	{
 		return Career.HasMoney( (int)FuelCostPerUnit )

@@ -1,3 +1,5 @@
+@using System.Linq;
+@using System.Collections.Generic;
 @using Sandbox;
 @using Sandbox.UI;
 @inherits PanelComponent
@@ -8,8 +10,8 @@
             <div id="maintenancePanel" class="column">
                 <div class="column button" onmousedown=@(() => _holdingRefuel = true ) onmouseup=@(() => _holdingRefuel = false)>
                     <FillBar Icon="local_gas_station" FillColor=@Color.Yellow FillPercentGetter=@GetFuelPercent/>
-                    <p>REFUEL</p>
-                    <p class="price">@GetFuelPricePerUnit() CR / UNIT (@GetFuelTopOffPrice() TO FILL)</p>
+                    <p>HOLD TO REFUEL</p>
+                    <p class="price">@GetFuelPricePerUnit() CR / UNIT (@GetFuelTopOffPrice() CR TO FILL)</p>
                 </div>
                 <div id="repairButton" class="button column" onclick=@RepairShip>
                     <div class="center-content">
@@ -21,6 +23,15 @@
             </div>
             <div id="sellPanel" class="column">
                 <div id="sellTitle" class="center-content header">SELL MINERALS</div>
+                @foreach( var item in GetShipCargo())
+                {
+                    <div class="cargo">
+                        <Image Texture=@item.InventoryIcon/>
+                        <h3 class="name center-content">@item.Name</h3>
+                        <p class="price">@item.Value CR</p>
+                        <div id="sellButton" class="button" onclick=@(() => SellCargo( item ) )>SELL</div>
+                    </div>
+                }
                 <!--TODO: List every saleable item in the ship's cargo hold.-->
             </div>
         </div>
@@ -41,7 +52,7 @@
     /// <summary>
     /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
     /// </summary>
-    protected override int BuildHash() => System.HashCode.Combine( GetFuelPercent(), GetRepairPrice(), Career.Active.Money );
+    protected override int BuildHash() => System.HashCode.Combine( GetFuelPercent(), GetRepairPrice(), Career.Active.Money, GetShipCargo() );
 
     [Property] public Shop Shop { get; set; }
     [Property] public ShipController Ship { get; set; }
@@ -61,6 +72,19 @@
         {
             TickRefuel();
         }
+    }
+
+    private IEnumerable<CargoItem> GetShipCargo()
+    {
+        if (!Ship.IsValid() || !Ship.Cargo.IsValid())
+            return Enumerable.Empty<CargoItem>();
+
+        return Ship.Cargo.Items;
+    }
+
+    private void SellCargo( CargoItem item )
+    {
+        Shop.SellItem(item, Ship);
     }
 
     private float GetFuelPercent()

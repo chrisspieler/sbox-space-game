@@ -50,7 +50,7 @@ ShopPanel {
 				font-size: 1.5vh;
 				margin: 5px;
 
-				&:hover {
+				&:active {
 					FillBar {
 						color: black;
 
@@ -74,6 +74,25 @@ ShopPanel {
 		#sellPanel {
 			flex-grow: 1;
 			border: 1px solid white;
+
+			.cargo {
+				padding: 5px;
+				justify-content: space-between;
+				font-size: 2vh;
+				Image {
+					margin-left: 3vw;
+					width: 4vw;
+					height: 4vw;
+				}
+
+				.name {
+					font-size: 2vh;
+				}
+
+				.price {
+					align-items: center;
+				}
+			}
 		}
 	}
 
