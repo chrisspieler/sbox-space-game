@@ -451,8 +451,8 @@
             {
               "__type": "Shop",
               "BaseRepairCost": 20,
-              "FuelCostPerUnit": 10,
-              "RefuelAmountPerSecond": 3,
+              "FuelCostPerUnit": 2,
+              "RefuelAmountPerSecond": 10,
               "RepairCostPerHitPoint": 0.5
             },
             {
@@ -589,7 +589,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-26T21:37:16.5768687-07:00",
+  "LastSaved": "2024-02-27T04:06:04.9111973-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03",

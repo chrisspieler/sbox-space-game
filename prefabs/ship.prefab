@@ -26,6 +26,7 @@
       {
         "__type": "ShipController",
         "Acceleration": 250,
+        "Cargo": null,
         "ExplosionPrefab": {
           "_type": "gameobject",
           "prefab": "prefabs/effects/ship_explosion.prefab"
@@ -678,7 +679,7 @@
                   {
                     "__type": "FuelTank",
                     "CurrentAmount": 0,
-                    "MaxCapacity": 10
+                    "MaxCapacity": 35
                   }
                 ]
               },
@@ -1140,6 +1141,22 @@
                     "ShouldFire": false
                   }
                 ]
+              },
+              {
+                "Id": "e279cc82-9b45-4fcd-89bd-dbc31d712241",
+                "Name": "Weapon Left",
+                "Position": "20,0.00001609484,24",
+                "Enabled": true,
+                "Children": [
+                  {
+                    "Id": "93b7be93-21f0-47d5-bbf8-06d990ffa4ba",
+                    "Name": "GameObject (1)",
+                    "Position": "0,0,0",
+                    "Scale": "0.5967367,1.666667,3.333333",
+                    "Enabled": true,
+                    "__Prefab": "data/weapons/mining_laser/mining_laser.prefab"
+                  }
+                ]
               }
             ]
           },
@@ -1237,6 +1254,22 @@
                     "Power": 30,
                     "Retrorocket": true,
                     "ShouldFire": false
+                  }
+                ]
+              },
+              {
+                "Id": "f798d1e2-d2e2-492b-bedf-a687441c43d3",
+                "Name": "Weapon Right",
+                "Position": "19.99999,0,24",
+                "Enabled": true,
+                "Children": [
+                  {
+                    "Id": "9ce5329f-079d-456a-8ace-3ed774a4aed9",
+                    "Name": "GameObject (1)",
+                    "Position": "0,0,0",
+                    "Scale": "0.5967367,1.666667,3.333333",
+                    "Enabled": true,
+                    "__Prefab": "data/weapons/mining_laser/mining_laser.prefab"
                   }
                 ]
               }

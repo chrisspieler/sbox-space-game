@@ -1,0 +1,78 @@
+{
+  "RootObject": {
+    "Id": "d9122c0f-777d-4939-9472-7091d41a6176",
+    "Name": "mining_laser",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Weapon",
+        "Body": {
+          "_type": "gameobject",
+          "go": "622e39e7-6ca3-4830-b806-52c8465f1271"
+        }
+      }
+    ],
+    "Children": [
+      {
+        "Id": "0de54bc5-3cc4-4b52-b6de-6fbfd3e1951c",
+        "Name": "Base",
+        "Position": "0,0,5",
+        "Scale": "0.1,0.1,0.2",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "ModelRenderer",
+            "BodyGroups": 18446744073709551615,
+            "MaterialGroup": null,
+            "MaterialOverride": "materials/dev/dev_metal_rough50.vmat",
+            "Model": "models/dev/box.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "Id": "622e39e7-6ca3-4830-b806-52c8465f1271",
+        "Name": "Barrel",
+        "Position": "0,0,15",
+        "Scale": "0.5,0.2,0.2",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "ModelRenderer",
+            "BodyGroups": 18446744073709551615,
+            "MaterialGroup": null,
+            "MaterialOverride": "materials/dev/dev_metal_rough30.vmat",
+            "Model": "models/dev/box.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ],
+        "Children": [
+          {
+            "Id": "fbfba0a4-ed96-4add-a170-750e1b882032",
+            "Name": "Muzzle",
+            "Position": "35,0,0",
+            "Scale": "0.4,0.75,0.75",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "ModelRenderer",
+                "BodyGroups": 18446744073709551615,
+                "MaterialGroup": null,
+                "MaterialOverride": "materials/dev/dev_metal_rough50.vmat",
+                "Model": "models/dev/box.vmdl",
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}
