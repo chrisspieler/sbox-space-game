@@ -1,0 +1,117 @@
+{
+  "RootObject": {
+    "Id": "47886f33-e01f-4b97-a810-6bc51f8a3aa5",
+    "Name": "pickup_base",
+    "Tags": "light_point,light",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Pickup",
+        "AnimationDuration": 0.4,
+        "Item": "data/cargo/iron_ore.cargo",
+        "PickupEffectPrefab": null,
+        "ScaleCurve": {
+          "rangey": "0,2",
+          "frames": [
+            {
+              "y": 0.5
+            },
+            {
+              "x": 0.08779762,
+              "y": 0.97606385,
+              "in": 1.5294113,
+              "out": -1.5294113
+            },
+            {
+              "x": 1,
+              "in": 0.25287372,
+              "out": -0.25287372
+            }
+          ]
+        },
+        "ZPositionCurve": {
+          "rangey": "-200,400",
+          "frames": [
+            {
+              "y": 0.3333333
+            },
+            {
+              "x": 0.0342262,
+              "in": -0.18867922,
+              "out": 0.18867922
+            },
+            {
+              "x": 1,
+              "y": 1,
+              "in": -2.4576273,
+              "out": 2.4576273
+            }
+          ]
+        }
+      },
+      {
+        "__type": "PointLight",
+        "Attenuation": 4,
+        "FogMode": "Disabled",
+        "FogStrength": 0,
+        "LightColor": "0.13932,0.15066,0.16279,1",
+        "Radius": 200,
+        "Shadows": false
+      },
+      {
+        "__type": "HighlightOutline",
+        "Color": "0,0,0,0.3",
+        "InsideColor": "1,1,1,0",
+        "InsideObscuredColor": "1,1,1,0",
+        "Material": null,
+        "ObscuredColor": "1,1,1,0",
+        "Width": 0.25
+      },
+      {
+        "__type": "SphereCollider",
+        "Center": "0,0,0",
+        "IsTrigger": true,
+        "Radius": 72,
+        "Static": false,
+        "Surface": null
+      },
+      {
+        "__type": "Rigidbody",
+        "AngularDamping": 0,
+        "Gravity": false,
+        "LinearDamping": 5,
+        "Locking": {
+          "Z": true,
+          "Pitch": true,
+          "Yaw": true,
+          "Roll": true
+        },
+        "MassOverride": 1,
+        "RigidbodyFlags": 0,
+        "StartAsleep": false
+      }
+    ],
+    "Children": [
+      {
+        "Id": "1222014b-c8fd-4dd1-b68d-978f1700e6ee",
+        "Name": "Push Collider",
+        "Tags": "player_allow",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "SphereCollider",
+            "Center": "0,0,0",
+            "IsTrigger": false,
+            "Radius": 64,
+            "Static": false,
+            "Surface": null
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}

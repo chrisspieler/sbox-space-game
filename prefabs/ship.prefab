@@ -130,7 +130,7 @@
                 "Name": "Shield",
                 "Position": "-0.4459994,-0.00004286647,0.00007442224",
                 "Scale": "1.667,4.167,4.024988",
-                "Tags": "equipment,player_shield",
+                "Tags": "equipment,player_allow",
                 "Components": [
                   {
                     "__type": "SphereCollider",
@@ -1324,6 +1324,9 @@
             "Contrast": 1,
             "HueRotate": 0,
             "Saturation": 1.1
+          },
+          {
+            "__type": "Highlight"
           }
         ]
       },

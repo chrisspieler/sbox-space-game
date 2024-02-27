@@ -213,7 +213,7 @@
         "ladder": "Ignore",
         "water": "Trigger",
         "player": "Collide",
-        "player_shield": "Collide"
+        "player_allow": "Collide"
       },
       "Pairs": [
         {
@@ -243,7 +243,7 @@
         },
         {
           "a": "player",
-          "b": "player_shield",
+          "b": "player_allow",
           "r": "Ignore"
         }
       ]
