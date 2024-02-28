@@ -24,7 +24,7 @@ public sealed class Mineable : Component
 
 	public void Fracture()
 	{
-		FractureEffect?.Clone( Transform.Position );
+		FractureEffect?.Clone( Transform.World.WithScale( 1f ) );
 		// TODO: Spawn smaller versions of this object.
 		// TODO: Drop loot per loot table.
 		if ( FractureLoot is not null )

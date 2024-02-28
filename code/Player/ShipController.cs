@@ -7,8 +7,7 @@ public sealed partial class ShipController : Component
 	public static float SpawnInvincibilitySeconds { get; set; } = 1f;
 	[Property] public Rigidbody Rigidbody { get; set; }
 	[Property] public GameObject PartsContainer { get; set; }
-	[Property] public float Acceleration { get; set; } = 200f;
-	[Property] public float TurnSpeed { get; set; } = 1.5f;
+	[Property] public float TurnSpeed { get; set; } = 4f;
 	[Property] public Vector3 FacingDirection { get; set; }
 	[Property] public bool IsInvincible 
 	{

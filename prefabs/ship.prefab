@@ -25,7 +25,6 @@
       },
       {
         "__type": "ShipController",
-        "Acceleration": 250,
         "Cargo": null,
         "ExplosionPrefab": {
           "_type": "gameobject",
@@ -62,7 +61,7 @@
           "component_type": "Stabilizer"
         },
         "Thrusters": [],
-        "TurnSpeed": 3
+        "TurnSpeed": 4
       },
       {
         "__type": "SpringJoint",
@@ -244,6 +243,7 @@
                     "CurrentHealth": 100,
                     "IsInvincible": false,
                     "MaxHealth": 100,
+                    "OnDamaged": null,
                     "OnKilled": null
                   }
                 ]
@@ -679,7 +679,7 @@
                   {
                     "__type": "FuelTank",
                     "CurrentAmount": 0,
-                    "MaxCapacity": 35
+                    "MaxCapacity": 20
                   }
                 ]
               },
@@ -1108,7 +1108,7 @@
                     },
                     "FuelConsumptionPerSecond": 0.5,
                     "LifetimeScale": 0.5,
-                    "Power": 90,
+                    "Power": 150,
                     "Retrorocket": false,
                     "ShouldFire": false
                   }
@@ -1223,7 +1223,7 @@
                     },
                     "FuelConsumptionPerSecond": 0.5,
                     "LifetimeScale": 0.5,
-                    "Power": 90,
+                    "Power": 150,
                     "Retrorocket": false,
                     "ShouldFire": false
                   }

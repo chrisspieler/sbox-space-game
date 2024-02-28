@@ -3,7 +3,7 @@
 public static class CollisionExtensions
 {
 	[ConVar( "collision_damage_top_speed" )]
-	public static float DamageTopSpeed { get; set; } = 20_000f;
+	public static float DamageTopSpeed { get; set; } = 7_000f;
 	[ConVar( "collision_damage_max" )]
 	public static float DamageMax { get; set; } = 1_000f;
 	/// <summary>

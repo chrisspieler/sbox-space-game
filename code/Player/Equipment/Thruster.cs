@@ -2,6 +2,9 @@
 
 public sealed class Thruster : Component
 {
+	[ConVar( "thruster_turnaround_boost" )]
+	public static float TurnaroundBoost { get; set; } = 1.5f;
+
 	[Property] public GameObject EffectPrefab { get; set; }
 	[Property] public ShipController Controller { get; set; }
 	[Property] public bool Retrorocket { get; set; } = false;
@@ -30,9 +33,17 @@ public sealed class Thruster : Component
 
 	public Vector3 GetForce()
 	{
-		return Retrorocket
-			? Controller.RetrorocketForce
-			: -Power * Transform.Rotation.Forward;
+		if ( Retrorocket )
+			return Controller.RetrorocketForce;
+
+		// The force that a thruster applies to the ship is the opposite of the direction that the thruster is facing.
+		var force = -Power * Transform.Rotation.Forward;
+		// Figure out whether the thruster is aligned with the direction in which the ship is currently moving.
+		var alignment = force.Normal.Dot( Controller.Rigidbody.Velocity.Normal );
+		alignment = (alignment + 1f) / 2f;
+		// Add bonus speed if you are trying to stop. Not physically accurate, but feels better.
+		var forceScale = alignment.Remap( 0f, 1f, TurnaroundBoost, 1f );
+		return force * forceScale;
 	}
 
 	private void EnsureEffectInstance()
@@ -67,7 +78,7 @@ public sealed class Thruster : Component
 		// A thruster is aligned if it is pointed in the opposite direction of its force.
 		thrusterForce *= -1f;
 		var dot = thrusterForce.Normal.Dot( Transform.Rotation.Forward );
-		return (dot + 1) / 2;
+		return (dot + 1f) / 2f;
 	}
 
 	private void UpdateEffect( float alignment )
