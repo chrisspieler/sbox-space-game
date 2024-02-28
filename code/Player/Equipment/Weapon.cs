@@ -7,6 +7,26 @@ public sealed class Weapon : Component
 	protected override void OnUpdate()
 	{
 		UpdateBodyRotation();
+		UpdateAttack();
+	}
+
+	private void UpdateAttack()
+	{
+		var hovered = MouseSelector.Instance?.Hovered;
+		if ( hovered is null || !Input.Pressed( "fire" ) )
+			return;
+
+		if ( !hovered.Components.TryGet<IDamageable>( out var damageable, FindMode.EnabledInSelfAndDescendants ) )
+			return;
+
+		var damageInfo = new DamageInfo()
+		{
+			Attacker = ShipController.GetCurrent().GameObject,
+			Damage = 100,
+			Position = MouseSelector.Instance.Hovered.Transform.Position,
+			Weapon = this.GameObject
+		};
+		damageable.OnDamage( damageInfo );
 	}
 
 	private void UpdateBodyRotation()

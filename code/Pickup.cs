@@ -49,6 +49,16 @@ public sealed class Pickup : Component, Component.ITriggerListener
 
 	public void OnTriggerExit( Collider other ) { }
 
+	public static Pickup Spawn( CargoItem item, Vector3 position )
+	{
+		var prefabFile = ResourceLibrary.Get<PrefabFile>( "prefabs/pickup_base.prefab" );
+		var prefabScene = SceneUtility.GetPrefabScene( prefabFile );
+		var pickupGo = prefabScene.Clone( position.WithZ( 0f ) );
+		var pickup = pickupGo.Components.Get<Pickup>();
+		pickup.Item = item;
+		return pickup;
+	}
+
 	private async Task DoAnimation()
 	{
 		TimeUntil _untilAnimationFinished = AnimationDuration;

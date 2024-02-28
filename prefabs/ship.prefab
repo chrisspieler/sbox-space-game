@@ -222,22 +222,6 @@
                     "Surface": null
                   },
                   {
-                    "__type": "ShipHull",
-                    "Bounce": {
-                      "_type": "component",
-                      "go": "95b5117e-a927-435d-b86d-84fcb62cab2c",
-                      "component_type": "Bouncy"
-                    },
-                    "Controller": null,
-                    "CurrentHealth": 100,
-                    "HitTags": "solid",
-                    "MaxHealth": 100,
-                    "PartsContainer": {
-                      "_type": "gameobject",
-                      "go": "494832c3-db1d-4514-8fb6-a0ffeae0c31b"
-                    }
-                  },
-                  {
                     "__type": "Bouncy",
                     "AddedVelocity": 0,
                     "BouncedTags": "solid",
@@ -245,6 +229,22 @@
                     "IgnoredTags": null,
                     "OnBounce": null,
                     "RehitDelay": 0.5
+                  },
+                  {
+                    "__type": "Health",
+                    "Body": {
+                      "_type": "gameobject",
+                      "go": "494832c3-db1d-4514-8fb6-a0ffeae0c31b"
+                    },
+                    "Bounce": {
+                      "_type": "component",
+                      "go": "95b5117e-a927-435d-b86d-84fcb62cab2c",
+                      "component_type": "Bouncy"
+                    },
+                    "CurrentHealth": 100,
+                    "IsInvincible": false,
+                    "MaxHealth": 100,
+                    "OnKilled": null
                   }
                 ]
               },

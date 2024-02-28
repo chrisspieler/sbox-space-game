@@ -3,7 +3,7 @@ using Sandbox.Utility;
 using System;
 using System.Threading.Tasks;
 
-public sealed class Shield : Component
+public sealed class Shield : Component, Component.IDamageable
 {
 	[Property] public float MaxHealth { get; set; } = 100f;
 	[Property] public float CurrentHealth { get; set; }
@@ -49,13 +49,24 @@ public sealed class Shield : Component
 
 	public void Hit( Collision collision )
 	{
+		var damageInfo = new DamageInfo()
+		{
+			Attacker = collision.Other.GameObject,
+			Position = collision.Contact.Point,
+			Damage = collision.GetDamage()
+		};
+		OnDamage( damageInfo );
+	}
+
+	public void OnDamage( in DamageInfo damage )
+	{
 		if ( !Active || CurrentHealth <= 0f )
 			return;
 
-		var damage = ( Controller.IsValid() && Controller.IsInvincible ) 
-			? 0f 
-			: collision.GetDamage();
-		CurrentHealth = Math.Max( 0f, CurrentHealth - damage );
+		var damageAmount = (Controller.IsValid() && Controller.IsInvincible)
+			? 0f
+			: damage.Damage;
+		CurrentHealth = Math.Max( 0f, CurrentHealth - damageAmount );
 		ResetRegen();
 		var fadeTime = 0.8f;
 		var effect = new TintEffect

@@ -16,8 +16,17 @@ public sealed partial class ShipController : Component
 		set
 		{
 			_isInvincible = value;
-			if ( !GameManager.IsPlaying || !_isInvincible )
+			if ( !GameManager.IsPlaying )
 				return;
+
+			if ( _hull is not null )
+			{
+				_hull.IsInvincible = value;
+			}
+
+			if ( !_isInvincible )
+				return;
+			
 			var tintEffect = new TintEffect()
 			{
 				BlendMode = ColorBlendMode.Normal,

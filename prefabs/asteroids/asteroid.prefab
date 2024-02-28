@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "Id": "8bc97931-82c6-4696-8a3b-8c551f82ed1d",
+    "Id": "6a6a4567-8464-4b24-a9e1-8f8cbb40d54f",
     "Name": "asteroid",
     "Tags": "solid",
     "Enabled": true,
@@ -46,7 +46,7 @@
         "RandomVelocityScale": 50,
         "Rigidbody": {
           "_type": "component",
-          "go": "8bc97931-82c6-4696-8a3b-8c551f82ed1d",
+          "go": "6a6a4567-8464-4b24-a9e1-8f8cbb40d54f",
           "component_type": "Rigidbody"
         },
         "ScaleCurve": {
@@ -78,12 +78,42 @@
         }
       },
       {
-        "__type": "RigidbodyDebug",
-        "__enabled": false,
-        "Rigidbody": {
+        "__type": "Bouncy",
+        "AddedVelocity": 0,
+        "BouncedTags": "solid,player_shield",
+        "BounceFactor": 0.05,
+        "IgnoredTags": null,
+        "OnBounce": null,
+        "RehitDelay": 0.5
+      },
+      {
+        "__type": "Health",
+        "Body": {
+          "_type": "gameobject",
+          "go": "6a6a4567-8464-4b24-a9e1-8f8cbb40d54f"
+        },
+        "Bounce": {
           "_type": "component",
-          "go": "8bc97931-82c6-4696-8a3b-8c551f82ed1d",
-          "component_type": "Rigidbody"
+          "go": "6a6a4567-8464-4b24-a9e1-8f8cbb40d54f",
+          "component_type": "Bouncy"
+        },
+        "CurrentHealth": 0,
+        "IsInvincible": false,
+        "MaxHealth": 100,
+        "OnDamaged": null,
+        "OnKilled": null
+      },
+      {
+        "__type": "Mineable",
+        "FractureEffect": {
+          "_type": "gameobject",
+          "prefab": "prefabs/effects/ship_explosion.prefab"
+        },
+        "FractureLoot": "data/cargo/iron_ore.cargo",
+        "Health": {
+          "_type": "component",
+          "go": "6a6a4567-8464-4b24-a9e1-8f8cbb40d54f",
+          "component_type": "Health"
         }
       }
     ],

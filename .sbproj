@@ -75,7 +75,7 @@
           "GroupName": "Movement"
         },
         {
-          "Name": "attack1",
+          "Name": "fire",
           "KeyboardCode": "mouse1",
           "GamepadCode": "RightTrigger",
           "GroupName": "Actions"

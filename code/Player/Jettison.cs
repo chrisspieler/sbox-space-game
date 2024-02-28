@@ -43,10 +43,7 @@ public sealed class Jettison : Component
 
 	private GameObject LaunchPickup( CargoItem item )
 	{
-		var pickupGo = PickupPrefab.Clone( EjectionSource.Transform.World.WithScale( 1f ) );
-		LaunchGameObject( pickupGo );
-		var pickup = pickupGo.Components.Get<Pickup>();
-		pickup.Item = item;
+		var pickup = Pickup.Spawn( item, EjectionSource.Transform.Position );
 		// Make sure you don't pick up the item immediately after launching it.
 		pickup.DisablePickup = true;
 		_ = Task.DelaySeconds( 0.5f ).ContinueWith( _ =>
@@ -56,6 +53,8 @@ public sealed class Jettison : Component
 
 			pickup.DisablePickup = false;
 		} );
+		var pickupGo = pickup.GameObject;
+		LaunchGameObject( pickupGo );
 		return pickupGo;
 	}
 }
