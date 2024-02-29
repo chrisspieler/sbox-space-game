@@ -32,6 +32,7 @@ public sealed partial class ShipController
 		ReleaseSceneCamera();
 		HideHud();
 		SpawnExplosion();
+		ShipCamera.GetCurrent().Trauma = 1f;
 		Rigidbody.Velocity = Vector3.Zero;
 		Career.RemoveMoney( Career.RespawnFee );
 		GameObject.Destroy();

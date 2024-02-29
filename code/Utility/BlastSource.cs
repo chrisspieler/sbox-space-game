@@ -26,6 +26,8 @@ public sealed class BlastSource : Component
 			PropelObject( nearby );
 		}
 
+		DoScreenShake();
+
 		if ( DestroyAfterBlast )
 		{
 			Destroy();
@@ -61,5 +63,15 @@ public sealed class BlastSource : Component
 		return rb.Tags.Has( "pickup" )
 			? PickupKnockbackScale
 			: 1f;
+	}
+
+	private void DoScreenShake()
+	{
+		var ship = ShipController.GetCurrent();
+		var camera = ShipCamera.GetCurrent();
+		if ( ship is null || camera is null )
+			return;
+		var distance = Transform.Position.Distance( ship.Transform.Position );
+		camera.Trauma += distance.LerpInverse( 2000f, 0f ) * 0.4f;
 	}
 }

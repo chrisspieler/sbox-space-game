@@ -596,13 +596,21 @@
           "LowPitch": 70,
           "LowPosition": "-350,0,1000",
           "PitchLerpSpeed": 1,
+          "PitchShakeIntensity": 5,
+          "PitchShakeSpeed": 300,
           "PositionLerpSpeed": 1,
+          "RollShakeIntensity": 8,
+          "RollShakeSpeed": 500,
           "Target": {
             "_type": "gameobject",
             "go": "f420d6b9-e323-4efe-b1fb-1ac54134cac0"
           },
           "TargetVelocityHighThreshold": 2500,
-          "TargetVelocityLowThreshold": 50
+          "TargetVelocityLowThreshold": 50,
+          "Trauma": 0,
+          "TraumaDecayRate": 0.75,
+          "YawShakeIntensity": 1.75,
+          "YawShakeSpeed": 100
         },
         {
           "__type": "Bloom",
@@ -668,7 +676,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-28T20:51:00.2842945-07:00",
+  "LastSaved": "2024-02-28T21:45:45.0806234-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03",
