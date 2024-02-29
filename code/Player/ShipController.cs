@@ -45,15 +45,35 @@ public sealed partial class ShipController : Component
 
 	public Rotation TargetRotation { get; private set; }
 
+	public static ShipController Instance { get; private set; }
+	public static ShipController GetCurrent()
+	{
+		return Instance;
+	}
+
+	protected override void OnDestroy()
+	{
+		if ( Instance == this )
+		{
+			Instance = null;
+		}
+	}
+
 	protected override void OnStart()
 	{
+		Instance = this;
 		FacingDirection = PartsContainer.Transform.Rotation.Forward.WithZ( 0f );
 		ResetUI();
 		ResetCamera();
 		FindEquipmentInChildren();
 		GameObject.BreakFromPrefab();
+		AddTemporaryInvincibility( SpawnInvincibilitySeconds );
+	}
+
+	public void AddTemporaryInvincibility( float duration )
+	{
 		IsInvincible = true;
-		_ = Task.DelaySeconds( SpawnInvincibilitySeconds ).ContinueWith( _ => IsInvincible = GodMode );
+		_ = Task.DelaySeconds( duration ).ContinueWith( _ => IsInvincible = GodMode );
 	}
 
 	private void ResetCamera()

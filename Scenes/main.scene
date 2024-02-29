@@ -81,7 +81,6 @@
               "__type": "HudPanel",
               "FuelColor": "1,1,0,1",
               "HullColor": "0.74884,0.11145,0.14332,1",
-              "IsShopNearby": false,
               "ShieldColor": "0.36863,0.84706,0.95686,1",
               "Ship": null
             }
@@ -199,8 +198,8 @@
                 "Id": 2,
                 "Type": "property.get",
                 "Properties": {
-                  "_type": "Sandbox.Game/Sandbox.Scene",
-                  "_name": "PhysicsWorld"
+                  "_name": "PhysicsWorld",
+                  "_type": "Sandbox.Game/Sandbox.Scene"
                 },
                 "UserData": {
                   "Position": "64,64"
@@ -210,8 +209,8 @@
                 "Id": 3,
                 "Type": "property.set",
                 "Properties": {
-                  "_type": "Sandbox.Engine/Sandbox.PhysicsWorld",
-                  "_name": "Gravity"
+                  "_name": "Gravity",
+                  "_type": "Sandbox.Engine/Sandbox.PhysicsWorld"
                 },
                 "UserData": {
                   "Position": "352,0"
@@ -424,10 +423,48 @@
           ]
         },
         {
+          "Id": "4a3d5584-8540-4ee1-b432-6b7453205768",
+          "Name": "Point Light",
+          "Position": "0.9459351,16.34545,43.13551",
+          "Scale": "0.4,0.4,0.4",
+          "Tags": "light_point,light",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "PointLight",
+              "Attenuation": 0.39,
+              "FogMode": "Enabled",
+              "FogStrength": 1,
+              "LightColor": "0.32102,0.5923,0.97209,1",
+              "Radius": 1000,
+              "Shadows": true
+            }
+          ]
+        },
+        {
+          "Id": "8e7015c5-960f-422e-8d18-c2a2ce5ef943",
+          "Name": "Point Light",
+          "Position": "-16.0395,2.608923,43.13552",
+          "Scale": "0.4,0.4,0.4",
+          "Tags": "light_point,light",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "PointLight",
+              "Attenuation": 0.39,
+              "FogMode": "Enabled",
+              "FogStrength": 1,
+              "LightColor": "0.32102,0.5923,0.97209,1",
+              "Radius": 1000,
+              "Shadows": true
+            }
+          ]
+        },
+        {
           "Id": "fa056831-a9c3-4510-b888-b7f61087ae3e",
           "Name": "Shop",
-          "Position": "0,0,35",
-          "Scale": "0.4,0.4,0.4",
+          "Position": "0,0,43.87252",
+          "Scale": "0.4,0.4,0.03312262",
           "Tags": "solid",
           "Enabled": true,
           "Components": [
@@ -442,68 +479,45 @@
             },
             {
               "__type": "BoxCollider",
-              "Center": "0,0,0",
-              "IsTrigger": false,
-              "Scale": "50,50,50",
+              "Center": "0,0,-200",
+              "IsTrigger": true,
+              "Scale": "45,45,300",
               "Static": false,
               "Surface": null
             },
             {
               "__type": "Shop",
               "BaseRepairCost": 20,
+              "EjectionVelocity": "1,0,0",
+              "Ejector": {
+                "_type": "gameobject",
+                "go": "a84837e9-ac71-43f6-aa6b-7bdbb06b47e5"
+              },
               "FuelCostPerUnit": 2,
+              "ReenterDelay": 2,
               "RefuelAmountPerSecond": 10,
               "RepairCostPerHitPoint": 0.5
             },
             {
-              "__type": "SphereCollider",
-              "Center": "0,0,0",
-              "IsTrigger": true,
-              "Radius": 80,
-              "Static": false,
-              "Surface": null
-            },
-            {
               "__type": "Beacon",
               "Name": "Shop"
+            },
+            {
+              "__type": "BoxCollider",
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
             }
           ],
           "Children": [
             {
-              "Id": "8e7015c5-960f-422e-8d18-c2a2ce5ef943",
-              "Name": "Point Light",
-              "Position": "-40.09875,6.522308,20.3388",
-              "Tags": "light_point,light",
-              "Enabled": true,
-              "Components": [
-                {
-                  "__type": "PointLight",
-                  "Attenuation": 0.39,
-                  "FogMode": "Enabled",
-                  "FogStrength": 1,
-                  "LightColor": "0.32102,0.5923,0.97209,1",
-                  "Radius": 1000,
-                  "Shadows": true
-                }
-              ]
-            },
-            {
-              "Id": "4a3d5584-8540-4ee1-b432-6b7453205768",
-              "Name": "Point Light",
-              "Position": "2.364838,40.86362,20.33878",
-              "Tags": "light_point,light",
-              "Enabled": true,
-              "Components": [
-                {
-                  "__type": "PointLight",
-                  "Attenuation": 0.39,
-                  "FogMode": "Enabled",
-                  "FogStrength": 1,
-                  "LightColor": "0.32102,0.5923,0.97209,1",
-                  "Radius": 1000,
-                  "Shadows": true
-                }
-              ]
+              "Id": "a84837e9-ac71-43f6-aa6b-7bdbb06b47e5",
+              "Name": "Player Ejector",
+              "Position": "0.0002441406,47.25272,-250",
+              "Rotation": "0,0,0.7071068,0.7071068",
+              "Enabled": true
             }
           ]
         }
@@ -676,7 +690,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-28T21:45:45.0806234-07:00",
+  "LastSaved": "2024-02-28T22:31:05.1646416-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03",

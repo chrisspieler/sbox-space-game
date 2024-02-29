@@ -70,11 +70,6 @@ public sealed class ScreenManager : Component
 		ShipController.GetCurrent().IsInvincible = ShipController.GodMode;
 	}
 
-	public static void SetNearbyShopIndicator( bool isShopNearby )
-	{
-		(Instance.HudPanel as HudPanel).IsShopNearby = isShopNearby;
-	}
-
 	public static void SetBeaconVisibility( bool isVisible )
 	{
 		Instance.BeaconContainer.Enabled = isVisible;

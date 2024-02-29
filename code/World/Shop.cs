@@ -3,16 +3,18 @@ using System;
 
 public sealed class Shop : Component, Component.ITriggerListener
 {
+	[ConVar( "shop_eject_invincibility_time" )]
+	public static float EjectionInvincibilitySeconds { get; set; } = 1f;
+
 	[Property] public float RefuelAmountPerSecond { get; set; } = 3f;
 	[Property] public float FuelCostPerUnit { get; set; } = 10f;
 	[Property] public float RepairCostPerHitPoint { get; set; } = 0.5f;
 	[Property] public float BaseRepairCost { get; set; } = 20f;
-
-
+	[Property] public GameObject Ejector { get; set; }
+	[Property] public Vector3 EjectionVelocity { get; set; } = Vector3.Forward * 50f;
 
 	private bool _isRefueling;
 	private TimeUntil _untilRefuelUnit;
-	private bool _isPlayerInRange;
 
 	protected override void OnUpdate()
 	{
@@ -21,31 +23,6 @@ public sealed class Shop : Component, Component.ITriggerListener
 			_untilRefuelUnit = 1f / RefuelAmountPerSecond;
 		}
 		_isRefueling = false;
-		EnsurePlayerStillAlive();
-		if ( _isPlayerInRange && Input.Pressed( "use" ) )
-		{
-			if ( ScreenManager.IsShopOpen() )
-			{
-				ScreenManager.CloseShopPanel();
-			}
-			else
-			{
-				ScreenManager.OpenShopPanel( this );
-			}
-		}
-		if ( !_isPlayerInRange && ScreenManager.IsShopOpen() )
-		{
-			ScreenManager.CloseShopPanel();
-		}
-	}
-
-	private void EnsurePlayerStillAlive()
-	{
-		var ship = ShipController.GetCurrent();
-		if ( !ship.IsValid() || !ship.IsAlive )
-		{
-			_isPlayerInRange = false;
-		}
 	}
 
 	public void SellItem( CargoItem item, ShipController ship )
@@ -110,16 +87,27 @@ public sealed class Shop : Component, Component.ITriggerListener
 		if ( !other.IsPlayer() )
 			return;
 
-		_isPlayerInRange = true;
-		ScreenManager.SetNearbyShopIndicator( true );
+		ScreenManager.OpenShopPanel( this );
+		var ship = ShipController.GetCurrent();
+		ship.Rigidbody.LinearDamping = 5f;
+		ship.Rigidbody.Velocity = ship.Rigidbody.Velocity.ClampLength( 1000f );
+		ship.Enabled = false;
 	}
 
-	public void OnTriggerExit( Collider other ) 
-	{
-		if ( !other.IsPlayer() )
-			return;
+	public void OnTriggerExit( Collider other ) { }
 
-		_isPlayerInRange = false;
-		ScreenManager.SetNearbyShopIndicator( false );
+	public void EjectPlayer()
+	{
+		var ship = ShipController.GetCurrent();
+		if ( Ejector is not null )
+		{
+			ship.Transform.Position = Ejector.Transform.Position.WithZ( 0f );
+			ship.Transform.Rotation = Ejector.Transform.Rotation;
+			ship.FacingDirection = Ejector.Transform.Rotation.Forward;
+			ship.Rigidbody.Velocity = ship.Transform.Rotation * EjectionVelocity;
+		}
+		ship.Rigidbody.LinearDamping = 0f;
+		ship.AddTemporaryInvincibility( EjectionInvincibilitySeconds );
+		ship.Enabled = true;
 	}
 }

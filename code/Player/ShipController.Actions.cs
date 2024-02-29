@@ -4,13 +4,6 @@ using Sandbox;
 
 public partial class ShipController
 {
-	public static ShipController GetCurrent()
-	{
-		return GameManager.ActiveScene
-			?.GetAllComponents<ShipController>()
-			?.FirstOrDefault();
-	}
-
 	[ConCmd("ship_respawn")]
 	public static void Respawn()
 	{

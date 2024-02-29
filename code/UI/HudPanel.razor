@@ -4,11 +4,6 @@
 @inherits PanelComponent
 
 <root>
-    <div id="shopIndicator" class="@(IsShopNearby ? "visible" : "") column center-content">
-        <div class="icon">shopping_cart</div>
-        <!--TODO: Use a glyph here?-->
-        <p>PRESS E TO OPEN SHOP</p>
-    </div>
 	<div id="bottomBars">
         <FillBar class=@_shieldBarStyle Icon="offline_bolt" FillColor=@ShieldColor FillPercentGetter=@GetShieldPercent/>
         <FillBar Icon="local_gas_station" FillColor=@FuelColor FillPercentGetter=@GetFuelPercent/>
@@ -19,7 +14,6 @@
 @code
 {
     [Property] public ShipController Ship { get; set; }
-    [Property] public bool IsShopNearby { get; set; }
     [Property, Category("Style")] public Color ShieldColor { get; set; } = Color.Cyan;
     [Property, Category("Style")] public Color HullColor { get; set; } = Color.Red;
     [Property, Category("Style")] public Color FuelColor { get; set; } = Color.Yellow;
@@ -29,7 +23,7 @@
         : "hidden";
 
 
-    protected override int BuildHash() => System.HashCode.Combine( ShieldColor, HullColor, FuelColor, Ship.Shield, IsShopNearby );
+    protected override int BuildHash() => System.HashCode.Combine( ShieldColor, HullColor, FuelColor, Ship.Shield );
 
     protected override void OnStart()
     {

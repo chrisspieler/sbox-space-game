@@ -42,7 +42,7 @@
     </div>
     <div id="bottomBar">
         <p id="creditsDisplay">@(Career.Active.Money) CREDITS</p>
-        <div id="exitButton" class="button" @onclick=@(() => { Enabled = false; })>EXIT</div>
+        <div id="exitButton" class="button" @onclick=@Exit>EXIT</div>
     </div>
 </root>
 
@@ -68,10 +68,23 @@
 
     protected override void OnUpdate()
     {
+        if ( Input.EscapePressed)
+        {
+            Exit();
+            return;
+        }
+
         if ( _holdingRefuel )
         {
             TickRefuel();
         }
+    }
+
+    private void Exit()
+    {
+        _holdingRefuel = false;
+        Enabled = false;
+        Shop.EjectPlayer();
     }
 
     private IEnumerable<CargoItem> GetShipCargo()
@@ -121,7 +134,6 @@
 
     private void RepairShip()
     {
-        Log.Info("repair");
         Shop.Repair( Ship );
     }
 }
