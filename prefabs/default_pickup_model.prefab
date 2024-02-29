@@ -1,0 +1,30 @@
+{
+  "RootObject": {
+    "Id": "aa923e7f-93cd-457b-8f1f-7a67c73ddea3",
+    "Name": "default_pickup_model",
+    "Enabled": true,
+    "Children": [
+      {
+        "Id": "cbe55b75-5a0a-46d9-80ad-16be56e8c467",
+        "Name": "Cube",
+        "Rotation": "-0.1464466,0.3535534,0.3535534,0.8535534",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "ModelRenderer",
+            "BodyGroups": 18446744073709551615,
+            "MaterialGroup": null,
+            "MaterialOverride": null,
+            "Model": "models/dev/box.vmdl",
+            "RenderType": "On",
+            "Tint": "0.23721,0.23721,0.23721,1"
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}

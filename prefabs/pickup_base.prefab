@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "Id": "47886f33-e01f-4b97-a810-6bc51f8a3aa5",
+    "Id": "1b2d5171-0915-4265-a161-fdf72f55c279",
     "Name": "pickup_base",
     "Tags": "light_point,light",
     "Enabled": true,
@@ -8,6 +8,7 @@
       {
         "__type": "Pickup",
         "AnimationDuration": 0.4,
+        "DisablePickup": false,
         "Item": "data/cargo/iron_ore.cargo",
         "PickupEffectPrefab": null,
         "ScaleCurve": {
@@ -83,7 +84,6 @@
         "Locking": {
           "Z": true,
           "Pitch": true,
-          "Yaw": true,
           "Roll": true
         },
         "MassOverride": 1,
@@ -93,7 +93,7 @@
     ],
     "Children": [
       {
-        "Id": "1222014b-c8fd-4dd1-b68d-978f1700e6ee",
+        "Id": "9d1155e7-7b3e-42ae-8dd7-1a0b37e48be5",
         "Name": "Push Collider",
         "Tags": "player_allow",
         "Enabled": true,

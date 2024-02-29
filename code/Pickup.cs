@@ -18,14 +18,20 @@ public sealed class Pickup : Component, Component.ITriggerListener
 
 	protected override void OnStart()
 	{
-		if ( Item is not null && Item.PickupPrefab is not null )
-		{
-			var prefabGo = Item.PickupPrefab.Clone();
-			prefabGo.Parent = GameObject;
-			prefabGo.Transform.Rotation = Rotation.FromYaw( Random.Shared.Float( 0f, 360f ) );
-			prefabGo.BreakFromPrefab();
-		}
+		var pickupPrefab = Item is not null && Item.PickupPrefab is not null 
+			? Item.PickupPrefab
+			: GetDefaultPrefab();
+		var prefabGo = pickupPrefab.Clone();
+		prefabGo.Parent = GameObject;
+		prefabGo.Transform.Rotation = Rotation.FromYaw( Random.Shared.Float( 0f, 360f ) );
+		prefabGo.BreakFromPrefab();
 		GameObject.BreakFromPrefab();
+	}
+
+	private GameObject GetDefaultPrefab()
+	{
+		var prefabFile = ResourceLibrary.Get<PrefabFile>( "prefabs/default_pickup_model.prefab" );
+		return SceneUtility.GetPrefabScene( prefabFile );
 	}
 
 	public void OnTriggerEnter( Collider other ) 
