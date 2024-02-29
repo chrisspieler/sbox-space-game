@@ -18,14 +18,27 @@ public sealed class Pickup : Component, Component.ITriggerListener
 
 	protected override void OnStart()
 	{
-		var pickupPrefab = Item is not null && Item.PickupPrefab is not null 
+		CreateItemModel();
+		AddRandomSpin();
+		GameObject.BreakFromPrefab();
+	}
+
+	private void CreateItemModel()
+	{
+		var pickupPrefab = Item is not null && Item.PickupPrefab is not null
 			? Item.PickupPrefab
 			: GetDefaultPrefab();
 		var prefabGo = pickupPrefab.Clone();
 		prefabGo.Parent = GameObject;
 		prefabGo.Transform.Rotation = Rotation.FromYaw( Random.Shared.Float( 0f, 360f ) );
 		prefabGo.BreakFromPrefab();
-		GameObject.BreakFromPrefab();
+	}
+
+	private void AddRandomSpin()
+	{
+		var rigidbody = Components.Get<Rigidbody>();
+		var randomYaw = Random.Shared.Float( 0.2f, 1f );
+		rigidbody.AngularVelocity = Vector3.Zero.WithZ( randomYaw );
 	}
 
 	private GameObject GetDefaultPrefab()

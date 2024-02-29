@@ -1,8 +1,8 @@
 {
   "RootObject": {
-    "Id": "1b2d5171-0915-4265-a161-fdf72f55c279",
+    "Id": "70e106ef-486c-4b3f-92d0-1a7ef1e9ed4c",
     "Name": "pickup_base",
-    "Tags": "light_point,light",
+    "Tags": "light_point,light,pickup",
     "Enabled": true,
     "Components": [
       {
@@ -93,7 +93,7 @@
     ],
     "Children": [
       {
-        "Id": "9d1155e7-7b3e-42ae-8dd7-1a0b37e48be5",
+        "Id": "3dfe801b-5f0b-4b4f-832c-e88f39019396",
         "Name": "Push Collider",
         "Tags": "player_allow",
         "Enabled": true,
