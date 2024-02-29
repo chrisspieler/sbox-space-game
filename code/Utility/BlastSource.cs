@@ -4,6 +4,8 @@ using Sandbox;
 
 public sealed class BlastSource : Component
 {
+	[ConVar( "pickup_knockback_scale" )]
+	public static float PickupKnockbackScale { get; set; } = 0.05f;
 	[Property] public float Force { get; set; } = 2000f;
 	[Property] public float Radius { get; set; } = 800f;
 	[Property] public bool BlastOnEnable { get; set; } = true;
@@ -50,7 +52,14 @@ public sealed class BlastSource : Component
 		var distance = rb.Transform.Position.Distance( Transform.Position );
 		var intensity = distance.LerpInverse( Radius, 0f );
 		var direction = (rb.Transform.Position - Transform.Position).Normal;
-		var impulse = Force * intensity * direction;
+		var impulse = Force * intensity * direction * GetForceScaleForObject( rb );
 		rb.ApplyImpulse( impulse );
+	}
+
+	private static float GetForceScaleForObject( Rigidbody rb )
+	{
+		return rb.Tags.Has( "pickup" )
+			? PickupKnockbackScale
+			: 1f;
 	}
 }

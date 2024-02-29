@@ -513,7 +513,7 @@
       "Id": "7c932b98-0ac2-4aa9-9bca-1de0955d6102",
       "Name": "GameObject",
       "Position": "2331.983,3530.095,0",
-      "Tags": "light_point,light",
+      "Tags": "light,light_point,pickup",
       "Enabled": true,
       "__Prefab": "prefabs/pickup_base.prefab"
     },
@@ -521,7 +521,7 @@
       "Id": "d5148d40-59e0-4ff9-b579-a0ac7c95006b",
       "Name": "GameObject (1)",
       "Position": "2457.838,3642.263,0.000007501578",
-      "Tags": "light_point,light",
+      "Tags": "light,light_point,pickup",
       "Enabled": true,
       "__Prefab": "prefabs/pickup_base.prefab"
     },
@@ -529,7 +529,7 @@
       "Id": "404ff181-1e79-4a46-a5ef-8686a48004a6",
       "Name": "GameObject (2)",
       "Position": "2279.475,3841.294,-0.000003129714",
-      "Tags": "light_point,light",
+      "Tags": "light,light_point,pickup",
       "Enabled": true,
       "__Prefab": "prefabs/pickup_base.prefab"
     },
@@ -537,7 +537,7 @@
       "Id": "92d58c65-bbdc-4c15-b47e-9fbcf45a08e4",
       "Name": "GameObject (3)",
       "Position": "2459.053,3899.708,-0.00007177746",
-      "Tags": "light_point,light",
+      "Tags": "light,light_point,pickup",
       "Enabled": true,
       "__Prefab": "prefabs/pickup_base.prefab"
     },
@@ -545,7 +545,7 @@
       "Id": "281ee3d8-436f-48a7-8ddb-7aa9516fe4e5",
       "Name": "GameObject (4)",
       "Position": "2735.244,3899.708,0",
-      "Tags": "light_point,light",
+      "Tags": "light,light_point,pickup",
       "Enabled": true,
       "__Prefab": "prefabs/pickup_base.prefab"
     },
@@ -553,7 +553,7 @@
       "Id": "355a4410-11c8-4da0-9c86-2bf1e9648924",
       "Name": "GameObject (5)",
       "Position": "2735.244,4153.083,0",
-      "Tags": "light_point,light",
+      "Tags": "light,light_point,pickup",
       "Enabled": true,
       "__Prefab": "prefabs/pickup_base.prefab"
     },
@@ -561,7 +561,7 @@
       "Id": "2947d3c0-83f2-4816-9355-8f07a125727d",
       "Name": "GameObject (6)",
       "Position": "2293.13,4311.947,0",
-      "Tags": "light_point,light",
+      "Tags": "light,light_point,pickup",
       "Enabled": true,
       "__Prefab": "prefabs/pickup_base.prefab"
     }
@@ -589,7 +589,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-28T08:01:23.831542-07:00",
+  "LastSaved": "2024-02-28T20:17:48.9584684-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03",
