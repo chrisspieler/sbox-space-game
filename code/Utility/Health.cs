@@ -13,6 +13,8 @@ public sealed class Health : Component, Component.IDamageable
 	[Property] public float CurrentHealth { get; set; }
 	[Property] public Bouncy Bounce { get; set; }
 
+	public bool IsAlive => CurrentHealth > 0f;
+
 	protected override void OnStart()
 	{
 		CurrentHealth = MaxHealth;
@@ -38,8 +40,9 @@ public sealed class Health : Component, Component.IDamageable
 	{
 		OnDamaged?.Invoke( damage );
 		var damageAmount = IsInvincible ? 0f : damage.Damage;
+		var wasAlive = IsAlive;
 		CurrentHealth = Math.Max( 0f, CurrentHealth - damageAmount );
-		if ( CurrentHealth <= 0f )
+		if ( wasAlive && !IsAlive )
 		{
 			OnKilled?.Invoke();
 			return;
