@@ -1,5 +1,5 @@
 using Sandbox;
-using System.Security.Cryptography.X509Certificates;
+using System.Collections.Generic;
 
 public sealed class ScreenManager : Component
 {
@@ -11,6 +11,9 @@ public sealed class ScreenManager : Component
 	[Property] public PanelComponent HoveredSelectionPanel { get; set; }
 	[Property] public PanelComponent ShopPanel { get; set; }
 	[Property] public GameObject BeaconContainer { get; set; }
+	[Property] public GameObject HealthBarContainer { get; set; }
+
+	private Dictionary<IHealth, GameObject> _activeHealthBars = new();
 
 	protected override void OnAwake()
 	{
@@ -106,5 +109,28 @@ public sealed class ScreenManager : Component
 			}
 		}
 		return null;
+	}
+
+	public static void ShowHealthBar( IHealth health, GameObject target )
+	{
+		if ( Instance._activeHealthBars.ContainsKey( health ) )
+			return;
+
+		var healthBarGo = new GameObject( true, $"Health Bar ({target.Name})" );
+		healthBarGo.Parent = Instance.HealthBarContainer;
+		var healthBarComponent = healthBarGo.Components.Create<FloatingHealthPanel>();
+		healthBarComponent.Target = target;
+		healthBarComponent.Health = health;
+		Instance._activeHealthBars[health] = healthBarGo;
+	}
+
+	public static void RemoveHealthBar( IHealth health )
+	{
+		if ( !Instance._activeHealthBars.ContainsKey( health ) )
+			return;
+
+		var healthBarGo = Instance._activeHealthBars[health];
+		healthBarGo.Destroy();
+		Instance._activeHealthBars.Remove( health );
 	}
 }

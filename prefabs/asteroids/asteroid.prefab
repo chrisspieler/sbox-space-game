@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "Id": "6a6a4567-8464-4b24-a9e1-8f8cbb40d54f",
+    "Id": "2ac07d13-b533-455e-b48c-267de7dcf1cf",
     "Name": "asteroid",
     "Tags": "solid",
     "Enabled": true,
@@ -46,7 +46,7 @@
         "RandomVelocityScale": 50,
         "Rigidbody": {
           "_type": "component",
-          "go": "6a6a4567-8464-4b24-a9e1-8f8cbb40d54f",
+          "go": "2ac07d13-b533-455e-b48c-267de7dcf1cf",
           "component_type": "Rigidbody"
         },
         "ScaleCurve": {
@@ -90,11 +90,11 @@
         "__type": "Health",
         "Body": {
           "_type": "gameobject",
-          "go": "6a6a4567-8464-4b24-a9e1-8f8cbb40d54f"
+          "go": "2ac07d13-b533-455e-b48c-267de7dcf1cf"
         },
         "Bounce": {
           "_type": "component",
-          "go": "6a6a4567-8464-4b24-a9e1-8f8cbb40d54f",
+          "go": "2ac07d13-b533-455e-b48c-267de7dcf1cf",
           "component_type": "Bouncy"
         },
         "CurrentHealth": 0,
@@ -112,8 +112,20 @@
         "FractureLoot": "data/cargo/iron_ore.cargo",
         "Health": {
           "_type": "component",
-          "go": "6a6a4567-8464-4b24-a9e1-8f8cbb40d54f",
+          "go": "2ac07d13-b533-455e-b48c-267de7dcf1cf",
           "component_type": "Health"
+        }
+      },
+      {
+        "__type": "HealthBarSpawner",
+        "HealthSource": {
+          "_type": "component",
+          "go": "2ac07d13-b533-455e-b48c-267de7dcf1cf",
+          "component_type": "Health"
+        },
+        "Target": {
+          "_type": "gameobject",
+          "go": "2ac07d13-b533-455e-b48c-267de7dcf1cf"
         }
       }
     ],

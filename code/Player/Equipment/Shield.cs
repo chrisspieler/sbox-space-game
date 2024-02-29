@@ -3,8 +3,10 @@ using Sandbox.Utility;
 using System;
 using System.Threading.Tasks;
 
-public sealed class Shield : Component, Component.IDamageable
+public sealed class Shield : Component, Component.IDamageable, IHealth
 {
+	[Property] public Action<DamageInfo> OnDamaged { get; set; }
+
 	[Property] public float MaxHealth { get; set; } = 100f;
 	[Property] public float CurrentHealth { get; set; }
 	[Property] public float RegenRate { get; set; } = 20f;

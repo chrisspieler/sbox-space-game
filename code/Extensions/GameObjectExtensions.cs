@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Sandbox;
+using static Sandbox.PhysicsContact;
 
 public static class GameObjectExtensions
 {
@@ -20,6 +21,14 @@ public static class GameObjectExtensions
 
 		var originSystem = gameObject.Scene.GetSystem<FloatingOriginSystem>();
 		gameObject.Transform.Position = position - originSystem.TotalOriginShift;
+	}
+
+	public static float GetDistanceFromScreenCenter( this GameObject gameObject )
+	{
+		return GameManager.ActiveScene
+				.Camera
+				.ScreenNormalToWorld( 0.5f )
+				.Distance( gameObject.Transform.Position );
 	}
 
 	public static Vector2Int GetWorldChunk( this GameObject gameObject )

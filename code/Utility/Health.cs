@@ -2,7 +2,7 @@ using Sandbox;
 using Sandbox.Utility;
 using System;
 
-public sealed class Health : Component, Component.IDamageable
+public sealed class Health : Component, Component.IDamageable, IHealth
 {
 	[Property] public Action OnKilled { get; set; }
 	[Property] public Action<DamageInfo> OnDamaged { get; set; }
