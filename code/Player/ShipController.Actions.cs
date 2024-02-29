@@ -20,8 +20,6 @@ public partial class ShipController
 		if ( GameManager.ActiveScene is null )
 			return;
 
-		// The ship prefab contains a camera, so destroy the existing camera to avoid a conflict.
-		DestroyAllWithComponent<CameraComponent>();
 		// The deathcam will fight for control over the main camera, so get rid of it.
 		DestroyAllWithComponent<DeathCamConfig>();
 		SpawnShip( GetSpawnTransform() );

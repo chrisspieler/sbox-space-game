@@ -1,5 +1,6 @@
 using Sandbox;
 using Sandbox.Utility;
+using System.Linq;
 
 public sealed partial class ShipController : Component
 {
@@ -47,14 +48,38 @@ public sealed partial class ShipController : Component
 	protected override void OnStart()
 	{
 		FacingDirection = PartsContainer.Transform.Rotation.Forward.WithZ( 0f );
-		ScreenManager.SetHudEnabled( true );
-		ScreenManager.SetCursorEnabled( true );
-		ScreenManager.UpdateShip( this );
-		ScreenManager.SetBeaconVisibility( true );
+		ResetUI();
+		ResetCamera();
 		FindEquipmentInChildren();
 		GameObject.BreakFromPrefab();
 		IsInvincible = true;
 		_ = Task.DelaySeconds( SpawnInvincibilitySeconds ).ContinueWith( _ => IsInvincible = GodMode );
+	}
+
+	private void ResetCamera()
+	{
+		var cameraGo = Scene.Camera?.GameObject;
+		if ( cameraGo is null )
+			return;
+
+		var camera = cameraGo.Components.Get<ShipCamera>( true );
+		if ( camera is null )
+			return;
+
+		camera.Target = GameObject;
+		camera.Transform.Position = Transform.Position
+			.WithX( Transform.Position.x - 500f )
+			.WithZ( 200f );
+		camera.Transform.Rotation = Rotation.FromPitch( 30f );
+		camera.Enabled = true;
+	}
+
+	private void ResetUI()
+	{
+		ScreenManager.SetHudEnabled( true );
+		ScreenManager.SetCursorEnabled( true );
+		ScreenManager.UpdateShip( this );
+		ScreenManager.SetBeaconVisibility( true );
 	}
 
 	protected override void OnUpdate()

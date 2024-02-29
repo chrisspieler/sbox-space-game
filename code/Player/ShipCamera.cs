@@ -19,8 +19,8 @@ public sealed class ShipCamera : Component
 
 		var targetVelocity = targetPhysics.Velocity.Length;
 		var lerpProgress = MathX.LerpInverse( targetVelocity, TargetVelocityLowThreshold, TargetVelocityHighThreshold );
-		var targetPos = Vector3.Lerp( LowPosition, HighPosition, lerpProgress );
-		Transform.LocalPosition = Transform.LocalPosition.LerpTo( targetPos, PositionLerpSpeed * Time.Delta );
+		var offset = Vector3.Lerp( LowPosition, HighPosition, lerpProgress );
+		Transform.Position = Transform.Position.LerpTo( Target.Transform.Position + offset, PositionLerpSpeed * Time.Delta );
 		var targetRot = Rotation.Lerp( Rotation.FromPitch( LowPitch ), Rotation.FromPitch( HighPitch ), lerpProgress );
 		Transform.LocalRotation = Rotation.Slerp( Transform.LocalRotation, targetRot, PitchLerpSpeed * Time.Delta );
 	}

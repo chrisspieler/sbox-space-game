@@ -564,6 +564,85 @@
       "Tags": "light,light_point,pickup",
       "Enabled": true,
       "__Prefab": "prefabs/pickup_base.prefab"
+    },
+    {
+      "Id": "a40bb4ac-020a-41e6-b19c-044056082e27",
+      "Name": "Camera",
+      "Position": "2200,3200,1000",
+      "Rotation": "0,0.5735765,0,0.8191521",
+      "Tags": "no_chunk",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "CameraComponent",
+          "BackgroundColor": "0.33333,0.46275,0.52157,1",
+          "ClearFlags": "All",
+          "FieldOfView": 90,
+          "IsMainCamera": true,
+          "Orthographic": false,
+          "OrthographicHeight": 1204,
+          "Priority": 1,
+          "RenderExcludeTags": "",
+          "RenderTags": "",
+          "TargetEye": "None",
+          "Viewport": "0,0,1,1",
+          "ZFar": 100000,
+          "ZNear": 10
+        },
+        {
+          "__type": "ShipCamera",
+          "HighPitch": 88,
+          "HighPosition": "-120,0,3000",
+          "LowPitch": 70,
+          "LowPosition": "-350,0,1000",
+          "PitchLerpSpeed": 1,
+          "PositionLerpSpeed": 1,
+          "Target": {
+            "_type": "gameobject",
+            "go": "f420d6b9-e323-4efe-b1fb-1ac54134cac0"
+          },
+          "TargetVelocityHighThreshold": 2500,
+          "TargetVelocityLowThreshold": 50
+        },
+        {
+          "__type": "Bloom",
+          "BloomColor": {
+            "color": [
+              {
+                "c": "1,1,1,1"
+              },
+              {
+                "t": 1,
+                "c": "1,1,1,1"
+              }
+            ],
+            "alpha": []
+          },
+          "BloomCurve": [
+            {
+              "y": 0.5
+            },
+            {
+              "x": 1,
+              "y": 1
+            }
+          ],
+          "Mode": "Additive",
+          "Strength": 3.5,
+          "Threshold": 0.2,
+          "ThresholdWidth": 0
+        },
+        {
+          "__type": "ColorAdjustments",
+          "Brightness": 1.1,
+          "Contrast": 1,
+          "HueRotate": 0,
+          "Saturation": 1.1
+        },
+        {
+          "__type": "Highlight"
+        }
+      ]
     }
   ],
   "SceneProperties": {
@@ -589,7 +668,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-28T20:17:48.9584684-07:00",
+  "LastSaved": "2024-02-28T20:51:00.2842945-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03",
