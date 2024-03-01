@@ -1,4 +1,5 @@
 using Sandbox;
+using System;
 
 public sealed class Mineable : Component
 {
@@ -29,7 +30,12 @@ public sealed class Mineable : Component
 		// TODO: Drop loot per loot table.
 		if ( FractureLoot is not null )
 		{
-			Pickup.Spawn( FractureLoot, Transform.Position );
+			var lootFloat = Transform.Scale.x * Random.Shared.Float( 0.7f, 1.2f ) / 2f;
+			var lootCount = lootFloat.CeilToInt();
+			for ( int i = 0; i < lootCount; i++ )
+			{
+				Pickup.Spawn( FractureLoot, Transform.Position );
+			}
 		}
 		GameObject.Destroy();
 	}

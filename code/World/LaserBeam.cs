@@ -12,10 +12,21 @@ public sealed class LaserBeam : Component
 		CreateParticles();
 	}
 
+	protected override void OnUpdate()
+	{
+		SetControlPoints();
+	}
+
 	private void CreateParticles()
 	{
 		ParticleInstance ??= Components.GetOrCreate<LegacyParticleSystem>( FindMode.EverythingInSelf );
 		ParticleInstance.Particles = ParticleAsset;
+		SetControlPoints();
+		ParticleInstance.Enabled = true;
+	}
+
+	private void SetControlPoints()
+	{
 		ParticleInstance.ControlPoints = new()
 		{
 			new ParticleControlPoint()
@@ -35,6 +46,5 @@ public sealed class LaserBeam : Component
 				StringCP = "2"
 			}
 		};
-		ParticleInstance.Enabled = true;
 	}
 }

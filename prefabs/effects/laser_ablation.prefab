@@ -1,11 +1,11 @@
 {
   "RootObject": {
-    "Id": "94ba5e6a-7659-43d6-8a6e-29e407d1b148",
+    "Id": "3353bd6b-b66c-4dc0-98be-fb7eb93565da",
     "Name": "laser_ablation",
     "Enabled": true,
     "Children": [
       {
-        "Id": "c24e88aa-0b1a-48a6-9abc-2e4a00bd2663",
+        "Id": "141cac7b-ab76-4765-bd7b-6e8341fe0027",
         "Name": "Spray",
         "Tags": "particles",
         "Enabled": true,
@@ -57,6 +57,7 @@
             },
             "Gradient": {
               "Type": "Gradient",
+              "Evaluation": "Particle",
               "GradientA": {
                 "color": [
                   {
@@ -182,7 +183,7 @@
         ]
       },
       {
-        "Id": "a906be1c-3ff1-4b57-a14d-2d6e4bd5539a",
+        "Id": "2bfa6fc9-a7a3-4bf0-9448-f9f08bd6bb4d",
         "Name": "Spray",
         "Tags": "particles",
         "Enabled": true,
@@ -196,8 +197,8 @@
                   "y": 1
                 },
                 {
-                  "x": 0.48029557,
-                  "y": 1,
+                  "x": 0.14547417,
+                  "y": 0.42287233,
                   "in": 1.5365853,
                   "out": -1.5365853
                 },
@@ -210,7 +211,7 @@
               "Constants": "1,0,0,0"
             },
             "ApplyColor": true,
-            "ApplyRotation": true,
+            "ApplyRotation": false,
             "ApplyShape": true,
             "Bounce": {
               "Constants": "1,0,0,0"
@@ -253,8 +254,8 @@
                 ],
                 "alpha": []
               },
-              "ConstantA": "0.74419,0.74419,0.74419,1",
-              "ConstantB": "0.25581,0.25581,0.25581,1"
+              "ConstantA": "1,1,1,1",
+              "ConstantB": "0.26657,0.27171,0.28372,1"
             },
             "Lifetime": {
               "Type": "Range",
@@ -284,8 +285,8 @@
                   {
                     "x": 0.03325123,
                     "y": 1,
-                    "in": -0.056075174,
-                    "out": 0.056075174
+                    "in": -2.2047548,
+                    "out": 2.2047548
                   },
                   {
                     "x": 1,
@@ -310,23 +311,25 @@
               "Evaluation": "Particle",
               "Constants": "100,200,0,0"
             },
-            "Stretch": {},
+            "Stretch": {
+              "Constants": "1,0,0,0"
+            },
             "TimeScale": 1,
             "Tint": "1,1,1,1"
           },
           {
             "__type": "ParticleSpriteRenderer",
             "Additive": true,
-            "BlurAmount": 0.5,
-            "BlurOpacity": 0.91,
-            "BlurSpacing": 0.73,
+            "BlurAmount": 0.31,
+            "BlurOpacity": 0.71,
+            "BlurSpacing": 0.33,
             "DepthFeather": 0,
-            "FaceVelocity": false,
+            "FaceVelocity": true,
             "FogStrength": 1,
             "LeadingTrail": true,
             "MotionBlur": false,
             "Opaque": false,
-            "RotationOffset": 0,
+            "RotationOffset": 90,
             "Scale": 1,
             "Shadows": false,
             "SortMode": "Unsorted",
@@ -335,7 +338,7 @@
           {
             "__type": "ParticleConeEmitter",
             "Burst": 0,
-            "ConeAngle": 11,
+            "ConeAngle": 8.29,
             "ConeFar": 50,
             "ConeNear": 1,
             "Delay": 0,
@@ -344,7 +347,24 @@
             "InVolume": false,
             "Loop": true,
             "OnEdge": false,
-            "Rate": 100
+            "Rate": 50
+          }
+        ]
+      },
+      {
+        "Id": "bc4dd6eb-367e-411e-a438-115c2e3050e9",
+        "Name": "Point Light",
+        "Tags": "light_point,light",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "PointLight",
+            "Attenuation": 1,
+            "FogMode": "Disabled",
+            "FogStrength": 0,
+            "LightColor": "0.25581,0.11938,0,1",
+            "Radius": 200,
+            "Shadows": false
           }
         ]
       }

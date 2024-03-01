@@ -1,4 +1,5 @@
 using Sandbox;
+using System;
 
 public sealed class Weapon : Component, IDestructionListener
 {
@@ -9,6 +10,13 @@ public sealed class Weapon : Component, IDestructionListener
 	[Property] public GameObject LaserAblationPrefab { get; set; }
 	[Property] public float TickInterval { get; set; } = 0.2f;
 	[Property] public float TickDamage { get; set; } = 2.5f;
+	[Property] public float MaxDamage { get; set; } = 20f;
+	[Property] public float MinDamage { get; set; } = 2.5f;
+	[Property] public bool DamageRampUp { get; set; } = false;
+	[Property] public float DamageRampUpSpeed { get; set; } = 10f;
+	[Property] public Curve DamageAblationScale { get; set; }
+	[Property] public Gradient DamageColorScale { get; set; }
+	[Property] public Color LaserTint { get; set; } = Color.Red;
 
 
 	private GameObject _currentTarget;
@@ -47,6 +55,12 @@ public sealed class Weapon : Component, IDestructionListener
 		if ( !target.Components.TryGet<IDamageable>( out var damageable, FindMode.EnabledInSelfAndDescendants ) )
 			return;
 
+		if ( DamageRampUp )
+		{
+			TickDamage += Time.Delta * DamageRampUpSpeed;
+			TickDamage = MathF.Min( TickDamage, MaxDamage );
+		}
+
 		if ( _currentTarget != target )
 		{
 			StartDamage( target );
@@ -83,27 +97,37 @@ public sealed class Weapon : Component, IDestructionListener
 		laserGo.Transform.Position = TraceOrigin.Transform.Position;
 		laserGo.Transform.Rotation = TraceOrigin.Transform.Rotation;
 		var laserBeam = laserGo.Components.Get<LaserBeam>();
-		laserBeam.Tint = Color.Red;
 		return laserBeam;
 	}
 
 	private void UpdateLaserEffect( Vector3 endPosition, bool hit, Vector3 normal )
 	{
+		var power = MathX.LerpInverse( TickDamage, MinDamage, MaxDamage );
+		_currentLaserEffect.Tint = DamageColorScale.Evaluate( power );
 		_laserHitTarget ??= LaserAblationPrefab.Clone();
 		_currentLaserEffect.Target ??= _laserHitTarget;
-		_laserHitTarget.Enabled = hit;
+		_laserHitTarget.ToggleParticleEmission( hit );
 		_laserHitTarget.Transform.Position = endPosition;
 		_laserHitTarget.Transform.Rotation = Rotation.LookAt( normal );
+		_laserHitTarget.SetParticleScale( DamageAblationScale.Evaluate( power ) );
 	}
 
 	private void DestroyLaserEffect()
 	{
 		_currentLaserEffect?.GameObject?.Destroy();
 		_currentLaserEffect = null;
-		_laserHitTarget?.Destroy();
-		_laserHitTarget = null;
+		if ( _laserHitTarget is not null )
+		{
+			_laserHitTarget.ToggleParticleEmission( false );
+			foreach( var light in _laserHitTarget.Components.GetAll<Light>( FindMode.EnabledInSelfAndDescendants ) )
+			{
+				light.Enabled = false;
+			}
+			var selfDestruct = _laserHitTarget.Components.Create<SelfDestruct>();
+			selfDestruct.Delay = 2f;
+			_laserHitTarget = null;
+		}
 	}
-	
 
 	private void StartDamage( GameObject targetGo )
 	{
@@ -113,6 +137,7 @@ public sealed class Weapon : Component, IDestructionListener
 
 	private void EndDamage()
 	{
+		TickDamage = MinDamage;
 		_currentTarget = null;
 	}
 

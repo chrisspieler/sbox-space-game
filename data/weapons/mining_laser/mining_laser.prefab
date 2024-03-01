@@ -10,6 +10,46 @@
           "_type": "gameobject",
           "go": "622e39e7-6ca3-4830-b806-52c8465f1271"
         },
+        "DamageAblationScale": {
+          "rangey": "3,5",
+          "frames": [
+            {},
+            {
+              "x": 0.5,
+              "y": 0.5,
+              "in": -2.4848492,
+              "out": 2.4848492
+            },
+            {
+              "x": 1,
+              "y": 1
+            }
+          ]
+        },
+        "DamageColorScale": {
+          "color": [
+            {
+              "c": "0.01961,0,0,1"
+            },
+            {
+              "t": 0.23504274,
+              "c": "0.07442,0.06311,0.00658,1"
+            },
+            {
+              "t": 0.47435898,
+              "c": "0.16791,0.17674,0,1"
+            },
+            {
+              "t": 0.61538464,
+              "c": "0.20124,0.54884,0,1"
+            },
+            {
+              "t": 1,
+              "c": "0.00316,0.45377,0.67907,1"
+            }
+          ],
+          "alpha": []
+        },
         "LaserAblationPrefab": {
           "_type": "gameobject",
           "prefab": "prefabs/effects/laser_ablation.prefab"
@@ -18,6 +58,9 @@
           "_type": "gameobject",
           "prefab": "prefabs/effects/laser_beam.prefab"
         },
+        "LaserTint": "0.02326,0,0,1",
+        "MaxDamage": 20,
+        "MinDamage": 2.5,
         "TickDamage": 2.5,
         "TickInterval": 0.2,
         "TraceOrigin": {
