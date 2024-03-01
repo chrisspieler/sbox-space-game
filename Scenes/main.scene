@@ -109,10 +109,7 @@
               "__enabled": false,
               "Image": "ui/img/select.svg",
               "RotationSpeed": 150,
-              "Target": {
-                "_type": "gameobject",
-                "go": "f420d6b9-e323-4efe-b1fb-1ac54134cac0"
-              }
+              "Target": null
             }
           ]
         },
@@ -317,10 +314,7 @@
         },
         {
           "__type": "Follower",
-          "Target": {
-            "_type": "gameobject",
-            "go": "f420d6b9-e323-4efe-b1fb-1ac54134cac0"
-          }
+          "Target": null
         }
       ]
     },
@@ -628,7 +622,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-01T04:40:03.193332-07:00",
+  "LastSaved": "2024-03-01T06:44:46.3766147-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03",

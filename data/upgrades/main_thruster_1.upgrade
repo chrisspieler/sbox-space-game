@@ -1,0 +1,44 @@
+{
+  "Name": "Basic Thrusters",
+  "FlavorText": "Poorly-maintained thrusters salvaged from the wreck of ship.",
+  "FunctionText": "Adds thrusters with low power",
+  "Cost": 50,
+  "Thumbnail": null,
+  "PrerequisiteUpgrade": "data/upgrades/main_thruster_0.upgrade",
+  "OnApplyUpgrade": {
+    "Version": 5,
+    "UserData": {
+      "Title": "On Apply Upgrade",
+      "id": "de55bfdc-a2d5-496a-9dc0-b0f447fabfb8",
+      "ReferencedComponentTypes": []
+    },
+    "Variables": [],
+    "Nodes": [
+      {
+        "Id": 0,
+        "Type": "input"
+      },
+      {
+        "Id": 1,
+        "Type": "ship.equipment.thrusters.main.power.add",
+        "UserData": {
+          "Position": "256,0"
+        }
+      }
+    ],
+    "Links": [
+      {
+        "SrcId": 0,
+        "SrcName": "_signal",
+        "DstId": 1,
+        "DstName": "_signal"
+      },
+      {
+        "Value": 150,
+        "DstId": 1,
+        "DstName": "power"
+      }
+    ]
+  },
+  "__references": []
+}

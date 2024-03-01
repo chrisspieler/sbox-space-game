@@ -110,4 +110,21 @@ public sealed class Shop : Component, Component.ITriggerListener
 		ship.AddTemporaryInvincibility( EjectionInvincibilitySeconds );
 		ship.Enabled = true;
 	}
+
+	public bool CanBuyUpgrade( ShipController ship, Upgrade upgrade )
+	{
+		return ship.IsValid()
+			&& !Career.HasUpgrade( upgrade )
+			&& Career.IsUpgradeAvailable( upgrade )
+			&& Career.HasMoney( upgrade.Cost );
+	}
+
+	public void BuyUpgrade( ShipController ship, Upgrade upgrade )
+	{
+		if ( !CanBuyUpgrade( ship, upgrade ) )
+			return;
+
+		Career.RemoveMoney( upgrade.Cost );
+		Career.AddUpgrade( upgrade );
+	}
 }

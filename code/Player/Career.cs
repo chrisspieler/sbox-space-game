@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Sandbox;
 
 public class Career
@@ -20,6 +21,17 @@ public class Career
 	private int _money;
 
 	public List<Upgrade> Upgrades { get; set; } = new();
+
+	public IEnumerable<Upgrade> GetAvailableUpgrades()
+	{
+		return ResourceLibrary.GetAll<Upgrade>().Where( IsUpgradeAvailable );
+	}
+
+	public static bool IsUpgradeAvailable( Upgrade upgrade )
+	{
+		return !HasUpgrade( upgrade ) 
+			&& (upgrade.PrerequisiteUpgrade is null || HasUpgrade( upgrade.PrerequisiteUpgrade ) );
+	}
 
 	[ConCmd("career_status")]
 	public static void PrintStatus()

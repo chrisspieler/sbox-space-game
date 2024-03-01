@@ -1,0 +1,44 @@
+{
+  "Name": "Garbage Thrusters",
+  "FlavorText": "A fire extinguisher would probably be more powerful.",
+  "FunctionText": "Adds thrusters with miserably low power",
+  "Cost": 10,
+  "Thumbnail": null,
+  "PrerequisiteUpgrade": null,
+  "OnApplyUpgrade": {
+    "Version": 5,
+    "UserData": {
+      "Title": "On Apply Upgrade",
+      "id": "d651671f-9f6a-4c05-a87d-1b1d1af18a4d",
+      "ReferencedComponentTypes": []
+    },
+    "Variables": [],
+    "Nodes": [
+      {
+        "Id": 0,
+        "Type": "input"
+      },
+      {
+        "Id": 1,
+        "Type": "ship.equipment.thrusters.main.power.add",
+        "UserData": {
+          "Position": "224,0"
+        }
+      }
+    ],
+    "Links": [
+      {
+        "SrcId": 0,
+        "SrcName": "_signal",
+        "DstId": 1,
+        "DstName": "_signal"
+      },
+      {
+        "Value": 100,
+        "DstId": 1,
+        "DstName": "power"
+      }
+    ]
+  },
+  "__references": []
+}

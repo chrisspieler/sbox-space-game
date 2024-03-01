@@ -37,6 +37,21 @@
         </div>
         <div id="buyPanel" class="column">
             <div id="buyTitle" class="center-content header">BUY EQUIPMENT</div>
+            @foreach( var upgrade in _availableUpgrades)
+            {
+                <div class="upgrade">
+                    <Image Texture=@upgrade.Thumbnail/>
+                    <div id="infoColumn" class="column center-content">
+                        <h3 class="name center-content">@upgrade.Name</h3>
+                        <p class="description">@upgrade.FunctionText</p>
+                        <p class="flavor">@upgrade.FlavorText</p>
+                    </div>
+                    <div id="buyColumn" class="column center-content">
+                        <h2 class="price">@upgrade.Cost CR</h2>
+                        <div id="buyButton" class="button center-content" onclick=@(() => BuyUpgrade( upgrade ))>BUY</div>
+                    </div>
+                </div>
+            }
             <!--TODO: List all of the cool things you can buy.-->
         </div>
     </div>
@@ -58,12 +73,14 @@
     [Property] public ShipController Ship { get; set; }
 
     private bool _holdingRefuel;
+    private List<Upgrade> _availableUpgrades;
 
     protected override void OnEnabled()
     {
         base.OnEnabled();
 
         Ship = ShipController.GetCurrent();
+        FetchAvailableUpgrades();
     }
 
     protected override void OnUpdate()
@@ -135,5 +152,18 @@
     private void RepairShip()
     {
         Shop.Repair( Ship );
+    }
+
+    private void FetchAvailableUpgrades()
+    {
+        _availableUpgrades = Career.Active.GetAvailableUpgrades().ToList();
+        StateHasChanged();
+    }
+
+    private void BuyUpgrade( Upgrade upgrade)
+    {
+        Shop.BuyUpgrade(Ship, upgrade);
+        FetchAvailableUpgrades();
+        StateHasChanged();
     }
 }

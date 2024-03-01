@@ -1,5 +1,6 @@
 ﻿using Sandbox;
 using System.Collections.Generic;
+using System.Linq;
 
 public partial class ShipController
 {
@@ -30,7 +31,9 @@ public partial class ShipController
 	[Property, Category( "Equipment" )]
 	public CargoHold Cargo { get; set; }
 	[Property, Category( "Equipment" )]
-	public List<Thruster> Thrusters { get; set; } = new();
+	public Thruster MainThrusters { get; set; }
+	[Property, Category( "Equipment" )]
+	public Thruster Retrorockets { get; set; }
 
 	private void FindEquipmentInChildren()
 	{
@@ -40,13 +43,12 @@ public partial class ShipController
 		if ( !Grapple.IsValid() ) Grapple = Components.GetInDescendantsOrSelf<GrappleBeam>();
 		if ( !Stabilizer.IsValid() ) Stabilizer = Components.GetInDescendantsOrSelf<Stabilizer>();
 		if ( !Cargo.IsValid() ) Cargo = Components.GetInDescendantsOrSelf<CargoHold>();
-		foreach( var thruster in Components.GetAll<Thruster>( FindMode.EnabledInSelfAndDescendants ) )
-		{
-			if ( !Thrusters.Contains( thruster ) )
-			{
-				Thrusters.Add( thruster );
-			}
-		}
+		if ( !MainThrusters.IsValid() ) MainThrusters = Components
+				.GetAll<Thruster>( FindMode.EnabledInSelfAndDescendants )
+				.FirstOrDefault( t => !t.Retrorocket );
+		if ( !Retrorockets.IsValid() ) Retrorockets = Components
+				.GetAll<Thruster>( FindMode.EnabledInSelfAndDescendants )
+				.FirstOrDefault( t => t.Retrorocket );
 	}
 
 	private void ApplyAllUpgrades()
@@ -78,5 +80,27 @@ public partial class ShipController
 
 		ship.Fuel.MaxCapacity += fuel;
 		ship.Fuel.CurrentAmount += fuel;
+	}
+
+	[ActionGraphNode( "ship.equipment.thrusters.main.power.add")]
+	[Title( "Add Main Thruster Power"), Group( "Ship/Thrusters")]
+	public static void AddMainThrusterPower( float power )
+	{
+		var ship = GetCurrent();
+		if ( power < 0 || ship is null )
+			return;
+
+		ship.MainThrusters.Power += power;
+	}
+
+	[ActionGraphNode( "ship.equipment.thrusters.retro.power.add")]
+	[Title( "Add Retrorocket Power" ), Group( "Ship/Thrusters")]
+	public static void AddRetrorocketPower( float power )
+	{
+		var ship = GetCurrent();
+		if ( power < 0 || ship is null )
+			return;
+
+		ship.Retrorockets.Power += power;
 	}
 }

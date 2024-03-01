@@ -1,6 +1,5 @@
 using Sandbox;
 using Sandbox.Utility;
-using System.Linq;
 
 public sealed partial class ShipController : Component
 {
@@ -120,20 +119,13 @@ public sealed partial class ShipController : Component
 
 	private void UpdateThrusters( Vector3 inputDir )
 	{
-		_retrorocketForce = Stabilizer?.GetStabilizerForce() ?? Vector3.Zero;
-		_mainThrusterForce = Vector3.Zero;
-		foreach( var thruster in Thrusters )
-		{
-			thruster.ShouldFire = thruster.Retrorocket
-				? ShouldFireRetrorockets()
-				: ShouldFireMainThrusters();
+		MainThrusters.ShouldFire = ShouldFireMainThrusters();
+		_mainThrusterForce = MainThrusters.ShouldFire
+			? MainThrusters.GetForce()
+			: Vector3.Zero;
 
-			// Store main thruster force for debug visualization.
-			if ( thruster.ShouldFire && !thruster.Retrorocket )
-			{
-				_mainThrusterForce += thruster.GetForce();
-			}
-		}
+		Retrorockets.ShouldFire = ShouldFireRetrorockets();
+		_retrorocketForce = Stabilizer?.GetStabilizerForce() ?? Vector3.Zero;
 	}
 
 	[ConVar("input_diagonal_key_grace")] 

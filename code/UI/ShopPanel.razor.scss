@@ -9,6 +9,14 @@ ShopPanel {
 	color: white;
 	font-family: 'UAV OSD Sans Mono';
 
+	.price {
+		color: dodgerblue;
+
+		&.insufficient {
+			color: darkred;
+		}
+	}
+
 	#mainPanel {
 		height: 90%;
 	}
@@ -67,7 +75,6 @@ ShopPanel {
 
 			.price {
 				margin-left: 20px;
-				color: dodgerblue;
 			}
 		}
 
@@ -79,6 +86,7 @@ ShopPanel {
 				padding: 5px;
 				justify-content: space-between;
 				font-size: 2vh;
+
 				Image {
 					margin-left: 3vw;
 					width: 4vw;
@@ -107,5 +115,40 @@ ShopPanel {
 		flex-grow: 1;
 		border: 1px solid white;
 		margin: 5px 5px 0px 25px;
+
+		.upgrade {
+			margin: 5px 0px;
+			padding: 5px;
+			border: 1px solid #FFFFFF03;
+
+			Image {
+				width: 5vw;
+				height: 5vw;
+			}
+
+			#infoColumn {
+				flex-grow: 1;
+				text-align: center;
+				font-family: Poppins;
+
+				h3 {
+					font-size: 2.5vh;
+				}
+
+				.description {
+					font-size: 2vh;
+				}
+
+				.flavor {
+					font-size: 1.75vh;
+					color: #FFFD;
+					font-style: italic;
+				}
+			}
+
+			#buyColumn {
+				min-width: 10%;
+			}
+		}
 	}
 }
