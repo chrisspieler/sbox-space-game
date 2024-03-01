@@ -156,7 +156,10 @@
 
     private void FetchAvailableUpgrades()
     {
-        _availableUpgrades = Career.Active.GetAvailableUpgrades().ToList();
+        _availableUpgrades = Career.Active
+            .GetAvailableUpgrades()
+            .OrderBy( u => u.Cost )
+            .ToList();
         StateHasChanged();
     }
 

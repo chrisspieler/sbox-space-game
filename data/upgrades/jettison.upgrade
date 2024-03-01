@@ -1,0 +1,38 @@
+{
+  "Name": "Cargo Jettison",
+  "FlavorText": null,
+  "FunctionText": "Press F to jettison cargo in front of the ship, gaining backward velocity",
+  "Cost": 25,
+  "Thumbnail": null,
+  "PrerequisiteUpgrade": "data/upgrades/cargo_0.upgrade",
+  "OnApplyUpgrade": {
+    "Version": 5,
+    "UserData": {
+      "Title": "On Apply Upgrade",
+      "id": "f49557ad-7f7f-44df-8b86-842e8dbec26f"
+    },
+    "Variables": [],
+    "Nodes": [
+      {
+        "Id": 0,
+        "Type": "input"
+      },
+      {
+        "Id": 1,
+        "Type": "ship.equipment.jettison.add",
+        "UserData": {
+          "Position": "256,0"
+        }
+      }
+    ],
+    "Links": [
+      {
+        "SrcId": 0,
+        "SrcName": "_signal",
+        "DstId": 1,
+        "DstName": "_signal"
+      }
+    ]
+  },
+  "__references": []
+}

@@ -38,7 +38,7 @@
 
     private float GetShieldPercent()
     {
-        if ( !Ship.IsValid() || !Ship.Shield.IsValid() )
+        if ( !Ship.IsValid() || !Ship.Shield.IsValid() || !Ship.Shield.Enabled )
             return 0f;
 
         return ( Ship.Shield.CurrentHealth / Ship.Shield.MaxHealth ) * 100f;

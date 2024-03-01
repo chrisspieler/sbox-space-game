@@ -15,7 +15,7 @@ public sealed class SaveManager : Component
 	{
 		Career.Active = new Career()
 		{
-			Money = 0
+			Money = scenario.Money
 		};
 		foreach( var upgrade in scenario.Upgrades )
 		{

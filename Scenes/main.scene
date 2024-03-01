@@ -54,24 +54,6 @@
       ],
       "Children": [
         {
-          "Id": "f9f94a44-d995-4551-9bb6-a0b2107d5610",
-          "Name": "Shop Screen",
-          "Position": "0,0,0",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "ShopPanel",
-              "__enabled": false,
-              "Ship": null,
-              "Shop": {
-                "_type": "component",
-                "go": "fa056831-a9c3-4510-b888-b7f61087ae3e",
-                "component_type": "Shop"
-              }
-            }
-          ]
-        },
-        {
           "Id": "b8c346f0-faad-462c-bdad-1fdd1801e747",
           "Name": "Hud",
           "Position": "0,0,0",
@@ -87,6 +69,12 @@
           ]
         },
         {
+          "Id": "2b94c0d1-7d24-48bc-944c-3578a252c988",
+          "Name": "Health Bar Container",
+          "Position": "0,0,0",
+          "Enabled": true
+        },
+        {
           "Id": "279df759-c7fd-4122-9fee-f69cccae0af0",
           "Name": "Cursor",
           "Position": "0,0,0",
@@ -95,6 +83,24 @@
             {
               "__type": "CursorPanel",
               "CursorImagePath": "ui/img/crosshair.svg"
+            }
+          ]
+        },
+        {
+          "Id": "f9f94a44-d995-4551-9bb6-a0b2107d5610",
+          "Name": "Shop Screen",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ShopPanel",
+              "__enabled": false,
+              "Ship": null,
+              "Shop": {
+                "_type": "component",
+                "go": "fa056831-a9c3-4510-b888-b7f61087ae3e",
+                "component_type": "Shop"
+              }
             }
           ]
         },
@@ -131,12 +137,6 @@
         {
           "Id": "aac41955-0da3-4198-a83a-db4bb8a72110",
           "Name": "Beacon Container",
-          "Position": "0,0,0",
-          "Enabled": true
-        },
-        {
-          "Id": "2b94c0d1-7d24-48bc-944c-3578a252c988",
-          "Name": "Health Bar Container",
           "Position": "0,0,0",
           "Enabled": true
         }
@@ -198,8 +198,8 @@
                 "Id": 2,
                 "Type": "property.get",
                 "Properties": {
-                  "_type": "Sandbox.Game/Sandbox.Scene",
-                  "_name": "PhysicsWorld"
+                  "_name": "PhysicsWorld",
+                  "_type": "Sandbox.Game/Sandbox.Scene"
                 },
                 "UserData": {
                   "Position": "64,64"
@@ -209,8 +209,8 @@
                 "Id": 3,
                 "Type": "property.set",
                 "Properties": {
-                  "_type": "Sandbox.Engine/Sandbox.PhysicsWorld",
-                  "_name": "Gravity"
+                  "_name": "Gravity",
+                  "_type": "Sandbox.Engine/Sandbox.PhysicsWorld"
                 },
                 "UserData": {
                   "Position": "352,0"
@@ -261,7 +261,10 @@
         {
           "__type": "SaveManager",
           "DefaultScenario": "data/scenarios/normal.scenario",
-          "ShipPrefab": null
+          "ShipPrefab": {
+            "_type": "gameobject",
+            "prefab": "prefabs/ship.prefab"
+          }
         }
       ],
       "Children": [
@@ -622,7 +625,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-01T06:44:46.3766147-07:00",
+  "LastSaved": "2024-03-01T11:59:02.98893-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03",

@@ -38,6 +38,12 @@ public class Career
 	{
 		Log.Info( $"Active Career: {Active is not null}" );
 		Log.Info( $"Career Credits: {Active?.Money ?? 0}" );
+		Log.Info( $"Upgrades" );
+		Log.Info( $"---" );
+		foreach( var upgrade in Active.Upgrades )
+		{
+			Log.Info( $"\t{upgrade.Name}" );
+		}
 	}
 
 	[ConCmd("add_money")]

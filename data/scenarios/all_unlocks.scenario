@@ -1,0 +1,13 @@
+{
+  "Name": "All Unlocks",
+  "Description": "Start with everything unlocked.",
+  "Money": 99999,
+  "Upgrades": [
+    "data/upgrades/cargo_2.upgrade",
+    "data/upgrades/fuel_1.upgrade",
+    "data/upgrades/main_thruster_1.upgrade",
+    "data/upgrades/jettison.upgrade"
+  ],
+  "Hidden": true,
+  "__references": []
+}

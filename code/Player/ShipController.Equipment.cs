@@ -1,5 +1,4 @@
 ﻿using Sandbox;
-using System.Collections.Generic;
 using System.Linq;
 
 public partial class ShipController
@@ -31,6 +30,8 @@ public partial class ShipController
 	[Property, Category( "Equipment" )]
 	public CargoHold Cargo { get; set; }
 	[Property, Category( "Equipment" )]
+	public Jettison Jettison { get; set; }
+	[Property, Category( "Equipment" )]
 	public Thruster MainThrusters { get; set; }
 	[Property, Category( "Equipment" )]
 	public Thruster Retrorockets { get; set; }
@@ -38,11 +39,12 @@ public partial class ShipController
 	private void FindEquipmentInChildren()
 	{
 		if ( !Hull.IsValid() ) Hull = Components.GetInDescendantsOrSelf<Health>();
-		if ( !Shield.IsValid() ) Shield = Components.GetInDescendantsOrSelf<Shield>();
+		if ( !Shield.IsValid() ) Shield = Components.GetInDescendantsOrSelf<Shield>( true );
 		if ( !Fuel.IsValid() ) Fuel = Components.GetInDescendantsOrSelf<FuelTank>();
-		if ( !Grapple.IsValid() ) Grapple = Components.GetInDescendantsOrSelf<GrappleBeam>();
-		if ( !Stabilizer.IsValid() ) Stabilizer = Components.GetInDescendantsOrSelf<Stabilizer>();
+		if ( !Grapple.IsValid() ) Grapple = Components.GetInDescendantsOrSelf<GrappleBeam>( true );
+		if ( !Stabilizer.IsValid() ) Stabilizer = Components.GetInDescendantsOrSelf<Stabilizer>( true );
 		if ( !Cargo.IsValid() ) Cargo = Components.GetInDescendantsOrSelf<CargoHold>();
+		if ( !Jettison.IsValid() ) Jettison = Components.GetInDescendantsOrSelf<Jettison>( true );
 		if ( !MainThrusters.IsValid() ) MainThrusters = Components
 				.GetAll<Thruster>( FindMode.EnabledInSelfAndDescendants )
 				.FirstOrDefault( t => !t.Retrorocket );
@@ -60,7 +62,7 @@ public partial class ShipController
 	}
 
 	[ActionGraphNode("ship.equipment.cargo.capacity.add")]
-	[Title("Add Cargo Capacity"), Group("Ship/Equipment")]
+	[Title("Add Cargo Capacity"), Group("Ship/Cargo")]
 	public static void AddCargoCapacity( int slots )
 	{
 		var ship = GetCurrent();
@@ -68,6 +70,17 @@ public partial class ShipController
 			return;
 
 		ship.Cargo.MaxItems += slots;
+	}
+
+	[ActionGraphNode( "ship.equipment.jettison.add" )]
+	[Title( "Add Jettison" ), Group( "Ship/Cargo" )]
+	public static void AddJettison()
+	{
+		var ship = GetCurrent();
+		if ( ship is null )
+			return;
+
+		ship.Jettison.Enabled = true;
 	}
 
 	[ActionGraphNode( "ship.equipment.fuel.capacity.add" )]

@@ -8,4 +8,5 @@ public class Scenario : GameResource
 	public string Description { get; set; }
 	public int Money { get; set; } = 0;
 	public List<Upgrade> Upgrades { get; set; }
+	public bool Hidden { get; set; } = true;
 }

@@ -9,7 +9,8 @@
     "Version": 5,
     "UserData": {
       "Title": "On Apply Upgrade",
-      "id": "b27706c9-0858-4120-9c9a-44e668b1c9c1"
+      "id": "b27706c9-0858-4120-9c9a-44e668b1c9c1",
+      "ReferencedComponentTypes": []
     },
     "Variables": [],
     "Nodes": [
@@ -18,10 +19,10 @@
         "Type": "input"
       },
       {
-        "Id": 1,
+        "Id": 2,
         "Type": "ship.equipment.cargo.capacity.add",
         "UserData": {
-          "Position": "208,0"
+          "Position": "256,0"
         }
       }
     ],
@@ -29,12 +30,12 @@
       {
         "SrcId": 0,
         "SrcName": "_signal",
-        "DstId": 1,
+        "DstId": 2,
         "DstName": "_signal"
       },
       {
         "Value": 3,
-        "DstId": 1,
+        "DstId": 2,
         "DstName": "slots"
       }
     ]

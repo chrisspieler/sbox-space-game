@@ -7,5 +7,6 @@
     "data/upgrades/fuel_0.upgrade",
     "data/upgrades/main_thruster_0.upgrade"
   ],
+  "Hidden": false,
   "__references": []
 }
