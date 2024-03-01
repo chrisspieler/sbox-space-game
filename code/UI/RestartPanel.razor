@@ -22,14 +22,14 @@
 
 @code
 {
-    [Property] public string DeathText { get; set; } = "Ship Lost";
-    [Property] public string RespawnFeeLabel { get; set; } = "Ship Replacement Fee:";
+    [Property] public string DeathText { get; set; } = "CLONE DEAD";
+    [Property] public string RespawnFeeLabel { get; set; } = "YOU HAVE LOST";
     // TODO: Use a glyph instead of text.
     [Property] public string InstructionText { get; set; } = "Press R to Respawn";
 
     private string RespawnFeeCost => Career.HasMoney()
         ? $"{Career.RespawnFee} CREDITS"
-        : $"ALL REMAINING CREDITS";
+        : $"ALL OF YOUR CREDITS";
 
     private bool ShowDeathText { get; set; } = false;
     private bool ShowInstruction { get; set; } = false;

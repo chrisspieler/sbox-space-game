@@ -7,7 +7,7 @@ public sealed class SaveManager : Component
 		// TODO: Load career data from disk.
 		Career.Active = new Career()
 		{
-			Money = 250
+			Money = 0
 		};
 	}
 }

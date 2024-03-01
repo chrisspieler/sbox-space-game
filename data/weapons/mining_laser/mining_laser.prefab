@@ -11,7 +11,7 @@
           "go": "622e39e7-6ca3-4830-b806-52c8465f1271"
         },
         "DamageAblationScale": {
-          "rangey": "3,5",
+          "rangey": "1,5",
           "frames": [
             {},
             {
@@ -50,6 +50,8 @@
           ],
           "alpha": []
         },
+        "DamageRampUp": false,
+        "DamageRampUpSpeed": 10,
         "LaserAblationPrefab": {
           "_type": "gameobject",
           "prefab": "prefabs/effects/laser_ablation.prefab"

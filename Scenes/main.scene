@@ -129,9 +129,9 @@
             {
               "__type": "RestartPanel",
               "__enabled": false,
-              "DeathText": "SHIP LOST",
+              "DeathText": "CLONE DEAD",
               "InstructionText": "Press R to Respawn",
-              "RespawnFeeLabel": "YOU HAVE LOST"
+              "RespawnFeeLabel": "YOU HAVE SQUANDERED"
             }
           ]
         },
@@ -644,7 +644,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-02-29T21:16:17.4108919-07:00",
+  "LastSaved": "2024-03-01T02:52:53.9415787-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03",

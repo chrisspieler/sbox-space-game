@@ -4,7 +4,7 @@ using Sandbox;
 public class Career
 {
 	[ConVar("career_respawn_fee")]
-	public static int RespawnFee { get; set; } = 100;
+	public static int RespawnFee { get; set; } = 100_000;
 
 	public static Career Active { get; set; }
 
