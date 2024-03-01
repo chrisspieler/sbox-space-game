@@ -24,6 +24,19 @@
           "_type": "gameobject",
           "go": "9ebadaf4-719d-458e-a3a1-dde50115f4bd"
         }
+      },
+      {
+        "__type": "Rigidbody",
+        "__enabled": false,
+        "AngularDamping": 0,
+        "Gravity": false,
+        "LinearDamping": 0,
+        "Locking": {
+          "Z": true
+        },
+        "MassOverride": 0,
+        "RigidbodyFlags": 0,
+        "StartAsleep": false
       }
     ],
     "Children": [
@@ -32,6 +45,7 @@
         "Name": "Base",
         "Position": "0,0,5",
         "Scale": "0.1,0.1,0.2",
+        "Tags": "break_child",
         "Enabled": true,
         "Components": [
           {
@@ -42,6 +56,15 @@
             "Model": "models/dev/box.vmdl",
             "RenderType": "On",
             "Tint": "1,1,1,1"
+          },
+          {
+            "__type": "BoxCollider",
+            "__enabled": false,
+            "Center": "0,0,0",
+            "IsTrigger": false,
+            "Scale": "50,50,50",
+            "Static": false,
+            "Surface": null
           }
         ]
       },
@@ -50,6 +73,7 @@
         "Name": "Barrel",
         "Position": "0,0,15",
         "Scale": "0.5,0.2,0.2",
+        "Tags": "break_child",
         "Enabled": true,
         "Components": [
           {
@@ -60,6 +84,15 @@
             "Model": "models/dev/box.vmdl",
             "RenderType": "On",
             "Tint": "1,1,1,1"
+          },
+          {
+            "__type": "BoxCollider",
+            "__enabled": false,
+            "Center": "0,0,0",
+            "IsTrigger": false,
+            "Scale": "50,50,50",
+            "Static": false,
+            "Surface": null
           }
         ],
         "Children": [
@@ -78,6 +111,15 @@
                 "Model": "models/dev/box.vmdl",
                 "RenderType": "On",
                 "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "BoxCollider",
+                "__enabled": false,
+                "Center": "0,0,0",
+                "IsTrigger": false,
+                "Scale": "50,50,50",
+                "Static": false,
+                "Surface": null
               }
             ],
             "Children": [

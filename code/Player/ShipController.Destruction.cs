@@ -43,7 +43,17 @@ public sealed partial class ShipController
 		var parts = go.Children
 			.Where( c => c.Tags.Has( "break_debris" ) && !c.Tags.Has( "break_child" ) )
 			.ToList();
-		foreach( var debris in parts )
+		var breakChildren = go.Children
+			.Where( c => c.Tags.Has( "break_child" ) )
+			.ToList();
+		foreach ( var child in breakChildren )
+		{
+			foreach( var collider in child.Components.GetAll<Collider>( FindMode.EverythingInSelfAndDescendants ) )
+			{
+				collider.Enabled = true;
+			}
+		}
+		foreach ( var debris in parts )
 		{
 			ReleaseDebris( debris );
 
@@ -59,6 +69,11 @@ public sealed partial class ShipController
 			if ( debris.Components.TryGet<Collider>( out var collider, FindMode.EverythingInSelf ) )
 			{
 				collider.Enabled = true;
+			}
+
+			if ( debris.Components.TryGet<IDestructionListener>( out var listener ) )
+			{
+				listener.OnMakeDebris();
 			}
 
 			if ( debris.Components.TryGet<Rigidbody>(out var rb, FindMode.EverythingInSelf ) )

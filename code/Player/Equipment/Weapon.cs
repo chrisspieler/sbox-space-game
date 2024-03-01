@@ -1,6 +1,6 @@
 using Sandbox;
 
-public sealed class Weapon : Component
+public sealed class Weapon : Component, IDestructionListener
 {
 	[Property] public GameObject Body { get; set; }
 	// Laser specific stuff, to be moved somewhere else.
@@ -138,5 +138,11 @@ public sealed class Weapon : Component
 		var direction = (mousePos - Body.Transform.Position).Normal;
 		var yaw = Rotation.LookAt( direction ).Yaw();
 		Body.Transform.Rotation = ((Angles)Body.Transform.Rotation).WithYaw( yaw );
+	}
+
+	public void OnMakeDebris()
+	{
+		DestroyLaserEffect();
+		Enabled = false;
 	}
 }
