@@ -1,0 +1,10 @@
+{
+  "Name": "Standard Career",
+  "Description": "The intended first experience.",
+  "Money": 0,
+  "Upgrades": [
+    "data/upgrades/cargo_0.upgrade",
+    "data/upgrades/fuel_0.upgrade"
+  ],
+  "__references": []
+}

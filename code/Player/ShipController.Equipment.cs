@@ -48,4 +48,35 @@ public partial class ShipController
 			}
 		}
 	}
+
+	private void ApplyAllUpgrades()
+	{
+		foreach( var upgrade in Career.Active.Upgrades )
+		{
+			upgrade.OnApplyUpgrade( this );
+		}
+	}
+
+	[ActionGraphNode("ship.equipment.cargo.capacity.add")]
+	[Title("Add Cargo Capacity"), Group("Ship/Equipment")]
+	public static void AddCargoCapacity( int slots )
+	{
+		var ship = GetCurrent();
+		if ( slots < 0 || ship is null )
+			return;
+
+		ship.Cargo.MaxItems += slots;
+	}
+
+	[ActionGraphNode( "ship.equipment.fuel.capacity.add" )]
+	[Title( "Add Fuel Capacity" ), Group( "Ship/Fuel" )]
+	public static void AddFuelCapacity( int fuel )
+	{
+		var ship = GetCurrent();
+		if ( fuel < 0 || ship is null )
+			return;
+
+		ship.Fuel.MaxCapacity += fuel;
+		ship.Fuel.CurrentAmount += fuel;
+	}
 }

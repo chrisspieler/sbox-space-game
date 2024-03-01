@@ -1,0 +1,43 @@
+{
+  "Name": "Basic Cargo Bay",
+  "FlavorText": "Your lap was getting sore from balancing so much iron ore.",
+  "FunctionText": "Adds a cargo hold with a capacity of 3",
+  "Cost": 10,
+  "Thumbnail": null,
+  "PrerequisiteUpgrade": null,
+  "OnApplyUpgrade": {
+    "Version": 5,
+    "UserData": {
+      "Title": "On Apply Upgrade",
+      "id": "b27706c9-0858-4120-9c9a-44e668b1c9c1"
+    },
+    "Variables": [],
+    "Nodes": [
+      {
+        "Id": 0,
+        "Type": "input"
+      },
+      {
+        "Id": 1,
+        "Type": "ship.equipment.cargo.capacity.add",
+        "UserData": {
+          "Position": "208,0"
+        }
+      }
+    ],
+    "Links": [
+      {
+        "SrcId": 0,
+        "SrcName": "_signal",
+        "DstId": 1,
+        "DstName": "_signal"
+      },
+      {
+        "Value": 3,
+        "DstId": 1,
+        "DstName": "slots"
+      }
+    ]
+  },
+  "__references": []
+}

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Sandbox;
 
 public class Career
@@ -17,6 +18,8 @@ public class Career
 		}
 	}
 	private int _money;
+
+	public List<Upgrade> Upgrades { get; set; } = new();
 
 	[ConCmd("career_status")]
 	public static void PrintStatus()
@@ -52,5 +55,29 @@ public class Career
 			return false;
 
 		return Active.Money >= money;
+	}
+
+	public static void AddUpgrade( Upgrade upgrade )
+	{
+		if ( HasUpgrade( upgrade ) )
+			return;
+
+		// Add all prerequisite upgrades recursively.
+		if ( !HasUpgrade( upgrade.PrerequisiteUpgrade ) )
+		{
+			AddUpgrade( upgrade.PrerequisiteUpgrade );
+		}
+
+		Active.Upgrades.Add( upgrade );
+		var ship = ShipController.GetCurrent();
+		if ( ship is not null )
+		{
+			upgrade?.OnApplyUpgrade( ship );
+		}
+	}
+
+	public static bool HasUpgrade( Upgrade upgrade )
+	{
+		return upgrade is null || Active.Upgrades.Contains( upgrade );
 	}
 }

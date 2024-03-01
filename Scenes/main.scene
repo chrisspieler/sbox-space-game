@@ -62,11 +62,7 @@
             {
               "__type": "ShopPanel",
               "__enabled": false,
-              "Ship": {
-                "_type": "component",
-                "go": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
-                "component_type": "ShipController"
-              },
+              "Ship": null,
               "Shop": {
                 "_type": "component",
                 "go": "fa056831-a9c3-4510-b888-b7f61087ae3e",
@@ -164,11 +160,8 @@
         },
         {
           "__type": "SkyScroller",
-          "ScrollFactor": 0.003,
-          "Target": {
-            "_type": "gameobject",
-            "go": "f420d6b9-e323-4efe-b1fb-1ac54134cac0"
-          }
+          "ScrollFactor": 0.001,
+          "Target": null
         }
       ]
     },
@@ -269,7 +262,9 @@
           "OnHoveredChanged": null
         },
         {
-          "__type": "SaveManager"
+          "__type": "SaveManager",
+          "DefaultScenario": "data/scenarios/normal.scenario",
+          "ShipPrefab": null
         }
       ],
       "Children": [
@@ -328,14 +323,6 @@
           }
         }
       ]
-    },
-    {
-      "Id": "f420d6b9-e323-4efe-b1fb-1ac54134cac0",
-      "Name": "Ship",
-      "Position": "2500,3200,0",
-      "Tags": "no_chunk,player,ship,solid",
-      "Enabled": true,
-      "__Prefab": "prefabs/ship.prefab"
     },
     {
       "Id": "b95bc5b6-db79-4b7b-9cb5-c9d2b127a0ac",
@@ -569,10 +556,7 @@
           "PositionLerpSpeed": 1,
           "RollShakeIntensity": 8,
           "RollShakeSpeed": 500,
-          "Target": {
-            "_type": "gameobject",
-            "go": "f420d6b9-e323-4efe-b1fb-1ac54134cac0"
-          },
+          "Target": null,
           "TargetVelocityHighThreshold": 2500,
           "TargetVelocityLowThreshold": 50,
           "Trauma": 0,
@@ -644,7 +628,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-01T02:52:53.9415787-07:00",
+  "LastSaved": "2024-03-01T04:40:03.193332-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03",

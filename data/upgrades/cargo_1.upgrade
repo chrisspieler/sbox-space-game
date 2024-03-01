@@ -1,0 +1,44 @@
+{
+  "Name": "Cargo Bay Shelving",
+  "FlavorText": "More room for cargo means you can save on fuel by making fewer, bigger trips.",
+  "FunctionText": "Increases cargo hold capacity by 3",
+  "Cost": 50,
+  "Thumbnail": null,
+  "PrerequisiteUpgrade": "data/upgrades/cargo_0.upgrade",
+  "OnApplyUpgrade": {
+    "Version": 5,
+    "UserData": {
+      "Title": "On Apply Upgrade",
+      "id": "537459fa-c150-4e48-a320-13017eead9c4",
+      "ReferencedComponentTypes": []
+    },
+    "Variables": [],
+    "Nodes": [
+      {
+        "Id": 0,
+        "Type": "input"
+      },
+      {
+        "Id": 1,
+        "Type": "ship.equipment.cargo.capacity.add",
+        "UserData": {
+          "Position": "224,0"
+        }
+      }
+    ],
+    "Links": [
+      {
+        "SrcId": 0,
+        "SrcName": "_signal",
+        "DstId": 1,
+        "DstName": "_signal"
+      },
+      {
+        "Value": 3,
+        "DstId": 1,
+        "DstName": "slots"
+      }
+    ]
+  },
+  "__references": []
+}
