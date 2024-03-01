@@ -34,7 +34,10 @@ public sealed class Mineable : Component
 			var lootCount = lootFloat.CeilToInt();
 			for ( int i = 0; i < lootCount; i++ )
 			{
-				Pickup.Spawn( FractureLoot, Transform.Position );
+				var pickupGo = Pickup.Spawn( FractureLoot, Transform.Position );
+				var rb = pickupGo.Components.Get<Rigidbody>();
+				rb.Velocity = Vector3.Random * Random.Shared.Float( 1500f, 3000f );
+				rb.AngularVelocity = Vector3.Random * Random.Shared.Float( 1f, 10f );
 			}
 		}
 		GameObject.Destroy();
