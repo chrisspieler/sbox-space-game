@@ -4,14 +4,22 @@ public static class CameraComponentExtensions
 {
 	public static Vector3 MouseToWorld( this CameraComponent camera )
 	{
-		var mouseNormalPos = Mouse.Position / Screen.Size;
-		return camera.ScreenNormalToWorld( mouseNormalPos );
+		return camera.ScreenPixelToWorld( Mouse.Position );
+	}
+
+	public static Vector3 ScreenPixelToWorld( this CameraComponent camera, Vector2 position )
+	{
+		return camera.ScreenRayToWorld( camera.ScreenPixelToRay( position ) );
 	}
 
 	public static Vector3 ScreenNormalToWorld( this CameraComponent camera, Vector2 normal )
 	{
-		var centerRay = camera.ScreenNormalToRay( normal );
+		return camera.ScreenRayToWorld( camera.ScreenNormalToRay( normal ) );
+	}
+
+	public static Vector3 ScreenRayToWorld( this CameraComponent camera, Ray ray )
+	{
 		var worldPlane = new Plane( Vector3.Zero, Vector3.Up );
-		return worldPlane.Trace( centerRay ) ?? Vector3.Zero;
+		return worldPlane.Trace( ray ) ?? Vector3.Zero;
 	}
 }

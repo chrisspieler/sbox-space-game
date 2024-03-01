@@ -22,6 +22,6 @@
         if ( Health is null )
             return 0f;
 
-        return Health.CurrentHealth / Health.MaxHealth;
+        return ( Health.CurrentHealth / Health.MaxHealth ) * 100f;
     }
 }

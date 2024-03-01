@@ -30,8 +30,15 @@ public sealed class SpaceFloater : Component
 			Transform.Scale = Transform.Scale * ScaleCurve.Evaluate( Random.Shared.NextSingle() );
 		}
 
+		SetHealthFromScale();
+
 		Rigidbody.PhysicsBody.Mass = MassOverride * Transform.Scale.Length;
 
+		SetVelocity();
+	}
+
+	private void SetVelocity()
+	{
 		if ( RandomizeVelocity )
 			InitialVelocity = RandomVelocityScale * Vector3.Random;
 		if ( RandomizeAngularVelocity )
@@ -42,5 +49,12 @@ public sealed class SpaceFloater : Component
 
 		Rigidbody.Velocity = InitialVelocity;
 		Rigidbody.AngularVelocity = InitialAngularVelocity;
+	}
+
+	private void SetHealthFromScale()
+	{
+		var health = Components.GetOrCreate<Health>();
+		health.MaxHealth = 100f * Transform.Scale.x;
+		health.CurrentHealth = health.MaxHealth;
 	}
 }

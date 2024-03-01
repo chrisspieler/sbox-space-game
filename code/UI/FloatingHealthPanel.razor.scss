@@ -7,6 +7,8 @@ FloatingHealthPanel {
 		position: absolute;
 		opacity: 1;
 		transition: opacity 0.1s;
+		width: 5vw;
+		height: 3vh;
 
 		&:intro {
 			height: 200px;

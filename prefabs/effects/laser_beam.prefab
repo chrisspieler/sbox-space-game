@@ -1,0 +1,21 @@
+{
+  "RootObject": {
+    "Id": "1a350646-24db-4f3a-80e2-056169424688",
+    "Name": "laser_beam",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "LaserBeam",
+        "ParticleAsset": "particles/laser_beam.vpcf",
+        "ParticleInstance": null,
+        "Target": null,
+        "Tint": "1,1,1,1"
+      }
+    ],
+    "Children": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}

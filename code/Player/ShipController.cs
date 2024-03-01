@@ -110,10 +110,10 @@ public sealed partial class ShipController : Component
 			FacingDirection = GetLastKeyboardDirection();
 		}
 		UpdateThrusters( inputDir );
-		var fromRot = PartsContainer.Transform.Rotation;
 		TargetRotation = GetTargetRotation();
 		var rotationSpeed = GetRotationSpeed();
-		PartsContainer.Transform.Rotation = Rotation.Lerp( fromRot, TargetRotation, rotationSpeed * Time.Delta );
+		Rigidbody.PhysicsBody.SmoothRotate( TargetRotation, 1f / TurnSpeed, Time.Delta );
+		PartsContainer.Transform.Rotation = Rigidbody.PhysicsBody.Rotation;
 		UpdateDebugInfo();
 	}
 

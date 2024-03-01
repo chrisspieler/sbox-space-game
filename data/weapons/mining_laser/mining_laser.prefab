@@ -9,6 +9,20 @@
         "Body": {
           "_type": "gameobject",
           "go": "622e39e7-6ca3-4830-b806-52c8465f1271"
+        },
+        "LaserAblationPrefab": {
+          "_type": "gameobject",
+          "prefab": "prefabs/effects/laser_ablation.prefab"
+        },
+        "LaserEffectPrefab": {
+          "_type": "gameobject",
+          "prefab": "prefabs/effects/laser_beam.prefab"
+        },
+        "TickDamage": 2.5,
+        "TickInterval": 0.2,
+        "TraceOrigin": {
+          "_type": "gameobject",
+          "go": "9ebadaf4-719d-458e-a3a1-dde50115f4bd"
         }
       }
     ],
@@ -64,6 +78,14 @@
                 "Model": "models/dev/box.vmdl",
                 "RenderType": "On",
                 "Tint": "1,1,1,1"
+              }
+            ],
+            "Children": [
+              {
+                "Id": "9ebadaf4-719d-458e-a3a1-dde50115f4bd",
+                "Name": "Trace Origin",
+                "Position": "25.35623,0,0",
+                "Enabled": true
               }
             ]
           }

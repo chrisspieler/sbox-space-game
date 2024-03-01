@@ -62,4 +62,12 @@ public static class GameObjectExtensions
 			tinter.AddTint( effect );
 		}
 	}
+
+	/// <summary>
+	/// Returns a ray using this GameObject's position and forward direction.
+	/// </summary>
+	public static Ray GetRay( this GameObject obj )
+	{
+		return new Ray( obj.Transform.Position, obj.Transform.Rotation.Forward );
+	}
 }
