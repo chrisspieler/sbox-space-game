@@ -19,10 +19,10 @@
         "Type": "input"
       },
       {
-        "Id": 1,
-        "Type": "ship.equipment.thrusters.turn.scale",
+        "Id": 2,
+        "Type": "ship.equipment.thrusters.turn.speed.add",
         "UserData": {
-          "Position": "240,0"
+          "Position": "256,-0"
         }
       }
     ],
@@ -30,13 +30,13 @@
       {
         "SrcId": 0,
         "SrcName": "_signal",
-        "DstId": 1,
+        "DstId": 2,
         "DstName": "_signal"
       },
       {
-        "Value": 1.3,
-        "DstId": 1,
-        "DstName": "turnTimeScale"
+        "Value": 0.15,
+        "DstId": 2,
+        "DstName": "addSpeed"
       }
     ]
   },

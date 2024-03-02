@@ -23,7 +23,7 @@
         : "hidden";
 
 
-    protected override int BuildHash() => System.HashCode.Combine( ShieldColor, HullColor, FuelColor, Ship.Shield );
+    protected override int BuildHash() => System.HashCode.Combine( ShieldColor, HullColor, FuelColor, Ship?.Shield?.CurrentHealth == 0f );
 
     protected override void OnStart()
     {

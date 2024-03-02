@@ -1,4 +1,5 @@
 ﻿using Sandbox;
+using System;
 using System.Linq;
 
 public partial class ShipController
@@ -128,14 +129,29 @@ public partial class ShipController
 		ship.Stabilizer.Enabled = true;
 	}
 
-	[ActionGraphNode( "ship.equipment.thrusters.turn.scale" )]
-	[Title( "Scale Turn Time" ), Group( "Ship/Thrusters" )]
-	public static void ScaleTurnTime( float turnTimeScale )
+	[ActionGraphNode( "ship.equipment.thrusters.turn.speed.add" )]
+	[Title( "Add Turn Speed" ), Group( "Ship/Thrusters" )]
+	public static void AddTurnSpeed( float addSpeed )
 	{
 		var ship = GetCurrent();
 		if ( ship is null )
 			return;
 
-		ship.TurnSpeed *= turnTimeScale;
+		ship.TurnSpeed += addSpeed;
+	}
+
+	[ActionGraphNode( "ship.equipment.shield.add" )]
+	[Title( "Add Shield" ), Group( "Ship/Shield" )]
+	public static void AddShield( float addHealth, float offsetDelay, float offsetRegenRate )
+	{
+		var ship = GetCurrent();
+		if ( ship is null )
+			return;
+
+		ship.Shield.Enabled = true;
+		ship.Shield.MaxHealth += Math.Max( 0f, addHealth );
+		ship.Shield.CurrentHealth += Math.Max( 0f, addHealth );
+		ship.Shield.RegenDelay += offsetDelay;
+		ship.Shield.RegenRate += offsetRegenRate;
 	}
 }

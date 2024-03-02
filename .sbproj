@@ -245,6 +245,11 @@
           "a": "player",
           "b": "player_allow",
           "r": "Ignore"
+        },
+        {
+          "a": "player_allow",
+          "b": "player_allow",
+          "r": "Ignore"
         }
       ]
     }

@@ -2055,11 +2055,11 @@
                   "component_type": "SphereCollider"
                 },
                 "Controller": null,
-                "CurrentHealth": 100,
-                "MaxHealth": 100,
+                "CurrentHealth": 0,
+                "MaxHealth": 0,
                 "OnDamaged": null,
-                "RegenDelay": 5,
-                "RegenRate": 20
+                "RegenDelay": 0,
+                "RegenRate": 0
               },
               {
                 "__type": "ModelRenderer",

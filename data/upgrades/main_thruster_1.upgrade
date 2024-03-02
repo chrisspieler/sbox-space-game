@@ -1,7 +1,7 @@
 {
   "Name": "Basic Thrusters",
-  "FlavorText": "Poorly-maintained thrusters salvaged from the wreck of ship.",
-  "FunctionText": "Adds thrusters with low power",
+  "FlavorText": "",
+  "FunctionText": "Slightly increases thruster power",
   "Cost": 50,
   "Thumbnail": null,
   "PrerequisiteUpgrade": "data/upgrades/main_thruster_0.upgrade",

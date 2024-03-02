@@ -1,0 +1,54 @@
+{
+  "Name": "One Hit Shield",
+  "FlavorText": null,
+  "FunctionText": "Adds a shield that must recharge after taking one hit",
+  "Cost": 150,
+  "Thumbnail": null,
+  "PrerequisiteUpgrade": null,
+  "OnApplyUpgrade": {
+    "Version": 5,
+    "UserData": {
+      "Title": "On Apply Upgrade",
+      "id": "e9169093-7092-4094-97fb-806763976f51",
+      "ReferencedComponentTypes": []
+    },
+    "Variables": [],
+    "Nodes": [
+      {
+        "Id": 0,
+        "Type": "input"
+      },
+      {
+        "Id": 1,
+        "Type": "ship.equipment.shield.add",
+        "UserData": {
+          "Position": "336,-0"
+        }
+      }
+    ],
+    "Links": [
+      {
+        "SrcId": 0,
+        "SrcName": "_signal",
+        "DstId": 1,
+        "DstName": "_signal"
+      },
+      {
+        "Value": 1,
+        "DstId": 1,
+        "DstName": "addHealth"
+      },
+      {
+        "Value": 15,
+        "DstId": 1,
+        "DstName": "offsetDelay"
+      },
+      {
+        "Value": 1,
+        "DstId": 1,
+        "DstName": "offsetRegenRate"
+      }
+    ]
+  },
+  "__references": []
+}

@@ -13,6 +13,7 @@ public sealed class Shield : Component, Component.IDamageable, IHealth
 	[Property] public float RegenDelay { get; set; } = 1f;
 	[Property] public ShipController Controller { get; set; }
 	[Property] public Collider Collider { get; set; }
+	[Property] public ModelRenderer Renderer { get; set; }
 	[Property] public Bouncy Bounce { get; set; }
 
 	private TimeUntil _regenStart;
@@ -23,10 +24,17 @@ public sealed class Shield : Component, Component.IDamageable, IHealth
 		Controller ??= Components.GetInAncestorsOrSelf<ShipController>();
 		Collider ??= Components.Get<Collider>( true );
 		Bounce ??= Components.Get<Bouncy>( true );
+		Renderer ??= Components.Get<ModelRenderer>( true );
+		Renderer.Enabled = true;
 		if ( Bounce.IsValid() )
 		{
 			Bounce.OnBounce += Hit;
 		}
+	}
+
+	protected override void OnDisabled()
+	{
+		Renderer.Enabled = false;
 	}
 
 	protected override void OnUpdate()

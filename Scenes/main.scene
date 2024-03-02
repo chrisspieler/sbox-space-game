@@ -387,7 +387,8 @@
               "MaxHealth": 10000,
               "OnDamaged": null,
               "RegenDelay": 0.1,
-              "RegenRate": 1000
+              "RegenRate": 1000,
+              "Renderer": null
             },
             {
               "__type": "Bouncy",
@@ -625,7 +626,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-01T20:39:28.1320462-07:00",
+  "LastSaved": "2024-03-01T21:59:17.0995389-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03",
