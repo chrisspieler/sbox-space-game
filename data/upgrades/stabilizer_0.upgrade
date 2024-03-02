@@ -1,0 +1,57 @@
+{
+  "Name": "Stabilizer",
+  "FlavorText": null,
+  "FunctionText": "Press R to match the velocity of a highlighted object",
+  "Cost": 175,
+  "Thumbnail": null,
+  "PrerequisiteUpgrade": "data/upgrades/main_thruster_0.upgrade",
+  "OnApplyUpgrade": {
+    "Version": 5,
+    "UserData": {
+      "Title": "On Apply Upgrade",
+      "id": "2e1629ec-3cd8-4ad7-9fde-28ce989fe7c5",
+      "ReferencedComponentTypes": []
+    },
+    "Variables": [],
+    "Nodes": [
+      {
+        "Id": 0,
+        "Type": "input"
+      },
+      {
+        "Id": 1,
+        "Type": "ship.equipment.stabilizer.add",
+        "UserData": {
+          "Position": "256,-0"
+        }
+      },
+      {
+        "Id": 2,
+        "Type": "ship.equipment.thrusters.retro.power.add",
+        "UserData": {
+          "Position": "256,64"
+        }
+      }
+    ],
+    "Links": [
+      {
+        "SrcId": 0,
+        "SrcName": "_signal",
+        "DstId": 1,
+        "DstName": "_signal"
+      },
+      {
+        "SrcId": 0,
+        "SrcName": "_signal",
+        "DstId": 2,
+        "DstName": "_signal"
+      },
+      {
+        "Value": 60,
+        "DstId": 2,
+        "DstName": "power"
+      }
+    ]
+  },
+  "__references": []
+}

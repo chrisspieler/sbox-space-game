@@ -1,0 +1,44 @@
+{
+  "Name": "Increased Turn Speed",
+  "FlavorText": null,
+  "FunctionText": "Increases the turning speed of the ship",
+  "Cost": 70,
+  "Thumbnail": null,
+  "PrerequisiteUpgrade": "data/upgrades/main_thruster_0.upgrade",
+  "OnApplyUpgrade": {
+    "Version": 5,
+    "UserData": {
+      "Title": "On Apply Upgrade",
+      "id": "d1adf74d-4966-427f-8a8b-68d6329157ec",
+      "ReferencedComponentTypes": []
+    },
+    "Variables": [],
+    "Nodes": [
+      {
+        "Id": 0,
+        "Type": "input"
+      },
+      {
+        "Id": 1,
+        "Type": "ship.equipment.thrusters.turn.scale",
+        "UserData": {
+          "Position": "240,0"
+        }
+      }
+    ],
+    "Links": [
+      {
+        "SrcId": 0,
+        "SrcName": "_signal",
+        "DstId": 1,
+        "DstName": "_signal"
+      },
+      {
+        "Value": 1.3,
+        "DstId": 1,
+        "DstName": "turnTimeScale"
+      }
+    ]
+  },
+  "__references": []
+}

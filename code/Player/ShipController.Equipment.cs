@@ -116,4 +116,26 @@ public partial class ShipController
 
 		ship.Retrorockets.Power += power;
 	}
+
+	[ActionGraphNode( "ship.equipment.stabilizer.add" )]
+	[Title( "Add Stabilizer" ), Group( "Ship/Thrusters" )]
+	public static void AddStabilizer()
+	{
+		var ship = GetCurrent();
+		if ( ship is null )
+			return;
+
+		ship.Stabilizer.Enabled = true;
+	}
+
+	[ActionGraphNode( "ship.equipment.thrusters.turn.scale" )]
+	[Title( "Scale Turn Time" ), Group( "Ship/Thrusters" )]
+	public static void ScaleTurnTime( float turnTimeScale )
+	{
+		var ship = GetCurrent();
+		if ( ship is null )
+			return;
+
+		ship.TurnSpeed *= turnTimeScale;
+	}
 }
