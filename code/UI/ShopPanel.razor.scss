@@ -109,17 +109,20 @@ ShopPanel {
 		color: black;
 		font-size: 2vh;
 		padding: 5px;
+		flex-shrink: 0;
 	}
 
 	#buyPanel {
 		flex-grow: 1;
 		border: 1px solid white;
 		margin: 5px 5px 0px 25px;
+		overflow: scroll;
 
 		.upgrade {
 			margin: 5px 0px;
 			padding: 5px;
 			border: 1px solid #FFFFFF03;
+			min-height: 10vh;
 
 			Image {
 				width: 5vw;

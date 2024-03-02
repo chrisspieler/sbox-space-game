@@ -65,6 +65,7 @@ public sealed partial class ShipController : Component
 		ResetUI();
 		ResetCamera();
 		FindEquipmentInChildren();
+		FindWeaponsInChildren();
 		ApplyAllUpgrades();
 		AddTemporaryInvincibility( SpawnInvincibilitySeconds );
 		GameObject.BreakFromPrefab();

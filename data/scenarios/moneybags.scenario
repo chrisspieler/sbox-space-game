@@ -1,0 +1,12 @@
+{
+  "Name": "Moneybags",
+  "Description": "Start with more credits than you know what to do with.",
+  "Money": 99999,
+  "Upgrades": [
+    "data/upgrades/main_thruster_0.upgrade",
+    "data/upgrades/fuel_0.upgrade",
+    "data/upgrades/cargo_0.upgrade"
+  ],
+  "Hidden": true,
+  "__references": []
+}

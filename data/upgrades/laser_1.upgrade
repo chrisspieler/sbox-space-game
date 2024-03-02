@@ -1,15 +1,15 @@
 {
-  "Name": "Basic Thrusters",
-  "FlavorText": "Perform evasive maneuvers, or create situations in which it is harder to do so.",
-  "FunctionText": "Slightly increases thruster power",
+  "Name": "Mining Laser Power",
+  "FlavorText": "It hurts to look directly at this beam.",
+  "FunctionText": "Increases the power of mining lasers",
   "Cost": 50,
   "Thumbnail": null,
-  "PrerequisiteUpgrade": "data/upgrades/main_thruster_0.upgrade",
+  "PrerequisiteUpgrade": null,
   "OnApplyUpgrade": {
     "Version": 5,
     "UserData": {
       "Title": "On Apply Upgrade",
-      "id": "de55bfdc-a2d5-496a-9dc0-b0f447fabfb8",
+      "id": "2d36ff67-6a6e-4ce0-b9a1-31596ff20759",
       "ReferencedComponentTypes": []
     },
     "Variables": [],
@@ -20,9 +20,9 @@
       },
       {
         "Id": 1,
-        "Type": "ship.equipment.thrusters.main.power.add",
+        "Type": "ship.weapons.laser.power.add",
         "UserData": {
-          "Position": "256,0"
+          "Position": "256,-0"
         }
       }
     ],
@@ -34,9 +34,14 @@
         "DstName": "_signal"
       },
       {
-        "Value": 150,
+        "Value": 7.5,
         "DstId": 1,
-        "DstName": "power"
+        "DstName": "tickDamageOffset"
+      },
+      {
+        "Value": 0.1,
+        "DstId": 1,
+        "DstName": "tickIntervalOffset"
       }
     ]
   },

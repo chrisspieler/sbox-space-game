@@ -1,7 +1,7 @@
 {
   "Name": "One Hit Shield",
-  "FlavorText": null,
-  "FunctionText": "Adds a shield that must recharge after taking one hit",
+  "FlavorText": "A safety net, trampoline, and bludgeon.",
+  "FunctionText": "Adds a shield that must recharge after taking any hit",
   "Cost": 150,
   "Thumbnail": null,
   "PrerequisiteUpgrade": null,

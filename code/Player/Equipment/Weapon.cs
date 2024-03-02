@@ -137,7 +137,10 @@ public sealed class Weapon : Component, IDestructionListener
 
 	private void EndDamage()
 	{
-		TickDamage = MinDamage;
+		if ( DamageRampUp )
+		{
+			TickDamage = MinDamage;
+		}
 		_currentTarget = null;
 	}
 

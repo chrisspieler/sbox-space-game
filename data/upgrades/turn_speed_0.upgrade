@@ -1,6 +1,6 @@
 {
   "Name": "Increased Turn Speed",
-  "FlavorText": null,
+  "FlavorText": "A must-have for collision and boredom avoidance.",
   "FunctionText": "Increases the turning speed of the ship",
   "Cost": 70,
   "Thumbnail": null,

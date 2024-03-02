@@ -1,6 +1,6 @@
 {
   "Name": "Stabilizer",
-  "FlavorText": null,
+  "FlavorText": "If you feel your left hand always squiggling over WASD, it may be time to buy this.",
   "FunctionText": "Press R to match the velocity of a highlighted object",
   "Cost": 175,
   "Thumbnail": null,

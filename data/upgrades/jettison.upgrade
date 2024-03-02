@@ -1,6 +1,6 @@
 {
   "Name": "Cargo Jettison",
-  "FlavorText": null,
+  "FlavorText": "It\u0027s better to be light on cargo than stranded in empty space.",
   "FunctionText": "Press F to jettison cargo in front of the ship, gaining backward velocity",
   "Cost": 25,
   "Thumbnail": null,
