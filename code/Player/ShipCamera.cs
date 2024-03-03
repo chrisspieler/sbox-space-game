@@ -1,11 +1,15 @@
 using Sandbox;
 using Sandbox.Utility;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 public sealed class ShipCamera : Component
 {
 	[ConVar( "camera_shake_scale" )]
 	public static float ScreenShakeScale { get; set; } = 1f;
+	[ConVar( "camera_shake_debug" )]
+	public static bool ShakeDebug { get; set; }
 
 	[Property] public GameObject Target { get; set; }
 	[Property, Range(30f, 90f, 1f)] public float LowPitch { get; set; } = 70f;
@@ -40,6 +44,10 @@ public sealed class ShipCamera : Component
 	public float RollShakeIntensity { get; set; } = 10f;
 	[Property, Category( "Screen Shake" )]
 	public float RollShakeSpeed { get; set; } = 100f;
+	[Property, Category( "Screen Shake" )]
+	public int ShakeToggleCount => _screenShakeToggles.Count;
+
+	private readonly Dictionary<IValid, float> _screenShakeToggles = new();
 
 	private Vector3 _baseOffset;
 	private Rotation _baseRotation = Rotation.Identity;
@@ -76,13 +84,52 @@ public sealed class ShipCamera : Component
 		Transform.LocalRotation = _baseRotation * GetScreenShake();
 	}
 
+	public void SetBaseScreenShake( IValid shaker, float amount, bool enabled )
+	{
+		if ( shaker.IsValid() && enabled && amount > 0f )
+		{
+			_screenShakeToggles[shaker] = amount;
+		}
+		else
+		{
+			// Put the base trauma in to the main trauma as it's removed, to allow
+			// the screen shake to smoothly return to normal.
+			if ( _screenShakeToggles.ContainsKey( shaker ) )
+			{
+				Trauma += _screenShakeToggles[shaker];
+				Trauma = MathF.Min( 1f, Trauma );
+				_screenShakeToggles.Remove( shaker );
+			}
+		}
+	}
+
+	private float GetBaseTrauma()
+	{
+		var baseTrauma = 0f;
+		foreach( var (shaker, trauma) in _screenShakeToggles.ToList() )
+		{
+			if ( !shaker.IsValid() )
+			{
+				_screenShakeToggles.Remove( shaker );
+				continue;
+			}
+			baseTrauma += trauma;
+		}
+		return baseTrauma;
+	}
+
 	private Rotation GetScreenShake()
 	{
-		var nextTrauma = MathF.Max( 0f, Trauma - Time.Delta * TraumaDecayRate );
-		Trauma = nextTrauma;
+		Trauma -= Time.Delta * TraumaDecayRate;
+		var baseTrauma = GetBaseTrauma();
+		var combinedTrauma = (baseTrauma + Trauma).Clamp( 0f, 1f);
+		if ( ShakeDebug )
+		{
+			Gizmo.Draw.ScreenText( $"c: {combinedTrauma}, b: {baseTrauma}, t: {Trauma}", new Vector2( Screen.Width / 2, 25 ), "Consolas" );
+		}
 		var pitch = PitchShakeIntensity * Noise.Perlin( Time.Now * PitchShakeSpeed );
 		var yaw = YawShakeIntensity * Noise.Perlin( ( Time.Now + 1 ) * YawShakeSpeed );
 		var roll = RollShakeIntensity * Noise.Perlin( ( Time.Now + 1 ) * RollShakeSpeed );
-		return new Angles( pitch, yaw, roll ) * Easing.EaseIn( Trauma ) * ScreenShakeScale;
+		return new Angles( pitch, yaw, roll ) * Easing.EaseIn( combinedTrauma ) * ScreenShakeScale;
 	}
 }

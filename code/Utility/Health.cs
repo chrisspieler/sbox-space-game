@@ -40,6 +40,10 @@ public sealed class Health : Component, Component.IDamageable, IHealth
 	public void OnDamage( in DamageInfo damage )
 	{
 		OnDamaged?.Invoke( damage );
+		if ( Tags.Has( "player" ) )
+		{
+			ScreenEffects.AddScreenShake( damage.Damage / MaxHealth * 2 );
+		}
 		var damageAmount = IsInvincible ? 0f : damage.Damage;
 		var wasAlive = IsAlive;
 		CurrentHealth = Math.Max( 0f, CurrentHealth - damageAmount );

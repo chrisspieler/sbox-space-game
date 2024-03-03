@@ -72,6 +72,6 @@ public sealed class BlastSource : Component
 		if ( ship is null || camera is null )
 			return;
 		var distance = Transform.Position.Distance( ship.Transform.Position );
-		camera.Trauma += distance.LerpInverse( 2000f, 0f ) * 0.4f;
+		camera.Trauma += distance.LerpInverse( 2000f, 0f ) * 1f;
 	}
 }

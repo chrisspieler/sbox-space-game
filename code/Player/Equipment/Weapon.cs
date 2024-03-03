@@ -18,11 +18,14 @@ public sealed class Weapon : Component, IDestructionListener
 	[Property] public Gradient DamageColorScale { get; set; }
 	[Property] public Color LaserTint { get; set; } = Color.Red;
 
-
 	private GameObject _currentTarget;
 	private LaserBeam _currentLaserEffect;
 	private GameObject _laserHitTarget;
 	private TimeUntil _untilNextDamageTick;
+	// We need a couple of timers to rate limit contributions to screen shake,
+	// otherwise feathering/grazing a target with a laser will cause extreme shaking.
+	private TimeUntil _untilScreenPunch = 0f;
+	private TimeUntil _untilStartShake = 0;
 
 	protected override void OnUpdate()
 	{
@@ -69,6 +72,11 @@ public sealed class Weapon : Component, IDestructionListener
 			StartDamage( target );
 		}
 
+		if ( _untilStartShake )
+		{
+			_untilStartShake = 0.5f;
+			ScreenEffects.SetBaseScreenShake( this, 0.15f, true );
+		}
 		UpdateDamage( _currentTarget, damageable );
 	}
 
@@ -134,6 +142,12 @@ public sealed class Weapon : Component, IDestructionListener
 
 	private void StartDamage( GameObject targetGo )
 	{
+		if ( _untilScreenPunch )
+		{
+			_untilScreenPunch = 0.5f;
+			ScreenEffects.AddScreenShake( 0.1f );
+		}
+
 		_currentTarget = targetGo;
 		_untilNextDamageTick = TickInterval;
 	}
@@ -144,6 +158,7 @@ public sealed class Weapon : Component, IDestructionListener
 		{
 			TickDamage = MinDamage;
 		}
+		ScreenEffects.ClearBaseScreenShake( this );
 		_currentTarget = null;
 	}
 
