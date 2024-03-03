@@ -521,8 +521,8 @@
     {
       "Id": "a40bb4ac-020a-41e6-b19c-044056082e27",
       "Name": "Camera",
-      "Position": "2200,3200,1000",
-      "Rotation": "0,0.5735765,0,0.8191521",
+      "Position": "2000,3200,200",
+      "Rotation": "0,0.258819,0,0.9659258",
       "Tags": "no_chunk",
       "Enabled": true,
       "Components": [
@@ -626,7 +626,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-03T01:05:21.9777364-07:00",
+  "LastSaved": "2024-03-03T06:37:53.9311877-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03",

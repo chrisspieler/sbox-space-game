@@ -41,11 +41,23 @@ public sealed class ShipCamera : Component
 	[Property, Category( "Screen Shake" )]
 	public float RollShakeSpeed { get; set; } = 100f;
 
+	private Vector3 _baseOffset;
 	private Rotation _baseRotation = Rotation.Identity;
 
 	public static ShipCamera Instance { get; private set; }
 	public static ShipCamera GetCurrent() => Instance;
-	protected override void OnStart() => Instance = this;
+	protected override void OnStart()
+	{
+		Instance = this;
+		_baseOffset = Transform.LocalPosition;
+		_baseRotation = Transform.Rotation;
+	}
+
+	public void ResetTransform()
+	{
+		Transform.LocalPosition = _baseOffset;
+		Transform.Rotation = _baseRotation;
+	}
 
 	protected override void OnUpdate()
 	{

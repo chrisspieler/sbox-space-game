@@ -123,7 +123,7 @@
       "Id": "ca95f283-ba82-4f16-8044-3cf4edf08b8b",
       "Name": "Camera",
       "Position": "-200,0,50",
-      "Tags": "maincamera",
+      "Tags": "maincamera,solid",
       "Enabled": true,
       "Components": [
         {
@@ -181,6 +181,14 @@
           "__type": "MotionBlur",
           "Samples": 16,
           "Scale": 0.05
+        },
+        {
+          "__type": "SphereCollider",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Radius": 32,
+          "Static": false,
+          "Surface": null
         }
       ]
     },
@@ -2222,10 +2230,7 @@
           "MinDamage": 2.5,
           "TickDamage": 2.5,
           "TickInterval": 0.2,
-          "TraceOrigin": {
-            "_type": "gameobject",
-            "go": "519bacd7-ab02-4e2d-8e9d-aeb6b08feb9d"
-          }
+          "TraceOrigin": null
         },
         {
           "__type": "Rigidbody",
@@ -2391,10 +2396,7 @@
           "MinDamage": 2.5,
           "TickDamage": 2.5,
           "TickInterval": 0.2,
-          "TraceOrigin": {
-            "_type": "gameobject",
-            "go": "ba38dca2-a001-4ade-a3d8-59905938d238"
-          }
+          "TraceOrigin": null
         },
         {
           "__type": "Rigidbody",
@@ -2576,7 +2578,7 @@
   },
   "Title": "main_menu",
   "Description": "",
-  "LastSaved": "2024-03-03T06:18:49.1678542-07:00",
+  "LastSaved": "2024-03-03T06:32:45.0510874-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "facepunch.airduct_a_panel_32x32",
