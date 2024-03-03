@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "Id": "2d78518e-52a7-4954-a6cf-d532c5709c52",
+    "Id": "7a78125f-7520-46c6-86aa-a4d195bcf2cc",
     "Name": "asteroid_field",
     "Enabled": true,
     "Components": [
@@ -17,7 +17,14 @@
         "SpawnManyOnStart": true
       }
     ],
-    "Children": []
+    "Children": [
+      {
+        "Id": "42831a87-e909-4bf6-99d9-686a5288cc95",
+        "Name": "ice_field",
+        "Enabled": true,
+        "__Prefab": "prefabs/effects/ice_field.prefab"
+      }
+    ]
   },
   "ShowInMenu": false,
   "MenuPath": null,
