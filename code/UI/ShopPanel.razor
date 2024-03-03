@@ -87,7 +87,7 @@
 
     protected override void OnUpdate()
     {
-        if ( Input.EscapePressed)
+        if ( Input.EscapePressed || !ShipController.GetCurrent().IsValid())
         {
             Exit();
             return;

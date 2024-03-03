@@ -134,7 +134,14 @@ public sealed partial class ShipController
 
 	private void SpillCargo()
 	{
-		// TODO: Empty the cargo hold out in to the world.
+		if ( !Cargo.IsValid() )
+			return;
+
+		foreach( var item in Cargo.Items )
+		{
+			var offset = Random.Shared.VectorInSquare( 30f );
+			Pickup.Spawn( item, Transform.Position + new Vector3( offset.x, offset.y, 0f ) );
+		}
 	}
 
 	private void HideHud()

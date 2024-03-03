@@ -88,6 +88,9 @@ public sealed class Shop : Component, Component.ITriggerListener
 			return;
 
 		SaveManager.SaveActiveCareer();
+		ScreenManager.SetHudEnabled( false );
+		ScreenManager.SetCursorEnabled( false );
+		ScreenManager.SetBeaconVisibility( false );
 		ScreenManager.OpenShopPanel( this );
 		var ship = ShipController.GetCurrent();
 		ship.Rigidbody.LinearDamping = 5f;
@@ -100,7 +103,12 @@ public sealed class Shop : Component, Component.ITriggerListener
 	public void EjectPlayer()
 	{
 		SaveManager.SaveActiveCareer();
+		ScreenManager.SetHudEnabled( true );
+		ScreenManager.SetCursorEnabled( true );
+		ScreenManager.SetBeaconVisibility( true );
 		var ship = ShipController.GetCurrent();
+		if ( !ship.IsValid() )
+			return;
 		if ( Ejector is not null )
 		{
 			ship.Transform.Position = Ejector.Transform.Position.WithZ( 0f );

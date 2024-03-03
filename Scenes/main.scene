@@ -167,7 +167,7 @@
         },
         {
           "__type": "SkyScroller",
-          "ScrollFactor": 0.001,
+          "ScrollFactor": 0.003,
           "Target": null
         }
       ]
@@ -637,7 +637,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-03T09:59:46.7773414-07:00",
+  "LastSaved": "2024-03-03T10:28:03.4402847-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03",
