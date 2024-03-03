@@ -1,0 +1,44 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+
+<root class=@( IsHidden ? "hidden" : "")>
+	<div class="title">@Title</div>
+    <div id="buttonList" class="column center-content">
+        <div class="button" @onclick=@(() => StartGame())>New Game</div>
+        <div class="button disabled">Settings</div>
+        <div class="button disabled">Credits</div>
+        <div class="button" @onclick=@(() => Quit())>Quit</div>
+    </div>
+</root>
+
+@code
+{
+
+    [Property] public string Title { get; set; } = "Aluminum Acrobat";
+    [Property] public SceneFile MainScene { get; set; }
+
+    private bool IsHidden { get; set; } = true;
+
+    /// <summary>
+    /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+    /// </summary>
+    protected override int BuildHash() => System.HashCode.Combine( Title, IsHidden );
+
+    protected override void OnStart()
+    {
+        base.OnStart();
+
+        _ = Task.DelaySeconds(1f).ContinueWith( _ => IsHidden = false);
+    }
+
+    private void StartGame()
+    {
+        Scene.Load( MainScene );
+    }
+
+    private void Quit()
+    {
+        Game.Close();
+    }
+}

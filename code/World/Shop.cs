@@ -33,12 +33,12 @@ public sealed class Shop : Component, Component.ITriggerListener
 		if ( !ship.Cargo.RemoveItem( item ) )
 			return;
 
-		Career.AddMoney( item.Value );
+		Career.AddMoneyCommand( item.Value );
 	}
 
 	public bool CanRefuel( ShipController ship )
 	{
-		return Career.HasMoney( (int)FuelCostPerUnit )
+		return Career.Active.HasMoney( (int)FuelCostPerUnit )
 			&& ship.Fuel.IsValid()
 			&& ship.Fuel.CurrentAmount < ship.Fuel.MaxCapacity;
 	}
@@ -53,7 +53,7 @@ public sealed class Shop : Component, Component.ITriggerListener
 		{
 			var desiredAmount = ship.Fuel.CurrentAmount + 1;
 			ship.Fuel.CurrentAmount = Math.Min( ship.Fuel.MaxCapacity, desiredAmount );
-			Career.RemoveMoney( (int)FuelCostPerUnit );
+			Career.RemoveMoneyCommmand( (int)FuelCostPerUnit );
 			_untilRefuelUnit = 1f / RefuelAmountPerSecond;
 		}
 	}
@@ -71,7 +71,7 @@ public sealed class Shop : Component, Component.ITriggerListener
 	public void Repair( ShipController ship )
 	{
 		var price = GetRepairPrice( ship );
-		if ( !Career.HasMoney( price ) || !ship.Hull.IsValid() )
+		if ( !Career.Active.HasMoney( price ) || !ship.Hull.IsValid() )
 			return;
 
 		var damage = ship.Hull.MaxHealth - ship.Hull.CurrentHealth;
@@ -79,7 +79,7 @@ public sealed class Shop : Component, Component.ITriggerListener
 			return;
 
 		ship.Hull.CurrentHealth = ship.Hull.MaxHealth;
-		Career.RemoveMoney( price );
+		Career.RemoveMoneyCommmand( price );
 	}
 
 	public void OnTriggerEnter( Collider other )
@@ -114,9 +114,9 @@ public sealed class Shop : Component, Component.ITriggerListener
 	public bool CanBuyUpgrade( ShipController ship, Upgrade upgrade )
 	{
 		return ship.IsValid()
-			&& !Career.HasUpgrade( upgrade )
-			&& Career.IsUpgradeAvailable( upgrade )
-			&& Career.HasMoney( upgrade.Cost );
+			&& !Career.Active.HasUpgrade( upgrade )
+			&& Career.Active.IsUpgradeAvailable( upgrade )
+			&& Career.Active.HasMoney( upgrade.Cost );
 	}
 
 	public void BuyUpgrade( ShipController ship, Upgrade upgrade )
@@ -124,7 +124,7 @@ public sealed class Shop : Component, Component.ITriggerListener
 		if ( !CanBuyUpgrade( ship, upgrade ) )
 			return;
 
-		Career.RemoveMoney( upgrade.Cost );
-		Career.AddUpgrade( upgrade );
+		Career.RemoveMoneyCommmand( upgrade.Cost );
+		Career.Active.AddUpgrade( upgrade );
 	}
 }

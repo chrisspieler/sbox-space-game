@@ -27,9 +27,7 @@
     // TODO: Use a glyph instead of text.
     [Property] public string InstructionText { get; set; } = "Press R to Respawn";
 
-    private string RespawnFeeCost => Career.HasMoney()
-        ? $"{Career.RespawnFee} CREDITS"
-        : $"ALL OF YOUR CREDITS";
+    private string RespawnFeeCost => "ALL OF YOUR CREDITS";
 
     private bool ShowDeathText { get; set; } = false;
     private bool ShowInstruction { get; set; } = false;

@@ -26,6 +26,9 @@ public sealed class Weapon : Component, IDestructionListener
 
 	protected override void OnUpdate()
 	{
+		if ( ShipController.GetCurrent() is null )
+			return;
+
 		UpdateBodyRotation();
 		UpdateAttack();
 	}

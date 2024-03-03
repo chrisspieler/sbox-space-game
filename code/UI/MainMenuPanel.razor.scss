@@ -1,0 +1,38 @@
+@import "Styles/main.scss";
+
+MainMenuPanel {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	color: white;
+	font-family: 'UAV OSD Sans Mono';
+	justify-content: center;
+	pointer-events: all;
+	transition: opacity 1s ease-in;
+	opacity: 1;
+
+	&.hidden {
+		opacity: 0;
+	}
+
+	.title {
+		position: absolute;
+		left: 50%;
+		top: 15%;
+		transform: translateX( -50% );
+		font-size: 12vh;
+		font-family: 'Zeroes 1';
+		color: #fff;
+		text-shadow: 5px 5px 5px black;
+	}
+
+	#buttonList {
+		top: 5%;
+		.button {
+			height: 8vh;
+			width: 22.5vw;
+			margin: 5px;
+			font-size: 2.5vh;
+		}
+	}
+}

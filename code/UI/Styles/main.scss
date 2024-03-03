@@ -1,20 +1,43 @@
 ﻿.button {
     color: white;
-    border: 1px solid #FFF2;
+    border: 1px solid #FFF5;
     padding: 10px;
     justify-content: center;
     align-items: center;
-    background-color: black;
+    background-color: #000000F0;
+    backdrop-filter: blur(5px);
 
-    &:hover {
-        background-color: #FFF1;
+    &.disabled {
+        background-color: #6666;
+        border-color: #FFF1;
+        color: #AAA;
     }
 
-    &:active {
-        transform: scale( 0.98 );
-        background-color: #FFFA;
-        color: black;
+    &:not(.disabled) {
+        &:hover {
+            background-color: #FFF6;
+            border: none;
+
+            &:not(:active) {
+                text-shadow: 1px 1px 2px 2px black;
+            }
+        }
+
+        &:active {
+            transform: scale( 0.98 );
+            background-color: #EEE;
+            backdrop-filter: blur(5px);
+            color: black;
+        }
     }
+}
+
+.visible {
+    opacity: 1;
+}
+
+.hidden {
+    opacity: 0;
 }
 
 .column {
