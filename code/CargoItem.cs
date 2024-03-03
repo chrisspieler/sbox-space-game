@@ -7,6 +7,6 @@ public class CargoItem : GameResource
 	[TextArea]
 	public string Description { get; set; }
 	public int Value { get; set; }
-	public GameObject PickupPrefab { get; set; }
+	public PrefabFile PickupPrefab { get; set; }
 	public Texture InventoryIcon { get; set; }
 }

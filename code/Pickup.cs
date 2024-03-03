@@ -26,7 +26,7 @@ public sealed class Pickup : Component, Component.ITriggerListener
 	private void CreateItemModel()
 	{
 		var pickupPrefab = Item is not null && Item.PickupPrefab is not null
-			? Item.PickupPrefab
+			? Item.PickupPrefab.GetPrefabScene()
 			: GetDefaultPrefab();
 		var prefabGo = pickupPrefab.Clone();
 		prefabGo.Parent = GameObject;

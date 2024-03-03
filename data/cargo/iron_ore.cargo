@@ -2,10 +2,7 @@
   "Name": "Iron Ore",
   "Description": "Heavy and abundant.",
   "Value": 10,
-  "PickupPrefab": {
-    "_type": "gameobject",
-    "prefab": "data/cargo/iron_ore_pickup.prefab"
-  },
+  "PickupPrefab": "data/cargo/iron_ore_pickup.prefab",
   "InventoryIcon": null,
   "__references": []
 }
