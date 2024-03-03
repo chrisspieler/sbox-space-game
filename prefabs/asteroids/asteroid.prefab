@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "Id": "0e4a1bbc-a28e-44b7-81ba-858e09da7dec",
+    "Id": "a710d01a-a4db-4951-8233-100991adc0b3",
     "Name": "asteroid",
     "Tags": "solid",
     "Enabled": true,
@@ -46,7 +46,7 @@
         "RandomVelocityScale": 50,
         "Rigidbody": {
           "_type": "component",
-          "go": "0e4a1bbc-a28e-44b7-81ba-858e09da7dec",
+          "go": "a710d01a-a4db-4951-8233-100991adc0b3",
           "component_type": "Rigidbody"
         },
         "ScaleCurve": {
@@ -90,11 +90,11 @@
         "__type": "Health",
         "Body": {
           "_type": "gameobject",
-          "go": "0e4a1bbc-a28e-44b7-81ba-858e09da7dec"
+          "go": "a710d01a-a4db-4951-8233-100991adc0b3"
         },
         "Bounce": {
           "_type": "component",
-          "go": "0e4a1bbc-a28e-44b7-81ba-858e09da7dec",
+          "go": "a710d01a-a4db-4951-8233-100991adc0b3",
           "component_type": "Bouncy"
         },
         "CurrentHealth": 0,
@@ -110,10 +110,10 @@
           "_type": "gameobject",
           "prefab": "prefabs/effects/ship_explosion.prefab"
         },
-        "FractureLoot": "data/cargo/iron_ore.cargo",
+        "FractureLoot": "data/asteroids/c_type.loot",
         "Health": {
           "_type": "component",
-          "go": "0e4a1bbc-a28e-44b7-81ba-858e09da7dec",
+          "go": "a710d01a-a4db-4951-8233-100991adc0b3",
           "component_type": "Health"
         }
       },
@@ -121,12 +121,12 @@
         "__type": "HealthBarSpawner",
         "HealthSource": {
           "_type": "component",
-          "go": "0e4a1bbc-a28e-44b7-81ba-858e09da7dec",
+          "go": "a710d01a-a4db-4951-8233-100991adc0b3",
           "component_type": "Health"
         },
         "Target": {
           "_type": "gameobject",
-          "go": "0e4a1bbc-a28e-44b7-81ba-858e09da7dec"
+          "go": "a710d01a-a4db-4951-8233-100991adc0b3"
         }
       }
     ],

@@ -1,0 +1,13 @@
+{
+  "Items": [
+    {
+      "Item": "data/cargo/iron_ore.cargo",
+      "Probability": 10
+    },
+    {
+      "Item": "data/cargo/nickel_ore.cargo",
+      "Probability": 2
+    }
+  ],
+  "__references": []
+}

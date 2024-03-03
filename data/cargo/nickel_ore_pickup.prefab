@@ -1,0 +1,110 @@
+{
+  "RootObject": {
+    "Id": "8462eeec-a107-4b26-bd5e-a208a597013a",
+    "Name": "nickel_ore_pickup",
+    "Enabled": true,
+    "Children": [
+      {
+        "Id": "f4119c3d-3d49-4868-8d94-877d5f8fdabd",
+        "Name": "Sphere",
+        "Position": "0,-19.51411,0",
+        "Scale": "4.313981,4.318878,4",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "ModelRenderer",
+            "BodyGroups": 18446744073709551615,
+            "MaterialGroup": null,
+            "MaterialOverride": "materials/dev/dev_metal_rough60.vmat",
+            "Model": "models/props/rock_scatter/rock_scatter_pile_03.vmdl",
+            "RenderType": "On",
+            "Tint": "0.21395,0.21395,0.21395,1"
+          }
+        ]
+      },
+      {
+        "Id": "0e5df557-ec0e-4949-9df6-695efe417fe6",
+        "Name": "Sphere (1)",
+        "Position": "13.68275,14.87839,0.00002300995",
+        "Rotation": "0,0,-0.8660254,0.5000001",
+        "Scale": "4.313981,4.318878,4",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "ModelRenderer",
+            "BodyGroups": 18446744073709551615,
+            "MaterialGroup": null,
+            "MaterialOverride": "materials/dev/dev_metal_rough60.vmat",
+            "Model": "models/props/rock_scatter/rock_scatter_pile_03.vmdl",
+            "RenderType": "On",
+            "Tint": "0.21395,0.21395,0.21395,1"
+          }
+        ]
+      },
+      {
+        "Id": "19ce832c-c837-4be3-a1dc-a3a603bd3007",
+        "Name": "Sphere (2)",
+        "Position": "16.29955,-33.04137,0.00005516981",
+        "Rotation": "0,0,-0.5000002,-0.8660253",
+        "Scale": "2,2,2",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "ModelRenderer",
+            "BodyGroups": 18446744073709551615,
+            "MaterialGroup": null,
+            "MaterialOverride": "materials/dev/dev_metal_rough60.vmat",
+            "Model": "models/props/rock_scatter/rock_scatter_pile_01.vmdl",
+            "RenderType": "On",
+            "Tint": "0.21395,0.21395,0.21395,1"
+          }
+        ]
+      },
+      {
+        "Id": "a57b171d-eadf-471c-b63f-e76c22a09227",
+        "Name": "Sphere (3)",
+        "Position": "6.169338,-4.898162,0.00006163616",
+        "Rotation": "0,0,-1,0.0000001490116",
+        "Scale": "2,2,2",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "ModelRenderer",
+            "BodyGroups": 18446744073709551615,
+            "MaterialGroup": null,
+            "MaterialOverride": "materials/dev/dev_metal_rough60.vmat",
+            "Model": "models/props/rock_scatter/rock_scatter_pile_01.vmdl",
+            "RenderType": "On",
+            "Tint": "0.21395,0.21395,0.21395,1"
+          }
+        ]
+      },
+      {
+        "Id": "1c3f85bf-315a-41ec-9f38-8604623f56fd",
+        "Name": "Sphere (4)",
+        "Position": "43.39719,-3.94309,0.00001594642",
+        "Rotation": "0,0,-0.7933535,-0.6087613",
+        "Scale": "2,2,2",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "ModelRenderer",
+            "BodyGroups": 18446744073709551615,
+            "MaterialGroup": null,
+            "MaterialOverride": "materials/dev/dev_metal_rough60.vmat",
+            "Model": "models/props/rock_scatter/rock_scatter_pile_01.vmdl",
+            "RenderType": "On",
+            "Tint": "0.21395,0.21395,0.21395,1"
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": [
+    "facepunch.rock_scatter_pile_01",
+    "facepunch.rock_scatter_pile_03"
+  ]
+}
