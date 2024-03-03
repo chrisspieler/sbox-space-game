@@ -12,6 +12,7 @@ public sealed class ScreenManager : Component
 	[Property] public PanelComponent ShopPanel { get; set; }
 	[Property] public GameObject BeaconContainer { get; set; }
 	[Property] public GameObject HealthBarContainer { get; set; }
+	[Property] public GameObject TextPanelContainer { get; set; }
 
 	private Dictionary<IHealth, GameObject> _activeHealthBars = new();
 
@@ -132,5 +133,17 @@ public sealed class ScreenManager : Component
 		var healthBarGo = Instance._activeHealthBars[health];
 		healthBarGo.Destroy();
 		Instance._activeHealthBars.Remove( health );
+	}
+
+	public static void ShowTextPanel( string text, Vector3 position, bool isAlert, float duration = 1.5f )
+	{
+		var textGo = new GameObject( true, "Text Panel" );
+		textGo.Parent = Instance.TextPanelContainer;
+		textGo.Transform.Position = position;
+		var textComponent = textGo.Components.Create<TextPanel>();
+		textComponent.Text = text;
+		textComponent.TargetPosition = position;
+		textComponent.IsAlert = isAlert;
+		textComponent.Lifetime = duration;
 	}
 }

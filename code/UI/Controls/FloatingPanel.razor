@@ -30,7 +30,10 @@
             Delete(true);
             return;
         }
-        var targetPos = Target.GetBounds().Center;
+        var bounds = Target.GetBounds();
+        var targetPos = bounds.Size == 0f 
+            ? Target.Transform.Position
+            : bounds.Center;
         var position = GetScreenNormal(targetPos);
         if ( ConfineToScreen)
         {

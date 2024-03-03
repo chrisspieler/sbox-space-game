@@ -8,19 +8,18 @@ HudPanel
 	color: white;
 	font-family: 'UAV OSD Sans Mono';
 
-	#shopIndicator {
+	#cargoBar {
 		position: absolute;
-		right: 4%;
-		bottom: 18%;
-		opacity: 0;
-		font-size: 1.1vh;
-
-		&.visible {
-			opacity: 1;
+		left: 66%;
+		bottom: 3.8%;
+		align-items: center;
+		.icon {
+			font-size: 3vh;
+			margin-right: 25px;
 		}
 
-		.icon {
-			font-size: 7vh;
+		.count {
+			font-size: 2.5vh;
 		}
 	}
 

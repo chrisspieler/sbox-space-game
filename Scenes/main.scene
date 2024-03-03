@@ -49,6 +49,10 @@
             "_type": "component",
             "go": "f9f94a44-d995-4551-9bb6-a0b2107d5610",
             "component_type": "ShopPanel"
+          },
+          "TextPanelContainer": {
+            "_type": "gameobject",
+            "go": "e31c5314-d6f3-495f-a2cb-d5277124c565"
           }
         }
       ],
@@ -137,6 +141,12 @@
         {
           "Id": "aac41955-0da3-4198-a83a-db4bb8a72110",
           "Name": "Beacon Container",
+          "Position": "0,0,0",
+          "Enabled": true
+        },
+        {
+          "Id": "e31c5314-d6f3-495f-a2cb-d5277124c565",
+          "Name": "Text Panel Container",
           "Position": "0,0,0",
           "Enabled": true
         }
@@ -601,6 +611,348 @@
           "__type": "Highlight"
         }
       ]
+    },
+    {
+      "Id": "36c876d2-c2fe-47ea-9a2b-3abb7ac9c82d",
+      "Name": "pickup_base",
+      "Position": "2559.452,3615.761,0",
+      "Rotation": "-0.2989144,0.2033205,0.7709296,0.5243837",
+      "Tags": "light_point,light,pickup",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Pickup",
+          "AnimationDuration": 0.4,
+          "DisablePickup": false,
+          "Item": "data/cargo/iron_ore.cargo",
+          "PickupEffectPrefab": null,
+          "ScaleCurve": {
+            "rangey": "0,2",
+            "frames": [
+              {
+                "y": 0.5
+              },
+              {
+                "x": 0.08779762,
+                "y": 0.97606385,
+                "in": 1.5294113,
+                "out": -1.5294113
+              },
+              {
+                "x": 1,
+                "in": 0.25287372,
+                "out": -0.25287372
+              }
+            ]
+          },
+          "ZPositionCurve": {
+            "rangey": "-200,400",
+            "frames": [
+              {
+                "y": 0.3333333
+              },
+              {
+                "x": 0.0342262,
+                "in": -0.18867922,
+                "out": 0.18867922
+              },
+              {
+                "x": 1,
+                "y": 1,
+                "in": -2.4576273,
+                "out": 2.4576273
+              }
+            ]
+          }
+        },
+        {
+          "__type": "PointLight",
+          "Attenuation": 4,
+          "FogMode": "Disabled",
+          "FogStrength": 0,
+          "LightColor": "0.13932,0.15066,0.16279,1",
+          "Radius": 200,
+          "Shadows": false
+        },
+        {
+          "__type": "HighlightOutline",
+          "Color": "0,0,0,0.3",
+          "InsideColor": "1,1,1,0",
+          "InsideObscuredColor": "1,1,1,0",
+          "Material": null,
+          "ObscuredColor": "1,1,1,0",
+          "Width": 0.25
+        },
+        {
+          "__type": "SphereCollider",
+          "Center": "0,0,0",
+          "IsTrigger": true,
+          "Radius": 72,
+          "Static": false,
+          "Surface": null
+        },
+        {
+          "__type": "Rigidbody",
+          "AngularDamping": 0,
+          "Gravity": false,
+          "LinearDamping": 5,
+          "Locking": {
+            "Z": true,
+            "Pitch": true,
+            "Roll": true
+          },
+          "MassOverride": 1,
+          "RigidbodyFlags": 0,
+          "StartAsleep": false
+        }
+      ],
+      "Children": [
+        {
+          "Id": "f052262f-fb88-4054-9a08-62f479a6eca5",
+          "Name": "Push Collider",
+          "Position": "0,0,0",
+          "Tags": "player_allow",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "SphereCollider",
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Radius": 64,
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Id": "f6144233-1454-4453-81c9-0e534ada875b",
+      "Name": "pickup_base (1)",
+      "Position": "2126.142,3615.761,0",
+      "Rotation": "-0.2989144,0.2033205,0.7709296,0.5243837",
+      "Tags": "light_point,light,pickup",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Pickup",
+          "AnimationDuration": 0.4,
+          "DisablePickup": false,
+          "Item": "data/cargo/iron_ore.cargo",
+          "PickupEffectPrefab": null,
+          "ScaleCurve": {
+            "rangey": "0,2",
+            "frames": [
+              {
+                "y": 0.5
+              },
+              {
+                "x": 0.08779762,
+                "y": 0.97606385,
+                "in": 1.5294113,
+                "out": -1.5294113
+              },
+              {
+                "x": 1,
+                "in": 0.25287372,
+                "out": -0.25287372
+              }
+            ]
+          },
+          "ZPositionCurve": {
+            "rangey": "-200,400",
+            "frames": [
+              {
+                "y": 0.3333333
+              },
+              {
+                "x": 0.0342262,
+                "in": -0.18867922,
+                "out": 0.18867922
+              },
+              {
+                "x": 1,
+                "y": 1,
+                "in": -2.4576273,
+                "out": 2.4576273
+              }
+            ]
+          }
+        },
+        {
+          "__type": "PointLight",
+          "Attenuation": 4,
+          "FogMode": "Disabled",
+          "FogStrength": 0,
+          "LightColor": "0.13932,0.15066,0.16279,1",
+          "Radius": 200,
+          "Shadows": false
+        },
+        {
+          "__type": "HighlightOutline",
+          "Color": "0,0,0,0.3",
+          "InsideColor": "1,1,1,0",
+          "InsideObscuredColor": "1,1,1,0",
+          "Material": null,
+          "ObscuredColor": "1,1,1,0",
+          "Width": 0.25
+        },
+        {
+          "__type": "SphereCollider",
+          "Center": "0,0,0",
+          "IsTrigger": true,
+          "Radius": 72,
+          "Static": false,
+          "Surface": null
+        },
+        {
+          "__type": "Rigidbody",
+          "AngularDamping": 0,
+          "Gravity": false,
+          "LinearDamping": 5,
+          "Locking": {
+            "Z": true,
+            "Pitch": true,
+            "Roll": true
+          },
+          "MassOverride": 1,
+          "RigidbodyFlags": 0,
+          "StartAsleep": false
+        }
+      ],
+      "Children": [
+        {
+          "Id": "80182ea0-ba64-4218-b98a-239e14d0c69e",
+          "Name": "Push Collider",
+          "Position": "0,0,0",
+          "Tags": "player_allow",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "SphereCollider",
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Radius": 64,
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Id": "dce84daf-6c1f-49a3-ba70-705b1d574981",
+      "Name": "pickup_base (2)",
+      "Position": "2384.247,3959.93,0.00002089858",
+      "Rotation": "-0.2989144,0.2033205,0.7709296,0.5243837",
+      "Tags": "light_point,light,pickup",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Pickup",
+          "AnimationDuration": 0.4,
+          "DisablePickup": false,
+          "Item": "data/cargo/iron_ore.cargo",
+          "PickupEffectPrefab": null,
+          "ScaleCurve": {
+            "rangey": "0,2",
+            "frames": [
+              {
+                "y": 0.5
+              },
+              {
+                "x": 0.08779762,
+                "y": 0.97606385,
+                "in": 1.5294113,
+                "out": -1.5294113
+              },
+              {
+                "x": 1,
+                "in": 0.25287372,
+                "out": -0.25287372
+              }
+            ]
+          },
+          "ZPositionCurve": {
+            "rangey": "-200,400",
+            "frames": [
+              {
+                "y": 0.3333333
+              },
+              {
+                "x": 0.0342262,
+                "in": -0.18867922,
+                "out": 0.18867922
+              },
+              {
+                "x": 1,
+                "y": 1,
+                "in": -2.4576273,
+                "out": 2.4576273
+              }
+            ]
+          }
+        },
+        {
+          "__type": "PointLight",
+          "Attenuation": 4,
+          "FogMode": "Disabled",
+          "FogStrength": 0,
+          "LightColor": "0.13932,0.15066,0.16279,1",
+          "Radius": 200,
+          "Shadows": false
+        },
+        {
+          "__type": "HighlightOutline",
+          "Color": "0,0,0,0.3",
+          "InsideColor": "1,1,1,0",
+          "InsideObscuredColor": "1,1,1,0",
+          "Material": null,
+          "ObscuredColor": "1,1,1,0",
+          "Width": 0.25
+        },
+        {
+          "__type": "SphereCollider",
+          "Center": "0,0,0",
+          "IsTrigger": true,
+          "Radius": 72,
+          "Static": false,
+          "Surface": null
+        },
+        {
+          "__type": "Rigidbody",
+          "AngularDamping": 0,
+          "Gravity": false,
+          "LinearDamping": 5,
+          "Locking": {
+            "Z": true,
+            "Pitch": true,
+            "Roll": true
+          },
+          "MassOverride": 1,
+          "RigidbodyFlags": 0,
+          "StartAsleep": false
+        }
+      ],
+      "Children": [
+        {
+          "Id": "f108ba62-f78a-4906-9ada-186e7325b384",
+          "Name": "Push Collider",
+          "Position": "0,0,0",
+          "Tags": "player_allow",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "SphereCollider",
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Radius": 64,
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        }
+      ]
     }
   ],
   "SceneProperties": {
@@ -626,7 +978,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-03T06:43:31.0359288-07:00",
+  "LastSaved": "2024-03-03T07:54:44.5851192-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03",

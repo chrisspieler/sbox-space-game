@@ -53,10 +53,17 @@ public sealed class Pickup : Component, Component.ITriggerListener
 			return;
 
 		var cargoHold = ShipController.GetCurrent().Cargo;
-		if ( !cargoHold.IsValid() || !cargoHold.TryAddItem( Item ) )
+		if ( !cargoHold.IsValid() )
 			return;
 
+		if ( !cargoHold.TryAddItem( Item ) )
+		{
+			ScreenManager.ShowTextPanel( $"CARGO HOLD FULL", Transform.Position + Vector3.Up * 200f, true );
+			return;
+		}
+
 		_triggered = true;
+		ScreenManager.ShowTextPanel( $"+1 {Item.Name}", Transform.Position + Vector3.Up * 200f, false );
 
 		if ( PickupEffectPrefab is not null )
 		{
