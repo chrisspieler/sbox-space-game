@@ -45,7 +45,6 @@ public sealed class MouseSelector : Component
 	public void SetHovered( GameObject hovered )
 	{
 		_hovered = hovered;
-		ScreenManager.SetHoveredSelection( _hovered );
 		OnHoveredChanged?.Invoke( _hovered );
 	}
 

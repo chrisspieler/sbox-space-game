@@ -35,6 +35,8 @@ public sealed class Stabilizer : Component
 
 	protected override void OnUpdate()
 	{
+		ScreenManager.SetHoveredSelection( _hoveredRigidbody?.GameObject ?? VelocityMatchTarget?.GameObject );
+
 		if ( !VelocityMatchTarget.IsValid() && !_hoveredRigidbody.IsValid() )
 			return;
 
