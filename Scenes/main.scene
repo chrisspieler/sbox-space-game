@@ -309,11 +309,11 @@
         {
           "__type": "VolumetricFogVolume",
           "Bounds": {
-            "Mins": "-2000,-2000,-300",
-            "Maxs": "2000,2000,300"
+            "Mins": "-4000,-4000,-4000",
+            "Maxs": "4000,4000,4000"
           },
           "FalloffExponent": 3,
-          "Strength": 0.2
+          "Strength": 0.1
         },
         {
           "__type": "Follower",
@@ -626,7 +626,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-02T21:46:43.3897495-07:00",
+  "LastSaved": "2024-03-02T22:20:03.6714845-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03",

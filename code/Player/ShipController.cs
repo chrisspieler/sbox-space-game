@@ -1,5 +1,6 @@
 using Sandbox;
 using Sandbox.Utility;
+using System.Linq;
 
 public sealed partial class ShipController : Component
 {
@@ -64,6 +65,7 @@ public sealed partial class ShipController : Component
 		FacingDirection = PartsContainer.Transform.Rotation.Forward.WithZ( 0f );
 		ResetUI();
 		ResetCamera();
+		SetFogFollowTarget();
 		FindEquipmentInChildren();
 		FindWeaponsInChildren();
 		ApplyAllUpgrades();
@@ -75,6 +77,13 @@ public sealed partial class ShipController : Component
 	{
 		IsInvincible = true;
 		_ = Task.DelaySeconds( duration ).ContinueWith( _ => IsInvincible = GodMode );
+	}
+
+	private void SetFogFollowTarget()
+	{
+		var fogGo = Scene.GetAllComponents<VolumetricFogVolume>().First();
+		var follower = fogGo.Components.Get<Follower>();
+		follower.Target = GameObject;
 	}
 
 	private void ResetCamera()
