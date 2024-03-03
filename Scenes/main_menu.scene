@@ -26,8 +26,8 @@
                 "Id": 1,
                 "Type": "property.get",
                 "Properties": {
-                  "_name": "Scene",
-                  "_type": "Sandbox.Game/Sandbox.GameObject"
+                  "_type": "Sandbox.Game/Sandbox.GameObject",
+                  "_name": "Scene"
                 },
                 "UserData": {
                   "Position": "-336,96"
@@ -37,8 +37,8 @@
                 "Id": 2,
                 "Type": "property.get",
                 "Properties": {
-                  "_name": "PhysicsWorld",
-                  "_type": "Sandbox.Game/Sandbox.Scene"
+                  "_type": "Sandbox.Game/Sandbox.Scene",
+                  "_name": "PhysicsWorld"
                 },
                 "UserData": {
                   "Position": "-64,96"
@@ -48,8 +48,8 @@
                 "Id": 3,
                 "Type": "property.set",
                 "Properties": {
-                  "_name": "Gravity",
-                  "_type": "Sandbox.Engine/Sandbox.PhysicsWorld"
+                  "_type": "Sandbox.Engine/Sandbox.PhysicsWorld",
+                  "_name": "Gravity"
                 },
                 "UserData": {
                   "Position": "192,-0"
@@ -112,6 +112,10 @@
           "Components": [
             {
               "__type": "MainMenuPanel",
+              "CareerInProgress": {
+                "Upgrades": []
+              },
+              "DefaultScenario": "data/scenarios/normal.scenario",
               "MainScene": "scenes/main.scene",
               "Title": "Aluminum Acrobat"
             }
@@ -2578,7 +2582,7 @@
   },
   "Title": "main_menu",
   "Description": "",
-  "LastSaved": "2024-03-03T06:32:45.0510874-07:00",
+  "LastSaved": "2024-03-03T10:13:03.6015323-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "facepunch.airduct_a_panel_32x32",

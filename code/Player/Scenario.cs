@@ -9,4 +9,17 @@ public class Scenario : GameResource
 	public int Money { get; set; } = 0;
 	public List<Upgrade> Upgrades { get; set; }
 	public bool Hidden { get; set; } = true;
+
+	public Career ToCareer()
+	{
+		var career = new Career()
+		{
+			Money = Money
+		};
+		foreach ( var upgrade in Upgrades )
+		{
+			career.AddUpgrade( upgrade );
+		}
+		return career;
+	}
 }

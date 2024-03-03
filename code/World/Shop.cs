@@ -87,6 +87,7 @@ public sealed class Shop : Component, Component.ITriggerListener
 		if ( !other.IsPlayer() )
 			return;
 
+		SaveManager.SaveActiveCareer();
 		ScreenManager.OpenShopPanel( this );
 		var ship = ShipController.GetCurrent();
 		ship.Rigidbody.LinearDamping = 5f;
@@ -98,6 +99,7 @@ public sealed class Shop : Component, Component.ITriggerListener
 
 	public void EjectPlayer()
 	{
+		SaveManager.SaveActiveCareer();
 		var ship = ShipController.GetCurrent();
 		if ( Ejector is not null )
 		{
@@ -126,5 +128,6 @@ public sealed class Shop : Component, Component.ITriggerListener
 
 		Career.RemoveMoneyCommmand( upgrade.Cost );
 		Career.Active.AddUpgrade( upgrade );
+		SaveManager.SaveActiveCareer();
 	}
 }

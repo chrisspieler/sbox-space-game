@@ -20,7 +20,15 @@ public partial class Career
 	}
 	private int _money;
 
-	public List<Upgrade> Upgrades { get; set; } = new();
+	public List<string> Upgrades { get; set; } = new();
+
+	public float TotalPlayTime { get; set; }
+
+	public string GetPlayTimeString()
+	{
+		var time = TimeSpan.FromSeconds( TotalPlayTime );
+		return time.ToString( "hh\\:mm\\:ss" );
+	}
 
 	public IEnumerable<Upgrade> GetAvailableUpgrades()
 	{
@@ -64,7 +72,7 @@ public partial class Career
 			AddUpgrade( upgrade.PrerequisiteUpgrade );
 		}
 
-		Upgrades.Add( upgrade );
+		Upgrades.Add( upgrade.ResourceName );
 		var ship = ShipController.GetCurrent();
 		if ( ship is not null )
 		{
@@ -74,6 +82,6 @@ public partial class Career
 
 	public bool HasUpgrade( Upgrade upgrade )
 	{
-		return upgrade is null || Upgrades.Contains( upgrade );
+		return upgrade is null || Upgrades.Contains( upgrade.ResourceName );
 	}
 }

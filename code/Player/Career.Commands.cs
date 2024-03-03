@@ -1,4 +1,5 @@
 ﻿using Sandbox;
+using System.Linq;
 
 public partial class Career
 {
@@ -9,9 +10,11 @@ public partial class Career
 		Log.Info( $"Career Credits: {Active?.Money ?? 0}" );
 		Log.Info( $"Upgrades" );
 		Log.Info( $"---" );
-		foreach ( var upgrade in Active.Upgrades )
+		var allUpgrades = ResourceLibrary.GetAll<Upgrade>();
+		foreach ( var upgradeResName in Active.Upgrades )
 		{
-			Log.Info( $"\t{upgrade.Name}" );
+			var upgrade = allUpgrades.FirstOrDefault( u => u.ResourceName == upgradeResName );
+			Log.Info( $"\t{upgradeResName}: {upgrade.Name}" );
 		}
 	}
 

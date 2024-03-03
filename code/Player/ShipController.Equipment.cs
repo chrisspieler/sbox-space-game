@@ -56,8 +56,15 @@ public partial class ShipController
 
 	private void ApplyAllUpgrades()
 	{
-		foreach( var upgrade in Career.Active.Upgrades )
+		var allUpgrades = ResourceLibrary.GetAll<Upgrade>();
+		foreach( var upgradeResName in Career.Active.Upgrades )
 		{
+			var upgrade = allUpgrades.FirstOrDefault( u => u.ResourceName == upgradeResName );
+			if ( upgrade is null )
+			{
+				Log.Error( $"Cannot find Upgrade by resource name: {upgradeResName}" );
+				continue;
+			}
 			upgrade.OnApplyUpgrade( this );
 		}
 	}

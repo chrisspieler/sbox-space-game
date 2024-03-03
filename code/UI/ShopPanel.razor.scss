@@ -13,7 +13,7 @@ ShopPanel {
 		color: dodgerblue;
 
 		&.insufficient {
-			color: darkred;
+			color: red;
 		}
 	}
 
@@ -151,6 +151,17 @@ ShopPanel {
 
 			#buyColumn {
 				min-width: 10%;
+
+				.price {
+					font-size: 1.5vh;
+					margin: 5px;
+				}
+
+				.button {
+					height: 5vh;
+					width: 5vw;
+					font-size: 2vh;
+				}
 			}
 		}
 	}

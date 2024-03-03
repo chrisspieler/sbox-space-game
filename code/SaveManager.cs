@@ -9,8 +9,11 @@ public sealed class SaveManager : Component
 
 	[Property] public Scenario DefaultScenario { get; set; }
 	[Property] public GameObject ShipPrefab { get; set; }
+	[Property] public float AutosaveInterval { get; set; } = 60;
 
-	protected override void OnStart()
+	private TimeUntil _untilNextAutosave;
+
+	protected override void OnAwake()
 	{
 		if ( TryLoadCareer( ActiveFileName, out var career ) )
 		{
@@ -20,9 +23,43 @@ public sealed class SaveManager : Component
 		else
 		{
 			Log.Info( $"No existing save, loading from default scenario: {DefaultScenario.ResourceName}" );
-			Career.Active = GetScenarioFromCareer( DefaultScenario );
+			Career.Active = DefaultScenario.ToCareer();
 		}
 		ShipController.Respawn();
+		_untilNextAutosave = AutosaveInterval;
+	}
+
+	protected override void OnUpdate()
+	{
+		if ( Career.Active is null )
+			return;
+
+		Career.Active.TotalPlayTime += Time.Delta;
+		if ( _untilNextAutosave )
+		{
+			_untilNextAutosave = AutosaveInterval;
+			SaveActiveCareer();
+		}
+	}
+
+	[ConCmd("save_manual")]
+	public static void SaveActiveCareer()
+	{
+		if ( Career.Active is null || string.IsNullOrWhiteSpace( ActiveFileName) )
+			return;
+
+		SaveCareer( Career.Active, ActiveFileName );
+		Log.Info( $"Saved file: {ActiveFileName}" );
+	}
+
+	public static void SaveCareer( Career career, string fileName )
+	{
+		var filePath = FileNameToPath( fileName );
+		if ( career is null || string.IsNullOrWhiteSpace( filePath ) )
+			return;
+
+		FileSystem.Data.CreateDirectory( "saves" );
+		FileSystem.Data.WriteJson( filePath, career );
 	}
 
 	public static string GetSaveSlotFileName( int slot )
@@ -43,28 +80,20 @@ public sealed class SaveManager : Component
 		return $"saves/{fileName}.sav";
 	}
 
-	private static bool TryLoadCareer( string fileName, out Career career )
+	public static bool TryLoadCareer( string fileName, out Career career )
 	{
-		if ( !FileSystem.Data.FileExists( FileNameToPath( fileName ) ) )
+		var filePath = FileNameToPath( fileName );
+		if ( !FileSystem.Data.FileExists( filePath ) )
 		{
 			career = null;
 			return false;
 		}
 
-		career = FileSystem.Data.ReadJson<Career>( fileName );
-		return true;
-	}
-
-	private static Career GetScenarioFromCareer( Scenario scenario )
-	{
-		var career = new Career()
+		career = FileSystem.Data.ReadJson<Career>( filePath );
+		if ( career is null )
 		{
-			Money = scenario.Money
-		};
-		foreach( var upgrade in scenario.Upgrades )
-		{
-			career.AddUpgrade( upgrade );
+			Log.Error( $"Unable to deserialize save: {fileName}" );
 		}
-		return career;
+		return career is not null;
 	}
 }

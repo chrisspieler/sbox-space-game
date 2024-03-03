@@ -47,8 +47,8 @@
                         <p class="flavor">@upgrade.FlavorText</p>
                     </div>
                     <div id="buyColumn" class="column center-content">
-                        <h2 class="price">@upgrade.Cost CR</h2>
-                        <div id="buyButton" class="button center-content" onclick=@(() => BuyUpgrade( upgrade ))>BUY</div>
+                        <h2 class="price @(CanAfford(upgrade) ? "" : "insufficient")">@upgrade.Cost CR</h2>
+                        <div id="buyButton" class="button center-content @(CanAfford(upgrade) ? "" : "disabled")" onclick=@(() => BuyUpgrade( upgrade ))>BUY</div>
                     </div>
                 </div>
             }
@@ -74,6 +74,8 @@
 
     private bool _holdingRefuel;
     private List<Upgrade> _availableUpgrades;
+
+    private bool CanAfford(Upgrade upgrade) => Career.Active.HasMoney(upgrade.Cost);
 
     protected override void OnEnabled()
     {

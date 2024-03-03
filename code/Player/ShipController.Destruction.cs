@@ -35,6 +35,7 @@ public sealed partial class ShipController
 		ShipCamera.GetCurrent().Trauma = 1f;
 		Rigidbody.Velocity = Vector3.Zero;
 		Career.RemoveMoneyCommmand( Career.RespawnFee );
+		SaveManager.SaveActiveCareer();
 		GameObject.Destroy();
 	}
 

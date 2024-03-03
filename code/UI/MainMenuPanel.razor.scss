@@ -28,11 +28,35 @@ MainMenuPanel {
 
 	#buttonList {
 		top: 5%;
+
 		.button {
 			height: 8vh;
 			width: 22.5vw;
 			margin: 5px;
 			font-size: 2.5vh;
+
+			&.continue {
+				height: 12vh;
+				font-size: 2.25vh;
+
+				>* {
+					margin: 10px;
+				}
+
+				h3 {
+					font-size: 2.5vh;
+				}
+
+				div {
+					width: 100%;
+					justify-content: space-around;
+				}
+
+				.credits {
+					color: cornflowerblue;
+				}
+			}
+
 		}
 	}
 }
