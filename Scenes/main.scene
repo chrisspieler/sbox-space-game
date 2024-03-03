@@ -483,15 +483,15 @@
             },
             {
               "__type": "Shop",
-              "BaseRepairCost": 20,
+              "BaseRepairCost": 5,
               "EjectionVelocity": "1,0,0",
               "Ejector": {
                 "_type": "gameobject",
                 "go": "a84837e9-ac71-43f6-aa6b-7bdbb06b47e5"
               },
-              "FuelCostPerUnit": 2,
+              "FuelCostPerUnit": 1,
               "RefuelAmountPerSecond": 10,
-              "RepairCostPerHitPoint": 0.5
+              "RepairCostPerHitPoint": 0.25
             },
             {
               "__type": "Beacon",
@@ -626,7 +626,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-01T23:53:03.3652344-07:00",
+  "LastSaved": "2024-03-02T21:46:43.3897495-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03",

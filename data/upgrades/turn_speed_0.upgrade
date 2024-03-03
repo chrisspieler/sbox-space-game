@@ -1,8 +1,8 @@
 {
   "Name": "Increased Turn Speed",
-  "FlavorText": "A must-have for collision and boredom avoidance.",
+  "FlavorText": "Useful for collision and boredom avoidance.",
   "FunctionText": "Increases the turning speed of the ship",
-  "Cost": 70,
+  "Cost": 250,
   "Thumbnail": null,
   "PrerequisiteUpgrade": "data/upgrades/main_thruster_0.upgrade",
   "OnApplyUpgrade": {
@@ -34,7 +34,7 @@
         "DstName": "_signal"
       },
       {
-        "Value": 0.15,
+        "Value": 1.5,
         "DstId": 2,
         "DstName": "addSpeed"
       }
