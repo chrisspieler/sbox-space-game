@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "Id": "e15ff364-770d-47ed-a884-43e8644b1edb",
+    "Id": "64026e37-7075-46a4-850e-153eccd93bc6",
     "Name": "lightball",
     "Scale": "0.25,0.25,0.25",
     "Tags": "light_point,light",
@@ -28,12 +28,12 @@
         "__type": "LightBall",
         "Light": {
           "_type": "component",
-          "go": "e15ff364-770d-47ed-a884-43e8644b1edb",
+          "go": "64026e37-7075-46a4-850e-153eccd93bc6",
           "component_type": "PointLight"
         },
         "Model": {
           "_type": "component",
-          "go": "e15ff364-770d-47ed-a884-43e8644b1edb",
+          "go": "64026e37-7075-46a4-850e-153eccd93bc6",
           "component_type": "ModelRenderer"
         }
       },
@@ -42,9 +42,7 @@
         "AngularDamping": 0,
         "Gravity": false,
         "LinearDamping": 0,
-        "Locking": {
-          "Z": true
-        },
+        "Locking": {},
         "MassOverride": 20,
         "RigidbodyFlags": 0,
         "StartAsleep": false
@@ -55,7 +53,7 @@
         "IsTrigger": false,
         "Radius": 10,
         "Static": false,
-        "Surface": null
+        "Surface": "surfaces/invis_bounce.surface"
       }
     ],
     "Children": []

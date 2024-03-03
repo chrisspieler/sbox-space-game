@@ -10,7 +10,7 @@ public sealed class LightBall : Component
 		var color = new ColorHsv()
 			.WithHue( Game.Random.Float( 0f, 360f ) )
 			.WithSaturation( Game.Random.Float( 0.75f, 1f ) )
-			.WithValue( Game.Random.Float( 0.5f, 1f ) )
+			.WithValue( 1f )
 			.WithAlpha( 1f )
 			.ToColor();
 		Model.Tint = color;

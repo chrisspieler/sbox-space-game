@@ -1,5 +1,6 @@
 using Sandbox;
 using System.Collections.Generic;
+using System.Linq;
 
 public sealed class MeatDresser : Component
 {
@@ -9,9 +10,12 @@ public sealed class MeatDresser : Component
 	protected override void OnEnabled()
 	{
 		var container = ClothingContainer.CreateFromLocalUser();
-		foreach( var clothing in Clothes )
+		if ( !container.Clothing.Any( c => c.ResourceName.Contains("mascot") ) )
 		{
-			AddToContainer( container, clothing );
+			foreach ( var clothing in Clothes )
+			{
+				AddToContainer( container, clothing );
+			}
 		}
 		container.Apply( Model );
 	}

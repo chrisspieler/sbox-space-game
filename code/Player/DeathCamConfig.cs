@@ -7,6 +7,7 @@ public sealed class DeathCamConfig : Component
 	[Property] public float FieldOfView { get; set; } = 90f;
 	[Property] public Curve PositionLerpSpeed { get; set; }
 	[Property] public Curve RotationLerpSpeed { get; set; }
+	[Property] public float LookbackDistance { get; set; } = 200f;
 
 	protected override void OnEnabled()
 	{
@@ -22,7 +23,7 @@ public sealed class DeathCamConfig : Component
 		var cameraTx = Scene.Camera.Transform.World;
 		var targetPosition = Transform.Position + Transform.World.Forward * Distance;
 		var distanceToTargetPosition = cameraTx.Position.Distance( targetPosition );
-		var targetRotation = distanceToTargetPosition > 200f
+		var targetRotation = distanceToTargetPosition > LookbackDistance
 			? Rotation.LookAt( (targetPosition - cameraTx.Position).Normal )
 			: Rotation.LookAt( Transform.Rotation.Backward );
 		var posLerpSpeed = PositionLerpSpeed.Evaluate( MathX.LerpInverse( distanceToTargetPosition, 1000f, 0f ) );
