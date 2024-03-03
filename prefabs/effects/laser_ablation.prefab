@@ -1,11 +1,11 @@
 {
   "RootObject": {
-    "Id": "3353bd6b-b66c-4dc0-98be-fb7eb93565da",
+    "Id": "da84151b-367e-4966-893c-7e8f3701f065",
     "Name": "laser_ablation",
     "Enabled": true,
     "Children": [
       {
-        "Id": "141cac7b-ab76-4765-bd7b-6e8341fe0027",
+        "Id": "fb332b85-fe6b-4725-a3ae-f31d9f494620",
         "Name": "Spray",
         "Tags": "particles",
         "Enabled": true,
@@ -39,7 +39,7 @@
               "Constants": "1,0,0,0"
             },
             "Brightness": {
-              "Constants": "1,0,0,0"
+              "Constants": "20,0,0,0"
             },
             "Bumpiness": {},
             "Collision": false,
@@ -168,7 +168,7 @@
           },
           {
             "__type": "ParticleConeEmitter",
-            "Burst": 5,
+            "Burst": 30,
             "ConeAngle": 45,
             "ConeFar": 100,
             "ConeNear": 0,
@@ -183,8 +183,9 @@
         ]
       },
       {
-        "Id": "2bfa6fc9-a7a3-4bf0-9448-f9f08bd6bb4d",
-        "Name": "Spray",
+        "Id": "6a085f57-1bc0-4fd4-9f7b-7a1f29a07a07",
+        "Name": "Fireball",
+        "Position": "13.00308,0,0",
         "Tags": "particles",
         "Enabled": true,
         "Components": [
@@ -197,10 +198,182 @@
                   "y": 1
                 },
                 {
-                  "x": 0.14547417,
-                  "y": 0.42287233,
+                  "x": 0.4445814,
+                  "y": 0.43617025,
                   "in": 1.5365853,
                   "out": -1.5365853
+                },
+                {
+                  "x": 1,
+                  "in": 0.072727285,
+                  "out": -0.072727285
+                }
+              ],
+              "Constants": "1,0,0,0"
+            },
+            "ApplyColor": true,
+            "ApplyRotation": false,
+            "ApplyShape": true,
+            "Bounce": {
+              "Constants": "1,0,0,0"
+            },
+            "Brightness": {
+              "Constants": "2,0,0,0"
+            },
+            "Bumpiness": {},
+            "Collision": false,
+            "CollisionIgnore": null,
+            "CollisionRadius": 1,
+            "Damping": {},
+            "DieOnCollisionChance": {},
+            "Force": true,
+            "ForceDirection": "200,0,0",
+            "ForceScale": {
+              "Constants": "1,0,0,0"
+            },
+            "Friction": {
+              "Constants": "1,0,0,0"
+            },
+            "Gradient": {
+              "Type": "Gradient",
+              "Evaluation": "Particle",
+              "GradientA": {
+                "color": [
+                  {
+                    "t": 0.055555556,
+                    "c": "1,0.99209,0.52558,1"
+                  },
+                  {
+                    "t": 0.517094,
+                    "c": "1,0.53454,0,1"
+                  },
+                  {
+                    "t": 0.758547,
+                    "c": "1,0.31667,0,1"
+                  },
+                  {
+                    "t": 0.9893162,
+                    "c": "0.36279,0.09224,0.05062,1"
+                  }
+                ],
+                "alpha": []
+              },
+              "GradientB": {
+                "color": [
+                  {
+                    "t": 0.5,
+                    "c": "1,1,1,1"
+                  }
+                ],
+                "alpha": []
+              },
+              "ConstantA": "0.98515,0.92604,0,1",
+              "ConstantB": "1,0.22,0,1"
+            },
+            "Lifetime": {
+              "Type": "Range",
+              "Evaluation": "Frame",
+              "Constants": "0.1,0.3,0,0"
+            },
+            "MaxParticles": 5000,
+            "PerParticleTimeScale": {
+              "Constants": "1,0.4,0,0"
+            },
+            "PreWarm": 0,
+            "PushStrength": {},
+            "Roll": {
+              "Type": "Range",
+              "Evaluation": "Particle",
+              "Constants": "85,95,0,0"
+            },
+            "Scale": {
+              "Type": "Curve",
+              "CurveA": {
+                "rangey": "5,60",
+                "frames": [
+                  {
+                    "in": -1.7484555E-07,
+                    "out": 1.7484555E-07
+                  },
+                  {
+                    "x": 1,
+                    "y": 1,
+                    "in": -1.3076923,
+                    "out": 1.3076923
+                  }
+                ]
+              },
+              "Constants": "1,0,0,0"
+            },
+            "SequenceId": {},
+            "SequenceSpeed": {
+              "Constants": "1,0,0,0"
+            },
+            "SequenceTime": {
+              "Constants": "1,0,0,0"
+            },
+            "SheetSequence": false,
+            "Space": "World",
+            "StartVelocity": {
+              "Constants": "25,200,0,0"
+            },
+            "Stretch": {},
+            "TimeScale": 1,
+            "Tint": "1,1,1,1"
+          },
+          {
+            "__type": "ParticleSpriteRenderer",
+            "Additive": true,
+            "BlurAmount": 0.17,
+            "BlurOpacity": 0.91,
+            "BlurSpacing": 0.17,
+            "DepthFeather": 0,
+            "FaceVelocity": false,
+            "FogStrength": 1,
+            "LeadingTrail": true,
+            "MotionBlur": false,
+            "Opaque": false,
+            "RotationOffset": 0,
+            "Scale": 2,
+            "Shadows": false,
+            "SortMode": "Unsorted",
+            "Texture": "materials/effects/fire_cloud2_color_tga_cc140e7a.generated.vtex"
+          },
+          {
+            "__type": "ParticleConeEmitter",
+            "Burst": 0,
+            "ConeAngle": 45,
+            "ConeFar": 10,
+            "ConeNear": 1,
+            "Delay": 0,
+            "DestroyOnEnd": false,
+            "Duration": 1,
+            "InVolume": false,
+            "Loop": true,
+            "OnEdge": false,
+            "Rate": 15
+          }
+        ]
+      },
+      {
+        "Id": "bba2d8ae-f84f-4b77-892b-9fa1167a2989",
+        "Name": "Smoke",
+        "Tags": "particles",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "ParticleEffect",
+            "Alpha": {
+              "Type": "Curve",
+              "CurveA": [
+                {
+                  "y": 1
+                },
+                {
+                  "x": 0.7094623,
+                  "y": 0.6436169,
+                  "in": 1.341308,
+                  "out": -1.341308
                 },
                 {
                   "x": 1,
@@ -217,13 +390,15 @@
               "Constants": "1,0,0,0"
             },
             "Brightness": {
-              "Constants": "1,0,0,0"
+              "Constants": "0.1,0,0,0"
             },
             "Bumpiness": {},
             "Collision": false,
             "CollisionIgnore": null,
             "CollisionRadius": 1,
-            "Damping": {},
+            "Damping": {
+              "Constants": "0.2,0,0,0"
+            },
             "DieOnCollisionChance": {},
             "Force": false,
             "ForceDirection": "0,0,-200",
@@ -260,7 +435,7 @@
             "Lifetime": {
               "Type": "Range",
               "Evaluation": "Particle",
-              "Constants": "1,2,0,0"
+              "Constants": "1,3,0,0"
             },
             "MaxParticles": 5000,
             "PerParticleTimeScale": {
@@ -276,22 +451,32 @@
             "Scale": {
               "Type": "Curve",
               "CurveA": {
-                "rangey": "0,20",
+                "rangey": "0,3000",
                 "frames": [
                   {
-                    "in": -9.333329,
-                    "out": 9.333329
+                    "in": -0.59999996,
+                    "out": 0.59999996
                   },
                   {
-                    "x": 0.03325123,
-                    "y": 1,
-                    "in": -2.2047548,
-                    "out": 2.2047548
+                    "x": 0.06896555,
+                    "y": 0.7898936,
+                    "in": -0.556529,
+                    "out": 0.556529
                   },
                   {
                     "x": 1,
-                    "in": 2.9152544,
-                    "out": -2.9152544
+                    "y": 1,
+                    "in": -0.071428366,
+                    "out": 0.071428366
+                  }
+                ]
+              },
+              "CurveB": {
+                "rangey": "0,2000",
+                "frames": [
+                  {
+                    "x": 0.5,
+                    "y": 0.00025
                   }
                 ]
               },
@@ -309,11 +494,9 @@
             "StartVelocity": {
               "Type": "Range",
               "Evaluation": "Particle",
-              "Constants": "100,200,0,0"
+              "Constants": "50,200,0,0"
             },
-            "Stretch": {
-              "Constants": "1,0,0,0"
-            },
+            "Stretch": {},
             "TimeScale": 1,
             "Tint": "1,1,1,1"
           },
@@ -323,9 +506,9 @@
             "BlurAmount": 0.31,
             "BlurOpacity": 0.71,
             "BlurSpacing": 0.33,
-            "DepthFeather": 0,
+            "DepthFeather": 20,
             "FaceVelocity": true,
-            "FogStrength": 1,
+            "FogStrength": 0,
             "LeadingTrail": true,
             "MotionBlur": false,
             "Opaque": false,
@@ -352,7 +535,7 @@
         ]
       },
       {
-        "Id": "bc4dd6eb-367e-411e-a438-115c2e3050e9",
+        "Id": "44b02f55-266d-455f-8973-c9fc79dd1cb4",
         "Name": "Point Light",
         "Tags": "light_point,light",
         "Enabled": true,
@@ -360,9 +543,9 @@
           {
             "__type": "PointLight",
             "Attenuation": 1,
-            "FogMode": "Disabled",
-            "FogStrength": 0,
-            "LightColor": "0.25581,0.11938,0,1",
+            "FogMode": "WithoutShadows",
+            "FogStrength": 0.5,
+            "LightColor": "1,0.68333,0,1",
             "Radius": 200,
             "Shadows": false
           }

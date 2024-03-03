@@ -12,6 +12,7 @@ public sealed class Health : Component, Component.IDamageable, IHealth
 	[Property] public float MaxHealth { get; set; } = 100f;
 	[Property] public float CurrentHealth { get; set; }
 	[Property] public Bouncy Bounce { get; set; }
+	[Property] public Color DamageFlashColor { get; set; } = Color.Red;
 
 	public bool IsAlive => CurrentHealth > 0f;
 
@@ -49,7 +50,7 @@ public sealed class Health : Component, Component.IDamageable, IHealth
 		}
 		var effect = new TintEffect
 		{
-			Tint = Color.Red,
+			Tint = DamageFlashColor,
 			UntilFadeEnd = 1f,
 			BlendMode = ColorBlendMode.Normal,
 			EasingFunction = Easing.GetFunction( "ease-out" )
