@@ -6,7 +6,7 @@
     "Children": [
       {
         "Id": "fb332b85-fe6b-4725-a3ae-f31d9f494620",
-        "Name": "Spray",
+        "Name": "Sparks",
         "Tags": "particles",
         "Enabled": true,
         "Components": [
@@ -142,9 +142,7 @@
             "StartVelocity": {
               "Constants": "300,200,0,0"
             },
-            "Stretch": {
-              "Constants": "1,0,0,0"
-            },
+            "Stretch": {},
             "TimeScale": 1,
             "Tint": "1,1,1,1"
           },
@@ -153,12 +151,12 @@
             "Additive": true,
             "BlurAmount": 0.39,
             "BlurOpacity": 0.59,
-            "BlurSpacing": 0.62,
+            "BlurSpacing": 0.06,
             "DepthFeather": 0,
             "FaceVelocity": true,
             "FogStrength": 1,
             "LeadingTrail": true,
-            "MotionBlur": true,
+            "MotionBlur": false,
             "Opaque": false,
             "RotationOffset": 90,
             "Scale": 1,
@@ -168,7 +166,7 @@
           },
           {
             "__type": "ParticleConeEmitter",
-            "Burst": 30,
+            "Burst": 5,
             "ConeAngle": 45,
             "ConeFar": 100,
             "ConeNear": 0,
@@ -178,7 +176,7 @@
             "InVolume": false,
             "Loop": true,
             "OnEdge": false,
-            "Rate": 0
+            "Rate": 30
           }
         ]
       },

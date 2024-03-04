@@ -75,7 +75,8 @@ public sealed class Weapon : Component, IDestructionListener
 		if ( _untilStartShake )
 		{
 			_untilStartShake = 0.5f;
-			ScreenEffects.SetBaseScreenShake( this, 0.15f, true );
+			var screenShakeAmount = TickDamage.Remap( MinDamage, MaxDamage, 0.12f, 0.20f );
+			ScreenEffects.SetBaseScreenShake( this, screenShakeAmount, true );
 		}
 		UpdateDamage( _currentTarget, damageable );
 	}
@@ -145,7 +146,8 @@ public sealed class Weapon : Component, IDestructionListener
 		if ( _untilScreenPunch )
 		{
 			_untilScreenPunch = 0.5f;
-			ScreenEffects.AddScreenShake( 0.1f );
+			var screenPunchAmount = TickDamage.Remap( MinDamage, MaxDamage, 0.05f, 0.1f );
+			ScreenEffects.AddScreenShake( screenPunchAmount );
 		}
 
 		_currentTarget = targetGo;

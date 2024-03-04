@@ -11,7 +11,7 @@
           "go": "622e39e7-6ca3-4830-b806-52c8465f1271"
         },
         "DamageAblationScale": {
-          "rangey": "1,2",
+          "rangey": "0.2,1",
           "frames": [
             {},
             {
