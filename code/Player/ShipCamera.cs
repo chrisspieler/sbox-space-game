@@ -7,7 +7,7 @@ using System.Linq;
 public sealed class ShipCamera : Component
 {
 	[ConVar( "camera_shake_scale" )]
-	public static float ScreenShakeScale { get; set; } = 1f;
+	public static float ScreenShakeScale { get; set; } = 0.5f;
 	[ConVar( "camera_shake_debug" )]
 	public static bool ShakeDebug { get; set; }
 
