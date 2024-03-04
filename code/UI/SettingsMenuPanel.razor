@@ -1,0 +1,82 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+
+<root class="column">
+	<div id="topBar" class="center-content">
+        <div class="title">SETTINGS</div>
+        <div id="backButton" class="button" onclick=@ClickBack>BACK</div>
+    </div>
+	<div id="mainArea" class="column">
+        <div class="category column">
+            <div class="header">VISUALS</div>
+            <div class="body column center-content">
+                <div class="setting">
+					<div class="label">Bloom Intensity</div>
+					<SliderControl Max=@(1f) Step=@(0.1f) ShowRange=@true Value=@PostProcessingController.BloomIntensity 
+                        OnValueChanged=@SetBloomIntensityScale/>
+				</div>
+            </div>
+        </div>
+		<div class="category column">
+			<div class="header">COMFORT</div>
+			<div class="body column center-content">
+				<div class="setting">
+					<div class="label">Screen Shake Amount</div>
+					<SliderControl Max=@(1f) Step=@(0.1f) ShowRange=@true Value=@ShipCamera.ScreenShakeScale 
+                        OnValueChanged=@SetScreenShakeScale/>
+				</div>
+                <div class="setting">
+					<div class="label">Laser Beam Brightness</div>
+					<SliderControl Min=@(0.1f) Max=@(1f) Step=@(0.1f) ShowRange=@true Value=@LaserBeam.BrightnessScale
+                        OnValueChanged=@SetLaserBrightnessScale/>
+				</div>
+                <div class="setting">
+					<div class="label">Volumetric Fog Thickness</div>
+					<SliderControl Min=@(0f) Max=@(1f) Step=@(0.1f) ShowRange=@true Value=@FogController.IntensityScale
+                        OnValueChanged=@SetFogIntensityScale/>
+				</div>
+			</div>
+		</div>
+	</div>
+</root>
+
+@code
+{
+    [Property] public PanelComponent ReturnMenu { get; set; }
+
+    protected override int BuildHash() => System.HashCode.Combine( ShipCamera.ScreenShakeScale, LaserBeam.BrightnessScale, FogController.IntensityScale );
+
+    private bool _clickedBack = false;
+
+    private void SetScreenShakeScale( float value)
+    {
+        ShipCamera.ScreenShakeScale = value;
+    }
+
+    private void SetLaserBrightnessScale( float value )
+    {
+        LaserBeam.BrightnessScale = value;
+    }
+
+    private void SetFogIntensityScale( float value)
+    {
+        FogController.IntensityScale = value;
+    }
+
+    private void SetBloomIntensityScale( float value)
+    {
+        PostProcessingController.BloomIntensity = value;
+    }
+
+    private void ClickBack()
+    {
+        if (_clickedBack)
+            return;
+
+        SetClass("hidden", true);
+        Settings.SaveToDisk();
+        ReturnMenu.Enabled = true;
+        _ = Task.DelaySeconds(0.15f).ContinueWith(_ => { Enabled = false; });
+    }
+}

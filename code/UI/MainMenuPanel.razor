@@ -19,9 +19,9 @@
         {
             <div class="button" @onclick=@(() => StartGame())>New Game</div>
         }
-        <div class="button disabled">Settings</div>
+        <div class="button" onclick=@OpenSettingsMenu>Settings</div>
         <div class="button disabled">Credits</div>
-        <div class="button" @onclick=@(() => Quit())>Quit</div>
+        <div class="button" onclick=@Quit>Quit</div>
     </div>
 </root>
 
@@ -32,6 +32,7 @@
     [Property] public SceneFile MainScene { get; set; }
     [Property] public Career CareerInProgress { get; set; }
     [Property] public Scenario DefaultScenario { get; set; }
+    [Property] public PanelComponent SettingsMenu { get; set; }
 
     private bool IsHidden { get; set; } = true;
 
@@ -43,6 +44,7 @@
     protected override void OnStart()
     {
         base.OnStart();
+        Settings.LoadAndApply();
         SaveManager.ActiveFileName = string.Empty;
         // TODO: Find multiple slots.
         CareerInProgress = FindExistingSave( 0 );
@@ -78,5 +80,11 @@
     private void Quit()
     {
         Game.Close();
+    }
+
+    private void OpenSettingsMenu()
+    {
+        SettingsMenu.Enabled = true;
+        Enabled = false;
     }
 }

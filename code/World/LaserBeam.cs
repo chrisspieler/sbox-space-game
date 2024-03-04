@@ -6,6 +6,8 @@ public sealed class LaserBeam : Component
 {
 	[ConVar( "laser_light_count" )]
 	public static int LaserLightCount { get; set; } = 10;
+	[ConVar( "laser_light_brightness_scale" )]
+	public static float BrightnessScale { get; set; } = 1f;
 
 	[Property] public GameObject Target { get; set; }
 	[Property] public Color Tint { get; set; }
@@ -67,7 +69,7 @@ public sealed class LaserBeam : Component
 				var position = i / (float)LaserLightCount;
 				_lights[i].Position = Transform.Position.LerpTo( Target.Transform.Position, position );
 			}
-			_lights[i].LightColor = Tint.ToHsv().WithValue( 0.5f );
+			_lights[i].LightColor = Tint.ToHsv().WithValue( 0.5f * BrightnessScale );
 		}
 	}
 
@@ -82,6 +84,8 @@ public sealed class LaserBeam : Component
 
 	private void SetControlPoints()
 	{
+		var tintHsv = Tint.ToHsv();
+		var adjustedTint = tintHsv.WithValue( tintHsv.Value * BrightnessScale );
 		ParticleInstance.ControlPoints = new()
 		{
 			new ParticleControlPoint()
@@ -97,7 +101,7 @@ public sealed class LaserBeam : Component
 			new ParticleControlPoint()
 			{
 				Value = ParticleControlPoint.ControlPointValueInput.Color,
-				ColorValue = Tint,
+				ColorValue = adjustedTint,
 				StringCP = "2"
 			}
 		};

@@ -117,7 +117,28 @@
               },
               "DefaultScenario": "data/scenarios/normal.scenario",
               "MainScene": "scenes/main.scene",
+              "SettingsMenu": {
+                "_type": "component",
+                "go": "efcee7ea-fa26-4260-89da-94acfa911e57",
+                "component_type": "SettingsMenuPanel"
+              },
               "Title": "Aluminum Acrobat"
+            }
+          ]
+        },
+        {
+          "Id": "efcee7ea-fa26-4260-89da-94acfa911e57",
+          "Name": "Settings Menu",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "SettingsMenuPanel",
+              "__enabled": false,
+              "ReturnMenu": {
+                "_type": "component",
+                "go": "c397cb91-58e1-461a-9405-d5cf95aed384",
+                "component_type": "MainMenuPanel"
+              }
             }
           ]
         }
@@ -193,6 +214,14 @@
           "Radius": 32,
           "Static": false,
           "Surface": null
+        },
+        {
+          "__type": "PostProcessingController",
+          "Bloom": {
+            "_type": "component",
+            "go": "ca95f283-ba82-4f16-8044-3cf4edf08b8b",
+            "component_type": "Bloom"
+          }
         }
       ]
     },
@@ -1299,6 +1328,15 @@
           },
           "FalloffExponent": 1,
           "Strength": 0.1
+        },
+        {
+          "__type": "FogController",
+          "Intensity": 0.5,
+          "Volume": {
+            "_type": "component",
+            "go": "19e64e56-9d20-43a8-9898-6bab2026c2fe",
+            "component_type": "VolumetricFogVolume"
+          }
         }
       ]
     },
@@ -2582,7 +2620,7 @@
   },
   "Title": "main_menu",
   "Description": "",
-  "LastSaved": "2024-03-03T12:40:09.2638477-07:00",
+  "LastSaved": "2024-03-04T11:46:18.9433127-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "facepunch.airduct_a_panel_32x32",
