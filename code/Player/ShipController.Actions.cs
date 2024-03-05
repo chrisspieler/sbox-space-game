@@ -10,7 +10,7 @@ public partial class ShipController
 		// Make the currently active ship explode, if it exists.
 		GetCurrent()?.Explode();
 
-		if ( GameManager.ActiveScene is null )
+		if ( Game.ActiveScene is null )
 			return;
 
 		// The deathcam will fight for control over the main camera, so get rid of it.
@@ -19,7 +19,7 @@ public partial class ShipController
 
 		void DestroyAllWithComponent<T>() where T : Component
 		{
-			var components = GameManager.ActiveScene.GetAllComponents<T>();
+			var components = Game.ActiveScene.GetAllComponents<T>();
 			foreach( var component in components )
 			{
 				component.GameObject.Destroy();
@@ -28,7 +28,7 @@ public partial class ShipController
 
 		Vector3 GetSpawnTransform()
 		{
-			var spawnPoint = GameManager.ActiveScene.GetAllComponents<SpawnPoint>().FirstOrDefault();
+			var spawnPoint = Game.ActiveScene.GetAllComponents<SpawnPoint>().FirstOrDefault();
 			return spawnPoint.IsValid()
 				? spawnPoint.Transform.Position
 				: Vector3.Zero;

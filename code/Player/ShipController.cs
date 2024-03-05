@@ -16,7 +16,7 @@ public sealed partial class ShipController : Component
 		set
 		{
 			_isInvincible = value;
-			if ( !GameManager.IsPlaying )
+			if ( !Game.IsPlaying )
 				return;
 
 			if ( _hull is not null )

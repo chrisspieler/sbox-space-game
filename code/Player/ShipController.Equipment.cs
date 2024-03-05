@@ -12,7 +12,7 @@ public partial class ShipController
 		{
 			var hullHasChanged = _hull != value;
 			_hull = value;
-			if ( GameManager.IsPlaying && hullHasChanged )
+			if ( Game.IsPlaying && hullHasChanged )
 			{
 				_hull.IsInvincible = IsInvincible;
 				_hull.OnKilled += Explode;

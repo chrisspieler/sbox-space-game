@@ -25,7 +25,7 @@ public static class GameObjectExtensions
 
 	public static float GetDistanceFromScreenCenter( this GameObject gameObject )
 	{
-		return GameManager.ActiveScene
+		return Game.ActiveScene
 				.Camera
 				.ScreenNormalToWorld( 0.5f )
 				.Distance( gameObject.Transform.Position );

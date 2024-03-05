@@ -9,7 +9,7 @@ public sealed class GizmoDrawComponent : Component
 	{
 		get
 		{
-			return GameManager.ActiveScene
+			return Game.ActiveScene
 				?.GetAllComponents<GizmoDrawComponent>()
 				?.FirstOrDefault();
 		}
