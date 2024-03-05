@@ -7,6 +7,8 @@ public sealed class Pickup : Component, Component.ITriggerListener
 	[Property] public CargoItem Item { get; set; }
 	[Property] public bool DisablePickup { get; set; }
 	[Property] public GameObject PickupEffectPrefab { get; set; }
+	[Property] public SoundEvent GetSuccessSound { get; set; }
+	[Property] public SoundEvent GetFailSound { get; set; }
 	[Property, Category( "Animation" )]
 	public float AnimationDuration { get; set; } = 0.4f;
 	[Property, Category( "Animation" )] 
@@ -59,11 +61,13 @@ public sealed class Pickup : Component, Component.ITriggerListener
 		if ( !cargoHold.TryAddItem( Item ) )
 		{
 			ScreenManager.ShowTextPanel( $"CARGO HOLD FULL", Transform.Position + Vector3.Up * 200f, true );
+			Sound.Play( GetFailSound, Transform.Position );
 			return;
 		}
 
 		_triggered = true;
 		ScreenManager.ShowTextPanel( $"+1 {Item.Name}", Transform.Position + Vector3.Up * 200f, false );
+		Sound.Play( GetSuccessSound, Transform.Position );
 
 		if ( PickupEffectPrefab is not null )
 		{
