@@ -50,6 +50,18 @@
           ],
           "alpha": []
         },
+        "DamagePitchScale": {
+          "rangey": "0.7,1",
+          "frames": [
+            {},
+            {
+              "x": 1,
+              "y": 1,
+              "in": -0.69387746,
+              "out": 0.69387746
+            }
+          ]
+        },
         "DamageRampUp": false,
         "DamageRampUpSpeed": 10,
         "LaserAblationPrefab": {

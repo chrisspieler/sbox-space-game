@@ -16,6 +16,7 @@ public sealed class Weapon : Component, IDestructionListener
 	[Property] public float DamageRampUpSpeed { get; set; } = 10f;
 	[Property] public Curve DamageAblationScale { get; set; }
 	[Property] public Gradient DamageColorScale { get; set; }
+	[Property] public Curve DamagePitchScale { get; set; }
 	[Property] public Color LaserTint { get; set; } = Color.Red;
 	[Property] public SoundEvent LaserLoopSound { get; set; }
 
@@ -55,6 +56,7 @@ public sealed class Weapon : Component, IDestructionListener
 		UpdateLaserEffect( tr.EndPosition, tr.Hit, tr.Normal );
 		_currentLaserSound ??= Sound.Play( LaserLoopSound );
 		_currentLaserSound.Position = Transform.Position;
+		_currentLaserSound.Pitch = DamagePitchScale.Evaluate( TickDamage.LerpInverse( MinDamage, MaxDamage ) );
 		var target = tr.GameObject;
 		if ( target is null )
 		{
