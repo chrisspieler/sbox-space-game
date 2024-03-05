@@ -5,7 +5,7 @@
 <root class="column">
 	<div id="topBar" class="center-content">
         <div class="title">SETTINGS</div>
-        <div id="backButton" class="button" onclick=@ClickBack>BACK</div>
+        <div id="backButton" class="button" onclick=@Back>BACK</div>
     </div>
 	<div id="mainArea" class="column">
         <div class="category column">
@@ -49,6 +49,16 @@
 
     private bool _clickedBack = false;
 
+    protected override void OnUpdate()
+    {
+        base.OnUpdate();
+
+        if ( Input.EscapePressed )
+        {
+            Back();
+        }
+    }
+
     private void SetScreenShakeScale( float value)
     {
         ShipCamera.ScreenShakeScale = value;
@@ -69,7 +79,7 @@
         PostProcessingController.BloomIntensity = value;
     }
 
-    private void ClickBack()
+    private void Back()
     {
         if (_clickedBack)
             return;
@@ -77,6 +87,6 @@
         SetClass("hidden", true);
         Settings.SaveToDisk();
         ReturnMenu.Enabled = true;
-        _ = Task.DelaySeconds(0.15f).ContinueWith(_ => { Enabled = false; });
+        _ = Task.DelayRealtimeSeconds(0.15f).ContinueWith(_ => { Enabled = false; });
     }
 }

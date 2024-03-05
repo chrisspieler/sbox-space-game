@@ -111,6 +111,9 @@ public sealed partial class ShipController : Component
 
 	protected override void OnUpdate()
 	{
+		if ( Scene.TimeScale == 0f )
+			return;
+
 		var inputDir = Input.AnalogMove;
 		if ( !inputDir.IsNearZeroLength )
 		{

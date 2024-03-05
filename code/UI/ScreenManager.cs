@@ -13,12 +13,21 @@ public sealed class ScreenManager : Component
 	[Property] public GameObject BeaconContainer { get; set; }
 	[Property] public GameObject HealthBarContainer { get; set; }
 	[Property] public GameObject TextPanelContainer { get; set; }
+	[Property] public PanelComponent PauseMenuPanel { get; set; }
 
 	private Dictionary<IHealth, GameObject> _activeHealthBars = new();
 
 	protected override void OnAwake()
 	{
 		Instance = this;
+	}
+
+	protected override void OnUpdate()
+	{
+		if ( Input.EscapePressed )
+		{
+			ShowPauseMenu();
+		}
 	}
 
 	public static void UpdateShip( ShipController ship )
@@ -145,5 +154,13 @@ public sealed class ScreenManager : Component
 		textComponent.TargetPosition = position;
 		textComponent.IsAlert = isAlert;
 		textComponent.Lifetime = duration;
+	}
+
+	public static void ShowPauseMenu()
+	{
+		if ( !((PauseMenuPanel)Instance.PauseMenuPanel).CanShowPauseMenu() )
+			return;
+
+		Instance.PauseMenuPanel.Enabled = true;
 	}
 }

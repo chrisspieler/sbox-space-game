@@ -1,0 +1,66 @@
+@using System.Linq;
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+
+<root>
+	<div class="title">PAUSED</div>
+	<div id="buttonList" class="column center-content">
+		<div class="button" onclick=@Resume>RESUME</div>
+        <div class="button" onclick=@OpenSettings>SETTINGS</div>
+        <!--TODO: Fix the issue with the world chunker that makes going back to the main menu not work.-->
+        <div class="button disabled">HOLD ESC TO QUIT</div>
+	</div>
+</root>
+
+@code
+{
+
+    [Property] public PanelComponent SettingsPanel { get; set; }
+    [Property] public SceneFile MainMenuScene { get; set; }
+
+    /// <summary>
+    /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+    /// </summary>
+    protected override int BuildHash() => System.HashCode.Combine( 1 );
+
+    protected override void OnEnabled()
+    {
+        base.OnEnabled();
+
+        Scene.TimeScale = 0f;
+    }
+
+    protected override void OnUpdate()
+    {
+        base.OnUpdate();
+
+        if ( Panel.Children.Any() && Input.EscapePressed )
+        {
+            Resume();
+        }
+    }
+
+    public bool CanShowPauseMenu()
+    {
+        return !SettingsPanel.Enabled;
+    }
+
+    private void Resume() 
+    {
+        Scene.TimeScale = 1f;
+        Enabled = false;
+    }
+
+    private void OpenSettings()
+    {
+        SettingsPanel.Enabled = true;
+        Enabled = false;
+    }
+
+    private void Quit()
+    {
+        SaveManager.SaveActiveCareer();
+        Scene.Load(MainMenuScene);
+    }
+}

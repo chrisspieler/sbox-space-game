@@ -19,6 +19,9 @@ public sealed class Thruster : Component
 
 	protected override void OnUpdate()
 	{
+		if ( Scene.TimeScale == 0f )
+			return;
+
 		EnsureEffectInstance();
 
 		var force = Burn();

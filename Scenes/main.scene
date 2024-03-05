@@ -40,6 +40,11 @@
             "go": "b8c346f0-faad-462c-bdad-1fdd1801e747",
             "component_type": "HudPanel"
           },
+          "PauseMenuPanel": {
+            "_type": "component",
+            "go": "e1deb9c4-2308-431f-9ca2-ae89e3b69007",
+            "component_type": "PauseMenuPanel"
+          },
           "RestartPanel": {
             "_type": "component",
             "go": "231cb05f-5d34-4930-addf-bfe5060a2afc",
@@ -149,6 +154,41 @@
           "Name": "Text Panel Container",
           "Position": "0,0,0",
           "Enabled": true
+        },
+        {
+          "Id": "e1deb9c4-2308-431f-9ca2-ae89e3b69007",
+          "Name": "Pause Menu",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "PauseMenuPanel",
+              "__enabled": false,
+              "MainMenuScene": "scenes/main_menu.scene",
+              "SettingsPanel": {
+                "_type": "component",
+                "go": "80dbbd04-a8a5-4866-94e7-433a6140e307",
+                "component_type": "SettingsMenuPanel"
+              }
+            }
+          ]
+        },
+        {
+          "Id": "80dbbd04-a8a5-4866-94e7-433a6140e307",
+          "Name": "Settings Menu",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "SettingsMenuPanel",
+              "__enabled": false,
+              "ReturnMenu": {
+                "_type": "component",
+                "go": "e1deb9c4-2308-431f-9ca2-ae89e3b69007",
+                "component_type": "PauseMenuPanel"
+              }
+            }
+          ]
         }
       ]
     },
@@ -324,7 +364,7 @@
             "Maxs": "4000,4000,6000"
           },
           "FalloffExponent": 3,
-          "Strength": 0.05
+          "Strength": 0.1
         },
         {
           "__type": "Follower",
@@ -332,7 +372,7 @@
         },
         {
           "__type": "FogController",
-          "Intensity": 0.5,
+          "Intensity": 0.25,
           "Volume": {
             "_type": "component",
             "go": "5a204e98-b86c-4727-accc-d522082427fd",
@@ -655,7 +695,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-04T11:47:45.9493876-07:00",
+  "LastSaved": "2024-03-05T00:23:37.2602768-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03",
