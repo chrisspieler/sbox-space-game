@@ -15,7 +15,16 @@ public sealed class Thruster : Component
 	[Property] public float FuelConsumptionPerSecond { get; set; } = 0.5f;
 	[Property] public bool ShouldFire { get; set; } = false;
 	[Property] public float LifetimeScale { get; set; } = 1f;
+	[Property]
+	public SoundEvent StartSound { get; set; }
+	[Property]
+	public SoundEvent LoopSound { get; set; }
+
 	private Dictionary<GameObject, GameObject> _effectInstances { get; set; } = new();
+	private SoundHandle _thrusterStartSoundHandle;
+	private SoundHandle _thrusterLoopSoundHandle;
+
+	private bool _wasFiringLastUpdate = false;
 
 	protected override void OnUpdate()
 	{
@@ -25,14 +34,21 @@ public sealed class Thruster : Component
 		EnsureEffectInstance();
 
 		var force = Burn();
+		_wasFiringLastUpdate = force != 0f;
 		Controller.Rigidbody.Velocity += force * Time.Delta;
 		foreach( var ( thruster, effect ) in _effectInstances )
 		{
 			var alignment = GetAlignment( force, thruster );
 			if ( force.IsNearZeroLength || alignment < 0.5f )
 			{
+				_thrusterLoopSoundHandle?.Stop( 0.1f );
 				effect.Enabled = false;
 				continue;
+			}
+			if ( _thrusterLoopSoundHandle?.IsPlaying != true )
+			{
+				_thrusterLoopSoundHandle = Sound.Play( LoopSound );
+				_thrusterLoopSoundHandle.Position = Transform.Position;
 			}
 			UpdateEffect( effect, alignment );
 			ShouldFire = false;
@@ -77,6 +93,11 @@ public sealed class Thruster : Component
 		if ( !Controller.Fuel.TryBurnFuel( burnAmount ) )
 			return Vector3.Zero;
 
+		if ( !_wasFiringLastUpdate )
+		{
+			_thrusterStartSoundHandle?.Stop( 0.1f );
+			_thrusterStartSoundHandle = Sound.Play( StartSound, Transform.Position );
+		}
 		return GetForce();
 	}
 
@@ -108,6 +129,7 @@ public sealed class Thruster : Component
 			effect.Destroy();
 		}
 		_effectInstances.Clear();
+		_thrusterLoopSoundHandle?.Stop( 0.1f );
 	}
 
 	protected override void OnDisabled()

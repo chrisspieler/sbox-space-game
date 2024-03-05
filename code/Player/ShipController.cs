@@ -119,15 +119,14 @@ public sealed partial class ShipController : Component
 		{
 			FacingDirection = GetLastKeyboardDirection();
 		}
-		UpdateThrusters( inputDir );
+		UpdateThrusters();
 		TargetRotation = GetTargetRotation();
-		var rotationSpeed = GetRotationSpeed();
 		Rigidbody.PhysicsBody.SmoothRotate( TargetRotation, 1f / TurnSpeed, Time.Delta );
 		PartsContainer.Transform.Rotation = Rigidbody.PhysicsBody.Rotation;
 		UpdateDebugInfo();
 	}
 
-	private void UpdateThrusters( Vector3 inputDir )
+	private void UpdateThrusters()
 	{
 		MainThrusters.ShouldFire = ShouldFireMainThrusters();
 		_mainThrusterForce = MainThrusters.ShouldFire
@@ -186,12 +185,5 @@ public sealed partial class ShipController : Component
 	private Rotation GetTargetRotation()
 	{
 		return Rotation.LookAt( FacingDirection, Vector3.Up );
-	}
-
-	private float GetRotationSpeed()
-	{
-		return (!Grapple.IsValid() || Grapple.IsSlack)
-			? TurnSpeed
-			: TurnSpeed * 3f;
 	}
 }
