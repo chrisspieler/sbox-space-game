@@ -1,0 +1,14 @@
+{
+  "UI": false,
+  "Volume": "10.00,1.00,0",
+  "Pitch": "0.70,1.00,0",
+  "Decibels": 90,
+  "SelectionMode": "Random",
+  "Sounds": [
+    "sounds/weapon/laser_loop.vsnd"
+  ],
+  "Occlusion": true,
+  "OcclusionRadius": 64,
+  "DistanceAttenuation": true,
+  "__references": []
+}

@@ -17,10 +17,12 @@ public sealed class Weapon : Component, IDestructionListener
 	[Property] public Curve DamageAblationScale { get; set; }
 	[Property] public Gradient DamageColorScale { get; set; }
 	[Property] public Color LaserTint { get; set; } = Color.Red;
+	[Property] public SoundEvent LaserLoopSound { get; set; }
 
 	private GameObject _currentTarget;
 	private LaserBeam _currentLaserEffect;
 	private GameObject _laserHitTarget;
+	private SoundHandle _currentLaserSound;
 	private TimeUntil _untilNextDamageTick;
 	// We need a couple of timers to rate limit contributions to screen shake,
 	// otherwise feathering/grazing a target with a laser will cause extreme shaking.
@@ -51,6 +53,8 @@ public sealed class Weapon : Component, IDestructionListener
 		var tr = RunAimTrace( mousePos );
 		_currentLaserEffect ??= CreateLaserEffect();
 		UpdateLaserEffect( tr.EndPosition, tr.Hit, tr.Normal );
+		_currentLaserSound ??= Sound.Play( LaserLoopSound );
+		_currentLaserSound.Position = Transform.Position;
 		var target = tr.GameObject;
 		if ( target is null )
 		{
@@ -139,6 +143,8 @@ public sealed class Weapon : Component, IDestructionListener
 			selfDestruct.Delay = 2f;
 			_laserHitTarget = null;
 		}
+		_currentLaserSound?.Stop( 0.1f );
+		_currentLaserSound = null;
 	}
 
 	private void StartDamage( GameObject targetGo )
