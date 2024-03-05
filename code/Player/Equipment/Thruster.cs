@@ -45,11 +45,7 @@ public sealed class Thruster : Component
 				effect.Enabled = false;
 				continue;
 			}
-			if ( LoopSound is not null && _thrusterLoopSoundHandle?.IsPlaying != true )
-			{
-				_thrusterLoopSoundHandle = Sound.Play( LoopSound );
-				_thrusterLoopSoundHandle.Position = Transform.Position;
-			}
+			UpdateLoopSound();
 			UpdateEffect( effect, alignment );
 			ShouldFire = false;
 		}
@@ -111,6 +107,18 @@ public sealed class Thruster : Component
 		thrusterForce *= -1f;
 		var dot = thrusterForce.Normal.Dot( thruster.Transform.Rotation.Forward );
 		return (dot + 1f) / 2f;
+	}
+
+	private void UpdateLoopSound()
+	{
+		if ( LoopSound is null )
+			return;
+
+		if ( _thrusterLoopSoundHandle?.IsPlaying != true )
+		{
+			_thrusterLoopSoundHandle = Sound.Play( LoopSound );
+		}
+		_thrusterLoopSoundHandle.Position = Transform.Position;
 	}
 
 	private void UpdateEffect( GameObject effectGo, float alignment )
