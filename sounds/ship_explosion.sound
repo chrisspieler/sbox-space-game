@@ -1,13 +1,13 @@
 {
   "UI": false,
   "Volume": "10.00,1.00,0",
-  "Pitch": "0.70,1.00,0",
-  "Decibels": 90,
+  "Pitch": "1.00,1.00,0",
+  "Decibels": 70,
   "SelectionMode": "Random",
   "Sounds": [
-    "data/weapons/mining_laser/laser_loop.vsnd"
+    "sounds/common/explosions/explo_gas_can_01.vsnd"
   ],
-  "Occlusion": false,
+  "Occlusion": true,
   "OcclusionRadius": 64,
   "DistanceAttenuation": true,
   "__references": []

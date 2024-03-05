@@ -99,6 +99,7 @@
         },
         "CurrentHealth": 0,
         "DamageFlashColor": "1,1,1,1",
+        "DamageSound": "sounds/asteroid_dig.sound",
         "IsInvincible": false,
         "MaxHealth": 100,
         "OnDamaged": null,
@@ -111,6 +112,20 @@
           "prefab": "prefabs/effects/ship_explosion.prefab"
         },
         "FractureLoot": "data/asteroids/c_type.loot",
+        "FracturePitchCurve": {
+          "rangey": "0.5,1",
+          "frames": [
+            {
+              "y": 1
+            },
+            {
+              "x": 1,
+              "in": 0.76923096,
+              "out": -0.76923096
+            }
+          ]
+        },
+        "FractureSound": "sounds/asteroid_fracture.sound",
         "Health": {
           "_type": "component",
           "go": "a710d01a-a4db-4951-8233-100991adc0b3",

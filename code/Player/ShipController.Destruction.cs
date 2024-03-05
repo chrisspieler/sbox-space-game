@@ -9,6 +9,7 @@ public sealed partial class ShipController
 
 	[Property, Category("Death")] public GameObject Meat { get; set; }
 	[Property, Category( "Death" )] public GameObject ExplosionPrefab { get; set; }
+	[Property, Category( "Death" )] public SoundEvent ExplosionSound { get; set; }
 
 	[ConCmd("ship_explode")]
 	public static void ExplodeCommand()
@@ -180,6 +181,10 @@ public sealed partial class ShipController
 			effect.CollisionIgnore.Add( "player" );
 			// Don't collide with the base shield.
 			effect.CollisionIgnore.Add( "player_shield" );
+		}
+		if ( ExplosionSound is not null )
+		{
+			Sound.Play( ExplosionSound, Transform.Position );
 		}
 	}
 }

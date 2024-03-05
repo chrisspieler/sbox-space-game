@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "Id": "0050bf7a-35f4-4877-9dfc-e2bd64560635",
+    "Id": "b6d0aad0-b87a-490b-b768-c2074ea47f67",
     "Name": "ship_explosion",
     "Enabled": true,
     "Components": [
@@ -18,7 +18,7 @@
     ],
     "Children": [
       {
-        "Id": "0e2e1d11-f8b9-4e51-9d1f-f4a44c234eb1",
+        "Id": "2b91e635-50e8-459d-b361-dac818801f81",
         "Name": "Burst",
         "Tags": "particles",
         "Enabled": true,
@@ -216,7 +216,7 @@
         ]
       },
       {
-        "Id": "b659bdac-c85d-4bb1-8730-c6130c3961fc",
+        "Id": "877325b9-3bef-4f14-abce-200d679daa02",
         "Name": "Point Light",
         "Tags": "light_point,light",
         "Enabled": true,
@@ -237,7 +237,7 @@
         ]
       },
       {
-        "Id": "42a9322e-f484-4adf-a889-fc976a490e55",
+        "Id": "15a33651-6b5f-4a54-8f86-47ac3000b6d4",
         "Name": "Smoke",
         "Tags": "particles",
         "Enabled": true,
@@ -417,7 +417,7 @@
         ]
       },
       {
-        "Id": "eae59c08-98ae-4e1c-bc06-bc4580061c69",
+        "Id": "1857b10a-bd28-4154-a4d1-25a242da2f94",
         "Name": "Fire",
         "Tags": "particles",
         "Enabled": true,

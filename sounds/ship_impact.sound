@@ -1,0 +1,16 @@
+{
+  "UI": false,
+  "Volume": "8.00,1.00,0",
+  "Pitch": "0.70,1.00,0",
+  "Decibels": 70,
+  "SelectionMode": "Random",
+  "Sounds": [
+    "sounds/physics/props/metal_trashcan/impact_c_01.vsnd",
+    "sounds/physics/props/metal_trashcan/impact_c_03.vsnd",
+    "sounds/physics/props/metal_trashcan/impact_c_04.vsnd"
+  ],
+  "Occlusion": true,
+  "OcclusionRadius": 64,
+  "DistanceAttenuation": true,
+  "__references": []
+}

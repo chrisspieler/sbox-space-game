@@ -6,6 +6,7 @@ public sealed class Mineable : Component
 	[Property] public GameObject FractureEffect { get; set; }
 	[Property] public Health Health { get; set; }
 	[Property] public LootTable FractureLoot { get; set; }
+	[Property] public SoundEvent FractureSound { get; set; }
 
 	protected override void OnStart()
 	{
@@ -38,6 +39,10 @@ public sealed class Mineable : Component
 				rb.Velocity = Vector3.Random * Random.Shared.Float( 1500f, 3000f );
 				rb.AngularVelocity = Vector3.Random * Random.Shared.Float( 1f, 10f );
 			}
+		}
+		if ( FractureSound is not null )
+		{
+			Sound.Play( FractureSound, Transform.Position );
 		}
 		GameObject.Destroy();
 	}

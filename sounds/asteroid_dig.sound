@@ -1,0 +1,18 @@
+{
+  "UI": false,
+  "Volume": "8.00,1.00,0",
+  "Pitch": "2.00,2.50,1",
+  "Decibels": 70,
+  "SelectionMode": "RandomExclusive",
+  "Sounds": [
+    "sounds/physics/surfaces/debris_concrete/impact_d_01.vsnd",
+    "sounds/physics/surfaces/debris_concrete/impact_c_02.vsnd",
+    "sounds/physics/surfaces/debris_concrete/impact_c_03.vsnd",
+    "sounds/physics/surfaces/debris_concrete/impact_b_01.vsnd",
+    "sounds/physics/surfaces/debris_concrete/impact_b_02.vsnd"
+  ],
+  "Occlusion": true,
+  "OcclusionRadius": 64,
+  "DistanceAttenuation": true,
+  "__references": []
+}

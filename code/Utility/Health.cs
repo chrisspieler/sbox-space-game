@@ -6,6 +6,7 @@ public sealed class Health : Component, Component.IDamageable, IHealth
 {
 	[Property] public Action OnKilled { get; set; }
 	[Property] public Action<DamageInfo> OnDamaged { get; set; }
+	[Property] public SoundEvent DamageSound { get; set; }
 
 	[Property] public bool IsInvincible { get; set; }
 	[Property] public GameObject Body { get; set; }
@@ -60,5 +61,9 @@ public sealed class Health : Component, Component.IDamageable, IHealth
 			EasingFunction = Easing.GetFunction( "ease-out" )
 		};
 		Body.ColorFlash( effect );
+		if ( DamageSound is not null )
+		{
+			Sound.Play( DamageSound, Transform.Position );
+		}
 	}
 }
