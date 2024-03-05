@@ -2257,6 +2257,10 @@
             ],
             "alpha": []
           },
+          "DamagePitchScale": {
+            "rangex": "0,0",
+            "rangey": "0,0"
+          },
           "DamageRampUp": false,
           "DamageRampUpSpeed": 10,
           "LaserAblationPrefab": {
@@ -2267,9 +2271,11 @@
             "_type": "gameobject",
             "prefab": "prefabs/effects/laser_beam.prefab"
           },
+          "LaserLoopSound": null,
           "LaserTint": "0.02326,0,0,1",
           "MaxDamage": 20,
           "MinDamage": 2.5,
+          "ShieldHitPrefab": null,
           "TickDamage": 2.5,
           "TickInterval": 0.2,
           "TraceOrigin": null
@@ -2423,6 +2429,10 @@
             ],
             "alpha": []
           },
+          "DamagePitchScale": {
+            "rangex": "0,0",
+            "rangey": "0,0"
+          },
           "DamageRampUp": false,
           "DamageRampUpSpeed": 10,
           "LaserAblationPrefab": {
@@ -2433,9 +2443,11 @@
             "_type": "gameobject",
             "prefab": "prefabs/effects/laser_beam.prefab"
           },
+          "LaserLoopSound": null,
           "LaserTint": "0.02326,0,0,1",
           "MaxDamage": 20,
           "MinDamage": 2.5,
+          "ShieldHitPrefab": null,
           "TickDamage": 2.5,
           "TickInterval": 0.2,
           "TraceOrigin": null
@@ -2586,6 +2598,19 @@
           "DestroyAfterBlast": true,
           "Force": 50000,
           "Radius": 2000
+        },
+        {
+          "__type": "SoundPointComponent",
+          "Force2d": false,
+          "MaxRepeatTime": 1,
+          "MinRepeatTime": 1,
+          "Pitch": 1,
+          "PlayOnStart": true,
+          "Repeat": false,
+          "SoundEvent": "sounds/ship_explosion.sound",
+          "SoundOverride": true,
+          "StopOnNew": false,
+          "Volume": 1
         }
       ]
     },
@@ -2620,7 +2645,7 @@
   },
   "Title": "main_menu",
   "Description": "",
-  "LastSaved": "2024-03-04T11:46:18.9433127-07:00",
+  "LastSaved": "2024-03-05T12:52:08.5473174-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "facepunch.airduct_a_panel_32x32",
