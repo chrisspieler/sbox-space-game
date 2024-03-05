@@ -76,6 +76,10 @@
         "LaserTint": "0.02326,0,0,1",
         "MaxDamage": 20,
         "MinDamage": 2.5,
+        "ShieldHitPrefab": {
+          "_type": "gameobject",
+          "prefab": "prefabs/effects/shield_hit.prefab"
+        },
         "TickDamage": 2.5,
         "TickInterval": 0.2,
         "TraceOrigin": {

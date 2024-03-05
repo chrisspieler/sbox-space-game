@@ -8,6 +8,7 @@ public sealed class Weapon : Component, IDestructionListener
 	[Property] public GameObject TraceOrigin { get; set; }
 	[Property] public GameObject LaserEffectPrefab { get; set; }
 	[Property] public GameObject LaserAblationPrefab { get; set; }
+	[Property] public GameObject ShieldHitPrefab { get; set; }
 	[Property] public float TickInterval { get; set; } = 0.2f;
 	[Property] public float TickDamage { get; set; } = 2.5f;
 	[Property] public float MaxDamage { get; set; } = 20f;
@@ -53,7 +54,7 @@ public sealed class Weapon : Component, IDestructionListener
 		}
 		var tr = RunAimTrace( mousePos );
 		_currentLaserEffect ??= CreateLaserEffect();
-		UpdateLaserEffect( tr.EndPosition, tr.Hit, tr.Normal );
+		UpdateLaserEffect( tr );
 		_currentLaserSound ??= Sound.Play( LaserLoopSound );
 		_currentLaserSound.Position = Transform.Position;
 		_currentLaserSound.Pitch = DamagePitchScale.Evaluate( TickDamage.LerpInverse( MinDamage, MaxDamage ) );
@@ -118,16 +119,37 @@ public sealed class Weapon : Component, IDestructionListener
 		return laserBeam;
 	}
 
-	private void UpdateLaserEffect( Vector3 endPosition, bool hit, Vector3 normal )
+	private bool _wasHittingShield;
+
+	private void UpdateLaserEffect( SceneTraceResult tr )
 	{
 		var power = MathX.LerpInverse( TickDamage, MinDamage, MaxDamage );
 		_currentLaserEffect.Tint = DamageColorScale.Evaluate( power );
-		_laserHitTarget ??= LaserAblationPrefab.Clone();
-		_currentLaserEffect.Target ??= _laserHitTarget;
-		_laserHitTarget.ToggleParticleEmission( hit );
-		_laserHitTarget.Transform.Position = endPosition;
-		_laserHitTarget.Transform.Rotation = Rotation.LookAt( normal );
-		_laserHitTarget.SetParticleScale( DamageAblationScale.Evaluate( power ) );
+		var hitShield = tr.GameObject?.Tags?.Has( "shield" ) == true;
+		if ( hitShield != _wasHittingShield && _laserHitTarget != null )
+		{
+			OrphanizeEffect( _laserHitTarget );
+			_laserHitTarget = null;
+		}
+		_wasHittingShield = hitShield;
+		_laserHitTarget ??= hitShield
+			? ShieldHitPrefab.Clone()
+			: LaserAblationPrefab.Clone();
+		_currentLaserEffect.Target = _laserHitTarget;
+		_laserHitTarget.ToggleParticleEmission( tr.Hit );
+		_laserHitTarget.Transform.Position = tr.EndPosition;
+		_laserHitTarget.Transform.Rotation = Rotation.LookAt( tr.Normal );
+		// TODO: Scale up particles with damage.
+	}
+
+	private static void OrphanizeEffect( GameObject go )
+	{
+		var position = go.Transform.Position;
+		go.SetParent( null );
+		go.Transform.Position = position;
+		go.ToggleParticleEmission( false );
+		var selfDestruct = go.Components.Create<SelfDestruct>();
+		selfDestruct.Delay = 2f;
 	}
 
 	private void DestroyLaserEffect()

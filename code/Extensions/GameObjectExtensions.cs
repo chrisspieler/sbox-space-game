@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Sandbox;
-using static Sandbox.PhysicsContact;
 
 public static class GameObjectExtensions
 {
@@ -69,12 +68,6 @@ public static class GameObjectExtensions
 	public static Ray GetRay( this GameObject obj )
 	{
 		return new Ray( obj.Transform.Position, obj.Transform.Rotation.Forward );
-	}
-
-	public static void SetParticleScale( this GameObject obj, float scale )
-	{
-		var helper = obj.Components.GetOrCreate<ParticleHelper>();
-		helper.SetScale( scale );
 	}
 
 	public static void ToggleParticleEmission( this GameObject obj, bool shouldEmit )

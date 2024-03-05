@@ -15,6 +15,8 @@ public sealed class Shield : Component, Component.IDamageable, IHealth
 	[Property] public Collider Collider { get; set; }
 	[Property] public ModelRenderer Renderer { get; set; }
 	[Property] public Bouncy Bounce { get; set; }
+	[Property] public SoundEvent HitSound { get; set; }
+	[Property] public SoundEvent BreakSound { get; set; }
 
 	private TimeUntil _regenStart;
 	private SceneLight _hitLight;
@@ -81,13 +83,20 @@ public sealed class Shield : Component, Component.IDamageable, IHealth
 		var fadeTime = 0.8f;
 		var effect = new TintEffect
 		{
-			Tint = Color.Cyan.WithAlpha( 0.3f ),
+			Tint = Color.Cyan,
 			UntilFadeEnd = fadeTime,
 			BlendMode = ColorBlendMode.Normal,
 			EasingFunction = Easing.GetFunction( "ease-out" )
 		};
 		GameObject.ColorFlash( effect );
 		CreateHitLight( Color.Cyan, fadeTime );
+		var hitSound = CurrentHealth > 0f
+			? HitSound
+			: BreakSound;
+		if ( hitSound is not null )
+		{
+			Sound.Play( hitSound, Transform.Position );
+		}
 	}
 
 	private void CreateHitLight( Color color, float time )

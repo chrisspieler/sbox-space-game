@@ -1,11 +1,11 @@
 {
   "RootObject": {
-    "Id": "adb34834-7347-474d-8a43-76f45d8cc0ec",
+    "Id": "a2115e3e-ac97-4bd3-90be-b33777d742f6",
     "Name": "laser_ablation",
     "Enabled": true,
     "Children": [
       {
-        "Id": "e29e2adb-d94a-4f8a-91a2-5d951db82640",
+        "Id": "de88da05-803d-42e4-9c99-64e70423d40f",
         "Name": "Sparks",
         "Tags": "particles",
         "Enabled": true,
@@ -181,7 +181,7 @@
         ]
       },
       {
-        "Id": "0031d3d3-a0cb-4dcf-b41c-dfd7ec718f03",
+        "Id": "3fb311ed-83b0-4f23-8d6e-47a313376eb2",
         "Name": "Fireball",
         "Position": "13.00308,0,0",
         "Tags": "particles",
@@ -354,7 +354,7 @@
         ]
       },
       {
-        "Id": "2f782c67-77e1-487c-8c79-89a01f11c3cf",
+        "Id": "7a3bd35b-1cb9-4245-93a8-a8c93d9d1278",
         "Name": "Smoke",
         "Tags": "particles",
         "Enabled": true,
@@ -449,7 +449,7 @@
             "Scale": {
               "Type": "Curve",
               "CurveA": {
-                "rangey": "0,3000",
+                "rangey": "0,200",
                 "frames": [
                   {
                     "in": -0.59999996,
@@ -533,7 +533,7 @@
         ]
       },
       {
-        "Id": "3c99dcc8-45d7-4591-a8f4-9cbc5dde3626",
+        "Id": "813d6541-0c7a-457d-9127-fee6a77daf58",
         "Name": "Point Light",
         "Tags": "light_point,light",
         "Enabled": true,

@@ -2073,6 +2073,7 @@
                   "go": "199ab015-6a28-406d-93ce-225eaab7edca",
                   "component_type": "Bouncy"
                 },
+                "BreakSound": "sounds/shield_break.sound",
                 "Collider": {
                   "_type": "component",
                   "go": "199ab015-6a28-406d-93ce-225eaab7edca",
@@ -2080,6 +2081,7 @@
                 },
                 "Controller": null,
                 "CurrentHealth": 0,
+                "HitSound": "sounds/shield_hit.sound",
                 "MaxHealth": 0,
                 "OnDamaged": null,
                 "RegenDelay": 0,
@@ -2091,7 +2093,7 @@
                 "__enabled": false,
                 "BodyGroups": 18446744073709551615,
                 "MaterialGroup": null,
-                "MaterialOverride": "materials/dev/primary_white_emissive.vmat",
+                "MaterialOverride": "materials/dev/primary_white_emissive_trans.vmat",
                 "Model": "models/dev/sphere.vmdl",
                 "RenderType": "On",
                 "Tint": "0,1,1,0"

@@ -427,7 +427,7 @@
           "Name": "Base Shield",
           "Position": "0,0,0",
           "Scale": "2,2,2",
-          "Tags": "player_allow",
+          "Tags": "player_allow,shield",
           "Enabled": true,
           "Components": [
             {
@@ -437,6 +437,7 @@
                 "go": "ccc59e16-bb57-417c-bb76-17079140fa74",
                 "component_type": "Bouncy"
               },
+              "BreakSound": "sounds/shield_break.sound",
               "Collider": {
                 "_type": "component",
                 "go": "ccc59e16-bb57-417c-bb76-17079140fa74",
@@ -444,6 +445,7 @@
               },
               "Controller": null,
               "CurrentHealth": 10000,
+              "HitSound": "sounds/shield_hit.sound",
               "MaxHealth": 10000,
               "OnDamaged": null,
               "RegenDelay": 0.1,
@@ -471,7 +473,7 @@
               "__type": "ModelRenderer",
               "BodyGroups": 18446744073709551615,
               "MaterialGroup": null,
-              "MaterialOverride": "materials/dev/primary_white_emissive.vmat",
+              "MaterialOverride": "materials/dev/primary_white_emissive_trans.vmat",
               "Model": "models/dev/sphere.vmdl",
               "RenderType": "On",
               "Tint": "0,1,1,0"
@@ -695,7 +697,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-05T10:17:38.034665-07:00",
+  "LastSaved": "2024-03-05T12:14:28.4993514-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03",
