@@ -161,6 +161,8 @@ public sealed partial class ShipController
 		var oldPos = camera.Transform.Position;
 		camera.GameObject.Parent = null;
 		camera.GameObject.Transform.Position = oldPos;
+		// Clear all screen shake.
+		ScreenEffects.ClearBaseScreenShake();
 	}
 
 	private void SpawnExplosion()

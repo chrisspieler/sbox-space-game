@@ -20,6 +20,15 @@ public static class ScreenEffects
 		camera.SetBaseScreenShake( shaker, amount, enable );
 	}
 
+	public static void ClearBaseScreenShake()
+	{
+		var camera = ShipCamera.GetCurrent();
+		if ( !camera.IsValid() )
+			return;
+
+		camera.ClearAllScreenShakeToggles();
+	}
+
 	public static void ClearBaseScreenShake( IValid shaker )
 	{
 		var camera = ShipCamera.GetCurrent();

@@ -103,6 +103,14 @@ public sealed class ShipCamera : Component
 		}
 	}
 
+	public void ClearAllScreenShakeToggles()
+	{
+		var totalShake = _screenShakeToggles.Values.Sum();
+		Trauma += totalShake;
+		Trauma = MathF.Min( 1f, Trauma );
+		_screenShakeToggles.Clear();
+	}
+
 	private float GetBaseTrauma()
 	{
 		var baseTrauma = 0f;
