@@ -10,6 +10,8 @@ obj/*
 Properties/*
 code/obj/*
 code/Properties/*
+code/Editor/obj/*
+code/Editor/Properties/*
 
 # Auto-generated asset related files
 *.generated.*
