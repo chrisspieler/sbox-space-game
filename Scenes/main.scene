@@ -311,7 +311,7 @@
         {
           "__type": "SaveManager",
           "AutosaveInterval": 60,
-          "DefaultScenario": "data/scenarios/normal.scenario",
+          "FallbackScenario": "data/scenarios/normal.scenario",
           "ShipPrefab": {
             "_type": "gameobject",
             "prefab": "prefabs/ship.prefab"
@@ -695,7 +695,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-05T05:24:44.9656721-07:00",
+  "LastSaved": "2024-03-05T05:53:20.2632557-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03",

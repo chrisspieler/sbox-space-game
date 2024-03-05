@@ -1,13 +1,14 @@
 using Sandbox;
 using System;
 using System.IO;
+using System.Linq;
 
 public sealed class SaveManager : Component
 {
 	[ConVar( "save_filename" )]
 	public static string ActiveFileName { get; set; }
 
-	[Property] public Scenario DefaultScenario { get; set; }
+	[Property] public Scenario FallbackScenario { get; set; }
 	[Property] public GameObject ShipPrefab { get; set; }
 	[Property] public float AutosaveInterval { get; set; } = 60;
 
@@ -20,10 +21,15 @@ public sealed class SaveManager : Component
 			Log.Info( $"Loaded career from file: {FileNameToPath( ActiveFileName )}" );
 			Career.Active = career;
 		}
+		else if ( TryLoadScenario( Scenario.DefaultScenario, out var scenario ) )
+		{
+			Log.Info( $"No existing save, starting from scenario: {scenario.ResourceName}" );
+			Career.Active = scenario.ToCareer();
+		}
 		else
 		{
-			Log.Info( $"No existing save, loading from default scenario: {DefaultScenario.ResourceName}" );
-			Career.Active = DefaultScenario.ToCareer();
+			Log.Info( $"No existing save, starting from fallback scenario: {FallbackScenario.ResourceName}" );
+			Career.Active = FallbackScenario.ToCareer();
 		}
 		ShipController.Respawn();
 		_untilNextAutosave = AutosaveInterval;
@@ -95,5 +101,17 @@ public sealed class SaveManager : Component
 			Log.Error( $"Unable to deserialize save: {fileName}" );
 		}
 		return career is not null;
+	}
+
+	public static bool TryLoadScenario( string scenarioName, out Scenario scenario )
+	{
+		if ( string.IsNullOrWhiteSpace( scenarioName ) )
+		{
+			scenario = null;
+			return false;
+		}
+		scenario = ResourceLibrary.GetAll<Scenario>()
+			.FirstOrDefault( s => s.ResourceName.ToLower() == scenarioName.ToLower() );
+		return scenario is not null;
 	}
 }

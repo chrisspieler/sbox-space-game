@@ -4,6 +4,9 @@ using System.Collections.Generic;
 [GameResource("Scenario", "scenario", "The starting conditions of a career.", Icon = "flag" )]
 public class Scenario : GameResource
 {
+	[ConVar("scenario")]
+	public static string DefaultScenario { get; set; } = string.Empty;
+
 	public string Name { get; set; }
 	public string Description { get; set; }
 	public int Money { get; set; } = 0;
