@@ -9,7 +9,7 @@
     "sounds/physics/breaking/break_concrete_02.vsnd",
     "sounds/physics/breaking/break_concrete_03.vsnd"
   ],
-  "Occlusion": true,
+  "Occlusion": false,
   "OcclusionRadius": 64,
   "DistanceAttenuation": true,
   "__references": []

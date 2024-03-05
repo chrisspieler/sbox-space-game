@@ -9,7 +9,7 @@
     "sounds/physics/props/metal_trashcan/impact_c_03.vsnd",
     "sounds/physics/props/metal_trashcan/impact_c_04.vsnd"
   ],
-  "Occlusion": true,
+  "Occlusion": false,
   "OcclusionRadius": 64,
   "DistanceAttenuation": true,
   "__references": []

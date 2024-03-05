@@ -7,7 +7,7 @@
   "Sounds": [
     "sounds/retrorocket_loop.vsnd"
   ],
-  "Occlusion": true,
+  "Occlusion": false,
   "OcclusionRadius": 64,
   "DistanceAttenuation": true,
   "__references": []

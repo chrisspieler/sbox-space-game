@@ -1,5 +1,6 @@
 using Sandbox;
 using System;
+using System.Linq;
 
 public sealed class Weapon : Component, IDestructionListener
 {
@@ -13,6 +14,11 @@ public sealed class Weapon : Component, IDestructionListener
 	[Property] public float TickDamage { get; set; } = 2.5f;
 	[Property] public float MaxDamage { get; set; } = 20f;
 	[Property] public float MinDamage { get; set; } = 2.5f;
+	/// <summary>
+	/// Offsets the damage tick progress by a fraction of the TickInterval, staggering
+	/// damage ticks between weapons so they don't make sounds at the same time.
+	/// </summary>
+	[Property, Range( 0f, 1f )] public float DamagePhaseOffset { get; set; } = 0f;
 	[Property] public bool DamageRampUp { get; set; } = false;
 	[Property] public float DamageRampUpSpeed { get; set; } = 10f;
 	[Property] public Curve DamageAblationScale { get; set; }
@@ -30,6 +36,15 @@ public sealed class Weapon : Component, IDestructionListener
 	// otherwise feathering/grazing a target with a laser will cause extreme shaking.
 	private TimeUntil _untilScreenPunch = 0f;
 	private TimeUntil _untilStartShake = 0;
+
+	private static float _nextPhaseOffset = 0f;
+
+	protected override void OnStart()
+	{
+		DamagePhaseOffset = _nextPhaseOffset;
+		_nextPhaseOffset += 0.5f;
+		_nextPhaseOffset %= 1f;
+	}
 
 	protected override void OnUpdate()
 	{
@@ -181,7 +196,7 @@ public sealed class Weapon : Component, IDestructionListener
 		}
 
 		_currentTarget = targetGo;
-		_untilNextDamageTick = TickInterval;
+		_untilNextDamageTick = TickInterval - TickInterval * DamagePhaseOffset;
 	}
 
 	private void EndDamage()
