@@ -9,8 +9,10 @@ public sealed class Stabilizer : Component
 	[Property] public float VelocityMatchedThreshold { get; set; } = 3f;
 	[Property] public float VelocityMatchMaxDistance { get; set; } = 1000f;
 	[Property] public float StabilizerPower { get; set; }
+	[Property] public SoundEvent LoopSound { get; set; }
 
 	private Rigidbody _hoveredRigidbody;
+	private SoundHandle _loopSoundHandle;
 
 	protected override void OnStart()
 	{
@@ -38,7 +40,10 @@ public sealed class Stabilizer : Component
 		ScreenManager.SetHoveredSelection( _hoveredRigidbody?.GameObject ?? VelocityMatchTarget?.GameObject );
 
 		if ( !VelocityMatchTarget.IsValid() && !_hoveredRigidbody.IsValid() )
+		{
+			_loopSoundHandle?.Stop( 0.1f );
 			return;
+		}
 
 		// It's not reasonable to try to match velocity with something that's off-screen.
 		// How would you even know it's there?
@@ -46,6 +51,12 @@ public sealed class Stabilizer : Component
 		{
 			VelocityMatchTarget = null;
 		}
+
+		if ( _loopSoundHandle?.IsPlaying != true )
+		{
+			_loopSoundHandle = Sound.Play( LoopSound, Transform.Position );
+		}
+		_loopSoundHandle.Position = Transform.Position;
 
 		// TODO: Replace this with proper glyphs in the UI.
 		using ( Gizmo.Scope( "Glyph Placeholder" ) )
@@ -66,6 +77,11 @@ public sealed class Stabilizer : Component
 		{
 			VelocityMatchTarget = _hoveredRigidbody;
 		}
+	}
+
+	protected override void OnDisabled()
+	{
+		_loopSoundHandle?.Stop( 0.1f );
 	}
 
 	private bool IsTargetOutOfRange()

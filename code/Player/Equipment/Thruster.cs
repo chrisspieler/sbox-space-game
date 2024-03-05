@@ -45,7 +45,7 @@ public sealed class Thruster : Component
 				effect.Enabled = false;
 				continue;
 			}
-			if ( _thrusterLoopSoundHandle?.IsPlaying != true )
+			if ( LoopSound is not null && _thrusterLoopSoundHandle?.IsPlaying != true )
 			{
 				_thrusterLoopSoundHandle = Sound.Play( LoopSound );
 				_thrusterLoopSoundHandle.Position = Transform.Position;
@@ -93,7 +93,7 @@ public sealed class Thruster : Component
 		if ( !Controller.Fuel.TryBurnFuel( burnAmount ) )
 			return Vector3.Zero;
 
-		if ( !_wasFiringLastUpdate )
+		if ( StartSound is not null && !_wasFiringLastUpdate )
 		{
 			_thrusterStartSoundHandle?.Stop( 0.1f );
 			_thrusterStartSoundHandle = Sound.Play( StartSound, Transform.Position );

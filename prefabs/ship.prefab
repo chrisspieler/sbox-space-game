@@ -2112,6 +2112,7 @@
               {
                 "__type": "Stabilizer",
                 "__enabled": false,
+                "LoopSound": "sounds/retrorocket_loop.sound",
                 "Rigidbody": {
                   "_type": "component",
                   "go": "435b1f95-1d8e-42a6-961c-271ead92be60",
