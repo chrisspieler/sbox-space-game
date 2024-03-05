@@ -23,16 +23,27 @@
             </div>
             <div id="sellPanel" class="column">
                 <div id="sellTitle" class="center-content header">SELL MINERALS</div>
-                @foreach( var item in GetShipCargo())
-                {
-                    <div class="cargo">
-                        <Image Texture=@item.InventoryIcon/>
-                        <h3 class="name center-content">@item.Name</h3>
-                        <p class="price">@item.Value CR</p>
-                        <div id="sellButton" class="button" onclick=@(() => SellCargo( item ) )>SELL</div>
-                    </div>
-                }
-                <!--TODO: List every saleable item in the ship's cargo hold.-->
+                <div id="cargoList" class="column">
+                    @foreach( var (item, count) in GetShipCargoGrouped())
+                    {
+                        <div class="cargo">
+                            <Image Texture=@item.InventoryIcon/>
+                            <div id="mainColumn" class="column">
+                                <h3 class="name center-content">@item.Name X @count</h3>
+                                <div id="sellBar">
+                                    <div id="sellButton" class="button column" onclick=@(() => SellCargo( item ) )>
+                                        <p>SELL 1</p>
+                                        <p class="price">@item.Value CR</p>
+                                    </div>
+                                    <div id="sellAllButton" class="button column" onclick=@(() => SellAllCargo( item ) )>
+                                        <p>SELL ALL</p>
+                                        <p class="price">@(item.Value * count) CR</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
             </div>
         </div>
         <div id="buyPanel" class="column">
@@ -67,7 +78,7 @@
     /// <summary>
     /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
     /// </summary>
-    protected override int BuildHash() => System.HashCode.Combine( GetFuelPercent(), GetRepairPrice(), Career.Active.Money, GetShipCargo() );
+    protected override int BuildHash() => System.HashCode.Combine( GetFuelPercent(), GetRepairPrice(), Career.Active.Money, GetAllShipCargo() );
 
     [Property] public Shop Shop { get; set; }
     [Property] public ShipController Ship { get; set; }
@@ -106,7 +117,19 @@
         Shop.EjectPlayer();
     }
 
-    private IEnumerable<CargoItem> GetShipCargo()
+    private Dictionary<CargoItem, int> GetShipCargoGrouped()
+    {
+        var allCargo = GetAllShipCargo();
+        var cargoTypes = allCargo.Distinct().OrderBy( c => c.Value );
+        var grouped = new Dictionary<CargoItem, int>();
+        foreach( var distinct in cargoTypes)
+        {
+            grouped[distinct] = allCargo.Where(c => c == distinct).Count();
+        }
+        return grouped;
+    }
+
+    private IEnumerable<CargoItem> GetAllShipCargo()
     {
         if (!Ship.IsValid() || !Ship.Cargo.IsValid())
             return Enumerable.Empty<CargoItem>();
@@ -117,6 +140,14 @@
     private void SellCargo( CargoItem item )
     {
         Shop.SellItem(item, Ship);
+    }
+
+    private void SellAllCargo( CargoItem item)
+    {
+        while( GetAllShipCargo().Any( c => c == item ))
+        {
+            Shop.SellItem(item, Ship);
+        }
     }
 
     private float GetFuelPercent()

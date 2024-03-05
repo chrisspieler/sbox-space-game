@@ -80,26 +80,48 @@ ShopPanel {
 		}
 
 		#sellPanel {
+			flex-basis: 1;
 			flex-grow: 1;
 			border: 1px solid white;
 
+
+			#cargoList {
+				overflow: scroll;
+			}
+
 			.cargo {
 				padding: 5px;
-				justify-content: space-between;
-				font-size: 2vh;
+				font-size: 1.5vh;
+				flex-shrink: 0;
 
 				Image {
-					margin-left: 3vw;
-					width: 4vw;
-					height: 4vw;
+					width: 7vw;
+					height: 7vw;
+					background-size: cover;
+				}
+
+				#mainColumn {
+					flex-grow: 1;
+				}
+
+				#sellBar {
+					justify-content: space-around;
+				}
+
+				.button {
+					width: 40%;
 				}
 
 				.name {
 					font-size: 2vh;
+					margin: 10px;
 				}
 
 				.price {
 					align-items: center;
+					margin-left: 10px;
+					font-size: 1.75vh;
+					margin-top: 10px;
 				}
 			}
 		}
