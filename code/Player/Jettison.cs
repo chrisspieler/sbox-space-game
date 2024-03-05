@@ -7,6 +7,7 @@ public sealed class Jettison : Component
 	[Property] public GameObject PickupPrefab { get; set; }
 	[Property] public CargoHold ItemSource { get; set; }
 	[Property] public GameObject EjectionSource { get; set; }
+	[Property] public GameObject EffectPrefab { get; set; }
 	[Property] public float EjectionSpeed { get; set; } = 30f;
 	[Property] public float EjectionSpin { get; set; } = 5f;
 
@@ -19,8 +20,19 @@ public sealed class Jettison : Component
 		if ( item is null )
 			return;
 
+		CreateEffect();
 		LaunchPickup( item );
 		ItemSource.RemoveItem( item );
+	}
+
+	private void CreateEffect()
+	{
+		if ( EffectPrefab is not null )
+		{
+			var effectGo = EffectPrefab.Clone();
+			effectGo.Parent = EjectionSource;
+			effectGo.Transform.World = EjectionSource.Transform.World.WithScale( 1f );
+		}
 	}
 
 	private void LaunchGameObject( GameObject go )

@@ -794,7 +794,7 @@
               {
                 "Id": "2b769ea0-c31a-4341-9b21-671e2a2255dd",
                 "Name": "Ejection Source",
-                "Position": "32,0.00003722779,60",
+                "Position": "21.07763,0.00005176639,60",
                 "Enabled": true
               }
             ]
@@ -2022,6 +2022,10 @@
               {
                 "__type": "Jettison",
                 "__enabled": false,
+                "EffectPrefab": {
+                  "_type": "gameobject",
+                  "prefab": "prefabs/effects/jettison_effect.prefab"
+                },
                 "EjectionSource": {
                   "_type": "gameobject",
                   "go": "2b769ea0-c31a-4341-9b21-671e2a2255dd"
