@@ -6,6 +6,8 @@ public sealed class AsteroidSpawner : Component
 {
 	[ConVar("asteroid_spawn_debug")]
 	public static bool Debug { get; set; } = false;
+	[ConVar( "asteroid_spawn_rate_limit" )]
+	public static int SpawnRateLimit { get; set; } = 1;
 
 	[Property] public bool SpawnManyOnStart { get; set; } = true;
 	[Property] public GameObject AsteroidPrefabC { get; set; }
@@ -24,6 +26,10 @@ public sealed class AsteroidSpawner : Component
 	private List<(Vector3 position, float probability)> _spawnPoints = new();
 	private RandomChancer<GameObject> _asteroidProbabilities = new();
 
+	private IEnumerator<GameObject> _spawnEnumerator;
+	private int _spawnCount = 0;
+	private int _spawnUpdateCount = 0;
+
 	protected override void OnStart()
 	{
 		_chunkSystem = Scene.GetSystem<WorldChunker>();
@@ -38,16 +44,38 @@ public sealed class AsteroidSpawner : Component
 
 		if ( SpawnManyOnStart )
 		{
-			SpawnMany();
+			_spawnEnumerator = SpawnMany();
 		}
 	}
 
-	public void SpawnOne( Vector3 position)
+	protected override void OnUpdate()
+	{
+		if ( _spawnEnumerator is null )
+			return;
+
+		for ( int i = 0; i < SpawnRateLimit; i++ )
+		{
+			if ( !_spawnEnumerator.MoveNext() )
+			{
+				if ( Debug )
+				{
+					Log.Info( $"Spawned {_spawnCount} asteroids over {_spawnUpdateCount} updates." );
+				}
+				_spawnEnumerator = null;
+				break;
+			}
+			_spawnCount++;
+		}
+		_spawnUpdateCount++;
+	}
+
+	public GameObject SpawnOne( Vector3 position)
 	{
 		var prefab = _asteroidProbabilities.GetNext();
 		var go = prefab.Clone();
 		go.Parent = GameObject;
 		go.Transform.LocalPosition = position;
+		return go;
 	}
 
 	/// <summary>
@@ -82,7 +110,7 @@ public sealed class AsteroidSpawner : Component
 		return noiseResult * ProbabilityScale + ProbabilityBias;
 	}
 
-	public void SpawnMany()
+	public IEnumerator<GameObject> SpawnMany()
 	{
 		var spawnPoints = GetSpawnPoints();
 		_spawnPoints = new();
@@ -93,7 +121,7 @@ public sealed class AsteroidSpawner : Component
 			_spawnPoints.Add( (point, probability) );
 			if ( Game.Random.Float() < probability )
 			{
-				SpawnOne( point );
+				yield return SpawnOne( point );
 			}
 		}
 		if ( Debug )
