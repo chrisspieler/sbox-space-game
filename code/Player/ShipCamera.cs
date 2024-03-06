@@ -49,7 +49,6 @@ public sealed class ShipCamera : Component
 
 	private readonly Dictionary<IValid, float> _screenShakeToggles = new();
 
-	private Vector3 _baseOffset;
 	private Rotation _baseRotation = Rotation.Identity;
 
 	public static ShipCamera Instance { get; private set; }
@@ -57,13 +56,11 @@ public sealed class ShipCamera : Component
 	protected override void OnStart()
 	{
 		Instance = this;
-		_baseOffset = Transform.LocalPosition;
 		_baseRotation = Transform.Rotation;
 	}
 
-	public void ResetTransform()
+	public void ResetBaseRotation()
 	{
-		Transform.LocalPosition = _baseOffset;
 		Transform.Rotation = _baseRotation;
 	}
 
