@@ -454,7 +454,7 @@
             },
             {
               "__type": "Bouncy",
-              "AddedVelocity": 500,
+              "AddedVelocity": 20,
               "BouncedTags": "solid",
               "BounceFactor": 1,
               "IgnoredTags": "player",
@@ -697,7 +697,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-06T14:32:29.5049099-07:00",
+  "LastSaved": "2024-03-06T16:11:20.8625722-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03",

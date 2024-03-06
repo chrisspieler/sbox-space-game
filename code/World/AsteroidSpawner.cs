@@ -1,6 +1,7 @@
 using Sandbox;
 using Sandbox.Utility;
 using System.Collections.Generic;
+using System.Linq;
 
 public sealed class AsteroidSpawner : Component
 {
@@ -25,6 +26,7 @@ public sealed class AsteroidSpawner : Component
 	private FloatingOriginSystem _originSystem;
 	private List<(Vector3 position, float probability)> _spawnPoints = new();
 	private RandomChancer<GameObject> _asteroidProbabilities = new();
+	private SpawnPoint _playerSpawn;
 
 	private IEnumerator<GameObject> _spawnEnumerator;
 	private int _spawnCount = 0;
@@ -34,6 +36,7 @@ public sealed class AsteroidSpawner : Component
 	{
 		_chunkSystem = Scene.GetSystem<WorldChunker>();
 		_originSystem = Scene.GetSystem<FloatingOriginSystem>();
+		_playerSpawn = Scene.GetAllComponents<SpawnPoint>().FirstOrDefault();
 		_asteroidProbabilities.AddItem( AsteroidPrefabC, CTypeWeight );
 		_asteroidProbabilities.AddItem( AsteroidPrefabS, STypeWeight );
 		_asteroidProbabilities.AddItem( AsteroidPrefabM, MTypeWeight );
@@ -98,11 +101,14 @@ public sealed class AsteroidSpawner : Component
 	public float GetSpawnProbability( Vector3 localPosition )
 	{
 		var worldPosition = Transform.World.PointToWorld( localPosition );
-		// Make sure that no asteroids spawn within a certain distance of the player spawn.
-		// This is to prevent the player from getting telefragged on scene load.
-		var originCellCenter = _chunkSystem.ChunkCenterToWorldRelative( Vector2Int.Zero );
-		if ( worldPosition.Distance( originCellCenter ) < 1500f )
-			return 0f;
+		if ( _playerSpawn.IsValid() )
+		{
+			// Make sure that no asteroids spawn within a certain distance of the player spawn.
+			// This is to prevent the player from getting telefragged on scene load.
+			if ( worldPosition.Distance( _playerSpawn.Transform.Position ) < 2500f )
+				return 0f;
+		}
+		
 
 		worldPosition = _originSystem.RelativeToAbsolute( worldPosition );
 		worldPosition *= NoiseScale;
