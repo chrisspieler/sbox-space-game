@@ -52,8 +52,9 @@ public sealed class Mineable : Component
 		if ( FractureLoot is null )
 			return;
 
-		var lootFloat = Transform.Scale.x * Random.Shared.Float( 0.7f, 1.2f ) * LootScale;
-		lootFloat *= Health.MaxHealth / 100f;
+		var lootFloat = Random.Shared.Float( 0.7f, 1.2f );
+		lootFloat *= Health.MaxHealth / 75f;
+		lootFloat *= LootScale;
 		var lootCount = lootFloat.CeilToInt();
 		for ( int i = 0; i < lootCount; i++ )
 		{

@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "Id": "005aa21a-1ab2-417d-bf4c-20b53a9f02fa",
+    "Id": "cd311a36-93e4-40c8-ae1e-3c295dd7151a",
     "Name": "s-type_asteroid",
     "Tags": "solid",
     "Enabled": true,
@@ -30,11 +30,11 @@
         "RandomVelocityScale": 50,
         "Rigidbody": {
           "_type": "component",
-          "go": "005aa21a-1ab2-417d-bf4c-20b53a9f02fa",
+          "go": "cd311a36-93e4-40c8-ae1e-3c295dd7151a",
           "component_type": "Rigidbody"
         },
         "ScaleCurve": {
-          "rangey": "1,5",
+          "rangey": "3,6",
           "frames": [
             {
               "in": -0.09090924,
@@ -68,11 +68,11 @@
         "__type": "Health",
         "Body": {
           "_type": "gameobject",
-          "go": "005aa21a-1ab2-417d-bf4c-20b53a9f02fa"
+          "go": "cd311a36-93e4-40c8-ae1e-3c295dd7151a"
         },
         "Bounce": {
           "_type": "component",
-          "go": "005aa21a-1ab2-417d-bf4c-20b53a9f02fa",
+          "go": "cd311a36-93e4-40c8-ae1e-3c295dd7151a",
           "component_type": "Bouncy"
         },
         "CurrentHealth": 0,
@@ -92,7 +92,7 @@
         "FractureLoot": "data/asteroids/s_type.loot",
         "Health": {
           "_type": "component",
-          "go": "005aa21a-1ab2-417d-bf4c-20b53a9f02fa",
+          "go": "cd311a36-93e4-40c8-ae1e-3c295dd7151a",
           "component_type": "Health"
         }
       },
@@ -100,18 +100,18 @@
         "__type": "HealthBarSpawner",
         "HealthSource": {
           "_type": "component",
-          "go": "005aa21a-1ab2-417d-bf4c-20b53a9f02fa",
+          "go": "cd311a36-93e4-40c8-ae1e-3c295dd7151a",
           "component_type": "Health"
         },
         "Target": {
           "_type": "gameobject",
-          "go": "005aa21a-1ab2-417d-bf4c-20b53a9f02fa"
+          "go": "cd311a36-93e4-40c8-ae1e-3c295dd7151a"
         }
       }
     ],
     "Children": [
       {
-        "Id": "aafb1c12-8e23-4409-a204-9c3f32b78340",
+        "Id": "c514fc12-ee42-48ac-b15c-8516d92dbe6b",
         "Name": "Model",
         "Scale": "0.3,0.3,0.3",
         "Enabled": true,

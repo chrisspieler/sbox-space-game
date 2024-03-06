@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "Id": "005aa21a-1ab2-417d-bf4c-20b53a9f02fa",
+    "Id": "f7416653-4f37-405e-b40d-ed94c7b738f6",
     "Name": "c-type_asteroid",
     "Tags": "solid",
     "Enabled": true,
@@ -30,11 +30,11 @@
         "RandomVelocityScale": 50,
         "Rigidbody": {
           "_type": "component",
-          "go": "005aa21a-1ab2-417d-bf4c-20b53a9f02fa",
+          "go": "f7416653-4f37-405e-b40d-ed94c7b738f6",
           "component_type": "Rigidbody"
         },
         "ScaleCurve": {
-          "rangey": "1,20",
+          "rangey": "3,20",
           "frames": [
             {
               "in": -0.09090924,
@@ -74,18 +74,18 @@
         "__type": "Health",
         "Body": {
           "_type": "gameobject",
-          "go": "005aa21a-1ab2-417d-bf4c-20b53a9f02fa"
+          "go": "f7416653-4f37-405e-b40d-ed94c7b738f6"
         },
         "Bounce": {
           "_type": "component",
-          "go": "005aa21a-1ab2-417d-bf4c-20b53a9f02fa",
+          "go": "f7416653-4f37-405e-b40d-ed94c7b738f6",
           "component_type": "Bouncy"
         },
         "CurrentHealth": 0,
         "DamageFlashColor": "1,1,1,1",
         "DamageSound": "sounds/asteroid_dig.sound",
         "IsInvincible": false,
-        "MaxHealth": 50,
+        "MaxHealth": 100,
         "OnDamaged": null,
         "OnKilled": null
       },
@@ -98,7 +98,7 @@
         "FractureLoot": "data/asteroids/c_type.loot",
         "Health": {
           "_type": "component",
-          "go": "005aa21a-1ab2-417d-bf4c-20b53a9f02fa",
+          "go": "f7416653-4f37-405e-b40d-ed94c7b738f6",
           "component_type": "Health"
         }
       },
@@ -106,18 +106,18 @@
         "__type": "HealthBarSpawner",
         "HealthSource": {
           "_type": "component",
-          "go": "005aa21a-1ab2-417d-bf4c-20b53a9f02fa",
+          "go": "f7416653-4f37-405e-b40d-ed94c7b738f6",
           "component_type": "Health"
         },
         "Target": {
           "_type": "gameobject",
-          "go": "005aa21a-1ab2-417d-bf4c-20b53a9f02fa"
+          "go": "f7416653-4f37-405e-b40d-ed94c7b738f6"
         }
       }
     ],
     "Children": [
       {
-        "Id": "aafb1c12-8e23-4409-a204-9c3f32b78340",
+        "Id": "6e27f423-6367-4abf-81d8-f4b4e83ca664",
         "Name": "Model",
         "Scale": "0.2,0.2,0.2",
         "Enabled": true,

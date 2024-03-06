@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "Id": "005aa21a-1ab2-417d-bf4c-20b53a9f02fa",
+    "Id": "dc42cd74-6f29-4462-a4ff-269aa83ec9b1",
     "Name": "m-type_asteroid",
     "Tags": "solid",
     "Enabled": true,
@@ -30,11 +30,11 @@
         "RandomVelocityScale": 50,
         "Rigidbody": {
           "_type": "component",
-          "go": "005aa21a-1ab2-417d-bf4c-20b53a9f02fa",
+          "go": "dc42cd74-6f29-4462-a4ff-269aa83ec9b1",
           "component_type": "Rigidbody"
         },
         "ScaleCurve": {
-          "rangey": "1,5",
+          "rangey": "3,6",
           "frames": [
             {
               "in": -0.09090924,
@@ -74,11 +74,11 @@
         "__type": "Health",
         "Body": {
           "_type": "gameobject",
-          "go": "005aa21a-1ab2-417d-bf4c-20b53a9f02fa"
+          "go": "dc42cd74-6f29-4462-a4ff-269aa83ec9b1"
         },
         "Bounce": {
           "_type": "component",
-          "go": "005aa21a-1ab2-417d-bf4c-20b53a9f02fa",
+          "go": "dc42cd74-6f29-4462-a4ff-269aa83ec9b1",
           "component_type": "Bouncy"
         },
         "CurrentHealth": 0,
@@ -98,7 +98,7 @@
         "FractureLoot": "data/asteroids/m_type.loot",
         "Health": {
           "_type": "component",
-          "go": "005aa21a-1ab2-417d-bf4c-20b53a9f02fa",
+          "go": "dc42cd74-6f29-4462-a4ff-269aa83ec9b1",
           "component_type": "Health"
         }
       },
@@ -106,18 +106,18 @@
         "__type": "HealthBarSpawner",
         "HealthSource": {
           "_type": "component",
-          "go": "005aa21a-1ab2-417d-bf4c-20b53a9f02fa",
+          "go": "dc42cd74-6f29-4462-a4ff-269aa83ec9b1",
           "component_type": "Health"
         },
         "Target": {
           "_type": "gameobject",
-          "go": "005aa21a-1ab2-417d-bf4c-20b53a9f02fa"
+          "go": "dc42cd74-6f29-4462-a4ff-269aa83ec9b1"
         }
       }
     ],
     "Children": [
       {
-        "Id": "aafb1c12-8e23-4409-a204-9c3f32b78340",
+        "Id": "359ebc0e-1f43-49a9-ab31-f2397dc7cf42",
         "Name": "Model",
         "Scale": "0.2,0.2,0.2",
         "Enabled": true,
@@ -141,7 +141,7 @@
         ]
       },
       {
-        "Id": "76577c54-ea30-4fbf-8ff5-243e2b46e429",
+        "Id": "f24e655e-5fd0-4862-9dc7-dc703e5b2c1f",
         "Name": "Model (1)",
         "Position": "1.92067,1.289488,3.871196",
         "Rotation": "0,0,0.1701432,0.9854193",
