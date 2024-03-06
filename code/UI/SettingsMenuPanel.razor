@@ -38,14 +38,32 @@
 				</div>
 			</div>
 		</div>
+        <div class="category column">
+            <div class="header">DATA</div>
+            <div class="body column center-content">
+                <div class="button danger" onclick=@(() => _showModal = true)>WIPE SAVE DATA</div>
+            </div>
+        </div>
 	</div>
+    <div class="modal center-content @ModalClass">
+        <div class="box column center-content">
+            <h2>Are you sure you wish to delete your save file?</h2>
+            <div class="options">
+                <div class="button danger" onclick=@WipeSaveData>YES</div>
+                <div class="button" @onclick=@(() => _showModal = false )>NO</div>
+            </div>
+        </div>
+    </div>
 </root>
 
 @code
 {
     [Property] public PanelComponent ReturnMenu { get; set; }
 
-    protected override int BuildHash() => System.HashCode.Combine( ShipCamera.ScreenShakeScale, LaserBeam.BrightnessScale, FogController.IntensityScale );
+    protected override int BuildHash() => System.HashCode.Combine( ShipCamera.ScreenShakeScale, LaserBeam.BrightnessScale, FogController.IntensityScale, PostProcessingController.BloomIntensity, _showModal );
+
+    private string ModalClass => _showModal ? "" : "hidden";
+    private bool _showModal = false;
 
     private bool _clickedBack = false;
 
@@ -77,6 +95,12 @@
     private void SetBloomIntensityScale( float value)
     {
         PostProcessingController.BloomIntensity = value;
+    }
+
+    private void WipeSaveData()
+    {
+        SaveManager.DeleteSaveFile( SaveManager.GetSaveSlotFileName( 0 ) );
+        _showModal = false;
     }
 
     private void Back()

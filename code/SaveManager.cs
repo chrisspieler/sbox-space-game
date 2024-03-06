@@ -58,6 +58,15 @@ public sealed class SaveManager : Component
 		Log.Info( $"Saved file: {ActiveFileName}" );
 	}
 
+	public static void DeleteSaveFile( string fileName )
+	{
+		var filePath = FileNameToPath( fileName );
+		if ( string.IsNullOrWhiteSpace( filePath ) )
+			return;
+
+		FileSystem.Data.DeleteFile( filePath );
+	}
+
 	public static void SaveCareer( Career career, string fileName )
 	{
 		var filePath = FileNameToPath( fileName );

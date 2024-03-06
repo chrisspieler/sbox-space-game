@@ -7,6 +7,10 @@
     background-color: #000000F0;
     backdrop-filter: blur(5px);
 
+    &.danger {
+        background-color: #990000;
+    }
+
     &.disabled {
         background-color: #6666;
         border-color: #FFF1;

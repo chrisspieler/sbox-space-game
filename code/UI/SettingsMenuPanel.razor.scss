@@ -19,6 +19,7 @@ SettingsMenuPanel {
 		background-color: black;
 		width: 100%;
 		padding: 3vh;
+		flex-shrink: 0;
 
 		.title {
 			font-size: 3vh;
@@ -39,6 +40,7 @@ SettingsMenuPanel {
 		align-self: flex-start;
 		border-right: 3px solid #FFFFFF03;
 		flex-grow: 1;
+		overflow: scroll;
 	}
 
 	#bottomBar {
@@ -79,6 +81,10 @@ SettingsMenuPanel {
 			flex-grow: 0;
 		}
 	}
+	
+	.danger {
+		font-size: 1.75vh;
+	}
 
 	SliderControl {
 		width: 10vw;
@@ -86,6 +92,37 @@ SettingsMenuPanel {
 		.values {
 			> * {
 				font-size: 1.5vh;
+			}
+		}
+	}
+
+	.modal {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		pointer-events: all;
+		background-color: #000E;
+		backdrop-filter: blur(5px);
+		font-size: 2vh;
+		
+		.box {
+			background-color: #000E;
+			padding: 50px;
+			border: 1px solid #FFF3;
+			border-radius: 5%;
+		}
+
+		h2 {
+			margin-bottom: 50px;
+		}
+
+		.options {
+			width: 100%;
+			justify-content: space-around;
+
+			.button {
+				height: 6vh;
+				width: 6vw;
 			}
 		}
 	}
