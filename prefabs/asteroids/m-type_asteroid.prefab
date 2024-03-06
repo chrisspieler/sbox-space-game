@@ -22,12 +22,12 @@
         "InitialAngularVelocity": "0,0,0",
         "InitialVelocity": "0,0,0",
         "MassOverride": 180,
-        "RandomAngularVelocityScale": 0.5,
+        "RandomAngularVelocityScale": 0.25,
         "RandomizeAngularVelocity": true,
         "RandomizeRotation": true,
         "RandomizeScale": true,
         "RandomizeVelocity": true,
-        "RandomVelocityScale": 50,
+        "RandomVelocityScale": 25,
         "Rigidbody": {
           "_type": "component",
           "go": "dc42cd74-6f29-4462-a4ff-269aa83ec9b1",
@@ -48,7 +48,7 @@
             },
             {
               "x": 0.9717262,
-              "y": 0.5171597,
+              "y": 0.51715976,
               "in": -0.16502072,
               "out": 0.16502072
             },
