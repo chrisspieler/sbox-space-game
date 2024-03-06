@@ -1,26 +1,10 @@
 {
   "RootObject": {
     "Id": "005aa21a-1ab2-417d-bf4c-20b53a9f02fa",
-    "Name": "asteroid",
+    "Name": "s-type_asteroid",
     "Tags": "solid",
     "Enabled": true,
     "Components": [
-      {
-        "__type": "ModelRenderer",
-        "BodyGroups": 18446744073709551615,
-        "MaterialGroup": null,
-        "MaterialOverride": null,
-        "Model": "models/rust_nature/rocks/rock_small_c.vmdl",
-        "RenderType": "On",
-        "Tint": "0.80465,0.74895,0.62875,1"
-      },
-      {
-        "__type": "ModelCollider",
-        "IsTrigger": false,
-        "Model": "models/rust_nature/rocks/rock_small_c.vmdl",
-        "Static": false,
-        "Surface": null
-      },
       {
         "__type": "Rigidbody",
         "AngularDamping": 0,
@@ -37,7 +21,7 @@
         "__type": "SpaceFloater",
         "InitialAngularVelocity": "0,0,0",
         "InitialVelocity": "0,0,0",
-        "MassOverride": 40,
+        "MassOverride": 120,
         "RandomAngularVelocityScale": 0.5,
         "RandomizeAngularVelocity": true,
         "RandomizeRotation": true,
@@ -50,29 +34,23 @@
           "component_type": "Rigidbody"
         },
         "ScaleCurve": {
-          "rangey": "0.5,20",
+          "rangey": "1,5",
           "frames": [
             {
               "in": -0.09090924,
               "out": 0.09090924
             },
             {
-              "x": 0.25892857,
-              "y": 0.08298411,
-              "in": -0.734619,
-              "out": 0.734619
-            },
-            {
-              "x": 0.9494048,
-              "y": 0.19535121,
-              "in": -0.16502072,
-              "out": 0.16502072
+              "x": 0.9255952,
+              "y": 0.48723942,
+              "in": -0.38122407,
+              "out": 0.38122407
             },
             {
               "x": 1,
               "y": 1,
-              "in": -5.6296277,
-              "out": 5.6296277
+              "in": -4.3157883,
+              "out": 4.3157883
             }
           ]
         }
@@ -101,7 +79,7 @@
         "DamageFlashColor": "1,1,1,1",
         "DamageSound": "sounds/asteroid_dig.sound",
         "IsInvincible": false,
-        "MaxHealth": 100,
+        "MaxHealth": 200,
         "OnDamaged": null,
         "OnKilled": null
       },
@@ -111,7 +89,7 @@
           "_type": "gameobject",
           "prefab": "prefabs/effects/asteroid_fracture.prefab"
         },
-        "FractureLoot": "data/asteroids/c_type.loot",
+        "FractureLoot": "data/asteroids/s_type.loot",
         "Health": {
           "_type": "component",
           "go": "005aa21a-1ab2-417d-bf4c-20b53a9f02fa",
@@ -131,12 +109,37 @@
         }
       }
     ],
-    "Children": []
+    "Children": [
+      {
+        "Id": "aafb1c12-8e23-4409-a204-9c3f32b78340",
+        "Name": "Model",
+        "Scale": "0.3,0.3,0.3",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "ModelRenderer",
+            "BodyGroups": 18446744073709551615,
+            "MaterialGroup": null,
+            "MaterialOverride": null,
+            "Model": "models/rust_nature/rocks/rock_med_c.vmdl",
+            "RenderType": "On",
+            "Tint": "0.55018,0.64606,0.86977,1"
+          },
+          {
+            "__type": "ModelCollider",
+            "IsTrigger": false,
+            "Model": "models/rust_nature/rocks/rock_med_c.vmdl",
+            "Static": false,
+            "Surface": null
+          }
+        ]
+      }
+    ]
   },
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
   "__references": [
-    "rust.rock_small_c"
+    "rust.rock_med_c"
   ]
 }

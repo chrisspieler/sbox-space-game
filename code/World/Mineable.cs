@@ -3,6 +3,9 @@ using System;
 
 public sealed class Mineable : Component
 {
+	[ConVar( "mining_loot_scale" )]
+	public static float LootScale { get; set; } = 0.1f;
+
 	[Property] public GameObject FractureEffect { get; set; }
 	[Property] public Health Health { get; set; }
 	[Property] public LootTable FractureLoot { get; set; }
@@ -49,7 +52,8 @@ public sealed class Mineable : Component
 		if ( FractureLoot is null )
 			return;
 
-		var lootFloat = Transform.Scale.x * Random.Shared.Float( 0.7f, 1.2f ) * 0.7f;
+		var lootFloat = Transform.Scale.x * Random.Shared.Float( 0.7f, 1.2f ) * LootScale;
+		lootFloat *= Health.MaxHealth / 100f;
 		var lootCount = lootFloat.CeilToInt();
 		for ( int i = 0; i < lootCount; i++ )
 		{

@@ -54,7 +54,7 @@ public sealed class SpaceFloater : Component
 	private void SetHealthFromScale()
 	{
 		var health = Components.GetOrCreate<Health>();
-		health.MaxHealth = 100f * Transform.Scale.x;
+		health.MaxHealth *= Transform.Scale.x;
 		health.CurrentHealth = health.MaxHealth;
 	}
 }

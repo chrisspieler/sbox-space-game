@@ -8,7 +8,12 @@ public sealed class AsteroidSpawner : Component
 	public static bool Debug { get; set; } = false;
 
 	[Property] public bool SpawnManyOnStart { get; set; } = true;
-	[Property] public GameObject AsteroidPrefab { get; set; }
+	[Property] public GameObject AsteroidPrefabC { get; set; }
+	[Property] public float CTypeWeight { get; set; } = 100f;
+	[Property] public GameObject AsteroidPrefabS { get; set; }
+	[Property] public float STypeWeight { get; set; } = 20f;
+	[Property] public GameObject AsteroidPrefabM { get; set; }
+	[Property] public float MTypeWeight { get; set; } = 10f;
 	[Property, Range( 64, 512, 32 )] public int Spacing { get; set; } = 64;
 	[Property] public float NoiseScale { get; set; } = 0.1f;
 	[Property, Range(0, 1, 0.01f )] public float ProbabilityScale { get; set; } = 0.1f;
@@ -17,11 +22,15 @@ public sealed class AsteroidSpawner : Component
 	private WorldChunker _chunkSystem;
 	private FloatingOriginSystem _originSystem;
 	private List<(Vector3 position, float probability)> _spawnPoints = new();
+	private RandomChancer<GameObject> _asteroidProbabilities = new();
 
 	protected override void OnStart()
 	{
 		_chunkSystem = Scene.GetSystem<WorldChunker>();
 		_originSystem = Scene.GetSystem<FloatingOriginSystem>();
+		_asteroidProbabilities.AddItem( AsteroidPrefabC, CTypeWeight );
+		_asteroidProbabilities.AddItem( AsteroidPrefabS, STypeWeight );
+		_asteroidProbabilities.AddItem( AsteroidPrefabM, MTypeWeight );
 		if ( Components.TryGet<ChunkData>( out var data ) )
 		{
 			Transform.Position = _chunkSystem.ChunkToWorldRelative( data.Position );
@@ -35,7 +44,8 @@ public sealed class AsteroidSpawner : Component
 
 	public void SpawnOne( Vector3 position)
 	{
-		var go = AsteroidPrefab.Clone();
+		var prefab = _asteroidProbabilities.GetNext();
+		var go = prefab.Clone();
 		go.Parent = GameObject;
 		go.Transform.LocalPosition = position;
 	}

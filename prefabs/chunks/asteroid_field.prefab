@@ -6,15 +6,26 @@
     "Components": [
       {
         "__type": "AsteroidSpawner",
-        "AsteroidPrefab": {
+        "AsteroidPrefabC": {
           "_type": "gameobject",
           "prefab": "prefabs/asteroids/c-type_asteroid.prefab"
         },
+        "AsteroidPrefabM": {
+          "_type": "gameobject",
+          "prefab": "prefabs/asteroids/m-type_asteroid.prefab"
+        },
+        "AsteroidPrefabS": {
+          "_type": "gameobject",
+          "prefab": "prefabs/asteroids/s-type_asteroid.prefab"
+        },
+        "CTypeWeight": 100,
+        "MTypeWeight": 5,
         "NoiseScale": 0.005,
         "ProbabilityBias": 0,
         "ProbabilityScale": 0.02,
         "Spacing": 128,
-        "SpawnManyOnStart": true
+        "SpawnManyOnStart": true,
+        "STypeWeight": 20
       }
     ],
     "Children": [

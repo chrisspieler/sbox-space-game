@@ -2,7 +2,7 @@
   "Name": "Cobalt Ore",
   "Description": "",
   "Value": 38,
-  "PickupPrefab": null,
-  "InventoryIcon": null,
+  "PickupPrefab": "data/cargo/cobalt_ore_pickup.prefab",
+  "InventoryIcon": "data/cargo/cobalt_ore_pickup.vtex",
   "__references": []
 }

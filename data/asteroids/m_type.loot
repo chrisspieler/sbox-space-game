@@ -2,11 +2,11 @@
   "Items": [
     {
       "Item": "data/cargo/iron_ore.cargo",
-      "Probability": 100
+      "Probability": 60
     },
     {
       "Item": "data/cargo/nickel_ore.cargo",
-      "Probability": 50
+      "Probability": 40
     },
     {
       "Item": "data/cargo/cobalt_ore.cargo",
@@ -14,11 +14,11 @@
     },
     {
       "Item": "data/cargo/gold_ore.cargo",
-      "Probability": 1
+      "Probability": 20
     },
     {
       "Item": "data/cargo/platinum_ore.cargo",
-      "Probability": 1
+      "Probability": 20
     }
   ],
   "__references": []

@@ -2,7 +2,7 @@
   "Name": "Platinum Ore",
   "Description": "",
   "Value": 150,
-  "PickupPrefab": null,
-  "InventoryIcon": null,
+  "PickupPrefab": "data/cargo/platinum_ore_pickup.prefab",
+  "InventoryIcon": "data/cargo/platinum_ore_pickup.vtex",
   "__references": []
 }
