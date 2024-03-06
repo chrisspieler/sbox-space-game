@@ -41,6 +41,8 @@ public sealed class Shield : Component, Component.IDamageable, IHealth
 
 	protected override void OnUpdate()
 	{
+		// Workaround https://github.com/Facepunch/sbox-issues/issues/5088
+		Renderer.SceneObject.Flags.IsTranslucent = true;
 		Collider.Enabled = CurrentHealth > 0f;
 		Bounce.Enabled = CurrentHealth > 0f;
 		UpdateRegen();
