@@ -25,4 +25,18 @@ public sealed class Beacon : Component
 		var distance = GameObject.GetAbsolutePosition().Distance( originObject.GetAbsolutePosition() );
 		return MathX.InchToMeter( distance );
 	}
+
+	public static Beacon Create( Vector3 relativePosition, string name = "New Beacon", float destroyAfterSeconds = 0f )
+	{
+		var beaconGo = new GameObject( true, name );
+		beaconGo.Transform.Position = relativePosition.WithZ( 0f );
+		var beacon = beaconGo.Components.Create<Beacon>();
+		beacon.Name = name;
+		if ( destroyAfterSeconds > 0f )
+		{
+			var selfDestruct = beaconGo.Components.Create<SelfDestruct>();
+			selfDestruct.Delay = destroyAfterSeconds;
+		}
+		return beacon;
+	}
 }

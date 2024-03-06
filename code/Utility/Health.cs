@@ -4,7 +4,7 @@ using System;
 
 public sealed class Health : Component, Component.IDamageable, IHealth
 {
-	[Property] public Action OnKilled { get; set; }
+	[Property] public Action<DamageInfo> OnKilled { get; set; }
 	[Property] public Action<DamageInfo> OnDamaged { get; set; }
 	[Property] public SoundEvent DamageSound { get; set; }
 
@@ -50,7 +50,7 @@ public sealed class Health : Component, Component.IDamageable, IHealth
 		CurrentHealth = Math.Max( 0f, CurrentHealth - damageAmount );
 		if ( wasAlive && !IsAlive )
 		{
-			OnKilled?.Invoke();
+			OnKilled?.Invoke( damage );
 			return;
 		}
 		var effect = new TintEffect

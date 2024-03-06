@@ -8,7 +8,7 @@ public partial class ShipController
 	public static void Respawn()
 	{
 		// Make the currently active ship explode, if it exists.
-		GetCurrent()?.Explode();
+		GetCurrent()?.Explode( null );
 
 		if ( Game.ActiveScene is null )
 			return;

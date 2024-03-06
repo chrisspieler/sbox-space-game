@@ -100,7 +100,7 @@ public sealed class Weapon : Component, IDestructionListener
 			var screenShakeAmount = TickDamage.Remap( MinDamage, MaxDamage, 0.12f, 0.20f );
 			ScreenEffects.SetBaseScreenShake( this, screenShakeAmount, true );
 		}
-		UpdateDamage( _currentTarget, damageable );
+		UpdateDamage( tr, damageable );
 	}
 
 	private bool IsAimingAtSelf( Vector3 endPosition )
@@ -209,7 +209,7 @@ public sealed class Weapon : Component, IDestructionListener
 		_currentTarget = null;
 	}
 
-	private void UpdateDamage( GameObject targetGo, IDamageable damageable )
+	private void UpdateDamage( SceneTraceResult tr, IDamageable damageable )
 	{
 		if ( !_untilNextDamageTick )
 			return;
@@ -219,7 +219,7 @@ public sealed class Weapon : Component, IDestructionListener
 		{
 			Attacker = ShipController.GetCurrent().GameObject,
 			Damage = TickDamage,
-			Position = targetGo.Transform.Position,
+			Position = tr.HitPosition,
 			Weapon = GameObject
 		};
 		damageable.OnDamage( damageInfo );

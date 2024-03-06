@@ -20,10 +20,10 @@ public sealed partial class ShipController
 			Log.Info( "Unable to find ship controller." );
 			return;
 		}
-		controller.Explode();
+		controller.Explode( null );
 	}
 
-	public void Explode()
+	public void Explode( DamageInfo damage )
 	{
 		DestroyEquipment( GameObject );
 		ReleaseDebris( PartsContainer );
