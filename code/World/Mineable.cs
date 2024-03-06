@@ -4,7 +4,7 @@ using System;
 public sealed class Mineable : Component
 {
 	[ConVar( "mining_loot_scale" )]
-	public static float LootScale { get; set; } = 0.1f;
+	public static float LootScale { get; set; } = 0.4f;
 
 	[Property] public GameObject FractureEffect { get; set; }
 	[Property] public Health Health { get; set; }
