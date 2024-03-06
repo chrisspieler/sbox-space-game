@@ -8,8 +8,7 @@
 	<div id="buttonList" class="column center-content">
 		<div class="button" onclick=@Resume>RESUME</div>
         <div class="button" onclick=@OpenSettings>SETTINGS</div>
-        <!--TODO: Fix the issue with the world chunker that makes going back to the main menu not work.-->
-        <div class="button disabled">HOLD ESC TO QUIT</div>
+        <div class="button" onclick=@Quit>QUIT GAME</div>
 	</div>
 </root>
 
@@ -61,6 +60,8 @@
     private void Quit()
     {
         SaveManager.SaveActiveCareer();
-        Scene.Load(MainMenuScene);
+        Game.Close();
+        // TODO: Fix the issue with the world chunker that makes going back to the main menu not work.
+        // Scene.Load(MainMenuScene);
     }
 }
