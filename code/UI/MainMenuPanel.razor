@@ -20,7 +20,7 @@
             <div class="button" @onclick=@(() => StartGame())>New Game</div>
         }
         <div class="button" onclick=@OpenSettingsMenu>Settings</div>
-        <div class="button disabled">Credits</div>
+        <div class="button" onclick=@OpenCreditsMenu>Credits</div>
         <div class="button" onclick=@Quit>Quit</div>
     </div>
 </root>
@@ -33,6 +33,7 @@
     [Property] public Career CareerInProgress { get; set; }
     [Property] public Scenario DefaultScenario { get; set; }
     [Property] public PanelComponent SettingsMenu { get; set; }
+    [Property] public PanelComponent CreditsMenu { get; set; }
 
     private bool IsHidden { get; set; } = true;
 
@@ -85,6 +86,12 @@
     private void OpenSettingsMenu()
     {
         SettingsMenu.Enabled = true;
+        Enabled = false;
+    }
+
+    private void OpenCreditsMenu()
+    {
+        CreditsMenu.Enabled = true;
         Enabled = false;
     }
 }

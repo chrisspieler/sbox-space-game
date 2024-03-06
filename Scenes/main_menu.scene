@@ -115,6 +115,11 @@
               "CareerInProgress": {
                 "Upgrades": []
               },
+              "CreditsMenu": {
+                "_type": "component",
+                "go": "f32525b2-760a-4323-bc3c-18aac54f2cb6",
+                "component_type": "CreditsPanel"
+              },
               "DefaultScenario": "data/scenarios/normal.scenario",
               "MainScene": "scenes/main.scene",
               "SettingsMenu": {
@@ -133,6 +138,22 @@
           "Components": [
             {
               "__type": "SettingsMenuPanel",
+              "__enabled": false,
+              "ReturnMenu": {
+                "_type": "component",
+                "go": "c397cb91-58e1-461a-9405-d5cf95aed384",
+                "component_type": "MainMenuPanel"
+              }
+            }
+          ]
+        },
+        {
+          "Id": "f32525b2-760a-4323-bc3c-18aac54f2cb6",
+          "Name": "Credits Menu",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "CreditsPanel",
               "__enabled": false,
               "ReturnMenu": {
                 "_type": "component",
@@ -2257,10 +2278,13 @@
             ],
             "alpha": []
           },
-          "DamagePitchScale": {
-            "rangex": "0,0",
-            "rangey": "0,0"
-          },
+          "DamagePhaseOffset": 0,
+          "DamagePitchScale": [
+            {
+              "x": 0.5,
+              "y": 0.5
+            }
+          ],
           "DamageRampUp": false,
           "DamageRampUpSpeed": 10,
           "LaserAblationPrefab": {
@@ -2429,10 +2453,13 @@
             ],
             "alpha": []
           },
-          "DamagePitchScale": {
-            "rangex": "0,0",
-            "rangey": "0,0"
-          },
+          "DamagePhaseOffset": 0,
+          "DamagePitchScale": [
+            {
+              "x": 0.5,
+              "y": 0.5
+            }
+          ],
           "DamageRampUp": false,
           "DamageRampUpSpeed": 10,
           "LaserAblationPrefab": {
@@ -2645,7 +2672,7 @@
   },
   "Title": "main_menu",
   "Description": "",
-  "LastSaved": "2024-03-05T12:52:08.5473174-07:00",
+  "LastSaved": "2024-03-06T04:35:26.5903334-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "facepunch.airduct_a_panel_32x32",

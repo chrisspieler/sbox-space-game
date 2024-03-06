@@ -1,0 +1,99 @@
+@using System.IO;
+@using System.Collections.Generic;
+@using System.Linq;
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+
+<root class="column">
+    <div id="topBar" class="center-content">
+        <button id="backButton" onclick=@Back>BACK</button>
+	    <h2 class="title">Aluminum Acrobat</h2>
+    </div>
+    <div id="mainArea">
+        <div class="section">
+            <h2 class="header">CREDITS</h2>
+            <div id="creditsList">
+                <div>Created by ducc</div>
+                <div>Programming by Ducc</div>
+            </div>
+        </div>
+        <div class="section">
+            <h2 class="header">ATTRIBUTIONS</h2>
+            <div id="attributionCategories">
+                @foreach (var (name, attributions) in _categories)
+                {
+                    <div class="category">
+                        <h3 class="header">@name</h3>
+                        <div id="attributionList">
+                            @foreach (var attribution in attributions)
+                            {
+                                <div class="attribution">
+                                    <h3>'@attribution.Name' by @attribution.Author</h3>
+                                    @if (!string.IsNullOrWhiteSpace(attribution.License))
+                                    {
+                                        <p class="license">License: @attribution.License</p>
+                                    }
+                                    <p class="source link" onclick=@(() => CopyToClipboard(attribution.Source))>@attribution.Source</p>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="section extra">
+            <p>Sound effects obtained from </p>
+            <p class="link" onclick=@(() => CopyToClipboard(@"https://www.zapsplat.com"))>https://www.zapsplat.com</p>
+        </div>
+    </div>
+</root>
+
+@code
+{
+    [Property] public PanelComponent ReturnMenu { get; set; }
+
+    private List<Attribution> _attributions = new();
+    private Dictionary<string, List<Attribution>> _categories = new();
+
+    protected override void OnStart()
+    {
+        base.OnStart();
+
+        _attributions.AddRange( GetAttributions() );
+        _categories = CategorizeAttributions( _attributions );
+    }
+
+    private static Dictionary<string, List<Attribution>> CategorizeAttributions( IEnumerable<Attribution> attributions)
+    {
+        var categories = new Dictionary<string, List<Attribution>>();
+        foreach( var attribution in attributions)
+        {
+            var directory = Path.GetDirectoryName( attribution.ResourcePath );
+            var category = Path.GetFileName( directory );
+            if ( !categories.ContainsKey( category ) )
+            {
+                categories[category] = new List<Attribution>();
+            }
+            categories[category].Add(attribution);
+        }
+        return categories;
+    }
+
+    private static IEnumerable<Attribution> GetAttributions()
+    {
+        return ResourceLibrary.GetAll<Attribution>();
+    }
+
+    public void CopyToClipboard( string text )
+    {
+        Clipboard.SetText( text );
+    }
+
+    public void Back()
+    {
+        SetClass( "hidden", true );
+        _ = Task.DelayRealtimeSeconds( 0.15f ).ContinueWith( _ => Enabled = false );
+        ReturnMenu.Enabled = true;
+    }
+}
