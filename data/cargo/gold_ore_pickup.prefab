@@ -1,0 +1,54 @@
+{
+  "RootObject": {
+    "Id": "f6ef0712-bc53-4962-a510-2521f5ddbd73",
+    "Name": "gold_ore_pickup",
+    "Enabled": true,
+    "Children": [
+      {
+        "Id": "b34446b4-01b0-40af-82de-0cc81f7aef6a",
+        "Name": "Sphere",
+        "Position": "8.170367,13.14292,0",
+        "Rotation": "0,0,-0.1305262,0.9914448",
+        "Scale": "0.15,0.15,0.15",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "ModelRenderer",
+            "BodyGroups": 18446744073709551615,
+            "MaterialGroup": null,
+            "MaterialOverride": "materials/shared/metals/metal_aluminium_03.vmat",
+            "Model": "models/rust_nature/rocks/rock_med_b.vmdl",
+            "RenderType": "On",
+            "Tint": "1,0.83333,0,1"
+          }
+        ]
+      },
+      {
+        "Id": "dd5d8689-0a3d-4586-a645-a447fe2df59b",
+        "Name": "Sphere (1)",
+        "Position": "8.170366,13.14292,-10.0006",
+        "Rotation": "0,0,-0.1305262,0.9914448",
+        "Scale": "0.1611618,0.1611618,0.1611618",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "ModelRenderer",
+            "BodyGroups": 18446744073709551615,
+            "MaterialGroup": null,
+            "MaterialOverride": null,
+            "Model": "models/rust_nature/rocks/rock_med_b.vmdl",
+            "RenderType": "On",
+            "Tint": "0.05581,0.053,0.03894,1"
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": [
+    "eurorp.aluminium_03",
+    "rust.rock_med_b"
+  ]
+}

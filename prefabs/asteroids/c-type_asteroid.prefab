@@ -1,26 +1,10 @@
 {
   "RootObject": {
     "Id": "005aa21a-1ab2-417d-bf4c-20b53a9f02fa",
-    "Name": "asteroid",
+    "Name": "c-type_asteroid",
     "Tags": "solid",
     "Enabled": true,
     "Components": [
-      {
-        "__type": "ModelRenderer",
-        "BodyGroups": 18446744073709551615,
-        "MaterialGroup": null,
-        "MaterialOverride": null,
-        "Model": "models/rust_nature/rocks/rock_small_c.vmdl",
-        "RenderType": "On",
-        "Tint": "0.80465,0.74895,0.62875,1"
-      },
-      {
-        "__type": "ModelCollider",
-        "IsTrigger": false,
-        "Model": "models/rust_nature/rocks/rock_small_c.vmdl",
-        "Static": false,
-        "Surface": null
-      },
       {
         "__type": "Rigidbody",
         "AngularDamping": 0,
@@ -131,7 +115,31 @@
         }
       }
     ],
-    "Children": []
+    "Children": [
+      {
+        "Id": "aafb1c12-8e23-4409-a204-9c3f32b78340",
+        "Name": "Model",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "ModelRenderer",
+            "BodyGroups": 18446744073709551615,
+            "MaterialGroup": null,
+            "MaterialOverride": null,
+            "Model": "models/rust_nature/rocks/rock_small_c.vmdl",
+            "RenderType": "On",
+            "Tint": "0.03256,0.03256,0.03256,1"
+          },
+          {
+            "__type": "ModelCollider",
+            "IsTrigger": false,
+            "Model": "models/rust_nature/rocks/rock_small_c.vmdl",
+            "Static": false,
+            "Surface": null
+          }
+        ]
+      }
+    ]
   },
   "ShowInMenu": false,
   "MenuPath": null,

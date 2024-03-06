@@ -1,0 +1,8 @@
+{
+  "Name": "Platinum Ore",
+  "Description": "",
+  "Value": 150,
+  "PickupPrefab": null,
+  "InventoryIcon": null,
+  "__references": []
+}

@@ -1,0 +1,53 @@
+{
+  "RootObject": {
+    "Id": "d06e3a30-adfa-4442-b2c8-b4f36e5423f1",
+    "Name": "cobalt_ore_pickup",
+    "Enabled": true,
+    "Children": [
+      {
+        "Id": "d5812fcd-88bc-48e4-ab74-17def56bc4aa",
+        "Name": "Sphere",
+        "Position": "20.65443,14.45241,10.45608",
+        "Rotation": "-0.3826834,0.9238796,0.00000007451121,0.000000179886",
+        "Scale": "0.5,0.5,0.5",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "ModelRenderer",
+            "BodyGroups": 18446744073709551615,
+            "MaterialGroup": null,
+            "MaterialOverride": null,
+            "Model": "models/rust_nature/rocks/rock_ledge_a.vmdl",
+            "RenderType": "On",
+            "Tint": "0.32296,0.29088,0.77209,1"
+          }
+        ]
+      },
+      {
+        "Id": "2ee6f82e-d260-42fe-83cd-698aea54c5a8",
+        "Name": "Sphere (1)",
+        "Position": "7.288276,-15.02263,-19.29691",
+        "Rotation": "0.0000001439446,0.00000003856985,0.6087615,0.7933533",
+        "Scale": "0.5,0.5,0.5",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "ModelRenderer",
+            "BodyGroups": 18446744073709551615,
+            "MaterialGroup": null,
+            "MaterialOverride": null,
+            "Model": "models/rust_nature/rocks/rock_ledge_a.vmdl",
+            "RenderType": "On",
+            "Tint": "0.32157,0.2902,0.77255,1"
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": [
+    "rust.rock_ledge_a"
+  ]
+}

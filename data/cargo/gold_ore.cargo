@@ -1,0 +1,8 @@
+{
+  "Name": "Gold Ore",
+  "Description": "",
+  "Value": 135,
+  "PickupPrefab": "data/cargo/gold_ore_pickup.prefab",
+  "InventoryIcon": "data/cargo/gold_ore_pickup.vtex",
+  "__references": []
+}

@@ -8,7 +8,7 @@
         "__type": "AsteroidSpawner",
         "AsteroidPrefab": {
           "_type": "gameobject",
-          "prefab": "prefabs/asteroids/asteroid.prefab"
+          "prefab": "prefabs/asteroids/c-type_asteroid.prefab"
         },
         "NoiseScale": 0.005,
         "ProbabilityBias": 0,
