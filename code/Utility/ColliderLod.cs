@@ -14,13 +14,10 @@ public sealed class ColliderLod : Component
 	[Property] public GameObject Target { get; set; }
 	[Property] public float Distance { get; set; }
 
-	protected override void OnStart()
-	{
-		Target ??= FloatingOriginPlayer.Instance?.GameObject ?? Scene.Camera?.GameObject;
-	}
-
 	protected override void OnUpdate()
 	{
+		Target = FloatingOriginPlayer.Instance?.GameObject ?? Scene.Camera?.GameObject;
+
 		if ( !HighDetail.Any() || !LowDetail.Any() || !Target.IsValid() )
 			return;
 
