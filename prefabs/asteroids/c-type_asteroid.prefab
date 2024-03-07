@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "Id": "89da3a51-a896-4644-aee9-5b8b66493320",
+    "Id": "83d6e58b-4f4b-4ff2-9ec6-186a12a880c6",
     "Name": "c-type_asteroid",
     "Tags": "solid",
     "Enabled": true,
@@ -30,7 +30,7 @@
         "RandomVelocityScale": 20,
         "Rigidbody": {
           "_type": "component",
-          "go": "89da3a51-a896-4644-aee9-5b8b66493320",
+          "go": "83d6e58b-4f4b-4ff2-9ec6-186a12a880c6",
           "component_type": "Rigidbody"
         },
         "ScaleCurve": {
@@ -74,11 +74,11 @@
         "__type": "Health",
         "Body": {
           "_type": "gameobject",
-          "go": "89da3a51-a896-4644-aee9-5b8b66493320"
+          "go": "83d6e58b-4f4b-4ff2-9ec6-186a12a880c6"
         },
         "Bounce": {
           "_type": "component",
-          "go": "89da3a51-a896-4644-aee9-5b8b66493320",
+          "go": "83d6e58b-4f4b-4ff2-9ec6-186a12a880c6",
           "component_type": "Bouncy"
         },
         "CurrentHealth": 0,
@@ -96,28 +96,34 @@
           "prefab": "prefabs/effects/asteroid_fracture.prefab"
         },
         "FractureLoot": "data/asteroids/c_type.loot",
+        "FracturePiecePrefab": {
+          "_type": "gameobject",
+          "prefab": "prefabs/asteroids/c-type_asteroid.prefab"
+        },
         "Health": {
           "_type": "component",
-          "go": "89da3a51-a896-4644-aee9-5b8b66493320",
+          "go": "83d6e58b-4f4b-4ff2-9ec6-186a12a880c6",
           "component_type": "Health"
-        }
+        },
+        "ShrinkOnDamage": true,
+        "ShrinkRatio": 0.3
       },
       {
         "__type": "HealthBarSpawner",
         "HealthSource": {
           "_type": "component",
-          "go": "89da3a51-a896-4644-aee9-5b8b66493320",
+          "go": "83d6e58b-4f4b-4ff2-9ec6-186a12a880c6",
           "component_type": "Health"
         },
         "Target": {
           "_type": "gameobject",
-          "go": "89da3a51-a896-4644-aee9-5b8b66493320"
+          "go": "83d6e58b-4f4b-4ff2-9ec6-186a12a880c6"
         }
       }
     ],
     "Children": [
       {
-        "Id": "1379f2be-31d3-4f28-8066-c44f08b8cf32",
+        "Id": "0591d7f0-0a23-464a-a115-3f3bab1a85ca",
         "Name": "Model",
         "Scale": "0.15,0.2,0.17",
         "Enabled": true,
@@ -153,14 +159,14 @@
             "HighDetail": [
               {
                 "_type": "component",
-                "go": "1379f2be-31d3-4f28-8066-c44f08b8cf32",
+                "go": "0591d7f0-0a23-464a-a115-3f3bab1a85ca",
                 "component_type": "ModelCollider"
               }
             ],
             "LowDetail": [
               {
                 "_type": "component",
-                "go": "1379f2be-31d3-4f28-8066-c44f08b8cf32",
+                "go": "0591d7f0-0a23-464a-a115-3f3bab1a85ca",
                 "component_type": "SphereCollider"
               }
             ],
