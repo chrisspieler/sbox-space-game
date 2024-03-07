@@ -8,6 +8,7 @@
     "sounds/kenney/ui/drop_002.vsnd"
   ],
   "Occlusion": false,
+  "Reflections": false,
   "OcclusionRadius": 64,
   "DistanceAttenuation": true,
   "__references": []

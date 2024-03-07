@@ -8,6 +8,7 @@
     "sounds/common/explosions/explo_gas_can_01.vsnd"
   ],
   "Occlusion": false,
+  "Reflections": false,
   "OcclusionRadius": 64,
   "DistanceAttenuation": true,
   "__references": []

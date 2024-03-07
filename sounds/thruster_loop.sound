@@ -8,6 +8,7 @@
     "sounds/thruster_loop.vsnd"
   ],
   "Occlusion": false,
+  "Reflections": false,
   "OcclusionRadius": 64,
   "DistanceAttenuation": true,
   "__references": []

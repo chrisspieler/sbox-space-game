@@ -8,6 +8,7 @@
     "data/weapons/mining_laser/laser_loop.vsnd"
   ],
   "Occlusion": false,
+  "Reflections": false,
   "OcclusionRadius": 64,
   "DistanceAttenuation": true,
   "__references": []
