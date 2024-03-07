@@ -40,22 +40,27 @@ public sealed class FloatingOriginSystem : GameObjectSystem
 		if ( Origin is null )
 			return;
 
-		if ( Origin.Transform.Position.Distance( Vector3.Zero) > OriginShiftDistance )
+		if ( Origin.Transform.Position.Distance( Vector3.Zero ) > OriginShiftDistance )
 		{
-			var listeners = Scene.GetAllComponents<IOriginShiftListener>().ToList();
-			var offset = -Origin.Transform.Position;
-			BeforeOriginShift( offset, listeners );
-			ResetWorld( Origin.GameObject, offset );
-			AfterOriginShift( offset, listeners );
-			return;
+			DoOriginShift();
 		}
 	}
 
-	public void ResetWorld( GameObject origin, Vector3 offset )
+	public void DoOriginShift()
+	{
+		var listeners = Scene.GetAllComponents<IOriginShiftListener>().ToList();
+		var offset = -Origin.Transform.Position;
+		BeforeOriginShift( offset, listeners );
+		ShiftWorld( Origin.GameObject, offset );
+		AfterOriginShift( offset, listeners );
+		return;
+	}
+
+	public void ShiftWorld( GameObject origin, Vector3 offset )
 	{
 		TotalOriginShift -= offset;
 		origin.Transform.Position = Vector3.Zero;
-		var gameObjects = origin.Scene.Children.Where( go => go != origin );
+		var gameObjects = origin.Scene.Children.Where( go => go != origin && !go.Tags.Has("no_shift") );
 		foreach ( var go in gameObjects )
 		{
 			if ( Debug )
