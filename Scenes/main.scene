@@ -382,6 +382,23 @@
       ]
     },
     {
+      "Id": "0271d882-8a8e-4d26-a5b9-054ee17e5fd9",
+      "Name": "Shop Text",
+      "Position": "2496,2816,-192",
+      "Rotation": "0,0.7071068,0,0.7071068",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "TextRenderer",
+          "Color": "1,0.98333,0,1",
+          "FontFamily": "Zeroes 1",
+          "FontSize": 128,
+          "Scale": 0.39,
+          "Text": "ENTER SHOP -\u003E"
+        }
+      ]
+    },
+    {
       "Id": "b95bc5b6-db79-4b7b-9cb5-c9d2b127a0ac",
       "Name": "The Cube",
       "Position": "2500,2500,-700",
@@ -577,6 +594,23 @@
               "Enabled": true
             }
           ]
+        },
+        {
+          "Id": "052be32b-bd43-40b4-a70e-c8616c2a0142",
+          "Name": "Tutorial Text",
+          "Position": "25.4,35,25.4",
+          "Rotation": "0,0.7071068,0,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "TextRenderer",
+              "Color": "1,1,1,1",
+              "FontFamily": "Zeroes 1",
+              "FontSize": 62.47,
+              "Scale": 0.05,
+              "Text": "Tap WASD: change direction\nSpace: Thrusters\nLeft-Click: Fire Mining Lasers"
+            }
+          ]
         }
       ]
     },
@@ -708,7 +742,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-07T10:26:51.0488635-07:00",
+  "LastSaved": "2024-03-07T10:47:37.1216606-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03",
