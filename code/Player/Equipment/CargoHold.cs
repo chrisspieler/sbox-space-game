@@ -6,6 +6,8 @@ public sealed class CargoHold : Component
 	[Property] public int MaxItems { get; set; } = 6;
 	[Property] public List<CargoItem> Items { get; set; } = new();
 
+	public int Count => Items.Count;
+
 	public bool CanAddItem( CargoItem item )
 	{
 		return Items.Count < MaxItems;
