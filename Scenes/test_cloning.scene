@@ -1,0 +1,102 @@
+{
+  "Id": "4f2a1b88-e8f9-4db9-8f69-1114964c5504",
+  "GameObjects": [
+    {
+      "Id": "87fd0006-5039-40fe-ab61-1737045b9979",
+      "Name": "Camera",
+      "Position": "0,0,2000",
+      "Rotation": "0,0.7071068,0,0.7071068",
+      "Tags": "maincamera",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "CameraComponent",
+          "BackgroundColor": "0.33333,0.46275,0.52157,1",
+          "ClearFlags": "All",
+          "FieldOfView": 60,
+          "IsMainCamera": true,
+          "Orthographic": false,
+          "OrthographicHeight": 1204,
+          "Priority": 1,
+          "RenderExcludeTags": "",
+          "RenderTags": "",
+          "TargetEye": "None",
+          "Viewport": "0,0,1,1",
+          "ZFar": 10000,
+          "ZNear": 10
+        }
+      ]
+    },
+    {
+      "Id": "2b04710a-cdbd-4f94-a703-d19940d7b7a7",
+      "Name": "Cloning Benchmark",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "CloningBenchmark",
+          "__enabled": false,
+          "Prefab": {
+            "_type": "gameobject",
+            "prefab": "prefabs/asteroids/c-type_asteroid.prefab"
+          },
+          "Spacing": 500,
+          "XCount": 20,
+          "YCount": 20
+        }
+      ]
+    },
+    {
+      "Id": "dbcecc7e-64cb-4f40-8c1c-89669be72aab",
+      "Name": "Sun",
+      "Position": "-63.25426,177.8877,1823.808",
+      "Rotation": "0,0.3826835,0,0.9238795",
+      "Tags": "light_directional,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "DirectionalLight",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Shadows": true,
+          "SkyColor": "0.05882,0.07451,0.08235,1"
+        }
+      ]
+    },
+    {
+      "Id": "3600498e-d7eb-464b-801e-9515c25756b5",
+      "Name": "Player",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "FloatingOriginPlayer"
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "test_cloning",
+  "Description": "",
+  "LastSaved": "2024-03-07T07:04:53.6907332-07:00",
+  "__references": []
+}

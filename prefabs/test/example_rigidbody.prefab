@@ -1,0 +1,75 @@
+{
+  "RootObject": {
+    "Id": "c055c6c9-7a76-4123-a6eb-c357e4bd287f",
+    "Name": "example_rigidbody",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Rigidbody",
+        "AngularDamping": 0,
+        "Gravity": false,
+        "LinearDamping": 0,
+        "Locking": {
+          "Z": true
+        },
+        "MassOverride": 0,
+        "RigidbodyFlags": 0,
+        "StartAsleep": false
+      },
+      {
+        "__type": "SpaceFloater",
+        "InitialAngularVelocity": "0,0,0",
+        "InitialVelocity": "0,0,0",
+        "MassOverride": 1000,
+        "RandomAngularVelocityScale": 0.5,
+        "RandomizeAngularVelocity": true,
+        "RandomizeRotation": true,
+        "RandomizeScale": true,
+        "RandomizeVelocity": true,
+        "RandomVelocityScale": 1,
+        "Rigidbody": {
+          "_type": "component",
+          "go": "c055c6c9-7a76-4123-a6eb-c357e4bd287f",
+          "component_type": "Rigidbody"
+        },
+        "ScaleCurve": [
+          {
+            "x": 0.5,
+            "y": 0.5
+          }
+        ]
+      }
+    ],
+    "Children": [
+      {
+        "Id": "8b20c13d-6b25-42b5-af0c-1d484edb8280",
+        "Name": "Cube",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "ModelRenderer",
+            "BodyGroups": 18446744073709551615,
+            "MaterialGroup": null,
+            "MaterialOverride": null,
+            "Model": "models/rust_nature/rocks/rock_small_c.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          },
+          {
+            "__type": "ModelCollider",
+            "IsTrigger": false,
+            "Model": "models/rust_nature/rocks/rock_small_c.vmdl",
+            "Static": false,
+            "Surface": null
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": [
+    "rust.rock_small_c"
+  ]
+}

@@ -8,6 +8,8 @@ public sealed partial class WorldChunker : GameObjectSystem
 	/// </summary>
 	[ConVar( "world_chunk_size" )]
 	public static int ChunkSize { get; set; } = 5_000;
+	[ConVar( "world_streaming" )]
+	public static bool EnableWorldStreaming { get; set; } = true;
 
 	// This number is based on a chunk size of 1000 units.
 	// Perhaps it should be calculated based on the chunk size.
@@ -22,6 +24,9 @@ public sealed partial class WorldChunker : GameObjectSystem
 
 	private void OnUpdate()
 	{
+		if ( !EnableWorldStreaming )
+			return;
+
 		_originSystem ??= Scene.GetSystem<FloatingOriginSystem>();
 
 		var origin = _originSystem.Origin;

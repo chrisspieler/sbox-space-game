@@ -1,0 +1,38 @@
+{
+  "RootObject": {
+    "Id": "74861663-3068-4ffe-a9b4-a0bc458f00ff",
+    "Name": "example_non-rigidbody",
+    "Enabled": true,
+    "Children": [
+      {
+        "Id": "8d445c8c-d057-4d55-8344-c1d70d7382a7",
+        "Name": "Cube",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "ModelRenderer",
+            "BodyGroups": 18446744073709551615,
+            "MaterialGroup": null,
+            "MaterialOverride": null,
+            "Model": "models/rust_nature/rocks/rock_small_c.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          },
+          {
+            "__type": "ModelCollider",
+            "IsTrigger": false,
+            "Model": "models/rust_nature/rocks/rock_small_c.vmdl",
+            "Static": false,
+            "Surface": null
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": [
+    "rust.rock_small_c"
+  ]
+}
