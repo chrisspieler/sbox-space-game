@@ -10,7 +10,7 @@ public sealed class MeatDresser : Component
 	protected override void OnEnabled()
 	{
 		var container = ClothingContainer.CreateFromLocalUser();
-		if ( !container.Clothing.Any( c => c.ResourceName.Contains("mascot") ) )
+		if ( !container.Clothing.Any( c => c.Clothing.ResourceName.Contains("mascot") ) )
 		{
 			foreach ( var clothing in Clothes )
 			{
@@ -20,9 +20,9 @@ public sealed class MeatDresser : Component
 		container.Apply( Model );
 	}
 
-	private void AddToContainer( ClothingContainer container, Clothing clothing )
+	private static void AddToContainer( ClothingContainer container, Clothing clothing )
 	{
-		container.Clothing.RemoveAll( ( Clothing x ) => !x.CanBeWornWith( clothing ) );
-		container.Clothing.Add( clothing );
+		container.Clothing.RemoveAll( x => !x.Clothing.CanBeWornWith( clothing ) );
+		container.Clothing.Add( new(clothing) );
 	}
 }
