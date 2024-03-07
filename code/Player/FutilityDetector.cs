@@ -61,7 +61,7 @@ public class FutilityDetector : GameObjectSystem
 
 	private static bool CanJettison( ShipController ship )
 	{
-		return ship.Jettison.IsValid()
+		return ship.Jettison?.Enabled == true
 			&& ship.Cargo.IsValid()
 			&& ship.Cargo.Count > 0f;
 	}

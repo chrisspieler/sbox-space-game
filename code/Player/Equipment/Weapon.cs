@@ -222,7 +222,18 @@ public sealed class Weapon : Component, IDestructionListener
 			Position = tr.HitPosition,
 			Weapon = GameObject
 		};
+		DoLaserPush( tr );
 		damageable.OnDamage( damageInfo );
+	}
+
+	private void DoLaserPush( SceneTraceResult tr )
+	{
+		if ( !tr.GameObject.Components.TryGet<Rigidbody>( out var rb ) )
+			return;
+
+		var force = tr.Direction * 0.2f;
+		rb.ApplyImpulse( force * 1500f );
+		rb.ApplyImpulseAt( tr.HitPosition, force * 0.5f );
 	}
 
 	private void UpdateBodyRotation()
