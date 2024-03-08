@@ -248,8 +248,8 @@
                 "Id": 2,
                 "Type": "property.get",
                 "Properties": {
-                  "_type": "Sandbox.Game/Sandbox.Scene",
-                  "_name": "PhysicsWorld"
+                  "_name": "PhysicsWorld",
+                  "_type": "Sandbox.Game/Sandbox.Scene"
                 },
                 "UserData": {
                   "Position": "64,64"
@@ -259,8 +259,8 @@
                 "Id": 3,
                 "Type": "property.set",
                 "Properties": {
-                  "_type": "Sandbox.Engine/Sandbox.PhysicsWorld",
-                  "_name": "Gravity"
+                  "_name": "Gravity",
+                  "_type": "Sandbox.Engine/Sandbox.PhysicsWorld"
                 },
                 "UserData": {
                   "Position": "352,0"
@@ -378,23 +378,6 @@
             "go": "5a204e98-b86c-4727-accc-d522082427fd",
             "component_type": "VolumetricFogVolume"
           }
-        }
-      ]
-    },
-    {
-      "Id": "0271d882-8a8e-4d26-a5b9-054ee17e5fd9",
-      "Name": "Shop Text",
-      "Position": "2496,2816,-192",
-      "Rotation": "0,0.7071068,0,0.7071068",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "TextRenderer",
-          "Color": "1,0.98333,0,1",
-          "FontFamily": "Zeroes 1",
-          "FontSize": 128,
-          "Scale": 0.39,
-          "Text": "ENTER SHOP -\u003E"
         }
       ]
     },
@@ -611,6 +594,24 @@
               "Text": "Tap WASD: change direction\nSpace: Thrusters\nLeft-Click: Fire Mining Lasers"
             }
           ]
+        },
+        {
+          "Id": "0271d882-8a8e-4d26-a5b9-054ee17e5fd9",
+          "Name": "Shop Text",
+          "Position": "-0.2,15.8,25.4",
+          "Rotation": "0,0.7071068,0,0.7071068",
+          "Scale": "0.05,0.05,0.05",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "TextRenderer",
+              "Color": "1,0.98333,0,1",
+              "FontFamily": "Zeroes 1",
+              "FontSize": 128,
+              "Scale": 0.39,
+              "Text": "ENTER SHOP -\u003E"
+            }
+          ]
         }
       ]
     },
@@ -742,7 +743,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-07T10:47:37.1216606-07:00",
+  "LastSaved": "2024-03-08T11:09:08.4572344-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03",

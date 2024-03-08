@@ -3,6 +3,9 @@ using System.Linq;
 
 public partial class WorldChunker
 {
+	[ConVar( "world_streaming_rehome" )]
+	public static bool Rehoming { get; set; } = true;
+
 	private void RehomeDrifters()
 	{
 		foreach( var (chunk, chunkGo) in _worldChunks )

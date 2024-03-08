@@ -1,7 +1,7 @@
 {
   "Name": "Iron Ore",
   "Description": "Heavy and abundant.",
-  "Value": 10,
+  "Value": 12,
   "PickupPrefab": "data/cargo/iron_ore_pickup.prefab",
   "InventoryIcon": "data/cargo/iron_ore_pickup.vtex",
   "__references": []

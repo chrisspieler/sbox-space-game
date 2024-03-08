@@ -31,6 +31,9 @@ public sealed class SaveManager : Component
 			Log.Info( $"No existing save, starting from fallback scenario: {FallbackScenario.ResourceName}" );
 			Career.Active = FallbackScenario.ToCareer();
 		}
+		Log.Info( $"Loading world: {Career.Active.World}" );
+		Scene.GetSystem<WorldChunker>().World = ResourceLibrary.GetAll<WorldMap>()
+			.First( m => m.ResourceName == Career.Active.World );
 		ShipController.Respawn();
 		_untilNextAutosave = AutosaveInterval;
 	}

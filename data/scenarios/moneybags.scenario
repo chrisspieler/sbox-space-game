@@ -8,5 +8,6 @@
     "data/upgrades/cargo_0.upgrade"
   ],
   "Hidden": true,
+  "World": "data/world/default.world",
   "__references": []
 }

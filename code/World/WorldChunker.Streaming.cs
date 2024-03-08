@@ -52,30 +52,44 @@ public sealed partial class WorldChunker : GameObjectSystem
 		ChunkContainer.Tags.Add( "no_chunk" );
 	}
 
+	private GameObject LoadChunkGameObject( Vector2Int chunkPos )
+	{
+		if ( TryLoadChunkFromCache( chunkPos, out GameObject chunk ) )
+		{
+			return chunk;
+		}
+		chunk = LoadChunkForCoordinates( chunkPos );
+		return chunk;
+	}
+	private bool TryLoadChunkFromCache( Vector2Int chunkPos, out GameObject chunk )
+	{
+		// TODO: Cache loaded chunks instead of generating new ones every time.
+		chunk = null;
+		return false;
+	}
+
+	private GameObject LoadChunkForCoordinates( Vector2Int chunkPos )
+	{
+		var chunkData = World.GetChunkDataForCell( chunkPos );
+		return chunkData.Spawn( ChunkToWorldRelative( chunkPos ) );
+	}
+
 	private void LoadChunk( Vector2Int chunkPos )
 	{
-		if ( Debug ) { Log.Info( $"Load chunk: {chunkPos}" ); }
+		if ( Debug ) Log.Info( $"Loading chunk: {chunkPos}" );
 
 		if ( _worldChunks.ContainsKey( chunkPos ) )
 			return;
 
 		EnsureChunkContainer();
-		// TODO: Cache chunks instead of creating new ones every time.
-		var prefabFile = ResourceLibrary.Get<PrefabFile>( "prefabs/chunks/asteroid_field.prefab" );
-		var prefabScene = SceneUtility.GetPrefabScene( prefabFile );
-		var chunk = prefabScene.Clone();
-		chunk.BreakFromPrefab();
+		
+		var chunk = LoadChunkGameObject( chunkPos );
+		var oldPos = chunk.Transform.Position;
 		chunk.Parent = ChunkContainer;
-		// Not sure why, but only setting the position here isn't good enough because after going beyond
-		// the starting 9 chunks, the newly loaded chunks will have an incorrect position. As a workaround,
-		// ChunkData sets the position again in OnUpdate, which is probably overkill,
-		// but is probably a lot easier than understanding why this is broken.
-		chunk.Transform.Position = ChunkToWorldRelative( chunkPos );
-		var chunkData = chunk.Components.GetOrCreate<ChunkData>();
-		chunkData.Position = chunkPos;
-		chunk.Name = $"Chunk {chunkPos}";
+		chunk.Transform.Position = oldPos;
 		_worldChunks[chunkPos] = chunk;
 		_chunkOrder.Add( chunkPos );
+		if ( Debug ) Log.Info( $"Loaded chunk {chunkPos} at relative position {chunk.Transform.Position}" );
 	}
 
 	private void UnloadChunk( Vector2Int chunkPos )

@@ -1,23 +1,38 @@
 ﻿using Sandbox;
 
-public sealed class ChunkData : Component
+[GameResource( "Chunk Data", "chunk", "Chunk metadata", Icon = "landscape" )]
+public class ChunkData : GameResource
 {
-	[Property] public Vector2Int Position { get; set; }
+	public string Name { get; set; }
+	public PrefabFile Prefab { get; set; }
+	public int Difficulty { get; set; }
+	public AsteroidSpawnConfig Asteroids { get; set; }
 
-	private WorldChunker _chunkSystem;
-	private bool _chunkHasMoved;
-
-	protected override void OnStart()
+	public GameObject Spawn( Vector3 relativePosition )
 	{
-		_chunkSystem = Scene.GetSystem<WorldChunker>();
+		var chunkGo = Prefab.GetPrefabScene().Clone( relativePosition );
+		chunkGo.BreakFromPrefab();
+		SetChunkData( chunkGo );
+		SpawnAsteroids( chunkGo );
+		return chunkGo;
 	}
 
-	protected override void OnUpdate()
+	private void SetChunkData( GameObject chunkGo )
 	{
-		if ( !_chunkHasMoved )
-		{
-			Transform.Position = _chunkSystem.ChunkToWorldRelative( Position );
-			_chunkHasMoved = true;
-		}
+		var chunkCell = WorldChunker.WorldToChunkAbsolute( chunkGo.GetAbsolutePosition() );
+		var chunkReference = chunkGo.Components.GetOrCreate<ChunkReference>();
+		chunkReference.Position = chunkCell;
+		chunkReference.Data = this;
+		chunkGo.Name = $"{chunkCell} {ResourceName}";
+	}
+
+	private void SpawnAsteroids( GameObject chunkGo )
+	{
+		if ( Asteroids is null )
+			return;
+
+		var spawner = chunkGo.Components.GetOrCreate<AsteroidSpawner>();
+		spawner.Config = Asteroids;
+		spawner.BeginSpawnMany();
 	}
 }

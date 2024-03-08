@@ -1,0 +1,19 @@
+{
+  "RootObject": {
+    "Id": "5de0e7a0-1d81-4819-bf1f-50823fc0937c",
+    "Name": "spawn_area",
+    "Enabled": true,
+    "Children": [
+      {
+        "Id": "ef60cabf-7812-4893-b0f4-ae9341222737",
+        "Name": "ice_field",
+        "Enabled": true,
+        "__Prefab": "prefabs/effects/ice_field.prefab"
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}

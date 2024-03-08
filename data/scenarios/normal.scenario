@@ -8,5 +8,6 @@
     "data/upgrades/main_thruster_0.upgrade"
   ],
   "Hidden": false,
+  "World": "data/world/default.world",
   "__references": []
 }

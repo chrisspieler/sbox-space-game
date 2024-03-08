@@ -92,7 +92,7 @@
         "FractureLoot": "data/asteroids/s_type.loot",
         "FracturePiecePrefab": {
           "_type": "gameobject",
-          "prefab": "prefabs/asteroids/s-type_asteroid.prefab"
+          "prefab": "data/asteroids/s-type_asteroid.prefab"
         },
         "Health": {
           "_type": "component",

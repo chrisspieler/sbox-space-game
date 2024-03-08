@@ -5,23 +5,12 @@ using System.Linq;
 
 public sealed class AsteroidSpawner : Component
 {
-	public struct AsteroidType
-	{
-		public GameObject Prefab { get; set; }
-		public float Probability { get; set; }
-	}
-
 	[ConVar("asteroid_spawn_debug")]
 	public static bool Debug { get; set; } = false;
 	[ConVar( "asteroid_spawn_rate_limit" )]
 	public static int SpawnRateLimit { get; set; } = 1;
 
-	[Property] public bool SpawnManyOnStart { get; set; } = true;
-	[Property] List<AsteroidType> AsteroidTypes { get; set; }
-	[Property, Range( 64, 512, 32 )] public int Spacing { get; set; } = 64;
-	[Property] public float NoiseScale { get; set; } = 0.1f;
-	[Property, Range(0, 0.1f, 0.01f )] public float ProbabilityScale { get; set; } = 0.1f;
-	[Property, Range( -1, 1, 0.01f )] public float ProbabilityBias { get; set; } = -0.2f;
+	[Property] public AsteroidSpawnConfig Config { get; set; }
 
 	private WorldChunker _chunkSystem;
 	private FloatingOriginSystem _originSystem;
@@ -38,18 +27,18 @@ public sealed class AsteroidSpawner : Component
 		_chunkSystem = Scene.GetSystem<WorldChunker>();
 		_originSystem = Scene.GetSystem<FloatingOriginSystem>();
 		_playerSpawn = Scene.GetAllComponents<SpawnPoint>().FirstOrDefault();
-		foreach( var asteroidType in AsteroidTypes )
-		{
-			_asteroidProbabilities.AddItem( asteroidType.Prefab, asteroidType.Probability );
-		}
-		if ( Components.TryGet<ChunkData>( out var data ) )
+
+		if ( Components.TryGet<ChunkReference>( out var data ) )
 		{
 			Transform.Position = _chunkSystem.ChunkToWorldRelative( data.Position );
 		}
 
-		if ( SpawnManyOnStart )
+		if ( Config is null )
+			return;
+
+		foreach ( var asteroidType in Config.AsteroidTypes )
 		{
-			_spawnEnumerator = SpawnMany();
+			_asteroidProbabilities.AddItem( asteroidType.Prefab, asteroidType.Probability );
 		}
 	}
 
@@ -87,12 +76,16 @@ public sealed class AsteroidSpawner : Component
 	/// Returns the localspace position of every point within this chunk that 
 	/// could potentially spawn an asteroid.
 	/// </summary>
-	private IEnumerable<Vector3> GetSpawnPoints()
+	public IEnumerable<Vector3> GetSpawnPoints()
 	{
-		var chunkSize = WorldChunker.ChunkSize;
-		for (int x = 0; x < chunkSize; x += Spacing)
+		if ( Config is null )
 		{
-			for (int y = 0; y < chunkSize; y += Spacing)
+			yield break;
+		}
+		var chunkSize = WorldChunker.ChunkSize;
+		for (int x = 0; x < chunkSize; x += Config.Spacing)
+		{
+			for (int y = 0; y < chunkSize; y += Config.Spacing)
 			{
 				var offset = new Vector3( x, y, Transform.Position.z );
 				yield return offset;
@@ -102,6 +95,10 @@ public sealed class AsteroidSpawner : Component
 
 	public float GetSpawnProbability( Vector3 localPosition )
 	{
+		if ( Config is null )
+		{
+			return 0f;
+		}
 		var worldPosition = Transform.World.PointToWorld( localPosition );
 		if ( _playerSpawn.IsValid() )
 		{
@@ -110,31 +107,48 @@ public sealed class AsteroidSpawner : Component
 			if ( worldPosition.Distance( _playerSpawn.Transform.Position ) < 2500f )
 				return 0f;
 		}
-		
 
 		worldPosition = _originSystem.RelativeToAbsolute( worldPosition );
-		worldPosition *= NoiseScale;
+		worldPosition *= Config.NoiseScale;
 		var noiseResult = Noise.Perlin( worldPosition.x, worldPosition.y );
-		return noiseResult * ProbabilityScale + ProbabilityBias;
+		return noiseResult * Config.ProbabilityScale + Config.ProbabilityBias;
 	}
 
-	public IEnumerator<GameObject> SpawnMany()
+	public void BeginSpawnMany()
 	{
-		var spawnPoints = GetSpawnPoints();
-		_spawnPoints = new();
-		foreach (var point in spawnPoints)
+		if ( Config is null )
+			return;
+		
+		_spawnEnumerator = SpawnMany();
+	}
+
+	private IEnumerator<GameObject> SpawnMany()
+	{
+		if ( Config is null )
+			yield break;
+
+		GenerateSpawnPoints();
+		foreach ( var (position, probability) in _spawnPoints )
 		{
-			var probability = GetSpawnProbability( point );
-			// Cache the spawn points so we get better performance during debug draw.
-			_spawnPoints.Add( (point, probability) );
 			if ( Game.Random.Float() < probability )
 			{
-				yield return SpawnOne( point );
+				yield return SpawnOne( position );
 			}
 		}
 		if ( Debug )
 		{
 			Log.Info( $"{GameObject.Name}: Got {_spawnPoints.Count} spawn points." );
+		}
+	}
+
+	private void GenerateSpawnPoints()
+	{
+		var spawnPoints = GetSpawnPoints();
+		_spawnPoints = new();
+		foreach ( var point in spawnPoints )
+		{
+			var probability = GetSpawnProbability( point );
+			_spawnPoints.Add( (point, probability) );
 		}
 	}
 
@@ -151,8 +165,10 @@ public sealed class AsteroidSpawner : Component
 		var bbox = BBox.FromPositionAndSize( chunkCenter, bboxSize );
 		Gizmo.Hitbox.BBox( bbox );
 
-		if ( !Gizmo.IsSelected && !Gizmo.IsHovered )
+		if ( !Gizmo.IsSelected && !Gizmo.IsHovered || Config is null )
 			return;
+
+		GenerateSpawnPoints();
 
 		Gizmo.Draw.Color = Gizmo.IsSelected
 			? Color.White
@@ -163,7 +179,7 @@ public sealed class AsteroidSpawner : Component
 		{
 			foreach ( var (point, probability) in _spawnPoints )
 			{
-				var color = Color.Lerp( Color.Red, Color.Green, probability / ProbabilityScale );
+				var color = Color.Lerp( Color.Red, Color.Green, probability / Config.ProbabilityScale );
 				Gizmo.Draw.Color = color;
 				Gizmo.Draw.Line( point, point + Vector3.Up * 20f );
 			}

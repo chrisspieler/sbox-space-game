@@ -11,6 +11,8 @@ public sealed partial class WorldChunker : GameObjectSystem
 	[ConVar( "world_streaming" )]
 	public static bool EnableWorldStreaming { get; set; } = true;
 
+	public WorldMap World { get; set; }
+
 	// This number is based on a chunk size of 1000 units.
 	// Perhaps it should be calculated based on the chunk size.
 	private float _maxPosition { get; set; } = 1_000_000_000f;
@@ -24,7 +26,7 @@ public sealed partial class WorldChunker : GameObjectSystem
 
 	private void OnUpdate()
 	{
-		if ( !EnableWorldStreaming )
+		if ( !EnableWorldStreaming || World is null  )
 			return;
 
 		_originSystem ??= Scene.GetSystem<FloatingOriginSystem>();
@@ -40,8 +42,11 @@ public sealed partial class WorldChunker : GameObjectSystem
 		}
 
 		UpdateChunks( WorldToChunkAbsolute( origin.AbsolutePosition ) );
-		RehomeDrifters();
-		RehomeOrphans();
+		if ( Rehoming )
+		{
+			RehomeDrifters();
+			RehomeOrphans();
+		}
 	}
 
 	/// <summary>
@@ -49,7 +54,12 @@ public sealed partial class WorldChunker : GameObjectSystem
 	/// </summary>
 	public static Vector2Int WorldToChunkAbsolute( Vector3 absPosition )
 	{
-		absPosition.Abs();
+		// If we are on the origin of a chunk...
+		if ( absPosition.x % ChunkSize < 0.01f || absPosition.y % ChunkSize < 0.01f )
+		{
+			// ...nudge the position by one unit forward/left to ensure that we are inside of it.
+			absPosition += new Vector3( 0.01f, 0.01f, 0 );
+		}
 		var chunkX = MathX.CeilToInt( absPosition.x / ChunkSize ) - 1;
 		var chunkY = MathX.CeilToInt( absPosition.y / ChunkSize ) - 1;
 		return new Vector2Int( chunkX, chunkY );

@@ -21,6 +21,7 @@ public partial class Career
 	private int _money;
 
 	public List<string> Upgrades { get; set; } = new();
+	public string World { get; set; } = "default";
 
 	public float TotalPlayTime { get; set; }
 

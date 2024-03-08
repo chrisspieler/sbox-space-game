@@ -1,7 +1,7 @@
 {
   "Name": "Nickel Ore",
   "Description": "",
-  "Value": 22,
+  "Value": 28,
   "PickupPrefab": "data/cargo/nickel_ore_pickup.prefab",
   "InventoryIcon": "data/cargo/nickel_ore_pickup.vtex",
   "__references": []

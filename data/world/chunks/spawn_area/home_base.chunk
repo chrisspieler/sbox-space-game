@@ -1,0 +1,7 @@
+{
+  "Name": "Home Base",
+  "Prefab": "data/world/chunks/spawn_area/home_base.prefab",
+  "Difficulty": 0,
+  "Asteroids": null,
+  "__references": []
+}
