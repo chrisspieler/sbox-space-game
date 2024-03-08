@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "Id": "83d6e58b-4f4b-4ff2-9ec6-186a12a880c6",
+    "Id": "d293078c-423c-4230-8736-10be26635f2e",
     "Name": "c-type_asteroid",
     "Tags": "solid",
     "Enabled": true,
@@ -22,15 +22,15 @@
         "InitialAngularVelocity": "0,0,0",
         "InitialVelocity": "0,0,0",
         "MassOverride": 40,
-        "RandomAngularVelocityScale": 0.25,
+        "RandomAngularVelocityScale": 1,
         "RandomizeAngularVelocity": true,
         "RandomizeRotation": true,
         "RandomizeScale": true,
         "RandomizeVelocity": true,
-        "RandomVelocityScale": 20,
+        "RandomVelocityScale": 50,
         "Rigidbody": {
           "_type": "component",
-          "go": "83d6e58b-4f4b-4ff2-9ec6-186a12a880c6",
+          "go": "d293078c-423c-4230-8736-10be26635f2e",
           "component_type": "Rigidbody"
         },
         "ScaleCurve": {
@@ -74,11 +74,11 @@
         "__type": "Health",
         "Body": {
           "_type": "gameobject",
-          "go": "83d6e58b-4f4b-4ff2-9ec6-186a12a880c6"
+          "go": "d293078c-423c-4230-8736-10be26635f2e"
         },
         "Bounce": {
           "_type": "component",
-          "go": "83d6e58b-4f4b-4ff2-9ec6-186a12a880c6",
+          "go": "d293078c-423c-4230-8736-10be26635f2e",
           "component_type": "Bouncy"
         },
         "CurrentHealth": 0,
@@ -102,7 +102,7 @@
         },
         "Health": {
           "_type": "component",
-          "go": "83d6e58b-4f4b-4ff2-9ec6-186a12a880c6",
+          "go": "d293078c-423c-4230-8736-10be26635f2e",
           "component_type": "Health"
         },
         "ShrinkOnDamage": true,
@@ -112,18 +112,18 @@
         "__type": "HealthBarSpawner",
         "HealthSource": {
           "_type": "component",
-          "go": "83d6e58b-4f4b-4ff2-9ec6-186a12a880c6",
+          "go": "d293078c-423c-4230-8736-10be26635f2e",
           "component_type": "Health"
         },
         "Target": {
           "_type": "gameobject",
-          "go": "83d6e58b-4f4b-4ff2-9ec6-186a12a880c6"
+          "go": "d293078c-423c-4230-8736-10be26635f2e"
         }
       }
     ],
     "Children": [
       {
-        "Id": "0591d7f0-0a23-464a-a115-3f3bab1a85ca",
+        "Id": "20d9ef0c-632e-46a9-a192-adc55afd3f4c",
         "Name": "Model",
         "Scale": "0.15,0.2,0.17",
         "Enabled": true,
@@ -159,24 +159,24 @@
             "HighDetail": [
               {
                 "_type": "component",
-                "go": "0591d7f0-0a23-464a-a115-3f3bab1a85ca",
+                "go": "20d9ef0c-632e-46a9-a192-adc55afd3f4c",
                 "component_type": "ModelCollider"
               },
               {
                 "_type": "component",
-                "go": "0e1decb4-b119-440e-8793-c8f01dd779ee",
+                "go": "eef54b5d-26cd-46e7-b2c9-ff77e1a271b9",
                 "component_type": "SphereCollider"
               },
               {
                 "_type": "component",
-                "go": "e2c535a4-0e81-41c1-b566-c824f90fd563",
+                "go": "7f0b3cee-3651-4425-861c-6a7e28585a7e",
                 "component_type": "SphereCollider"
               }
             ],
             "LowDetail": [
               {
                 "_type": "component",
-                "go": "0591d7f0-0a23-464a-a115-3f3bab1a85ca",
+                "go": "20d9ef0c-632e-46a9-a192-adc55afd3f4c",
                 "component_type": "SphereCollider"
               }
             ],
@@ -185,7 +185,7 @@
         ]
       },
       {
-        "Id": "0e1decb4-b119-440e-8793-c8f01dd779ee",
+        "Id": "eef54b5d-26cd-46e7-b2c9-ff77e1a271b9",
         "Name": "Inner Collider",
         "Position": "0,-15.36836,0",
         "Scale": "0.9181049,0.4418537,0.4291455",
@@ -203,7 +203,7 @@
         ]
       },
       {
-        "Id": "e2c535a4-0e81-41c1-b566-c824f90fd563",
+        "Id": "7f0b3cee-3651-4425-861c-6a7e28585a7e",
         "Name": "Inner Collider (1)",
         "Position": "18.82446,-2.787203,-0.0000002384186",
         "Rotation": "0,-0.05946197,0,0.9982306",

@@ -5,21 +5,22 @@ using System.Linq;
 
 public sealed class AsteroidSpawner : Component
 {
+	public struct AsteroidType
+	{
+		public GameObject Prefab { get; set; }
+		public float Probability { get; set; }
+	}
+
 	[ConVar("asteroid_spawn_debug")]
 	public static bool Debug { get; set; } = false;
 	[ConVar( "asteroid_spawn_rate_limit" )]
 	public static int SpawnRateLimit { get; set; } = 1;
 
 	[Property] public bool SpawnManyOnStart { get; set; } = true;
-	[Property] public GameObject AsteroidPrefabC { get; set; }
-	[Property] public float CTypeWeight { get; set; } = 100f;
-	[Property] public GameObject AsteroidPrefabS { get; set; }
-	[Property] public float STypeWeight { get; set; } = 20f;
-	[Property] public GameObject AsteroidPrefabM { get; set; }
-	[Property] public float MTypeWeight { get; set; } = 10f;
+	[Property] List<AsteroidType> AsteroidTypes { get; set; }
 	[Property, Range( 64, 512, 32 )] public int Spacing { get; set; } = 64;
 	[Property] public float NoiseScale { get; set; } = 0.1f;
-	[Property, Range(0, 1, 0.01f )] public float ProbabilityScale { get; set; } = 0.1f;
+	[Property, Range(0, 0.1f, 0.01f )] public float ProbabilityScale { get; set; } = 0.1f;
 	[Property, Range( -1, 1, 0.01f )] public float ProbabilityBias { get; set; } = -0.2f;
 
 	private WorldChunker _chunkSystem;
@@ -37,9 +38,10 @@ public sealed class AsteroidSpawner : Component
 		_chunkSystem = Scene.GetSystem<WorldChunker>();
 		_originSystem = Scene.GetSystem<FloatingOriginSystem>();
 		_playerSpawn = Scene.GetAllComponents<SpawnPoint>().FirstOrDefault();
-		_asteroidProbabilities.AddItem( AsteroidPrefabC, CTypeWeight );
-		_asteroidProbabilities.AddItem( AsteroidPrefabS, STypeWeight );
-		_asteroidProbabilities.AddItem( AsteroidPrefabM, MTypeWeight );
+		foreach( var asteroidType in AsteroidTypes )
+		{
+			_asteroidProbabilities.AddItem( asteroidType.Prefab, asteroidType.Probability );
+		}
 		if ( Components.TryGet<ChunkData>( out var data ) )
 		{
 			Transform.Position = _chunkSystem.ChunkToWorldRelative( data.Position );
@@ -138,7 +140,7 @@ public sealed class AsteroidSpawner : Component
 
 	protected override void DrawGizmos()
 	{
-		if ( !Debug )
+		if ( !Debug || !Game.IsPlaying )
 			return;
 
 		var chunkPos = GameObject.GetWorldChunk();

@@ -1,6 +1,5 @@
 using Sandbox;
 using System;
-using System.Linq;
 
 public sealed class Weapon : Component, IDestructionListener
 {
@@ -232,8 +231,8 @@ public sealed class Weapon : Component, IDestructionListener
 			return;
 
 		var force = tr.Direction * 0.2f;
-		rb.ApplyImpulse( force * 1500f );
-		rb.ApplyImpulseAt( tr.HitPosition, force * 0.5f );
+		rb.ApplyImpulse( force * 2500f );
+		rb.ApplyImpulseAt( tr.HitPosition, force * 1f );
 	}
 
 	private void UpdateBodyRotation()

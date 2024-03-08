@@ -1,36 +1,30 @@
 {
   "RootObject": {
-    "Id": "7a78125f-7520-46c6-86aa-a4d195bcf2cc",
+    "Id": "6381b645-b2ae-4c9f-ba8c-80e95c42c831",
     "Name": "asteroid_field",
     "Enabled": true,
     "Components": [
       {
         "__type": "AsteroidSpawner",
-        "AsteroidPrefabC": {
-          "_type": "gameobject",
-          "prefab": "prefabs/asteroids/c-type_asteroid.prefab"
-        },
-        "AsteroidPrefabM": {
-          "_type": "gameobject",
-          "prefab": "prefabs/asteroids/m-type_asteroid.prefab"
-        },
-        "AsteroidPrefabS": {
-          "_type": "gameobject",
-          "prefab": "prefabs/asteroids/s-type_asteroid.prefab"
-        },
-        "CTypeWeight": 100,
-        "MTypeWeight": 5,
+        "AsteroidTypes": [
+          {
+            "Prefab": {
+              "_type": "gameobject",
+              "prefab": "prefabs/asteroids/c-type_asteroid.prefab"
+            },
+            "Probability": 100
+          }
+        ],
         "NoiseScale": 0.005,
         "ProbabilityBias": 0,
-        "ProbabilityScale": 0.02,
+        "ProbabilityScale": 0.04,
         "Spacing": 128,
-        "SpawnManyOnStart": true,
-        "STypeWeight": 20
+        "SpawnManyOnStart": true
       }
     ],
     "Children": [
       {
-        "Id": "42831a87-e909-4bf6-99d9-686a5288cc95",
+        "Id": "dfbc2709-d61d-471a-85a2-73c1ec0c1f55",
         "Name": "ice_field",
         "Enabled": true,
         "__Prefab": "prefabs/effects/ice_field.prefab"
