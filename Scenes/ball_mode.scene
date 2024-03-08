@@ -1,0 +1,520 @@
+{
+  "Id": "cd383ed6-c53b-4b73-9a8d-745274e87307",
+  "GameObjects": [
+    {
+      "Id": "a73e0839-0508-418a-8858-021039e15d61",
+      "Name": "Sun",
+      "Rotation": "0,0.5,0,0.8660254",
+      "Tags": "light_directional,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "DirectionalLight",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Shadows": true,
+          "SkyColor": "0.05882,0.07451,0.08235,1"
+        }
+      ]
+    },
+    {
+      "Id": "91d8545b-24ba-4484-aad7-4b1107046271",
+      "Name": "Camera",
+      "Position": "-600,0,2000",
+      "Rotation": "0,0.6087614,0,0.7933533",
+      "Tags": "maincamera",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "CameraComponent",
+          "BackgroundColor": "0.33333,0.46275,0.52157,1",
+          "ClearFlags": "All",
+          "FieldOfView": 60,
+          "IsMainCamera": true,
+          "Orthographic": false,
+          "OrthographicHeight": 1204,
+          "Priority": 1,
+          "RenderExcludeTags": "",
+          "RenderTags": "",
+          "TargetEye": "None",
+          "Viewport": "0,0,1,1",
+          "ZFar": 10000,
+          "ZNear": 10
+        }
+      ]
+    },
+    {
+      "Id": "4be5ef2c-4e4a-4f75-8e9e-a90e2028b4c6",
+      "Name": "Cube",
+      "Scale": "20,20,1",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/dev/box.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "BoxCollider",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "50,50,50",
+          "Static": false,
+          "Surface": null
+        },
+        {
+          "__type": "MouseRotate",
+          "Camera": null,
+          "ClampPitch": true,
+          "ClampRoll": true,
+          "InvertX": true,
+          "InvertY": false,
+          "PitchMax": 30,
+          "PitchMin": -30,
+          "RollMax": 30,
+          "RollMin": -30,
+          "XSpeed": 20,
+          "YSpeed": 20
+        }
+      ],
+      "Children": [
+        {
+          "Id": "48946211-bbbf-4637-80a9-d26a5c4ab62d",
+          "Name": "Ceiling",
+          "Position": "0,0,157.1583",
+          "Scale": "1,1,0.25",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/primary_white_trans.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,0.29"
+            },
+            {
+              "__type": "BoxCollider",
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "ce97bcf4-05d7-4bf0-949f-e761ce8bdbf2",
+          "Name": "Cube (3)",
+          "Position": "-22.4,0,64",
+          "Scale": "0.05,1,2",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "6308f68a-412c-4c3d-9e2d-01976d7bfef9",
+          "Name": "Cube (6)",
+          "Position": "-12.8,3.2,64",
+          "Scale": "0.05,0.75,2",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "89c736eb-ca8e-4972-b5b2-467ab9610580",
+          "Name": "Cube (5)",
+          "Position": "3.2,-3.2,64",
+          "Scale": "0.05,0.75,2",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "29b6f946-6951-4aef-9b34-0d8eb6d22ec3",
+          "Name": "Cube (4)",
+          "Position": "3.199996,22.39999,64",
+          "Rotation": "0,0,-0.7071067,0.7071068",
+          "Scale": "0.05,0.75,2",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "1320f951-dd8b-4deb-bb4b-57a74513da99",
+          "Name": "Cube (1)",
+          "Position": "0.000004005431,-22.4,64",
+          "Rotation": "0,0,-0.7071067,0.7071068",
+          "Scale": "0.05,1,2",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "52020b64-91e4-4846-9621-dbf9f3c75b0b",
+          "Name": "Cube (2)",
+          "Position": "22.4,0,64",
+          "Scale": "0.05,1,2",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false,
+              "Surface": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Id": "6ae0e7c2-846b-43da-9ebd-f11b539e8da4",
+      "Name": "Sphere",
+      "Position": "256,-320,64",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": "materials/dev/dev_metal_rough10.vmat",
+          "Model": "models/dev/sphere.vmdl",
+          "RenderType": "On",
+          "Tint": "0.23256,0.23256,0.23256,1"
+        },
+        {
+          "__type": "SphereCollider",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Radius": 32,
+          "Static": false,
+          "Surface": null
+        },
+        {
+          "__type": "Rigidbody",
+          "AngularDamping": 0,
+          "Gravity": true,
+          "LinearDamping": 0,
+          "Locking": {},
+          "MassOverride": 0,
+          "RigidbodyFlags": 0,
+          "StartAsleep": false
+        },
+        {
+          "__type": "UpdateActionComponent",
+          "Action": {
+            "Version": 5,
+            "UserData": {
+              "Title": "Action",
+              "id": "fd2854ac-0bec-4227-8b37-2d1ff20fa614",
+              "ReferencedComponentTypes": []
+            },
+            "Variables": [],
+            "Nodes": [
+              {
+                "Id": 0,
+                "Type": "input"
+              },
+              {
+                "Id": 1,
+                "Type": "property.get",
+                "Properties": {
+                  "_name": "Transform",
+                  "_type": "Sandbox.Game/Sandbox.GameObject"
+                },
+                "UserData": {
+                  "Position": "-416,176"
+                }
+              },
+              {
+                "Id": 3,
+                "Type": "property.get",
+                "Properties": {
+                  "_name": "Position",
+                  "_type": "Sandbox.Game/Sandbox.GameTransform"
+                },
+                "UserData": {
+                  "Position": "-224,176"
+                }
+              },
+              {
+                "Id": 4,
+                "Type": "property.get",
+                "Properties": {
+                  "_name": "z",
+                  "_type": "Sandbox.System/Vector3"
+                },
+                "UserData": {
+                  "Position": "16,176"
+                }
+              },
+              {
+                "Id": 5,
+                "Type": "if",
+                "UserData": {
+                  "Position": "560,80"
+                }
+              },
+              {
+                "Id": 6,
+                "Type": "op.lessthan",
+                "UserData": {
+                  "Position": "352,160"
+                }
+              },
+              {
+                "Id": 7,
+                "Type": "property.get",
+                "Properties": {
+                  "_name": "Scene",
+                  "_type": "Sandbox.Game/Sandbox.GameObject"
+                },
+                "UserData": {
+                  "Position": "480,272"
+                }
+              },
+              {
+                "Id": 9,
+                "Type": "call",
+                "Properties": {
+                  "_isStatic": false,
+                  "_name": "LoadFromFile",
+                  "_type": "Sandbox.Game/Sandbox.Scene"
+                },
+                "UserData": {
+                  "Position": "832,96"
+                }
+              }
+            ],
+            "Links": [
+              {
+                "SrcId": 0,
+                "SrcName": "_target",
+                "DstId": 1,
+                "DstName": "_target"
+              },
+              {
+                "SrcId": 1,
+                "SrcName": "_result",
+                "DstId": 3,
+                "DstName": "_target"
+              },
+              {
+                "SrcId": 3,
+                "SrcName": "_result",
+                "DstId": 4,
+                "DstName": "_target"
+              },
+              {
+                "SrcId": 0,
+                "SrcName": "_signal",
+                "DstId": 5,
+                "DstName": "_signal"
+              },
+              {
+                "SrcId": 6,
+                "SrcName": "_result",
+                "DstId": 5,
+                "DstName": "condition"
+              },
+              {
+                "SrcId": 4,
+                "SrcName": "_result",
+                "DstId": 6,
+                "DstName": "a"
+              },
+              {
+                "Value": {
+                  "$type": "Simple",
+                  "Type": "System.Private.CoreLib/System.Single",
+                  "Value": -600
+                },
+                "DstId": 6,
+                "DstName": "b"
+              },
+              {
+                "SrcId": 0,
+                "SrcName": "_target",
+                "DstId": 7,
+                "DstName": "_target"
+              },
+              {
+                "SrcId": 5,
+                "SrcName": "true",
+                "DstId": 9,
+                "DstName": "_signal"
+              },
+              {
+                "SrcId": 7,
+                "SrcName": "_result",
+                "DstId": 9,
+                "DstName": "_target"
+              },
+              {
+                "Value": "scenes/main_menu.scene",
+                "DstId": 9,
+                "DstName": "filename"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Id": "fbf701bf-710b-491d-8c2e-7fbc7301cebb",
+      "Name": "Envmap Probe",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "EnvmapProbe",
+          "Bounds": {
+            "Mins": "-1024,-1024,-1024",
+            "Maxs": "1024,1024,1024"
+          },
+          "Feathering": 0.02,
+          "Projection": "Sphere",
+          "Texture": "textures/cubemaps/default2.vtex",
+          "TintColor": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "Id": "c8ace008-3397-4d15-bfdc-e5fdaaa157e8",
+      "Name": "Ball Mode",
+      "Position": "-1061.397,-393.2228,315.1844",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "BallMode"
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "ball_mode",
+  "Description": "",
+  "LastSaved": "2024-03-08T13:27:15.3976161-07:00",
+  "__references": []
+}
