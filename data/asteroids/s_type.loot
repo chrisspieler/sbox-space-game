@@ -2,7 +2,7 @@
   "Items": [
     {
       "Item": "data/cargo/iron_ore.cargo",
-      "Probability": 100
+      "Probability": 20
     },
     {
       "Item": "data/cargo/nickel_ore.cargo",
