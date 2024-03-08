@@ -1,0 +1,7 @@
+{
+  "OriginChunk": "data/world/chunks/asteroid_field/test_asteroid_field.chunk",
+  "RandomChunks": [
+    "data/world/chunks/asteroid_field/test_asteroid_field.chunk"
+  ],
+  "__references": []
+}

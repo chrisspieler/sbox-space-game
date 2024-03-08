@@ -1,0 +1,110 @@
+{
+  "RootObject": {
+    "Id": "a40bb4ac-020a-41e6-b19c-044056082e27",
+    "Name": "Camera",
+    "Position": "2000,3200,200",
+    "Rotation": "0,0.258819,0,0.9659258",
+    "Tags": "no_chunk,no_shift",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "CameraComponent",
+        "BackgroundColor": "0.33333,0.46275,0.52157,1",
+        "ClearFlags": "All",
+        "FieldOfView": 90,
+        "IsMainCamera": true,
+        "Orthographic": false,
+        "OrthographicHeight": 1204,
+        "Priority": 1,
+        "RenderExcludeTags": "",
+        "RenderTags": "",
+        "TargetEye": "None",
+        "Viewport": "0,0,1,1",
+        "ZFar": 100000,
+        "ZNear": 10
+      },
+      {
+        "__type": "ShipCamera",
+        "HighPitch": 88,
+        "HighPosition": "-120,0,3000",
+        "LowPitch": 70,
+        "LowPosition": "-350,0,1000",
+        "PitchLerpSpeed": 1,
+        "PitchShakeIntensity": 5,
+        "PitchShakeSpeed": 300,
+        "PositionLerpSpeed": 1,
+        "RollShakeIntensity": 8,
+        "RollShakeSpeed": 500,
+        "ShakeToggleCount": 0,
+        "Target": null,
+        "TargetVelocityHighThreshold": 2500,
+        "TargetVelocityLowThreshold": 50,
+        "Trauma": 0,
+        "TraumaDecayRate": 0.75,
+        "YawShakeIntensity": 1.75,
+        "YawShakeSpeed": 100
+      },
+      {
+        "__type": "Bloom",
+        "BloomColor": {
+          "color": [
+            {
+              "c": "1,1,1,1"
+            },
+            {
+              "t": 1,
+              "c": "1,1,1,1"
+            }
+          ],
+          "alpha": []
+        },
+        "BloomCurve": [
+          {
+            "y": 0.5
+          },
+          {
+            "x": 1,
+            "y": 1
+          }
+        ],
+        "Mode": "Additive",
+        "Strength": 3.5,
+        "Threshold": 0.2,
+        "ThresholdWidth": 0
+      },
+      {
+        "__type": "ColorAdjustments",
+        "Brightness": 1.1,
+        "Contrast": 1,
+        "HueRotate": 0,
+        "Saturation": 1.1
+      },
+      {
+        "__type": "Highlight"
+      },
+      {
+        "__type": "PostProcessingController",
+        "Bloom": {
+          "_type": "component",
+          "go": "a40bb4ac-020a-41e6-b19c-044056082e27",
+          "component_type": "Bloom"
+        }
+      },
+      {
+        "__type": "OriginShiftCamera",
+        "Camera": {
+          "_type": "component",
+          "go": "a40bb4ac-020a-41e6-b19c-044056082e27",
+          "component_type": "CameraComponent"
+        },
+        "ExcludeTags": null,
+        "OriginShiftFreezeFrames": 3,
+        "RenderTags": "shift_visible"
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}

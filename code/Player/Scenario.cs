@@ -24,6 +24,7 @@ public class Scenario : GameResource
 		{
 			career.AddUpgrade( upgrade );
 		}
+		career.World = World.ResourceName;
 		return career;
 	}
 }

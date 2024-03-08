@@ -44,7 +44,7 @@ public sealed class SaveManager : Component
 			return;
 
 		Career.Active.TotalPlayTime += Time.Delta;
-		if ( _untilNextAutosave )
+		if ( AutosaveInterval > 0f && _untilNextAutosave )
 		{
 			_untilNextAutosave = AutosaveInterval;
 			SaveActiveCareer();

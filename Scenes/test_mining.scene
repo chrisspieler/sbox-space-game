@@ -1,0 +1,79 @@
+{
+  "Id": "f936c624-d3dd-4c0d-b355-8aa6c68cabb8",
+  "GameObjects": [
+    {
+      "Id": "159fa8b7-756d-4d20-9e85-ddf80304115a",
+      "Name": "Screen UI (1)",
+      "Tags": "no_chunk",
+      "Enabled": true,
+      "__Prefab": "prefabs/main_ui.prefab"
+    },
+    {
+      "Id": "ba0198bf-8265-4602-ade6-0daec2b7152d",
+      "Name": "Camera (1)",
+      "Tags": "no_chunk,no_shift",
+      "Enabled": true,
+      "__Prefab": "prefabs/ship_camera.prefab"
+    },
+    {
+      "Id": "a7934737-830d-4913-9c57-306fa8db2414",
+      "Name": "Sun",
+      "Position": "149.995,149.995,-212.125",
+      "Rotation": "0,0.3826835,0,0.9238795",
+      "Tags": "light_directional,light,no_chunk",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "DirectionalLight",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Shadows": true,
+          "SkyColor": "0.05882,0.07451,0.08235,1"
+        }
+      ]
+    },
+    {
+      "Id": "0e2b1b15-5546-4238-9763-2307e689f1c1",
+      "Name": "Game",
+      "Tags": "no_chunk",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "SaveManager",
+          "AutosaveInterval": 0,
+          "FallbackScenario": "data/scenarios/mining_test.scenario",
+          "ShipPrefab": {
+            "_type": "gameobject",
+            "prefab": "prefabs/ship.prefab"
+          }
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "test_mining",
+  "Description": "",
+  "LastSaved": "2024-03-08T16:40:19.0863467-07:00",
+  "__references": []
+}

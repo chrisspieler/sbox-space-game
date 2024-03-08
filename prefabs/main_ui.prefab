@@ -1,0 +1,190 @@
+{
+  "RootObject": {
+    "Id": "0a3105b7-d645-4200-93c9-b57b4133cc6a",
+    "Name": "main_ui",
+    "Tags": "no_chunk",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "ScreenPanel",
+        "AutoScreenScale": true,
+        "Opacity": 1,
+        "Scale": 1,
+        "ZIndex": 100
+      },
+      {
+        "__type": "ScreenManager",
+        "BeaconContainer": {
+          "_type": "gameobject",
+          "go": "aac41955-0da3-4198-a83a-db4bb8a72110"
+        },
+        "CursorPanel": {
+          "_type": "component",
+          "go": "279df759-c7fd-4122-9fee-f69cccae0af0",
+          "component_type": "CursorPanel"
+        },
+        "HealthBarContainer": {
+          "_type": "gameobject",
+          "go": "2b94c0d1-7d24-48bc-944c-3578a252c988"
+        },
+        "HoveredSelectionPanel": {
+          "_type": "component",
+          "go": "8d08a576-e21b-4e68-9a8b-33fe08fd6191",
+          "component_type": "SelectionPanel"
+        },
+        "HudPanel": {
+          "_type": "component",
+          "go": "b8c346f0-faad-462c-bdad-1fdd1801e747",
+          "component_type": "HudPanel"
+        },
+        "PauseMenuPanel": {
+          "_type": "component",
+          "go": "e1deb9c4-2308-431f-9ca2-ae89e3b69007",
+          "component_type": "PauseMenuPanel"
+        },
+        "RestartPanel": {
+          "_type": "component",
+          "go": "231cb05f-5d34-4930-addf-bfe5060a2afc",
+          "component_type": "RestartPanel"
+        },
+        "ShopPanel": {
+          "_type": "component",
+          "go": "f9f94a44-d995-4551-9bb6-a0b2107d5610",
+          "component_type": "ShopPanel"
+        },
+        "TextPanelContainer": {
+          "_type": "gameobject",
+          "go": "e31c5314-d6f3-495f-a2cb-d5277124c565"
+        }
+      },
+      {
+        "__type": "MouseSelector",
+        "DeselectTime": 0.2,
+        "FilterWithAny": "solid",
+        "FilterWithoutAny": "player",
+        "Hovered": null,
+        "OnHoveredChanged": null
+      }
+    ],
+    "Children": [
+      {
+        "Id": "b8c346f0-faad-462c-bdad-1fdd1801e747",
+        "Name": "Hud",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "HudPanel",
+            "FuelColor": "1,1,0,1",
+            "HullColor": "0.74884,0.11145,0.14332,1",
+            "ShieldColor": "0.36863,0.84706,0.95686,1",
+            "Ship": null
+          }
+        ]
+      },
+      {
+        "Id": "2b94c0d1-7d24-48bc-944c-3578a252c988",
+        "Name": "Health Bar Container",
+        "Enabled": true
+      },
+      {
+        "Id": "279df759-c7fd-4122-9fee-f69cccae0af0",
+        "Name": "Cursor",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "CursorPanel",
+            "CursorImagePath": "ui/img/crosshair.svg"
+          }
+        ]
+      },
+      {
+        "Id": "f9f94a44-d995-4551-9bb6-a0b2107d5610",
+        "Name": "Shop Screen",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "ShopPanel",
+            "__enabled": false,
+            "Ship": null,
+            "Shop": null
+          }
+        ]
+      },
+      {
+        "Id": "8d08a576-e21b-4e68-9a8b-33fe08fd6191",
+        "Name": "Hovered Selection",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "SelectionPanel",
+            "__enabled": false,
+            "Image": "ui/img/select.svg",
+            "RotationSpeed": 150,
+            "Target": null
+          }
+        ]
+      },
+      {
+        "Id": "231cb05f-5d34-4930-addf-bfe5060a2afc",
+        "Name": "Restart Screen",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "RestartPanel",
+            "__enabled": false,
+            "DeathText": "CLONE DEAD",
+            "InstructionText": "Press R to Respawn",
+            "RespawnFeeLabel": "YOU HAVE SQUANDERED"
+          }
+        ]
+      },
+      {
+        "Id": "aac41955-0da3-4198-a83a-db4bb8a72110",
+        "Name": "Beacon Container",
+        "Enabled": true
+      },
+      {
+        "Id": "e31c5314-d6f3-495f-a2cb-d5277124c565",
+        "Name": "Text Panel Container",
+        "Enabled": true
+      },
+      {
+        "Id": "e1deb9c4-2308-431f-9ca2-ae89e3b69007",
+        "Name": "Pause Menu",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "PauseMenuPanel",
+            "__enabled": false,
+            "MainMenuScene": "scenes/main_menu.scene",
+            "SettingsPanel": {
+              "_type": "component",
+              "go": "80dbbd04-a8a5-4866-94e7-433a6140e307",
+              "component_type": "SettingsMenuPanel"
+            }
+          }
+        ]
+      },
+      {
+        "Id": "80dbbd04-a8a5-4866-94e7-433a6140e307",
+        "Name": "Settings Menu",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "SettingsMenuPanel",
+            "__enabled": false,
+            "ReturnMenu": {
+              "_type": "component",
+              "go": "e1deb9c4-2308-431f-9ca2-ae89e3b69007",
+              "component_type": "PauseMenuPanel"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}

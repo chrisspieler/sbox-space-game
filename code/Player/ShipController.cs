@@ -81,7 +81,9 @@ public sealed partial class ShipController : Component
 
 	private void SetFogFollowTarget()
 	{
-		var fogGo = Scene.GetAllComponents<VolumetricFogVolume>().First();
+		var fogGo = Scene.GetAllComponents<VolumetricFogVolume>().FirstOrDefault();
+		if ( fogGo is null )
+			return;
 		var follower = fogGo.Components.Get<Follower>();
 		follower.Target = GameObject;
 	}

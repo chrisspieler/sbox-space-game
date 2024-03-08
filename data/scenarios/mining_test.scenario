@@ -1,0 +1,18 @@
+{
+  "Name": "All Unlocks",
+  "Description": "Start with everything unlocked.",
+  "Money": 99999,
+  "Upgrades": [
+    "data/upgrades/cargo_2.upgrade",
+    "data/upgrades/fuel_1.upgrade",
+    "data/upgrades/main_thruster_1.upgrade",
+    "data/upgrades/jettison.upgrade",
+    "data/upgrades/stabilizer_0.upgrade",
+    "data/upgrades/turn_speed_0.upgrade",
+    "data/upgrades/laser_2.upgrade",
+    "data/upgrades/shield_0.upgrade"
+  ],
+  "World": "data/world/test_mining.world",
+  "Hidden": true,
+  "__references": []
+}
