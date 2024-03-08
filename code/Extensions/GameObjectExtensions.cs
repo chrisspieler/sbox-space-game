@@ -19,7 +19,7 @@ public static class GameObjectExtensions
 			return;
 
 		var originSystem = gameObject.Scene.GetSystem<FloatingOriginSystem>();
-		gameObject.Transform.Position = position - originSystem.TotalOriginShift;
+		gameObject.Transform.Position = originSystem.AbsoluteToRelative( position );
 	}
 
 	public static float GetDistanceFromScreenCenter( this GameObject gameObject )
