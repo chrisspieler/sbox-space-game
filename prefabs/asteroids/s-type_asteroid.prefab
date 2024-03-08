@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "Id": "d0a63f6a-28d5-4af7-8840-43ac0df08124",
+    "Id": "e580b02d-fb9c-4dd3-b289-5b68ea86676c",
     "Name": "s-type_asteroid",
     "Tags": "solid",
     "Enabled": true,
@@ -30,7 +30,7 @@
         "RandomVelocityScale": 25,
         "Rigidbody": {
           "_type": "component",
-          "go": "d0a63f6a-28d5-4af7-8840-43ac0df08124",
+          "go": "e580b02d-fb9c-4dd3-b289-5b68ea86676c",
           "component_type": "Rigidbody"
         },
         "ScaleCurve": {
@@ -68,11 +68,11 @@
         "__type": "Health",
         "Body": {
           "_type": "gameobject",
-          "go": "d0a63f6a-28d5-4af7-8840-43ac0df08124"
+          "go": "e580b02d-fb9c-4dd3-b289-5b68ea86676c"
         },
         "Bounce": {
           "_type": "component",
-          "go": "d0a63f6a-28d5-4af7-8840-43ac0df08124",
+          "go": "e580b02d-fb9c-4dd3-b289-5b68ea86676c",
           "component_type": "Bouncy"
         },
         "CurrentHealth": 0,
@@ -96,7 +96,7 @@
         },
         "Health": {
           "_type": "component",
-          "go": "d0a63f6a-28d5-4af7-8840-43ac0df08124",
+          "go": "e580b02d-fb9c-4dd3-b289-5b68ea86676c",
           "component_type": "Health"
         },
         "ShrinkOnDamage": true,
@@ -106,18 +106,18 @@
         "__type": "HealthBarSpawner",
         "HealthSource": {
           "_type": "component",
-          "go": "d0a63f6a-28d5-4af7-8840-43ac0df08124",
+          "go": "e580b02d-fb9c-4dd3-b289-5b68ea86676c",
           "component_type": "Health"
         },
         "Target": {
           "_type": "gameobject",
-          "go": "d0a63f6a-28d5-4af7-8840-43ac0df08124"
+          "go": "e580b02d-fb9c-4dd3-b289-5b68ea86676c"
         }
       }
     ],
     "Children": [
       {
-        "Id": "a6b6788c-007a-4748-952d-ad09fef70358",
+        "Id": "ad013ae7-416b-4441-97af-311e2ba96c2b",
         "Name": "Model",
         "Scale": "0.3,0.3,0.3",
         "Enabled": true,
@@ -153,18 +153,41 @@
             "HighDetail": [
               {
                 "_type": "component",
-                "go": "a6b6788c-007a-4748-952d-ad09fef70358",
+                "go": "ad013ae7-416b-4441-97af-311e2ba96c2b",
                 "component_type": "ModelCollider"
+              },
+              {
+                "_type": "component",
+                "go": "8dd85473-47de-4db7-81e5-bcf49ecdba4e",
+                "component_type": "SphereCollider"
               }
             ],
             "LowDetail": [
               {
                 "_type": "component",
-                "go": "a6b6788c-007a-4748-952d-ad09fef70358",
+                "go": "ad013ae7-416b-4441-97af-311e2ba96c2b",
                 "component_type": "SphereCollider"
               }
             ],
             "Target": null
+          }
+        ]
+      },
+      {
+        "Id": "8dd85473-47de-4db7-81e5-bcf49ecdba4e",
+        "Name": "Inner Collider",
+        "Rotation": "0,-0.1604923,0,0.9870371",
+        "Scale": "0.589434,0.7966302,1",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "SphereCollider",
+            "__enabled": false,
+            "Center": "0,0,0",
+            "IsTrigger": false,
+            "Radius": 70,
+            "Static": false,
+            "Surface": null
           }
         ]
       }

@@ -161,6 +161,16 @@
                 "_type": "component",
                 "go": "0591d7f0-0a23-464a-a115-3f3bab1a85ca",
                 "component_type": "ModelCollider"
+              },
+              {
+                "_type": "component",
+                "go": "0e1decb4-b119-440e-8793-c8f01dd779ee",
+                "component_type": "SphereCollider"
+              },
+              {
+                "_type": "component",
+                "go": "e2c535a4-0e81-41c1-b566-c824f90fd563",
+                "component_type": "SphereCollider"
               }
             ],
             "LowDetail": [
@@ -171,6 +181,43 @@
               }
             ],
             "Target": null
+          }
+        ]
+      },
+      {
+        "Id": "0e1decb4-b119-440e-8793-c8f01dd779ee",
+        "Name": "Inner Collider",
+        "Position": "0,-15.36836,0",
+        "Scale": "0.9181049,0.4418537,0.4291455",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "SphereCollider",
+            "__enabled": false,
+            "Center": "0,0,0",
+            "IsTrigger": false,
+            "Radius": 50,
+            "Static": false,
+            "Surface": null
+          }
+        ]
+      },
+      {
+        "Id": "e2c535a4-0e81-41c1-b566-c824f90fd563",
+        "Name": "Inner Collider (1)",
+        "Position": "18.82446,-2.787203,-0.0000002384186",
+        "Rotation": "0,-0.05946197,0,0.9982306",
+        "Scale": "0.4756494,0.8595302,0.8284919",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "SphereCollider",
+            "__enabled": false,
+            "Center": "0,0,0",
+            "IsTrigger": false,
+            "Radius": 50,
+            "Static": false,
+            "Surface": null
           }
         ]
       }

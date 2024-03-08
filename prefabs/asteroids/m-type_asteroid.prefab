@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "Id": "3090d721-da64-4da7-9a2d-6cc46b1ae59e",
+    "Id": "78bc8c68-1331-4169-9c69-dbdd1ba106c3",
     "Name": "m-type_asteroid",
     "Tags": "solid",
     "Enabled": true,
@@ -30,7 +30,7 @@
         "RandomVelocityScale": 25,
         "Rigidbody": {
           "_type": "component",
-          "go": "3090d721-da64-4da7-9a2d-6cc46b1ae59e",
+          "go": "78bc8c68-1331-4169-9c69-dbdd1ba106c3",
           "component_type": "Rigidbody"
         },
         "ScaleCurve": {
@@ -74,11 +74,11 @@
         "__type": "Health",
         "Body": {
           "_type": "gameobject",
-          "go": "3090d721-da64-4da7-9a2d-6cc46b1ae59e"
+          "go": "78bc8c68-1331-4169-9c69-dbdd1ba106c3"
         },
         "Bounce": {
           "_type": "component",
-          "go": "3090d721-da64-4da7-9a2d-6cc46b1ae59e",
+          "go": "78bc8c68-1331-4169-9c69-dbdd1ba106c3",
           "component_type": "Bouncy"
         },
         "CurrentHealth": 0,
@@ -102,7 +102,7 @@
         },
         "Health": {
           "_type": "component",
-          "go": "3090d721-da64-4da7-9a2d-6cc46b1ae59e",
+          "go": "78bc8c68-1331-4169-9c69-dbdd1ba106c3",
           "component_type": "Health"
         },
         "ShrinkOnDamage": true,
@@ -112,12 +112,12 @@
         "__type": "HealthBarSpawner",
         "HealthSource": {
           "_type": "component",
-          "go": "3090d721-da64-4da7-9a2d-6cc46b1ae59e",
+          "go": "78bc8c68-1331-4169-9c69-dbdd1ba106c3",
           "component_type": "Health"
         },
         "Target": {
           "_type": "gameobject",
-          "go": "3090d721-da64-4da7-9a2d-6cc46b1ae59e"
+          "go": "78bc8c68-1331-4169-9c69-dbdd1ba106c3"
         }
       },
       {
@@ -126,19 +126,29 @@
         "HighDetail": [
           {
             "_type": "component",
-            "go": "409cd53b-e33d-4d5f-9ed6-8141ee503cff",
+            "go": "01ea3df0-16aa-4b45-98b6-04e7c9fe34e5",
             "component_type": "ModelCollider"
           },
           {
             "_type": "component",
-            "go": "05069ff1-3cfa-4252-9dfb-8b85a2df0d87",
+            "go": "6cc0cc46-0197-4e9b-8c94-41fda25ad3da",
             "component_type": "ModelCollider"
+          },
+          {
+            "_type": "component",
+            "go": "10b8a686-a128-4c11-9513-83b4575f7cfe",
+            "component_type": "SphereCollider"
+          },
+          {
+            "_type": "component",
+            "go": "ccedf80f-5e29-40d2-827d-ebf70f73796d",
+            "component_type": "SphereCollider"
           }
         ],
         "LowDetail": [
           {
             "_type": "component",
-            "go": "e9616294-3239-4aa9-bb1c-d0edec7c250f",
+            "go": "41442b6b-0289-4ddd-8aff-18484e8ddf60",
             "component_type": "SphereCollider"
           }
         ],
@@ -147,7 +157,7 @@
     ],
     "Children": [
       {
-        "Id": "409cd53b-e33d-4d5f-9ed6-8141ee503cff",
+        "Id": "01ea3df0-16aa-4b45-98b6-04e7c9fe34e5",
         "Name": "Model",
         "Scale": "0.2,0.2,0.2",
         "Enabled": true,
@@ -171,7 +181,7 @@
         ]
       },
       {
-        "Id": "05069ff1-3cfa-4252-9dfb-8b85a2df0d87",
+        "Id": "6cc0cc46-0197-4e9b-8c94-41fda25ad3da",
         "Name": "Model (1)",
         "Position": "1.92067,1.289488,3.871196",
         "Rotation": "0,0,0.1701432,0.9854193",
@@ -197,7 +207,7 @@
         ]
       },
       {
-        "Id": "e9616294-3239-4aa9-bb1c-d0edec7c250f",
+        "Id": "41442b6b-0289-4ddd-8aff-18484e8ddf60",
         "Name": "Low Detail Collider",
         "Enabled": true,
         "Components": [
@@ -206,6 +216,40 @@
             "Center": "0,0,0",
             "IsTrigger": false,
             "Radius": 100,
+            "Static": false,
+            "Surface": null
+          }
+        ]
+      },
+      {
+        "Id": "10b8a686-a128-4c11-9513-83b4575f7cfe",
+        "Name": "Inner Collider",
+        "Position": "5.65887,3.639829,2.644348",
+        "Scale": "0.4927797,0.5249159,1.32686",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "SphereCollider",
+            "Center": "0,0,0",
+            "IsTrigger": false,
+            "Radius": 50,
+            "Static": false,
+            "Surface": null
+          }
+        ]
+      },
+      {
+        "Id": "ccedf80f-5e29-40d2-827d-ebf70f73796d",
+        "Name": "Inner Collider (1)",
+        "Position": "5.65887,3.639829,-21.62113",
+        "Scale": "0.7156748,0.7156748,0.7156748",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "SphereCollider",
+            "Center": "0,0,0",
+            "IsTrigger": false,
+            "Radius": 50,
             "Static": false,
             "Surface": null
           }
