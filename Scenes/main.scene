@@ -23,18 +23,23 @@
       "Rotation": "-0.08349869,0.06517375,0.005472793,0.9943593",
       "Tags": "skybox,no_chunk,shift_visible",
       "Enabled": true,
-      "Components": [
-        {
-          "__type": "SkyBox2D",
-          "SkyMaterial": "materials/starmap_8k/starmap_2020_8k.vmat",
-          "Tint": "0.03922,0.03922,0.03922,1"
-        },
-        {
-          "__type": "SkyScroller",
-          "ScrollFactor": 0.003,
-          "Target": null
-        }
-      ]
+      "__Prefab": "prefabs/skybox.prefab"
+    },
+    {
+      "Id": "5a204e98-b86c-4727-accc-d522082427fd",
+      "Name": "Fog Volume",
+      "Position": "2500,3200,0.00006103516",
+      "Tags": "no_chunk,shift_visible",
+      "Enabled": true,
+      "__Prefab": "prefabs/volumetric_fog.prefab"
+    },
+    {
+      "Id": "5006bd90-e749-4329-a52f-f676bfc80725",
+      "Name": "Sun",
+      "Position": "-200,0,0.0003515341",
+      "Tags": "light_directional,light,no_chunk",
+      "Enabled": true,
+      "__Prefab": "prefabs/ambient_light.prefab"
     },
     {
       "Id": "1a6ffc42-c514-40bc-bb30-80d4d56b021a",
@@ -145,55 +150,6 @@
               "__type": "GizmoDrawComponent"
             }
           ]
-        }
-      ]
-    },
-    {
-      "Id": "5006bd90-e749-4329-a52f-f676bfc80725",
-      "Name": "Sun",
-      "Position": "-200,0,0.0003515341",
-      "Rotation": "-0.3936001,0.3763543,0.4468399,0.7097672",
-      "Tags": "light_directional,light,no_chunk",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "DirectionalLight",
-          "FogMode": "Enabled",
-          "FogStrength": 1,
-          "LightColor": "0.23922,0.23922,0.23922,1",
-          "Shadows": true,
-          "SkyColor": "0.00392,0.00392,0.00392,1"
-        }
-      ]
-    },
-    {
-      "Id": "5a204e98-b86c-4727-accc-d522082427fd",
-      "Name": "Fog Volume",
-      "Position": "2500,3200,0.00006103516",
-      "Tags": "no_chunk,shift_visible",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "VolumetricFogVolume",
-          "Bounds": {
-            "Mins": "-4000,-4000,-6000",
-            "Maxs": "4000,4000,6000"
-          },
-          "FalloffExponent": 3,
-          "Strength": 0.1
-        },
-        {
-          "__type": "Follower",
-          "Target": null
-        },
-        {
-          "__type": "FogController",
-          "Intensity": 0.25,
-          "Volume": {
-            "_type": "component",
-            "go": "5a204e98-b86c-4727-accc-d522082427fd",
-            "component_type": "VolumetricFogVolume"
-          }
         }
       ]
     },
@@ -455,9 +411,8 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-08T16:44:22.8229577-07:00",
+  "LastSaved": "2024-03-09T07:12:30.787899-07:00",
   "__references": [
-    "duccsoft.starmap_2020_8k",
     "eurorp.aluminium_03",
     "stardrive.rope_barrier_a"
   ]

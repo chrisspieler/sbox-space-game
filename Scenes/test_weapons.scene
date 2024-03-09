@@ -1,0 +1,363 @@
+{
+  "Id": "f936c624-d3dd-4c0d-b355-8aa6c68cabb8",
+  "GameObjects": [
+    {
+      "Id": "159fa8b7-756d-4d20-9e85-ddf80304115a",
+      "Name": "Screen UI (1)",
+      "Tags": "no_chunk",
+      "Enabled": true,
+      "__Prefab": "prefabs/main_ui.prefab"
+    },
+    {
+      "Id": "ba0198bf-8265-4602-ade6-0daec2b7152d",
+      "Name": "Camera (1)",
+      "Tags": "no_chunk,no_shift",
+      "Enabled": true,
+      "__Prefab": "prefabs/ship_camera.prefab"
+    },
+    {
+      "Id": "6e280a95-3bff-4413-b769-9a42f43456eb",
+      "Name": "Skybox",
+      "Tags": "skybox,no_chunk,shift_visible",
+      "Enabled": true,
+      "__Prefab": "prefabs/skybox.prefab"
+    },
+    {
+      "Id": "3b8df8bb-537b-4aef-a4d6-46a2fe916ca3",
+      "Name": "Fog Volume (1)",
+      "Tags": "no_chunk,shift_visible",
+      "Enabled": true,
+      "__Prefab": "prefabs/volumetric_fog.prefab"
+    },
+    {
+      "Id": "a1d13598-241c-4331-821c-82c377f1026e",
+      "Name": "Sun (1)",
+      "Tags": "light_directional,light,no_chunk",
+      "Enabled": true,
+      "__Prefab": "prefabs/ambient_light.prefab"
+    },
+    {
+      "Id": "0e2b1b15-5546-4238-9763-2307e689f1c1",
+      "Name": "Game",
+      "Tags": "no_chunk",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "SaveManager",
+          "AutosaveInterval": 0,
+          "FallbackScenario": "data/scenarios/weapons_test.scenario",
+          "ShipPrefab": {
+            "_type": "gameobject",
+            "prefab": "prefabs/ship.prefab"
+          }
+        }
+      ]
+    },
+    {
+      "Id": "44b788a5-ec95-4e15-a360-e8cca0909c6e",
+      "Name": "Spawn Point",
+      "Tags": "no_chunk",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "SpawnPoint",
+          "Color": "0.8902,0.31765,0.05098,1"
+        }
+      ]
+    },
+    {
+      "Id": "b8cc7987-d167-4714-87a2-e1f033906a6e",
+      "Name": "Laser Zoo",
+      "Position": "320,0,0",
+      "Tags": "no_chunk",
+      "Enabled": true,
+      "Children": [
+        {
+          "Id": "bccf4985-2e98-48f9-bfcf-641848b12f0d",
+          "Name": "White",
+          "Position": "0,192,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "LaserBeam",
+              "ParticleAsset": "particles/laser_beam.vpcf",
+              "ParticleInstance": null,
+              "Target": {
+                "_type": "gameobject",
+                "go": "dc37c334-514a-4eea-a54d-f7d1dd47fbdc"
+              },
+              "Tint": "1,1,1,1"
+            }
+          ],
+          "Children": [
+            {
+              "Id": "dc37c334-514a-4eea-a54d-f7d1dd47fbdc",
+              "Name": "Target",
+              "Position": "512,0,0",
+              "Enabled": true
+            }
+          ]
+        },
+        {
+          "Id": "e72dcd3f-e44e-4fee-aadd-1b88f653fdc7",
+          "Name": "Bright Red",
+          "Position": "0,128,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "LaserBeam",
+              "ParticleAsset": "particles/laser_beam.vpcf",
+              "ParticleInstance": null,
+              "Target": {
+                "_type": "gameobject",
+                "go": "eb708d35-385f-4185-81d5-5c36826627da"
+              },
+              "Tint": "1,0,0,1"
+            }
+          ],
+          "Children": [
+            {
+              "Id": "eb708d35-385f-4185-81d5-5c36826627da",
+              "Name": "Target",
+              "Position": "512,0,0",
+              "Enabled": true
+            }
+          ]
+        },
+        {
+          "Id": "bfb23f50-ccf0-4781-89af-ec8948c9fa70",
+          "Name": "Red",
+          "Position": "0,64,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "LaserBeam",
+              "ParticleAsset": "particles/laser_beam.vpcf",
+              "ParticleInstance": null,
+              "Target": {
+                "_type": "gameobject",
+                "go": "ec2e9fcf-e010-4b2a-9d20-b83acbf54235"
+              },
+              "Tint": "0.07442,0,0,1"
+            }
+          ],
+          "Children": [
+            {
+              "Id": "ec2e9fcf-e010-4b2a-9d20-b83acbf54235",
+              "Name": "Target",
+              "Position": "512,0,0",
+              "Enabled": true
+            }
+          ]
+        },
+        {
+          "Id": "cc278115-45b8-490a-b35e-6eea7f114f97",
+          "Name": "Orange",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "LaserBeam",
+              "ParticleAsset": "particles/laser_beam.vpcf",
+              "ParticleInstance": null,
+              "Target": {
+                "_type": "gameobject",
+                "go": "e921b74b-c2f2-4821-ab6a-11e625f0dfcf"
+              },
+              "Tint": "0.21569,0.02745,0,1"
+            }
+          ],
+          "Children": [
+            {
+              "Id": "e921b74b-c2f2-4821-ab6a-11e625f0dfcf",
+              "Name": "Target",
+              "Position": "512,0,0",
+              "Enabled": true
+            }
+          ]
+        },
+        {
+          "Id": "9e9c2b53-da9e-4ac1-a668-40bf74e4f303",
+          "Name": "Yellow",
+          "Position": "0,-64,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "LaserBeam",
+              "ParticleAsset": "particles/laser_beam.vpcf",
+              "ParticleInstance": null,
+              "Target": {
+                "_type": "gameobject",
+                "go": "7efb9796-e8f7-4812-a651-e837caa1faab"
+              },
+              "Tint": "0.21569,0.2121,0,1"
+            }
+          ],
+          "Children": [
+            {
+              "Id": "7efb9796-e8f7-4812-a651-e837caa1faab",
+              "Name": "Target",
+              "Position": "512,0,0",
+              "Enabled": true
+            }
+          ]
+        },
+        {
+          "Id": "ae4989c6-a82e-4ded-9662-b631706ddaab",
+          "Name": "Green",
+          "Position": "0,-128,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "LaserBeam",
+              "ParticleAsset": "particles/laser_beam.vpcf",
+              "ParticleInstance": null,
+              "Target": {
+                "_type": "gameobject",
+                "go": "b388728b-2f4c-423e-93c3-611c8a27f99a"
+              },
+              "Tint": "0,0.21569,0,1"
+            }
+          ],
+          "Children": [
+            {
+              "Id": "b388728b-2f4c-423e-93c3-611c8a27f99a",
+              "Name": "Target",
+              "Position": "512,0,0",
+              "Enabled": true
+            }
+          ]
+        },
+        {
+          "Id": "e69348d1-7d38-4528-803f-cb595b2c41c7",
+          "Name": "Blue",
+          "Position": "0,-192,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "LaserBeam",
+              "ParticleAsset": "particles/laser_beam.vpcf",
+              "ParticleInstance": null,
+              "Target": {
+                "_type": "gameobject",
+                "go": "33ebc94f-a3bd-4ff2-ba32-d71fee6cf429"
+              },
+              "Tint": "0,0.05752,0.21569,1"
+            }
+          ],
+          "Children": [
+            {
+              "Id": "33ebc94f-a3bd-4ff2-ba32-d71fee6cf429",
+              "Name": "Target",
+              "Position": "512,0,0",
+              "Enabled": true
+            }
+          ]
+        },
+        {
+          "Id": "3edae5c4-b27c-4f0d-8cba-cc4297944490",
+          "Name": "Indigo",
+          "Position": "0,-256,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "LaserBeam",
+              "ParticleAsset": "particles/laser_beam.vpcf",
+              "ParticleInstance": null,
+              "Target": {
+                "_type": "gameobject",
+                "go": "510d62ff-8070-454e-a7cd-714754624c75"
+              },
+              "Tint": "0.05392,0,0.21569,1"
+            }
+          ],
+          "Children": [
+            {
+              "Id": "510d62ff-8070-454e-a7cd-714754624c75",
+              "Name": "Target",
+              "Position": "512,0,0",
+              "Enabled": true
+            }
+          ]
+        },
+        {
+          "Id": "ac032aa2-1144-4324-b7a5-f001023eba9e",
+          "Name": "Violet",
+          "Position": "0,-320,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "LaserBeam",
+              "ParticleAsset": "particles/laser_beam.vpcf",
+              "ParticleInstance": null,
+              "Target": {
+                "_type": "gameobject",
+                "go": "d9792c3e-2235-4775-8353-9f65bbe5af49"
+              },
+              "Tint": "0.13301,0,0.21569,1"
+            }
+          ],
+          "Children": [
+            {
+              "Id": "d9792c3e-2235-4775-8353-9f65bbe5af49",
+              "Name": "Target",
+              "Position": "512,0,0",
+              "Enabled": true
+            }
+          ]
+        },
+        {
+          "Id": "b7862c76-6670-450a-8a64-2e506ccc2591",
+          "Name": "Utraviolet",
+          "Position": "0,-384,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "LaserBeam",
+              "ParticleAsset": "particles/laser_beam.vpcf",
+              "ParticleInstance": null,
+              "Target": {
+                "_type": "gameobject",
+                "go": "8300c36c-1a55-4ae3-b7d3-ea107a3452ef"
+              },
+              "Tint": "0.04314,0.03137,0.16078,1"
+            }
+          ],
+          "Children": [
+            {
+              "Id": "8300c36c-1a55-4ae3-b7d3-ea107a3452ef",
+              "Name": "Target",
+              "Position": "512,0,0",
+              "Enabled": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "test_mining",
+  "Description": "",
+  "LastSaved": "2024-03-09T07:22:59.6004506-07:00",
+  "__references": []
+}

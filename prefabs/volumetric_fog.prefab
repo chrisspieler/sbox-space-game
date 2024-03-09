@@ -1,0 +1,37 @@
+{
+  "RootObject": {
+    "Id": "5a204e98-b86c-4727-accc-d522082427fd",
+    "Name": "Fog Volume",
+    "Position": "2500,3200,0.00006103516",
+    "Tags": "no_chunk,shift_visible",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "VolumetricFogVolume",
+        "Bounds": {
+          "Mins": "-4000,-4000,-6000",
+          "Maxs": "4000,4000,6000"
+        },
+        "FalloffExponent": 3,
+        "Strength": 0.1
+      },
+      {
+        "__type": "Follower",
+        "Target": null
+      },
+      {
+        "__type": "FogController",
+        "Intensity": 0.25,
+        "Volume": {
+          "_type": "component",
+          "go": "5a204e98-b86c-4727-accc-d522082427fd",
+          "component_type": "VolumetricFogVolume"
+        }
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}

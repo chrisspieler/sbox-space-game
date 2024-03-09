@@ -1,0 +1,28 @@
+{
+  "RootObject": {
+    "Id": "50985c72-fec4-48cf-bd58-355bbd47aec5",
+    "Name": "Skybox",
+    "Position": "-100,0,0.0003515341",
+    "Rotation": "-0.08349869,0.06517375,0.005472793,0.9943593",
+    "Tags": "skybox,no_chunk,shift_visible",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "SkyBox2D",
+        "SkyMaterial": "materials/starmap_8k/starmap_2020_8k.vmat",
+        "Tint": "0.03922,0.03922,0.03922,1"
+      },
+      {
+        "__type": "SkyScroller",
+        "ScrollFactor": 0.003,
+        "Target": null
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": [
+    "duccsoft.starmap_2020_8k"
+  ]
+}
