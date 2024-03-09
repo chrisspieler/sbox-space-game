@@ -232,6 +232,14 @@
 				}
 			}
 		},
+		{
+			_class = "C_OP_ControlpointLight"
+			m_nControlPoint2 = 1
+			m_nControlPoint3 = 1
+			m_nControlPoint4 = 1
+			m_LightFiftyDist1 = 150.0
+			m_LightColor1 = [ 255, 255, 255, 255 ]
+		},
 	]
 	m_Renderers = 
 	[

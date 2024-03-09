@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Sandbox.Utility;
+using System.Collections.Generic;
 
 namespace Sandbox;
 
@@ -69,7 +70,9 @@ public sealed class LaserBeam : Component
 				var position = i / (float)LaserLightCount;
 				_lights[i].Position = Transform.Position.LerpTo( Target.Transform.Position, position );
 			}
-			_lights[i].LightColor = Tint.ToHsv().WithValue( 0.5f * BrightnessScale );
+			var distance = Transform.Position.Distance( _lights[i].Position );
+			var attenuation = Easing.EaseIn( distance.LerpInverse( 0, 2000f ) );
+			_lights[i].LightColor = Tint.ToHsv().WithValue( 0.5f * BrightnessScale * ( 1f - attenuation ) );
 		}
 	}
 

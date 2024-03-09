@@ -66,6 +66,96 @@
       ]
     },
     {
+      "Id": "507015c6-ffea-49cd-b221-703209783fdf",
+      "Name": "Laser Damage Test",
+      "Position": "6.076622,329.1886,0",
+      "Tags": "no_chunk",
+      "Enabled": true,
+      "Children": [
+        {
+          "Id": "19bee129-d060-4b3b-9920-81d1a5c7a8e2",
+          "Name": "Text",
+          "Position": "251.6568,438.8114,0",
+          "Rotation": "0,0.7071068,0,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "TextRenderer",
+              "Color": "1,1,1,1",
+              "FontFamily": "Zeroes 1",
+              "FontSize": 128,
+              "Scale": 0.3,
+              "Text": "Danger!"
+            }
+          ]
+        },
+        {
+          "Id": "c2a8b699-23cc-4aed-9c62-2f57456de0c7",
+          "Name": "Laser",
+          "Position": "761.9234,438.8114,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "BeamTrace",
+              "ExcludeAny": null,
+              "IncludeAny": "solid,shield",
+              "OnHit": null,
+              "OnMiss": null,
+              "Source": null,
+              "Target": {
+                "_type": "gameobject",
+                "go": "8e341974-da7f-47ae-bc94-4f1419df6a07"
+              }
+            }
+          ],
+          "Children": [
+            {
+              "Id": "d80e4e65-1c3e-483b-bd80-c4a0dd8f9581",
+              "Name": "Housing",
+              "Position": "0,0,0",
+              "Scale": "1,0.2,0.2",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "ModelRenderer",
+                  "BodyGroups": 18446744073709551615,
+                  "MaterialGroup": null,
+                  "MaterialOverride": null,
+                  "Model": "models/dev/box.vmdl",
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                }
+              ]
+            },
+            {
+              "Id": "c1abeb13-bdc2-49dc-909c-d64ceca4b932",
+              "Name": "Laser Beam",
+              "Position": "0,0,0",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "LaserBeam",
+                  "ParticleAsset": "particles/laser_beam.vpcf",
+                  "ParticleInstance": null,
+                  "Target": {
+                    "_type": "gameobject",
+                    "go": "8e341974-da7f-47ae-bc94-4f1419df6a07"
+                  },
+                  "Tint": "0.01569,0.00392,0.18039,1"
+                }
+              ]
+            },
+            {
+              "Id": "8e341974-da7f-47ae-bc94-4f1419df6a07",
+              "Name": "Beam Target",
+              "Position": "-512,0,0.000000000001818989",
+              "Enabled": true
+            }
+          ]
+        }
+      ]
+    },
+    {
       "Id": "b8cc7987-d167-4714-87a2-e1f033906a6e",
       "Name": "Laser Zoo",
       "Position": "320,0,0",
@@ -93,7 +183,7 @@
             {
               "Id": "dc37c334-514a-4eea-a54d-f7d1dd47fbdc",
               "Name": "Target",
-              "Position": "512,0,0",
+              "Position": "2048,0,0",
               "Enabled": true
             }
           ]
@@ -119,7 +209,7 @@
             {
               "Id": "eb708d35-385f-4185-81d5-5c36826627da",
               "Name": "Target",
-              "Position": "512,0,0",
+              "Position": "2048,0,0",
               "Enabled": true
             }
           ]
@@ -145,7 +235,7 @@
             {
               "Id": "ec2e9fcf-e010-4b2a-9d20-b83acbf54235",
               "Name": "Target",
-              "Position": "512,0,0",
+              "Position": "2048,0,0",
               "Enabled": true
             }
           ]
@@ -171,7 +261,7 @@
             {
               "Id": "e921b74b-c2f2-4821-ab6a-11e625f0dfcf",
               "Name": "Target",
-              "Position": "512,0,0",
+              "Position": "2048,0,0",
               "Enabled": true
             }
           ]
@@ -197,7 +287,7 @@
             {
               "Id": "7efb9796-e8f7-4812-a651-e837caa1faab",
               "Name": "Target",
-              "Position": "512,0,0",
+              "Position": "2048,0,0",
               "Enabled": true
             }
           ]
@@ -223,7 +313,7 @@
             {
               "Id": "b388728b-2f4c-423e-93c3-611c8a27f99a",
               "Name": "Target",
-              "Position": "512,0,0",
+              "Position": "2048,0,0",
               "Enabled": true
             }
           ]
@@ -242,14 +332,14 @@
                 "_type": "gameobject",
                 "go": "33ebc94f-a3bd-4ff2-ba32-d71fee6cf429"
               },
-              "Tint": "0,0.05752,0.21569,1"
+              "Tint": "0,0.01176,0.26275,1"
             }
           ],
           "Children": [
             {
               "Id": "33ebc94f-a3bd-4ff2-ba32-d71fee6cf429",
               "Name": "Target",
-              "Position": "512,0,0",
+              "Position": "2048,0,0",
               "Enabled": true
             }
           ]
@@ -268,14 +358,14 @@
                 "_type": "gameobject",
                 "go": "510d62ff-8070-454e-a7cd-714754624c75"
               },
-              "Tint": "0.05392,0,0.21569,1"
+              "Tint": "0.01569,0.00392,0.18039,1"
             }
           ],
           "Children": [
             {
               "Id": "510d62ff-8070-454e-a7cd-714754624c75",
               "Name": "Target",
-              "Position": "512,0,0",
+              "Position": "2048,0,0",
               "Enabled": true
             }
           ]
@@ -294,14 +384,14 @@
                 "_type": "gameobject",
                 "go": "d9792c3e-2235-4775-8353-9f65bbe5af49"
               },
-              "Tint": "0.13301,0,0.21569,1"
+              "Tint": "0.05098,0,0.4,1"
             }
           ],
           "Children": [
             {
               "Id": "d9792c3e-2235-4775-8353-9f65bbe5af49",
               "Name": "Target",
-              "Position": "512,0,0",
+              "Position": "2048,0,0",
               "Enabled": true
             }
           ]
@@ -327,12 +417,34 @@
             {
               "Id": "8300c36c-1a55-4ae3-b7d3-ea107a3452ef",
               "Name": "Target",
-              "Position": "512,0,0",
+              "Position": "2048,0,0",
               "Enabled": true
+            }
+          ]
+        },
+        {
+          "Id": "98e2508d-cba6-44c1-8074-fa89a7b81ff3",
+          "Name": "Text",
+          "Position": "-62.26662,-96.40004,0",
+          "Rotation": "0,0.7071068,0,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "TextRenderer",
+              "Color": "1,1,1,1",
+              "FontFamily": "Zeroes 1",
+              "FontSize": 128,
+              "Scale": 0.3,
+              "Text": "Laser Zoo"
             }
           ]
         }
       ]
+    },
+    {
+      "Id": "6c9264f7-bb5a-44c8-9f33-8db81c1480a3",
+      "Name": "Object",
+      "Enabled": true
     }
   ],
   "SceneProperties": {
@@ -358,6 +470,6 @@
   },
   "Title": "test_mining",
   "Description": "",
-  "LastSaved": "2024-03-09T07:22:59.6004506-07:00",
+  "LastSaved": "2024-03-09T09:24:13.46462-07:00",
   "__references": []
 }
