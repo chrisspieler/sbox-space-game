@@ -111,6 +111,55 @@
       },
       {
         "__type": "OffsetCombiner"
+      },
+      {
+        "__type": "DeathCam",
+        "__enabled": false,
+        "Distance": 40,
+        "FieldOfView": 90,
+        "LookbackDistance": 200,
+        "PositionLerpSpeed": {
+          "rangey": "0,20",
+          "frames": [
+            {
+              "y": 0.018085156,
+              "in": -0.06567136,
+              "out": 0.06567136
+            },
+            {
+              "x": 0.8979591,
+              "y": 0.4847844,
+              "in": -1.6221398,
+              "out": 1.6221398
+            },
+            {
+              "x": 1,
+              "y": 1,
+              "in": -9.076923,
+              "out": 9.076923
+            }
+          ]
+        },
+        "RotationLerpSpeed": {
+          "rangey": "0,20",
+          "frames": [
+            {
+              "y": 0.02074473
+            },
+            {
+              "x": 0.88839287,
+              "y": 0.45886433,
+              "in": -1.8266492,
+              "out": 1.8266492
+            },
+            {
+              "x": 1,
+              "y": 1,
+              "in": -6.3225813,
+              "out": 6.3225813
+            }
+          ]
+        }
       }
     ],
     "Children": []

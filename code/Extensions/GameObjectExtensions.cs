@@ -4,6 +4,14 @@ using Sandbox;
 
 public static class GameObjectExtensions
 {
+	public static void SetEnabled( this GameObject gameObject, bool enabled )
+	{
+		if ( gameObject is null )
+			return;
+
+		gameObject.Enabled = enabled;
+	}
+
 	public static Vector3 GetAbsolutePosition( this GameObject gameObject )
 	{
 		if ( !gameObject.IsValid() )

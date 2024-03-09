@@ -124,15 +124,15 @@ public sealed partial class ShipController
 		renderer.SceneModel.UseAnimGraph = false;
 		var twirler = Meat.Components.Get<RagdollTwirler>();
 		twirler.BaseVelocity = Rigidbody.Velocity;
-		var deathCam = Meat.Components.GetInDescendantsOrSelf<DeathCamConfig>( true );
-		deathCam.Enabled = true;
+		var deathCamTarget = Scene.GetAllComponents<DeathCamTarget>().FirstOrDefault();
+		DeathCam.Begin( deathCamTarget );
 		var fog = Scene.GetAllComponents<VolumetricFogVolume>().FirstOrDefault();
 		if ( fog is not null )
 		{
 			// Move the fog from the ship to the death cam.
 			fog.GameObject.Parent = null;
 			var follower = fog.Components.GetOrCreate<Follower>();
-			follower.Target = deathCam.GameObject;
+			follower.Target = Scene.Camera.GameObject;
 		}
 	}
 

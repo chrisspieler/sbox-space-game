@@ -12,7 +12,7 @@ public sealed class ShipCamera : Component, IBasisSource
 			_target = value;
 			if ( Game.IsPlaying )
 			{
-				ResetPositionAndRotation();
+				_shouldResetTransform = true;
 			}
 		}
 	}
@@ -29,52 +29,44 @@ public sealed class ShipCamera : Component, IBasisSource
 	public static ShipCamera Instance { get; private set; }
 	public static ShipCamera GetCurrent() => Instance;
 
-	private Vector3 _basePosition;
-	private Rotation _baseRotation;
+	private bool _shouldResetTransform;
 
 	protected override void OnStart()
 	{
 		Instance = this;
 	}
 
-	public Transform GetBaseTransform()
+	public Transform GetBaseTransform( Transform lastTransform )
 	{
-		UpdatePositionAndRotation();
-		return new Transform()
-			.WithPosition( _basePosition )
-			.WithRotation( _baseRotation );
+		if ( Target?.Components?.TryGet<Rigidbody>( out var rb ) != true )
+			return lastTransform;
+
+		// On a scale from 0 - 1, how speedy is the Target?
+		var speed = GetSpeedFraction( rb );
+		// Given the Target's speed and direction, where would we like to be?
+		var targetTx = GetTargetTransform( rb.Velocity, speed );
+		// Lerp to that position
+		var nextTx = GetNextTransform( lastTransform, targetTx );
+		_shouldResetTransform = false;
+		return nextTx;
 	}
 
 	protected override void OnEnabled()
 	{
-		ResetPositionAndRotation();
-	}
-
-	private void ResetPositionAndRotation()
-	{
-		if ( _target is null )
-			return;
-
-		_basePosition = _target.Transform.Position;
-		_baseRotation = _target.Transform.Rotation;
-	}
-
-	private void UpdatePositionAndRotation()
-	{
-		if ( Target?.Components?.TryGet<Rigidbody>( out var targetPhysics ) != true )
-			return;
-
-		var lerpProgress = GetSpeedFraction( targetPhysics );
-		var targetPos = GetTargetPosition( targetPhysics.Velocity, lerpProgress );
-		_basePosition = _basePosition.LerpTo( targetPos, PositionLerpSpeed * Time.Delta );
-		var targetRot = GetTargetRotation( lerpProgress );
-		_baseRotation = Rotation.Slerp( _baseRotation, targetRot, PitchLerpSpeed * Time.Delta );
+		_shouldResetTransform = true;
 	}
 
 	private float GetSpeedFraction( Rigidbody rb )
 	{
 		var targetVelocity = rb.Velocity.Length;
 		return MathX.LerpInverse( targetVelocity, TargetVelocityLowThreshold, TargetVelocityHighThreshold );
+	}
+
+	private Transform GetTargetTransform( Vector3 velocity, float frac )
+	{
+		return new Transform()
+			.WithPosition( GetTargetPosition( velocity, frac ) )
+			.WithRotation( GetTargetRotation( frac ) );
 	}
 
 	private Vector3 GetTargetPosition( Vector3 velocity, float speedFraction )
@@ -88,5 +80,26 @@ public sealed class ShipCamera : Component, IBasisSource
 	private Rotation GetTargetRotation( float speedFraction )
 	{
 		return Rotation.Lerp( Rotation.FromPitch( LowPitch ), Rotation.FromPitch( HighPitch ), speedFraction );
+	}
+
+	private Transform GetNextTransform( Transform lastTx, Transform targetTx )
+	{
+		return new Transform()
+			.WithPosition( GetNextPosition( lastTx.Position, targetTx.Position ) )
+			.WithRotation( GetNextRotation( lastTx.Rotation, targetTx.Rotation ) );
+	}
+
+	private Vector3 GetNextPosition( Vector3 lastPos, Vector3 targetPos )
+	{
+		return _shouldResetTransform
+			? targetPos
+			: lastPos.LerpTo( targetPos, PositionLerpSpeed * Time.Delta );
+	}
+
+	private Rotation GetNextRotation( Rotation lastRotation, Rotation targetRotation )
+	{
+		return _shouldResetTransform
+			? targetRotation
+			: Rotation.Slerp( lastRotation, targetRotation, PitchLerpSpeed * Time.Delta );
 	}
 }

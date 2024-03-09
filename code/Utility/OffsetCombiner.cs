@@ -2,10 +2,17 @@
 
 public sealed class OffsetCombiner : Component
 {
+	private Transform _lastTransform;
+
 	protected override void OnUpdate()
 	{
 		Transform.World = GetBasis();
 		AddOffsets();
+	}
+
+	protected override void OnEnabled()
+	{
+		_lastTransform = Transform.World;
 	}
 
 	private Transform GetBasis()
@@ -13,7 +20,9 @@ public sealed class OffsetCombiner : Component
 		if ( !Components.TryGet<IBasisSource>( out var basis ) )
 			return Transform.World;
 
-		return basis.GetBaseTransform();
+		var baseTx = basis.GetBaseTransform( _lastTransform );
+		_lastTransform = baseTx;
+		return baseTx;
 	}
 
 	private void AddOffsets()
