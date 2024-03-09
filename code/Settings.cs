@@ -32,7 +32,7 @@ public class Settings
 	{
 		return new Settings
 		{
-			ScreenShakeScale = ShipCamera.ScreenShakeScale,
+			ScreenShakeScale = ScreenShake.ScreenShakeScale,
 			LaserBrightnessScale = LaserBeam.BrightnessScale,
 			FogThicknessScale = FogController.IntensityScale,
 			BloomIntensity = PostProcessingController.BloomIntensity
@@ -41,7 +41,7 @@ public class Settings
 
 	private static void ApplySettings( Settings settings )
 	{
-		ShipCamera.ScreenShakeScale = settings.ScreenShakeScale;
+		ScreenShake.ScreenShakeScale = settings.ScreenShakeScale;
 		LaserBeam.BrightnessScale = settings.LaserBrightnessScale;
 		FogController.IntensityScale = settings.FogThicknessScale;
 		PostProcessingController.BloomIntensity = settings.BloomIntensity;

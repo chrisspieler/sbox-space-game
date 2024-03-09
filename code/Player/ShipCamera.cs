@@ -1,17 +1,22 @@
 using Sandbox;
-using Sandbox.Utility;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
-public sealed class ShipCamera : Component
+public sealed class ShipCamera : Component, IBasisSource
 {
-	[ConVar( "camera_shake_scale" )]
-	public static float ScreenShakeScale { get; set; } = 0.5f;
-	[ConVar( "camera_shake_debug" )]
-	public static bool ShakeDebug { get; set; }
-
-	[Property] public GameObject Target { get; set; }
+	[Property] public OffsetCombiner Combiner { get; set; }
+	[Property] public GameObject Target 
+	{
+		get => _target;
+		set
+		{
+			_target = value;
+			if ( Game.IsPlaying )
+			{
+				ResetPositionAndRotation();
+			}
+		}
+	}
+	private GameObject _target;
 	[Property, Range(30f, 90f, 1f)] public float LowPitch { get; set; } = 70f;
 	[Property, Range(30f, 90f, 1f)] public float HighPitch { get; set; } = 88f;
 	[Property] public Vector3 LowPosition { get; set; } = new Vector3( -150, 0f, 600f );
@@ -20,121 +25,68 @@ public sealed class ShipCamera : Component
 	[Property, Range( 0f, 5000f, 25f )] public float TargetVelocityHighThreshold { get; set; } = 2500f;
 	[Property, Range(0.1f, 5f, 0.1f)] public float PitchLerpSpeed { get; set; } = 1f;
 	[Property, Range(0.1f, 5f, 0.1f)] public float PositionLerpSpeed { get; set; } = 1f;
-	[Property, Range( 0f, 1f ), Category("Screen Shake")] 
-	public float Trauma 
-	{
-		get => _trauma;
-		set
-		{
-			_trauma = value.Clamp( 0f, 1f );
-		}
-	}
-	private float _trauma;
-	[Property, Category( "Screen Shake" )]
-	public float TraumaDecayRate { get; set; } = 2f;
-	[Property, Category("Screen Shake")]
-	public float PitchShakeIntensity { get; set; } = 10f;
-	[Property, Category( "Screen Shake" )]
-	public float PitchShakeSpeed { get; set; } = 100f;
-	[Property, Category( "Screen Shake" )]
-	public float YawShakeIntensity { get; set; } = 10f;
-	[Property, Category( "Screen Shake" )]
-	public float YawShakeSpeed { get; set; } = 100f;
-	[Property, Category( "Screen Shake" )]
-	public float RollShakeIntensity { get; set; } = 10f;
-	[Property, Category( "Screen Shake" )]
-	public float RollShakeSpeed { get; set; } = 100f;
-	[Property, Category( "Screen Shake" )]
-	public int ShakeToggleCount => _screenShakeToggles.Count;
-
-	private readonly Dictionary<IValid, float> _screenShakeToggles = new();
-
-	private Rotation _baseRotation = Rotation.Identity;
 
 	public static ShipCamera Instance { get; private set; }
 	public static ShipCamera GetCurrent() => Instance;
+
+	private Vector3 _basePosition;
+	private Rotation _baseRotation;
+
 	protected override void OnStart()
 	{
 		Instance = this;
-		_baseRotation = Transform.Rotation;
 	}
 
-	public void ResetBaseRotation()
+	public Transform GetBaseTransform()
 	{
-		Transform.Rotation = _baseRotation;
+		UpdatePositionAndRotation();
+		return new Transform()
+			.WithPosition( _basePosition )
+			.WithRotation( _baseRotation );
 	}
 
-	protected override void OnUpdate()
+	protected override void OnEnabled()
+	{
+		ResetPositionAndRotation();
+	}
+
+	private void ResetPositionAndRotation()
+	{
+		if ( _target is null )
+			return;
+
+		_basePosition = _target.Transform.Position;
+		_baseRotation = _target.Transform.Rotation;
+	}
+
+	private void UpdatePositionAndRotation()
 	{
 		if ( Target?.Components?.TryGet<Rigidbody>( out var targetPhysics ) != true )
 			return;
 
-		var targetVelocity = targetPhysics.Velocity.Length;
-		var lerpProgress = MathX.LerpInverse( targetVelocity, TargetVelocityLowThreshold, TargetVelocityHighThreshold );
-		var heightOffset = Vector3.Lerp( LowPosition, HighPosition, lerpProgress );
-		var nonVerticality = MathF.Abs( Vector3.Right.Dot( targetPhysics.Velocity.Normal ) );
-		var travelOffset = targetPhysics.Velocity + ( targetPhysics.Velocity * 0.6f ) * nonVerticality;
-		var targetPos = Target.Transform.Position + heightOffset + travelOffset;
-		Transform.Position = Transform.Position.LerpTo( targetPos, PositionLerpSpeed * Time.Delta );
-		var targetRot = Rotation.Lerp( Rotation.FromPitch( LowPitch ), Rotation.FromPitch( HighPitch ), lerpProgress );
+		var lerpProgress = GetSpeedFraction( targetPhysics );
+		var targetPos = GetTargetPosition( targetPhysics.Velocity, lerpProgress );
+		_basePosition = _basePosition.LerpTo( targetPos, PositionLerpSpeed * Time.Delta );
+		var targetRot = GetTargetRotation( lerpProgress );
 		_baseRotation = Rotation.Slerp( _baseRotation, targetRot, PitchLerpSpeed * Time.Delta );
-		Transform.LocalRotation = _baseRotation * GetScreenShake();
 	}
 
-	public void SetBaseScreenShake( IValid shaker, float amount, bool enabled )
+	private float GetSpeedFraction( Rigidbody rb )
 	{
-		if ( shaker.IsValid() && enabled && amount > 0f )
-		{
-			_screenShakeToggles[shaker] = amount;
-		}
-		else
-		{
-			// Put the base trauma in to the main trauma as it's removed, to allow
-			// the screen shake to smoothly return to normal.
-			if ( _screenShakeToggles.ContainsKey( shaker ) )
-			{
-				Trauma += _screenShakeToggles[shaker];
-				Trauma = MathF.Min( 1f, Trauma );
-				_screenShakeToggles.Remove( shaker );
-			}
-		}
+		var targetVelocity = rb.Velocity.Length;
+		return MathX.LerpInverse( targetVelocity, TargetVelocityLowThreshold, TargetVelocityHighThreshold );
 	}
 
-	public void ClearAllScreenShakeToggles()
+	private Vector3 GetTargetPosition( Vector3 velocity, float speedFraction )
 	{
-		var totalShake = _screenShakeToggles.Values.Sum();
-		Trauma += totalShake;
-		Trauma = MathF.Min( 1f, Trauma );
-		_screenShakeToggles.Clear();
+		var heightOffset = Vector3.Lerp( LowPosition, HighPosition, speedFraction );
+		var nonVerticality = MathF.Abs( Vector3.Right.Dot( velocity.Normal ) );
+		var travelOffset = velocity + (velocity * 0.6f) * nonVerticality;
+		return Target.Transform.Position + heightOffset + travelOffset;
 	}
 
-	private float GetBaseTrauma()
+	private Rotation GetTargetRotation( float speedFraction )
 	{
-		var baseTrauma = 0f;
-		foreach( var (shaker, trauma) in _screenShakeToggles.ToList() )
-		{
-			if ( !shaker.IsValid() )
-			{
-				_screenShakeToggles.Remove( shaker );
-				continue;
-			}
-			baseTrauma += trauma;
-		}
-		return baseTrauma;
-	}
-
-	private Rotation GetScreenShake()
-	{
-		Trauma -= Time.Delta * TraumaDecayRate;
-		var baseTrauma = GetBaseTrauma();
-		var combinedTrauma = (baseTrauma + Trauma).Clamp( 0f, 1f);
-		if ( ShakeDebug )
-		{
-			Gizmo.Draw.ScreenText( $"c: {combinedTrauma}, b: {baseTrauma}, t: {Trauma}", new Vector2( Screen.Width / 2, 25 ), "Consolas" );
-		}
-		var pitch = PitchShakeIntensity * Noise.Perlin( Time.Now * PitchShakeSpeed );
-		var yaw = YawShakeIntensity * Noise.Perlin( ( Time.Now + 1 ) * YawShakeSpeed );
-		var roll = RollShakeIntensity * Noise.Perlin( ( Time.Now + 1 ) * RollShakeSpeed );
-		return new Angles( pitch, yaw, roll ) * Easing.EaseIn( combinedTrauma ) * ScreenShakeScale;
+		return Rotation.Lerp( Rotation.FromPitch( LowPitch ), Rotation.FromPitch( HighPitch ), speedFraction );
 	}
 }

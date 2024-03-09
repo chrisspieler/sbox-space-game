@@ -23,7 +23,7 @@
 			<div class="body column center-content">
 				<div class="setting">
 					<div class="label">Screen Shake Amount</div>
-					<SliderControl Max=@(1f) Step=@(0.1f) ShowRange=@true Value=@ShipCamera.ScreenShakeScale 
+					<SliderControl Max=@(1f) Step=@(0.1f) ShowRange=@true Value=@ScreenShake.ScreenShakeScale 
                         OnValueChanged=@SetScreenShakeScale/>
 				</div>
                 <div class="setting">
@@ -60,7 +60,7 @@
 {
     [Property] public PanelComponent ReturnMenu { get; set; }
 
-    protected override int BuildHash() => System.HashCode.Combine( ShipCamera.ScreenShakeScale, LaserBeam.BrightnessScale, FogController.IntensityScale, PostProcessingController.BloomIntensity, _showModal );
+    protected override int BuildHash() => System.HashCode.Combine( ScreenShake.ScreenShakeScale, LaserBeam.BrightnessScale, FogController.IntensityScale, PostProcessingController.BloomIntensity, _showModal );
 
     private string ModalClass => _showModal ? "" : "hidden";
     private bool _showModal = false;
@@ -79,7 +79,7 @@
 
     private void SetScreenShakeScale( float value)
     {
-        ShipCamera.ScreenShakeScale = value;
+        ScreenShake.ScreenShakeScale = value;
     }
 
     private void SetLaserBrightnessScale( float value )

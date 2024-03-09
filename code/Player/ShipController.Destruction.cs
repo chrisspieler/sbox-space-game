@@ -33,7 +33,7 @@ public sealed partial class ShipController
 		ReleaseSceneCamera();
 		HideHud();
 		SpawnExplosion();
-		ShipCamera.GetCurrent().Trauma = 1f;
+		ScreenEffects.AddScreenShake( 1f );
 		Rigidbody.Velocity = Vector3.Zero;
 		Career.RemoveMoneyCommmand( Career.RespawnFee );
 		SaveManager.SaveActiveCareer();
@@ -126,11 +126,14 @@ public sealed partial class ShipController
 		twirler.BaseVelocity = Rigidbody.Velocity;
 		var deathCam = Meat.Components.GetInDescendantsOrSelf<DeathCamConfig>( true );
 		deathCam.Enabled = true;
-		var fog = Scene.GetAllComponents<VolumetricFogVolume>().First();
-		// Move the fog from the ship to the death cam.
-		fog.GameObject.Parent = null;
-		var follower = fog.Components.GetOrCreate<Follower>();
-		follower.Target = deathCam.GameObject;
+		var fog = Scene.GetAllComponents<VolumetricFogVolume>().FirstOrDefault();
+		if ( fog is not null )
+		{
+			// Move the fog from the ship to the death cam.
+			fog.GameObject.Parent = null;
+			var follower = fog.Components.GetOrCreate<Follower>();
+			follower.Target = deathCam.GameObject;
+		}
 	}
 
 	private void SpillCargo()

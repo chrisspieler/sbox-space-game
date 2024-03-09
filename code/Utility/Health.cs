@@ -43,7 +43,8 @@ public sealed class Health : Component, Component.IDamageable, IHealth
 		OnDamaged?.Invoke( damage );
 		if ( Tags.Has( "player" ) )
 		{
-			ScreenEffects.AddScreenShake( damage.Damage / MaxHealth * 2 );
+			var shakeAmount = MathF.Max( 0.1f, damage.Damage / MaxHealth * 2 );
+			ScreenEffects.AddScreenShake( shakeAmount );
 		}
 		var damageAmount = IsInvincible ? 0f : damage.Damage;
 		var wasAlive = IsAlive;

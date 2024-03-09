@@ -101,7 +101,6 @@ public sealed partial class ShipController : Component
 		camera.Target = GameObject;
 		camera.Transform.Position = Transform.Position + new Vector3( -500f, 0, 200f );
 		camera.Transform.Rotation = Rotation.FromPitch( 30f );
-		camera.ResetBaseRotation();
 		camera.Enabled = true;
 	}
 

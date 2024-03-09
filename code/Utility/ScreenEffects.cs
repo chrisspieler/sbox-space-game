@@ -4,37 +4,37 @@ public static class ScreenEffects
 {
 	public static void AddScreenShake( float amount )
 	{
-		var camera = ShipCamera.GetCurrent();
-		if ( !camera.IsValid() )
+		var screenShake = ScreenShake.Instance;
+		if ( !screenShake.IsValid() )
 			return;
 
-		camera.Trauma += amount;
+		screenShake.Trauma += amount;
 	}
 
 	public static void SetBaseScreenShake( IValid shaker, float amount, bool enable )
 	{
-		var camera = ShipCamera.GetCurrent();
-		if ( !camera.IsValid() )
+		var screenShake = ScreenShake.Instance;
+		if ( !screenShake.IsValid() )
 			return;
 
-		camera.SetBaseScreenShake( shaker, amount, enable );
+		screenShake.SetBaseScreenShake( shaker, amount, enable );
 	}
 
 	public static void ClearBaseScreenShake()
 	{
-		var camera = ShipCamera.GetCurrent();
-		if ( !camera.IsValid() )
+		var screenShake = ScreenShake.Instance;
+		if ( !screenShake.IsValid() )
 			return;
 
-		camera.ClearAllScreenShakeToggles();
+		screenShake.ClearAllScreenShakeToggles();
 	}
 
 	public static void ClearBaseScreenShake( IValid shaker )
 	{
-		var camera = ShipCamera.GetCurrent();
-		if ( !camera.IsValid() )
+		var screenShake = ScreenShake.Instance;
+		if ( !screenShake.IsValid() )
 			return;
 
-		camera.SetBaseScreenShake( shaker, 0f, false );
+		screenShake.SetBaseScreenShake( shaker, 0f, false );
 	}
 }

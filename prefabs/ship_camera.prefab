@@ -1,9 +1,7 @@
 {
   "RootObject": {
     "Id": "a40bb4ac-020a-41e6-b19c-044056082e27",
-    "Name": "Camera",
-    "Position": "2000,3200,200",
-    "Rotation": "0,0.258819,0,0.9659258",
+    "Name": "ship_camera",
     "Tags": "no_chunk,no_shift",
     "Enabled": true,
     "Components": [
@@ -25,24 +23,20 @@
       },
       {
         "__type": "ShipCamera",
+        "Combiner": {
+          "_type": "component",
+          "go": "a40bb4ac-020a-41e6-b19c-044056082e27",
+          "component_type": "OffsetCombiner"
+        },
         "HighPitch": 88,
         "HighPosition": "-120,0,3000",
         "LowPitch": 70,
         "LowPosition": "-350,0,1000",
         "PitchLerpSpeed": 1,
-        "PitchShakeIntensity": 5,
-        "PitchShakeSpeed": 300,
         "PositionLerpSpeed": 1,
-        "RollShakeIntensity": 8,
-        "RollShakeSpeed": 500,
-        "ShakeToggleCount": 0,
         "Target": null,
         "TargetVelocityHighThreshold": 2500,
-        "TargetVelocityLowThreshold": 50,
-        "Trauma": 0,
-        "TraumaDecayRate": 0.75,
-        "YawShakeIntensity": 1.75,
-        "YawShakeSpeed": 100
+        "TargetVelocityLowThreshold": 50
       },
       {
         "__type": "Bloom",
@@ -100,8 +94,26 @@
         "ExcludeTags": null,
         "OriginShiftFreezeFrames": 3,
         "RenderTags": "shift_visible"
+      },
+      {
+        "__type": "ScreenShake",
+        "BaseTrauma": 0,
+        "CombinedTrauma": 0,
+        "PitchShakeIntensity": 5,
+        "PitchShakeSpeed": 300,
+        "RollShakeIntensity": 8,
+        "RollShakeSpeed": 500,
+        "ShakeToggleCount": 0,
+        "Trauma": 0,
+        "TraumaDecayRate": 0.75,
+        "YawShakeIntensity": 1.75,
+        "YawShakeSpeed": 100
+      },
+      {
+        "__type": "OffsetCombiner"
       }
-    ]
+    ],
+    "Children": []
   },
   "ShowInMenu": false,
   "MenuPath": null,
