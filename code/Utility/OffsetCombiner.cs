@@ -1,6 +1,6 @@
 ﻿using Sandbox;
 
-public sealed class OffsetCombiner : Component
+public sealed class OffsetCombiner : Component, IOriginShiftListener
 {
 	private Transform _lastTransform;
 
@@ -33,5 +33,10 @@ public sealed class OffsetCombiner : Component
 			Transform.Position += offset.Position;
 			Transform.Rotation *= offset.Rotation;
 		}
+	}
+
+	public void OnAfterOriginShift( Vector3 offset )
+	{
+		_lastTransform.Position += offset;
 	}
 }
