@@ -122,11 +122,24 @@ public sealed partial class ShipController : Component
 		{
 			FacingDirection = GetLastKeyboardDirection();
 		}
+		UpdateWeapons();
 		UpdateThrusters();
 		TargetRotation = GetTargetRotation();
 		Rigidbody.PhysicsBody.SmoothRotate( TargetRotation, 1f / TurnSpeed, Time.Delta );
 		PartsContainer.Transform.Rotation = Rigidbody.PhysicsBody.Rotation;
 		UpdateDebugInfo();
+	}
+
+	private void UpdateWeapons()
+	{
+		if ( ActiveWeapon is null )
+		{
+			// TODO: Implement weapon switching.
+			ActiveWeapon = Laser;
+			return;
+		}
+
+		ActiveWeapon.ShouldFire = Input.Down( "fire" );
 	}
 
 	private void UpdateThrusters()

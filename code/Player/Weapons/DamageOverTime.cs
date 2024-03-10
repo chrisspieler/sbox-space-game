@@ -10,7 +10,20 @@ public sealed class DamageOverTime : Component
 
 	[Property] public GameObject Owner { get; set; }
 	[Property] public GameObject Weapon { get; set; }
-	[Property] public GameObject Target { get; set; }
+	[Property] public GameObject Target 
+	{
+		get => _target;
+		set
+		{
+			var oldValue = _target;
+			_target = value;
+			if ( oldValue != value )
+			{
+				_untilDamageTick += TickInterval - TickInterval * TickPhaseOffset;
+			}
+		}
+	}
+	private GameObject _target;
 	[Property] public Vector3? HitPosition { get; set; }
 	[Property] public float TickDamage { get; set; } = 2.5f;
 	[Property] public float TickInterval { get; set; } = 0.2f;
@@ -23,9 +36,12 @@ public sealed class DamageOverTime : Component
 
 	private TimeUntil _untilDamageTick;
 
-	protected override void OnEnabled()
+	protected override void OnStart()
 	{
-		_untilDamageTick += TickInterval - TickInterval * TickPhaseOffset;
+		if ( Components.TryGet<ShipController>( out var ship, FindMode.InAncestors ) )
+		{
+			Owner = ship.GameObject;
+		}
 	}
 
 	protected override void OnUpdate()

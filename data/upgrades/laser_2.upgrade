@@ -34,12 +34,12 @@
         "DstName": "_signal"
       },
       {
-        "Value": 10,
+        "Value": 1,
         "DstId": 1,
         "DstName": "tickDamageOffset"
       },
       {
-        "Value": 0.1,
+        "Value": -0.05,
         "DstId": 1,
         "DstName": "tickIntervalOffset"
       }

@@ -1,14 +1,18 @@
 ﻿using Sandbox;
+using System;
 
 public static class ScreenEffects
 {
-	public static void AddScreenShake( float amount )
+	public static void AddScreenShake( float amount, float max = 1f )
 	{
 		var screenShake = ScreenShake.Instance;
 		if ( !screenShake.IsValid() )
 			return;
 
-		screenShake.Trauma += amount;
+		if ( screenShake.Trauma >= max )
+			return;
+
+		screenShake.Trauma = Math.Min( screenShake.Trauma + amount, max );
 	}
 
 	public static void SetBaseScreenShake( IValid shaker, float amount, bool enable )

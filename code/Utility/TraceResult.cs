@@ -8,6 +8,7 @@ public class TraceResult
 	public Vector3 EndPosition { get; set; }
 	public Vector3 Distance { get; set; }
 	public Vector3 Normal { get; set; }
+	public Vector3 Direction { get; set; }
 
 
 	public static implicit operator TraceResult( SceneTraceResult tr )
@@ -19,7 +20,8 @@ public class TraceResult
 			EndPosition = tr.EndPosition,
 			Distance = tr.Distance,
 			Hit = tr.Hit,
-			Normal = tr.Normal
+			Normal = tr.Normal,
+			Direction = tr.Direction
 		};
 	}
 }

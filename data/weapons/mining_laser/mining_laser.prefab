@@ -1,95 +1,9 @@
 {
   "RootObject": {
-    "Id": "d9122c0f-777d-4939-9472-7091d41a6176",
+    "Id": "fe9fae0c-89ea-4298-89f8-9e634be37286",
     "Name": "mining_laser",
     "Enabled": true,
     "Components": [
-      {
-        "__type": "Weapon",
-        "Body": {
-          "_type": "gameobject",
-          "go": "622e39e7-6ca3-4830-b806-52c8465f1271"
-        },
-        "DamageAblationScale": {
-          "rangey": "0.2,1",
-          "frames": [
-            {},
-            {
-              "x": 0.5,
-              "y": 0.5,
-              "in": -2.4848492,
-              "out": 2.4848492
-            },
-            {
-              "x": 1,
-              "y": 1
-            }
-          ]
-        },
-        "DamageColorScale": {
-          "color": [
-            {
-              "c": "0.01961,0,0,1"
-            },
-            {
-              "t": 0.123931624,
-              "c": "0.07442,0.06311,0.00658,1"
-            },
-            {
-              "t": 0.22222222,
-              "c": "0.16791,0.17674,0,1"
-            },
-            {
-              "t": 0.40811965,
-              "c": "0.01915,0,0.08837,1"
-            },
-            {
-              "t": 1,
-              "c": "0.36667,1,0,1"
-            }
-          ],
-          "alpha": []
-        },
-        "DamagePhaseOffset": 0,
-        "DamagePitchScale": {
-          "rangey": "0.7,1",
-          "frames": [
-            {},
-            {
-              "x": 1,
-              "y": 1,
-              "in": -0.69387746,
-              "out": 0.69387746
-            }
-          ]
-        },
-        "DamageRampUp": true,
-        "DamageRampUpSpeed": 2.5,
-        "LaserAblationPrefab": {
-          "_type": "gameobject",
-          "prefab": "prefabs/effects/laser_ablation.prefab"
-        },
-        "LaserDistance": 593.75,
-        "LaserEffectPrefab": {
-          "_type": "gameobject",
-          "prefab": "prefabs/effects/laser_beam.prefab"
-        },
-        "LaserLoopSound": "data/weapons/mining_laser/laser_loop.sound",
-        "LaserPower": 0.125,
-        "LaserTint": "0.02326,0,0,1",
-        "MaxDamage": 20,
-        "MinDamage": 2.5,
-        "ShieldHitPrefab": {
-          "_type": "gameobject",
-          "prefab": "prefabs/effects/shield_hit.prefab"
-        },
-        "TickDamage": 2.5,
-        "TickInterval": 0.2,
-        "TraceOrigin": {
-          "_type": "gameobject",
-          "go": "9ebadaf4-719d-458e-a3a1-dde50115f4bd"
-        }
-      },
       {
         "__type": "Rigidbody",
         "__enabled": false,
@@ -102,11 +16,63 @@
         "MassOverride": 0,
         "RigidbodyFlags": 0,
         "StartAsleep": false
+      },
+      {
+        "__type": "BeamWeapon",
+        "Damage": {
+          "_type": "component",
+          "go": "fe9fae0c-89ea-4298-89f8-9e634be37286",
+          "component_type": "DamageOverTime"
+        },
+        "DamagePitchCurve": {
+          "rangey": "0.6,1",
+          "frames": [
+            {},
+            {
+              "x": 1,
+              "y": 1
+            }
+          ]
+        },
+        "FiringSoundLoop": "data/weapons/mining_laser/laser_loop.sound",
+        "Impact": {
+          "_type": "component",
+          "go": "bc1afc60-a62c-4b12-b519-ed5446fb309b",
+          "component_type": "ImpactEffect"
+        },
+        "LaserDistance": 800,
+        "LaserEffect": {
+          "_type": "component",
+          "go": "640dea9a-4b9a-4546-b3fd-b43a16e5229d",
+          "component_type": "LaserBeam"
+        },
+        "LaserPower": 0.2,
+        "LaserTint": "0.02,0,0,1",
+        "MaxDamage": 50,
+        "MinDamage": 10,
+        "ShouldFire": false,
+        "TickDamage": 10,
+        "TickInterval": 0.5,
+        "Tracer": {
+          "_type": "component",
+          "go": "640dea9a-4b9a-4546-b3fd-b43a16e5229d",
+          "component_type": "BeamTrace"
+        }
+      },
+      {
+        "__type": "DamageOverTime",
+        "TickDamage": 10,
+        "TickInterval": 0.5,
+        "TickPhaseOffset": 0,
+        "Weapon": {
+          "_type": "gameobject",
+          "go": "fe9fae0c-89ea-4298-89f8-9e634be37286"
+        }
       }
     ],
     "Children": [
       {
-        "Id": "0de54bc5-3cc4-4b52-b6de-6fbfd3e1951c",
+        "Id": "de1ce797-97a2-4443-9bf6-37243157e17d",
         "Name": "Base",
         "Position": "0,0,5",
         "Scale": "0.1,0.1,0.2",
@@ -116,7 +82,6 @@
           {
             "__type": "ModelRenderer",
             "BodyGroups": 18446744073709551615,
-            "MaterialGroup": null,
             "MaterialOverride": "materials/dev/dev_metal_rough50.vmat",
             "Model": "models/dev/box.vmdl",
             "RenderType": "On",
@@ -128,13 +93,12 @@
             "Center": "0,0,0",
             "IsTrigger": false,
             "Scale": "50,50,50",
-            "Static": false,
-            "Surface": null
+            "Static": false
           }
         ]
       },
       {
-        "Id": "622e39e7-6ca3-4830-b806-52c8465f1271",
+        "Id": "a06b15f1-38df-4205-8d34-d209b882ce6d",
         "Name": "Barrel",
         "Position": "0,0,15",
         "Scale": "0.5,0.2,0.2",
@@ -144,7 +108,6 @@
           {
             "__type": "ModelRenderer",
             "BodyGroups": 18446744073709551615,
-            "MaterialGroup": null,
             "MaterialOverride": "materials/dev/dev_metal_rough30.vmat",
             "Model": "models/dev/box.vmdl",
             "RenderType": "On",
@@ -156,13 +119,12 @@
             "Center": "0,0,0",
             "IsTrigger": false,
             "Scale": "50,50,50",
-            "Static": false,
-            "Surface": null
+            "Static": false
           }
         ],
         "Children": [
           {
-            "Id": "fbfba0a4-ed96-4add-a170-750e1b882032",
+            "Id": "10dcf615-840c-4b12-bf13-ae7d9bf9eb0c",
             "Name": "Muzzle",
             "Position": "35,0,0",
             "Scale": "0.4,0.75,0.75",
@@ -171,7 +133,6 @@
               {
                 "__type": "ModelRenderer",
                 "BodyGroups": 18446744073709551615,
-                "MaterialGroup": null,
                 "MaterialOverride": "materials/dev/dev_metal_rough50.vmat",
                 "Model": "models/dev/box.vmdl",
                 "RenderType": "On",
@@ -183,18 +144,45 @@
                 "Center": "0,0,0",
                 "IsTrigger": false,
                 "Scale": "50,50,50",
-                "Static": false,
-                "Surface": null
+                "Static": false
               }
             ],
             "Children": [
               {
-                "Id": "9ebadaf4-719d-458e-a3a1-dde50115f4bd",
+                "Id": "640dea9a-4b9a-4546-b3fd-b43a16e5229d",
                 "Name": "Trace Origin",
                 "Position": "25.35623,0,0",
-                "Enabled": true
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "BeamTrace",
+                    "Distance": 800,
+                    "IncludeAny": "solid,shield,break_debris",
+                    "Source": {
+                      "_type": "gameobject",
+                      "go": "640dea9a-4b9a-4546-b3fd-b43a16e5229d"
+                    }
+                  },
+                  {
+                    "__type": "LaserBeam",
+                    "ParticleAsset": "particles/laser_beam.vpcf",
+                    "Tint": "0.02,0,0,1"
+                  }
+                ]
               }
             ]
+          }
+        ]
+      },
+      {
+        "Id": "bc1afc60-a62c-4b12-b519-ed5446fb309b",
+        "Name": "Impact Effect",
+        "Position": "44.96693,-137.9229,36.61931",
+        "Rotation": "0,0,0,0",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "ImpactEffect"
           }
         ]
       }

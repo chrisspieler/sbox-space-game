@@ -26,8 +26,8 @@
                 "Id": 1,
                 "Type": "property.get",
                 "Properties": {
-                  "_type": "Sandbox.Game/Sandbox.GameObject",
-                  "_name": "Scene"
+                  "_name": "Scene",
+                  "_type": "Sandbox.Game/Sandbox.GameObject"
                 },
                 "UserData": {
                   "Position": "-336,96"
@@ -37,8 +37,8 @@
                 "Id": 2,
                 "Type": "property.get",
                 "Properties": {
-                  "_type": "Sandbox.Game/Sandbox.Scene",
-                  "_name": "PhysicsWorld"
+                  "_name": "PhysicsWorld",
+                  "_type": "Sandbox.Game/Sandbox.Scene"
                 },
                 "UserData": {
                   "Position": "-64,96"
@@ -48,8 +48,8 @@
                 "Id": 3,
                 "Type": "property.set",
                 "Properties": {
-                  "_type": "Sandbox.Engine/Sandbox.PhysicsWorld",
-                  "_name": "Gravity"
+                  "_name": "Gravity",
+                  "_type": "Sandbox.Engine/Sandbox.PhysicsWorld"
                 },
                 "UserData": {
                   "Position": "192,-0"
@@ -244,8 +244,7 @@
           "Center": "0,0,0",
           "IsTrigger": false,
           "Radius": 32,
-          "Static": false,
-          "Surface": null
+          "Static": false
         },
         {
           "__type": "PostProcessingController",
@@ -474,7 +473,6 @@
             {
               "__type": "ModelRenderer",
               "BodyGroups": 18446744073709551615,
-              "MaterialGroup": null,
               "MaterialOverride": "materials/dev/dev_metal_rough60.vmat",
               "Model": "models/dev/box.vmdl",
               "RenderType": "On",
@@ -485,8 +483,7 @@
               "Center": "0,0,0",
               "IsTrigger": false,
               "Scale": "50,50,50",
-              "Static": false,
-              "Surface": null
+              "Static": false
             },
             {
               "__type": "Rigidbody",
@@ -509,77 +506,8 @@
           "Components": [
             {
               "__type": "Weapon",
-              "Body": {
-                "_type": "gameobject",
-                "go": "1efb2384-ed66-406e-b29e-d80386d4840a"
-              },
-              "DamageAblationScale": {
-                "rangey": "1,5",
-                "frames": [
-                  {},
-                  {
-                    "x": 0.5,
-                    "y": 0.5,
-                    "in": -2.4848492,
-                    "out": 2.4848492
-                  },
-                  {
-                    "x": 1,
-                    "y": 1
-                  }
-                ]
-              },
-              "DamageColorScale": {
-                "color": [
-                  {
-                    "c": "0.01961,0,0,1"
-                  },
-                  {
-                    "t": 0.123931624,
-                    "c": "0.07442,0.06311,0.00658,1"
-                  },
-                  {
-                    "t": 0.22222222,
-                    "c": "0.16791,0.17674,0,1"
-                  },
-                  {
-                    "t": 0.40811965,
-                    "c": "0.01915,0,0.08837,1"
-                  },
-                  {
-                    "t": 1,
-                    "c": "0.36667,1,0,1"
-                  }
-                ],
-                "alpha": []
-              },
-              "DamagePhaseOffset": 0,
-              "DamagePitchScale": [
-                {
-                  "x": 0.5,
-                  "y": 0.5
-                }
-              ],
-              "DamageRampUp": false,
-              "DamageRampUpSpeed": 10,
-              "LaserAblationPrefab": {
-                "_type": "gameobject",
-                "prefab": "prefabs/effects/laser_ablation.prefab"
-              },
-              "LaserDistance": 593.75,
-              "LaserEffectPrefab": {
-                "_type": "gameobject",
-                "prefab": "prefabs/effects/laser_beam.prefab"
-              },
-              "LaserLoopSound": null,
-              "LaserPower": 0.125,
-              "LaserTint": "0.02326,0,0,1",
-              "MaxDamage": 20,
-              "MinDamage": 2.5,
-              "ShieldHitPrefab": null,
-              "TickDamage": 2.5,
-              "TickInterval": 0.2,
-              "TraceOrigin": null
+              "PrefabInstances": [],
+              "ShouldFire": false
             },
             {
               "__type": "Rigidbody",
@@ -604,7 +532,6 @@
                 {
                   "__type": "ModelRenderer",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
                   "MaterialOverride": "materials/dev/dev_metal_rough50.vmat",
                   "Model": "models/dev/box.vmdl",
                   "RenderType": "On",
@@ -615,8 +542,7 @@
                   "Center": "0,0,0",
                   "IsTrigger": false,
                   "Scale": "50,50,50",
-                  "Static": false,
-                  "Surface": null
+                  "Static": false
                 }
               ]
             },
@@ -631,7 +557,6 @@
                 {
                   "__type": "ModelRenderer",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
                   "MaterialOverride": "materials/dev/dev_metal_rough30.vmat",
                   "Model": "models/dev/box.vmdl",
                   "RenderType": "On",
@@ -642,8 +567,7 @@
                   "Center": "0,0,0",
                   "IsTrigger": false,
                   "Scale": "50,50,50",
-                  "Static": false,
-                  "Surface": null
+                  "Static": false
                 }
               ],
               "Children": [
@@ -657,7 +581,6 @@
                     {
                       "__type": "ModelRenderer",
                       "BodyGroups": 18446744073709551615,
-                      "MaterialGroup": null,
                       "MaterialOverride": "materials/dev/dev_metal_rough50.vmat",
                       "Model": "models/dev/box.vmdl",
                       "RenderType": "On",
@@ -668,8 +591,7 @@
                       "Center": "0,0,0",
                       "IsTrigger": false,
                       "Scale": "50,50,50",
-                      "Static": false,
-                      "Surface": null
+                      "Static": false
                     }
                   ]
                 }
@@ -686,77 +608,8 @@
           "Components": [
             {
               "__type": "Weapon",
-              "Body": {
-                "_type": "gameobject",
-                "go": "2d07124b-3d07-4396-8a9b-7edfac44b9b5"
-              },
-              "DamageAblationScale": {
-                "rangey": "1,5",
-                "frames": [
-                  {},
-                  {
-                    "x": 0.5,
-                    "y": 0.5,
-                    "in": -2.4848492,
-                    "out": 2.4848492
-                  },
-                  {
-                    "x": 1,
-                    "y": 1
-                  }
-                ]
-              },
-              "DamageColorScale": {
-                "color": [
-                  {
-                    "c": "0.01961,0,0,1"
-                  },
-                  {
-                    "t": 0.123931624,
-                    "c": "0.07442,0.06311,0.00658,1"
-                  },
-                  {
-                    "t": 0.22222222,
-                    "c": "0.16791,0.17674,0,1"
-                  },
-                  {
-                    "t": 0.40811965,
-                    "c": "0.01915,0,0.08837,1"
-                  },
-                  {
-                    "t": 1,
-                    "c": "0.36667,1,0,1"
-                  }
-                ],
-                "alpha": []
-              },
-              "DamagePhaseOffset": 0,
-              "DamagePitchScale": [
-                {
-                  "x": 0.5,
-                  "y": 0.5
-                }
-              ],
-              "DamageRampUp": false,
-              "DamageRampUpSpeed": 10,
-              "LaserAblationPrefab": {
-                "_type": "gameobject",
-                "prefab": "prefabs/effects/laser_ablation.prefab"
-              },
-              "LaserDistance": 593.75,
-              "LaserEffectPrefab": {
-                "_type": "gameobject",
-                "prefab": "prefabs/effects/laser_beam.prefab"
-              },
-              "LaserLoopSound": null,
-              "LaserPower": 0.125,
-              "LaserTint": "0.02326,0,0,1",
-              "MaxDamage": 20,
-              "MinDamage": 2.5,
-              "ShieldHitPrefab": null,
-              "TickDamage": 2.5,
-              "TickInterval": 0.2,
-              "TraceOrigin": null
+              "PrefabInstances": [],
+              "ShouldFire": false
             },
             {
               "__type": "Rigidbody",
@@ -781,7 +634,6 @@
                 {
                   "__type": "ModelRenderer",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
                   "MaterialOverride": "materials/dev/dev_metal_rough50.vmat",
                   "Model": "models/dev/box.vmdl",
                   "RenderType": "On",
@@ -792,8 +644,7 @@
                   "Center": "0,0,0",
                   "IsTrigger": false,
                   "Scale": "50,50,50",
-                  "Static": false,
-                  "Surface": null
+                  "Static": false
                 }
               ]
             },
@@ -808,7 +659,6 @@
                 {
                   "__type": "ModelRenderer",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
                   "MaterialOverride": "materials/dev/dev_metal_rough30.vmat",
                   "Model": "models/dev/box.vmdl",
                   "RenderType": "On",
@@ -819,8 +669,7 @@
                   "Center": "0,0,0",
                   "IsTrigger": false,
                   "Scale": "50,50,50",
-                  "Static": false,
-                  "Surface": null
+                  "Static": false
                 }
               ],
               "Children": [
@@ -834,7 +683,6 @@
                     {
                       "__type": "ModelRenderer",
                       "BodyGroups": 18446744073709551615,
-                      "MaterialGroup": null,
                       "MaterialOverride": "materials/dev/dev_metal_rough50.vmat",
                       "Model": "models/dev/box.vmdl",
                       "RenderType": "On",
@@ -845,8 +693,7 @@
                       "Center": "0,0,0",
                       "IsTrigger": false,
                       "Scale": "50,50,50",
-                      "Static": false,
-                      "Surface": null
+                      "Static": false
                     }
                   ]
                 }
@@ -866,7 +713,6 @@
             {
               "__type": "ModelRenderer",
               "BodyGroups": 18446744073709551615,
-              "MaterialGroup": null,
               "MaterialOverride": "materials/dev/dev_metal_rough60.vmat",
               "Model": "models/dev/box.vmdl",
               "RenderType": "On",
@@ -877,8 +723,7 @@
               "Center": "0,0,0",
               "IsTrigger": false,
               "Scale": "50,50,50",
-              "Static": false,
-              "Surface": null
+              "Static": false
             },
             {
               "__type": "Rigidbody",
@@ -904,7 +749,6 @@
             {
               "__type": "ModelRenderer",
               "BodyGroups": 18446744073709551615,
-              "MaterialGroup": null,
               "MaterialOverride": "materials/dev/dev_metal_rough60.vmat",
               "Model": "models/dev/box.vmdl",
               "RenderType": "On",
@@ -915,8 +759,7 @@
               "Center": "0,0,0",
               "IsTrigger": false,
               "Scale": "50,50,50",
-              "Static": false,
-              "Surface": null
+              "Static": false
             },
             {
               "__type": "Rigidbody",
@@ -942,7 +785,6 @@
             {
               "__type": "ModelRenderer",
               "BodyGroups": 18446744073709551615,
-              "MaterialGroup": null,
               "MaterialOverride": "materials/dev/dev_metal_rough60.vmat",
               "Model": "models/dev/box.vmdl",
               "RenderType": "On",
@@ -953,8 +795,7 @@
               "Center": "0,0,0",
               "IsTrigger": false,
               "Scale": "50,50,50",
-              "Static": false,
-              "Surface": null
+              "Static": false
             },
             {
               "__type": "Rigidbody",
@@ -980,8 +821,6 @@
                 {
                   "__type": "ModelRenderer",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
                   "Model": "models/sbox_props/airducts/airduct_a_panel_b_48x32.vmdl",
                   "RenderType": "On",
                   "Tint": "0.14365,0.15142,0.18605,1"
@@ -1000,8 +839,6 @@
                 {
                   "__type": "ModelRenderer",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
                   "Model": "models/sbox_props/airducts/airduct_a_panel_48x32.vmdl",
                   "RenderType": "On",
                   "Tint": "0.14365,0.15142,0.18605,1"
@@ -1020,8 +857,6 @@
                 {
                   "__type": "ModelRenderer",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
                   "Model": "models/sbox_props/airducts/airduct_a_panel_48x16.vmdl",
                   "RenderType": "On",
                   "Tint": "0.14365,0.15142,0.18605,1"
@@ -1040,8 +875,6 @@
                 {
                   "__type": "ModelRenderer",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
                   "Model": "models/sbox_props/airducts/airduct_a_panel_32x32.vmdl",
                   "RenderType": "On",
                   "Tint": "0.14365,0.15142,0.18605,1"
@@ -1060,8 +893,6 @@
                 {
                   "__type": "ModelRenderer",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
                   "Model": "models/sbox_props/airducts/airduct_a_panel_32x32.vmdl",
                   "RenderType": "On",
                   "Tint": "0.14365,0.15142,0.18605,1"
@@ -1080,8 +911,6 @@
                 {
                   "__type": "ModelRenderer",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
                   "Model": "models/sbox_props/airducts/airduct_a_panel_48x16.vmdl",
                   "RenderType": "On",
                   "Tint": "0.14365,0.15142,0.18605,1"
@@ -1125,13 +954,11 @@
               "Center": "0,0,0",
               "IsTrigger": false,
               "Radius": 1,
-              "Static": false,
-              "Surface": null
+              "Static": false
             },
             {
               "__type": "ModelRenderer",
               "BodyGroups": 18446744073709551615,
-              "MaterialGroup": null,
               "MaterialOverride": "materials/dev/primary_white_emissive.vmat",
               "Model": "models/dev/sphere.vmdl",
               "RenderType": "On",
@@ -1174,13 +1001,11 @@
               "Center": "0,0,0",
               "IsTrigger": false,
               "Radius": 1,
-              "Static": false,
-              "Surface": null
+              "Static": false
             },
             {
               "__type": "ModelRenderer",
               "BodyGroups": 18446744073709551615,
-              "MaterialGroup": null,
               "MaterialOverride": "materials/dev/primary_white_emissive.vmat",
               "Model": "models/dev/sphere.vmdl",
               "RenderType": "On",
@@ -1223,13 +1048,11 @@
               "Center": "0,0,0",
               "IsTrigger": false,
               "Radius": 1,
-              "Static": false,
-              "Surface": null
+              "Static": false
             },
             {
               "__type": "ModelRenderer",
               "BodyGroups": 18446744073709551615,
-              "MaterialGroup": null,
               "MaterialOverride": "materials/dev/primary_white_emissive.vmat",
               "Model": "models/dev/sphere.vmdl",
               "RenderType": "On",
@@ -1272,13 +1095,11 @@
               "Center": "0,0,0",
               "IsTrigger": false,
               "Radius": 1,
-              "Static": false,
-              "Surface": null
+              "Static": false
             },
             {
               "__type": "ModelRenderer",
               "BodyGroups": 18446744073709551615,
-              "MaterialGroup": null,
               "MaterialOverride": "materials/dev/primary_white_emissive.vmat",
               "Model": "models/dev/sphere.vmdl",
               "RenderType": "On",
@@ -1298,7 +1119,6 @@
             {
               "__type": "ModelRenderer",
               "BodyGroups": 18446744073709551615,
-              "MaterialGroup": null,
               "MaterialOverride": "materials/dev/dev_metal_rough60.vmat",
               "Model": "models/dev/box.vmdl",
               "RenderType": "On",
@@ -1309,8 +1129,7 @@
               "Center": "0,0,0",
               "IsTrigger": false,
               "Scale": "50,50,50",
-              "Static": false,
-              "Surface": null
+              "Static": false
             },
             {
               "__type": "Rigidbody",
@@ -1336,8 +1155,6 @@
                 {
                   "__type": "ModelRenderer",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
                   "Model": "models/sbox_props/airducts/airduct_a_panel_48x32.vmdl",
                   "RenderType": "On",
                   "Tint": "0.2,0.19608,0.21176,1"
@@ -1356,8 +1173,6 @@
                 {
                   "__type": "ModelRenderer",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
                   "Model": "models/sbox_props/airducts/airduct_a_panel_48x32.vmdl",
                   "RenderType": "On",
                   "Tint": "0.2,0.19608,0.21176,1"
@@ -1376,8 +1191,6 @@
                 {
                   "__type": "ModelRenderer",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
                   "Model": "models/sbox_props/airducts/airduct_a_panel_48x16.vmdl",
                   "RenderType": "On",
                   "Tint": "0.2,0.19608,0.21176,1"
@@ -1396,8 +1209,6 @@
                 {
                   "__type": "ModelRenderer",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
                   "Model": "models/sbox_props/airducts/airduct_a_panel_32x32.vmdl",
                   "RenderType": "On",
                   "Tint": "0.2,0.19608,0.21176,1"
@@ -1416,8 +1227,6 @@
                 {
                   "__type": "ModelRenderer",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
                   "Model": "models/sbox_props/airducts/airduct_a_panel_32x32.vmdl",
                   "RenderType": "On",
                   "Tint": "0.2,0.19608,0.21176,1"
@@ -1436,8 +1245,6 @@
                 {
                   "__type": "ModelRenderer",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
                   "Model": "models/sbox_props/airducts/airduct_a_panel_48x16.vmdl",
                   "RenderType": "On",
                   "Tint": "0.2,0.19608,0.21176,1"
@@ -1467,12 +1274,8 @@
             },
             {
               "__type": "SkinnedModelRenderer",
-              "AnimationGraph": null,
               "BodyGroups": 341,
-              "BoneMergeTarget": null,
               "CreateBoneObjects": true,
-              "MaterialGroup": null,
-              "MaterialOverride": null,
               "Model": "models/citizen/citizen.vmdl",
               "RenderType": "On",
               "Tint": "1,1,1,1"
@@ -1505,7 +1308,7 @@
             {
               "Id": "a8aa0d73-504b-4e21-ae6e-6346f22ca528",
               "Name": "pelvis",
-              "Position": "1.266593,0.00002019916,31.0736",
+              "Position": "1.266591,0.00002019916,31.07361",
               "Rotation": "0.4999994,0.4999996,0.5000004,-0.500001",
               "Enabled": true,
               "Children": [
@@ -1701,7 +1504,7 @@
                                             {
                                               "Id": "259ecf2a-ee38-4086-ba30-df1385b11268",
                                               "Name": "finger_middle_meta_L",
-                                              "Position": "2.100663,-0.159078,0.2858019",
+                                              "Position": "2.100665,-0.1590748,0.2858026",
                                               "Rotation": "0.008967772,0.03486506,-0.01934981,0.9991645",
                                               "Enabled": true,
                                               "Children": [
@@ -1857,7 +1660,7 @@
                                                 {
                                                   "Id": "f1134535-1b53-4f26-ad78-1171368dc31c",
                                                   "Name": "finger_thumb_1_R",
-                                                  "Position": "1.906574,0.000004902482,-0.00004991888",
+                                                  "Position": "1.90657,0.000005125999,-0.00005075335",
                                                   "Rotation": "0.000001423061,0.1627603,-0.000003792346,0.9866656",
                                                   "Enabled": true,
                                                   "Children": [
@@ -1882,7 +1685,7 @@
                                                 {
                                                   "Id": "09f16a9f-5e0b-4086-967c-537525d1bcb5",
                                                   "Name": "finger_index_0_R",
-                                                  "Position": "3.068906,0.00002861023,-0.00001758337",
+                                                  "Position": "3.068895,0.00003767014,-0.00002259016",
                                                   "Rotation": "0.003392607,0.2652346,-0.06862304,0.9617328",
                                                   "Enabled": true,
                                                   "Children": [
@@ -1916,7 +1719,7 @@
                                                 {
                                                   "Id": "1c302a9c-e752-48b0-a243-8574ab86673b",
                                                   "Name": "finger_middle_0_R",
-                                                  "Position": "2.999223,0.00005304813,-0.00002756715",
+                                                  "Position": "2.999236,0.00004756451,-0.00002154708",
                                                   "Rotation": "-0.0008732192,0.2335046,0.001300305,0.9723544",
                                                   "Enabled": true,
                                                   "Children": [
@@ -1950,7 +1753,7 @@
                                                 {
                                                   "Id": "0f334110-e7fb-43b0-b0c6-af288fc66b7d",
                                                   "Name": "finger_ring_0_R",
-                                                  "Position": "2.824279,0.00006169081,-0.0000178963",
+                                                  "Position": "2.824292,0.00006014109,-0.000009670855",
                                                   "Rotation": "-0.004531909,0.185554,0.05620126,0.9810151",
                                                   "Enabled": true,
                                                   "Children": [
@@ -2052,7 +1855,7 @@
                         {
                           "Id": "da0bb609-176c-4ee8-bc66-4746541714fa",
                           "Name": "ankle_R",
-                          "Position": "12.51551,0.000009775162,0.00001117309",
+                          "Position": "12.51554,0.000003099442,0.000003305273",
                           "Rotation": "0.0000005811453,-0.000001087785,0.3914977,0.9201791",
                           "Enabled": true,
                           "Children": [
@@ -2192,14 +1995,14 @@
                 {
                   "Id": "95608e03-d6e3-4620-8ce2-e9c65ce3c65a",
                   "Name": "hand_R_IK_target",
-                  "Position": "0.6939746,-20.39472,39.24798",
+                  "Position": "0.6939755,-20.39472,39.24798",
                   "Rotation": "0.2871271,0.214248,-0.5281312,0.7698917",
                   "Enabled": true
                 },
                 {
                   "Id": "a0e88ad1-1876-4a55-88b4-5af42d40ccd1",
                   "Name": "hand_L_IK_target",
-                  "Position": "0.6941043,20.39468,39.24791",
+                  "Position": "0.6941062,20.39468,39.24791",
                   "Rotation": "0.7698929,0.5281296,-0.2142482,0.2871265",
                   "Enabled": true
                 },
@@ -2253,7 +2056,6 @@
             {
               "__type": "ModelRenderer",
               "BodyGroups": 18446744073709551615,
-              "MaterialGroup": null,
               "MaterialOverride": "materials/dev/dev_metal_rough60.vmat",
               "Model": "models/dev/box.vmdl",
               "RenderType": "On",
@@ -2264,8 +2066,7 @@
               "Center": "0,0,0",
               "IsTrigger": false,
               "Scale": "50,50,50",
-              "Static": false,
-              "Surface": null
+              "Static": false
             },
             {
               "__type": "Rigidbody",
@@ -2293,8 +2094,6 @@
                 {
                   "__type": "ModelRenderer",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
                   "Model": "models/sbox_props/airducts/airduct_a_panel_b_48x32.vmdl",
                   "RenderType": "On",
                   "Tint": "1,1,1,1"
@@ -2313,8 +2112,6 @@
                 {
                   "__type": "ModelRenderer",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
                   "Model": "models/sbox_props/airducts/airduct_a_panel_48x32.vmdl",
                   "RenderType": "On",
                   "Tint": "1,1,1,1"
@@ -2333,8 +2130,6 @@
                 {
                   "__type": "ModelRenderer",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
                   "Model": "models/sbox_props/airducts/airduct_a_panel_48x16.vmdl",
                   "RenderType": "On",
                   "Tint": "1,1,1,1"
@@ -2353,8 +2148,6 @@
                 {
                   "__type": "ModelRenderer",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
                   "Model": "models/sbox_props/airducts/airduct_a_panel_32x32.vmdl",
                   "RenderType": "On",
                   "Tint": "1,1,1,1"
@@ -2373,8 +2166,6 @@
                 {
                   "__type": "ModelRenderer",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
                   "Model": "models/sbox_props/airducts/airduct_a_panel_32x32.vmdl",
                   "RenderType": "On",
                   "Tint": "1,1,1,1"
@@ -2393,8 +2184,6 @@
                 {
                   "__type": "ModelRenderer",
                   "BodyGroups": 18446744073709551615,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
                   "Model": "models/sbox_props/airducts/airduct_a_panel_48x16.vmdl",
                   "RenderType": "On",
                   "Tint": "1,1,1,1"
@@ -2436,7 +2225,7 @@
   },
   "Title": "main_menu",
   "Description": "",
-  "LastSaved": "2024-03-09T18:01:02.9093105-07:00",
+  "LastSaved": "2024-03-10T12:10:43.105823-06:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "facepunch.airduct_a_panel_32x32",

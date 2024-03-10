@@ -3,13 +3,16 @@ using System.Collections.Generic;
 
 public partial class ShipController
 {
-	[Property] public List<Weapon> Lasers { get; set; } = new();
+	[Property] public GameObject WeaponPointLeft { get; set; }
+	[Property] public GameObject WeaponPointRight { get; set; }
+	[Property] public Weapon ActiveWeapon { get; set; }
+	[Property] public MiningLaser Laser { get; set; }
 
 	private void FindWeaponsInChildren()
 	{
-		Lasers.AddRange( Components.GetAll<Weapon>( FindMode.EverythingInSelfAndDescendants ) );
+		if ( !Laser.IsValid() ) Laser = Components.GetInDescendantsOrSelf<MiningLaser>( true );
 	}
-
+	
 	[ActionGraphNode( "ship.weapons.laser.power.add" )]
 	[Title( "Add Laser Power" ), Group( "Ship/Weapons/Laser" )]
 	public static void AddLaserPower( float tickIntervalOffset, float tickDamageOffset )
@@ -18,10 +21,7 @@ public partial class ShipController
 		if ( ship is null )
 			return;
 
-		foreach( var laser in ship.Lasers )
-		{
-			laser.TickInterval += tickIntervalOffset;
-			laser.TickDamage += tickDamageOffset;
-		}
+		ship.Laser.TickDamage += tickDamageOffset;
+		ship.Laser.TickInterval += tickIntervalOffset;
 	}
 }

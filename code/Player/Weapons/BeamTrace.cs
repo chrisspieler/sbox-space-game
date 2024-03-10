@@ -21,8 +21,10 @@ public sealed class BeamTrace : Component
 	public SceneTraceResult GetTraceResult()
 	{
 		Source ??= GameObject;
+		var startPos = Source.Transform.Position.WithZ( 0f );
+		var endPos = startPos + Source.Transform.Rotation.Forward * Distance;
 		return Scene.Trace
-			.Ray( Source.GetRay(), Distance )
+			.Ray( startPos, endPos )
 			.WithAnyTags( IncludeAny )
 			.WithoutTags( ExcludeAny )
 			.Run();
