@@ -3,7 +3,7 @@
   "FlavorText": "A safety net, trampoline, and bludgeon.",
   "FunctionText": "Adds a shield that must recharge after taking any hit",
   "Cost": 150,
-  "Thumbnail": null,
+  "Thumbnail": "data/upgrades/shield_0_thumbnail.vtex",
   "PrerequisiteUpgrade": null,
   "OnApplyUpgrade": {
     "Version": 5,

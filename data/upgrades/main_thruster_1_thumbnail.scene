@@ -1,0 +1,126 @@
+{
+  "Id": "6b13f1fb-542d-4a9d-87de-c28662750c0f",
+  "GameObjects": [
+    {
+      "Id": "3b1c9d75-5c52-4003-92e3-e2b497d19c05",
+      "Name": "ship",
+      "Position": "0,0,81",
+      "Tags": "no_chunk,player,ship,solid",
+      "Enabled": true,
+      "__Prefab": "prefabs/ship.prefab"
+    },
+    {
+      "Id": "0fd2abe5-8727-4e58-861a-3133722782a9",
+      "Name": "thruster_fire",
+      "Position": "64,-128,117.6187",
+      "Rotation": "0,0,-0.7071067,0.7071068",
+      "Tags": "particles",
+      "Enabled": true,
+      "__Prefab": "prefabs/effects/thruster_fire.prefab"
+    },
+    {
+      "Id": "911745ca-1fd5-40ee-a1a2-a4af6979fcc5",
+      "Name": "thruster_fire (1)",
+      "Position": "-64,-128,117.6187",
+      "Rotation": "0,0,-0.7071067,0.7071068",
+      "Tags": "particles",
+      "Enabled": true,
+      "__Prefab": "prefabs/effects/thruster_fire.prefab"
+    },
+    {
+      "Id": "260eaf62-e897-43ed-a0f5-dc0e971fb4e2",
+      "Name": "Object",
+      "Position": "-33.15106,-55.20335,115.4608",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "VolumetricFogVolume",
+          "Bounds": {
+            "Mins": "-150,-150,-150",
+            "Maxs": "150,150,150"
+          },
+          "FalloffExponent": 1,
+          "Strength": 0.23
+        }
+      ]
+    },
+    {
+      "Id": "558e24da-71b6-4f59-a928-ef04e533bf63",
+      "Name": "Camera",
+      "Position": "-3.912964,-59.23842,119.2282",
+      "Tags": "maincamera",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "CameraComponent",
+          "BackgroundColor": "0.33333,0.46275,0.52157,1",
+          "ClearFlags": "All",
+          "FieldOfView": 60,
+          "IsMainCamera": true,
+          "Orthographic": false,
+          "OrthographicHeight": 1204,
+          "Priority": 1,
+          "RenderExcludeTags": "",
+          "RenderTags": "",
+          "TargetEye": "None",
+          "Viewport": "0,0,1,1",
+          "ZFar": 10000,
+          "ZNear": 10
+        },
+        {
+          "__type": "Bloom",
+          "BloomColor": {
+            "color": [
+              {
+                "c": "1,1,1,1"
+              },
+              {
+                "t": 1,
+                "c": "1,1,1,1"
+              }
+            ],
+            "alpha": []
+          },
+          "BloomCurve": [
+            {
+              "y": 0.5
+            },
+            {
+              "x": 1,
+              "y": 1
+            }
+          ],
+          "Mode": "Additive",
+          "Strength": 3.44,
+          "Threshold": 0.19,
+          "ThresholdWidth": 0
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "main_thruster_1_thumbnail",
+  "Description": "",
+  "LastSaved": "2024-03-10T15:06:17.4255604-06:00",
+  "__references": []
+}
