@@ -28,6 +28,7 @@ public sealed class ScreenManager : Component
 		{
 			ShowPauseMenu();
 		}
+		GameObject.BreakFromPrefab();
 	}
 
 	public static void UpdateShip( ShipController ship )

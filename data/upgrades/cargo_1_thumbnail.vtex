@@ -1,7 +1,7 @@
 {
   "Sequences": [
     {
-      "Source": "data/upgrades/cargo_0_thumbnail.png",
+      "Source": "data/upgrades/cargo_1_thumbnail.png",
       "IsLooping": true,
       "Frames": 64
     }
