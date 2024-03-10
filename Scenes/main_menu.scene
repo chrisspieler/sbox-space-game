@@ -505,11 +505,6 @@
           "Enabled": true,
           "Components": [
             {
-              "__type": "Weapon",
-              "PrefabInstances": [],
-              "ShouldFire": false
-            },
-            {
               "__type": "Rigidbody",
               "AngularDamping": 0,
               "Gravity": false,
@@ -606,11 +601,6 @@
           "Rotation": "0,0,0.9914449,0.1305262",
           "Enabled": true,
           "Components": [
-            {
-              "__type": "Weapon",
-              "PrefabInstances": [],
-              "ShouldFire": false
-            },
             {
               "__type": "Rigidbody",
               "AngularDamping": 0,
@@ -2225,7 +2215,7 @@
   },
   "Title": "main_menu",
   "Description": "",
-  "LastSaved": "2024-03-10T12:10:43.105823-06:00",
+  "LastSaved": "2024-03-10T12:58:28.1103414-06:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "facepunch.airduct_a_panel_32x32",
