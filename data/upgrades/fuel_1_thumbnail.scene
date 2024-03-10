@@ -13,7 +13,7 @@
           "Attenuation": 1,
           "FogMode": "Enabled",
           "FogStrength": 1,
-          "LightColor": "0.94419,0.9144,0.89588,1",
+          "LightColor": "1,1,1,1",
           "Radius": 400,
           "Shadows": true
         }
@@ -38,6 +38,42 @@
       ]
     },
     {
+      "Id": "32a0faca-b639-48a2-887a-7f1908340eee",
+      "Name": "Point Light (2)",
+      "Position": "64,64,71.69636",
+      "Tags": "light_point,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "PointLight",
+          "Attenuation": 1,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.8093,0.45271,0.04517,1",
+          "Radius": 400,
+          "Shadows": true
+        }
+      ]
+    },
+    {
+      "Id": "524bf7cc-dd49-4679-8494-61d544e50901",
+      "Name": "Point Light (3)",
+      "Position": "-278.8221,-2.73334,-64",
+      "Tags": "light_point,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "PointLight",
+          "Attenuation": 1,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.8093,0.45271,0.04517,1",
+          "Radius": 400,
+          "Shadows": true
+        }
+      ]
+    },
+    {
       "Id": "c42ede82-f448-4e9f-90ba-e51bb81f16bc",
       "Name": "fuel_tank_b_600",
       "Position": "-2.257324,-16.07291,0.001255592",
@@ -45,11 +81,12 @@
       "Enabled": true,
       "Components": [
         {
-          "__type": "Prop",
-          "Health": 0,
-          "IsStatic": false,
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": "materials/trimsheets/metal/metal_trim_weathered_rust_blend_01.vmat",
           "Model": "models/rust_props/fuel_tank/fuel_tank_b_600.vmdl",
-          "ShowCreatedComponents": false
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
         }
       ]
     }
@@ -77,8 +114,9 @@
   },
   "Title": "fuel_1_thumbnail",
   "Description": "",
-  "LastSaved": "2024-03-10T14:26:29.8133528-06:00",
+  "LastSaved": "2024-03-10T15:16:18.4016553-06:00",
   "__references": [
+    "facepunch.industrial_shelving_01",
     "rust.fuel_tank_b_600"
   ]
 }

@@ -55,9 +55,87 @@
       ]
     },
     {
+      "Id": "acfd831a-2c2f-4da8-91a9-26f1bc242bd4",
+      "Name": "Point Light (3)",
+      "Position": "-160,-64,-128",
+      "Tags": "light_point,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "PointLight",
+          "Attenuation": 3.44,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.60314,0.74693,0.7907,1",
+          "Radius": 400,
+          "Shadows": true
+        }
+      ]
+    },
+    {
+      "Id": "9ba2130a-7855-4d1f-bb13-36432560fc74",
+      "Name": "Point Light (5)",
+      "Position": "32,64,-128",
+      "Tags": "light_point,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "PointLight",
+          "Attenuation": 3.44,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.60314,0.74693,0.7907,1",
+          "Radius": 400,
+          "Shadows": true
+        }
+      ]
+    },
+    {
+      "Id": "2bbb4aef-b8bb-4199-a757-a59bf818e19f",
+      "Name": "Point Light (4)",
+      "Position": "-256,-40.38357,-96",
+      "Tags": "light_point,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "PointLight",
+          "Attenuation": 3.44,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.60314,0.74693,0.7907,1",
+          "Radius": 400,
+          "Shadows": true
+        }
+      ]
+    },
+    {
       "Id": "099325a8-1e4f-4336-958b-425dae1f7a64",
       "Name": "jettison_effect",
       "Position": "-79.20583,57.12505,-51.38197",
+      "Rotation": "0,0,-0.3073566,0.9515944",
+      "Enabled": true,
+      "__Prefab": "prefabs/effects/jettison_effect.prefab"
+    },
+    {
+      "Id": "b5272eb6-0961-4b4e-be3e-0b5b20e8ca69",
+      "Name": "jettison_effect (1)",
+      "Position": "-129.7702,93.59323,-51.38197",
+      "Rotation": "0,0,-0.3073566,0.9515944",
+      "Enabled": true,
+      "__Prefab": "prefabs/effects/jettison_effect.prefab"
+    },
+    {
+      "Id": "59c63417-4558-456c-997f-dcdcd4f771f5",
+      "Name": "jettison_effect (2)",
+      "Position": "-233.5864,168.4678,-51.38197",
+      "Rotation": "0,0,-0.3073566,0.9515944",
+      "Enabled": true,
+      "__Prefab": "prefabs/effects/jettison_effect.prefab"
+    },
+    {
+      "Id": "8d408bc7-bb34-47d7-87d2-b08125728394",
+      "Name": "jettison_effect (3)",
+      "Position": "-311.4485,224.6237,-51.38197",
       "Rotation": "0,0,-0.3073566,0.9515944",
       "Enabled": true,
       "__Prefab": "prefabs/effects/jettison_effect.prefab"
@@ -95,7 +173,7 @@
   },
   "Title": "cargo_0_thumbnail",
   "Description": "",
-  "LastSaved": "2024-03-10T14:21:51.0783473-06:00",
+  "LastSaved": "2024-03-10T15:18:51.016007-06:00",
   "__references": [
     "facepunch.industrial_shelving_01",
     "facepunch.wooden_crate"

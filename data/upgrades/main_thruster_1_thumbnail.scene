@@ -96,6 +96,24 @@
           "ThresholdWidth": 0
         }
       ]
+    },
+    {
+      "Id": "34ad6194-3fc0-4d52-836f-7084df239020",
+      "Name": "Point Light",
+      "Position": "64,-96,64",
+      "Tags": "light_point,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "PointLight",
+          "Attenuation": 1,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "1,0.38333,0,1",
+          "Radius": 400,
+          "Shadows": true
+        }
+      ]
     }
   ],
   "SceneProperties": {
@@ -121,6 +139,6 @@
   },
   "Title": "main_thruster_1_thumbnail",
   "Description": "",
-  "LastSaved": "2024-03-10T15:06:17.4255604-06:00",
+  "LastSaved": "2024-03-10T15:13:37.8682924-06:00",
   "__references": []
 }

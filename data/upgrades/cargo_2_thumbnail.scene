@@ -1,0 +1,259 @@
+{
+  "Id": "2124d1fb-37e9-4bca-b3a1-1ab4c704d805",
+  "GameObjects": [
+    {
+      "Id": "a764db4f-6faa-466b-9c12-9599f3c02942",
+      "Name": "wooden_crate (2)",
+      "Position": "0,0,32",
+      "Rotation": "0,0,-0.999635,0.0270178",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": "materials/trimsheets/metal/metal_trim_weathered_rust_blend_01.vmat",
+          "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "Id": "8aa7866d-1309-4172-8e10-c76ac0a37159",
+      "Name": "wooden_crate (1)",
+      "Position": "10.74141,-9.367685,64",
+      "Rotation": "0,0,-0.7079979,-0.7062147",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": "materials/trimsheets/metal/metal_trim_weathered_rust_blend_01.vmat",
+          "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "Id": "78543525-1106-4b0f-ae80-1e4eb2fd25b4",
+      "Name": "wooden_crate (6)",
+      "Position": "1.25594,-21.92934,0.0000006000743",
+      "Rotation": "0,0,-0.7079979,-0.7062147",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": "materials/trimsheets/metal/metal_trim_weathered_rust_blend_01.vmat",
+          "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "Id": "1e492888-3e19-48ef-bf58-17d4b8c9ce9e",
+      "Name": "wooden_crate (3)",
+      "Position": "21.84348,-31.0013,32",
+      "Rotation": "0,0,-0.8792183,-0.4764194",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": "materials/trimsheets/metal/metal_trim_weathered_rust_blend_01.vmat",
+          "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "Id": "71462cac-1513-41cc-aaa3-c0871a1a881e",
+      "Name": "wooden_crate (5)",
+      "Position": "7.71682,16.29745,0",
+      "Rotation": "0,0,-0.8792183,-0.4764194",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": "materials/trimsheets/metal/metal_trim_weathered_rust_blend_01.vmat",
+          "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "Id": "90370595-e6c0-4429-83dd-59025d05878e",
+      "Name": "wooden_crate (4)",
+      "Position": "33.68179,-30.22478,-0.000001290583",
+      "Rotation": "0,0,-0.999635,0.0270178",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": "materials/trimsheets/metal/metal_trim_weathered_rust_blend_01.vmat",
+          "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "Id": "47517ef4-f875-4fb8-a460-e905475e3d00",
+      "Name": "Point Light",
+      "Position": "-41.42022,-75.08571,80.78915",
+      "Tags": "light_point,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "PointLight",
+          "Attenuation": 1,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Radius": 400,
+          "Shadows": true
+        }
+      ]
+    },
+    {
+      "Id": "2fb17f5c-27b2-4180-ae6f-22747f926ece",
+      "Name": "Point Light (1)",
+      "Position": "-18.54303,22.14746,115.8944",
+      "Tags": "light_point,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "PointLight",
+          "Attenuation": 1,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Radius": 400,
+          "Shadows": true
+        }
+      ]
+    },
+    {
+      "Id": "d86737bf-c64f-45fc-973d-94f5ac1b0435",
+      "Name": "metal_beam_a_128",
+      "Position": "-5.849285,-38.88101,154.2851",
+      "Rotation": "-0.3757811,0.5989895,0.3757811,0.5989896",
+      "Scale": "0.5,0.5,0.5",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Prop",
+          "Health": 0,
+          "IsStatic": false,
+          "Model": "models/props/beam_railing_a/metal_beam_a_128.vmdl",
+          "ShowCreatedComponents": false
+        }
+      ],
+      "Children": [
+        {
+          "Id": "7b76c016-68a1-4945-be00-8a1cb393aced",
+          "Name": "metal_beam_stairs_a_64",
+          "Position": "103.1239,0,-35.30183",
+          "Scale": "0.5,0.5,0.5",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Prop",
+              "Health": 0,
+              "IsStatic": false,
+              "Model": "models/props/beam_railing_a/metal_beam_stairs_a_64.vmdl",
+              "ShowCreatedComponents": false
+            }
+          ]
+        },
+        {
+          "Id": "b1084201-d510-46b9-9585-41c010150a3c",
+          "Name": "metal_beam_stairs_a_64",
+          "Position": "101.9161,0,-35.30164",
+          "Rotation": "0.0000001490116,-0.000000000000007105427,0.9999999,0.0000001947072",
+          "Scale": "0.3,0.5,0.45",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Prop",
+              "Health": 0,
+              "IsStatic": false,
+              "Model": "models/props/beam_railing_a/metal_beam_stairs_a_64.vmdl",
+              "ShowCreatedComponents": false
+            }
+          ]
+        },
+        {
+          "Id": "2a546d97-0992-4fa4-baa6-7b577202886a",
+          "Name": "metal_beam_stairs_a_64",
+          "Position": "101.916,-0.00002670288,34.98248",
+          "Rotation": "0.0000001947072,0.9999999,0.0000001947071,-0.0000001490116",
+          "Scale": "0.3,0.5,0.45",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Prop",
+              "Health": 0,
+              "IsStatic": false,
+              "Model": "models/props/beam_railing_a/metal_beam_stairs_a_64.vmdl",
+              "ShowCreatedComponents": false
+            }
+          ]
+        },
+        {
+          "Id": "0b5e3ce5-dcad-4a23-9807-9418758b4b8b",
+          "Name": "metal_beam_stairs_a_64",
+          "Position": "103.124,0,34.795",
+          "Rotation": "-0.9999999,0.00000000000002131628,0.0000001490116,0.0000001791241",
+          "Scale": "0.5,0.5,0.5",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Prop",
+              "Health": 0,
+              "IsStatic": false,
+              "Model": "models/props/beam_railing_a/metal_beam_stairs_a_64.vmdl",
+              "ShowCreatedComponents": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "cargo_0_thumbnail",
+  "Description": "",
+  "LastSaved": "2024-03-10T15:54:22.7087348-06:00",
+  "__references": [
+    "facepunch.industrial_shelving_01",
+    "facepunch.metal_beam_a_128",
+    "facepunch.metal_beam_stairs_a_64",
+    "facepunch.wooden_crate"
+  ]
+}

@@ -3,7 +3,7 @@
   "FlavorText": "Comes with a free welding helmet.",
   "FunctionText": "Increases the power of mining lasers",
   "Cost": 250,
-  "Thumbnail": null,
+  "Thumbnail": "data/upgrades/laser_2_thumbnail.vtex",
   "PrerequisiteUpgrade": "data/upgrades/laser_1.upgrade",
   "OnApplyUpgrade": {
     "Version": 5,
