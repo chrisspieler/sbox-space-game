@@ -25,11 +25,13 @@ public sealed class LaserBeam : Component
 	protected override void OnEnabled()
 	{
 		CreateLights();
+		ParticleInstance.SetEnabled( true );
 	}
 
 	protected override void OnDisabled()
 	{
 		DestroyLights();
+		ParticleInstance.SetEnabled( false );
 	}
 
 	protected override void OnUpdate()

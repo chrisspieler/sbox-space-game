@@ -1,0 +1,5 @@
+{
+  "Priority": 1,
+  "ContinuousImpactEffect": "prefabs/effects/shield_hit.prefab",
+  "__references": []
+}

@@ -50,6 +50,7 @@
           ],
           "alpha": []
         },
+        "DamagePhaseOffset": 0,
         "DamagePitchScale": {
           "rangey": "0.7,1",
           "frames": [
@@ -62,17 +63,19 @@
             }
           ]
         },
-        "DamageRampUp": false,
-        "DamageRampUpSpeed": 10,
+        "DamageRampUp": true,
+        "DamageRampUpSpeed": 2.5,
         "LaserAblationPrefab": {
           "_type": "gameobject",
           "prefab": "prefabs/effects/laser_ablation.prefab"
         },
+        "LaserDistance": 593.75,
         "LaserEffectPrefab": {
           "_type": "gameobject",
           "prefab": "prefabs/effects/laser_beam.prefab"
         },
         "LaserLoopSound": "data/weapons/mining_laser/laser_loop.sound",
+        "LaserPower": 0.125,
         "LaserTint": "0.02326,0,0,1",
         "MaxDamage": 20,
         "MinDamage": 2.5,

@@ -113,7 +113,8 @@
             {
               "__type": "MainMenuPanel",
               "CareerInProgress": {
-                "Upgrades": []
+                "Upgrades": [],
+                "World": "default"
               },
               "CreditsMenu": {
                 "_type": "component",
@@ -2291,11 +2292,13 @@
             "_type": "gameobject",
             "prefab": "prefabs/effects/laser_ablation.prefab"
           },
+          "LaserDistance": 593.75,
           "LaserEffectPrefab": {
             "_type": "gameobject",
             "prefab": "prefabs/effects/laser_beam.prefab"
           },
           "LaserLoopSound": null,
+          "LaserPower": 0.125,
           "LaserTint": "0.02326,0,0,1",
           "MaxDamage": 20,
           "MinDamage": 2.5,
@@ -2466,11 +2469,13 @@
             "_type": "gameobject",
             "prefab": "prefabs/effects/laser_ablation.prefab"
           },
+          "LaserDistance": 593.75,
           "LaserEffectPrefab": {
             "_type": "gameobject",
             "prefab": "prefabs/effects/laser_beam.prefab"
           },
           "LaserLoopSound": null,
+          "LaserPower": 0.125,
           "LaserTint": "0.02326,0,0,1",
           "MaxDamage": 20,
           "MinDamage": 2.5,
@@ -2647,6 +2652,14 @@
       "Position": "108.6465,-45.71297,0",
       "Enabled": true,
       "__Prefab": "prefabs/effects/ship_explosion.prefab"
+    },
+    {
+      "Id": "6e96a770-d4ef-4f09-90fc-349c8f3ae2fd",
+      "Name": "Rainbow Lasers",
+      "Position": "728.0708,-551.3359,323.0656",
+      "Rotation": "0.5,0.5,0.5,0.5",
+      "Enabled": true,
+      "__Prefab": "prefabs/test/rainbow_laser_array.prefab"
     }
   ],
   "SceneProperties": {
@@ -2672,7 +2685,7 @@
   },
   "Title": "main_menu",
   "Description": "",
-  "LastSaved": "2024-03-06T04:35:26.5903334-07:00",
+  "LastSaved": "2024-03-09T17:26:39.8305653-07:00",
   "__references": [
     "duccsoft.starmap_2020_8k",
     "facepunch.airduct_a_panel_32x32",

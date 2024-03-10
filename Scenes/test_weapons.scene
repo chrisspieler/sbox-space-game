@@ -50,6 +50,88 @@
             "_type": "gameobject",
             "prefab": "prefabs/ship.prefab"
           }
+        },
+        {
+          "__type": "StartActionComponent",
+          "Action": {
+            "Version": 5,
+            "UserData": {
+              "Title": "Action",
+              "id": "7b9866c4-46b2-4818-a789-e6ddc524f5cf",
+              "ReferencedComponentTypes": []
+            },
+            "Variables": [],
+            "Nodes": [
+              {
+                "Id": 0,
+                "Type": "input"
+              },
+              {
+                "Id": 1,
+                "Type": "property.get",
+                "Properties": {
+                  "_type": "Sandbox.Game/Sandbox.GameObject",
+                  "_name": "Scene"
+                },
+                "UserData": {
+                  "Position": "-96,112"
+                }
+              },
+              {
+                "Id": 2,
+                "Type": "property.get",
+                "Properties": {
+                  "_type": "Sandbox.Game/Sandbox.Scene",
+                  "_name": "PhysicsWorld"
+                },
+                "UserData": {
+                  "Position": "80,112"
+                }
+              },
+              {
+                "Id": 4,
+                "Type": "property.set",
+                "Properties": {
+                  "_type": "Sandbox.Engine/Sandbox.PhysicsWorld",
+                  "_name": "Gravity"
+                },
+                "UserData": {
+                  "Position": "352,0"
+                }
+              }
+            ],
+            "Links": [
+              {
+                "SrcId": 0,
+                "SrcName": "_target",
+                "DstId": 1,
+                "DstName": "_target"
+              },
+              {
+                "SrcId": 1,
+                "SrcName": "_result",
+                "DstId": 2,
+                "DstName": "_target"
+              },
+              {
+                "SrcId": 0,
+                "SrcName": "_signal",
+                "DstId": 4,
+                "DstName": "_signal"
+              },
+              {
+                "SrcId": 2,
+                "SrcName": "_result",
+                "DstId": 4,
+                "DstName": "_target"
+              },
+              {
+                "Value": "0,0,0",
+                "DstId": 4,
+                "DstName": "_value"
+              }
+            ]
+          }
         }
       ]
     },
@@ -85,7 +167,7 @@
               "FontFamily": "Zeroes 1",
               "FontSize": 128,
               "Scale": 0.3,
-              "Text": "Danger!"
+              "Text": "Laser Damage"
             }
           ]
         },
@@ -96,16 +178,58 @@
           "Enabled": true,
           "Components": [
             {
+              "__type": "BeamWeapon",
+              "Damage": {
+                "_type": "component",
+                "go": "c2a8b699-23cc-4aed-9c62-2f57456de0c7",
+                "component_type": "DamageOverTime"
+              },
+              "Impact": {
+                "_type": "component",
+                "go": "8e341974-da7f-47ae-bc94-4f1419df6a07",
+                "component_type": "ImpactEffect"
+              },
+              "LaserEffect": {
+                "_type": "component",
+                "go": "c1abeb13-bdc2-49dc-909c-d64ceca4b932",
+                "component_type": "LaserBeam"
+              },
+              "ShouldFire": true,
+              "Tracer": {
+                "_type": "component",
+                "go": "c2a8b699-23cc-4aed-9c62-2f57456de0c7",
+                "component_type": "BeamTrace"
+              }
+            },
+            {
               "__type": "BeamTrace",
+              "Distance": 500,
               "ExcludeAny": null,
               "IncludeAny": "solid,shield",
               "OnHit": null,
               "OnMiss": null,
-              "Source": null,
-              "Target": {
+              "Source": {
                 "_type": "gameobject",
-                "go": "8e341974-da7f-47ae-bc94-4f1419df6a07"
+                "go": "d80e4e65-1c3e-483b-bd80-c4a0dd8f9581"
               }
+            },
+            {
+              "__type": "DamageOverTime",
+              "AfterDamageTick": null,
+              "HitPosition": null,
+              "Owner": null,
+              "Target": null,
+              "TickDamage": 2.5,
+              "TickInterval": 0.2,
+              "TickPhaseOffset": 0,
+              "Weapon": {
+                "_type": "gameobject",
+                "go": "c2a8b699-23cc-4aed-9c62-2f57456de0c7"
+              }
+            },
+            {
+              "__type": "Rotator",
+              "RotationPerSecond": "0,90,0"
             }
           ],
           "Children": [
@@ -135,6 +259,7 @@
               "Components": [
                 {
                   "__type": "LaserBeam",
+                  "__enabled": false,
                   "ParticleAsset": "particles/laser_beam.vpcf",
                   "ParticleInstance": null,
                   "Target": {
@@ -147,285 +272,31 @@
             },
             {
               "Id": "8e341974-da7f-47ae-bc94-4f1419df6a07",
-              "Name": "Beam Target",
-              "Position": "-512,0,0.000000000001818989",
-              "Enabled": true
+              "Name": "Impact",
+              "Position": "0,0,0",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "ImpactEffect",
+                  "Target": null
+                }
+              ]
             }
           ]
         }
       ]
     },
     {
-      "Id": "b8cc7987-d167-4714-87a2-e1f033906a6e",
-      "Name": "Laser Zoo",
-      "Position": "320,0,0",
+      "Id": "b192ffe5-bd3a-429f-a9cf-453e889c93e0",
+      "Name": "Laser Damage Effects Test",
+      "Position": "256,-960,0",
       "Tags": "no_chunk",
       "Enabled": true,
       "Children": [
         {
-          "Id": "bccf4985-2e98-48f9-bfcf-641848b12f0d",
-          "Name": "White",
-          "Position": "0,192,0",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "LaserBeam",
-              "ParticleAsset": "particles/laser_beam.vpcf",
-              "ParticleInstance": null,
-              "Target": {
-                "_type": "gameobject",
-                "go": "dc37c334-514a-4eea-a54d-f7d1dd47fbdc"
-              },
-              "Tint": "1,1,1,1"
-            }
-          ],
-          "Children": [
-            {
-              "Id": "dc37c334-514a-4eea-a54d-f7d1dd47fbdc",
-              "Name": "Target",
-              "Position": "2048,0,0",
-              "Enabled": true
-            }
-          ]
-        },
-        {
-          "Id": "e72dcd3f-e44e-4fee-aadd-1b88f653fdc7",
-          "Name": "Bright Red",
-          "Position": "0,128,0",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "LaserBeam",
-              "ParticleAsset": "particles/laser_beam.vpcf",
-              "ParticleInstance": null,
-              "Target": {
-                "_type": "gameobject",
-                "go": "eb708d35-385f-4185-81d5-5c36826627da"
-              },
-              "Tint": "1,0,0,1"
-            }
-          ],
-          "Children": [
-            {
-              "Id": "eb708d35-385f-4185-81d5-5c36826627da",
-              "Name": "Target",
-              "Position": "2048,0,0",
-              "Enabled": true
-            }
-          ]
-        },
-        {
-          "Id": "bfb23f50-ccf0-4781-89af-ec8948c9fa70",
-          "Name": "Red",
-          "Position": "0,64,0",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "LaserBeam",
-              "ParticleAsset": "particles/laser_beam.vpcf",
-              "ParticleInstance": null,
-              "Target": {
-                "_type": "gameobject",
-                "go": "ec2e9fcf-e010-4b2a-9d20-b83acbf54235"
-              },
-              "Tint": "0.07442,0,0,1"
-            }
-          ],
-          "Children": [
-            {
-              "Id": "ec2e9fcf-e010-4b2a-9d20-b83acbf54235",
-              "Name": "Target",
-              "Position": "2048,0,0",
-              "Enabled": true
-            }
-          ]
-        },
-        {
-          "Id": "cc278115-45b8-490a-b35e-6eea7f114f97",
-          "Name": "Orange",
-          "Position": "0,0,0",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "LaserBeam",
-              "ParticleAsset": "particles/laser_beam.vpcf",
-              "ParticleInstance": null,
-              "Target": {
-                "_type": "gameobject",
-                "go": "e921b74b-c2f2-4821-ab6a-11e625f0dfcf"
-              },
-              "Tint": "0.21569,0.02745,0,1"
-            }
-          ],
-          "Children": [
-            {
-              "Id": "e921b74b-c2f2-4821-ab6a-11e625f0dfcf",
-              "Name": "Target",
-              "Position": "2048,0,0",
-              "Enabled": true
-            }
-          ]
-        },
-        {
-          "Id": "9e9c2b53-da9e-4ac1-a668-40bf74e4f303",
-          "Name": "Yellow",
-          "Position": "0,-64,0",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "LaserBeam",
-              "ParticleAsset": "particles/laser_beam.vpcf",
-              "ParticleInstance": null,
-              "Target": {
-                "_type": "gameobject",
-                "go": "7efb9796-e8f7-4812-a651-e837caa1faab"
-              },
-              "Tint": "0.21569,0.2121,0,1"
-            }
-          ],
-          "Children": [
-            {
-              "Id": "7efb9796-e8f7-4812-a651-e837caa1faab",
-              "Name": "Target",
-              "Position": "2048,0,0",
-              "Enabled": true
-            }
-          ]
-        },
-        {
-          "Id": "ae4989c6-a82e-4ded-9662-b631706ddaab",
-          "Name": "Green",
-          "Position": "0,-128,0",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "LaserBeam",
-              "ParticleAsset": "particles/laser_beam.vpcf",
-              "ParticleInstance": null,
-              "Target": {
-                "_type": "gameobject",
-                "go": "b388728b-2f4c-423e-93c3-611c8a27f99a"
-              },
-              "Tint": "0,0.21569,0,1"
-            }
-          ],
-          "Children": [
-            {
-              "Id": "b388728b-2f4c-423e-93c3-611c8a27f99a",
-              "Name": "Target",
-              "Position": "2048,0,0",
-              "Enabled": true
-            }
-          ]
-        },
-        {
-          "Id": "e69348d1-7d38-4528-803f-cb595b2c41c7",
-          "Name": "Blue",
-          "Position": "0,-192,0",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "LaserBeam",
-              "ParticleAsset": "particles/laser_beam.vpcf",
-              "ParticleInstance": null,
-              "Target": {
-                "_type": "gameobject",
-                "go": "33ebc94f-a3bd-4ff2-ba32-d71fee6cf429"
-              },
-              "Tint": "0,0.01176,0.26275,1"
-            }
-          ],
-          "Children": [
-            {
-              "Id": "33ebc94f-a3bd-4ff2-ba32-d71fee6cf429",
-              "Name": "Target",
-              "Position": "2048,0,0",
-              "Enabled": true
-            }
-          ]
-        },
-        {
-          "Id": "3edae5c4-b27c-4f0d-8cba-cc4297944490",
-          "Name": "Indigo",
-          "Position": "0,-256,0",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "LaserBeam",
-              "ParticleAsset": "particles/laser_beam.vpcf",
-              "ParticleInstance": null,
-              "Target": {
-                "_type": "gameobject",
-                "go": "510d62ff-8070-454e-a7cd-714754624c75"
-              },
-              "Tint": "0.01569,0.00392,0.18039,1"
-            }
-          ],
-          "Children": [
-            {
-              "Id": "510d62ff-8070-454e-a7cd-714754624c75",
-              "Name": "Target",
-              "Position": "2048,0,0",
-              "Enabled": true
-            }
-          ]
-        },
-        {
-          "Id": "ac032aa2-1144-4324-b7a5-f001023eba9e",
-          "Name": "Violet",
-          "Position": "0,-320,0",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "LaserBeam",
-              "ParticleAsset": "particles/laser_beam.vpcf",
-              "ParticleInstance": null,
-              "Target": {
-                "_type": "gameobject",
-                "go": "d9792c3e-2235-4775-8353-9f65bbe5af49"
-              },
-              "Tint": "0.05098,0,0.4,1"
-            }
-          ],
-          "Children": [
-            {
-              "Id": "d9792c3e-2235-4775-8353-9f65bbe5af49",
-              "Name": "Target",
-              "Position": "2048,0,0",
-              "Enabled": true
-            }
-          ]
-        },
-        {
-          "Id": "b7862c76-6670-450a-8a64-2e506ccc2591",
-          "Name": "Utraviolet",
-          "Position": "0,-384,0",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "LaserBeam",
-              "ParticleAsset": "particles/laser_beam.vpcf",
-              "ParticleInstance": null,
-              "Target": {
-                "_type": "gameobject",
-                "go": "8300c36c-1a55-4ae3-b7d3-ea107a3452ef"
-              },
-              "Tint": "0.04314,0.03137,0.16078,1"
-            }
-          ],
-          "Children": [
-            {
-              "Id": "8300c36c-1a55-4ae3-b7d3-ea107a3452ef",
-              "Name": "Target",
-              "Position": "2048,0,0",
-              "Enabled": true
-            }
-          ]
-        },
-        {
-          "Id": "98e2508d-cba6-44c1-8074-fa89a7b81ff3",
+          "Id": "c0c825d0-f61e-4816-834c-990c817720d5",
           "Name": "Text",
-          "Position": "-62.26662,-96.40004,0",
+          "Position": "0,0,0",
           "Rotation": "0,0.7071068,0,0.7071068",
           "Enabled": true,
           "Components": [
@@ -433,18 +304,408 @@
               "__type": "TextRenderer",
               "Color": "1,1,1,1",
               "FontFamily": "Zeroes 1",
-              "FontSize": 128,
-              "Scale": 0.3,
-              "Text": "Laser Zoo"
+              "FontSize": 32,
+              "Scale": 1,
+              "Text": "laser damage effects"
+            }
+          ]
+        },
+        {
+          "Id": "7612e154-9b48-4bda-a553-4e5a7623fddf",
+          "Name": "Hull",
+          "Position": "383.9999,127.9999,0",
+          "Rotation": "0,-0,-0.7071068,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Timer",
+              "IntervalSeconds": 0.5,
+              "InvokeOnStart": false,
+              "OnDing": {
+                "Version": 5,
+                "UserData": {
+                  "Title": "On Ding",
+                  "id": "c84fd65a-74de-4b4c-b699-c209f9749dc2",
+                  "ReferencedComponentTypes": []
+                },
+                "Variables": [],
+                "Nodes": [
+                  {
+                    "Id": 0,
+                    "Type": "input"
+                  },
+                  {
+                    "Id": 6,
+                    "Type": "scene.ref",
+                    "Properties": {
+                      "gameobject": {
+                        "_type": "gameobject",
+                        "go": "e883bb31-d06a-4aa1-bb32-1796724e715b"
+                      }
+                    },
+                    "UserData": {
+                      "Position": "-16,64"
+                    }
+                  },
+                  {
+                    "Id": 7,
+                    "Type": "call",
+                    "Properties": {
+                      "_isStatic": true,
+                      "_type": "package.duccsoft.aluminum_acrobat/GameObjectExtensions",
+                      "_name": "ToggleEnabled"
+                    },
+                    "UserData": {
+                      "Position": "192,-0"
+                    }
+                  },
+                  {
+                    "Id": 8,
+                    "Type": "if",
+                    "UserData": {
+                      "Position": "448,0"
+                    }
+                  },
+                  {
+                    "Id": 10,
+                    "Type": "scene.ref",
+                    "Properties": {
+                      "component": {
+                        "_type": "component",
+                        "go": "e883bb31-d06a-4aa1-bb32-1796724e715b",
+                        "component_type": "ImpactEffect"
+                      }
+                    },
+                    "UserData": {
+                      "Position": "336,96"
+                    }
+                  },
+                  {
+                    "Id": 11,
+                    "Type": "property.set",
+                    "Properties": {
+                      "_type": "package.duccsoft.aluminum_acrobat/ImpactEffect",
+                      "_name": "Target"
+                    },
+                    "UserData": {
+                      "Position": "688,32"
+                    }
+                  },
+                  {
+                    "Id": 13,
+                    "Type": "scene.ref",
+                    "Properties": {
+                      "gameobject": {
+                        "_type": "gameobject",
+                        "go": "1d239a03-8fb2-4c1d-a757-cd47f0582442"
+                      }
+                    },
+                    "UserData": {
+                      "Position": "352,176"
+                    }
+                  }
+                ],
+                "Links": [
+                  {
+                    "SrcId": 0,
+                    "SrcName": "_signal",
+                    "DstId": 7,
+                    "DstName": "_signal"
+                  },
+                  {
+                    "SrcId": 6,
+                    "SrcName": "_result",
+                    "DstId": 7,
+                    "DstName": "gameObject"
+                  },
+                  {
+                    "SrcId": 7,
+                    "SrcName": "_signal",
+                    "DstId": 8,
+                    "DstName": "_signal"
+                  },
+                  {
+                    "SrcId": 7,
+                    "SrcName": "_result",
+                    "DstId": 8,
+                    "DstName": "condition"
+                  },
+                  {
+                    "SrcId": 8,
+                    "SrcName": "true",
+                    "DstId": 11,
+                    "DstName": "_signal"
+                  },
+                  {
+                    "SrcId": 10,
+                    "SrcName": "_result",
+                    "DstId": 11,
+                    "DstName": "_target"
+                  },
+                  {
+                    "SrcId": 13,
+                    "SrcName": "_result",
+                    "DstId": 11,
+                    "DstName": "_value"
+                  }
+                ]
+              }
+            }
+          ],
+          "Children": [
+            {
+              "Id": "1d239a03-8fb2-4c1d-a757-cd47f0582442",
+              "Name": "Model",
+              "Position": "0,0,0",
+              "Tags": "solid",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "ModelRenderer",
+                  "BodyGroups": 18446744073709551615,
+                  "MaterialGroup": null,
+                  "MaterialOverride": "materials/dev/dev_metal_rough40.vmat",
+                  "Model": "models/dev/box.vmdl",
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "SineHover",
+                  "Amplitude": "0,300,0",
+                  "Frequency": "0,1,0"
+                },
+                {
+                  "__type": "BoxCollider",
+                  "Center": "0,0,0",
+                  "IsTrigger": false,
+                  "Scale": "50,50,50",
+                  "Static": false,
+                  "Surface": null
+                }
+              ],
+              "Children": [
+                {
+                  "Id": "e883bb31-d06a-4aa1-bb32-1796724e715b",
+                  "Name": "Impact",
+                  "Position": "-26.04974,0,0.000001586851",
+                  "Rotation": "0,0,1,-0.00000004371139",
+                  "Enabled": true,
+                  "Components": [
+                    {
+                      "__type": "ImpactEffect",
+                      "Target": {
+                        "_type": "gameobject",
+                        "go": "1d239a03-8fb2-4c1d-a757-cd47f0582442"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "639597ff-3d5a-499b-8dea-cd81690f1c07",
+          "Name": "Shield",
+          "Position": "384,-128,0",
+          "Rotation": "0,0,0.7071068,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Timer",
+              "IntervalSeconds": 0.5,
+              "InvokeOnStart": false,
+              "OnDing": {
+                "Version": 5,
+                "UserData": {
+                  "Title": "On Ding",
+                  "id": "3a0b48f2-a7f8-4b72-8dce-c91a080b4bcf",
+                  "ReferencedComponentTypes": []
+                },
+                "Variables": [],
+                "Nodes": [
+                  {
+                    "Id": 0,
+                    "Type": "input"
+                  },
+                  {
+                    "Id": 2,
+                    "Type": "scene.ref",
+                    "Properties": {
+                      "gameobject": {
+                        "_type": "gameobject",
+                        "go": "6b7224a2-b7a1-4296-8afe-5d907a01805f"
+                      }
+                    },
+                    "UserData": {
+                      "Position": "-16,48"
+                    }
+                  },
+                  {
+                    "Id": 4,
+                    "Type": "call",
+                    "Properties": {
+                      "_isStatic": true,
+                      "_type": "package.duccsoft.aluminum_acrobat/GameObjectExtensions",
+                      "_name": "ToggleEnabled"
+                    },
+                    "UserData": {
+                      "Position": "192,0"
+                    }
+                  },
+                  {
+                    "Id": 6,
+                    "Type": "scene.ref",
+                    "Properties": {
+                      "component": {
+                        "_type": "component",
+                        "go": "6b7224a2-b7a1-4296-8afe-5d907a01805f",
+                        "component_type": "ImpactEffect"
+                      }
+                    },
+                    "UserData": {
+                      "Position": "224,64"
+                    }
+                  },
+                  {
+                    "Id": 7,
+                    "Type": "property.set",
+                    "Properties": {
+                      "_type": "package.duccsoft.aluminum_acrobat/ImpactEffect",
+                      "_name": "Target"
+                    },
+                    "UserData": {
+                      "Position": "688,64"
+                    }
+                  },
+                  {
+                    "Id": 9,
+                    "Type": "scene.ref",
+                    "Properties": {
+                      "gameobject": {
+                        "_type": "gameobject",
+                        "go": "4a768feb-86c3-4084-8825-bdfb5011040b"
+                      }
+                    },
+                    "UserData": {
+                      "Position": "240,144"
+                    }
+                  },
+                  {
+                    "Id": 10,
+                    "Type": "if",
+                    "UserData": {
+                      "Position": "480,0"
+                    }
+                  }
+                ],
+                "Links": [
+                  {
+                    "SrcId": 0,
+                    "SrcName": "_signal",
+                    "DstId": 4,
+                    "DstName": "_signal"
+                  },
+                  {
+                    "SrcId": 2,
+                    "SrcName": "_result",
+                    "DstId": 4,
+                    "DstName": "gameObject"
+                  },
+                  {
+                    "SrcId": 10,
+                    "SrcName": "true",
+                    "DstId": 7,
+                    "DstName": "_signal"
+                  },
+                  {
+                    "SrcId": 6,
+                    "SrcName": "_result",
+                    "DstId": 7,
+                    "DstName": "_target"
+                  },
+                  {
+                    "SrcId": 9,
+                    "SrcName": "_result",
+                    "DstId": 7,
+                    "DstName": "_value"
+                  },
+                  {
+                    "SrcId": 4,
+                    "SrcName": "_signal",
+                    "DstId": 10,
+                    "DstName": "_signal"
+                  },
+                  {
+                    "SrcId": 4,
+                    "SrcName": "_result",
+                    "DstId": 10,
+                    "DstName": "condition"
+                  }
+                ]
+              }
+            }
+          ],
+          "Children": [
+            {
+              "Id": "4a768feb-86c3-4084-8825-bdfb5011040b",
+              "Name": "Model",
+              "Position": "0,0,0",
+              "Tags": "shield,solid",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "ModelRenderer",
+                  "BodyGroups": 18446744073709551615,
+                  "MaterialGroup": null,
+                  "MaterialOverride": "materials/dev/primary_white_emissive.vmat",
+                  "Model": "models/dev/sphere.vmdl",
+                  "RenderType": "On",
+                  "Tint": "0.09709,0.1921,0.20465,1"
+                },
+                {
+                  "__type": "SineHover",
+                  "Amplitude": "0,300,0",
+                  "Frequency": "0,1,0"
+                },
+                {
+                  "__type": "SphereCollider",
+                  "Center": "0,0,0",
+                  "IsTrigger": false,
+                  "Radius": 32,
+                  "Static": false,
+                  "Surface": null
+                }
+              ],
+              "Children": [
+                {
+                  "Id": "6b7224a2-b7a1-4296-8afe-5d907a01805f",
+                  "Name": "Impact",
+                  "Position": "-26.04974,0,0.000001586851",
+                  "Rotation": "0,0,1,-0.00000004371139",
+                  "Enabled": true,
+                  "Components": [
+                    {
+                      "__type": "ImpactEffect",
+                      "Target": {
+                        "_type": "gameobject",
+                        "go": "4a768feb-86c3-4084-8825-bdfb5011040b"
+                      }
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
       ]
     },
     {
-      "Id": "6c9264f7-bb5a-44c8-9f33-8db81c1480a3",
-      "Name": "Object",
-      "Enabled": true
+      "Id": "7bd365f6-5435-49b7-a9c2-250fdf9d18d8",
+      "Name": "Rainbow Lasers",
+      "Position": "320,256,0",
+      "Enabled": true,
+      "__Prefab": "prefabs/test/rainbow_laser_array.prefab"
     }
   ],
   "SceneProperties": {
@@ -470,6 +731,6 @@
   },
   "Title": "test_mining",
   "Description": "",
-  "LastSaved": "2024-03-09T09:24:13.46462-07:00",
+  "LastSaved": "2024-03-09T17:21:54.9122223-07:00",
   "__references": []
 }

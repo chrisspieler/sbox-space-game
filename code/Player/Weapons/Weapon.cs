@@ -9,6 +9,8 @@ public sealed class Weapon : Component, IDestructionListener
 	[Property] public GameObject LaserEffectPrefab { get; set; }
 	[Property] public GameObject LaserAblationPrefab { get; set; }
 	[Property] public GameObject ShieldHitPrefab { get; set; }
+	[Property] public float LaserPower => MathX.LerpInverse( TickDamage, 0, MaxDamage );
+	[Property] public float LaserDistance => MathX.Lerp( 250f, 3000f, LaserPower );
 	[Property] public float TickInterval { get; set; } = 0.2f;
 	[Property] public float TickDamage { get; set; } = 2.5f;
 	[Property] public float MaxDamage { get; set; } = 20f;
@@ -18,8 +20,8 @@ public sealed class Weapon : Component, IDestructionListener
 	/// damage ticks between weapons so they don't make sounds at the same time.
 	/// </summary>
 	[Property, Range( 0f, 1f )] public float DamagePhaseOffset { get; set; } = 0f;
-	[Property] public bool DamageRampUp { get; set; } = false;
-	[Property] public float DamageRampUpSpeed { get; set; } = 10f;
+	[Property] public bool DamageRampUp { get; set; } = true;
+	[Property] public float DamageRampUpSpeed { get; set; } = 2.5f;
 	[Property] public Curve DamageAblationScale { get; set; }
 	[Property] public Gradient DamageColorScale { get; set; }
 	[Property] public Curve DamagePitchScale { get; set; }
@@ -34,7 +36,6 @@ public sealed class Weapon : Component, IDestructionListener
 	// We need a couple of timers to rate limit contributions to screen shake,
 	// otherwise feathering/grazing a target with a laser will cause extreme shaking.
 	private TimeUntil _untilScreenPunch = 0f;
-	private TimeUntil _untilStartShake = 0;
 
 	private static float _nextPhaseOffset = 0f;
 
@@ -62,16 +63,26 @@ public sealed class Weapon : Component, IDestructionListener
 		// Also, don't fire a beam through your own ship unless you very clearly mean to do so.
 		if ( !Input.Down( "fire" ) || ( distance > 150f && IsAimingAtSelf( mousePos ) ) )
 		{
+			if ( DamageRampUp )
+			{
+				TickDamage = MinDamage;
+			}
 			DestroyLaserEffect();
 			EndDamage();
 			return;
 		}
+
+		if ( DamageRampUp )
+		{
+			TickDamage += Time.Delta * DamageRampUpSpeed;
+			TickDamage = MathF.Min( TickDamage, MaxDamage );
+		}
+
 		var tr = RunAimTrace( mousePos );
 		_currentLaserEffect ??= CreateLaserEffect();
 		UpdateLaserEffect( tr );
-		_currentLaserSound ??= Sound.Play( LaserLoopSound );
-		_currentLaserSound.Position = Transform.Position;
-		_currentLaserSound.Pitch = DamagePitchScale.Evaluate( TickDamage.LerpInverse( MinDamage, MaxDamage ) );
+		UpdateSound();
+
 		var target = tr.GameObject;
 		if ( target is null )
 		{
@@ -82,23 +93,12 @@ public sealed class Weapon : Component, IDestructionListener
 		if ( !target.Components.TryGet<IDamageable>( out var damageable, FindMode.EnabledInSelfAndDescendants ) )
 			return;
 
-		if ( DamageRampUp )
-		{
-			TickDamage += Time.Delta * DamageRampUpSpeed;
-			TickDamage = MathF.Min( TickDamage, MaxDamage );
-		}
-
 		if ( _currentTarget != target )
 		{
 			StartDamage( target );
 		}
 
-		if ( _untilStartShake )
-		{
-			_untilStartShake = 0.5f;
-			var screenShakeAmount = TickDamage.Remap( MinDamage, MaxDamage, 0.12f, 0.20f );
-			ScreenEffects.SetBaseScreenShake( this, screenShakeAmount, true );
-		}
+		UpdateScreenShake();
 		UpdateDamage( tr, damageable );
 	}
 
@@ -118,7 +118,7 @@ public sealed class Weapon : Component, IDestructionListener
 		var startPos = TraceOrigin.Transform.Position.WithZ( 0f );
 		var ray = new Ray( startPos, startPos.Direction( endPosition ) );
 		return Scene.Trace
-			.Ray( ray, 2000f )
+			.Ray( ray, LaserDistance )
 			.WithoutTags( "pickup" )
 			.Run();
 	}
@@ -137,8 +137,7 @@ public sealed class Weapon : Component, IDestructionListener
 
 	private void UpdateLaserEffect( SceneTraceResult tr )
 	{
-		var power = MathX.LerpInverse( TickDamage, MinDamage, MaxDamage );
-		_currentLaserEffect.Tint = DamageColorScale.Evaluate( power );
+		_currentLaserEffect.Tint = Color.Red.ToHsv().WithHue( Time.Now * 90f ).WithValue( LaserPower );
 		var hitShield = tr.GameObject?.Tags?.Has( "shield" ) == true;
 		if ( hitShield != _wasHittingShield && _laserHitTarget != null )
 		{
@@ -154,6 +153,19 @@ public sealed class Weapon : Component, IDestructionListener
 		_laserHitTarget.Transform.Position = tr.EndPosition;
 		_laserHitTarget.Transform.Rotation = Rotation.LookAt( tr.Normal );
 		// TODO: Scale up particles with damage.
+	}
+
+	private void UpdateSound()
+	{
+		_currentLaserSound ??= Sound.Play( LaserLoopSound );
+		_currentLaserSound.Position = Transform.Position;
+		_currentLaserSound.Pitch = DamagePitchScale.Evaluate( TickDamage.LerpInverse( MinDamage, MaxDamage ) );
+	}
+
+	private void UpdateScreenShake()
+	{
+		var screenShakeAmount = TickDamage.Remap( MinDamage, MaxDamage, 0.12f, 0.20f );
+		ScreenEffects.SetBaseScreenShake( this, screenShakeAmount, true );
 	}
 
 	private static void OrphanizeEffect( GameObject go )
@@ -200,10 +212,6 @@ public sealed class Weapon : Component, IDestructionListener
 
 	private void EndDamage()
 	{
-		if ( DamageRampUp )
-		{
-			TickDamage = MinDamage;
-		}
 		ScreenEffects.ClearBaseScreenShake( this );
 		_currentTarget = null;
 	}

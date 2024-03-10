@@ -1,0 +1,5 @@
+{
+  "Priority": 0,
+  "ContinuousImpactEffect": "prefabs/effects/laser_ablation.prefab",
+  "__references": []
+}

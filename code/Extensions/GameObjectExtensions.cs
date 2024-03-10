@@ -12,6 +12,15 @@ public static class GameObjectExtensions
 		gameObject.Enabled = enabled;
 	}
 
+	public static bool ToggleEnabled( this GameObject gameObject )
+	{
+		if ( gameObject is null )
+			return false;
+
+		gameObject.Enabled = !gameObject.Enabled;
+		return gameObject.Enabled;
+	}
+
 	public static Vector3 GetAbsolutePosition( this GameObject gameObject )
 	{
 		if ( !gameObject.IsValid() )
@@ -70,6 +79,20 @@ public static class GameObjectExtensions
 		}
 	}
 
+	public static void DoDamage( this GameObject obj, DamageInfo damage )
+	{
+		var shield = obj.Components.GetInDescendantsOrSelf<Shield>();
+		if ( shield is not null && shield.CurrentHealth > 0f )
+		{
+			shield.OnDamage( damage );
+			return;
+		}
+		if ( !obj.Components.TryGet<Health>( out var health, FindMode.EnabledInSelfAndDescendants ) )
+			return;
+
+		health.OnDamage( damage );
+	}
+
 	/// <summary>
 	/// Returns a ray using this GameObject's position and forward direction.
 	/// </summary>
@@ -82,5 +105,14 @@ public static class GameObjectExtensions
 	{
 		var helper = obj.Components.GetOrCreate<ParticleHelper>();
 		helper.ToggleEmit( shouldEmit );
+	}
+	
+	public static TagSurface GetTagSurface( this GameObject gameObject )
+	{
+		var surfaces = ResourceLibrary.GetAll<TagSurface>();
+		return surfaces.Where( s => gameObject.Tags.Has( s.ResourceName ) )
+			.OrderByDescending( s => s.Priority )
+			.FirstOrDefault() 
+			?? surfaces.First( s => s.ResourceName == "solid" );
 	}
 }
