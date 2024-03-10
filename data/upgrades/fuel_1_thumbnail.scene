@@ -1,0 +1,84 @@
+{
+  "Id": "cf98adeb-1706-4dc7-b277-95a023616110",
+  "GameObjects": [
+    {
+      "Id": "be8d1596-873e-42ec-8b3e-4365c4fd5934",
+      "Name": "Point Light",
+      "Position": "-64,64,71.69636",
+      "Tags": "light_point,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "PointLight",
+          "Attenuation": 1,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.94419,0.9144,0.89588,1",
+          "Radius": 400,
+          "Shadows": true
+        }
+      ]
+    },
+    {
+      "Id": "dbc4ca1f-49cf-4069-8eb8-aee8700a1309",
+      "Name": "Point Light (1)",
+      "Position": "64,-128,71.69636",
+      "Tags": "light_point,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "PointLight",
+          "Attenuation": 1,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.8093,0.45271,0.04517,1",
+          "Radius": 400,
+          "Shadows": true
+        }
+      ]
+    },
+    {
+      "Id": "c42ede82-f448-4e9f-90ba-e51bb81f16bc",
+      "Name": "fuel_tank_b_600",
+      "Position": "-2.257324,-16.07291,0.001255592",
+      "Scale": "0.4,0.4,0.4",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Prop",
+          "Health": 0,
+          "IsStatic": false,
+          "Model": "models/rust_props/fuel_tank/fuel_tank_b_600.vmdl",
+          "ShowCreatedComponents": false
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "fuel_1_thumbnail",
+  "Description": "",
+  "LastSaved": "2024-03-10T14:26:29.8133528-06:00",
+  "__references": [
+    "rust.fuel_tank_b_600"
+  ]
+}

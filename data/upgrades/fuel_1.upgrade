@@ -3,7 +3,7 @@
   "FlavorText": "In zero-G, burning fuel is often more of a speedrun strat than a necessity.",
   "FunctionText": "Increases fuel tank capacity by 15",
   "Cost": 50,
-  "Thumbnail": null,
+  "Thumbnail": "data/upgrades/fuel_1_thumbnail.vtex",
   "PrerequisiteUpgrade": "data/upgrades/fuel_0.upgrade",
   "OnApplyUpgrade": {
     "Version": 5,

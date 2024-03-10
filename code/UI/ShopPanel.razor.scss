@@ -143,13 +143,14 @@ ShopPanel {
 
 		.upgrade {
 			margin: 5px 0px;
-			padding: 5px;
 			border: 1px solid #FFFFFF03;
-			min-height: 10vh;
+			flex-shrink: 0;
+			background: linear-gradient( 180deg, #0000, #000000FF 85% );
 
 			Image {
-				width: 5vw;
-				height: 5vw;
+				width: 8vw;
+				height: 8vw;
+				margin: 0px;
 			}
 
 			#infoColumn {

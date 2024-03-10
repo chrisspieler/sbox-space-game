@@ -3,7 +3,7 @@
   "FlavorText": "It hurts to look directly at this beam.",
   "FunctionText": "Increases the power of mining lasers",
   "Cost": 50,
-  "Thumbnail": null,
+  "Thumbnail": "data/upgrades/laser_1_thumbnail.vtex",
   "PrerequisiteUpgrade": null,
   "OnApplyUpgrade": {
     "Version": 5,

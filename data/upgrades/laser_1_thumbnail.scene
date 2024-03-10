@@ -1,0 +1,317 @@
+{
+  "Id": "ac08449b-e75b-4b08-8c40-b40dd3c15e87",
+  "GameObjects": [
+    {
+      "Id": "c08f150b-faef-41b3-a3b7-61893806829f",
+      "Name": "s-type_asteroid",
+      "Position": "-32,-0,32",
+      "Tags": "solid",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Bouncy",
+          "AddedVelocity": 0,
+          "BouncedTags": "solid,player_shield",
+          "BounceFactor": 0.05,
+          "RehitDelay": 0.5
+        },
+        {
+          "__type": "Mineable",
+          "FractureEffect": {
+            "_type": "gameobject",
+            "prefab": "prefabs/effects/asteroid_fracture.prefab"
+          },
+          "FractureLoot": "data/asteroids/s_type.loot",
+          "FracturePiecePrefab": {
+            "_type": "gameobject",
+            "prefab": "data/asteroids/s-type_asteroid.prefab"
+          },
+          "Health": {
+            "_type": "component",
+            "go": "c08f150b-faef-41b3-a3b7-61893806829f",
+            "component_type": "Health"
+          },
+          "ShrinkOnDamage": true,
+          "ShrinkRatio": 0.3
+        }
+      ],
+      "Children": [
+        {
+          "Id": "58fc54d6-f4b8-438a-a968-cc4df97f1c51",
+          "Name": "Model",
+          "Position": "0,0,0",
+          "Scale": "0.3,0.3,0.3",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/rust_nature/rocks/rock_med_c.vmdl",
+              "RenderType": "On",
+              "Tint": "0.55018,0.64606,0.86977,1"
+            },
+            {
+              "__type": "ModelCollider",
+              "IsTrigger": false,
+              "Model": "models/rust_nature/rocks/rock_med_c.vmdl",
+              "Static": false
+            }
+          ]
+        },
+        {
+          "Id": "cae7efd0-3add-45a1-87fb-ed3c4fa27cfe",
+          "Name": "Inner Collider",
+          "Position": "0,0,0",
+          "Rotation": "0,-0.1604923,0,0.9870371",
+          "Scale": "0.589434,0.7966302,1",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "SphereCollider",
+              "__enabled": false,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Radius": 70,
+              "Static": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Id": "b1680647-f438-4d5c-8901-565121edcf3f",
+      "Name": "Sun",
+      "Position": "-10.34383,1.993683,25.93443",
+      "Rotation": "0,0.1305262,0,0.9914449",
+      "Tags": "light_directional,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "DirectionalLight",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.50544,0.53871,0.54884,1",
+          "Shadows": true,
+          "SkyColor": "0.05882,0.07451,0.08235,1"
+        }
+      ]
+    },
+    {
+      "Id": "4861bf07-9ed2-415b-9de0-8bad9b7d1688",
+      "Name": "mining_laser",
+      "Position": "-224,0,0",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Rigidbody",
+          "__enabled": false,
+          "AngularDamping": 0,
+          "Gravity": false,
+          "LinearDamping": 0,
+          "Locking": {
+            "Z": true
+          },
+          "MassOverride": 0,
+          "RigidbodyFlags": 0,
+          "StartAsleep": false
+        },
+        {
+          "__type": "BeamWeapon",
+          "Damage": {
+            "_type": "component",
+            "go": "4861bf07-9ed2-415b-9de0-8bad9b7d1688",
+            "component_type": "DamageOverTime"
+          },
+          "DamagePitchCurve": {
+            "rangey": "0.6,1",
+            "frames": [
+              {},
+              {
+                "x": 1,
+                "y": 1
+              }
+            ]
+          },
+          "FiringSoundLoop": "data/weapons/mining_laser/laser_loop.sound",
+          "Impact": {
+            "_type": "component",
+            "go": "632a29f6-fdae-4dd7-ac47-55933379b5ae",
+            "component_type": "ImpactEffect"
+          },
+          "LaserDistance": 800,
+          "LaserEffect": {
+            "_type": "component",
+            "go": "b6fd7c3b-e9a8-4f9d-8694-f4f4a5d9a266",
+            "component_type": "LaserBeam"
+          },
+          "LaserPower": 0.2,
+          "LaserTint": "0.2,0,0,1",
+          "MaxDamage": 50,
+          "MinDamage": 10,
+          "ShouldFire": true,
+          "TickDamage": 10,
+          "TickInterval": 0.5,
+          "Tracer": {
+            "_type": "component",
+            "go": "b6fd7c3b-e9a8-4f9d-8694-f4f4a5d9a266",
+            "component_type": "BeamTrace"
+          }
+        },
+        {
+          "__type": "DamageOverTime",
+          "TickDamage": 10,
+          "TickInterval": 0.5,
+          "TickPhaseOffset": 0,
+          "Weapon": {
+            "_type": "gameobject",
+            "go": "4861bf07-9ed2-415b-9de0-8bad9b7d1688"
+          }
+        }
+      ],
+      "Children": [
+        {
+          "Id": "d06ed78e-69db-45f8-8da5-16377a7553d9",
+          "Name": "Base",
+          "Position": "0,0,5",
+          "Scale": "0.1,0.1,0.2",
+          "Tags": "break_child",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialOverride": "materials/dev/dev_metal_rough50.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": false,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false
+            }
+          ]
+        },
+        {
+          "Id": "0e894c17-9c9f-4ad5-bc59-ee0a4d5bba5b",
+          "Name": "Barrel",
+          "Position": "0,0,15",
+          "Scale": "0.5,0.2,0.2",
+          "Tags": "break_child",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialOverride": "materials/dev/dev_metal_rough30.vmat",
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "BoxCollider",
+              "__enabled": false,
+              "Center": "0,0,0",
+              "IsTrigger": false,
+              "Scale": "50,50,50",
+              "Static": false
+            }
+          ],
+          "Children": [
+            {
+              "Id": "907a5e80-5340-4954-9dc8-8b8a19a3e284",
+              "Name": "Muzzle",
+              "Position": "35,0,0",
+              "Scale": "0.4,0.75,0.75",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "ModelRenderer",
+                  "BodyGroups": 18446744073709551615,
+                  "MaterialOverride": "materials/dev/dev_metal_rough50.vmat",
+                  "Model": "models/dev/box.vmdl",
+                  "RenderType": "On",
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "BoxCollider",
+                  "__enabled": false,
+                  "Center": "0,0,0",
+                  "IsTrigger": false,
+                  "Scale": "50,50,50",
+                  "Static": false
+                }
+              ],
+              "Children": [
+                {
+                  "Id": "b6fd7c3b-e9a8-4f9d-8694-f4f4a5d9a266",
+                  "Name": "Trace Origin",
+                  "Position": "25.35623,0,0",
+                  "Enabled": true,
+                  "Components": [
+                    {
+                      "__type": "BeamTrace",
+                      "Distance": 800,
+                      "IncludeAny": "solid,shield,break_debris",
+                      "Source": {
+                        "_type": "gameobject",
+                        "go": "b6fd7c3b-e9a8-4f9d-8694-f4f4a5d9a266"
+                      }
+                    },
+                    {
+                      "__type": "LaserBeam",
+                      "ParticleAsset": "particles/laser_beam.vpcf",
+                      "Tint": "0.2,0,0,1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "632a29f6-fdae-4dd7-ac47-55933379b5ae",
+          "Name": "Impact Effect",
+          "Position": "44.96693,-137.9229,36.61931",
+          "Rotation": "0,0,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ImpactEffect"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "laser_1_thumbnail",
+  "Description": "",
+  "LastSaved": "2024-03-10T14:35:48.4827282-06:00",
+  "__references": [
+    "rust.rock_med_c"
+  ]
+}

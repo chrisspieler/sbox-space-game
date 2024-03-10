@@ -1,0 +1,193 @@
+{
+  "Id": "2124d1fb-37e9-4bca-b3a1-1ab4c704d805",
+  "GameObjects": [
+    {
+      "Id": "a764db4f-6faa-466b-9c12-9599f3c02942",
+      "Name": "wooden_crate (2)",
+      "Position": "9.347536,18.10721,40.53472",
+      "Rotation": "0,0,-0.999635,0.0270178",
+      "Scale": "0.6696566,0.6404839,0.6287482",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": "materials/trimsheets/metal/metal_trim_weathered_rust_blend_01.vmat",
+          "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "Id": "8aa7866d-1309-4172-8e10-c76ac0a37159",
+      "Name": "wooden_crate (1)",
+      "Position": "8.835776,13.92598,64.59715",
+      "Rotation": "0,0,-0.7079979,-0.7062147",
+      "Scale": "0.6696566,0.6404839,0.6287482",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": "materials/trimsheets/metal/metal_trim_weathered_rust_blend_01.vmat",
+          "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "Id": "78543525-1106-4b0f-ae80-1e4eb2fd25b4",
+      "Name": "wooden_crate (6)",
+      "Position": "8.835776,-12.08755,40.47666",
+      "Rotation": "0,0,-0.7079979,-0.7062147",
+      "Scale": "0.6696566,0.6404839,0.6287482",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": "materials/trimsheets/metal/metal_trim_weathered_rust_blend_01.vmat",
+          "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "Id": "1e492888-3e19-48ef-bf58-17d4b8c9ce9e",
+      "Name": "wooden_crate (3)",
+      "Position": "7.716828,-12.7239,64.47386",
+      "Rotation": "0,0,-0.8792183,-0.4764194",
+      "Scale": "0.6696566,0.6404839,0.6287482",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": "materials/trimsheets/metal/metal_trim_weathered_rust_blend_01.vmat",
+          "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "Id": "71462cac-1513-41cc-aaa3-c0871a1a881e",
+      "Name": "wooden_crate (5)",
+      "Position": "7.716828,16.29745,16.21855",
+      "Rotation": "0,0,-0.8792183,-0.4764194",
+      "Scale": "0.6696566,0.6404839,0.6287482",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": "materials/trimsheets/metal/metal_trim_weathered_rust_blend_01.vmat",
+          "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "Id": "90370595-e6c0-4429-83dd-59025d05878e",
+      "Name": "wooden_crate (4)",
+      "Position": "4.072857,-11.83908,17.97258",
+      "Rotation": "0,0,-0.999635,0.0270178",
+      "Scale": "0.6696566,0.6404839,0.6287482",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": "materials/trimsheets/metal/metal_trim_weathered_rust_blend_01.vmat",
+          "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "Id": "47517ef4-f875-4fb8-a460-e905475e3d00",
+      "Name": "Point Light",
+      "Position": "-89.42471,-55.56303,82.92207",
+      "Tags": "light_point,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "PointLight",
+          "Attenuation": 1,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Radius": 400,
+          "Shadows": true
+        }
+      ]
+    },
+    {
+      "Id": "2fb17f5c-27b2-4180-ae6f-22747f926ece",
+      "Name": "Point Light (1)",
+      "Position": "-57.34884,96.77077,82.92208",
+      "Tags": "light_point,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "PointLight",
+          "Attenuation": 1,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Radius": 400,
+          "Shadows": true
+        }
+      ]
+    },
+    {
+      "Id": "38d6e4f4-3fcb-4a69-affc-b7d8b53ed11b",
+      "Name": "industrial_ shelving_01",
+      "Position": "7.779129,0,0",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Prop",
+          "Health": 0,
+          "IsStatic": false,
+          "Model": "models/props/trim_sheets/shelving/industrial_ shelving/industrial_ shelving_01.vmdl",
+          "ShowCreatedComponents": false
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "cargo_0_thumbnail",
+  "Description": "",
+  "LastSaved": "2024-03-10T14:04:25.9836649-06:00",
+  "__references": [
+    "facepunch.industrial_shelving_01",
+    "facepunch.wooden_crate"
+  ]
+}

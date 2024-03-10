@@ -164,7 +164,6 @@
         {
           "__type": "ModelRenderer",
           "BodyGroups": 18446744073709551615,
-          "MaterialGroup": null,
           "MaterialOverride": "materials/shared/metals/metal_aluminium_03.vmat",
           "Model": "models/dev/box.vmdl",
           "RenderType": "On",
@@ -175,8 +174,7 @@
           "Center": "0,0,0",
           "IsTrigger": false,
           "Scale": "50,50,50",
-          "Static": true,
-          "Surface": null
+          "Static": true
         }
       ],
       "Children": [
@@ -215,14 +213,11 @@
                 "go": "ccc59e16-bb57-417c-bb76-17079140fa74",
                 "component_type": "SphereCollider"
               },
-              "Controller": null,
               "CurrentHealth": 10000,
               "HitSound": "sounds/shield_hit.sound",
               "MaxHealth": 10000,
-              "OnDamaged": null,
               "RegenDelay": 0.1,
-              "RegenRate": 1000,
-              "Renderer": null
+              "RegenRate": 1000
             },
             {
               "__type": "Bouncy",
@@ -230,7 +225,6 @@
               "BouncedTags": "solid",
               "BounceFactor": 1,
               "IgnoredTags": "player",
-              "OnBounce": null,
               "RehitDelay": 0.5
             },
             {
@@ -238,13 +232,11 @@
               "Center": "0,0,0",
               "IsTrigger": false,
               "Radius": 32,
-              "Static": true,
-              "Surface": null
+              "Static": true
             },
             {
               "__type": "ModelRenderer",
               "BodyGroups": 18446744073709551615,
-              "MaterialGroup": null,
               "MaterialOverride": "materials/dev/primary_white_emissive_trans.vmat",
               "Model": "models/dev/sphere.vmdl",
               "RenderType": "On",
@@ -301,7 +293,6 @@
             {
               "__type": "ModelRenderer",
               "BodyGroups": 18446744073709551615,
-              "MaterialGroup": null,
               "MaterialOverride": "materials/generic/metal_brushed.vmat",
               "Model": "models/dev/box.vmdl",
               "RenderType": "On",
@@ -312,8 +303,7 @@
               "Center": "0,0,-200",
               "IsTrigger": true,
               "Scale": "45,45,300",
-              "Static": true,
-              "Surface": null
+              "Static": true
             },
             {
               "__type": "Shop",
@@ -336,8 +326,7 @@
               "Center": "0,0,0",
               "IsTrigger": false,
               "Scale": "50,50,50",
-              "Static": true,
-              "Surface": null
+              "Static": true
             }
           ],
           "Children": [
@@ -411,7 +400,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-09T07:12:30.787899-07:00",
+  "LastSaved": "2024-03-10T14:04:51.2114516-06:00",
   "__references": [
     "eurorp.aluminium_03",
     "stardrive.rope_barrier_a"

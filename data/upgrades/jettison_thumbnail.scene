@@ -1,0 +1,103 @@
+{
+  "Id": "2124d1fb-37e9-4bca-b3a1-1ab4c704d805",
+  "GameObjects": [
+    {
+      "Id": "71462cac-1513-41cc-aaa3-c0871a1a881e",
+      "Name": "wooden_crate (5)",
+      "Position": "12.23536,-42.79499,-56.87031",
+      "Rotation": "-0.02878153,0.1807354,-0.9118791,-0.3674011",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": "materials/trimsheets/metal/metal_trim_weathered_rust_blend_01.vmat",
+          "Model": "models/sbox_props/wooden_crate/wooden_crate.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "Id": "2fb17f5c-27b2-4180-ae6f-22747f926ece",
+      "Name": "Point Light (1)",
+      "Position": "-17.94563,-98.7045,-63.99999",
+      "Tags": "light_point,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "PointLight",
+          "Attenuation": 3.44,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.60314,0.74693,0.7907,1",
+          "Radius": 400,
+          "Shadows": true
+        }
+      ]
+    },
+    {
+      "Id": "c5117dc8-fcd0-4354-b175-714e8d710c0f",
+      "Name": "Point Light (2)",
+      "Position": "-11.51093,-40.38357,-4.396055",
+      "Tags": "light_point,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "PointLight",
+          "Attenuation": 3.44,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.60314,0.74693,0.7907,1",
+          "Radius": 400,
+          "Shadows": true
+        }
+      ]
+    },
+    {
+      "Id": "099325a8-1e4f-4336-958b-425dae1f7a64",
+      "Name": "jettison_effect",
+      "Position": "-79.20583,57.12505,-51.38197",
+      "Rotation": "0,0,-0.3073566,0.9515944",
+      "Enabled": true,
+      "__Prefab": "prefabs/effects/jettison_effect.prefab"
+    },
+    {
+      "Id": "de2ed022-0660-4f6e-9ddd-9ddc34a353e3",
+      "Name": "ship",
+      "Position": "-160,96,-32",
+      "Rotation": "0,0,-0.8660254,0.5",
+      "Tags": "no_chunk,player,ship,solid",
+      "Enabled": true,
+      "__Prefab": "prefabs/ship.prefab"
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "cargo_0_thumbnail",
+  "Description": "",
+  "LastSaved": "2024-03-10T14:21:51.0783473-06:00",
+  "__references": [
+    "facepunch.industrial_shelving_01",
+    "facepunch.wooden_crate"
+  ]
+}

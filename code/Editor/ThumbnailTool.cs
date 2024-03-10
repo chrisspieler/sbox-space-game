@@ -9,6 +9,8 @@ namespace Sandbox
     public class ThumbnailTool : EditorTool
     {
 		private SceneCamera _thumbnailCam;
+		private string _resourcePath;
+		private string _resourceName;
 
 		public override void OnEnabled()
 		{
@@ -21,6 +23,9 @@ namespace Sandbox
 
 			window.Layout.Add( button );
 			AddOverlay( window, TextFlag.RightTop, 10 );
+
+			_resourcePath = FileSystem.Mounted.GetFullPath( Scene.Source.ResourcePath );
+			_resourceName = Scene.Source.ResourceName;
 		}
 
 		public override void OnUpdate()
@@ -49,9 +54,13 @@ namespace Sandbox
 
 		private string GetThumbnailPath()
 		{
-			var scenePath = FileSystem.Mounted.GetFullPath( Scene.Source.ResourcePath );
-			var directory = Path.GetDirectoryName( scenePath );
-			var thumbnailFileName = $"{Scene.Source.ResourceName}.png";
+			var scenePath = Scene?.Source?.ResourcePath;
+			if ( scenePath != null )
+			{
+				_resourcePath = FileSystem.Mounted.GetFullPath( scenePath );
+			}
+			var directory = Path.GetDirectoryName( _resourcePath );
+			var thumbnailFileName = $"{Scene?.Source?.ResourceName ?? _resourceName}.png";
 			return Path.Combine( directory, thumbnailFileName );
 		}
 	}
