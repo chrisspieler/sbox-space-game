@@ -1,12 +1,11 @@
 {
   "RootObject": {
-    "Id": "7bd365f6-5435-49b7-a9c2-250fdf9d18d8",
-    "Name": "Rainbow Lasers",
-    "Position": "320,256,0",
+    "Id": "6e96a770-d4ef-4f09-90fc-349c8f3ae2fd",
+    "Name": "rainbow_laser_array",
     "Enabled": true,
     "Children": [
       {
-        "Id": "b149d220-474a-499b-9a61-08bedd2007e6",
+        "Id": "bd47aaf1-5cd9-415c-a7e1-4d5a0231ca19",
         "Name": "Violet",
         "Position": "0,-384,0",
         "Tags": "no_chunk",
@@ -18,22 +17,22 @@
             "ParticleInstance": null,
             "Target": {
               "_type": "gameobject",
-              "go": "13d98123-8cc5-4d69-ac9a-abc6b2938984"
+              "go": "30d7bb69-6f29-45b1-9794-14c1191ad53a"
             },
             "Tint": "0.21488,0.10912,0.90233,1"
           }
         ],
         "Children": [
           {
-            "Id": "13d98123-8cc5-4d69-ac9a-abc6b2938984",
+            "Id": "30d7bb69-6f29-45b1-9794-14c1191ad53a",
             "Name": "Target",
-            "Position": "2048,0,0",
+            "Position": "3072,0,0",
             "Enabled": true
           }
         ]
       },
       {
-        "Id": "3e5db222-5322-4528-af80-23321eb4efde",
+        "Id": "a92bd912-68ac-404c-bd9c-4c1b88340716",
         "Name": "Indigo",
         "Position": "0,-320,0",
         "Tags": "no_chunk",
@@ -45,22 +44,22 @@
             "ParticleInstance": null,
             "Target": {
               "_type": "gameobject",
-              "go": "bede3ee7-1185-421c-9034-7c7ef44a37da"
+              "go": "434fdc95-b857-40d6-847d-33c1c96a3f12"
             },
             "Tint": "0.11373,0.11373,0.91373,1"
           }
         ],
         "Children": [
           {
-            "Id": "bede3ee7-1185-421c-9034-7c7ef44a37da",
+            "Id": "434fdc95-b857-40d6-847d-33c1c96a3f12",
             "Name": "Target",
-            "Position": "2048,0,0",
+            "Position": "3072,0,0",
             "Enabled": true
           }
         ]
       },
       {
-        "Id": "e0db3cbf-fefc-4070-90ae-4601255df3b6",
+        "Id": "aa843fca-c8da-49a3-beb3-d9763fd656de",
         "Name": "Blue",
         "Position": "0,-256,0",
         "Tags": "no_chunk",
@@ -72,22 +71,22 @@
             "ParticleInstance": null,
             "Target": {
               "_type": "gameobject",
-              "go": "a6a91ff6-d799-4cab-8b7f-c3c3a8b388aa"
+              "go": "872f35da-27d4-4a43-b70a-65985c1dd7e8"
             },
             "Tint": "0.14676,0.49646,0.98605,1"
           }
         ],
         "Children": [
           {
-            "Id": "a6a91ff6-d799-4cab-8b7f-c3c3a8b388aa",
+            "Id": "872f35da-27d4-4a43-b70a-65985c1dd7e8",
             "Name": "Target",
-            "Position": "2048,0,0",
+            "Position": "3072,0,0",
             "Enabled": true
           }
         ]
       },
       {
-        "Id": "8622a840-4b56-43ff-8037-6371ab99b28a",
+        "Id": "bbb2eae2-7246-40fb-8930-d944c0c29861",
         "Name": "Green",
         "Position": "0,-192,0",
         "Tags": "no_chunk",
@@ -99,22 +98,22 @@
             "ParticleInstance": null,
             "Target": {
               "_type": "gameobject",
-              "go": "5c225b8f-553c-479f-8962-e1be754d686e"
+              "go": "4e5e678f-d5b5-49e9-aea2-62211c90b44b"
             },
             "Tint": "0.17049,0.9907,0.41655,1"
           }
         ],
         "Children": [
           {
-            "Id": "5c225b8f-553c-479f-8962-e1be754d686e",
+            "Id": "4e5e678f-d5b5-49e9-aea2-62211c90b44b",
             "Name": "Target",
-            "Position": "2048,0,0",
+            "Position": "3072,0,0",
             "Enabled": true
           }
         ]
       },
       {
-        "Id": "e50a5785-63d0-4ce2-a360-705849969bb8",
+        "Id": "ff942145-0d6c-4b37-bb6c-32521292c777",
         "Name": "Yellow",
         "Position": "0,-128,0",
         "Tags": "no_chunk",
@@ -126,22 +125,22 @@
             "ParticleInstance": null,
             "Target": {
               "_type": "gameobject",
-              "go": "cd39e5f9-edd9-4367-8bda-6c3677108cd2"
+              "go": "be505696-1895-4824-b647-fb2de9d25fd5"
             },
             "Tint": "0.99535,0.94072,0.17592,1"
           }
         ],
         "Children": [
           {
-            "Id": "cd39e5f9-edd9-4367-8bda-6c3677108cd2",
+            "Id": "be505696-1895-4824-b647-fb2de9d25fd5",
             "Name": "Target",
-            "Position": "2048,0,0",
+            "Position": "3072,0,0",
             "Enabled": true
           }
         ]
       },
       {
-        "Id": "d083a3b6-790a-4321-9ee3-92fd4088ed6b",
+        "Id": "0b4e5846-159f-4dd8-9cd0-a00758a08df5",
         "Name": "Orange",
         "Position": "0,-64,0",
         "Tags": "no_chunk",
@@ -153,24 +152,23 @@
             "ParticleInstance": null,
             "Target": {
               "_type": "gameobject",
-              "go": "f30bb770-18c0-4890-852f-30bd066c36a9"
+              "go": "603bb707-d9ef-475e-8d15-78d794b334c4"
             },
             "Tint": "0.95814,0.42522,0.17826,1"
           }
         ],
         "Children": [
           {
-            "Id": "f30bb770-18c0-4890-852f-30bd066c36a9",
+            "Id": "603bb707-d9ef-475e-8d15-78d794b334c4",
             "Name": "Target",
-            "Position": "2048,0,0",
+            "Position": "3072,0,0",
             "Enabled": true
           }
         ]
       },
       {
-        "Id": "3e08d0c9-5331-4e09-b45d-15f8ab8fde17",
+        "Id": "885afcd9-7fd5-4181-9463-7d09cbd00cb1",
         "Name": "Red",
-        "Position": "0,0,0",
         "Tags": "no_chunk",
         "Enabled": true,
         "Components": [
@@ -180,16 +178,16 @@
             "ParticleInstance": null,
             "Target": {
               "_type": "gameobject",
-              "go": "bfa63d7b-b20f-491a-ba29-11a78c552bfb"
+              "go": "250aed53-3167-4709-ad14-3e569a2b7bf5"
             },
             "Tint": "1,0.22326,0.22326,1"
           }
         ],
         "Children": [
           {
-            "Id": "bfa63d7b-b20f-491a-ba29-11a78c552bfb",
+            "Id": "250aed53-3167-4709-ad14-3e569a2b7bf5",
             "Name": "Target",
-            "Position": "2048,0,0",
+            "Position": "3072,0,0",
             "Enabled": true
           }
         ]
