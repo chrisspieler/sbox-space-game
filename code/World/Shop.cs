@@ -116,6 +116,9 @@ public sealed class Shop : Component, Component.ITriggerListener
 			ship.FacingDirection = Ejector.Transform.Rotation.Forward;
 			ship.Rigidbody.Velocity = ship.Transform.Rotation * EjectionVelocity;
 		}
+		// If the low fuel alarm is active and the player has left the store
+		// without refueling, alert them to this silly mistake.
+		ship.Fuel?.ClearAlarm();
 		ship.Rigidbody.LinearDamping = 0f;
 		ship.AddTemporaryInvincibility( EjectionInvincibilitySeconds );
 		ship.Enabled = true;

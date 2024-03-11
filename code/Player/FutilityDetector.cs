@@ -23,7 +23,9 @@ public class FutilityDetector : GameObjectSystem
 		if ( IsStranded( ship ) && _untilNextPopup )
 		{
 			_untilNextPopup = 5f;
-			ScreenManager.ShowTextPanel( "SHIP STRANDED, HOLD LEFT-CLICK ON SELF TO RESTART", ship.Transform.Position, false, 5f );
+			// Put the text ahead of the ship so that if it is drifting fast, the player can read it.
+			var position = ship.Transform.Position + ship.Rigidbody.Velocity.Normal * 200f;
+			ScreenManager.ShowTextPanel( "SHIP STRANDED, HOLD LEFT-CLICK ON SELF TO RESTART", position, false, 5f );
 		}
 	}
 
