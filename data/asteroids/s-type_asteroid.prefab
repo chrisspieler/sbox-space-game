@@ -2,8 +2,9 @@
   "RootObject": {
     "Id": "e580b02d-fb9c-4dd3-b289-5b68ea86676c",
     "Name": "s-type_asteroid",
-    "Tags": "solid",
+    "Tags": "solid,target",
     "Enabled": true,
+    "NetworkMode": 2,
     "Components": [
       {
         "__type": "Rigidbody",
@@ -60,8 +61,6 @@
         "AddedVelocity": 0,
         "BouncedTags": "solid,player_shield",
         "BounceFactor": 0.05,
-        "IgnoredTags": null,
-        "OnBounce": null,
         "RehitDelay": 0.5
       },
       {
@@ -79,9 +78,7 @@
         "DamageFlashColor": "1,1,1,1",
         "DamageSound": "sounds/asteroid_dig.sound",
         "IsInvincible": false,
-        "MaxHealth": 200,
-        "OnDamaged": null,
-        "OnKilled": null
+        "MaxHealth": 200
       },
       {
         "__type": "Mineable",
@@ -121,12 +118,11 @@
         "Name": "Model",
         "Scale": "0.3,0.3,0.3",
         "Enabled": true,
+        "NetworkMode": 2,
         "Components": [
           {
             "__type": "ModelRenderer",
             "BodyGroups": 18446744073709551615,
-            "MaterialGroup": null,
-            "MaterialOverride": null,
             "Model": "models/rust_nature/rocks/rock_med_c.vmdl",
             "RenderType": "On",
             "Tint": "0.55018,0.64606,0.86977,1"
@@ -136,16 +132,14 @@
             "__enabled": false,
             "IsTrigger": false,
             "Model": "models/rust_nature/rocks/rock_med_c.vmdl",
-            "Static": false,
-            "Surface": null
+            "Static": false
           },
           {
             "__type": "SphereCollider",
             "Center": "0,0,0",
             "IsTrigger": false,
             "Radius": 300,
-            "Static": false,
-            "Surface": null
+            "Static": false
           },
           {
             "__type": "ColliderLod",
@@ -168,8 +162,7 @@
                 "go": "ad013ae7-416b-4441-97af-311e2ba96c2b",
                 "component_type": "SphereCollider"
               }
-            ],
-            "Target": null
+            ]
           }
         ]
       },
@@ -179,6 +172,7 @@
         "Rotation": "0,-0.1604923,0,0.9870371",
         "Scale": "0.589434,0.7966302,1",
         "Enabled": true,
+        "NetworkMode": 2,
         "Components": [
           {
             "__type": "SphereCollider",
@@ -186,8 +180,7 @@
             "Center": "0,0,0",
             "IsTrigger": false,
             "Radius": 70,
-            "Static": false,
-            "Surface": null
+            "Static": false
           }
         ]
       }

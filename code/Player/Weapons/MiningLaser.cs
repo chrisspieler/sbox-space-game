@@ -111,9 +111,9 @@ public sealed class MiningLaser : Weapon, IDestructionListener
 
 	private bool IsBlockedBySafety( BeamWeapon weapon )
 	{
-		var aimPos = Scene.Camera.MouseToWorld();
-		return weapon.Tracer.Transform.Position.Distance( aimPos ) > 150f
-			&& WouldHitSelf( weapon, aimPos );
+		var targetPos = TargetPosition ?? Scene.Camera.MouseToWorld();
+		return weapon.Tracer.Transform.Position.Distance( targetPos ) > 150f
+			&& WouldHitSelf( weapon, targetPos );
 	}
 
 	private bool WouldHitSelf( BeamWeapon weapon, Vector3 aimPos )

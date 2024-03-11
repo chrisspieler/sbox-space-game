@@ -2,8 +2,9 @@
   "RootObject": {
     "Id": "78bc8c68-1331-4169-9c69-dbdd1ba106c3",
     "Name": "m-type_asteroid",
-    "Tags": "solid",
+    "Tags": "solid,target",
     "Enabled": true,
+    "NetworkMode": 2,
     "Components": [
       {
         "__type": "Rigidbody",
@@ -66,8 +67,6 @@
         "AddedVelocity": 0,
         "BouncedTags": "solid,player_shield",
         "BounceFactor": 0.05,
-        "IgnoredTags": null,
-        "OnBounce": null,
         "RehitDelay": 0.5
       },
       {
@@ -85,9 +84,7 @@
         "DamageFlashColor": "1,1,1,1",
         "DamageSound": "sounds/asteroid_dig.sound",
         "IsInvincible": false,
-        "MaxHealth": 450,
-        "OnDamaged": null,
-        "OnKilled": null
+        "MaxHealth": 450
       },
       {
         "__type": "Mineable",
@@ -151,8 +148,7 @@
             "go": "41442b6b-0289-4ddd-8aff-18484e8ddf60",
             "component_type": "SphereCollider"
           }
-        ],
-        "Target": null
+        ]
       }
     ],
     "Children": [
@@ -161,12 +157,11 @@
         "Name": "Model",
         "Scale": "0.2,0.2,0.2",
         "Enabled": true,
+        "NetworkMode": 2,
         "Components": [
           {
             "__type": "ModelRenderer",
             "BodyGroups": 18446744073709551615,
-            "MaterialGroup": null,
-            "MaterialOverride": null,
             "Model": "models/rust_nature/rocks/rock_med_a.vmdl",
             "RenderType": "On",
             "Tint": "0.51628,0.51628,0.51628,1"
@@ -175,8 +170,7 @@
             "__type": "ModelCollider",
             "IsTrigger": false,
             "Model": "models/rust_nature/rocks/rock_med_a.vmdl",
-            "Static": false,
-            "Surface": null
+            "Static": false
           }
         ]
       },
@@ -187,11 +181,11 @@
         "Rotation": "0,0,0.1701432,0.9854193",
         "Scale": "0.2,0.2,0.2",
         "Enabled": true,
+        "NetworkMode": 2,
         "Components": [
           {
             "__type": "ModelRenderer",
             "BodyGroups": 18446744073709551615,
-            "MaterialGroup": null,
             "MaterialOverride": "materials/dev/dev_metal_rough20.vmat",
             "Model": "models/rust_nature/rocks/rock_med_a.vmdl",
             "RenderType": "On",
@@ -201,8 +195,7 @@
             "__type": "ModelCollider",
             "IsTrigger": false,
             "Model": "models/rust_nature/rocks/rock_med_a.vmdl",
-            "Static": false,
-            "Surface": null
+            "Static": false
           }
         ]
       },
@@ -210,14 +203,14 @@
         "Id": "41442b6b-0289-4ddd-8aff-18484e8ddf60",
         "Name": "Low Detail Collider",
         "Enabled": true,
+        "NetworkMode": 2,
         "Components": [
           {
             "__type": "SphereCollider",
             "Center": "0,0,0",
             "IsTrigger": false,
             "Radius": 100,
-            "Static": false,
-            "Surface": null
+            "Static": false
           }
         ]
       },
@@ -227,14 +220,14 @@
         "Position": "5.65887,3.639829,2.644348",
         "Scale": "0.4927797,0.5249159,1.32686",
         "Enabled": true,
+        "NetworkMode": 2,
         "Components": [
           {
             "__type": "SphereCollider",
             "Center": "0,0,0",
             "IsTrigger": false,
             "Radius": 50,
-            "Static": false,
-            "Surface": null
+            "Static": false
           }
         ]
       },
@@ -244,14 +237,14 @@
         "Position": "5.65887,3.639829,-21.62113",
         "Scale": "0.7156748,0.7156748,0.7156748",
         "Enabled": true,
+        "NetworkMode": 2,
         "Components": [
           {
             "__type": "SphereCollider",
             "Center": "0,0,0",
             "IsTrigger": false,
             "Radius": 50,
-            "Static": false,
-            "Surface": null
+            "Static": false
           }
         ]
       }
