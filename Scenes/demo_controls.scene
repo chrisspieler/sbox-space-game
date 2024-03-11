@@ -1,0 +1,110 @@
+{
+  "Id": "85360196-70dd-4d04-8dae-0ba900674227",
+  "GameObjects": [
+    {
+      "Id": "67d2b787-2a84-4a3a-ae00-1d5b4f93c612",
+      "Name": "Skybox",
+      "Tags": "skybox,no_chunk,shift_visible",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/skybox.prefab"
+    },
+    {
+      "Id": "b87068dd-0641-4520-9b60-693a2c96b7b8",
+      "Name": "ambient_light (1)",
+      "Tags": "light_directional,light,no_chunk",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/ambient_light.prefab"
+    },
+    {
+      "Id": "3c2bb005-64ec-48cb-b085-7f9ad0871705",
+      "Name": "Fog Volume",
+      "Position": "0,0,2",
+      "Tags": "no_chunk,shift_visible",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/volumetric_fog.prefab"
+    },
+    {
+      "Id": "77f95e83-e108-403c-9925-d96dee6c1b98",
+      "Name": "ship_camera",
+      "Position": "0,0,2",
+      "Tags": "no_chunk,no_shift",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/ship_camera.prefab"
+    },
+    {
+      "Id": "808efbbf-b794-4d8a-a065-c9851f5b4667",
+      "Name": "ship",
+      "Position": "0,0,81",
+      "Tags": "no_chunk,player,ship,solid",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/ship.prefab"
+    },
+    {
+      "Id": "c003a881-af98-45b4-a51d-a456eccef0e9",
+      "Name": "ice_field",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/ice_field.prefab"
+    },
+    {
+      "Id": "bebd24a2-1490-4f51-ad84-08e4621f96b1",
+      "Name": "Screen UI",
+      "Position": "58.68948,-79.31778,10.28737",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "ScreenPanel",
+          "AutoScreenScale": true,
+          "Opacity": 1,
+          "Scale": 1,
+          "ZIndex": 100
+        }
+      ],
+      "Children": [
+        {
+          "Id": "7aa7e072-d5cb-4229-8a2b-2a8a156c48f8",
+          "Name": "Input Visualizer",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "InputVisualizerPanel"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "demo_controls",
+  "Description": "",
+  "LastSaved": "2024-03-11T11:02:49.2255587-06:00",
+  "__references": []
+}

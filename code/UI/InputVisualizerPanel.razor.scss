@@ -1,0 +1,34 @@
+@import "Styles/main.scss";
+
+InputVisualizerPanel {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	color: white;
+	font-family: 'UAV OSD Sans Mono';
+	font-size: 3vh;
+
+	#keys {
+		position: absolute;
+		bottom: 20%;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	.key {
+		height: 6vh;
+		width: 6vh;
+		border: 2px solid white;
+		border-radius: 5px;
+		margin: 10px;
+
+		&.disabled {
+			color: #FFF5;
+			border-color: #FFF2;
+		}
+
+		&.pressed {
+			background-color: red;
+		}
+	}
+}
