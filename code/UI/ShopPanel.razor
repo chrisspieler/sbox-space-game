@@ -8,18 +8,40 @@
     <div id="mainPanel">
         <div id="leftPanel" class="column">
             <div id="maintenancePanel" class="column">
-                <div class="column button" onmousedown=@(() => _holdingRefuel = true ) onmouseup=@(() => _holdingRefuel = false)>
-                    <FillBar Icon="local_gas_station" FillColor=@Color.Yellow FillPercentGetter=@GetFuelPercent/>
-                    <p>HOLD TO REFUEL</p>
-                    <p class="price">@GetFuelPricePerUnit() CR / UNIT (@GetFuelTopOffPrice() CR TO FILL)</p>
-                </div>
-                <div id="repairButton" class="button column" onclick=@RepairShip>
-                    <div class="center-content">
-                        <div class="icon">security</div>
-                        <p>REPAIR HULL</p>
+                @if ( GetFuelTopOffPrice() > 0)
+                {
+                    <div class="column button" onmousedown=@(() => _holdingRefuel = true ) onmouseup=@(() => _holdingRefuel = false)>
+                        <FillBar Icon="local_gas_station" FillColor=@Color.Yellow FillPercentGetter=@GetFuelPercent/>
+                        <p>HOLD TO REFUEL</p>
+                        <p class="price">@GetFuelPricePerUnit() CR / UNIT (@GetFuelTopOffPrice() CR TO FILL)</p>
                     </div>
-                    <p class="price">@GetRepairPrice() CR</p>
-                </div>
+                }
+                else
+                {
+                    <div class="button center-content disabled">
+                        <div class="icon">local_gas_station</div>
+                        <p>FUEL AT MAXIMUM CAPACITY</p>
+                    </div>
+                }
+                @if ( GetRepairPrice() > 0 )
+                {
+                    <div id="repairButton" class="button column" onclick=@RepairShip>
+                        <div class="center-content">
+                            <div class="icon">security</div>
+                            <p>REPAIR HULL</p>
+                        </div>
+                        <p class="price">@GetRepairPrice() CR</p>
+                    </div>
+                }
+                else
+                {
+                    <div id="repairButton" class="button column disabled">
+                        <div class="center-content">
+                            <div class="icon">security</div>
+                            <p>HULL AT FULL INTEGRITY</p>
+                        </div>
+                    </div>
+                }
             </div>
             <div id="sellPanel" class="column">
                 <div id="sellTitle" class="center-content header">SELL MINERALS</div>
