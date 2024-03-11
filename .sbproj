@@ -58,23 +58,6 @@
           "GroupName": "Movement"
         },
         {
-          "Name": "Run",
-          "KeyboardCode": "shift",
-          "GamepadCode": "LeftJoystickButton",
-          "GroupName": "Movement"
-        },
-        {
-          "Name": "Walk",
-          "KeyboardCode": "alt",
-          "GroupName": "Movement"
-        },
-        {
-          "Name": "Duck",
-          "KeyboardCode": "ctrl",
-          "GamepadCode": "B",
-          "GroupName": "Movement"
-        },
-        {
           "Name": "fire",
           "KeyboardCode": "mouse1",
           "GamepadCode": "RightTrigger",
@@ -201,6 +184,11 @@
           "Name": "Chat",
           "KeyboardCode": "enter",
           "GroupName": "Other"
+        },
+        {
+          "Name": "Tank_Toggle",
+          "KeyboardCode": "SHIFT",
+          "GroupName": "Actions"
         }
       ]
     },

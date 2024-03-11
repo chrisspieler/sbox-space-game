@@ -4,6 +4,9 @@ using System.Linq;
 
 public sealed partial class ShipController : Component
 {
+	[ConVar( "ship_tank_controls_default" )]
+	public static bool DefaultToTankControls { get; set; } = false;
+
 	[ConVar( "ship_spawn_invincibility_time" )]
 	public static float SpawnInvincibilitySeconds { get; set; } = 1f;
 	[Property] public Rigidbody Rigidbody { get; set; }
@@ -43,7 +46,11 @@ public sealed partial class ShipController : Component
 	[Property, Category("Debug")] public Vector3 RetrorocketForce => _retrorocketForce;
 	private Vector3 _retrorocketForce;
 
-	public Rotation TargetRotation { get; private set; }
+	[Property] public Rotation TargetRotation => _targetRotation;
+	private Rotation _targetRotation;
+
+	[Property] public bool UseTankControls => _useTankControls;
+	private bool _useTankControls;
 
 	public static ShipController Instance { get; private set; }
 	public static ShipController GetCurrent()
@@ -62,7 +69,8 @@ public sealed partial class ShipController : Component
 	protected override void OnStart()
 	{
 		Instance = this;
-		FacingDirection = PartsContainer.Transform.Rotation.Forward.WithZ( 0f );
+		_targetRotation = PartsContainer.Transform.Rotation;
+		_useTankControls = DefaultToTankControls;
 		ResetUI();
 		ResetCamera();
 		SetFogFollowTarget();
@@ -117,15 +125,11 @@ public sealed partial class ShipController : Component
 		if ( Scene.TimeScale == 0f )
 			return;
 
-		var inputDir = Input.AnalogMove;
-		if ( !inputDir.IsNearZeroLength )
-		{
-			FacingDirection = GetLastKeyboardDirection();
-		}
 		UpdateWeapons();
 		UpdateThrusters();
-		TargetRotation = GetTargetRotation();
-		Rigidbody.PhysicsBody.SmoothRotate( TargetRotation, 1f / TurnSpeed, Time.Delta );
+		UpdateTankControlsToggle();
+		_targetRotation = GetTargetRotation();
+		Rigidbody.PhysicsBody.SmoothRotate( _targetRotation, 1f / TurnSpeed, Time.Delta );
 		PartsContainer.Transform.Rotation = Rigidbody.PhysicsBody.Rotation;
 		UpdateDebugInfo();
 	}
@@ -198,8 +202,30 @@ public sealed partial class ShipController : Component
 
 	public bool IsAlive => Hull.IsValid() && Hull.CurrentHealth > 0f;
 
+	private void UpdateTankControlsToggle()
+	{
+		_useTankControls = DefaultToTankControls
+			? !Input.Down( "tank_toggle" )
+			: Input.Down( "tank_toggle" );
+	}
+
 	private Rotation GetTargetRotation()
 	{
-		return Rotation.LookAt( FacingDirection, Vector3.Up );
+		if ( Input.AnalogMove.IsNearlyZero() )
+			return _targetRotation;
+
+		if ( Input.UsingController )
+		{
+			return Rotation.LookAt( Input.AnalogMove, Vector3.Up );
+		}
+
+		if ( _useTankControls )
+		{
+			return TargetRotation * Rotation.FromYaw( 90f * Time.Delta * Input.AnalogMove.y * TurnSpeed * 2f );
+		}
+		else
+		{
+			return Rotation.LookAt( GetLastKeyboardDirection(), Vector3.Up );
+		}
 	}
 }
