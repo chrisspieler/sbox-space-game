@@ -14,6 +14,7 @@ public sealed class SpaceFloater : Component
 	[Property] public bool RandomizeAngularVelocity { get; set; } = true;
 	[Property] public float RandomAngularVelocityScale { get; set; } = 0.5f;
 	[Property] public Vector3 InitialAngularVelocity { get; set; }
+	[Property] public bool LockToPlane { get; set; } = true;
 
 	protected override void OnStart()
 	{
@@ -35,6 +36,14 @@ public sealed class SpaceFloater : Component
 		Rigidbody.PhysicsBody.Mass = MassOverride * Transform.Scale.Length;
 
 		SetVelocity();
+	}
+
+	protected override void OnFixedUpdate()
+	{
+		if ( LockToPlane && Transform.Position.z != 0f )
+		{
+			Transform.Position = Transform.Position.WithZ( 0f );
+		}
 	}
 
 	private void SetVelocity()
