@@ -105,7 +105,7 @@ public sealed class ScreenShake : Component, IOffsetSource
 	{
 		var pitch = PitchShakeIntensity * Noise.Perlin( Time.Now * PitchShakeSpeed );
 		var yaw = YawShakeIntensity * Noise.Perlin( (Time.Now + 1) * YawShakeSpeed );
-		var roll = RollShakeIntensity * Noise.Perlin( (Time.Now + 1) * RollShakeSpeed );
+		var roll = RollShakeIntensity * Noise.Perlin( (Time.Now + 2) * RollShakeSpeed );
 		return new Angles( pitch, yaw, roll ) * Easing.EaseIn( trauma ) * ScreenShakeScale;
 	}
 }

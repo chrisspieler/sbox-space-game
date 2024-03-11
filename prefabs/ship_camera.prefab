@@ -4,6 +4,7 @@
     "Name": "ship_camera",
     "Tags": "no_chunk,no_shift",
     "Enabled": true,
+    "NetworkMode": 2,
     "Components": [
       {
         "__type": "CameraComponent",
@@ -34,7 +35,6 @@
         "LowPosition": "-350,0,1000",
         "PitchLerpSpeed": 1,
         "PositionLerpSpeed": 1,
-        "Target": null,
         "TargetVelocityHighThreshold": 2500,
         "TargetVelocityLowThreshold": 50
       },
@@ -91,7 +91,6 @@
           "go": "a40bb4ac-020a-41e6-b19c-044056082e27",
           "component_type": "CameraComponent"
         },
-        "ExcludeTags": null,
         "OriginShiftFreezeFrames": 3,
         "RenderTags": "shift_visible"
       },
@@ -101,13 +100,13 @@
         "CombinedTrauma": 0,
         "PitchShakeIntensity": 5,
         "PitchShakeSpeed": 300,
-        "RollShakeIntensity": 8,
-        "RollShakeSpeed": 500,
+        "RollShakeIntensity": 5,
+        "RollShakeSpeed": 300,
         "ShakeToggleCount": 0,
         "Trauma": 0,
         "TraumaDecayRate": 0.75,
-        "YawShakeIntensity": 1.75,
-        "YawShakeSpeed": 100
+        "YawShakeIntensity": 5,
+        "YawShakeSpeed": 300
       },
       {
         "__type": "OffsetCombiner"
@@ -116,7 +115,6 @@
         "__type": "DeathCam",
         "__enabled": false,
         "Distance": 40,
-        "FieldOfView": 90,
         "LookbackDistance": 200,
         "PositionLerpSpeed": {
           "rangey": "0,20",
