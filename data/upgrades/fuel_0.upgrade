@@ -34,7 +34,7 @@
         "DstName": "_signal"
       },
       {
-        "Value": 10,
+        "Value": 25,
         "DstId": 1,
         "DstName": "fuel"
       }

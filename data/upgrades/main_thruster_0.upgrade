@@ -34,7 +34,7 @@
         "DstName": "_signal"
       },
       {
-        "Value": 100,
+        "Value": 150,
         "DstId": 1,
         "DstName": "power"
       }
