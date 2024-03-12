@@ -2,6 +2,7 @@
 @using Sandbox;
 @using Sandbox.UI;
 @inherits Panel
+@attribute [StyleSheet]
 
 <root>
     @foreach ( var glyph in Glyphs.Values.OrderBy( v => v.ActionName ) )

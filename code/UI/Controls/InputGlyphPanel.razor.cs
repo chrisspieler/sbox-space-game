@@ -2,13 +2,12 @@
 using System.Linq;
 using Sandbox.UI;
 
-[StyleSheet()]
-public partial class InputGlyphBar : Panel
+public partial class InputGlyphPanel : Panel
 {
-	public static InputGlyphBar Instance { get; private set; }
+	public static InputGlyphPanel Instance { get; private set; }
 	private Dictionary<string, InputGlyphData> Glyphs { get; set; } = new();
 
-	public InputGlyphBar()
+	public InputGlyphPanel()
 	{
 		Instance = this;
 	}
@@ -16,6 +15,13 @@ public partial class InputGlyphBar : Panel
 	public void AddGlyph( InputGlyphData data )
 	{
 		Glyphs[data.ActionName] = data;
+		DeleteChildren( true );
+		StateHasChanged();
+	}
+
+	public void RemoveGlyph( string actionName )
+	{
+		Glyphs.Remove( actionName );
 		DeleteChildren( true );
 		StateHasChanged();
 	}

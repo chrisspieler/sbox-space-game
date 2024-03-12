@@ -3,9 +3,10 @@
 @inherits PanelComponent
 
 <root>
-	<FloatingPanel style="transform: rotate(@CurrentRotation) scale(@CurrentScale);" Target=@Target>
+	<FloatingPanel Target=@Target>
         <Body>
-            <img style="background-image: url(@Image);"/>
+            <InputGlyphPanel @ref=GlyphPanel/>
+            <img style="background-image: url(@Image); transform: translate(-50%, -50%) rotate(@CurrentRotation) scale(@CurrentScale);" />
         </Body>
     </FloatingPanel>
 </root>
@@ -35,6 +36,7 @@
     }
     private GameObject _target;
 
+    public InputGlyphPanel GlyphPanel { get; set; } 
     private float CurrentRotation { get; set; }
     private float CurrentScale { get; set; } = 1f;
     private FloatingPanel Content { get; set; }
@@ -47,5 +49,15 @@
     protected override void OnUpdate()
     {
         CurrentRotation += Time.Delta * RotationSpeed;
+    }
+
+    public void AddGlyph( InputGlyphData data )
+    {
+        GlyphPanel?.AddGlyph( data );
+    }
+
+    public void RemoveGlyph( string actionName)
+    {
+        GlyphPanel?.RemoveGlyph( actionName );
     }
 }

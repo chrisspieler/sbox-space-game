@@ -58,6 +58,18 @@ public sealed class ScreenManager : Component
 		return panel?.Target;
 	}
 
+	public static void AddSelectionGlyph( InputGlyphData glyphData )
+	{
+		SelectionPanel panel = Instance.HoveredSelectionPanel as SelectionPanel;
+		panel.AddGlyph( glyphData );
+	}
+
+	public static void RemoveSelectionGlyph( string actionName )
+	{
+		SelectionPanel panel = Instance.HoveredSelectionPanel as SelectionPanel;
+		panel.RemoveGlyph( actionName );
+	}
+
 	public static void SetHoveredSelection( GameObject selection )
 	{
 		SelectionPanel panel = Instance.HoveredSelectionPanel as SelectionPanel;

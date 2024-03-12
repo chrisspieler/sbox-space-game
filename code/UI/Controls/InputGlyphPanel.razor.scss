@@ -1,5 +1,5 @@
-﻿﻿InputGlyphBar {
-    flex-direction: row;
+﻿InputGlyphPanel {
+    flex-direction: column;
     justify-content: center;
 
     InputGlyphControl {
@@ -10,16 +10,14 @@
 
         image {
             width: contain;
-            width: 32px;
-            height: 32px;
+            width: 2vh;
+            height: 2vh;
             margin-right: 10px;
             margin-left: 20px;
         }
 
         h2 {
-            font-size: 28px;
-            font-family: Poppins;
-            color: white;
+            font-size: 1vh;
         }
     }
 }

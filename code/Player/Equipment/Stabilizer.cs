@@ -1,4 +1,5 @@
 using Sandbox;
+using System;
 
 public sealed class Stabilizer : Component
 {
@@ -38,6 +39,9 @@ public sealed class Stabilizer : Component
 
 	protected override void OnUpdate()
 	{
+		if ( Scene.TimeScale <= 0 )
+			return;
+
 		UpdateSelectionUI();
 
 		// It's not reasonable to try to match velocity with something that's off-screen.
@@ -70,7 +74,9 @@ public sealed class Stabilizer : Component
 
 	private void UpdateSelectionUI()
 	{
-		var selection = CanMatchTarget( _hoveredRigidbody )
+		var canMatch = CanMatchTarget( _hoveredRigidbody );
+
+		var selection = canMatch
 			? _hoveredRigidbody.GameObject
 			: VelocityMatchTarget?.GameObject;
 		ScreenManager.SetHoveredSelection( selection );
@@ -95,23 +101,23 @@ public sealed class Stabilizer : Component
 		var canMatchHovered = CanMatchTarget( _hoveredRigidbody );
 		// There's no reason to draw any text if we can't cancel or start matching velocity.
 		if ( !VelocityMatchTarget.IsValid() && !canMatchHovered )
-			return;
-
-		// TODO: Replace this with proper glyphs in the UI.
-		using ( Gizmo.Scope( "Glyph Placeholder" ) )
 		{
-			Gizmo.Draw.Color = Color.Yellow;
-
-			var position = _hoveredRigidbody?.Transform?.Position
-				?? VelocityMatchTarget?.Transform?.Position
-				?? Vector3.Zero;
-
-			var message = (CanMatchTarget( _hoveredRigidbody ) && _hoveredRigidbody != VelocityMatchTarget)
-				? "Press R to Match Velocity"
-				: "Press R to Stop Matching Velocity";
-
-			Gizmo.Draw.ScreenText( message, Scene.Camera.PointToScreenPixels( position ), "Consolas" );
+			ScreenManager.RemoveSelectionGlyph( "stabilizer" );
+			return;
 		}
+
+		var displayText = canMatchHovered && VelocityMatchTarget != _hoveredRigidbody
+			? "Match Velocity"
+			: "Stop Matching Velocity";
+		var glyphData = new InputGlyphData()
+		{
+			ActionName = "stabilizer",
+			DisplayText = canMatchHovered
+				? "Match Velocity"
+				: "Stop Matching Velocity",
+			RemovalPredicate = () => !Enabled || !IsValid
+		};
+		ScreenManager.AddSelectionGlyph( glyphData );
 	}
 
 	public Vector3 GetStabilizerForce()
