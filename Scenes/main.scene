@@ -7,6 +7,7 @@
       "Position": "200,0,0.0003515341",
       "Tags": "no_chunk",
       "Enabled": true,
+      "NetworkMode": 2,
       "__Prefab": "prefabs/main_ui.prefab"
     },
     {
@@ -14,6 +15,7 @@
       "Name": "Camera (1)",
       "Tags": "no_chunk,no_shift",
       "Enabled": true,
+      "NetworkMode": 2,
       "__Prefab": "prefabs/ship_camera.prefab"
     },
     {
@@ -23,6 +25,7 @@
       "Rotation": "-0.08349869,0.06517375,0.005472793,0.9943593",
       "Tags": "skybox,no_chunk,shift_visible",
       "Enabled": true,
+      "NetworkMode": 2,
       "__Prefab": "prefabs/skybox.prefab"
     },
     {
@@ -31,6 +34,7 @@
       "Position": "2500,3200,0.00006103516",
       "Tags": "no_chunk,shift_visible",
       "Enabled": true,
+      "NetworkMode": 2,
       "__Prefab": "prefabs/volumetric_fog.prefab"
     },
     {
@@ -39,6 +43,7 @@
       "Position": "-200,0,0.0003515341",
       "Tags": "light_directional,light,no_chunk",
       "Enabled": true,
+      "NetworkMode": 2,
       "__Prefab": "prefabs/ambient_light.prefab"
     },
     {
@@ -47,6 +52,7 @@
       "Position": "100,0,0",
       "Tags": "no_chunk",
       "Enabled": true,
+      "NetworkMode": 2,
       "Components": [
         {
           "__type": "StartActionComponent",
@@ -145,6 +151,7 @@
           "Name": "Debug",
           "Position": "0,0,0.0003515341",
           "Enabled": true,
+          "NetworkMode": 2,
           "Components": [
             {
               "__type": "GizmoDrawComponent"
@@ -160,6 +167,7 @@
       "Scale": "20,20,20",
       "Tags": "no_chunk",
       "Enabled": true,
+      "NetworkMode": 2,
       "Components": [
         {
           "__type": "ModelRenderer",
@@ -185,6 +193,7 @@
           "Rotation": "0,0,0.7071068,0.7071068",
           "Scale": "0.05,0.05,0.05",
           "Enabled": true,
+          "NetworkMode": 2,
           "Components": [
             {
               "__type": "SpawnPoint",
@@ -199,6 +208,7 @@
           "Scale": "2,2,2",
           "Tags": "player_allow,shield",
           "Enabled": true,
+          "NetworkMode": 2,
           "Components": [
             {
               "__type": "Shield",
@@ -251,6 +261,7 @@
           "Scale": "0.4,0.4,0.4",
           "Tags": "light_point,light",
           "Enabled": true,
+          "NetworkMode": 2,
           "Components": [
             {
               "__type": "PointLight",
@@ -270,6 +281,7 @@
           "Scale": "0.4,0.4,0.4",
           "Tags": "light_point,light",
           "Enabled": true,
+          "NetworkMode": 2,
           "Components": [
             {
               "__type": "PointLight",
@@ -289,6 +301,7 @@
           "Scale": "0.4,0.4,0.03312262",
           "Tags": "solid",
           "Enabled": true,
+          "NetworkMode": 2,
           "Components": [
             {
               "__type": "ModelRenderer",
@@ -335,7 +348,8 @@
               "Name": "Player Ejector",
               "Position": "0.0002441406,47.25272,-250",
               "Rotation": "0,0,0.7071068,0.7071068",
-              "Enabled": true
+              "Enabled": true,
+              "NetworkMode": 2
             }
           ]
         },
@@ -345,6 +359,7 @@
           "Position": "25.4,35,25.4",
           "Rotation": "0,0.7071068,0,0.7071068",
           "Enabled": true,
+          "NetworkMode": 2,
           "Components": [
             {
               "__type": "TextRenderer",
@@ -352,7 +367,7 @@
               "FontFamily": "Zeroes 1",
               "FontSize": 62.47,
               "Scale": 0.05,
-              "Text": "Tap WASD: change direction\nSpace: Thrusters\nLeft-Click: Fire Mining Lasers"
+              "Text": "Tap WASD: change direction\nSpace: Thrusters\nLeft-Click: Fire Mining Lasers\nHOLD SHIFT: Toggle turning mode"
             }
           ]
         },
@@ -363,6 +378,7 @@
           "Rotation": "0,0.7071068,0,0.7071068",
           "Scale": "0.05,0.05,0.05",
           "Enabled": true,
+          "NetworkMode": 2,
           "Components": [
             {
               "__type": "TextRenderer",
@@ -400,7 +416,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-10T19:48:32.7898574-06:00",
+  "LastSaved": "2024-03-11T20:12:31.2030294-06:00",
   "__references": [
     "eurorp.aluminium_03",
     "stardrive.rope_barrier_a"
