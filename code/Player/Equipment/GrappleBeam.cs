@@ -73,12 +73,6 @@ public sealed class GrappleBeam : Component
 			Sound.Play( AttachSound, Transform.Position );
 		}
 
-		if ( target.Components.TryGet<Rigidbody>( out var rb, FindMode.EnabledInSelfAndDescendants ) )
-		{
-			var shipRb = Joint.Components.Get<Rigidbody>();
-			Log.Info( $"ship mass: {shipRb.PhysicsBody.Mass}, target mass: {rb.PhysicsBody.Mass}" );
-		}
-
 		_currentTarget = target;
 		Joint.Body = _currentTarget;
 		Joint.MinLength = 0f;
