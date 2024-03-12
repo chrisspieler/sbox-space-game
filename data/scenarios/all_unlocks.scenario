@@ -10,9 +10,10 @@
     "data/upgrades/stabilizer_0.upgrade",
     "data/upgrades/turn_speed_0.upgrade",
     "data/upgrades/laser_2.upgrade",
-    "data/upgrades/shield_0.upgrade"
+    "data/upgrades/shield_0.upgrade",
+    "data/upgrades/grapple_hook.upgrade"
   ],
-  "Hidden": true,
   "World": "data/world/default.world",
+  "Hidden": true,
   "__references": []
 }

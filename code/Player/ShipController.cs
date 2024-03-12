@@ -134,6 +134,15 @@ public sealed partial class ShipController : Component
 		UpdateDebugInfo();
 	}
 
+	protected override void OnFixedUpdate()
+	{
+		if ( Rigidbody is not null )
+		{
+			// Work around the ship gaining insane amounts of mass after its shield is struck.
+			Rigidbody.PhysicsBody.Mass = Rigidbody.MassOverride;
+		}
+	}
+
 	private void UpdateWeapons()
 	{
 		if ( ActiveWeapon is null )

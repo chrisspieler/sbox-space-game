@@ -6,6 +6,7 @@ public sealed class GrappleBeam : Component
 	[Property] public TagSet FilterWithAny { get; set; }
 	[Property] public ParticleSystem BeamAsset { get; set; }
 	[Property] public LegacyParticleSystem Particles { get; set; }
+	[Property] public SoundEvent AttachSound { get; set; }
 	[Property] public GameObject CurrentTarget => _currentTarget;
 
 	public bool IsSlack
@@ -31,15 +32,26 @@ public sealed class GrappleBeam : Component
 		}
 		if ( Input.Pressed( "grapple" ) )
 		{
+			var oldTarget = CurrentTarget;
 			if ( CurrentTarget is not null )
+			{
 				Disconnect();
+			}
 
 			var mouseSelector = MouseSelector.Instance;
-			if ( mouseSelector.Hovered?.Tags?.Has( "solid" ) != true )
+			if ( mouseSelector.Hovered?.Tags?.Has( "target" ) != true )
+				return;
+
+			if ( oldTarget == mouseSelector.Hovered )
 				return;
 
 			Connect( mouseSelector.Hovered );
 		}
+	}
+
+	protected override void OnDestroy()
+	{
+		Disconnect();
 	}
 
 	private void Disconnect()
@@ -56,11 +68,22 @@ public sealed class GrappleBeam : Component
 		if ( !target.IsValid() || !target.Tags.HasAny( FilterWithAny ) )
 			return;
 
+		if ( AttachSound is not null )
+		{
+			Sound.Play( AttachSound, Transform.Position );
+		}
+
+		if ( target.Components.TryGet<Rigidbody>( out var rb, FindMode.EnabledInSelfAndDescendants ) )
+		{
+			var shipRb = Joint.Components.Get<Rigidbody>();
+			Log.Info( $"ship mass: {shipRb.PhysicsBody.Mass}, target mass: {rb.PhysicsBody.Mass}" );
+		}
+
 		_currentTarget = target;
 		Joint.Body = _currentTarget;
 		Joint.MinLength = 0f;
 		// Don't ask me why I scale by damping. I don't know why I do anything.
-		Joint.MaxLength = Transform.Position.Distance( target.Transform.Position ) * (1f - Joint.Damping);
+		Joint.MaxLength = Transform.Position.Distance( target.Transform.Position );
 		Joint.Enabled = true;
 		CreateParticleRope();
 		CreateLight();

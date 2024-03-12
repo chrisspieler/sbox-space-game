@@ -5,7 +5,7 @@ using System.Linq;
 public partial class ShipController
 {
 	[Property, Category( "Equipment" )]
-	public Health Hull 
+	public Health Hull
 	{
 		get => _hull;
 		set
@@ -57,7 +57,7 @@ public partial class ShipController
 	private void ApplyAllUpgrades()
 	{
 		var allUpgrades = ResourceLibrary.GetAll<Upgrade>();
-		foreach( var upgradeResName in Career.Active.Upgrades )
+		foreach ( var upgradeResName in Career.Active.Upgrades )
 		{
 			var upgrade = allUpgrades.FirstOrDefault( u => u.ResourceName == upgradeResName );
 			if ( upgrade is null )
@@ -69,8 +69,8 @@ public partial class ShipController
 		}
 	}
 
-	[ActionGraphNode("ship.equipment.cargo.capacity.add")]
-	[Title("Add Cargo Capacity"), Group("Ship/Cargo")]
+	[ActionGraphNode( "ship.equipment.cargo.capacity.add" )]
+	[Title( "Add Cargo Capacity" ), Group( "Ship/Cargo" )]
 	public static void AddCargoCapacity( int slots )
 	{
 		var ship = GetCurrent();
@@ -103,8 +103,8 @@ public partial class ShipController
 		ship.Fuel.CurrentAmount += fuel;
 	}
 
-	[ActionGraphNode( "ship.equipment.thrusters.main.power.add")]
-	[Title( "Add Main Thruster Power"), Group( "Ship/Thrusters")]
+	[ActionGraphNode( "ship.equipment.thrusters.main.power.add" )]
+	[Title( "Add Main Thruster Power" ), Group( "Ship/Thrusters" )]
 	public static void AddMainThrusterPower( float power )
 	{
 		var ship = GetCurrent();
@@ -114,8 +114,8 @@ public partial class ShipController
 		ship.MainThrusters.Power += power;
 	}
 
-	[ActionGraphNode( "ship.equipment.thrusters.retro.power.add")]
-	[Title( "Add Retrorocket Power" ), Group( "Ship/Thrusters")]
+	[ActionGraphNode( "ship.equipment.thrusters.retro.power.add" )]
+	[Title( "Add Retrorocket Power" ), Group( "Ship/Thrusters" )]
 	public static void AddRetrorocketPower( float power )
 	{
 		var ship = GetCurrent();
@@ -160,5 +160,16 @@ public partial class ShipController
 		ship.Shield.CurrentHealth += Math.Max( 0f, addHealth );
 		ship.Shield.RegenDelay += offsetDelay;
 		ship.Shield.RegenRate += offsetRegenRate;
+	}
+
+	[ActionGraphNode( "ship.equipment.grapple.add" )]
+	[Title( "Add Grapple" ), Group( "Ship/Grapple" )]
+	public static void AddGrapple()
+	{
+		var ship = GetCurrent();
+		if ( ship is null )
+			return;
+
+		ship.Grapple.Enabled = true;
 	}
 }
