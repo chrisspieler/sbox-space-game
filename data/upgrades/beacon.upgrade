@@ -1,0 +1,11 @@
+{
+  "Name": "Beacon",
+  "FlavorText": null,
+  "FunctionText": "Drops a beacon that always appears as a marker on screen.",
+  "Cost": 125,
+  "Thumbnail": null,
+  "PrerequisiteUpgrade": null,
+  "OnApplyUpgrade": null,
+  "Hidden": true,
+  "__references": []
+}

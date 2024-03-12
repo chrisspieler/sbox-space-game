@@ -39,7 +39,12 @@ public partial class Career
 	public bool IsUpgradeAvailable( Upgrade upgrade )
 	{
 		return !HasUpgrade( upgrade ) 
-			&& (upgrade.PrerequisiteUpgrade is null || HasUpgrade( upgrade.PrerequisiteUpgrade ) );
+			&& HasPrerequisites( upgrade ) && ( Upgrade.ShowAllUpgrades || !upgrade.Hidden );
+	}
+
+	private bool HasPrerequisites( Upgrade upgrade )
+	{
+		return upgrade.PrerequisiteUpgrade is null || HasUpgrade( upgrade.PrerequisiteUpgrade );
 	}
 
 	public bool HasMoney() => HasMoney( 1 );
@@ -77,7 +82,7 @@ public partial class Career
 		var ship = ShipController.GetCurrent();
 		if ( ship is not null )
 		{
-			upgrade?.OnApplyUpgrade( ship );
+			upgrade?.OnApplyUpgrade?.Invoke( ship );
 		}
 	}
 

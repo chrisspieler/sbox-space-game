@@ -1,0 +1,11 @@
+{
+  "Name": "Asteroid Radar",
+  "FlavorText": "Move faster with the knowledge that nothing is in front of you.",
+  "FunctionText": "Adds a radar that shows nearby asteroids.",
+  "Cost": 50,
+  "Thumbnail": null,
+  "PrerequisiteUpgrade": null,
+  "OnApplyUpgrade": null,
+  "Hidden": true,
+  "__references": []
+}

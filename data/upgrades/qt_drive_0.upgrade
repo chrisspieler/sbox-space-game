@@ -1,0 +1,11 @@
+{
+  "Name": "Quantum Translation Drive",
+  "FlavorText": "Fudge the dice rolls that determine your ship\u0027s position.",
+  "FunctionText": "While holding MOUSE3, press WASD to change your ship\u0027s position.",
+  "Cost": 500,
+  "Thumbnail": null,
+  "PrerequisiteUpgrade": null,
+  "OnApplyUpgrade": null,
+  "Hidden": true,
+  "__references": []
+}

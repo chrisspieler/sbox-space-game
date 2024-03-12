@@ -75,7 +75,7 @@
           "GroupName": "Actions"
         },
         {
-          "Name": "use",
+          "Name": "tractor",
           "KeyboardCode": "e",
           "GamepadCode": "Y",
           "GroupName": "Actions"
@@ -187,6 +187,11 @@
         {
           "Name": "Tank_Toggle",
           "KeyboardCode": "SHIFT",
+          "GroupName": "Actions"
+        },
+        {
+          "Name": "qt_drive",
+          "KeyboardCode": "MOUSE3",
           "GroupName": "Actions"
         }
       ]

@@ -1,0 +1,11 @@
+{
+  "Name": "Tractor Beam",
+  "FlavorText": "",
+  "FunctionText": "Hold E to pull items in to your cargo hold.",
+  "Cost": 150,
+  "Thumbnail": null,
+  "PrerequisiteUpgrade": null,
+  "OnApplyUpgrade": null,
+  "Hidden": true,
+  "__references": []
+}

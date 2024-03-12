@@ -1,0 +1,11 @@
+{
+  "Name": "Gatling Laser",
+  "FlavorText": null,
+  "FunctionText": null,
+  "Cost": 750,
+  "Thumbnail": null,
+  "PrerequisiteUpgrade": null,
+  "OnApplyUpgrade": null,
+  "Hidden": true,
+  "__references": []
+}

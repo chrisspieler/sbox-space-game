@@ -1,0 +1,11 @@
+{
+  "Name": "Hostile Radar",
+  "FlavorText": "",
+  "FunctionText": "Display nearby hostile entities on the radar.",
+  "Cost": 100,
+  "Thumbnail": null,
+  "PrerequisiteUpgrade": "data/upgrades/radar_0.upgrade",
+  "OnApplyUpgrade": null,
+  "Hidden": true,
+  "__references": []
+}

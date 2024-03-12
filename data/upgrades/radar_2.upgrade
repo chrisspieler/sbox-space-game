@@ -1,0 +1,11 @@
+{
+  "Name": "Asteroid Scanner",
+  "FlavorText": "Due to their high metallic content, M-Type asteroids yield the most value cargo.",
+  "FunctionText": "Asteroids displayed on radar have different colors based on their type.",
+  "Cost": 150,
+  "Thumbnail": null,
+  "PrerequisiteUpgrade": "data/upgrades/radar_1.upgrade",
+  "OnApplyUpgrade": null,
+  "Hidden": true,
+  "__references": []
+}

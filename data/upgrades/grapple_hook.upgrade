@@ -1,0 +1,11 @@
+{
+  "Name": "Grapple Hook",
+  "FlavorText": "Don\u0027t get too attached!",
+  "FunctionText": "Press RMB to attach your ship to the highlighted object.",
+  "Cost": 300,
+  "Thumbnail": null,
+  "PrerequisiteUpgrade": null,
+  "OnApplyUpgrade": null,
+  "Hidden": true,
+  "__references": []
+}

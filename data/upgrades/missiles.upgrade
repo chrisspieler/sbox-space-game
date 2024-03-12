@@ -1,0 +1,11 @@
+{
+  "Name": "Missile Launcher",
+  "FlavorText": null,
+  "FunctionText": null,
+  "Cost": 225,
+  "Thumbnail": null,
+  "PrerequisiteUpgrade": null,
+  "OnApplyUpgrade": null,
+  "Hidden": true,
+  "__references": []
+}

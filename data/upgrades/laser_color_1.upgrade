@@ -1,0 +1,11 @@
+{
+  "Name": "Laser Color Gradient",
+  "FlavorText": null,
+  "FunctionText": "The color of your mining laser cycles through a gradient.",
+  "Cost": 75,
+  "Thumbnail": null,
+  "PrerequisiteUpgrade": "data/upgrades/laser_color_0.upgrade",
+  "OnApplyUpgrade": null,
+  "Hidden": true,
+  "__references": []
+}
