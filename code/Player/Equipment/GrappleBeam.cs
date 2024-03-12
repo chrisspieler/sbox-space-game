@@ -26,32 +26,60 @@ public sealed class GrappleBeam : Component
 
 	protected override void OnUpdate()
 	{
+		if ( !CurrentTarget.IsValid() )
+		{
+			Disconnect();
+		}
 		if ( _light.IsValid() && CurrentTarget.IsValid() )
 		{
 			_light.Position = Joint.Transform.Position.LerpTo( _currentTarget.Transform.Position, 0.5f );
 		}
+		var mouseSelector = MouseSelector.Instance;
+		var isHoveringValidTarget = mouseSelector.Hovered?.Tags?.Has( "target" ) == true;
+		var oldTarget = CurrentTarget;
+		var isHoveringOldTarget = oldTarget == mouseSelector.Hovered;
+		UpdateSelectionUI( isHoveringValidTarget, isHoveringOldTarget );
+
 		if ( Input.Pressed( "grapple" ) )
 		{
-			var oldTarget = CurrentTarget;
 			if ( CurrentTarget is not null )
 			{
 				Disconnect();
 			}
 
-			var mouseSelector = MouseSelector.Instance;
-			if ( mouseSelector.Hovered?.Tags?.Has( "target" ) != true )
+			if ( !isHoveringValidTarget )
 				return;
 
-			if ( oldTarget == mouseSelector.Hovered )
-				return;
-
-			Connect( mouseSelector.Hovered );
+			// Don't instantly reconnect to the target we disconnected from.
+			if ( !isHoveringOldTarget )
+			{
+				Connect( mouseSelector.Hovered );
+			}
 		}
 	}
 
 	protected override void OnDestroy()
 	{
 		Disconnect();
+	}
+
+	private void UpdateSelectionUI( bool isHoveringValid, bool isHoveringOld )
+	{
+		if ( CurrentTarget is null && !isHoveringValid )
+		{
+			ScreenManager.RemoveSelectionGlyph( "grapple" );
+			return;
+		}
+
+		var glyphData = new InputGlyphData()
+		{
+			ActionName = "grapple",
+			DisplayText = isHoveringOld
+				? "Disconnect Grapple Beam"
+				: "Grapple Beam",
+			RemovalPredicate = () => !Enabled || !IsValid
+		};
+		ScreenManager.AddSelectionGlyph( glyphData );
 	}
 
 	private void Disconnect()
