@@ -83,6 +83,14 @@ public sealed partial class WorldChunker : GameObjectSystem
 	}
 
 	/// <summary>
+	/// Returns the absolute position of the given chunk.
+	/// </summary>
+	public Vector3 ChunkToWorldAbsolute( Vector2Int chunk )
+	{
+		return ChunkToWorldRelative( chunk ).ToAbsolutePosition();
+	}
+
+	/// <summary>
 	/// Returns the origin-shifted position of the center of the given chunk.
 	/// </summary>
 	public Vector3 ChunkCenterToWorldRelative( Vector2Int chunk )

@@ -87,6 +87,11 @@ public sealed partial class WorldChunker : GameObjectSystem
 		var oldPos = chunk.Transform.Position;
 		chunk.Parent = ChunkContainer;
 		chunk.Transform.Position = oldPos;
+		// For some reason, chunks outside the starting area don't fit to the grid, instead
+		// overlapping each other like roof tiles. Moving the chunks after they spawn seems
+		// to fix this absurd issue, and I don't know why.
+		var mover = chunk.Components.Create<MoveOnSpawn>();
+		mover.AbsolutePosition = ChunkToWorldAbsolute( chunkPos );
 		_worldChunks[chunkPos] = chunk;
 		_chunkOrder.Add( chunkPos );
 		if ( Debug ) Log.Info( $"Loaded chunk {chunkPos} at relative position {chunk.Transform.Position}" );
