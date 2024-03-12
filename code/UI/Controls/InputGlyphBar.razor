@@ -1,0 +1,11 @@
+﻿﻿@using System.Linq;
+@using Sandbox;
+@using Sandbox.UI;
+@inherits Panel
+
+<root>
+    @foreach ( var glyph in Glyphs.Values.OrderBy( v => v.ActionName ) )
+    {
+        <InputGlyphControl GlyphData=@glyph/>
+    }
+</root>

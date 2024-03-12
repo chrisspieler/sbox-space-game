@@ -1,0 +1,25 @@
+﻿﻿InputGlyphBar {
+    flex-direction: row;
+    justify-content: center;
+
+    InputGlyphControl {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
+
+        image {
+            width: contain;
+            width: 32px;
+            height: 32px;
+            margin-right: 10px;
+            margin-left: 20px;
+        }
+
+        h2 {
+            font-size: 28px;
+            font-family: Poppins;
+            color: white;
+        }
+    }
+}
