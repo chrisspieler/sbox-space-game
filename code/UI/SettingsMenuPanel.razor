@@ -9,6 +9,15 @@
     </div>
 	<div id="mainArea" class="column">
         <div class="category column">
+            <div class="header">CONTROLS</div>
+            <div class="body column center-content">
+                <div class="setting">
+                    <div class="label">CONTROL STYLE</div>
+                    <div class="button" onclick=@(() => ControlStyleMenu.Enabled = true )>@(ShipController.DefaultToTankControls ? "TANK CONTROLS" : "TAP TO TURN")</div>
+                </div>
+            </div>
+        </div>
+        <div class="category column">
             <div class="header">VISUALS</div>
             <div class="body column center-content">
                 <div class="setting">
@@ -59,6 +68,7 @@
 @code
 {
     [Property] public PanelComponent ReturnMenu { get; set; }
+    [Property] public PanelComponent ControlStyleMenu { get; set; }
 
     protected override int BuildHash() => System.HashCode.Combine( ScreenShake.ScreenShakeScale, LaserBeam.BrightnessScale, FogController.IntensityScale, PostProcessingController.BloomIntensity, _showModal );
 
@@ -71,8 +81,9 @@
     {
         base.OnUpdate();
 
-        if ( Input.EscapePressed )
+        if ( Input.EscapePressed && !ControlStyleMenu.Enabled )
         {
+            _showModal = false;
             Back();
         }
     }

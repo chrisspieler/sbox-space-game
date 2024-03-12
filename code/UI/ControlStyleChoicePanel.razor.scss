@@ -1,0 +1,90 @@
+@import "Styles/main.scss";
+
+ControlStyleChoicePanel {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: #000A;
+	backdrop-filter: blur(15px);
+	pointer-events: all;
+	color: white;
+	font-size: 2vh;
+	font-family: 'UAV OSD Sans Mono';
+	z-index: 100;
+
+	.title {
+		font-size: 3.5vh;
+		padding: 5vh;
+		background-color: #000E;
+		border-bottom: 2px solid #000000ff;
+	}
+
+	#buttonPanel {
+		justify-content: space-around;
+		align-items: center;
+		flex-grow: 1;
+
+		.video {
+			width: 30vw;
+			height: 60vh;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-content: center;
+			border: 5px solid transparent;
+
+			&.selected {
+				border: 5px solid #FFF5;
+			}
+
+			&:hover {
+				filter: brightness(2);
+			}
+
+			&:active {
+				transform: scale( 0.98 );
+			}
+
+			VideoPanel {
+				height: 100%;
+				width: 100%;
+				background-position: center;
+				background-size: 1280px 720px;
+			}
+
+			h3 {
+				position: absolute;
+				top: 10%;
+				width: 100%;
+				justify-content: center;
+				font-size: 2.5vh;
+			}
+		}
+	}
+	/*	#tapStyleButton {
+		background-image: url("ui/videos/TapControls.mp4");
+		background-position: center;
+		background-size: 1920px 1080px;
+	}
+
+	#tankStyleButton {
+		background-image: url("ui/videos/TankControls.mp4");
+		background-position: center;
+		background-size: 1920px 1080px;
+	}*/
+
+	#infoText {
+		width: 100%;
+		color: yellow;
+	}
+
+	#bottomBar {
+		justify-content: flex-end;
+		padding: 25px;
+
+		.button {
+			font-size: 2vh;
+			height: 4vw;
+			width: 12vw;
+		}
+	}
+}

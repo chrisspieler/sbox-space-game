@@ -11,6 +11,8 @@ public class Settings
 	public float ScreenShakeScale { get; set; }
 	public float LaserBrightnessScale { get; set; }
 	public float FogThicknessScale { get; set; }
+	public bool HasChosenTankControls { get; set; }
+	public bool UseTankControls { get; set; }
 
 	public static void LoadAndApply()
 	{
@@ -35,7 +37,9 @@ public class Settings
 			ScreenShakeScale = ScreenShake.ScreenShakeScale,
 			LaserBrightnessScale = LaserBeam.BrightnessScale,
 			FogThicknessScale = FogController.IntensityScale,
-			BloomIntensity = PostProcessingController.BloomIntensity
+			BloomIntensity = PostProcessingController.BloomIntensity,
+			UseTankControls = ShipController.DefaultToTankControls,
+			HasChosenTankControls = ControlStyleChoicePanel.HasChosenTankControls
 		};
 	}
 
@@ -45,6 +49,8 @@ public class Settings
 		LaserBeam.BrightnessScale = settings.LaserBrightnessScale;
 		FogController.IntensityScale = settings.FogThicknessScale;
 		PostProcessingController.BloomIntensity = settings.BloomIntensity;
+		ShipController.DefaultToTankControls = settings.UseTankControls;
+		ControlStyleChoicePanel.HasChosenTankControls = settings.HasChosenTankControls;
 	}
 
 	public static void SaveToDisk()

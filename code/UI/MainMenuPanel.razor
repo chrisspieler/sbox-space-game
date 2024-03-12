@@ -34,6 +34,7 @@
     [Property] public Scenario DefaultScenario { get; set; }
     [Property] public PanelComponent SettingsMenu { get; set; }
     [Property] public PanelComponent CreditsMenu { get; set; }
+    [Property] public PanelComponent ControlStyleChooser { get; set; }
 
     private bool IsHidden { get; set; } = true;
 
@@ -58,8 +59,14 @@
         CareerInProgress = FindExistingSave(0);
     }
 
-    private void StartGame()
+    public void StartGame()
     {
+        if (!ControlStyleChoicePanel.HasChosenTankControls)
+        {
+            ((ControlStyleChoicePanel)ControlStyleChooser).OnClose += StartGame;
+            ControlStyleChooser.Enabled = true;
+            return;
+        }
         if ( CareerInProgress is null)
         {
             var normalCareer = DefaultScenario.ToCareer();

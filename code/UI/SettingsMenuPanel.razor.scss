@@ -80,6 +80,13 @@ SettingsMenuPanel {
 		.slidercontrol {
 			flex-grow: 0;
 		}
+
+		.button {
+
+			> * {
+				margin: 0;
+			}
+		}
 	}
 	
 	.danger {

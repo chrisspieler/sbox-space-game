@@ -1,0 +1,57 @@
+@using System;
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+
+<root class="column">
+	<h1 class="title center-content">Choose A Control Style</h1>
+	<div id="buttonPanel">
+		<div id="tapStyleButton" class="video @TapStyleButtonStyle" onclick=@(() => UseTankControls = false )>
+            <VideoPanel VideoPath="ui/videos/TapControls.mp4"/>
+			<h3>Tap Controls</h3>
+		</div>
+        <div id="tankStyleButton" class="video @TankStyleButtonStyle" onclick=@(() => UseTankControls = true )>
+            <VideoPanel VideoPath="ui/videos/TankControls.mp4"/>
+			<h3>Tank Controls</h3>
+		</div>
+	</div>
+	<p id="infoText" class="center-content">
+        You may change your default control style at any time in the settings menu.
+    </p>
+	<div id="bottomBar">
+		<button id="confirmButton" onclick=@Confirm>Confirm</button>
+	</div>
+</root>
+
+@code
+{
+    [Property] public Action OnClose { get; set; }
+
+    public static bool HasChosenTankControls { get; set; } = false;
+
+    /// <summary>
+    /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+    /// </summary>
+    protected override int BuildHash() => System.HashCode.Combine(UseTankControls);
+
+    private string TapStyleButtonStyle => UseTankControls ? "" : "selected";
+    private string TankStyleButtonStyle => UseTankControls ? "selected" : "";
+
+    private bool UseTankControls { get; set; }
+
+    protected override void OnStart()
+    {
+        base.OnStart();
+
+        UseTankControls = ShipController.DefaultToTankControls;
+    }
+
+    private void Confirm()
+    {
+        ShipController.DefaultToTankControls = UseTankControls;
+        HasChosenTankControls = true;
+        Settings.SaveToDisk();
+        Enabled = false;
+        OnClose?.Invoke();
+    }
+}
