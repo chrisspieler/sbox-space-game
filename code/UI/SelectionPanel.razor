@@ -3,7 +3,7 @@
 @inherits PanelComponent
 
 <root>
-	<FloatingPanel style="transform: rotate(@CurrentRotation)" Target=@Target>
+	<FloatingPanel style="transform: rotate(@CurrentRotation) scale(@CurrentScale);" Target=@Target>
         <Body>
             <img style="background-image: url(@Image);"/>
         </Body>
@@ -14,9 +14,29 @@
 {
     [Property] public string Image { get; set; } = "ui/img/select.svg";
     [Property] public float RotationSpeed { get; set; } = 0f;
-    [Property] public GameObject Target { get; set; }
+    [Property] public GameObject Target 
+    {
+        get => _target;
+        set
+        {
+            var oldValue = _target;
+            _target = value;
+            if ( _target is null )
+            {
+                CurrentScale = 1f;
+                return;
+            }
+            if ( oldValue != _target )
+            {
+                CurrentScale = _target.Transform.Scale.x;
+                return;
+            }
+        }
+    }
+    private GameObject _target;
 
     private float CurrentRotation { get; set; }
+    private float CurrentScale { get; set; } = 1f;
     private FloatingPanel Content { get; set; }
 
     /// <summary>
