@@ -95,6 +95,8 @@ public sealed class QtDrive : Component
 		CreateActiveClone();
 		PushClone( _activeVisualClone );
 		_targetLoopVolume = LoopSound.Volume.GetValue();
+		ScreenEffects.SetBloom( 10f );
+		ScreenEffects.SetSharpness( 2f );
 	}
 
 	private void CreateActiveClone()
@@ -158,5 +160,7 @@ public sealed class QtDrive : Component
 		_activeVisualClone = null;
 		_targetLoopVolume = 0f;
 		GameCamera.SetTarget( ship.GameObject );
+		ScreenEffects.SetBloom( 0.5f );
+		ScreenEffects.SetSharpness( 0.05f );
 	}
 }

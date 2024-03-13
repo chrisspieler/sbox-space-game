@@ -3,6 +3,24 @@ using System;
 
 public static class ScreenEffects
 {
+	public static void SetBloom( float amount )
+	{
+		var postProcessing = PostProcessingController.GetCurrent();
+		if ( !postProcessing.IsValid() )
+			return;
+
+		postProcessing.TargetBloom = amount;
+	}
+
+	public static void SetSharpness( float amount )
+	{
+		var postProcessing = PostProcessingController.GetCurrent();
+		if ( !postProcessing.IsValid() )
+			return;
+
+		postProcessing.TargetSharpness = amount;
+	}
+
 	public static void AddScreenShake( float amount, float max = 1f )
 	{
 		var screenShake = ScreenShake.Instance;

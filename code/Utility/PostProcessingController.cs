@@ -4,11 +4,31 @@ public sealed class PostProcessingController : Component
 {
 	[ConVar( "bloom_intensity" )]
 	public static float BloomIntensity { get; set; } = 1f;
+	[ConVar( "sharpen_intensity" )]
+	public static float SharpenIntensity { get; set; } = 1f;
 
 	[Property] public Bloom Bloom { get; set; }
+	[Property] public float TargetBloom { get; set; } = 0.5f;
+	[Property] public Sharpen Sharpen { get; set; }
+	[Property] public float TargetSharpness { get; set; } = 0.05f;
+
+	public static PostProcessingController Instance { get; private set; }
+	public static PostProcessingController GetCurrent() => Instance;
+
+	private RealTimeSince _realDeltaTime;
+
+	protected override void OnAwake()
+	{
+		Instance = this;
+		GameObject.BreakFromPrefab();
+	}
 
 	protected override void OnUpdate()
 	{
-		Bloom.Strength = 3f * BloomIntensity;
+		var bloomAmount = Bloom.Strength.LerpTo( TargetBloom, _realDeltaTime * 10f );
+		Bloom.Strength = bloomAmount * BloomIntensity;
+		var sharpenAmount = Sharpen.Scale.LerpTo( TargetSharpness, _realDeltaTime * 5f );
+		Sharpen.Scale = sharpenAmount * SharpenIntensity;
+		_realDeltaTime = 0f;
 	}
 }
