@@ -2,7 +2,7 @@
   "Id": "605299cf-fbf6-425c-a382-ebdd7ca982e5",
   "GameObjects": [
     {
-      "Id": "0a3105b7-d645-4200-93c9-b57b4133cc6a",
+      "__guid": "0a3105b7-d645-4200-93c9-b57b4133cc6a",
       "Name": "Screen UI",
       "Position": "200,0,0.0003515341",
       "Tags": "no_chunk",
@@ -11,7 +11,7 @@
       "__Prefab": "prefabs/main_ui.prefab"
     },
     {
-      "Id": "335f2d73-8ea5-4f93-b26f-175909fb6e29",
+      "__guid": "335f2d73-8ea5-4f93-b26f-175909fb6e29",
       "Name": "Camera (1)",
       "Tags": "no_chunk,no_shift",
       "Enabled": true,
@@ -19,7 +19,7 @@
       "__Prefab": "prefabs/ship_camera.prefab"
     },
     {
-      "Id": "50985c72-fec4-48cf-bd58-355bbd47aec5",
+      "__guid": "50985c72-fec4-48cf-bd58-355bbd47aec5",
       "Name": "Skybox",
       "Position": "-100,0,0.0003515341",
       "Rotation": "-0.08349869,0.06517375,0.005472793,0.9943593",
@@ -29,7 +29,7 @@
       "__Prefab": "prefabs/skybox.prefab"
     },
     {
-      "Id": "5a204e98-b86c-4727-accc-d522082427fd",
+      "__guid": "5a204e98-b86c-4727-accc-d522082427fd",
       "Name": "Fog Volume",
       "Position": "2500,3200,0.00006103516",
       "Tags": "no_chunk,shift_visible",
@@ -38,7 +38,7 @@
       "__Prefab": "prefabs/volumetric_fog.prefab"
     },
     {
-      "Id": "5006bd90-e749-4329-a52f-f676bfc80725",
+      "__guid": "5006bd90-e749-4329-a52f-f676bfc80725",
       "Name": "Sun",
       "Position": "-200,0,0.0003515341",
       "Tags": "light_directional,light,no_chunk",
@@ -47,7 +47,7 @@
       "__Prefab": "prefabs/ambient_light.prefab"
     },
     {
-      "Id": "1a6ffc42-c514-40bc-bb30-80d4d56b021a",
+      "__guid": "1a6ffc42-c514-40bc-bb30-80d4d56b021a",
       "Name": "Game",
       "Position": "100,0,0",
       "Tags": "no_chunk",
@@ -56,7 +56,7 @@
       "Components": [
         {
           "__type": "StartActionComponent",
-          "Id": "51c8a564-8ad1-4ce3-b971-25ca8ae9f219",
+          "__guid": "51c8a564-8ad1-4ce3-b971-25ca8ae9f219",
           "Action": {
             "Version": 5,
             "UserData": {
@@ -138,7 +138,7 @@
         },
         {
           "__type": "SaveManager",
-          "Id": "09a0d35e-45ca-4efb-acb7-530b480b21db",
+          "__guid": "09a0d35e-45ca-4efb-acb7-530b480b21db",
           "AutosaveInterval": 60,
           "FallbackScenario": "data/scenarios/normal.scenario",
           "ShipPrefab": {
@@ -149,7 +149,7 @@
       ],
       "Children": [
         {
-          "Id": "c322191f-b390-4df7-923f-69357d93aa22",
+          "__guid": "c322191f-b390-4df7-923f-69357d93aa22",
           "Name": "Debug",
           "Position": "0,0,0.0003515341",
           "Enabled": true,
@@ -157,14 +157,14 @@
           "Components": [
             {
               "__type": "GizmoDrawComponent",
-              "Id": "a97a6273-a390-465e-a4e8-8741ec77a26a"
+              "__guid": "a97a6273-a390-465e-a4e8-8741ec77a26a"
             }
           ]
         }
       ]
     },
     {
-      "Id": "b95bc5b6-db79-4b7b-9cb5-c9d2b127a0ac",
+      "__guid": "b95bc5b6-db79-4b7b-9cb5-c9d2b127a0ac",
       "Name": "The Cube",
       "Position": "2500,2500,-700",
       "Scale": "20,20,20",
@@ -174,7 +174,7 @@
       "Components": [
         {
           "__type": "ModelRenderer",
-          "Id": "eea6b437-2e4f-4026-b5cd-d171667e7f59",
+          "__guid": "eea6b437-2e4f-4026-b5cd-d171667e7f59",
           "BodyGroups": 18446744073709551615,
           "MaterialOverride": "materials/shared/metals/metal_aluminium_03.vmat",
           "Model": "models/dev/box.vmdl",
@@ -183,7 +183,7 @@
         },
         {
           "__type": "BoxCollider",
-          "Id": "4726c66b-e46d-4af3-8b3d-7fa7a8e01665",
+          "__guid": "4726c66b-e46d-4af3-8b3d-7fa7a8e01665",
           "Center": "0,0,0",
           "IsTrigger": false,
           "Scale": "50,50,50",
@@ -192,7 +192,7 @@
       ],
       "Children": [
         {
-          "Id": "f9cb08c3-3e7a-4d19-b21d-88cdf807ed36",
+          "__guid": "f9cb08c3-3e7a-4d19-b21d-88cdf807ed36",
           "Name": "Spawn Point",
           "Position": "0,35,35",
           "Rotation": "0,0,0.7071068,0.7071068",
@@ -202,13 +202,13 @@
           "Components": [
             {
               "__type": "SpawnPoint",
-              "Id": "dceec07b-7ee6-4f08-9cc9-67f269a7dd75",
+              "__guid": "dceec07b-7ee6-4f08-9cc9-67f269a7dd75",
               "Color": "0,0.11667,1,1"
             }
           ]
         },
         {
-          "Id": "ccc59e16-bb57-417c-bb76-17079140fa74",
+          "__guid": "ccc59e16-bb57-417c-bb76-17079140fa74",
           "Name": "Base Shield",
           "Position": "0,0,0",
           "Scale": "2,2,2",
@@ -218,19 +218,19 @@
           "Components": [
             {
               "__type": "Shield",
-              "Id": "4de43d68-b28c-441c-aaf8-055a3b5756e2",
+              "__guid": "4de43d68-b28c-441c-aaf8-055a3b5756e2",
               "Bounce": {
                 "_type": "component",
                 "component_id": "70619270-35c7-4c50-86fd-819a8d01cd94",
-                "go": "00000000-0000-0000-0000-000000000000",
-                "component_type": null
+                "go": "ccc59e16-bb57-417c-bb76-17079140fa74",
+                "component_type": "Bouncy"
               },
               "BreakSound": "sounds/shield_break.sound",
               "Collider": {
                 "_type": "component",
                 "component_id": "4ae7d03d-9423-46e2-a7cd-a0f828b003b6",
-                "go": "00000000-0000-0000-0000-000000000000",
-                "component_type": null
+                "go": "ccc59e16-bb57-417c-bb76-17079140fa74",
+                "component_type": "SphereCollider"
               },
               "CurrentHealth": 10000,
               "HitSound": "sounds/shield_hit.sound",
@@ -240,7 +240,7 @@
             },
             {
               "__type": "Bouncy",
-              "Id": "70619270-35c7-4c50-86fd-819a8d01cd94",
+              "__guid": "70619270-35c7-4c50-86fd-819a8d01cd94",
               "AddedVelocity": 20,
               "BouncedTags": "solid",
               "BounceFactor": 1,
@@ -249,7 +249,7 @@
             },
             {
               "__type": "SphereCollider",
-              "Id": "4ae7d03d-9423-46e2-a7cd-a0f828b003b6",
+              "__guid": "4ae7d03d-9423-46e2-a7cd-a0f828b003b6",
               "Center": "0,0,0",
               "IsTrigger": false,
               "Radius": 32,
@@ -257,7 +257,7 @@
             },
             {
               "__type": "ModelRenderer",
-              "Id": "cf04052d-044d-4aef-8aeb-a509ec9b8b4d",
+              "__guid": "cf04052d-044d-4aef-8aeb-a509ec9b8b4d",
               "BodyGroups": 18446744073709551615,
               "MaterialOverride": "materials/dev/primary_white_emissive_trans.vmat",
               "Model": "models/dev/sphere.vmdl",
@@ -267,7 +267,7 @@
           ]
         },
         {
-          "Id": "4a3d5584-8540-4ee1-b432-6b7453205768",
+          "__guid": "4a3d5584-8540-4ee1-b432-6b7453205768",
           "Name": "Point Light",
           "Position": "0.9459351,16.34545,43.13551",
           "Scale": "0.4,0.4,0.4",
@@ -277,7 +277,7 @@
           "Components": [
             {
               "__type": "PointLight",
-              "Id": "444733fd-395c-46e5-b624-2ea6388c2421",
+              "__guid": "444733fd-395c-46e5-b624-2ea6388c2421",
               "Attenuation": 0.39,
               "FogMode": "Enabled",
               "FogStrength": 1,
@@ -288,7 +288,7 @@
           ]
         },
         {
-          "Id": "8e7015c5-960f-422e-8d18-c2a2ce5ef943",
+          "__guid": "8e7015c5-960f-422e-8d18-c2a2ce5ef943",
           "Name": "Point Light",
           "Position": "-16.0395,2.608923,43.13552",
           "Scale": "0.4,0.4,0.4",
@@ -298,7 +298,7 @@
           "Components": [
             {
               "__type": "PointLight",
-              "Id": "d0aaf273-53bf-434b-96c1-7eb48308d9e0",
+              "__guid": "d0aaf273-53bf-434b-96c1-7eb48308d9e0",
               "Attenuation": 0.39,
               "FogMode": "Enabled",
               "FogStrength": 1,
@@ -309,7 +309,7 @@
           ]
         },
         {
-          "Id": "fa056831-a9c3-4510-b888-b7f61087ae3e",
+          "__guid": "fa056831-a9c3-4510-b888-b7f61087ae3e",
           "Name": "Shop",
           "Position": "0,0,43.87252",
           "Scale": "0.4,0.4,0.03312262",
@@ -319,7 +319,7 @@
           "Components": [
             {
               "__type": "ModelRenderer",
-              "Id": "809a266b-3b9a-47ef-bd06-e5c7e923b432",
+              "__guid": "809a266b-3b9a-47ef-bd06-e5c7e923b432",
               "BodyGroups": 18446744073709551615,
               "MaterialOverride": "materials/generic/metal_brushed.vmat",
               "Model": "models/dev/box.vmdl",
@@ -328,7 +328,7 @@
             },
             {
               "__type": "BoxCollider",
-              "Id": "382b355b-a1b2-4d27-a3ef-f9d4f305ffcc",
+              "__guid": "382b355b-a1b2-4d27-a3ef-f9d4f305ffcc",
               "Center": "0,0,-200",
               "IsTrigger": true,
               "Scale": "45,45,300",
@@ -336,7 +336,7 @@
             },
             {
               "__type": "Shop",
-              "Id": "16eb9949-88ac-4861-803c-2c84491bfd55",
+              "__guid": "16eb9949-88ac-4861-803c-2c84491bfd55",
               "BaseRepairCost": 5,
               "EjectionVelocity": "1,0,0",
               "Ejector": {
@@ -349,12 +349,12 @@
             },
             {
               "__type": "Beacon",
-              "Id": "59544ab3-8b2d-4573-9aaf-504b696658f8",
+              "__guid": "59544ab3-8b2d-4573-9aaf-504b696658f8",
               "Name": "Shop"
             },
             {
               "__type": "BoxCollider",
-              "Id": "faedaa64-d311-4195-ab2c-9c1ea6636a3a",
+              "__guid": "faedaa64-d311-4195-ab2c-9c1ea6636a3a",
               "Center": "0,0,0",
               "IsTrigger": false,
               "Scale": "50,50,50",
@@ -363,7 +363,7 @@
           ],
           "Children": [
             {
-              "Id": "a84837e9-ac71-43f6-aa6b-7bdbb06b47e5",
+              "__guid": "a84837e9-ac71-43f6-aa6b-7bdbb06b47e5",
               "Name": "Player Ejector",
               "Position": "0.0002441406,47.25272,-250",
               "Rotation": "0,0,0.7071068,0.7071068",
@@ -373,7 +373,7 @@
           ]
         },
         {
-          "Id": "052be32b-bd43-40b4-a70e-c8616c2a0142",
+          "__guid": "052be32b-bd43-40b4-a70e-c8616c2a0142",
           "Name": "Tutorial Text",
           "Position": "25.4,35,25.4",
           "Rotation": "0,0.7071068,0,0.7071068",
@@ -382,7 +382,7 @@
           "Components": [
             {
               "__type": "TextRenderer",
-              "Id": "bd426055-33af-4f9d-8a02-22167e5d0dd0",
+              "__guid": "bd426055-33af-4f9d-8a02-22167e5d0dd0",
               "Color": "1,1,1,1",
               "FontFamily": "Zeroes 1",
               "FontSize": 62.47,
@@ -392,7 +392,7 @@
           ]
         },
         {
-          "Id": "0271d882-8a8e-4d26-a5b9-054ee17e5fd9",
+          "__guid": "0271d882-8a8e-4d26-a5b9-054ee17e5fd9",
           "Name": "Shop Text",
           "Position": "-0.2,15.8,25.4",
           "Rotation": "0,0.7071068,0,0.7071068",
@@ -402,7 +402,7 @@
           "Components": [
             {
               "__type": "TextRenderer",
-              "Id": "e26c28a2-9ad6-44d9-ac92-0e25d04e4af7",
+              "__guid": "e26c28a2-9ad6-44d9-ac92-0e25d04e4af7",
               "Color": "1,0.98333,0,1",
               "FontFamily": "Zeroes 1",
               "FontSize": 128,
@@ -437,7 +437,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-13T11:52:40.5417826-06:00",
+  "LastSaved": "2024-03-13T15:38:35.6386655-06:00",
   "__references": [
     "eurorp.aluminium_03",
     "stardrive.rope_barrier_a"

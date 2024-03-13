@@ -10,10 +10,6 @@ public sealed class ShipCamera : Component, IBasisSource
 		set
 		{
 			_target = value;
-			if ( Game.IsPlaying )
-			{
-				_shouldResetTransform = true;
-			}
 		}
 	}
 	private GameObject _target;
@@ -30,24 +26,33 @@ public sealed class ShipCamera : Component, IBasisSource
 	public static ShipCamera GetCurrent() => Instance;
 
 	private bool _shouldResetTransform;
+	private RealTimeSince _realDeltaTime;
+	private float _lastSpeedFraction;
 
 	protected override void OnStart()
 	{
 		Instance = this;
 	}
 
+	public void ResetTransform()
+	{
+		_shouldResetTransform = true;
+	}
+
 	public Transform GetBaseTransform( Transform lastTransform )
 	{
-		if ( Target?.Components?.TryGet<Rigidbody>( out var rb ) != true )
-			return lastTransform;
+		var rb = Target?.Components?.Get<Rigidbody>();
 
 		// On a scale from 0 - 1, how speedy is the Target?
 		var speed = GetSpeedFraction( rb );
+		var velocity = rb?.Velocity ?? 0f;
 		// Given the Target's speed and direction, where would we like to be?
-		var targetTx = GetTargetTransform( rb.Velocity, speed );
+		var targetTx = GetTargetTransform( velocity, speed );
 		// Lerp to that position
 		var nextTx = GetNextTransform( lastTransform, targetTx );
 		_shouldResetTransform = false;
+		_realDeltaTime = 0f;
+		_lastSpeedFraction = speed;
 		return nextTx;
 	}
 
@@ -58,6 +63,9 @@ public sealed class ShipCamera : Component, IBasisSource
 
 	private float GetSpeedFraction( Rigidbody rb )
 	{
+		if ( rb is null )
+			return _lastSpeedFraction;
+
 		var targetVelocity = rb.Velocity.Length;
 		return MathX.LerpInverse( targetVelocity, TargetVelocityLowThreshold, TargetVelocityHighThreshold );
 	}
@@ -93,13 +101,13 @@ public sealed class ShipCamera : Component, IBasisSource
 	{
 		return _shouldResetTransform
 			? targetPos
-			: lastPos.LerpTo( targetPos, PositionLerpSpeed * Time.Delta );
+			: lastPos.LerpTo( targetPos, PositionLerpSpeed * _realDeltaTime );
 	}
 
 	private Rotation GetNextRotation( Rotation lastRotation, Rotation targetRotation )
 	{
 		return _shouldResetTransform
 			? targetRotation
-			: Rotation.Slerp( lastRotation, targetRotation, PitchLerpSpeed * Time.Delta );
+			: Rotation.Slerp( lastRotation, targetRotation, PitchLerpSpeed * _realDeltaTime );
 	}
 }

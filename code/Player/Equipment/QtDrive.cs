@@ -106,11 +106,11 @@ public sealed class QtDrive : Component
 		highlight.Color = Color.Transparent;
 		highlight.InsideObscuredColor = Color.White.WithAlpha( 0.005f );
 		ship.PartsContainer.Enabled = false;
+		GameCamera.SetTarget( _activeVisualClone );
 	}
 
 	private void PushClone( GameObject ship )
 	{
-
 		var clone = ship.VisualClone( null, _visualCloneExcludeTags );
 		clone.Transform.Position = ship.Transform.Position;
 		clone.RecursiveMaterialOverride( GhostMaterial );
@@ -157,5 +157,6 @@ public sealed class QtDrive : Component
 		_activeVisualClone?.Destroy();
 		_activeVisualClone = null;
 		_targetLoopVolume = 0f;
+		GameCamera.SetTarget( ship.GameObject );
 	}
 }

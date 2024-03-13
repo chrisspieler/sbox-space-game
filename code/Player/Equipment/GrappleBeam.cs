@@ -27,9 +27,11 @@ public sealed class GrappleBeam : Component
 	protected override void OnUpdate()
 	{
 		if ( !CurrentTarget.IsValid() )
-		{
 			Disconnect();
-		}
+
+		if ( Scene.TimeScale == 0f )
+			return;
+
 		if ( _light.IsValid() && CurrentTarget.IsValid() )
 		{
 			_light.Position = Joint.Transform.Position.LerpTo( _currentTarget.Transform.Position, 0.5f );
