@@ -9,6 +9,8 @@ public sealed class QtDrive : Component
 	[Property] public float TranslationSpeed { get; set; } = 100f;
 	[Property] public Material GhostMaterial { get; set; }
 	[Property] public SoundEvent LoopSound { get; set; }
+	[Property] public SoundEvent BeginSound { get; set; }
+	[Property] public SoundEvent EndSound { get; set; }
 
 	private RealTimeSince _sinceLastFrame;
 	private RealTimeSince _sinceLastClone;
@@ -97,6 +99,7 @@ public sealed class QtDrive : Component
 		_targetLoopVolume = LoopSound.Volume.GetValue();
 		ScreenEffects.SetBloom( 10f );
 		ScreenEffects.SetSharpness( 2f );
+		Sound.Play( BeginSound, Transform.Position );
 	}
 
 	private void CreateActiveClone()
@@ -162,5 +165,6 @@ public sealed class QtDrive : Component
 		GameCamera.SetTarget( ship.GameObject );
 		ScreenEffects.SetBloom( 0.5f );
 		ScreenEffects.SetSharpness( 0.05f );
+		Sound.Play( EndSound, Transform.Position );
 	}
 }

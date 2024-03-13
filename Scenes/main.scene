@@ -13,7 +13,7 @@
     {
       "__guid": "335f2d73-8ea5-4f93-b26f-175909fb6e29",
       "Name": "Camera (1)",
-      "Tags": "no_chunk,no_shift",
+      "Tags": "no_shift,no_chunk",
       "Enabled": true,
       "NetworkMode": 2,
       "__Prefab": "prefabs/ship_camera.prefab"
@@ -84,8 +84,8 @@
                 "Id": 2,
                 "Type": "property.get",
                 "Properties": {
-                  "_name": "PhysicsWorld",
-                  "_type": "Sandbox.Game/Sandbox.Scene"
+                  "_type": "Sandbox.Game/Sandbox.Scene",
+                  "_name": "PhysicsWorld"
                 },
                 "UserData": {
                   "Position": "64,64"
@@ -95,8 +95,8 @@
                 "Id": 3,
                 "Type": "property.set",
                 "Properties": {
-                  "_name": "Gravity",
-                  "_type": "Sandbox.Engine/Sandbox.PhysicsWorld"
+                  "_type": "Sandbox.Engine/Sandbox.PhysicsWorld",
+                  "_name": "Gravity"
                 },
                 "UserData": {
                   "Position": "352,0"
@@ -437,7 +437,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-13T15:38:35.6386655-06:00",
+  "LastSaved": "2024-03-13T16:41:01.0681942-06:00",
   "__references": [
     "eurorp.aluminium_03",
     "stardrive.rope_barrier_a"
