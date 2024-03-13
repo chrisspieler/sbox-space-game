@@ -92,7 +92,7 @@ public sealed class QtDrive : Component
 		var ship = ShipController.GetCurrent();
 		ship.PartsContainer.Enabled = false;
 		_newPosition = ship.Transform.Position;
-		_activeVisualClone = ship.GameObject.VisualClone( null, _visualCloneExcludeTags );
+		_activeVisualClone = ship.GameObject.VisualClone( null, _visualCloneExcludeTags, true );
 		PushClone( ship.GameObject );
 		_targetLoopVolume = LoopSound.Volume.GetValue();
 	}
@@ -104,7 +104,7 @@ public sealed class QtDrive : Component
 		{
 			var hsvColor = previousCloneColor.ToHsv();
 			hsvColor.Hue += 6.5f;
-			hsvColor.Alpha -= 0.01f;
+			hsvColor.Alpha -= 0.005f;
 			if ( hsvColor.Alpha <= 0f )
 			{
 				previousCloneGo.Destroy();
@@ -116,7 +116,7 @@ public sealed class QtDrive : Component
 		var clone = ship.VisualClone( null, _visualCloneExcludeTags );
 		clone.Transform.Position = _newPosition;
 		clone.RecursiveMaterialOverride( GhostMaterial );
-		var newCloneColor = Color.Blue.WithAlpha( 0.20f );
+		var newCloneColor = Color.Blue.WithAlpha( 0.10f );
 		clone.RecursiveTint( newCloneColor );
 		_visualClones[clone] = newCloneColor;
 		_sinceLastClone = 0f;

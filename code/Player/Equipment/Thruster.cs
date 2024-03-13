@@ -28,7 +28,12 @@ public sealed class Thruster : Component
 
 	protected override void OnUpdate()
 	{
-		if ( Scene.TimeScale == 0f )
+		var isTimeStopped = Scene.TimeScale == 0;
+		if ( _thrusterLoopSoundHandle is not null )
+		{
+			_thrusterLoopSoundHandle.Volume = isTimeStopped ? 0f : LoopSound.Volume.GetValue();
+		}
+		if ( isTimeStopped )
 			return;
 
 		EnsureEffectInstance();

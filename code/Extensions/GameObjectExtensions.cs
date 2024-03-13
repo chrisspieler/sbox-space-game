@@ -116,24 +116,32 @@ public static class GameObjectExtensions
 			?? surfaces.First( s => s.ResourceName == "solid" );
 	}
 
-	public static GameObject VisualClone( this GameObject gameObject, GameObject parent, TagSet excludeTags = null )
+	public static GameObject VisualClone( this GameObject gameObject, GameObject parent, TagSet excludeTags = null, bool cloneLights = false )
 	{
 		var goClone = new GameObject();
 		goClone.Parent = parent;
 		goClone.Transform.Local = gameObject.Transform.Local;
 		goClone.Name = $"{gameObject.Name} (Clone)";
+		if ( cloneLights && gameObject.Components.TryGet<PointLight>( out var light, FindMode.EverythingInSelf ) )
+		{
+			var lightClone = goClone.Components.Create<PointLight>();
+			lightClone.LightColor = light.LightColor;
+			lightClone.Attenuation = light.Attenuation;
+			lightClone.Radius = light.Radius;
+		}
 		if ( gameObject.Components.TryGet<ModelRenderer>( out var renderer, FindMode.EverythingInSelf ) )
 		{
 			var rendererClone = goClone.Components.Create<ModelRenderer>();
 			rendererClone.Model = renderer.Model;
 			rendererClone.Tint = renderer.Tint;
+			rendererClone.MaterialOverride = renderer.MaterialOverride;
 		}
 		foreach( var child in gameObject.Children )
 		{
 			if ( excludeTags is not null && child.Tags.HasAny( excludeTags ) )
 				continue;
 
-			VisualClone( child, goClone );
+			VisualClone( child, goClone, excludeTags, cloneLights );
 		}
 		return goClone;
 	}
