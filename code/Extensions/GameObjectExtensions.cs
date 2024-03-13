@@ -115,4 +115,51 @@ public static class GameObjectExtensions
 			.FirstOrDefault() 
 			?? surfaces.First( s => s.ResourceName == "solid" );
 	}
+
+	public static GameObject VisualClone( this GameObject gameObject, GameObject parent, TagSet excludeTags = null )
+	{
+		var goClone = new GameObject();
+		goClone.Parent = parent;
+		goClone.Transform.Local = gameObject.Transform.Local;
+		goClone.Name = $"{gameObject.Name} (Clone)";
+		if ( gameObject.Components.TryGet<ModelRenderer>( out var renderer, FindMode.EverythingInSelf ) )
+		{
+			var rendererClone = goClone.Components.Create<ModelRenderer>();
+			rendererClone.Model = renderer.Model;
+			rendererClone.Tint = renderer.Tint;
+		}
+		foreach( var child in gameObject.Children )
+		{
+			if ( excludeTags is not null && child.Tags.HasAny( excludeTags ) )
+				continue;
+
+			VisualClone( child, goClone );
+		}
+		return goClone;
+	}
+
+	public static void RecursiveMaterialOverride( this GameObject gameObject, Material material )
+	{
+		if ( gameObject.Components.TryGet<ModelRenderer>( out var renderer, FindMode.EverythingInSelf ) )
+		{
+			renderer.MaterialOverride = material;
+			renderer.SceneObject.Flags.IsTranslucent = true;
+		}
+		foreach( var child in gameObject.Children )
+		{
+			RecursiveMaterialOverride( child, material );
+		}
+	}
+
+	public static void RecursiveTint( this GameObject gameObject, Color tint )
+	{
+		if ( gameObject.Components.TryGet<ModelRenderer>( out var renderer, FindMode.EverythingInSelf ) )
+		{
+			renderer.Tint = tint;
+		}
+		foreach ( var child in gameObject.Children )
+		{
+			RecursiveTint( child, tint );
+		}
+	}
 }

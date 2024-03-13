@@ -5,7 +5,35 @@
   "Cost": 500,
   "Thumbnail": null,
   "PrerequisiteUpgrade": null,
-  "OnApplyUpgrade": null,
+  "OnApplyUpgrade": {
+    "Version": 5,
+    "UserData": {
+      "Title": "On Apply Upgrade",
+      "id": "a82af54b-a1e6-4345-8e2b-acaaca2b9948"
+    },
+    "Variables": [],
+    "Nodes": [
+      {
+        "Id": 0,
+        "Type": "input"
+      },
+      {
+        "Id": 1,
+        "Type": "ship.equipment.qtdrive.add",
+        "UserData": {
+          "Position": "256,-0"
+        }
+      }
+    ],
+    "Links": [
+      {
+        "SrcId": 0,
+        "SrcName": "_signal",
+        "DstId": 1,
+        "DstName": "_signal"
+      }
+    ]
+  },
   "Hidden": true,
   "__references": []
 }

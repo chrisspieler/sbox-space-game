@@ -11,7 +11,8 @@
     "data/upgrades/turn_speed_0.upgrade",
     "data/upgrades/laser_2.upgrade",
     "data/upgrades/shield_0.upgrade",
-    "data/upgrades/grapple_hook.upgrade"
+    "data/upgrades/grapple_hook.upgrade",
+    "data/upgrades/qt_drive_0.upgrade"
   ],
   "World": "data/world/default.world",
   "Hidden": true,

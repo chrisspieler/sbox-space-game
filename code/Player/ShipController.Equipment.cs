@@ -36,6 +36,8 @@ public partial class ShipController
 	public Thruster MainThrusters { get; set; }
 	[Property, Category( "Equipment" )]
 	public Thruster Retrorockets { get; set; }
+	[Property, Category( "Equipment" )]
+	public QtDrive QtDrive { get; set; }
 
 	private void FindEquipmentInChildren()
 	{
@@ -52,6 +54,7 @@ public partial class ShipController
 		if ( !Retrorockets.IsValid() ) Retrorockets = Components
 				.GetAll<Thruster>( FindMode.EnabledInSelfAndDescendants )
 				.FirstOrDefault( t => t.Retrorocket );
+		if ( !QtDrive.IsValid() ) QtDrive = Components.GetInDescendantsOrSelf<QtDrive>( true );
 	}
 
 	private void ApplyAllUpgrades()
@@ -171,5 +174,16 @@ public partial class ShipController
 			return;
 
 		ship.Grapple.Enabled = true;
+	}
+
+	[ActionGraphNode( "ship.equipment.qtdrive.add" )]
+	[Title( "Add QT Drive" ), Group( "Ship/QT Drive" )]
+	public static void AddQtDrive()
+	{
+		var ship = GetCurrent();
+		if ( ship is null )
+			return;
+
+		ship.QtDrive.Enabled = true;
 	}
 }
