@@ -8,12 +8,33 @@ public sealed class QtDrive : Component
 	private bool _isRunning;
 	[Property] public float TranslationSpeed { get; set; } = 100f;
 	[Property] public Material GhostMaterial { get; set; }
+	[Property] public SoundEvent LoopSound { get; set; }
 
 	private RealTimeSince _sinceLastFrame;
 	private RealTimeSince _sinceLastClone;
 	private Vector3 _newPosition;
 	private GameObject _activeVisualClone;
 	private Dictionary<GameObject, Color> _visualClones = new();
+	private TagSet _visualCloneExcludeTags = new TagSet();
+	private SoundHandle _loopSoundHandle;
+	private float _targetLoopVolume;
+
+	protected override void OnEnabled()
+	{
+		_loopSoundHandle = Sound.Play( LoopSound );
+		_loopSoundHandle.Volume = 0f;
+	}
+
+	protected override void OnDisabled()
+	{
+		_loopSoundHandle.Stop( 0.3f );
+	}
+
+	protected override void OnStart()
+	{
+		_visualCloneExcludeTags.Add( "ragdoll" );
+		_visualCloneExcludeTags.Add( "equipment" );
+	}
 
 	protected override void OnUpdate()
 	{
@@ -25,6 +46,7 @@ public sealed class QtDrive : Component
 		{
 			UpdateNotRunning();
 		}
+		_loopSoundHandle.Volume = _loopSoundHandle.Volume.LerpTo( _targetLoopVolume, 5f * _sinceLastFrame );
 		_sinceLastFrame = 0f;
 	}
 
@@ -42,7 +64,8 @@ public sealed class QtDrive : Component
 		}
 		var deltaPos = Input.AnalogMove * TranslationSpeed * _sinceLastFrame;
 		_newPosition += deltaPos;
-		_activeVisualClone.Transform.Position += deltaPos;
+		// Always draw the full color clone above the fading ones.
+		_activeVisualClone.Transform.Position = _newPosition.WithZ( 30f );
 	}
 
 	private void UpdateNotRunning()
@@ -69,7 +92,9 @@ public sealed class QtDrive : Component
 		var ship = ShipController.GetCurrent();
 		ship.PartsContainer.Enabled = false;
 		_newPosition = ship.Transform.Position;
+		_activeVisualClone = ship.GameObject.VisualClone( null, _visualCloneExcludeTags );
 		PushClone( ship.GameObject );
+		_targetLoopVolume = LoopSound.Volume.GetValue();
 	}
 
 	private void PushClone( GameObject ship )
@@ -88,16 +113,12 @@ public sealed class QtDrive : Component
 			previousCloneGo.RecursiveTint( hsvColor );
 			_visualClones[previousCloneGo] = hsvColor;
 		}
-		var exclude = new TagSet();
-		exclude.Add( "ragdoll" );
-		exclude.Add( "equipment" );
-		var clone = ship.VisualClone( null, exclude );
+		var clone = ship.VisualClone( null, _visualCloneExcludeTags );
+		clone.Transform.Position = _newPosition;
 		clone.RecursiveMaterialOverride( GhostMaterial );
 		var newCloneColor = Color.Blue.WithAlpha( 0.20f );
 		clone.RecursiveTint( newCloneColor );
 		_visualClones[clone] = newCloneColor;
-		_activeVisualClone = clone;
-		_activeVisualClone.Transform.Position = _newPosition;
 		_sinceLastClone = 0f;
 	}
 
@@ -116,6 +137,8 @@ public sealed class QtDrive : Component
 		{
 			clone.Destroy();
 		}
+		_activeVisualClone?.Destroy();
 		_activeVisualClone = null;
+		_targetLoopVolume = 0f;
 	}
 }
