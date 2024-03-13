@@ -122,14 +122,15 @@ public static class GameObjectExtensions
 		goClone.Parent = parent;
 		goClone.Transform.Local = gameObject.Transform.Local;
 		goClone.Name = $"{gameObject.Name} (Clone)";
-		if ( cloneLights && gameObject.Components.TryGet<PointLight>( out var light, FindMode.EverythingInSelf ) )
+		
+		if ( cloneLights && gameObject.Components.TryGet<PointLight>( out var light ) )
 		{
 			var lightClone = goClone.Components.Create<PointLight>();
 			lightClone.LightColor = light.LightColor;
 			lightClone.Attenuation = light.Attenuation;
 			lightClone.Radius = light.Radius;
 		}
-		if ( gameObject.Components.TryGet<ModelRenderer>( out var renderer, FindMode.EverythingInSelf ) )
+		if ( gameObject.Components.TryGet<ModelRenderer>( out var renderer ) )
 		{
 			var rendererClone = goClone.Components.Create<ModelRenderer>();
 			rendererClone.Model = renderer.Model;
@@ -148,7 +149,7 @@ public static class GameObjectExtensions
 
 	public static void RecursiveMaterialOverride( this GameObject gameObject, Material material )
 	{
-		if ( gameObject.Components.TryGet<ModelRenderer>( out var renderer, FindMode.EverythingInSelf ) )
+		if ( gameObject.Components.TryGet<ModelRenderer>( out var renderer ) )
 		{
 			renderer.MaterialOverride = material;
 			renderer.SceneObject.Flags.IsTranslucent = true;
@@ -161,7 +162,7 @@ public static class GameObjectExtensions
 
 	public static void RecursiveTint( this GameObject gameObject, Color tint )
 	{
-		if ( gameObject.Components.TryGet<ModelRenderer>( out var renderer, FindMode.EverythingInSelf ) )
+		if ( gameObject.Components.TryGet<ModelRenderer>( out var renderer ) )
 		{
 			renderer.Tint = tint;
 		}

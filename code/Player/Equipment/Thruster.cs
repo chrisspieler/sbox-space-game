@@ -81,6 +81,7 @@ public sealed class Thruster : Component
 			effect.BreakFromPrefab();
 			effect.Parent = thruster;
 			effect.Transform.World = thruster.Transform.World.WithScale( 1f );
+			effect.Tags.Add( "effect" );
 			_effectInstances[thruster] = effect;
 		}
 	}

@@ -33,7 +33,7 @@ public sealed class QtDrive : Component
 	protected override void OnStart()
 	{
 		_visualCloneExcludeTags.Add( "ragdoll" );
-		_visualCloneExcludeTags.Add( "equipment" );
+		_visualCloneExcludeTags.Add( "shield" );
 	}
 
 	protected override void OnUpdate()
@@ -57,15 +57,17 @@ public sealed class QtDrive : Component
 			End();
 			return;
 		}
-		var ship = ShipController.GetCurrent();
-		if ( _sinceLastClone > 0.1f )
+		UpdateCloneColors();
+		var isMoving = !Input.AnalogMove.IsNearlyZero();
+		if ( isMoving && _sinceLastClone > 0.1f )
 		{
-			PushClone( ship.GameObject );
+			PushClone( _activeVisualClone );
 		}
+		_targetLoopVolume = isMoving ? LoopSound.Volume.GetValue() : 0f;
 		var deltaPos = Input.AnalogMove * TranslationSpeed * _sinceLastFrame;
 		_newPosition += deltaPos;
 		// Always draw the full color clone above the fading ones.
-		_activeVisualClone.Transform.Position = _newPosition.WithZ( 30f );
+		_activeVisualClone.Transform.Position = _newPosition;
 	}
 
 	private void UpdateNotRunning()
@@ -87,24 +89,45 @@ public sealed class QtDrive : Component
 			return;
 
 		PauseMenuPanel.UnpauseTimeScale = 0f;
+		ScreenManager.SetHudEnabled( false );
 		Scene.TimeScale = 0f;
 		_isRunning = true;
+		CreateActiveClone();
+		PushClone( _activeVisualClone );
+		_targetLoopVolume = LoopSound.Volume.GetValue();
+	}
+
+	private void CreateActiveClone()
+	{
 		var ship = ShipController.GetCurrent();
-		ship.PartsContainer.Enabled = false;
 		_newPosition = ship.Transform.Position;
 		_activeVisualClone = ship.GameObject.VisualClone( null, _visualCloneExcludeTags, true );
-		PushClone( ship.GameObject );
-		_targetLoopVolume = LoopSound.Volume.GetValue();
+		var highlight = _activeVisualClone.Components.Create<HighlightOutline>();
+		highlight.Color = Color.Transparent;
+		highlight.InsideObscuredColor = Color.White.WithAlpha( 0.005f );
+		ship.PartsContainer.Enabled = false;
 	}
 
 	private void PushClone( GameObject ship )
 	{
+
+		var clone = ship.VisualClone( null, _visualCloneExcludeTags );
+		clone.Transform.Position = ship.Transform.Position;
+		clone.RecursiveMaterialOverride( GhostMaterial );
+		var newCloneColor = Color.Red.WithAlpha( 0.10f );
+		clone.RecursiveTint( newCloneColor );
+		_visualClones[clone] = newCloneColor;
+		_sinceLastClone = 0f;
+	}
+
+	private void UpdateCloneColors()
+	{
 		// Make each previous clone's color even more red.
-		foreach( var ( previousCloneGo, previousCloneColor ) in _visualClones.ToList() )
+		foreach ( var (previousCloneGo, previousCloneColor) in _visualClones.ToList() )
 		{
 			var hsvColor = previousCloneColor.ToHsv();
-			hsvColor.Hue += 6.5f;
-			hsvColor.Alpha -= 0.005f;
+			hsvColor.Hue += 360f - 70f * _sinceLastFrame;
+			hsvColor.Alpha -= 0.05f * _sinceLastFrame;
 			if ( hsvColor.Alpha <= 0f )
 			{
 				previousCloneGo.Destroy();
@@ -113,13 +136,6 @@ public sealed class QtDrive : Component
 			previousCloneGo.RecursiveTint( hsvColor );
 			_visualClones[previousCloneGo] = hsvColor;
 		}
-		var clone = ship.VisualClone( null, _visualCloneExcludeTags );
-		clone.Transform.Position = _newPosition;
-		clone.RecursiveMaterialOverride( GhostMaterial );
-		var newCloneColor = Color.Blue.WithAlpha( 0.10f );
-		clone.RecursiveTint( newCloneColor );
-		_visualClones[clone] = newCloneColor;
-		_sinceLastClone = 0f;
 	}
 
 	public void End()
@@ -128,6 +144,7 @@ public sealed class QtDrive : Component
 			return;
 
 		PauseMenuPanel.UnpauseTimeScale = 1f;
+		ScreenManager.SetHudEnabled( true );
 		Scene.TimeScale = 1f;
 		_isRunning = false;
 		var ship = ShipController.GetCurrent();
