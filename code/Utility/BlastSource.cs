@@ -6,6 +6,9 @@ public sealed class BlastSource : Component
 {
 	[ConVar( "pickup_knockback_scale" )]
 	public static float PickupKnockbackScale { get; set; } = 0.05f;
+	[ConVar("player_knockback_scale")]
+	public static float PlayerKnockbackScale { get; set; } = 0.3f;
+	
 	[Property] public float Force { get; set; } = 2000f;
 	[Property] public float Radius { get; set; } = 800f;
 	[Property] public bool BlastOnEnable { get; set; } = true;
@@ -60,9 +63,12 @@ public sealed class BlastSource : Component
 
 	private static float GetForceScaleForObject( Rigidbody rb )
 	{
-		return rb.Tags.Has( "pickup" )
-			? PickupKnockbackScale
-			: 1f;
+		if ( rb.Tags.Has( "pickup" ) )
+			return PickupKnockbackScale;
+		else if ( rb.Tags.Has( "player" ) )
+			return PlayerKnockbackScale;
+		else
+			return 1f;
 	}
 
 	private void DoScreenShake()
