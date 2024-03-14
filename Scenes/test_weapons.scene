@@ -1,49 +1,56 @@
 {
-  "Id": "f936c624-d3dd-4c0d-b355-8aa6c68cabb8",
+  "__guid": "f936c624-d3dd-4c0d-b355-8aa6c68cabb8",
   "GameObjects": [
     {
-      "Id": "159fa8b7-756d-4d20-9e85-ddf80304115a",
+      "__guid": "159fa8b7-756d-4d20-9e85-ddf80304115a",
       "Name": "Screen UI (1)",
       "Tags": "no_chunk",
       "Enabled": true,
+      "NetworkMode": 2,
       "__Prefab": "prefabs/main_ui.prefab"
     },
     {
-      "Id": "ba0198bf-8265-4602-ade6-0daec2b7152d",
+      "__guid": "ba0198bf-8265-4602-ade6-0daec2b7152d",
       "Name": "Camera (1)",
       "Tags": "no_chunk,no_shift",
       "Enabled": true,
+      "NetworkMode": 2,
       "__Prefab": "prefabs/ship_camera.prefab"
     },
     {
-      "Id": "6e280a95-3bff-4413-b769-9a42f43456eb",
+      "__guid": "6e280a95-3bff-4413-b769-9a42f43456eb",
       "Name": "Skybox",
       "Tags": "skybox,no_chunk,shift_visible",
       "Enabled": true,
+      "NetworkMode": 2,
       "__Prefab": "prefabs/skybox.prefab"
     },
     {
-      "Id": "3b8df8bb-537b-4aef-a4d6-46a2fe916ca3",
+      "__guid": "3b8df8bb-537b-4aef-a4d6-46a2fe916ca3",
       "Name": "Fog Volume (1)",
       "Tags": "no_chunk,shift_visible",
       "Enabled": true,
+      "NetworkMode": 2,
       "__Prefab": "prefabs/volumetric_fog.prefab"
     },
     {
-      "Id": "a1d13598-241c-4331-821c-82c377f1026e",
+      "__guid": "a1d13598-241c-4331-821c-82c377f1026e",
       "Name": "Sun (1)",
       "Tags": "light_directional,light,no_chunk",
       "Enabled": true,
+      "NetworkMode": 2,
       "__Prefab": "prefabs/ambient_light.prefab"
     },
     {
-      "Id": "0e2b1b15-5546-4238-9763-2307e689f1c1",
+      "__guid": "0e2b1b15-5546-4238-9763-2307e689f1c1",
       "Name": "Game",
       "Tags": "no_chunk",
       "Enabled": true,
+      "NetworkMode": 2,
       "Components": [
         {
           "__type": "SaveManager",
+          "__guid": "9a5e2bee-1224-4d02-9ee4-4b2b33f33776",
           "AutosaveInterval": 0,
           "FallbackScenario": "data/scenarios/weapons_test.scenario",
           "ShipPrefab": {
@@ -53,6 +60,7 @@
         },
         {
           "__type": "StartActionComponent",
+          "__guid": "a15f949f-805c-4530-817e-ef9857c82683",
           "Action": {
             "Version": 5,
             "UserData": {
@@ -136,33 +144,38 @@
       ]
     },
     {
-      "Id": "44b788a5-ec95-4e15-a360-e8cca0909c6e",
+      "__guid": "44b788a5-ec95-4e15-a360-e8cca0909c6e",
       "Name": "Spawn Point",
       "Tags": "no_chunk",
       "Enabled": true,
+      "NetworkMode": 2,
       "Components": [
         {
           "__type": "SpawnPoint",
+          "__guid": "1f7dca4e-a58e-470b-bffa-6a00868edf44",
           "Color": "0.8902,0.31765,0.05098,1"
         }
       ]
     },
     {
-      "Id": "507015c6-ffea-49cd-b221-703209783fdf",
+      "__guid": "507015c6-ffea-49cd-b221-703209783fdf",
       "Name": "Laser Damage Test",
       "Position": "6.076622,329.1886,0",
       "Tags": "no_chunk",
       "Enabled": true,
+      "NetworkMode": 2,
       "Children": [
         {
-          "Id": "19bee129-d060-4b3b-9920-81d1a5c7a8e2",
+          "__guid": "19bee129-d060-4b3b-9920-81d1a5c7a8e2",
           "Name": "Text",
           "Position": "251.6568,438.8114,0",
           "Rotation": "0,0.7071068,0,0.7071068",
           "Enabled": true,
+          "NetworkMode": 2,
           "Components": [
             {
               "__type": "TextRenderer",
+              "__guid": "5793d1b9-f264-40fb-8190-7c25843c88b7",
               "Color": "1,1,1,1",
               "FontFamily": "Zeroes 1",
               "FontSize": 128,
@@ -172,15 +185,17 @@
           ]
         },
         {
-          "Id": "a7864775-84d0-40e8-9514-6fe17db2d9b9",
+          "__guid": "a7864775-84d0-40e8-9514-6fe17db2d9b9",
           "Name": "Model",
           "Position": "761.9234,182.8114,0",
           "Scale": "10,0.5,1",
           "Tags": "solid",
           "Enabled": true,
+          "NetworkMode": 2,
           "Components": [
             {
               "__type": "ModelRenderer",
+              "__guid": "26525496-ba80-4764-92a0-017304e81d52",
               "BodyGroups": 18446744073709551615,
               "MaterialOverride": "materials/dev/dev_metal_rough40.vmat",
               "Model": "models/dev/box.vmdl",
@@ -189,6 +204,7 @@
             },
             {
               "__type": "BoxCollider",
+              "__guid": "bb6fa6fc-16e4-4086-a3cd-ac8b0d483846",
               "Center": "0,0,0",
               "IsTrigger": false,
               "Scale": "50,50,50",
@@ -197,15 +213,17 @@
           ]
         },
         {
-          "Id": "5ef6d918-e8d0-4a02-afdd-78b0497adebb",
+          "__guid": "5ef6d918-e8d0-4a02-afdd-78b0497adebb",
           "Name": "Model",
           "Position": "761.9234,694.8114,0",
           "Scale": "10,0.5,1",
           "Tags": "solid",
           "Enabled": true,
+          "NetworkMode": 2,
           "Components": [
             {
               "__type": "ModelRenderer",
+              "__guid": "40e27e66-5077-46bc-8a99-6091c5c366d6",
               "BodyGroups": 18446744073709551615,
               "MaterialOverride": "materials/dev/dev_metal_rough40.vmat",
               "Model": "models/dev/box.vmdl",
@@ -214,6 +232,7 @@
             },
             {
               "__type": "BoxCollider",
+              "__guid": "fcf49e2b-881f-481a-b38c-cc17677624b3",
               "Center": "0,0,0",
               "IsTrigger": false,
               "Scale": "50,50,50",
@@ -222,16 +241,18 @@
           ]
         },
         {
-          "Id": "a34ed213-6482-4115-8a52-3c62f330c1b1",
+          "__guid": "a34ed213-6482-4115-8a52-3c62f330c1b1",
           "Name": "Model",
           "Position": "505.9234,630.8113,0.00001341293",
           "Rotation": "0,0,0.7071067,0.7071068",
           "Scale": "3,0.5,1",
           "Tags": "solid",
           "Enabled": true,
+          "NetworkMode": 2,
           "Components": [
             {
               "__type": "ModelRenderer",
+              "__guid": "32efe01a-2794-4fff-b8c1-54cd5477bb43",
               "BodyGroups": 18446744073709551615,
               "MaterialOverride": "materials/dev/dev_metal_rough40.vmat",
               "Model": "models/dev/box.vmdl",
@@ -240,6 +261,7 @@
             },
             {
               "__type": "BoxCollider",
+              "__guid": "9e756d7b-f821-45ad-9898-1e5c53c7a9bf",
               "Center": "0,0,0",
               "IsTrigger": false,
               "Scale": "50,50,50",
@@ -248,16 +270,18 @@
           ]
         },
         {
-          "Id": "6e7ae0e2-934c-476b-9729-22cc3caeca99",
+          "__guid": "6e7ae0e2-934c-476b-9729-22cc3caeca99",
           "Name": "Model",
           "Position": "505.9232,246.8113,0.00001341293",
           "Rotation": "0,0,0.7071067,0.7071068",
           "Scale": "3,0.5,1",
           "Tags": "solid",
           "Enabled": true,
+          "NetworkMode": 2,
           "Components": [
             {
               "__type": "ModelRenderer",
+              "__guid": "d93fbbdf-1dd9-4b68-aa87-095d4855cad3",
               "BodyGroups": 18446744073709551615,
               "MaterialOverride": "materials/dev/dev_metal_rough40.vmat",
               "Model": "models/dev/box.vmdl",
@@ -266,6 +290,7 @@
             },
             {
               "__type": "BoxCollider",
+              "__guid": "9dececc2-9848-4950-b39a-17afa29d78e7",
               "Center": "0,0,0",
               "IsTrigger": false,
               "Scale": "50,50,50",
@@ -274,16 +299,18 @@
           ]
         },
         {
-          "Id": "7a278bee-c6d3-4b6d-9efd-c863885a56ab",
+          "__guid": "7a278bee-c6d3-4b6d-9efd-c863885a56ab",
           "Name": "Model",
           "Position": "1017.924,438.8112,0.00001341293",
           "Rotation": "0,0,0.7071067,0.7071068",
           "Scale": "10,0.5,1",
           "Tags": "solid",
           "Enabled": true,
+          "NetworkMode": 2,
           "Components": [
             {
               "__type": "ModelRenderer",
+              "__guid": "981eeaae-f44f-4e76-9f80-55009aac1d14",
               "BodyGroups": 18446744073709551615,
               "MaterialOverride": "materials/dev/dev_nonmetal_rough10.vmat",
               "Model": "models/dev/box.vmdl",
@@ -292,6 +319,7 @@
             },
             {
               "__type": "BoxCollider",
+              "__guid": "4a3b2344-1adb-4173-b07d-b9876a9bc961",
               "Center": "0,0,0",
               "IsTrigger": false,
               "Scale": "50,50,50",
@@ -299,6 +327,7 @@
             },
             {
               "__type": "Health",
+              "__guid": "dcda29f3-f2ae-4586-8802-bf7b4555a0c3",
               "Body": {
                 "_type": "gameobject",
                 "go": "7a278bee-c6d3-4b6d-9efd-c863885a56ab"
@@ -312,15 +341,18 @@
           ]
         },
         {
-          "Id": "c2a8b699-23cc-4aed-9c62-2f57456de0c7",
+          "__guid": "c2a8b699-23cc-4aed-9c62-2f57456de0c7",
           "Name": "Laser",
           "Position": "761.9234,438.8114,0",
           "Enabled": true,
+          "NetworkMode": 2,
           "Components": [
             {
               "__type": "BeamWeapon",
+              "__guid": "a2988200-b6ed-4ce6-a7bb-91325f943694",
               "Damage": {
                 "_type": "component",
+                "component_id": "8e20755b-64f5-4e82-ad45-85f6503d22a6",
                 "go": "c2a8b699-23cc-4aed-9c62-2f57456de0c7",
                 "component_type": "DamageOverTime"
               },
@@ -330,34 +362,54 @@
                   "y": 0.5
                 }
               ],
+              "DistanceCurve": {
+                "rangey": "500,1000",
+                "frames": [
+                  {},
+                  {
+                    "x": 1,
+                    "y": 1,
+                    "in": -1.365079,
+                    "out": 1.365079
+                  }
+                ]
+              },
               "FiringSoundLoop": "data/weapons/mining_laser/laser_loop.sound",
               "Impact": {
                 "_type": "component",
+                "component_id": "a01fc411-a3df-494b-b74c-801f4797d679",
                 "go": "8e341974-da7f-47ae-bc94-4f1419df6a07",
                 "component_type": "ImpactEffect"
               },
-              "LaserDistance": 593.75,
+              "LaserBrightnessCurve": {
+                "rangex": "0,0",
+                "rangey": "0,0"
+              },
+              "LaserDistance": 625.15625,
               "LaserEffect": {
                 "_type": "component",
+                "component_id": "01edb1ad-5c86-408a-a6c7-3e2258c8e317",
                 "go": "c1abeb13-bdc2-49dc-909c-d64ceca4b932",
                 "component_type": "LaserBeam"
               },
-              "LaserPower": 0.125,
-              "LaserTint": "0.01569,0.00392,0.18039,1",
+              "LaserPower": 0.42857143,
+              "LaserTint": "0.03333,0,1,1",
               "MaxDamage": 20,
               "MinDamage": 2.5,
               "ShouldFire": true,
-              "TickDamage": 2.5,
+              "TickDamage": 10,
               "TickInterval": 0.2,
               "Tracer": {
                 "_type": "component",
+                "component_id": "b4a8236e-95d5-468f-b092-968647325d74",
                 "go": "c2a8b699-23cc-4aed-9c62-2f57456de0c7",
                 "component_type": "BeamTrace"
               }
             },
             {
               "__type": "BeamTrace",
-              "Distance": 500,
+              "__guid": "b4a8236e-95d5-468f-b092-968647325d74",
+              "Distance": 625.15625,
               "IncludeAny": "solid,shield,break_debris",
               "Source": {
                 "_type": "gameobject",
@@ -366,7 +418,8 @@
             },
             {
               "__type": "DamageOverTime",
-              "TickDamage": 2.5,
+              "__guid": "8e20755b-64f5-4e82-ad45-85f6503d22a6",
+              "TickDamage": 10,
               "TickInterval": 0.2,
               "TickPhaseOffset": 0,
               "Weapon": {
@@ -376,19 +429,22 @@
             },
             {
               "__type": "Rotator",
+              "__guid": "0a2911f7-6a22-4934-af76-4975667de753",
               "RotationPerSecond": "0,90,0"
             }
           ],
           "Children": [
             {
-              "Id": "d80e4e65-1c3e-483b-bd80-c4a0dd8f9581",
+              "__guid": "d80e4e65-1c3e-483b-bd80-c4a0dd8f9581",
               "Name": "Housing",
               "Position": "0,0,0",
               "Scale": "1,0.2,0.2",
               "Enabled": true,
+              "NetworkMode": 2,
               "Components": [
                 {
                   "__type": "ModelRenderer",
+                  "__guid": "4216deb5-6666-4f25-8e0d-779ff2f3dd86",
                   "BodyGroups": 18446744073709551615,
                   "Model": "models/dev/box.vmdl",
                   "RenderType": "On",
@@ -397,31 +453,35 @@
               ]
             },
             {
-              "Id": "c1abeb13-bdc2-49dc-909c-d64ceca4b932",
+              "__guid": "c1abeb13-bdc2-49dc-909c-d64ceca4b932",
               "Name": "Laser Beam",
               "Position": "0,0,0",
               "Enabled": true,
+              "NetworkMode": 2,
               "Components": [
                 {
                   "__type": "LaserBeam",
+                  "__guid": "01edb1ad-5c86-408a-a6c7-3e2258c8e317",
                   "__enabled": false,
                   "ParticleAsset": "particles/laser_beam.vpcf",
                   "Target": {
                     "_type": "gameobject",
                     "go": "8e341974-da7f-47ae-bc94-4f1419df6a07"
                   },
-                  "Tint": "0.01569,0.00392,0.18039,1"
+                  "Tint": "0.03333,0,1,1"
                 }
               ]
             },
             {
-              "Id": "8e341974-da7f-47ae-bc94-4f1419df6a07",
+              "__guid": "8e341974-da7f-47ae-bc94-4f1419df6a07",
               "Name": "Impact",
               "Position": "0,0,0",
               "Enabled": true,
+              "NetworkMode": 2,
               "Components": [
                 {
-                  "__type": "ImpactEffect"
+                  "__type": "ImpactEffect",
+                  "__guid": "a01fc411-a3df-494b-b74c-801f4797d679"
                 }
               ]
             }
@@ -430,21 +490,24 @@
       ]
     },
     {
-      "Id": "b192ffe5-bd3a-429f-a9cf-453e889c93e0",
+      "__guid": "b192ffe5-bd3a-429f-a9cf-453e889c93e0",
       "Name": "Laser Damage Effects Test",
       "Position": "256,-960,0",
       "Tags": "no_chunk",
       "Enabled": true,
+      "NetworkMode": 2,
       "Children": [
         {
-          "Id": "c0c825d0-f61e-4816-834c-990c817720d5",
+          "__guid": "c0c825d0-f61e-4816-834c-990c817720d5",
           "Name": "Text",
           "Position": "0,0,0",
           "Rotation": "0,0.7071068,0,0.7071068",
           "Enabled": true,
+          "NetworkMode": 2,
           "Components": [
             {
               "__type": "TextRenderer",
+              "__guid": "24fc826e-a78d-47f4-b40d-3b02bade7494",
               "Color": "1,1,1,1",
               "FontFamily": "Zeroes 1",
               "FontSize": 32,
@@ -454,14 +517,16 @@
           ]
         },
         {
-          "Id": "7612e154-9b48-4bda-a553-4e5a7623fddf",
+          "__guid": "7612e154-9b48-4bda-a553-4e5a7623fddf",
           "Name": "Hull",
           "Position": "383.9999,127.9999,0",
           "Rotation": "0,-0,-0.7071068,0.7071068",
           "Enabled": true,
+          "NetworkMode": 2,
           "Components": [
             {
               "__type": "Timer",
+              "__guid": "577de8c1-6e67-4312-b967-c455cec8c83c",
               "IntervalSeconds": 0.5,
               "InvokeOnStart": false,
               "OnDing": {
@@ -597,14 +662,16 @@
           ],
           "Children": [
             {
-              "Id": "1d239a03-8fb2-4c1d-a757-cd47f0582442",
+              "__guid": "1d239a03-8fb2-4c1d-a757-cd47f0582442",
               "Name": "Model",
               "Position": "0,0,0",
               "Tags": "solid",
               "Enabled": true,
+              "NetworkMode": 2,
               "Components": [
                 {
                   "__type": "ModelRenderer",
+                  "__guid": "eaed2cca-ad64-4e8f-a16f-85cf49a38c3f",
                   "BodyGroups": 18446744073709551615,
                   "MaterialOverride": "materials/dev/dev_metal_rough40.vmat",
                   "Model": "models/dev/box.vmdl",
@@ -613,11 +680,13 @@
                 },
                 {
                   "__type": "SineHover",
+                  "__guid": "b1dc515a-2368-443f-85bd-137bb8687d63",
                   "Amplitude": "0,300,0",
                   "Frequency": "0,1,0"
                 },
                 {
                   "__type": "BoxCollider",
+                  "__guid": "9be834ee-0ecf-42bf-baf3-a6d2987dc2a6",
                   "Center": "0,0,0",
                   "IsTrigger": false,
                   "Scale": "50,50,50",
@@ -626,14 +695,16 @@
               ],
               "Children": [
                 {
-                  "Id": "e883bb31-d06a-4aa1-bb32-1796724e715b",
+                  "__guid": "e883bb31-d06a-4aa1-bb32-1796724e715b",
                   "Name": "Impact",
                   "Position": "-26.04974,0,0.000001586851",
                   "Rotation": "0,0,1,-0.00000004371139",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "Components": [
                     {
                       "__type": "ImpactEffect",
+                      "__guid": "86c9e96c-245a-4e47-9247-0d5ff221f99e",
                       "Target": {
                         "_type": "gameobject",
                         "go": "1d239a03-8fb2-4c1d-a757-cd47f0582442"
@@ -646,14 +717,16 @@
           ]
         },
         {
-          "Id": "639597ff-3d5a-499b-8dea-cd81690f1c07",
+          "__guid": "639597ff-3d5a-499b-8dea-cd81690f1c07",
           "Name": "Shield",
           "Position": "384,-128,0",
           "Rotation": "0,0,0.7071068,0.7071068",
           "Enabled": true,
+          "NetworkMode": 2,
           "Components": [
             {
               "__type": "Timer",
+              "__guid": "e82ab183-93bd-4a80-a623-5898b0b78171",
               "IntervalSeconds": 0.5,
               "InvokeOnStart": false,
               "OnDing": {
@@ -789,14 +862,16 @@
           ],
           "Children": [
             {
-              "Id": "4a768feb-86c3-4084-8825-bdfb5011040b",
+              "__guid": "4a768feb-86c3-4084-8825-bdfb5011040b",
               "Name": "Model",
               "Position": "0,0,0",
               "Tags": "shield,solid",
               "Enabled": true,
+              "NetworkMode": 2,
               "Components": [
                 {
                   "__type": "ModelRenderer",
+                  "__guid": "619f7d5b-19bb-40b2-9fe1-b9c21e14b2cf",
                   "BodyGroups": 18446744073709551615,
                   "MaterialOverride": "materials/dev/primary_white_emissive.vmat",
                   "Model": "models/dev/sphere.vmdl",
@@ -805,11 +880,13 @@
                 },
                 {
                   "__type": "SineHover",
+                  "__guid": "a5950bf3-e73a-4f6e-bca1-27b61894fc77",
                   "Amplitude": "0,300,0",
                   "Frequency": "0,1,0"
                 },
                 {
                   "__type": "SphereCollider",
+                  "__guid": "89355dc6-af21-454a-8870-32e6b3b90738",
                   "Center": "0,0,0",
                   "IsTrigger": false,
                   "Radius": 32,
@@ -818,14 +895,16 @@
               ],
               "Children": [
                 {
-                  "Id": "6b7224a2-b7a1-4296-8afe-5d907a01805f",
+                  "__guid": "6b7224a2-b7a1-4296-8afe-5d907a01805f",
                   "Name": "Impact",
                   "Position": "-26.04974,0,0.000001586851",
                   "Rotation": "0,0,1,-0.00000004371139",
                   "Enabled": true,
+                  "NetworkMode": 2,
                   "Components": [
                     {
                       "__type": "ImpactEffect",
+                      "__guid": "de14f273-72e3-471e-bac2-29d6d70c580b",
                       "Target": {
                         "_type": "gameobject",
                         "go": "4a768feb-86c3-4084-8825-bdfb5011040b"
@@ -840,10 +919,11 @@
       ]
     },
     {
-      "Id": "7bd365f6-5435-49b7-a9c2-250fdf9d18d8",
+      "__guid": "7bd365f6-5435-49b7-a9c2-250fdf9d18d8",
       "Name": "Rainbow Lasers",
       "Position": "320,256,0",
       "Enabled": true,
+      "NetworkMode": 2,
       "__Prefab": "prefabs/test/rainbow_laser_array.prefab"
     }
   ],
@@ -870,6 +950,8 @@
   },
   "Title": "test_mining",
   "Description": "",
-  "LastSaved": "2024-03-10T11:43:22.1164413-06:00",
+  "LastSaved": "2024-03-14T15:23:40.3580555-06:00",
+  "ResourceVersion": 1,
+  "__version": 1,
   "__references": []
 }

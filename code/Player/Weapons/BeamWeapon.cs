@@ -32,7 +32,8 @@ public sealed class BeamWeapon : Component
 		}
 	}
 	private bool _shouldFire;
-	[Property] public float LaserDistance => MathX.Lerp( 750f, 1500f, LaserPower );
+	[Property] public Curve DistanceCurve { get; set; }
+	[Property] public float LaserDistance => DistanceCurve.Evaluate( LaserPower );
 	[Property] public Color LaserTint
 	{
 		get => LaserEffect?.Tint ?? Color.White;
