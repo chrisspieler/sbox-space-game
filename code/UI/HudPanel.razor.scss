@@ -24,6 +24,7 @@ HudPanel
 
 		Image {
 			position: absolute;
+			bottom: 50%;
 			width: 10vh;
 			height: 10vh;
 			transform: translateY( 0% );
