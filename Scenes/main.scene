@@ -1,5 +1,5 @@
 {
-  "Id": "605299cf-fbf6-425c-a382-ebdd7ca982e5",
+  "__guid": "605299cf-fbf6-425c-a382-ebdd7ca982e5",
   "GameObjects": [
     {
       "__guid": "0a3105b7-d645-4200-93c9-b57b4133cc6a",
@@ -84,8 +84,8 @@
                 "Id": 2,
                 "Type": "property.get",
                 "Properties": {
-                  "_type": "Sandbox.Game/Sandbox.Scene",
-                  "_name": "PhysicsWorld"
+                  "_name": "PhysicsWorld",
+                  "_type": "Sandbox.Game/Sandbox.Scene"
                 },
                 "UserData": {
                   "Position": "64,64"
@@ -95,8 +95,8 @@
                 "Id": 3,
                 "Type": "property.set",
                 "Properties": {
-                  "_type": "Sandbox.Engine/Sandbox.PhysicsWorld",
-                  "_name": "Gravity"
+                  "_name": "Gravity",
+                  "_type": "Sandbox.Engine/Sandbox.PhysicsWorld"
                 },
                 "UserData": {
                   "Position": "352,0"
@@ -410,6 +410,29 @@
               "Text": "ENTER SHOP -\u003E"
             }
           ]
+        },
+        {
+          "__guid": "d911fa3b-c9df-4af8-a008-34d24a6dd440",
+          "Name": "Replenish Zone",
+          "Position": "0,0,35",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "BoxCollider",
+              "__guid": "968613b1-baad-4cfc-8dfb-897db8da1630",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Scale": "50,50,20",
+              "Static": true
+            },
+            {
+              "__type": "ReplenishZone",
+              "__guid": "a47c6c34-c203-40ea-92a0-8f12936e2355",
+              "Refuel": true,
+              "Repair": true
+            }
+          ]
         }
       ]
     }
@@ -437,7 +460,9 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-13T16:41:01.0681942-06:00",
+  "LastSaved": "2024-03-14T10:34:18.4006058-06:00",
+  "ResourceVersion": 1,
+  "__version": 1,
   "__references": [
     "eurorp.aluminium_03",
     "stardrive.rope_barrier_a"
