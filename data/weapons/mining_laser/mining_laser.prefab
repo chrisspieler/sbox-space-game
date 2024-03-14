@@ -40,7 +40,7 @@
           ]
         },
         "DistanceCurve": {
-          "rangey": "400,600",
+          "rangey": "1000,1500",
           "frames": [
             {},
             {
@@ -75,7 +75,7 @@
             "out": 0.7
           }
         ],
-        "LaserDistance": 400,
+        "LaserDistance": 1000,
         "LaserEffect": {
           "_type": "component",
           "component_id": "a8b0f624-7e7b-458a-a535-b39df88dec70",
@@ -83,7 +83,7 @@
           "component_type": "LaserBeam"
         },
         "LaserPower": 0,
-        "LaserTint": "0.4,0,0,1",
+        "LaserTint": "0.1,0,0,1",
         "MaxDamage": 12,
         "MinDamage": 10,
         "ShouldFire": false,
@@ -216,7 +216,7 @@
                     "__type": "LaserBeam",
                     "__guid": "a8b0f624-7e7b-458a-a535-b39df88dec70",
                     "ParticleAsset": "particles/laser_beam.vpcf",
-                    "Tint": "0.4,0,0,1"
+                    "Tint": "0.1,0,0,1"
                   }
                 ]
               }
