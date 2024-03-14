@@ -233,12 +233,11 @@
 			}
 		},
 		{
-			_class = "C_OP_ControlpointLight"
-			m_nControlPoint2 = 1
-			m_nControlPoint3 = 1
-			m_nControlPoint4 = 1
-			m_LightFiftyDist1 = 150.0
-			m_LightColor1 = [ 255, 255, 255, 255 ]
+			_class = "C_OP_PercentageBetweenCPs"
+			m_nFieldOutput = "7"
+			m_flInputMax = 10.0
+			m_nStartCP = 1
+			m_nEndCP = 0
 		},
 	]
 	m_Renderers = 

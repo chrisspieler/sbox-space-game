@@ -74,7 +74,7 @@ public sealed class LaserBeam : Component
 			}
 			var distance = Transform.Position.Distance( _lights[i].Position );
 			var attenuation = Easing.EaseIn( distance.LerpInverse( 0, 2000f ) );
-			_lights[i].LightColor = Tint.ToHsv().WithValue( 0.5f * BrightnessScale * ( 1f - attenuation ) );
+			_lights[i].LightColor = Tint.ToHsv().WithValue( 0.2f * BrightnessScale * ( 1f - attenuation ) );
 		}
 	}
 

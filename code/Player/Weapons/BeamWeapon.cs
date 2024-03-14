@@ -32,7 +32,7 @@ public sealed class BeamWeapon : Component
 		}
 	}
 	private bool _shouldFire;
-	[Property] public float LaserDistance => MathX.Lerp( 250f, 3000f, LaserPower );
+	[Property] public float LaserDistance => MathX.Lerp( 750f, 1500f, LaserPower );
 	[Property] public Color LaserTint
 	{
 		get => LaserEffect?.Tint ?? Color.White;
@@ -43,8 +43,9 @@ public sealed class BeamWeapon : Component
 		}
 	}
 	private Color _laserTint;
+	[Property] public Curve LaserBrightnessCurve { get; set; }
 
-	[Property, Category( "Damage" )] public float LaserPower => MathX.LerpInverse( TickDamage, 0, MaxDamage );
+	[Property, Category( "Damage" )] public float LaserPower => MathX.LerpInverse( TickDamage, MinDamage, MaxDamage );
 	[Property, Category( "Damage" )]
 	public float TickInterval
 	{
@@ -108,7 +109,7 @@ public sealed class BeamWeapon : Component
 
 	private void UpdateTickDamage()
 	{
-		LaserTint = LaserTint.ToHsv().WithValue( LaserPower );
+		LaserTint = LaserTint.ToHsv().WithValue( LaserBrightnessCurve.Evaluate( LaserPower ) );
 		if ( Damage is not null )
 		{
 			Damage.TickDamage = _tickDamage;

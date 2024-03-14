@@ -1,11 +1,13 @@
 {
   "RootObject": {
-    "Id": "fe9fae0c-89ea-4298-89f8-9e634be37286",
+    "__guid": "06736bc7-5635-466e-a0a0-4f6703dcaa74",
     "Name": "mining_laser",
     "Enabled": true,
+    "NetworkMode": 2,
     "Components": [
       {
         "__type": "Rigidbody",
+        "__guid": "59675f96-f21b-47d8-be38-9efc3f9155fb",
         "__enabled": false,
         "AngularDamping": 0,
         "Gravity": false,
@@ -14,14 +16,17 @@
           "Z": true
         },
         "MassOverride": 0,
+        "MotionEnabled": true,
         "RigidbodyFlags": 0,
         "StartAsleep": false
       },
       {
         "__type": "BeamWeapon",
+        "__guid": "36f70e45-16cb-4bb6-a1a2-372aae9b74ca",
         "Damage": {
           "_type": "component",
-          "go": "fe9fae0c-89ea-4298-89f8-9e634be37286",
+          "component_id": "4951dd62-11d8-4c47-b7d9-7b22dd6e66cf",
+          "go": "06736bc7-5635-466e-a0a0-4f6703dcaa74",
           "component_type": "DamageOverTime"
         },
         "DamagePitchCurve": {
@@ -37,50 +42,73 @@
         "FiringSoundLoop": "data/weapons/mining_laser/laser_loop.sound",
         "Impact": {
           "_type": "component",
-          "go": "bc1afc60-a62c-4b12-b519-ed5446fb309b",
+          "component_id": "70fa74f9-f555-46ac-a635-f167b6f49cc3",
+          "go": "9ab7d64c-047d-45f9-87bb-e4e1bb550d9f",
           "component_type": "ImpactEffect"
         },
-        "LaserDistance": 800,
+        "LaserBrightnessCurve": [
+          {
+            "y": 0.19999996
+          },
+          {
+            "x": 0.5,
+            "y": 0.5,
+            "in": -0.7999998,
+            "out": 0.7999998
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "in": -1.1272724,
+            "out": 1.1272724
+          }
+        ],
+        "LaserDistance": 750,
         "LaserEffect": {
           "_type": "component",
-          "go": "640dea9a-4b9a-4546-b3fd-b43a16e5229d",
+          "component_id": "74a5cf24-2778-4052-bbaa-dc9e9e583ce8",
+          "go": "edfacfa3-7e18-4c76-800e-0ad0c8589bed",
           "component_type": "LaserBeam"
         },
-        "LaserPower": 0.2,
-        "LaserTint": "0.02,0,0,1",
-        "MaxDamage": 50,
+        "LaserPower": 0,
+        "LaserTint": "0.02326,0,0,1",
+        "MaxDamage": 12,
         "MinDamage": 10,
         "ShouldFire": false,
         "TickDamage": 10,
         "TickInterval": 0.5,
         "Tracer": {
           "_type": "component",
-          "go": "640dea9a-4b9a-4546-b3fd-b43a16e5229d",
+          "component_id": "fc5b6fc7-aeb2-4cab-a333-57bc43405296",
+          "go": "edfacfa3-7e18-4c76-800e-0ad0c8589bed",
           "component_type": "BeamTrace"
         }
       },
       {
         "__type": "DamageOverTime",
+        "__guid": "4951dd62-11d8-4c47-b7d9-7b22dd6e66cf",
         "TickDamage": 10,
         "TickInterval": 0.5,
         "TickPhaseOffset": 0,
         "Weapon": {
           "_type": "gameobject",
-          "go": "fe9fae0c-89ea-4298-89f8-9e634be37286"
+          "go": "06736bc7-5635-466e-a0a0-4f6703dcaa74"
         }
       }
     ],
     "Children": [
       {
-        "Id": "de1ce797-97a2-4443-9bf6-37243157e17d",
+        "__guid": "63ba0c50-1ced-47ea-a2de-b7e5e5e215cf",
         "Name": "Base",
         "Position": "0,0,5",
         "Scale": "0.1,0.1,0.2",
         "Tags": "break_child",
         "Enabled": true,
+        "NetworkMode": 2,
         "Components": [
           {
             "__type": "ModelRenderer",
+            "__guid": "2171a4f3-050b-4318-9254-253b4d03b614",
             "BodyGroups": 18446744073709551615,
             "MaterialOverride": "materials/dev/dev_metal_rough50.vmat",
             "Model": "models/dev/box.vmdl",
@@ -89,6 +117,7 @@
           },
           {
             "__type": "BoxCollider",
+            "__guid": "ebaf9db5-61a3-44cf-8bbc-dbf6d5b23d3a",
             "__enabled": false,
             "Center": "0,0,0",
             "IsTrigger": false,
@@ -98,15 +127,17 @@
         ]
       },
       {
-        "Id": "a06b15f1-38df-4205-8d34-d209b882ce6d",
+        "__guid": "37830fff-8dba-4732-9b62-1a0dba475e8d",
         "Name": "Barrel",
         "Position": "0,0,15",
         "Scale": "0.5,0.2,0.2",
         "Tags": "break_child",
         "Enabled": true,
+        "NetworkMode": 2,
         "Components": [
           {
             "__type": "ModelRenderer",
+            "__guid": "2fc3b06f-80a5-486b-a859-52e23b915c1a",
             "BodyGroups": 18446744073709551615,
             "MaterialOverride": "materials/dev/dev_metal_rough30.vmat",
             "Model": "models/dev/box.vmdl",
@@ -115,6 +146,7 @@
           },
           {
             "__type": "BoxCollider",
+            "__guid": "4a3b573a-5896-4678-b496-4333b6bb6569",
             "__enabled": false,
             "Center": "0,0,0",
             "IsTrigger": false,
@@ -124,14 +156,16 @@
         ],
         "Children": [
           {
-            "Id": "10dcf615-840c-4b12-bf13-ae7d9bf9eb0c",
+            "__guid": "7935e125-62ed-4087-991b-6fdb6cbf4fd9",
             "Name": "Muzzle",
             "Position": "35,0,0",
             "Scale": "0.4,0.75,0.75",
             "Enabled": true,
+            "NetworkMode": 2,
             "Components": [
               {
                 "__type": "ModelRenderer",
+                "__guid": "21227186-eae1-4c7d-b913-3174fafe753a",
                 "BodyGroups": 18446744073709551615,
                 "MaterialOverride": "materials/dev/dev_metal_rough50.vmat",
                 "Model": "models/dev/box.vmdl",
@@ -140,6 +174,7 @@
               },
               {
                 "__type": "BoxCollider",
+                "__guid": "dfbf5749-f000-44c7-87b8-7039dc4c135a",
                 "__enabled": false,
                 "Center": "0,0,0",
                 "IsTrigger": false,
@@ -149,24 +184,27 @@
             ],
             "Children": [
               {
-                "Id": "640dea9a-4b9a-4546-b3fd-b43a16e5229d",
+                "__guid": "edfacfa3-7e18-4c76-800e-0ad0c8589bed",
                 "Name": "Trace Origin",
                 "Position": "25.35623,0,0",
                 "Enabled": true,
+                "NetworkMode": 2,
                 "Components": [
                   {
                     "__type": "BeamTrace",
+                    "__guid": "fc5b6fc7-aeb2-4cab-a333-57bc43405296",
                     "Distance": 800,
                     "IncludeAny": "solid,shield,break_debris",
                     "Source": {
                       "_type": "gameobject",
-                      "go": "640dea9a-4b9a-4546-b3fd-b43a16e5229d"
+                      "go": "edfacfa3-7e18-4c76-800e-0ad0c8589bed"
                     }
                   },
                   {
                     "__type": "LaserBeam",
+                    "__guid": "74a5cf24-2778-4052-bbaa-dc9e9e583ce8",
                     "ParticleAsset": "particles/laser_beam.vpcf",
-                    "Tint": "0.02,0,0,1"
+                    "Tint": "0.02326,0,0,1"
                   }
                 ]
               }
@@ -175,14 +213,16 @@
         ]
       },
       {
-        "Id": "bc1afc60-a62c-4b12-b519-ed5446fb309b",
+        "__guid": "9ab7d64c-047d-45f9-87bb-e4e1bb550d9f",
         "Name": "Impact Effect",
         "Position": "44.96693,-137.9229,36.61931",
         "Rotation": "0,0,0,0",
         "Enabled": true,
+        "NetworkMode": 2,
         "Components": [
           {
-            "__type": "ImpactEffect"
+            "__type": "ImpactEffect",
+            "__guid": "70fa74f9-f555-46ac-a635-f167b6f49cc3"
           }
         ]
       }
