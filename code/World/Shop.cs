@@ -1,6 +1,5 @@
 ﻿using Sandbox;
 using System.Collections.Generic;
-using System.Linq;
 
 public sealed class Shop : Component, Component.ITriggerListener
 {
@@ -13,9 +12,7 @@ public sealed class Shop : Component, Component.ITriggerListener
 
 	protected override void OnStart()
 	{
-		var values = ResourceLibrary.GetAll<CargoItem>()
-			.Select( c => new CargoValue( c, c.BaseValue ) );
-		_cargoValues = new CargoValues( values );
+		_cargoValues = Career.Active.GetCargoValues();
 	}
 
 	public IEnumerable<CargoValue> GetAllCargoValues() => _cargoValues.GetAllValues();
@@ -40,6 +37,7 @@ public sealed class Shop : Component, Component.ITriggerListener
 
 		Career.AddMoneyCommand( GetValue( item ) );
 		_cargoValues.OnCargoSold( item );
+		Career.Active.UpdateCargoValues( _cargoValues );
 	}
 
 	public void OnTriggerEnter( Collider other )
