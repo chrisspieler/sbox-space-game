@@ -9,6 +9,7 @@ FloatingHealthPanel {
 		transition: opacity 0.1s;
 		width: 5vw;
 		height: 3vh;
+		transform: translateX( -50% );
 
 		&:intro {
 			height: 200px;
