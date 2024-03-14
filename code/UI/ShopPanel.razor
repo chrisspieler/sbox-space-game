@@ -11,7 +11,7 @@
                 <div class="header center-content">CARGO PRICES</div>
                 <div class="info center-content">Rarer asteroids yield more valuable metals. Keep exploring!</div>
                 <div id="valueList" class="column">
-                    @foreach (var value in GetAllCargoValues())
+                    @foreach (var value in GetAllCargoValues().OrderBy( c => c.CurrentValue ) )
                     {
                         <div class="cargo-value">
                             <Image Texture=@value.Cargo.InventoryIcon/>
@@ -31,13 +31,19 @@
                             <div id="mainColumn" class="column">
                                 <h3 class="name center-content">@item.Name X @count</h3>
                                 <div id="sellBar">
-                                    <div id="sellButton" class="button column" onclick=@(() => SellCargo( item ) )>
-                                        <p>SELL 1</p>
+                                    <p>SELL: </p>
+                                    <div class="sell-section">
+                                        <div id="sellButton" class="button" onclick=@(() => SellCargo( item ) )>
+                                            <p>1</p>
+                                        </div>
                                         <p class="price">@GetCargoValue( item, 1 ) CR</p>
                                     </div>
-                                    <div id="sellAllButton" class="button column" onclick=@(() => SellAllCargo( item ) )>
-                                        <p>SELL ALL</p>
-                                        <p class="price">@(GetCargoValue( item, count )) CR</p>
+                                    <vr/>
+                                    <div class="sell-section">
+                                        <div id="sellAllButton" class="button" onclick=@(() => SellAllCargo( item ) )>
+                                            <p>ALL</p>
+                                        </div>
+                                        <p class="price">@(GetCargoValue(item, count)) CR</p>
                                     </div>
                                 </div>
                             </div>
