@@ -13,13 +13,11 @@
       "Probability": 20
     },
     {
-      "Item": "data/cargo/gold_ore.cargo",
-      "Probability": 1
-    },
-    {
       "Item": "data/cargo/platinum_ore.cargo",
       "Probability": 1
     }
   ],
+  "ResourceVersion": 0,
+  "__version": 0,
   "__references": []
 }

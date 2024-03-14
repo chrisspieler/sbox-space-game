@@ -2,7 +2,7 @@
   "Name": "Advanced Thrusters",
   "FlavorText": "Perform evasive maneuvers, or create situations in which it is harder to do so.",
   "FunctionText": "Greatly increases thruster power",
-  "Cost": 200,
+  "Cost": 550,
   "Thumbnail": "data/upgrades/main_thruster_1_thumbnail.vtex",
   "PrerequisiteUpgrade": "data/upgrades/main_thruster_0.upgrade",
   "OnApplyUpgrade": {
@@ -40,5 +40,8 @@
       }
     ]
   },
+  "Hidden": false,
+  "ResourceVersion": 0,
+  "__version": 0,
   "__references": []
 }

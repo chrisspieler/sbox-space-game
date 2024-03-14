@@ -8,9 +8,11 @@
       "Probability": 100
     }
   ],
-  "Spacing": 160,
+  "Spacing": 320,
   "NoiseScale": 0.01,
   "ProbabilityScale": 0.04,
   "ProbabilityBias": 0.01,
+  "ResourceVersion": 0,
+  "__version": 0,
   "__references": []
 }

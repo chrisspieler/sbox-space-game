@@ -2,7 +2,7 @@
   "Name": "Cargo Bay Shelving",
   "FlavorText": "More room for cargo means you can save on fuel by making fewer, bigger trips.",
   "FunctionText": "Increases cargo hold capacity by 2",
-  "Cost": 200,
+  "Cost": 600,
   "Thumbnail": "data/upgrades/cargo_1_thumbnail.vtex",
   "PrerequisiteUpgrade": "data/upgrades/cargo_0.upgrade",
   "OnApplyUpgrade": {
@@ -41,5 +41,7 @@
     ]
   },
   "Hidden": false,
+  "ResourceVersion": 0,
+  "__version": 0,
   "__references": []
 }

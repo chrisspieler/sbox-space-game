@@ -2,7 +2,7 @@
   "Name": "Grapple Beam",
   "FlavorText": "Don\u0027t get too attached!",
   "FunctionText": "Press RMB to attach your ship to the highlighted object.",
-  "Cost": 300,
+  "Cost": 200,
   "Thumbnail": "data/upgrades/grapple_hook_thumbnail.vtex",
   "PrerequisiteUpgrade": null,
   "OnApplyUpgrade": {
@@ -36,5 +36,7 @@
     ]
   },
   "Hidden": false,
+  "ResourceVersion": 0,
+  "__version": 0,
   "__references": []
 }

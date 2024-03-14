@@ -3,5 +3,7 @@
   "Prefab": "data/world/chunks/asteroid_field/asteroid_field.prefab",
   "Difficulty": 4,
   "Asteroids": "data/world/chunks/asteroid_field/asteroid_field_1.aspwncfg",
+  "ResourceVersion": 0,
+  "__version": 0,
   "__references": []
 }

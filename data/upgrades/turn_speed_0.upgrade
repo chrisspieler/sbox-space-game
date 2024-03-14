@@ -2,7 +2,7 @@
   "Name": "Increased Turn Speed",
   "FlavorText": "Useful for collision and boredom avoidance.",
   "FunctionText": "Increases the turning speed of the ship",
-  "Cost": 125,
+  "Cost": 200,
   "Thumbnail": "data/upgrades/turn_speed_0.vtex",
   "PrerequisiteUpgrade": "data/upgrades/main_thruster_0.upgrade",
   "OnApplyUpgrade": {
@@ -40,5 +40,8 @@
       }
     ]
   },
+  "Hidden": false,
+  "ResourceVersion": 0,
+  "__version": 0,
   "__references": []
 }

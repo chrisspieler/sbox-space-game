@@ -337,15 +337,11 @@
             {
               "__type": "Shop",
               "__guid": "16eb9949-88ac-4861-803c-2c84491bfd55",
-              "BaseRepairCost": 5,
               "EjectionVelocity": "1,0,0",
               "Ejector": {
                 "_type": "gameobject",
                 "go": "a84837e9-ac71-43f6-aa6b-7bdbb06b47e5"
-              },
-              "FuelCostPerUnit": 1,
-              "RefuelAmountPerSecond": 10,
-              "RepairCostPerHitPoint": 0.25
+              }
             },
             {
               "__type": "Beacon",
@@ -460,7 +456,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-14T11:24:17.2827887-06:00",
+  "LastSaved": "2024-03-14T12:24:54.1812708-06:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
