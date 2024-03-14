@@ -26,4 +26,13 @@ public sealed class CargoHold : Component
 	{
 		return Items.Remove( item );
 	}
+
+	public bool RemoveAtIndex( int index )
+	{
+		if ( index < 0 || index > Items.Count - 1 )
+			return false;
+
+		Items.RemoveAt( index );
+		return true;
+	}
 }

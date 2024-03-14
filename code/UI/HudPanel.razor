@@ -6,9 +6,15 @@
 <root>
     @if ( GetCargoCapacity() > 0)
     {
-        <div id="cargoBar">
-            <div class="icon">inventory_2</div>
-            <div class="count">@GetCargoCount()/@GetCargoCapacity()</div>
+        <div id="cargoBar" class="column">
+            <div class="center-content">
+                <div class="icon">inventory_2</div>
+                <div class="count">@GetCargoCount()/@GetCargoCapacity()</div>
+            </div>
+            @if( Ship.IsValid() && Ship.Cargo is not null && Ship.Cargo.Count > 0 )
+            {
+                <Image Texture=@Ship.Cargo.Items.Last().InventoryIcon/>
+            }
         </div>
     }
 	<div id="bottomBars">

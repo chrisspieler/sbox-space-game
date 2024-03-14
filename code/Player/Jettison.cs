@@ -16,13 +16,13 @@ public sealed class Jettison : Component
 		if ( !Input.Pressed( "jettison" ) )
 			return;
 
-		var item = ItemSource.Items.FirstOrDefault();
+		var item = ItemSource.Items.LastOrDefault();
 		if ( item is null )
 			return;
 
 		CreateEffect();
 		LaunchPickup( item );
-		ItemSource.RemoveItem( item );
+		ItemSource.RemoveAtIndex( ItemSource.Items.Count - 1 );
 	}
 
 	private void CreateEffect()
