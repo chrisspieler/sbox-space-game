@@ -1,8 +1,15 @@
 {
   "Name": "Platinum Ore",
   "Description": "",
-  "Value": 150,
+  "MinValue": 100,
+  "BaseValue": 175,
+  "MaxValue": 200,
+  "ValueDecreaseOnSale": 5,
+  "OtherSalesUntilValueIncrease": 1,
+  "ValueIncreaseAmount": 1,
   "PickupPrefab": "data/cargo/platinum_ore_pickup.prefab",
   "InventoryIcon": "data/cargo/platinum_ore_pickup.vtex",
+  "ResourceVersion": 0,
+  "__version": 0,
   "__references": []
 }

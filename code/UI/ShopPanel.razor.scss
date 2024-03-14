@@ -49,34 +49,39 @@ ShopPanel {
 		width: 35%;
 		justify-content: space-between;
 
-		#maintenancePanel {
-			width: 100%;
-			align-items: center;
-			margin-bottom: 25px;
+		#cargoValuePanel {
+			font-size: 1.5vh;
+			text-align: center;
 
-			.button {
-				width: 100%;
-				font-size: 1.5vh;
-				margin: 5px;
-				height: 10vh;
+			.info {
+				background-color: black;
+				padding: 1vh;
+				color: #FFFC;
+			}
 
-				&:active {
-					FillBar {
-						color: black;
+			#valueList {
+				text-shadow: 1px 1px 2px black;
 
-						.bar {
-							border-color: black;
-						}
+
+				.cargo-value {
+					justify-content: space-between;
+					align-items: center;
+					backdrop-filter: blur(20px);
+					padding: 0px 5px 0px 5px;
+
+					&:nth-child(odd) {
+						background-color: #FFFFFF03;
+					}
+
+					&:nth-child(even) {
+						background-color: #FFFFFF07;
 					}
 				}
 
-				FillBar {
-					width: 80%;
+				Image {
+					width: 3vh;
+					height: 3vh;
 				}
-			}
-
-			.price {
-				margin-left: 20px;
 			}
 		}
 

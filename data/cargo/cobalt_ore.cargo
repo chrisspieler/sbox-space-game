@@ -1,8 +1,15 @@
 {
   "Name": "Cobalt Ore",
   "Description": "",
-  "Value": 55,
+  "MinValue": 10,
+  "BaseValue": 25,
+  "MaxValue": 55,
+  "ValueDecreaseOnSale": 2,
+  "OtherSalesUntilValueIncrease": 1,
+  "ValueIncreaseAmount": 1,
   "PickupPrefab": "data/cargo/cobalt_ore_pickup.prefab",
   "InventoryIcon": "data/cargo/cobalt_ore_pickup.vtex",
+  "ResourceVersion": 0,
+  "__version": 0,
   "__references": []
 }

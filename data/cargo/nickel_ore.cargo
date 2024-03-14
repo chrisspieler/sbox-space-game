@@ -1,8 +1,15 @@
 {
   "Name": "Nickel Ore",
   "Description": "",
-  "Value": 28,
+  "MinValue": 2,
+  "BaseValue": 9,
+  "MaxValue": 15,
+  "ValueDecreaseOnSale": 1,
+  "OtherSalesUntilValueIncrease": 1,
+  "ValueIncreaseAmount": 1,
   "PickupPrefab": "data/cargo/nickel_ore_pickup.prefab",
   "InventoryIcon": "data/cargo/nickel_ore_pickup.vtex",
+  "ResourceVersion": 0,
+  "__version": 0,
   "__references": []
 }

@@ -1,28 +1,33 @@
 ﻿using Sandbox;
-using System;
+using System.Collections.Generic;
+using System.Linq;
 
 public sealed class Shop : Component, Component.ITriggerListener
 {
 	[ConVar( "shop_eject_invincibility_time" )]
 	public static float EjectionInvincibilitySeconds { get; set; } = 1f;
-
-	[Property] public float RefuelAmountPerSecond { get; set; } = 3f;
-	[Property] public float FuelCostPerUnit { get; set; } = 10f;
-	[Property] public float RepairCostPerHitPoint { get; set; } = 0.5f;
-	[Property] public float BaseRepairCost { get; set; } = 20f;
 	[Property] public GameObject Ejector { get; set; }
 	[Property] public Vector3 EjectionVelocity { get; set; } = Vector3.Forward * 50f;
 
-	private bool _isRefueling;
-	private TimeUntil _untilRefuelUnit;
+	private CargoValues _cargoValues;
 
-	protected override void OnUpdate()
+	protected override void OnStart()
 	{
-		if ( !_isRefueling )
-		{
-			_untilRefuelUnit = 1f / RefuelAmountPerSecond;
-		}
-		_isRefueling = false;
+		var values = ResourceLibrary.GetAll<CargoItem>()
+			.Select( c => new CargoValue( c, c.BaseValue ) );
+		_cargoValues = new CargoValues( values );
+	}
+
+	public IEnumerable<CargoValue> GetAllCargoValues() => _cargoValues.GetAllValues();
+
+	public int GetValue( CargoItem cargo )
+	{
+		return _cargoValues.GetCargoValue( cargo );
+	}
+
+	public int GetValue( CargoItem cargo, int quantity )
+	{
+		return _cargoValues.GetCargoValue( cargo, quantity );
 	}
 
 	public void SellItem( CargoItem item, ShipController ship )
@@ -33,53 +38,8 @@ public sealed class Shop : Component, Component.ITriggerListener
 		if ( !ship.Cargo.RemoveItem( item ) )
 			return;
 
-		Career.AddMoneyCommand( item.Value );
-	}
-
-	public bool CanRefuel( ShipController ship )
-	{
-		return Career.Active.HasMoney( (int)FuelCostPerUnit )
-			&& ship.Fuel.IsValid()
-			&& ship.Fuel.CurrentAmount < ship.Fuel.MaxCapacity;
-	}
-
-	public void TickRefuel( ShipController ship )
-	{
-		if ( !CanRefuel( ship ) )
-			return;
-
-		_isRefueling = true;
-		if ( _untilRefuelUnit )
-		{
-			var desiredAmount = ship.Fuel.CurrentAmount + 1;
-			ship.Fuel.CurrentAmount = Math.Min( ship.Fuel.MaxCapacity, desiredAmount );
-			Career.RemoveMoneyCommmand( (int)FuelCostPerUnit );
-			_untilRefuelUnit = 1f / RefuelAmountPerSecond;
-		}
-	}
-
-	public int GetRepairPrice( ShipController ship )
-	{
-		if ( !ship.Hull.IsValid() || ship.Hull.CurrentHealth >= ship.Hull.MaxHealth )
-			return 0;
-
-		var damage = ship.Hull.MaxHealth - ship.Hull.CurrentHealth;
-		var total = BaseRepairCost + damage * RepairCostPerHitPoint;
-		return (int)total;
-	}
-
-	public void Repair( ShipController ship )
-	{
-		var price = GetRepairPrice( ship );
-		if ( !Career.Active.HasMoney( price ) || !ship.Hull.IsValid() )
-			return;
-
-		var damage = ship.Hull.MaxHealth - ship.Hull.CurrentHealth;
-		if ( damage == 0f ) 
-			return;
-
-		ship.Hull.CurrentHealth = ship.Hull.MaxHealth;
-		Career.RemoveMoneyCommmand( price );
+		Career.AddMoneyCommand( GetValue( item ) );
+		_cargoValues.OnCargoSold( item );
 	}
 
 	public void OnTriggerEnter( Collider other )

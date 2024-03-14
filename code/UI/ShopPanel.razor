@@ -7,44 +7,22 @@
 <root class="column">
     <div id="mainPanel">
         <div id="leftPanel" class="column">
-            <div id="maintenancePanel" class="column">
-                @if ( GetFuelTopOffPrice() > 0)
-                {
-                    <div class="column button" onmousedown=@(() => _holdingRefuel = true ) onmouseup=@(() => _holdingRefuel = false)>
-                        <FillBar Icon="local_gas_station" FillColor=@Color.Yellow FillPercentGetter=@GetFuelPercent/>
-                        <p>HOLD TO REFUEL</p>
-                        <p class="price">@GetFuelPricePerUnit() CR / UNIT (@GetFuelTopOffPrice() CR TO FILL)</p>
-                    </div>
-                }
-                else
-                {
-                    <div class="button center-content disabled">
-                        <div class="icon">local_gas_station</div>
-                        <p>FUEL AT MAXIMUM CAPACITY</p>
-                    </div>
-                }
-                @if ( GetRepairPrice() > 0 )
-                {
-                    <div id="repairButton" class="button column" onclick=@RepairShip>
-                        <div class="center-content">
-                            <div class="icon">security</div>
-                            <p>REPAIR HULL</p>
+            <div id="cargoValuePanel" class="column">
+                <div class="header center-content">CARGO PRICES</div>
+                <div class="info center-content">Rarer asteroids yield more valuable metals. Keep exploring!</div>
+                <div id="valueList" class="column">
+                    @foreach (var value in GetAllCargoValues())
+                    {
+                        <div class="cargo-value">
+                            <Image Texture=@value.Cargo.InventoryIcon/>
+                            <p class="name">@value.Cargo.Name</p>
+                            <p class="price">@value.CurrentValue CR</p>
                         </div>
-                        <p class="price">@GetRepairPrice() CR</p>
-                    </div>
-                }
-                else
-                {
-                    <div id="repairButton" class="button column disabled">
-                        <div class="center-content">
-                            <div class="icon">security</div>
-                            <p>HULL AT FULL INTEGRITY</p>
-                        </div>
-                    </div>
-                }
+                    }
+                </div>
             </div>
             <div id="sellPanel" class="column">
-                <div id="sellTitle" class="center-content header">SELL MINERALS</div>
+                <div id="sellTitle" class="center-content header">SELL CARGO</div>
                 <div id="cargoList" class="column">
                     @foreach( var (item, count) in GetShipCargoGrouped())
                     {
@@ -55,11 +33,11 @@
                                 <div id="sellBar">
                                     <div id="sellButton" class="button column" onclick=@(() => SellCargo( item ) )>
                                         <p>SELL 1</p>
-                                        <p class="price">@item.Value CR</p>
+                                        <p class="price">@GetCargoValue( item, 1 ) CR</p>
                                     </div>
                                     <div id="sellAllButton" class="button column" onclick=@(() => SellAllCargo( item ) )>
                                         <p>SELL ALL</p>
-                                        <p class="price">@(item.Value * count) CR</p>
+                                        <p class="price">@(GetCargoValue( item, count )) CR</p>
                                     </div>
                                 </div>
                             </div>
@@ -100,12 +78,11 @@
     /// <summary>
     /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
     /// </summary>
-    protected override int BuildHash() => System.HashCode.Combine( GetFuelPercent(), GetRepairPrice(), Career.Active.Money, GetAllShipCargo() );
+    protected override int BuildHash() => System.HashCode.Combine( Career.Active.Money, GetAllShipCargo() );
 
     [Property] public Shop Shop { get; set; }
     [Property] public ShipController Ship { get; set; }
 
-    private bool _holdingRefuel;
     private List<Upgrade> _availableUpgrades;
 
     private bool CanAfford(Upgrade upgrade) => Career.Active.HasMoney(upgrade.Cost);
@@ -125,24 +102,28 @@
             Exit();
             return;
         }
-
-        if ( _holdingRefuel )
-        {
-            TickRefuel();
-        }
     }
 
     private void Exit()
     {
-        _holdingRefuel = false;
         Enabled = false;
         Shop.EjectPlayer();
+    }
+
+    private IEnumerable<CargoValue> GetAllCargoValues()
+    {
+        return Shop.GetAllCargoValues();
+    }
+
+    private int GetCargoValue( CargoItem item, int quantity )
+    {
+        return Shop.GetValue( item, quantity );
     }
 
     private Dictionary<CargoItem, int> GetShipCargoGrouped()
     {
         var allCargo = GetAllShipCargo();
-        var cargoTypes = allCargo.Distinct().OrderBy( c => c.Value );
+        var cargoTypes = allCargo.Distinct().OrderBy( c => c.BaseValue );
         var grouped = new Dictionary<CargoItem, int>();
         foreach( var distinct in cargoTypes)
         {
@@ -170,43 +151,6 @@
         {
             Shop.SellItem(item, Ship);
         }
-    }
-
-    private float GetFuelPercent()
-    {
-        if (!Ship.IsValid() || !Ship.Fuel.IsValid())
-            return 0f;
-
-        return Ship.Fuel.CurrentAmount / Ship.Fuel.MaxCapacity * 100f;
-    }
-
-    private int GetFuelPricePerUnit()
-    {
-        return (int)Shop.FuelCostPerUnit;
-    }
-
-    private int GetFuelTopOffPrice()
-    {
-        if (!Ship.IsValid() || !Ship.Fuel.IsValid())
-            return 0;
-
-        var topOffAmount = Ship.Fuel.MaxCapacity - Ship.Fuel.CurrentAmount;
-        return (int)(Shop.FuelCostPerUnit * topOffAmount);
-    }
-
-    private void TickRefuel()
-    {
-        Shop.TickRefuel( Ship );
-    }
-
-    private int GetRepairPrice()
-    {
-        return Shop.GetRepairPrice( Ship );
-    }
-
-    private void RepairShip()
-    {
-        Shop.Repair( Ship );
     }
 
     private void FetchAvailableUpgrades()

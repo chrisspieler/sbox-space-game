@@ -1,8 +1,15 @@
 {
   "Name": "Gold Ore",
   "Description": "",
-  "Value": 135,
+  "MinValue": 25,
+  "BaseValue": 150,
+  "MaxValue": 275,
+  "ValueDecreaseOnSale": 20,
+  "OtherSalesUntilValueIncrease": 1,
+  "ValueIncreaseAmount": 1,
   "PickupPrefab": "data/cargo/gold_ore_pickup.prefab",
   "InventoryIcon": "data/cargo/gold_ore_pickup.vtex",
+  "ResourceVersion": 0,
+  "__version": 0,
   "__references": []
 }

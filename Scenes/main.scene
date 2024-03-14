@@ -210,7 +210,7 @@
         {
           "__guid": "ccc59e16-bb57-417c-bb76-17079140fa74",
           "Name": "Base Shield",
-          "Position": "0,0,0",
+          "Position": "0,0,19",
           "Scale": "2,2,2",
           "Tags": "player_allow,shield",
           "Enabled": true,
@@ -460,7 +460,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-14T10:34:18.4006058-06:00",
+  "LastSaved": "2024-03-14T11:24:17.2827887-06:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
