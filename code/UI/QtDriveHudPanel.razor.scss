@@ -1,0 +1,18 @@
+@import "Styles/main.scss";
+
+QtDriveHudPanel {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	color: white;
+	font-family: 'UAV OSD Sans Mono';
+
+	FillBar {
+		position: absolute;
+		height: 5vh;
+		width: 15%;
+		bottom: 30%;
+		left: 50%;
+		transform: translateX( -50% );
+	}
+}

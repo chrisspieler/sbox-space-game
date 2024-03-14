@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "Id": "0a3105b7-d645-4200-93c9-b57b4133cc6a",
+    "__guid": "0a3105b7-d645-4200-93c9-b57b4133cc6a",
     "Name": "main_ui",
     "Tags": "no_chunk",
     "Enabled": true,
@@ -8,6 +8,7 @@
     "Components": [
       {
         "__type": "ScreenPanel",
+        "__guid": "61509036-0c3f-42ba-9f7f-a7ef0385f2a8",
         "AutoScreenScale": true,
         "Opacity": 1,
         "Scale": 1,
@@ -15,12 +16,14 @@
       },
       {
         "__type": "ScreenManager",
+        "__guid": "56f0e03f-06d1-47fc-b09b-fb39268217dd",
         "BeaconContainer": {
           "_type": "gameobject",
           "go": "aac41955-0da3-4198-a83a-db4bb8a72110"
         },
         "CursorPanel": {
           "_type": "component",
+          "component_id": "3fd28505-7ef0-4426-82ed-341c61f078d9",
           "go": "279df759-c7fd-4122-9fee-f69cccae0af0",
           "component_type": "CursorPanel"
         },
@@ -30,26 +33,37 @@
         },
         "HoveredSelectionPanel": {
           "_type": "component",
+          "component_id": "1b34f6d7-99c5-4cc5-8fca-3cc497f7878d",
           "go": "8d08a576-e21b-4e68-9a8b-33fe08fd6191",
           "component_type": "SelectionPanel"
         },
         "HudPanel": {
           "_type": "component",
+          "component_id": "afb136c1-797c-4b4e-879d-a3a7d55234e9",
           "go": "b8c346f0-faad-462c-bdad-1fdd1801e747",
           "component_type": "HudPanel"
         },
         "PauseMenuPanel": {
           "_type": "component",
+          "component_id": "105b3ffe-2669-43cc-bc52-9eba6d110e89",
           "go": "e1deb9c4-2308-431f-9ca2-ae89e3b69007",
           "component_type": "PauseMenuPanel"
         },
+        "QtDriveHud": {
+          "_type": "component",
+          "component_id": "5ecf539b-3c5e-4f27-8c0d-411fd26b51cf",
+          "go": "930c9ec7-0b39-4fc7-8b9a-361f6872aebc",
+          "component_type": "QtDriveHudPanel"
+        },
         "RestartPanel": {
           "_type": "component",
+          "component_id": "c798edd2-0713-419e-9f56-1efa6ee79414",
           "go": "231cb05f-5d34-4930-addf-bfe5060a2afc",
           "component_type": "RestartPanel"
         },
         "ShopPanel": {
           "_type": "component",
+          "component_id": "5c01edc0-ee7b-4ed6-9516-3f76b73d788e",
           "go": "f9f94a44-d995-4551-9bb6-a0b2107d5610",
           "component_type": "ShopPanel"
         },
@@ -60,6 +74,7 @@
       },
       {
         "__type": "MouseSelector",
+        "__guid": "f7b1c06f-af14-49aa-a3b9-e25685924e20",
         "DeselectTime": 0.2,
         "FilterWithAny": "solid",
         "FilterWithoutAny": "player"
@@ -67,13 +82,14 @@
     ],
     "Children": [
       {
-        "Id": "b8c346f0-faad-462c-bdad-1fdd1801e747",
+        "__guid": "b8c346f0-faad-462c-bdad-1fdd1801e747",
         "Name": "Hud",
         "Enabled": true,
         "NetworkMode": 2,
         "Components": [
           {
             "__type": "HudPanel",
+            "__guid": "afb136c1-797c-4b4e-879d-a3a7d55234e9",
             "FuelColor": "1,1,0,1",
             "HullColor": "0.74884,0.11145,0.14332,1",
             "ShieldColor": "0.36863,0.84706,0.95686,1"
@@ -81,43 +97,46 @@
         ]
       },
       {
-        "Id": "2b94c0d1-7d24-48bc-944c-3578a252c988",
+        "__guid": "2b94c0d1-7d24-48bc-944c-3578a252c988",
         "Name": "Health Bar Container",
         "Enabled": true,
         "NetworkMode": 2
       },
       {
-        "Id": "279df759-c7fd-4122-9fee-f69cccae0af0",
+        "__guid": "279df759-c7fd-4122-9fee-f69cccae0af0",
         "Name": "Cursor",
         "Enabled": true,
         "NetworkMode": 2,
         "Components": [
           {
             "__type": "CursorPanel",
+            "__guid": "3fd28505-7ef0-4426-82ed-341c61f078d9",
             "CursorImagePath": "ui/img/crosshair.svg"
           }
         ]
       },
       {
-        "Id": "f9f94a44-d995-4551-9bb6-a0b2107d5610",
+        "__guid": "f9f94a44-d995-4551-9bb6-a0b2107d5610",
         "Name": "Shop Screen",
         "Enabled": true,
         "NetworkMode": 2,
         "Components": [
           {
             "__type": "ShopPanel",
+            "__guid": "5c01edc0-ee7b-4ed6-9516-3f76b73d788e",
             "__enabled": false
           }
         ]
       },
       {
-        "Id": "8d08a576-e21b-4e68-9a8b-33fe08fd6191",
+        "__guid": "8d08a576-e21b-4e68-9a8b-33fe08fd6191",
         "Name": "Hovered Selection",
         "Enabled": true,
         "NetworkMode": 2,
         "Components": [
           {
             "__type": "SelectionPanel",
+            "__guid": "1b34f6d7-99c5-4cc5-8fca-3cc497f7878d",
             "__enabled": false,
             "Image": "ui/img/select.svg",
             "RotationSpeed": 150
@@ -125,13 +144,14 @@
         ]
       },
       {
-        "Id": "231cb05f-5d34-4930-addf-bfe5060a2afc",
+        "__guid": "231cb05f-5d34-4930-addf-bfe5060a2afc",
         "Name": "Restart Screen",
         "Enabled": true,
         "NetworkMode": 2,
         "Components": [
           {
             "__type": "RestartPanel",
+            "__guid": "c798edd2-0713-419e-9f56-1efa6ee79414",
             "__enabled": false,
             "DeathText": "CLONE DEAD",
             "InstructionText": "Press R to Respawn",
@@ -140,29 +160,31 @@
         ]
       },
       {
-        "Id": "aac41955-0da3-4198-a83a-db4bb8a72110",
+        "__guid": "aac41955-0da3-4198-a83a-db4bb8a72110",
         "Name": "Beacon Container",
         "Enabled": true,
         "NetworkMode": 2
       },
       {
-        "Id": "e31c5314-d6f3-495f-a2cb-d5277124c565",
+        "__guid": "e31c5314-d6f3-495f-a2cb-d5277124c565",
         "Name": "Text Panel Container",
         "Enabled": true,
         "NetworkMode": 2
       },
       {
-        "Id": "e1deb9c4-2308-431f-9ca2-ae89e3b69007",
+        "__guid": "e1deb9c4-2308-431f-9ca2-ae89e3b69007",
         "Name": "Pause Menu",
         "Enabled": true,
         "NetworkMode": 2,
         "Components": [
           {
             "__type": "PauseMenuPanel",
+            "__guid": "105b3ffe-2669-43cc-bc52-9eba6d110e89",
             "__enabled": false,
             "MainMenuScene": "scenes/main_menu.scene",
             "SettingsPanel": {
               "_type": "component",
+              "component_id": "e6763e99-459d-4055-9820-f744ea2df234",
               "go": "80dbbd04-a8a5-4866-94e7-433a6140e307",
               "component_type": "SettingsMenuPanel"
             }
@@ -170,21 +192,24 @@
         ]
       },
       {
-        "Id": "80dbbd04-a8a5-4866-94e7-433a6140e307",
+        "__guid": "80dbbd04-a8a5-4866-94e7-433a6140e307",
         "Name": "Settings Menu",
         "Enabled": true,
         "NetworkMode": 2,
         "Components": [
           {
             "__type": "SettingsMenuPanel",
+            "__guid": "e6763e99-459d-4055-9820-f744ea2df234",
             "__enabled": false,
             "ControlStyleMenu": {
               "_type": "component",
+              "component_id": "d8d3264e-1a55-48a2-a020-c8e1e9406e29",
               "go": "1400ac8a-9f9c-45f9-9bc6-9dff58741404",
               "component_type": "ControlStyleChoicePanel"
             },
             "ReturnMenu": {
               "_type": "component",
+              "component_id": "105b3ffe-2669-43cc-bc52-9eba6d110e89",
               "go": "e1deb9c4-2308-431f-9ca2-ae89e3b69007",
               "component_type": "PauseMenuPanel"
             }
@@ -192,13 +217,28 @@
         ]
       },
       {
-        "Id": "1400ac8a-9f9c-45f9-9bc6-9dff58741404",
+        "__guid": "1400ac8a-9f9c-45f9-9bc6-9dff58741404",
         "Name": "Control Style Menu",
         "Enabled": true,
         "NetworkMode": 2,
         "Components": [
           {
             "__type": "ControlStyleChoicePanel",
+            "__guid": "d8d3264e-1a55-48a2-a020-c8e1e9406e29",
+            "__enabled": false
+          }
+        ]
+      },
+      {
+        "__guid": "930c9ec7-0b39-4fc7-8b9a-361f6872aebc",
+        "Name": "QT Drive Hud",
+        "Position": "141.5697,135.2242,-172.6073",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "QtDriveHudPanel",
+            "__guid": "5ecf539b-3c5e-4f27-8c0d-411fd26b51cf",
             "__enabled": false
           }
         ]
@@ -208,5 +248,7 @@
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
   "__references": []
 }

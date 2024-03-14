@@ -1,4 +1,5 @@
 ﻿using Sandbox;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -11,8 +12,13 @@ public sealed class QtDrive : Component
 	[Property] public SoundEvent LoopSound { get; set; }
 	[Property] public SoundEvent BeginSound { get; set; }
 	[Property] public SoundEvent EndSound { get; set; }
+	[Property] public float MinUsableCharge { get; set; } = 20f;
+	[Property] public float MaxCharge { get; set; } = 100f;
+	[Property] public float CurrentCharge { get; set; } = 100f;
+	[Property] public float ChargeGainPerSecond { get; set; } = 20f;
+	[Property] public float ChargeBurnPerUseSecond { get; set; } = 50f;
 
-	private RealTimeSince _sinceLastFrame;
+	private RealTimeSince _sinceLastUpdate;
 	private RealTimeSince _sinceLastClone;
 	private Vector3 _newPosition;
 	private GameObject _activeVisualClone;
@@ -48,25 +54,30 @@ public sealed class QtDrive : Component
 		{
 			UpdateNotRunning();
 		}
-		_loopSoundHandle.Volume = _loopSoundHandle.Volume.LerpTo( _targetLoopVolume, 5f * _sinceLastFrame );
-		_sinceLastFrame = 0f;
+		_loopSoundHandle.Volume = _loopSoundHandle.Volume.LerpTo( _targetLoopVolume, 5f * _sinceLastUpdate );
+		CurrentCharge = MathF.Min( MaxCharge, CurrentCharge + ChargeGainPerSecond * Time.Delta);
+		_sinceLastUpdate = 0f;
 	}
 
 	private void UpdateRunning()
 	{
-		if ( Input.Pressed( "qt_drive" ) )
+		if ( Input.Pressed( "qt_drive" ) || CurrentCharge <= 0f )
 		{
 			End();
 			return;
 		}
 		UpdateCloneColors();
 		var isMoving = !Input.AnalogMove.IsNearlyZero();
-		if ( isMoving && _sinceLastClone > 0.1f )
+		if ( isMoving )
 		{
-			PushClone( _activeVisualClone );
+			if ( _sinceLastClone > 0.1f )
+			{
+				PushClone( _activeVisualClone );
+			}
+			CurrentCharge = MathF.Max( 0f, CurrentCharge - ChargeBurnPerUseSecond * _sinceLastUpdate );
 		}
 		_targetLoopVolume = isMoving ? LoopSound.Volume.GetValue() : 0f;
-		var deltaPos = Input.AnalogMove * TranslationSpeed * _sinceLastFrame;
+		var deltaPos = Input.AnalogMove * TranslationSpeed * _sinceLastUpdate;
 		_newPosition += deltaPos;
 		// Always draw the full color clone above the fading ones.
 		_activeVisualClone.Transform.Position = _newPosition;
@@ -76,6 +87,11 @@ public sealed class QtDrive : Component
 	{
 		if ( Input.Pressed( "qt_drive") )
 		{
+			if ( CurrentCharge < MinUsableCharge )
+			{
+				Sound.Play( EndSound, Transform.Position );
+				return;
+			}
 			Begin();
 		}
 	}
@@ -100,6 +116,7 @@ public sealed class QtDrive : Component
 		ScreenEffects.SetBloom( 10f );
 		ScreenEffects.SetSharpness( 2f );
 		Sound.Play( BeginSound, Transform.Position );
+		ScreenManager.SetQtHudVisibility( true );
 	}
 
 	private void CreateActiveClone()
@@ -131,8 +148,8 @@ public sealed class QtDrive : Component
 		foreach ( var (previousCloneGo, previousCloneColor) in _visualClones.ToList() )
 		{
 			var hsvColor = previousCloneColor.ToHsv();
-			hsvColor.Hue += 360f - 70f * _sinceLastFrame;
-			hsvColor.Alpha -= 0.05f * _sinceLastFrame;
+			hsvColor.Hue += 360f - 70f * _sinceLastUpdate;
+			hsvColor.Alpha -= 0.05f * _sinceLastUpdate;
 			if ( hsvColor.Alpha <= 0f )
 			{
 				previousCloneGo.Destroy();
@@ -166,5 +183,6 @@ public sealed class QtDrive : Component
 		ScreenEffects.SetBloom( 0.5f );
 		ScreenEffects.SetSharpness( 0.05f );
 		Sound.Play( EndSound, Transform.Position );
+		ScreenManager.SetQtHudVisibility( false );
 	}
 }

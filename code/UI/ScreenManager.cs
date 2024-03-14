@@ -14,6 +14,7 @@ public sealed class ScreenManager : Component
 	[Property] public GameObject HealthBarContainer { get; set; }
 	[Property] public GameObject TextPanelContainer { get; set; }
 	[Property] public PanelComponent PauseMenuPanel { get; set; }
+	[Property] public QtDriveHudPanel QtDriveHud { get; set; }
 
 	private Dictionary<IHealth, GameObject> _activeHealthBars = new();
 
@@ -175,5 +176,10 @@ public sealed class ScreenManager : Component
 			return;
 
 		Instance.PauseMenuPanel.Enabled = true;
+	}
+
+	public static void SetQtHudVisibility( bool visible )
+	{
+		Instance.QtDriveHud.Enabled = visible;
 	}
 }
