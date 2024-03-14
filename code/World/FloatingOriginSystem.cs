@@ -22,15 +22,12 @@ public sealed class FloatingOriginSystem : GameObjectSystem
 
 	public Vector3 RelativeToAbsolute( Vector3 relativePos )
 	{
-		return Origin != null 
-			? relativePos + TotalOriginShift
-			: relativePos;
+		return relativePos + TotalOriginShift;
 	}
+
 	public Vector3 AbsoluteToRelative( Vector3 absolutePos )
 	{
-		return Origin != null 
-			? absolutePos - TotalOriginShift
-			: absolutePos;
+		return absolutePos - TotalOriginShift;
 	}
 
 	private void Tick()

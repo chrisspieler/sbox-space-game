@@ -53,7 +53,6 @@ public static class GameObjectExtensions
 			return Vector2Int.Zero;
 
 		var absolutePosition = gameObject.GetAbsolutePosition();
-		absolutePosition += 1f;
 		return WorldChunker.WorldToChunkAbsolute( absolutePosition );
 	}
 
