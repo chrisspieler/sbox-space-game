@@ -38,7 +38,8 @@ public class CargoValues
 			if ( _ticksUntilNextIncrease[otherCargo] <= 0 )
 			{
 				_ticksUntilNextIncrease[otherCargo] = otherCargo.OtherSalesUntilValueIncrease;
-				_currentCargoValues[otherCargo] += otherCargo.ValueIncreaseAmount;
+				var otherValue = _currentCargoValues[otherCargo];
+				_currentCargoValues[otherCargo] = Math.Min( otherCargo.MaxValue, otherValue + otherCargo.ValueIncreaseAmount);
 			}
 		}
 	}
