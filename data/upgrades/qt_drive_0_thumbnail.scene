@@ -1,0 +1,253 @@
+{
+  "Id": "6b13f1fb-542d-4a9d-87de-c28662750c0f",
+  "GameObjects": [
+    {
+      "__guid": "2cf85da5-9d8b-4cd7-a812-44e1cb02c685",
+      "Name": "ambient_light",
+      "Tags": "light_directional,light,no_chunk",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/ambient_light.prefab"
+    },
+    {
+      "__guid": "961624c9-3326-4850-b017-f4fcdf3ebe5c",
+      "Name": "ship",
+      "Tags": "no_chunk,player,ship,solid",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/ship.prefab"
+    },
+    {
+      "__guid": "8fe306bf-9811-4071-9a13-fbb729fa1860",
+      "Name": "ship_camera",
+      "Tags": "no_chunk,no_shift",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "CameraComponent",
+          "__guid": "98d1ba7c-8d03-41ac-9ec9-3984b6aeadc9",
+          "BackgroundColor": "0.27442,0.27442,0.27442,1",
+          "ClearFlags": "All",
+          "FieldOfView": 90,
+          "IsMainCamera": true,
+          "Orthographic": false,
+          "OrthographicHeight": 1204,
+          "Priority": 1,
+          "RenderExcludeTags": "",
+          "RenderTags": "",
+          "TargetEye": "None",
+          "Viewport": "0,0,1,1",
+          "ZFar": 100000,
+          "ZNear": 10
+        },
+        {
+          "__type": "ShipCamera",
+          "__guid": "3ec56a97-ce8a-4fec-9f2e-9a3ded960ace",
+          "Combiner": {
+            "_type": "component",
+            "component_id": "b8068f48-47f9-43dc-9c79-9e096ae2e71d",
+            "go": "8fe306bf-9811-4071-9a13-fbb729fa1860",
+            "component_type": "OffsetCombiner"
+          },
+          "HighPitch": 88,
+          "HighPosition": "-120,0,3000",
+          "LowPitch": 70,
+          "LowPosition": "-350,0,1000",
+          "PitchLerpSpeed": 1,
+          "PositionLerpSpeed": 1,
+          "TargetVelocityHighThreshold": 2500,
+          "TargetVelocityLowThreshold": 50
+        },
+        {
+          "__type": "Bloom",
+          "__guid": "c89a76d6-ec01-46fa-82d4-64ad6ef7a4a2",
+          "BloomColor": {
+            "color": [
+              {
+                "c": "1,1,1,1"
+              },
+              {
+                "t": 1,
+                "c": "1,1,1,1"
+              }
+            ],
+            "alpha": []
+          },
+          "BloomCurve": [
+            {
+              "y": 0.5
+            },
+            {
+              "x": 1,
+              "y": 1
+            }
+          ],
+          "Mode": "Additive",
+          "Strength": 0.5,
+          "Threshold": 0.05,
+          "ThresholdWidth": 0.1
+        },
+        {
+          "__type": "ColorAdjustments",
+          "__guid": "854fd4ab-aa14-4a2e-9343-7f15f2b423ef",
+          "Brightness": 1.1,
+          "Contrast": 1.01,
+          "HueRotate": 0,
+          "Saturation": 1.1
+        },
+        {
+          "__type": "Highlight",
+          "__guid": "4e01ed63-fec6-4d47-a35d-fe5b3d4cda0a"
+        },
+        {
+          "__type": "PostProcessingController",
+          "__guid": "ac7c2f47-6073-4410-a3b9-0a9aab2f0c08",
+          "Bloom": {
+            "_type": "component",
+            "component_id": "c89a76d6-ec01-46fa-82d4-64ad6ef7a4a2",
+            "go": "8fe306bf-9811-4071-9a13-fbb729fa1860",
+            "component_type": "Bloom"
+          },
+          "Sharpen": {
+            "_type": "component",
+            "component_id": "1df5b556-6007-4c21-98fc-a01bd514a75f",
+            "go": "8fe306bf-9811-4071-9a13-fbb729fa1860",
+            "component_type": "Sharpen"
+          },
+          "TargetBloom": 0.5,
+          "TargetSharpness": 0.05
+        },
+        {
+          "__type": "OriginShiftCamera",
+          "__guid": "03b807e7-05c3-47a4-ad80-1e9e65f741fd",
+          "Camera": {
+            "_type": "component",
+            "component_id": "98d1ba7c-8d03-41ac-9ec9-3984b6aeadc9",
+            "go": "8fe306bf-9811-4071-9a13-fbb729fa1860",
+            "component_type": "CameraComponent"
+          },
+          "OriginShiftFreezeFrames": 3,
+          "RenderTags": "shift_visible"
+        },
+        {
+          "__type": "ScreenShake",
+          "__guid": "19adec56-cec9-4d4e-9240-dba07fdf074f",
+          "BaseTrauma": 0,
+          "CombinedTrauma": 0,
+          "PitchShakeIntensity": 5,
+          "PitchShakeSpeed": 300,
+          "RollShakeIntensity": 5,
+          "RollShakeSpeed": 300,
+          "ShakeToggleCount": 0,
+          "Trauma": 0,
+          "TraumaDecayRate": 0.75,
+          "YawShakeIntensity": 5,
+          "YawShakeSpeed": 300
+        },
+        {
+          "__type": "OffsetCombiner",
+          "__guid": "b8068f48-47f9-43dc-9c79-9e096ae2e71d"
+        },
+        {
+          "__type": "DeathCam",
+          "__guid": "e1614c04-1754-44a4-b570-10e021dc45fc",
+          "__enabled": false,
+          "Distance": 40,
+          "LookbackDistance": 200,
+          "PositionLerpSpeed": {
+            "rangey": "0,20",
+            "frames": [
+              {
+                "y": 0.018085156,
+                "in": -0.06567136,
+                "out": 0.06567136
+              },
+              {
+                "x": 0.8979591,
+                "y": 0.4847844,
+                "in": -1.6221398,
+                "out": 1.6221398
+              },
+              {
+                "x": 1,
+                "y": 1,
+                "in": -9.076923,
+                "out": 9.076923
+              }
+            ]
+          },
+          "RotationLerpSpeed": {
+            "rangey": "0,20",
+            "frames": [
+              {
+                "y": 0.02074473
+              },
+              {
+                "x": 0.88839287,
+                "y": 0.45886433,
+                "in": -1.8266492,
+                "out": 1.8266492
+              },
+              {
+                "x": 1,
+                "y": 1,
+                "in": -6.3225813,
+                "out": 6.3225813
+              }
+            ]
+          }
+        },
+        {
+          "__type": "Sharpen",
+          "__guid": "1df5b556-6007-4c21-98fc-a01bd514a75f",
+          "Scale": 0.05
+        }
+      ]
+    },
+    {
+      "__guid": "bc7cc9f2-406b-4dbb-8f9c-30bb865249f8",
+      "Name": "Plane",
+      "Position": "1000,0,0",
+      "Rotation": "0,-0.7071068,0,0.7071068",
+      "Scale": "50,50,1",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "__guid": "9edadf02-9a97-45d0-898c-5efee2263329",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/dev/plane.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "main_thruster_1_thumbnail",
+  "Description": "",
+  "LastSaved": "2024-03-14T00:45:50.8374018-06:00",
+  "__references": []
+}

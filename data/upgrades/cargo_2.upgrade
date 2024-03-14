@@ -1,8 +1,8 @@
 {
   "Name": "Cargo Bay Gantry Robot",
   "FlavorText": "The lower half of your ship becomes a claw machine with no windows.",
-  "FunctionText": "Increases cargo hold capacity by 6",
-  "Cost": 250,
+  "FunctionText": "Increases cargo hold capacity by 2",
+  "Cost": 350,
   "Thumbnail": "data/upgrades/cargo_2_thumbnail.vtex",
   "PrerequisiteUpgrade": "data/upgrades/cargo_1.upgrade",
   "OnApplyUpgrade": {
@@ -33,11 +33,12 @@
         "DstName": "_signal"
       },
       {
-        "Value": 6,
+        "Value": 2,
         "DstId": 1,
         "DstName": "slots"
       }
     ]
   },
+  "Hidden": false,
   "__references": []
 }

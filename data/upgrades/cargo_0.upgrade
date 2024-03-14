@@ -1,7 +1,7 @@
 {
   "Name": "Basic Cargo Bay",
   "FlavorText": "Your lap was getting sore from balancing so much iron ore.",
-  "FunctionText": "Adds a cargo hold with a capacity of 5",
+  "FunctionText": "Adds a cargo hold with a capacity of 4",
   "Cost": 10,
   "Thumbnail": null,
   "PrerequisiteUpgrade": null,
@@ -34,11 +34,12 @@
         "DstName": "_signal"
       },
       {
-        "Value": 5,
+        "Value": 4,
         "DstId": 2,
         "DstName": "slots"
       }
     ]
   },
+  "Hidden": false,
   "__references": []
 }

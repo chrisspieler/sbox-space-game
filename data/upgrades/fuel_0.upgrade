@@ -1,7 +1,7 @@
 {
   "Name": "Basic Fuel Tank",
   "FlavorText": "You can\u0027t leave home without it.",
-  "FunctionText": "Adds a fuel tank with a capacity of 10",
+  "FunctionText": "Adds a fuel tank with a capacity of 20",
   "Cost": 10,
   "Thumbnail": null,
   "PrerequisiteUpgrade": null,
@@ -34,11 +34,12 @@
         "DstName": "_signal"
       },
       {
-        "Value": 25,
+        "Value": 20,
         "DstId": 1,
         "DstName": "fuel"
       }
     ]
   },
+  "Hidden": false,
   "__references": []
 }

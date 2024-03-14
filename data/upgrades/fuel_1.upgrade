@@ -1,8 +1,8 @@
 {
   "Name": "Modest Fuel Tank",
   "FlavorText": "In zero-G, burning fuel is often more of a speedrun strat than a necessity.",
-  "FunctionText": "Increases fuel tank capacity by 25",
-  "Cost": 150,
+  "FunctionText": "Doubles fuel tank capacity.",
+  "Cost": 275,
   "Thumbnail": "data/upgrades/fuel_1_thumbnail.vtex",
   "PrerequisiteUpgrade": "data/upgrades/fuel_0.upgrade",
   "OnApplyUpgrade": {
@@ -33,11 +33,12 @@
         "DstName": "_signal"
       },
       {
-        "Value": 25,
+        "Value": 20,
         "DstId": 1,
         "DstName": "fuel"
       }
     ]
   },
+  "Hidden": false,
   "__references": []
 }

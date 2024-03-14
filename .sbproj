@@ -193,6 +193,11 @@
           "Name": "qt_drive",
           "KeyboardCode": "MOUSE3",
           "GroupName": "Actions"
+        },
+        {
+          "Name": "pause",
+          "KeyboardCode": "P",
+          "GroupName": "Debug"
         }
       ]
     },
