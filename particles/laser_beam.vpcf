@@ -157,16 +157,16 @@
 				m_flLOD1 = 0.0
 				m_flLOD2 = 0.0
 				m_flLOD3 = 0.0
-				m_flNoiseOutputMin = 1.0
-				m_flNoiseOutputMax = 20.0
-				m_flNoiseScale = 1.464268
+				m_flNoiseOutputMin = 3.0
+				m_flNoiseOutputMax = 6.0
+				m_flNoiseScale = 0.674663
 				m_vecNoiseOffsetRate = [ -400.0, 1.0, 1.0 ]
 				m_flNoiseOffset = -512.0
 				m_nNoiseOctaves = 1
 				m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
 				m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-				m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-				m_flNoiseTurbulenceScale = 0.11
+				m_nNoiseModifier = "PF_NOISE_MODIFIER_CLUMPS"
+				m_flNoiseTurbulenceScale = -1.05
 				m_flNoiseTurbulenceMix = -0.14
 				m_flNoiseImgPreviewScale = 1.0
 				m_bNoiseImgPreviewLive = true
@@ -190,6 +190,7 @@
 			{
 				m_nType = "PF_TYPE_PARTICLE_NUMBER_NORMALIZED"
 				m_nMapType = "PF_MAP_TYPE_REMAP"
+				m_NamedValue = ""
 				m_flLiteralValue = 0.0
 				m_nControlPoint = 0
 				m_nScalarAttribute = 3
@@ -219,8 +220,8 @@
 				m_flMultFactor = 1.0
 				m_flInput0 = 0.0
 				m_flInput1 = 1.0
-				m_flOutput0 = 1.0
-				m_flOutput1 = 0.0
+				m_flOutput0 = 3.0
+				m_flOutput1 = 5.0
 				m_nBiasType = "PF_BIAS_TYPE_STANDARD"
 				m_flBiasParameter = 0.0
 				m_Curve = 
@@ -231,6 +232,7 @@
 					m_vDomainMaxs = [ 0.0, 0.0 ]
 				}
 			}
+			m_flOpEndFadeInTime = 1.0
 		},
 		{
 			_class = "C_OP_PercentageBetweenCPs"
