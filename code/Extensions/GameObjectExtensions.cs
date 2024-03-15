@@ -170,4 +170,21 @@ public static class GameObjectExtensions
 			RecursiveTint( child, tint );
 		}
 	}
+
+	public static bool IsOnScreen( this GameObject gameObject, float offscreenMargin = 500f )
+	{
+		if ( Game.ActiveScene is null || !gameObject.IsValid() )
+			return false;
+
+		var camera = Game.ActiveScene.Camera;
+		var screenFocus = camera.ScreenNormalToWorld( 0.5f );
+		var dirToScreenFocus = gameObject.Transform.Position.Direction( screenFocus );
+		var cullPoint = gameObject.Transform.Position;
+		if ( offscreenMargin > 0f )
+		{
+			cullPoint += dirToScreenFocus * 500f;
+		}
+		var screenNormal = camera.PointToScreenNormal( cullPoint );
+		return screenNormal.x > 0f && screenNormal.x < 1f && screenNormal.y > 0f && screenNormal.y < 1f;
+	}
 }

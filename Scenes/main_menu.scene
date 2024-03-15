@@ -1,5 +1,5 @@
 {
-  "Id": "17b28205-3bec-4a36-be8d-a1811a02d3dd",
+  "__guid": "17b28205-3bec-4a36-be8d-a1811a02d3dd",
   "GameObjects": [
     {
       "__guid": "2ac5b830-9251-4536-ae6b-cb611e38ac21",
@@ -120,6 +120,7 @@
               "__guid": "322230a8-c1d2-4ebd-b957-6117981ab662",
               "CareerInProgress": {
                 "Upgrades": [],
+                "ShopCargoValues": [],
                 "World": "default"
               },
               "ControlStyleChooser": {
@@ -315,6 +316,10 @@
           "__type": "Sharpen",
           "__guid": "892066c0-9de9-44db-b27e-6f2eb92626fe",
           "Scale": 0.2
+        },
+        {
+          "__type": "Highlight",
+          "__guid": "c7c10fe3-1a13-4aa4-b3db-dad315f71961"
         }
       ]
     },
@@ -2630,6 +2635,7 @@
           "AddedVelocity": 0,
           "BouncedTags": "solid,player_shield",
           "BounceFactor": 0.05,
+          "MinimumVelocity": 50,
           "RehitDelay": 0.5
         },
         {
@@ -2724,6 +2730,26 @@
               "component_type": "SphereCollider"
             }
           ]
+        },
+        {
+          "__type": "AsteroidHighlight",
+          "__guid": "b52686ac-55a9-4a22-886e-902ac2bf6fd8",
+          "Outline": {
+            "_type": "component",
+            "component_id": "3f51c539-d849-458c-a557-5932b2eed80a",
+            "go": "e560e9ee-e29b-4104-931d-7913a680407e",
+            "component_type": "HighlightOutline"
+          },
+          "OutlineStrength": 1
+        },
+        {
+          "__type": "HighlightOutline",
+          "__guid": "3f51c539-d849-458c-a557-5932b2eed80a",
+          "Color": "1,1,1,1",
+          "InsideColor": "0,0,0,0",
+          "InsideObscuredColor": "0,0,0,0",
+          "ObscuredColor": "0,0,0,0.4",
+          "Width": 0.25
         }
       ],
       "Children": [
@@ -2903,6 +2929,7 @@
           "AddedVelocity": 0,
           "BouncedTags": "solid,player_shield",
           "BounceFactor": 0.05,
+          "MinimumVelocity": 50,
           "RehitDelay": 0.5
         },
         {
@@ -2958,6 +2985,26 @@
             "_type": "gameobject",
             "go": "f0cb46a7-932c-45b4-b4e3-57b1cc2d62f0"
           }
+        },
+        {
+          "__type": "AsteroidHighlight",
+          "__guid": "f1efc4e8-5df3-4779-a5ed-9ff55482d193",
+          "Outline": {
+            "_type": "component",
+            "component_id": "6ede34d6-b41d-4640-a8e5-f0fcac045777",
+            "go": "f0cb46a7-932c-45b4-b4e3-57b1cc2d62f0",
+            "component_type": "HighlightOutline"
+          },
+          "OutlineStrength": 1
+        },
+        {
+          "__type": "HighlightOutline",
+          "__guid": "6ede34d6-b41d-4640-a8e5-f0fcac045777",
+          "Color": "1,1,1,1",
+          "InsideColor": "0,0,0,0",
+          "InsideObscuredColor": "0,0,0,0",
+          "ObscuredColor": "0,0,0,0.4",
+          "Width": 0.25
         }
       ],
       "Children": [
@@ -3113,6 +3160,7 @@
           "AddedVelocity": 0,
           "BouncedTags": "solid,player_shield",
           "BounceFactor": 0.05,
+          "MinimumVelocity": 50,
           "RehitDelay": 0.5
         },
         {
@@ -3168,6 +3216,26 @@
             "_type": "gameobject",
             "go": "57ec4aea-7323-44f5-8a51-3fa5ba4d69e8"
           }
+        },
+        {
+          "__type": "AsteroidHighlight",
+          "__guid": "06ab01c1-0bd7-4135-865b-e469f20590d7",
+          "Outline": {
+            "_type": "component",
+            "component_id": "59e380ac-1e2c-4614-b9bc-7153dd41d55b",
+            "go": "57ec4aea-7323-44f5-8a51-3fa5ba4d69e8",
+            "component_type": "HighlightOutline"
+          },
+          "OutlineStrength": 1
+        },
+        {
+          "__type": "HighlightOutline",
+          "__guid": "59e380ac-1e2c-4614-b9bc-7153dd41d55b",
+          "Color": "1,1,1,1",
+          "InsideColor": "0,0,0,0",
+          "InsideObscuredColor": "0,0,0,0",
+          "ObscuredColor": "0,0,0,0.4",
+          "Width": 0.25
         }
       ],
       "Children": [
@@ -3324,6 +3392,7 @@
           "AddedVelocity": 0,
           "BouncedTags": "solid,player_shield",
           "BounceFactor": 0.05,
+          "MinimumVelocity": 50,
           "RehitDelay": 0.5
         },
         {
@@ -3379,6 +3448,26 @@
             "_type": "gameobject",
             "go": "2d24a683-7acd-47dd-91c3-3559c152cacf"
           }
+        },
+        {
+          "__type": "AsteroidHighlight",
+          "__guid": "97f2b970-9284-479a-832f-cd949334c8cb",
+          "Outline": {
+            "_type": "component",
+            "component_id": "f4c40f0b-9ff7-471e-99bc-147161421a58",
+            "go": "2d24a683-7acd-47dd-91c3-3559c152cacf",
+            "component_type": "HighlightOutline"
+          },
+          "OutlineStrength": 1
+        },
+        {
+          "__type": "HighlightOutline",
+          "__guid": "f4c40f0b-9ff7-471e-99bc-147161421a58",
+          "Color": "1,1,1,1",
+          "InsideColor": "0,0,0,0",
+          "InsideObscuredColor": "0,0,0,0",
+          "ObscuredColor": "0,0,0,0.4",
+          "Width": 0.25
         }
       ],
       "Children": [
@@ -3497,7 +3586,9 @@
   },
   "Title": "main_menu",
   "Description": "",
-  "LastSaved": "2024-03-13T22:57:02.9871105-06:00",
+  "LastSaved": "2024-03-15T15:17:32.9085924-06:00",
+  "ResourceVersion": 1,
+  "__version": 1,
   "__references": [
     "duccsoft.starmap_2020_8k",
     "facepunch.airduct_a_panel_32x32",

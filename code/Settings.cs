@@ -11,6 +11,7 @@ public class Settings
 	public float ScreenShakeScale { get; set; }
 	public float LaserBrightnessScale { get; set; }
 	public float FogThicknessScale { get; set; }
+	public float AsteroidHighlightScale { get; set; }
 	public bool HasChosenTankControls { get; set; }
 	public bool UseTankControls { get; set; }
 
@@ -38,6 +39,7 @@ public class Settings
 			LaserBrightnessScale = LaserBeam.BrightnessScale,
 			FogThicknessScale = FogController.IntensityScale,
 			BloomIntensity = PostProcessingController.BloomIntensity,
+			AsteroidHighlightScale = AsteroidHighlight.GlobalStrength,
 			UseTankControls = ShipController.DefaultToTankControls,
 			HasChosenTankControls = ControlStyleChoicePanel.HasChosenTankControls
 		};
@@ -49,6 +51,7 @@ public class Settings
 		LaserBeam.BrightnessScale = settings.LaserBrightnessScale;
 		FogController.IntensityScale = settings.FogThicknessScale;
 		PostProcessingController.BloomIntensity = settings.BloomIntensity;
+		AsteroidHighlight.GlobalStrength = settings.AsteroidHighlightScale;
 		ShipController.DefaultToTankControls = settings.UseTankControls;
 		ControlStyleChoicePanel.HasChosenTankControls = settings.HasChosenTankControls;
 	}

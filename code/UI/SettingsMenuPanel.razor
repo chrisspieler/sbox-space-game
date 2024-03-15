@@ -22,7 +22,7 @@
             <div class="body column center-content">
                 <div class="setting">
 					<div class="label">Bloom Intensity</div>
-					<SliderControl Max=@(1f) Step=@(0.1f) ShowRange=@true Value=@PostProcessingController.BloomIntensity 
+					<SliderControl Max=@(1f) Step=@(0.05f) ShowRange=@true Value=@PostProcessingController.BloomIntensity 
                         OnValueChanged=@SetBloomIntensityScale/>
 				</div>
             </div>
@@ -32,18 +32,23 @@
 			<div class="body column center-content">
 				<div class="setting">
 					<div class="label">Screen Shake Amount</div>
-					<SliderControl Max=@(1f) Step=@(0.1f) ShowRange=@true Value=@ScreenShake.ScreenShakeScale 
+					<SliderControl Max=@(1f) Step=@(0.05f) ShowRange=@true Value=@ScreenShake.ScreenShakeScale 
                         OnValueChanged=@SetScreenShakeScale/>
 				</div>
                 <div class="setting">
 					<div class="label">Laser Beam Brightness</div>
-					<SliderControl Min=@(0.1f) Max=@(1f) Step=@(0.1f) ShowRange=@true Value=@LaserBeam.BrightnessScale
+					<SliderControl Min=@(0.1f) Max=@(1f) Step=@(0.05f) ShowRange=@true Value=@LaserBeam.BrightnessScale
                         OnValueChanged=@SetLaserBrightnessScale/>
 				</div>
                 <div class="setting">
 					<div class="label">Volumetric Fog Thickness</div>
-					<SliderControl Min=@(0f) Max=@(1f) Step=@(0.1f) ShowRange=@true Value=@FogController.IntensityScale
+					<SliderControl Min=@(0f) Max=@(2f) Step=@(0.05f) ShowRange=@true Value=@FogController.IntensityScale
                         OnValueChanged=@SetFogIntensityScale/>
+				</div>
+                <div class="setting">
+					<div class="label">Asteroid Highlight Opacity</div>
+					<SliderControl Min=@(0f) Max=@(1f) Step=@(0.05f) ShowRange=@true Value=@AsteroidHighlight.GlobalStrength
+                        OnValueChanged=@SetAsteroidHighlightScale/>
 				</div>
 			</div>
 		</div>
@@ -70,7 +75,7 @@
     [Property] public PanelComponent ReturnMenu { get; set; }
     [Property] public PanelComponent ControlStyleMenu { get; set; }
 
-    protected override int BuildHash() => System.HashCode.Combine( ScreenShake.ScreenShakeScale, LaserBeam.BrightnessScale, FogController.IntensityScale, PostProcessingController.BloomIntensity, _showModal );
+    protected override int BuildHash() => System.HashCode.Combine( ScreenShake.ScreenShakeScale, LaserBeam.BrightnessScale, FogController.IntensityScale, PostProcessingController.BloomIntensity, AsteroidHighlight.GlobalStrength, _showModal );
 
     private string ModalClass => _showModal ? "" : "hidden";
     private bool _showModal = false;
@@ -106,6 +111,11 @@
     private void SetBloomIntensityScale( float value)
     {
         PostProcessingController.BloomIntensity = value;
+    }
+
+    private void SetAsteroidHighlightScale( float value)
+    {
+        AsteroidHighlight.GlobalStrength = value;
     }
 
     private void WipeSaveData()
