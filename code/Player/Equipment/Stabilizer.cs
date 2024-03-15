@@ -56,7 +56,9 @@ public sealed class Stabilizer : Component
 
 		if ( Input.Pressed( "stabilizer" ) )
 		{
-			VelocityMatchTarget = _hoveredRigidbody;
+			VelocityMatchTarget = VelocityMatchTarget == _hoveredRigidbody
+				? null
+				: _hoveredRigidbody;
 		}
 	}
 
@@ -112,9 +114,7 @@ public sealed class Stabilizer : Component
 		var glyphData = new InputGlyphData()
 		{
 			ActionName = "stabilizer",
-			DisplayText = canMatchHovered
-				? "Match Velocity"
-				: "Stop Matching Velocity",
+			DisplayText = displayText,
 			RemovalPredicate = () => !Enabled || !IsValid
 		};
 		ScreenManager.AddSelectionGlyph( glyphData );
