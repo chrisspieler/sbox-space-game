@@ -40,7 +40,7 @@
           "component_type": "Rigidbody"
         },
         "ScaleCurve": {
-          "rangey": "0.5,10",
+          "rangey": "1,10",
           "frames": [
             {
               "in": -0.09090924,
@@ -54,7 +54,7 @@
             },
             {
               "x": 0.9494048,
-              "y": 0.19535118,
+              "y": 0.1953512,
               "in": -0.16502072,
               "out": 0.16502072
             },
@@ -135,7 +135,7 @@
         "__guid": "75f550c1-bc02-4e93-befc-5ce68d1a16e0",
         "Outline": {
           "_type": "component",
-          "component_id": "deebca00-1230-4964-9b1e-c6f7055cd815",
+          "component_id": "f79b6e0a-208c-4c74-bbc7-d2892725e807",
           "go": "fb5dfc44-a658-4fd6-8391-e076ad7a7847",
           "component_type": "HighlightOutline"
         },
@@ -143,7 +143,7 @@
       },
       {
         "__type": "HighlightOutline",
-        "__guid": "260fae67-9cf3-48f0-a26f-4666cbf36dfc",
+        "__guid": "f79b6e0a-208c-4c74-bbc7-d2892725e807",
         "Color": "1,1,1,1",
         "InsideColor": "0,0,0,0",
         "InsideObscuredColor": "0,0,0,0",
