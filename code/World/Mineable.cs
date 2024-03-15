@@ -47,7 +47,9 @@ public sealed class Mineable : Component
 
 	private void SpawnFractureEffect( DamageInfo damage )
 	{
-		FractureEffect?.Clone( damage.Position );
+		var effectGo = FractureEffect?.Clone( damage.Position );
+		var mover = effectGo.Components.Create<MoveOnSpawn>();
+		mover.AbsolutePosition = damage.Position.ToAbsolutePosition();
 	}
 
 	private void SpawnFracturePieces()
