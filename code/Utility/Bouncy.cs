@@ -12,6 +12,7 @@ public sealed class Bouncy : Component, Component.ICollisionListener
 	[Property] public TagSet IgnoredTags { get; set; }
 	[Property] public float AddedVelocity { get; set; } = 0f;
 	[Property] public float RehitDelay { get; set; } = 0.5f;
+	[Property] public float MinimumVelocity { get; set; } = 50f;
 
 	private readonly Dictionary<GameObject, TimeUntil> _recentlyHit = new();
 
@@ -34,10 +35,14 @@ public sealed class Bouncy : Component, Component.ICollisionListener
 		if ( !CanBounceFrom( other.Other.GameObject ) )
 			return;
 
+		var totalVelocity = other.Other.Body.Velocity.Distance( other.Self.Body.Velocity );
+		if ( totalVelocity < MinimumVelocity )
+			return;
+
 		_recentlyHit[other.Other.GameObject] = RehitDelay;
-		other.Pongify( BounceFactor );
-		other.Other.Body.Velocity += Vector3.One * AddedVelocity;
 		OnBounce?.Invoke( other );
+		other.Pongify( BounceFactor );
+		other.Other.Body.Velocity *= Vector3.One * AddedVelocity;
 	}
 	public void OnCollisionStop( CollisionStop other ) { }
 	public void OnCollisionUpdate( Collision other ) { }

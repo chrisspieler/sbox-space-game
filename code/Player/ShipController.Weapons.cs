@@ -1,5 +1,4 @@
 ﻿using Sandbox;
-using System.Collections.Generic;
 
 public partial class ShipController
 {
@@ -23,5 +22,23 @@ public partial class ShipController
 
 		ship.Laser.TickDamage += tickDamageOffset;
 		ship.Laser.TickInterval += tickIntervalOffset;
+	}
+
+	public static void SetLaserTint( Color laserTint )
+	{
+		var ship = GetCurrent();
+		if ( ship is null || ship.Laser is null )
+			return;
+
+		ship.Laser.LaserTint = laserTint;
+	}
+
+	public static void SetLaserGradient( Gradient laserGradient )
+	{
+		var ship = GetCurrent();
+		if ( ship is null || ship.Laser is null )
+			return;
+
+		ship.Laser.LaserGradient = laserGradient;
 	}
 }

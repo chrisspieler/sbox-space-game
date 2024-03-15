@@ -245,6 +245,7 @@
               "BouncedTags": "solid",
               "BounceFactor": 1,
               "IgnoredTags": "player",
+              "MinimumVelocity": 5,
               "RehitDelay": 0.5
             },
             {
@@ -456,7 +457,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-14T19:02:25.2818226-06:00",
+  "LastSaved": "2024-03-15T11:30:19.2531369-06:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
