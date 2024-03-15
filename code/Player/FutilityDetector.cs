@@ -32,6 +32,8 @@ public class FutilityDetector : GameObjectSystem
 	private static bool IsStranded( ShipController ship )
 	{
 		var hasFuel = HasFuel( ship );
+		var hasQtDrive = HasQtDrive( ship );
+		var canGrappleBeam = CanGrappleBeam( ship );
 		var canJettison = CanJettison( ship );
 		var isShopOpen = ScreenManager.IsShopOpen();
 		var isDriftingTowardShop = IsDriftingTowardShop( ship );
@@ -44,6 +46,10 @@ public class FutilityDetector : GameObjectSystem
 			position += Vector2.Up * 25f;
 			Gizmo.Draw.ScreenText( $"hasFuel: {hasFuel}", position, "Consolas", 12, TextFlag.CenterTop );
 			position += Vector2.Up * 25f;
+			Gizmo.Draw.ScreenText( $"hasQtDrive: {hasQtDrive}", position, "Consolas", 12, TextFlag.CenterTop );
+			position += Vector2.Up * 25f;
+			Gizmo.Draw.ScreenText( $"canGrappleBeam: {canGrappleBeam}", position, "Consolas", 12, TextFlag.CenterTop );
+			position += Vector2.Up * 25f;
 			Gizmo.Draw.ScreenText( $"canJettison: {canJettison}", position, "Consolas", 12, TextFlag.CenterTop );
 			position += Vector2.Up * 25f;
 			Gizmo.Draw.ScreenText( $"isShopOpen: {isShopOpen}", position, "Consolas", 12, TextFlag.CenterTop );
@@ -51,6 +57,8 @@ public class FutilityDetector : GameObjectSystem
 			Gizmo.Draw.ScreenText( $"isDriftingTowardShop: {isDriftingTowardShop}", position, "Consolas", 12, TextFlag.CenterTop );
 		}
 		return !hasFuel
+			&& !hasQtDrive
+			&& !canGrappleBeam
 			&& !canJettison
 			&& !isShopOpen
 			&& !isDriftingTowardShop;
@@ -59,6 +67,16 @@ public class FutilityDetector : GameObjectSystem
 	private static bool HasFuel( ShipController ship )
 	{
 		return ship.Fuel.IsValid() && ship.Fuel.CurrentAmount >= 0.1f;
+	}
+
+	private static bool HasQtDrive( ShipController ship )
+	{
+		return ship.QtDrive.IsValid();
+	}
+
+	private static bool CanGrappleBeam( ShipController ship )
+	{
+		return ship.Grapple.IsValid();
 	}
 
 	private static bool CanJettison( ShipController ship )

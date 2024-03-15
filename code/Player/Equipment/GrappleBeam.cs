@@ -2,6 +2,9 @@ using Sandbox;
 
 public sealed class GrappleBeam : Component
 {
+	[ConVar( "grapple_debug" )]
+	public static bool Debug { get; set; }
+
 	[Property] public SpringJoint Joint { get; set; }
 	[Property] public TagSet FilterWithAny { get; set; }
 	[Property] public ParticleSystem BeamAsset { get; set; }
@@ -104,11 +107,20 @@ public sealed class GrappleBeam : Component
 		}
 
 		_currentTarget = target;
+		var distance = Transform.Position.Distance( target.Transform.Position );
+		var jointLength = distance;
+		if ( distance > 500f  )
+		{
+			jointLength *= 0.9f;
+		}
 		Joint.Body = _currentTarget;
 		Joint.MinLength = 0f;
-		// Don't ask me why I scale by damping. I don't know why I do anything.
-		Joint.MaxLength = Transform.Position.Distance( target.Transform.Position );
+		Joint.MaxLength = jointLength;
 		Joint.Enabled = true;
+		if ( Debug )
+		{
+			Log.Info( $"Grappled {target.Name}, distance {distance}, joint length {jointLength}" );
+		}
 		CreateParticleRope();
 		CreateLight();
 	}
