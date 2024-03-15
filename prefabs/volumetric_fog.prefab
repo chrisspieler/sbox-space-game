@@ -23,7 +23,7 @@
       {
         "__type": "FogController",
         "__guid": "6de571f9-0a8d-4fa2-8bd6-da30fa7720aa",
-        "Intensity": 0.25,
+        "Intensity": 0.225,
         "Volume": {
           "_type": "component",
           "component_id": "e483b4d6-6adc-4c51-b030-50a0d07d63af",
@@ -37,5 +37,7 @@
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
   "__references": []
 }

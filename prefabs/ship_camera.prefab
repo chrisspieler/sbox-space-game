@@ -97,7 +97,7 @@
           "go": "a40bb4ac-020a-41e6-b19c-044056082e27",
           "component_type": "Sharpen"
         },
-        "TargetBloom": 0.5,
+        "TargetBloom": 1,
         "TargetSharpness": 0.05
       },
       {
@@ -191,5 +191,7 @@
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
   "__references": []
 }
