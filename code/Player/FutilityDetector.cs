@@ -71,12 +71,12 @@ public class FutilityDetector : GameObjectSystem
 
 	private static bool HasQtDrive( ShipController ship )
 	{
-		return ship.QtDrive.IsValid();
+		return ship.QtDrive?.Enabled == true;
 	}
 
 	private static bool CanGrappleBeam( ShipController ship )
 	{
-		return ship.Grapple.IsValid();
+		return ship.Grapple?.Enabled == true;
 	}
 
 	private static bool CanJettison( ShipController ship )
