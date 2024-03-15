@@ -15,6 +15,14 @@
                     <div class="label">CONTROL STYLE</div>
                     <div class="button" onclick=@(() => ControlStyleMenu.Enabled = true )>@(ShipController.DefaultToTankControls ? "TANK CONTROLS" : "TAP TO TURN")</div>
                 </div>
+                @if ( ShipController.DefaultToTankControls)
+                {
+                    <div class="setting">
+                        <div class="label">TANK CONTROLS TURN SPEED</div>
+                        <SliderControl Max=@(1f) Step=@(0.05f) ShowRange=@true Value=@ShipController.TankControlsTurnSpeedFactor 
+                            OnValueChanged=@SetTankControlsTurnSpeed/>
+                    </div>
+                }
             </div>
         </div>
         <div class="category column">
@@ -116,6 +124,11 @@
     private void SetAsteroidHighlightScale( float value)
     {
         AsteroidHighlight.GlobalStrength = value;
+    }
+
+    private void SetTankControlsTurnSpeed( float value)
+    {
+        ShipController.TankControlsTurnSpeedFactor = value;
     }
 
     private void WipeSaveData()

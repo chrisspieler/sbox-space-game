@@ -14,6 +14,7 @@ public class Settings
 	public float AsteroidHighlightScale { get; set; }
 	public bool HasChosenTankControls { get; set; }
 	public bool UseTankControls { get; set; }
+	public float TankControlsTurnSpeed { get; set; }
 
 	public static void LoadAndApply()
 	{
@@ -41,6 +42,7 @@ public class Settings
 			BloomIntensity = PostProcessingController.BloomIntensity,
 			AsteroidHighlightScale = AsteroidHighlight.GlobalStrength,
 			UseTankControls = ShipController.DefaultToTankControls,
+			TankControlsTurnSpeed = ShipController.TankControlsTurnSpeedFactor,
 			HasChosenTankControls = ControlStyleChoicePanel.HasChosenTankControls
 		};
 	}
@@ -53,6 +55,7 @@ public class Settings
 		PostProcessingController.BloomIntensity = settings.BloomIntensity;
 		AsteroidHighlight.GlobalStrength = settings.AsteroidHighlightScale;
 		ShipController.DefaultToTankControls = settings.UseTankControls;
+		ShipController.TankControlsTurnSpeedFactor = settings.TankControlsTurnSpeed;
 		ControlStyleChoicePanel.HasChosenTankControls = settings.HasChosenTankControls;
 	}
 

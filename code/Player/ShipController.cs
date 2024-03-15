@@ -6,6 +6,8 @@ public sealed partial class ShipController : Component
 {
 	[ConVar( "ship_tank_controls_default" )]
 	public static bool DefaultToTankControls { get; set; } = false;
+	[ConVar( "ship_tank_controls_turn_speed" )]
+	public static float TankControlsTurnSpeedFactor { get; set; } = 1f;
 
 	[ConVar( "ship_spawn_invincibility_time" )]
 	public static float SpawnInvincibilitySeconds { get; set; } = 1f;
@@ -230,7 +232,9 @@ public sealed partial class ShipController : Component
 
 		if ( _useTankControls )
 		{
-			return TargetRotation * Rotation.FromYaw( 90f * Time.Delta * Input.AnalogMove.y * TurnSpeed * 2f );
+			var turnSpeed = Input.AnalogMove.y * TurnSpeed * 2f;
+			turnSpeed *= TankControlsTurnSpeedFactor;
+			return TargetRotation * Rotation.FromYaw( 90f * Time.Delta * turnSpeed );
 		}
 		else
 		{
