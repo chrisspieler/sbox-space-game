@@ -10,6 +10,7 @@ public sealed class Health : Component, Component.IDamageable, IHealth
 
 	[Property] public bool IsInvincible { get; set; }
 	[Property] public GameObject Body { get; set; }
+	[Property] public Shield Shield { get; set; }
 	[Property] public float MaxHealth { get; set; } = 100f;
 	[Property] public float CurrentHealth { get; set; }
 	[Property] public Bouncy Bounce { get; set; }
@@ -40,6 +41,11 @@ public sealed class Health : Component, Component.IDamageable, IHealth
 
 	public void OnDamage( in DamageInfo damage )
 	{
+		if ( Shield is not null && Shield.CurrentHealth > 0f )
+		{
+			Shield.OnDamage( damage );
+			return;
+		}
 		OnDamaged?.Invoke( damage );
 		if ( Tags.Has( "player" ) )
 		{

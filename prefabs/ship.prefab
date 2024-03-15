@@ -2000,7 +2000,13 @@
                 "DamageFlashColor": "1,0,0,1",
                 "DamageSound": "sounds/ship_impact.sound",
                 "IsInvincible": false,
-                "MaxHealth": 100
+                "MaxHealth": 100,
+                "Shield": {
+                  "_type": "component",
+                  "component_id": "faaa2f7a-dea9-49eb-bd66-fd53ccdad9b8",
+                  "go": "66aea1f2-c9ee-48bb-be91-7064eb7baab0",
+                  "component_type": "Shield"
+                }
               }
             ]
           },
@@ -2161,15 +2167,6 @@
             "NetworkMode": 2,
             "Components": [
               {
-                "__type": "SphereCollider",
-                "__guid": "057125e5-9942-4c50-8c97-20d51c27f2dc",
-                "__enabled": false,
-                "Center": "0,0,0",
-                "IsTrigger": false,
-                "Radius": 32,
-                "Static": false
-              },
-              {
                 "__type": "Shield",
                 "__guid": "faaa2f7a-dea9-49eb-bd66-fd53ccdad9b8",
                 "__enabled": false,
@@ -2180,12 +2177,6 @@
                   "component_type": "Bouncy"
                 },
                 "BreakSound": "sounds/shield_break.sound",
-                "Collider": {
-                  "_type": "component",
-                  "component_id": "057125e5-9942-4c50-8c97-20d51c27f2dc",
-                  "go": "66aea1f2-c9ee-48bb-be91-7064eb7baab0",
-                  "component_type": "SphereCollider"
-                },
                 "CurrentHealth": 0,
                 "HitSound": "sounds/shield_hit.sound",
                 "MaxHealth": 0,
@@ -2269,10 +2260,15 @@
                 "__guid": "f298c2ab-bcd7-4f70-b800-77572e14c109",
                 "__enabled": false,
                 "BeginSound": "sounds/qt_drive_begin.sound",
+                "ChargeBurnPerUseSecond": 50,
+                "ChargeGainPerSecond": 20,
+                "CurrentCharge": 100,
                 "EndSound": "sounds/qt_drive_end.sound",
                 "GhostMaterial": "materials/dev/primary_white_emissive_trans.vmat",
                 "IsRunning": false,
                 "LoopSound": "sounds/qt_drive_loop.sound",
+                "MaxCharge": 100,
+                "MinUsableCharge": 20,
                 "TranslationSpeed": 400
               }
             ]
@@ -2314,6 +2310,8 @@
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
   "__references": [
     "facepunch.airduct_a_panel_32x32",
     "facepunch.airduct_a_panel_48x16",
