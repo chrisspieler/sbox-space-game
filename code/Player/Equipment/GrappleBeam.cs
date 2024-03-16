@@ -36,7 +36,7 @@ public sealed class GrappleBeam : Component
 
 		if ( Scene.TimeScale == 0f )
 		{
-			if ( Particles.Enabled )
+			if ( Particles?.Enabled == true )
 			{
 				Particles.SceneObject.Simulate( _realDeltaTime );
 			}
