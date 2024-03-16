@@ -10,6 +10,7 @@ public sealed class GrappleBeam : Component
 	[Property] public ParticleSystem BeamAsset { get; set; }
 	[Property] public LegacyParticleSystem Particles { get; set; }
 	[Property] public SoundEvent AttachSound { get; set; }
+	[Property] public GameObject GrapplePoint { get; set; }
 	[Property] public GameObject CurrentTarget => _currentTarget;
 
 	public bool IsSlack
@@ -26,6 +27,7 @@ public sealed class GrappleBeam : Component
 	private GameObject _currentTarget;
 
 	private SceneLight _light;
+	private RealTimeSince _realDeltaTime;
 
 	protected override void OnUpdate()
 	{
@@ -33,7 +35,15 @@ public sealed class GrappleBeam : Component
 			Disconnect();
 
 		if ( Scene.TimeScale == 0f )
+		{
+			if ( Particles.Enabled )
+			{
+				Particles.SceneObject.Simulate( _realDeltaTime );
+			}
+			_realDeltaTime = 0f;
 			return;
+		}
+		
 
 		if ( _light.IsValid() && CurrentTarget.IsValid() )
 		{
@@ -125,18 +135,24 @@ public sealed class GrappleBeam : Component
 		CreateLight();
 	}
 
-	private void CreateParticleRope()
+	public void CreateParticleRope()
 	{
 		if ( BeamAsset is null )
 			return;
 
 		Particles ??= Components.GetOrCreate<LegacyParticleSystem>( FindMode.EverythingInSelf );
 		Particles.Particles = BeamAsset;
+		UpdateControlPoints();
+		Particles.Enabled = true;
+	}
+
+	public void UpdateControlPoints()
+	{
 		Particles.ControlPoints = new()
 		{
 			new ParticleControlPoint()
 			{
-				GameObjectValue = Joint.GameObject,
+				GameObjectValue = GrapplePoint,
 				StringCP = "0"
 			},
 			new ParticleControlPoint()
@@ -151,10 +167,9 @@ public sealed class GrappleBeam : Component
 				StringCP = "2"
 			}
 		};
-		Particles.Enabled = true;
 	}
 
-	private void DestroyParticleRope()
+	public void DestroyParticleRope()
 	{
 		if ( !Particles.IsValid() )
 			return;

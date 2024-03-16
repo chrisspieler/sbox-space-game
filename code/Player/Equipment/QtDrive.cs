@@ -26,6 +26,7 @@ public sealed class QtDrive : Component
 	private TagSet _visualCloneExcludeTags = new TagSet();
 	private SoundHandle _loopSoundHandle;
 	private float _targetLoopVolume;
+	private GameObject _oldGrapplePointParent;
 
 	protected override void OnEnabled()
 	{
@@ -117,6 +118,26 @@ public sealed class QtDrive : Component
 		ScreenEffects.SetSharpness( 2f );
 		Sound.Play( BeginSound, Transform.Position );
 		ScreenManager.SetQtHudVisibility( true );
+		TakeGrapplePoint();
+	}
+
+	private void TakeGrapplePoint()
+	{
+		var ship = ShipController.GetCurrent();
+		if ( ship.Grapple is null )
+			return;
+
+		_oldGrapplePointParent = ship.Grapple.GrapplePoint.Parent;
+		ship.Grapple.GrapplePoint.Parent = _activeVisualClone;
+	}
+
+	private void ResetGrapplePoint()
+	{
+		var ship = ShipController.GetCurrent();
+		if ( ship.Grapple is null )
+			return;
+
+		ship.Grapple.GrapplePoint.Parent = _oldGrapplePointParent;
 	}
 
 	private void CreateActiveClone()
@@ -184,5 +205,6 @@ public sealed class QtDrive : Component
 		ScreenEffects.SetSharpness( 0.05f );
 		Sound.Play( EndSound, Transform.Position );
 		ScreenManager.SetQtHudVisibility( false );
+		ResetGrapplePoint();
 	}
 }
