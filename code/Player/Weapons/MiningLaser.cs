@@ -25,7 +25,7 @@ public sealed class MiningLaser : Weapon, IDestructionListener
 		set => SetLaserColor( value );
 	}
 
-	[Property] public Gradient? LaserGradient { get; set; }
+	[Property] public LaserGradient Gradient { get; set; }
 
 	public void SetTickDamage( float value )
 	{
@@ -106,9 +106,9 @@ public sealed class MiningLaser : Weapon, IDestructionListener
 
 	private void UpdateLaserTint()
 	{
-		if ( LaserGradient.HasValue )
+		if ( Gradient is not null )
 		{
-			LaserTint = LaserGradient.Value.Evaluate( Time.Now / 5f % 1f );
+			LaserTint = Gradient.GetColor();
 		}
 	}
 

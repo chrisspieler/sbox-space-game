@@ -79,6 +79,7 @@ public sealed partial class ShipController : Component
 		FindEquipmentInChildren();
 		FindWeaponsInChildren();
 		ApplyAllUpgrades();
+		UpdateLaserColor();
 		AddTemporaryInvincibility( SpawnInvincibilitySeconds );
 		GameObject.BreakFromPrefab();
 	}

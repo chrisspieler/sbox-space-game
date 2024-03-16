@@ -21,6 +21,12 @@ public partial class Career
 		}
 	}
 
+	public enum LaserStyle
+	{
+		Tinted,
+		Gradient
+	}
+
 	[ConVar("career_respawn_fee")]
 	public static int RespawnFee { get; set; } = 100_000;
 
@@ -39,8 +45,17 @@ public partial class Career
 	public List<string> Upgrades { get; set; } = new();
 	public List<SavedCargoValue> ShopCargoValues { get; set; } = new();
 	public string World { get; set; } = "default";
+	public LaserStyle LaserStylePreference { get; set; } = LaserStyle.Tinted;
+	public Color LaserTintPreference { get; set; } = Color.Red;
+	public string LaserGradientPreference { get; set; } = "rainbow";
 
 	public float TotalPlayTime { get; set; }
+
+	public LaserGradient GetPreferredLaserGradient()
+	{
+		return ResourceLibrary.GetAll<LaserGradient>()
+			.First( g => g.ResourceName.ToLower() == LaserGradientPreference.ToLower() );
+	}
 
 	public CargoValues GetCargoValues()
 	{

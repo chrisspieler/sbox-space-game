@@ -24,6 +24,22 @@ public partial class ShipController
 		ship.Laser.TickInterval += tickIntervalOffset;
 	}
 
+	public static void UpdateLaserColor()
+	{
+		var laserStyle = Career.Active.LaserStylePreference;
+		switch ( Career.Active.LaserStylePreference )
+		{
+			case Career.LaserStyle.Tinted:
+				SetLaserTint( Career.Active.LaserTintPreference );
+				SetLaserGradient( null );
+				break;
+			case Career.LaserStyle.Gradient:
+				SetLaserTint( Career.Active.LaserTintPreference );
+				SetLaserGradient( Career.Active.GetPreferredLaserGradient() );
+				break;
+		}
+	}
+
 	public static void SetLaserTint( Color laserTint )
 	{
 		var ship = GetCurrent();
@@ -33,12 +49,12 @@ public partial class ShipController
 		ship.Laser.LaserTint = laserTint;
 	}
 
-	public static void SetLaserGradient( Gradient laserGradient )
+	public static void SetLaserGradient( LaserGradient gradient )
 	{
 		var ship = GetCurrent();
 		if ( ship is null || ship.Laser is null )
 			return;
 
-		ship.Laser.LaserGradient = laserGradient;
+		ship.Laser.Gradient = gradient;
 	}
 }

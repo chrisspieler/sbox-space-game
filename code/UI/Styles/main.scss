@@ -1,4 +1,6 @@
-﻿.button {
+﻿@import "_checkbox.scss";
+
+.button {
     color: white;
     border: 1px solid #FFF5;
     padding: 10px;

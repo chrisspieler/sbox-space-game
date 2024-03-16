@@ -39,7 +39,7 @@ public sealed class BeamWeapon : Component
 		get => LaserEffect?.Tint ?? Color.White;
 		set
 		{
-			_laserTint = value;
+			_laserTint = value.ToHsv().WithValue( LaserBrightnessCurve.Evaluate( LaserPower ) );
 			UpdateLaserTint();
 		}
 	}
@@ -110,7 +110,6 @@ public sealed class BeamWeapon : Component
 
 	private void UpdateTickDamage()
 	{
-		LaserTint = LaserTint.ToHsv().WithValue( LaserBrightnessCurve.Evaluate( LaserPower ) );
 		if ( Damage is not null )
 		{
 			Damage.TickDamage = _tickDamage;

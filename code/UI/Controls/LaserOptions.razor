@@ -1,0 +1,25 @@
+﻿@using System;
+@using Sandbox;
+@using Sandbox.UI;
+@inherits Panel
+@attribute [StyleSheet]
+
+<root>
+    <h1>LASER OPTIONS</h1>
+    <div id="settingsPanel" class="column">
+        <div class="setting">
+            <p class="label">Rainbow Mode</p>
+            <Checkbox class=@(RainbowMode ? "checked" : "") ValueChanged=@SetRainbowMode></Checkbox>
+        </div>
+        @if ( Career.Active.LaserStylePreference == Career.LaserStyle.Tinted )
+        {
+            <div class="setting">
+                <p class="label">HUE</p>
+                <SliderControl Value=@Career.Active.LaserTintPreference.ToHsv().Hue Max=@(360f) OnValueChanged=@SetHue></SliderControl>
+            </div>
+        }
+    </div>
+    <div id="previewPanel" style="background-color: @GetPreviewColor().Hex;">
+
+    </div>
+</root>

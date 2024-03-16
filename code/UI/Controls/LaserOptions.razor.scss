@@ -1,0 +1,42 @@
+﻿@import "../Styles/main.scss";
+
+LaserOptions {
+    border: 1px solid white;
+    border-top: 1px solid #FFF5;
+    padding: 5px;
+
+    h1 {
+        position: absolute;
+        font-size: 1.5vh;
+        top: 0%;
+        left: 1.5vh;
+        transform: translateY( -65%);
+        background-color: #000C;
+        backdrop-filter: blur(5px);
+        padding: 5px;
+    }
+
+    .label {
+        font-size: 1.5vh;
+    }
+    
+    .setting {
+        width: 100%;
+        align-items: center;
+    }
+
+    SliderControl {
+        flex-grow: 1;
+    }
+
+    #settingsPanel {
+        justify-content: space-between;
+        flex-grow: 1;
+    }
+
+    #previewPanel {
+        width: 6.5vh;
+        height: 100%;
+        border: 1px solid #FFF5;
+    }
+}
