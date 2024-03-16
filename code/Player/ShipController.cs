@@ -131,15 +131,17 @@ public sealed partial class ShipController : Component
 		UpdateWeapons();
 		UpdateThrusters();
 		UpdateTankControlsToggle();
-		_targetRotation = GetTargetRotation();
-		Rigidbody.PhysicsBody.SmoothRotate( _targetRotation, 1f / TurnSpeed, Time.Delta );
-		PartsContainer.Transform.Rotation = Rigidbody.PhysicsBody.Rotation;
+		UpdateRotation();
 		UpdateDebugInfo();
 	}
 
 	protected override void OnFixedUpdate()
 	{
 		if ( Rigidbody is not null )
+		{
+			Rigidbody.Enabled = true;
+		}
+		if ( Rigidbody?.Enabled == true )
 		{
 			// Work around the ship gaining insane amounts of mass after its shield is struck.
 			Rigidbody.PhysicsBody.Mass = Rigidbody.MassOverride;
@@ -167,6 +169,16 @@ public sealed partial class ShipController : Component
 
 		Retrorockets.ShouldFire = ShouldFireRetrorockets();
 		_retrorocketForce = Stabilizer?.GetStabilizerForce() ?? Vector3.Zero;
+	}
+
+	private void UpdateRotation()
+	{
+		if ( Rigidbody?.Enabled != true )
+			return;
+
+		_targetRotation = GetTargetRotation();
+		Rigidbody.PhysicsBody.SmoothRotate( _targetRotation, 1f / TurnSpeed, Time.Delta );
+		PartsContainer.Transform.Rotation = Rigidbody.PhysicsBody.Rotation;
 	}
 
 	[ConVar("input_diagonal_key_grace")] 

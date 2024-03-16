@@ -25,6 +25,20 @@ public sealed class OriginShiftCamera : Component, IOriginShiftListener
 		_freezeFramesRemaining = Math.Max( _freezeFramesRemaining - 1, 0 );
 	}
 
+	private void FreezeCamera()
+	{
+		if ( RenderTags is not null )
+		{
+			Camera.RenderTags.Add( RenderTags );
+		}
+		if ( ExcludeTags is not null )
+		{
+			Camera.RenderExcludeTags.Add( ExcludeTags );
+		}
+		Camera.ClearFlags ^= ClearFlags.Color;
+		_freezeFramesRemaining = OriginShiftFreezeFrames;
+	}
+
 	private void UnfreezeCamera()
 	{
 		if ( RenderTags is not null )
@@ -46,16 +60,10 @@ public sealed class OriginShiftCamera : Component, IOriginShiftListener
 
 	public void OnAfterOriginShift( Vector3 offset )
 	{
-		if ( RenderTags is not null )
+		if ( OriginShiftFreezeFrames > 0 )
 		{
-			Camera.RenderTags.Add( RenderTags );
+			FreezeCamera();
 		}
-		if ( ExcludeTags is not null )
-		{
-			Camera.RenderExcludeTags.Add( ExcludeTags );
-		}
-		Camera.ClearFlags ^= ClearFlags.Color;
-		_freezeFramesRemaining = OriginShiftFreezeFrames;
 		Transform.Position += offset;
 	}
 }

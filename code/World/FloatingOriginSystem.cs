@@ -56,8 +56,7 @@ public sealed class FloatingOriginSystem : GameObjectSystem
 	public void ShiftWorld( GameObject origin, Vector3 offset )
 	{
 		TotalOriginShift -= offset;
-		origin.Transform.Position = Vector3.Zero;
-		var gameObjects = origin.Scene.Children.Where( go => go != origin && !go.Tags.Has("no_shift") );
+		var gameObjects = origin.Scene.Children.Where( go => !go.Tags.Has("no_shift") );
 		foreach ( var go in gameObjects )
 		{
 			if ( Debug )

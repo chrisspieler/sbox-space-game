@@ -109,7 +109,7 @@
           "go": "a40bb4ac-020a-41e6-b19c-044056082e27",
           "component_type": "CameraComponent"
         },
-        "OriginShiftFreezeFrames": 3,
+        "OriginShiftFreezeFrames": 0,
         "RenderTags": "shift_visible"
       },
       {
