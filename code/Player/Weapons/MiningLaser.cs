@@ -94,6 +94,9 @@ public sealed class MiningLaser : Weapon, IDestructionListener
 
 	protected override void OnUpdate()
 	{
+		if ( Scene.TimeScale == 0f )
+			return;
+
 		SwivelWeapons();
 		if ( !ShouldFire )
 		{

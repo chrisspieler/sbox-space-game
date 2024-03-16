@@ -170,6 +170,13 @@ public sealed class BeamWeapon : Component
 
 	protected override void OnUpdate()
 	{
+		if ( Scene.TimeScale == 0f )
+		{
+			if ( _activeFiringSound?.IsPlaying == true )
+				_activeFiringSound.Volume = 0f;
+
+			return;
+		}
 		if ( !ShouldFire )
 		{
 			ClearAll();
@@ -198,6 +205,7 @@ public sealed class BeamWeapon : Component
 		}
 
 		EnsureFiringSound();
+		_activeFiringSound.Volume = FiringSoundLoop.Volume.GetValue();
 		_activeFiringSound.Position = Tracer.Source.Transform.Position;
 		_activeFiringSound.Pitch = DamagePitchCurve.Evaluate( LaserPower );
 	}

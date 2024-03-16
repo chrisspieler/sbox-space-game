@@ -53,6 +53,7 @@ public sealed class Shop : Component, Component.ITriggerListener
 		var ship = ShipController.GetCurrent();
 		ship.Rigidbody.LinearDamping = 5f;
 		ship.Rigidbody.Velocity = ship.Rigidbody.Velocity.ClampLength( 1000f );
+		ship.ActiveWeapon.ShouldFire = false;
 		ship.Enabled = false;
 	}
 
