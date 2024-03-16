@@ -7,7 +7,7 @@ public static class CollisionExtensions
 	[ConVar( "collision_damage_debug" )]
 	public static bool DebugDamage { get; set; }
 	[ConVar( "collision_damage_top_speed" )]
-	public static float DamageTopSpeed { get; set; } = 5_000f;
+	public static float DamageTopSpeed { get; set; } = 10_000f;
 	[ConVar( "collision_damage_max" )]
 	public static float DamageMax { get; set; } = 10_000f;
 	/// <summary>
