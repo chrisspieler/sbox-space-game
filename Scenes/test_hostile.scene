@@ -130,9 +130,9 @@
                 "Id": 30,
                 "Type": "call",
                 "Properties": {
-                  "_isStatic": false,
                   "_type": "package.duccsoft.aluminum_acrobat/DebrisConverter",
-                  "_name": "ReleaseDebris"
+                  "_name": "ReleaseDebris",
+                  "_isStatic": false
                 },
                 "UserData": {
                   "Position": "528,0"
@@ -184,9 +184,9 @@
                 "Id": 38,
                 "Type": "call",
                 "Properties": {
-                  "_isStatic": false,
                   "_type": "Sandbox.Game/Sandbox.GameObject",
-                  "_name": "Destroy"
+                  "_name": "Destroy",
+                  "_isStatic": false
                 },
                 "UserData": {
                   "Position": "800,-0"
@@ -510,7 +510,7 @@
   },
   "Title": "test_hostile",
   "Description": "",
-  "LastSaved": "2024-03-18T01:09:58.0856843-06:00",
+  "LastSaved": "2024-03-18T14:17:15.6342828-06:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": []

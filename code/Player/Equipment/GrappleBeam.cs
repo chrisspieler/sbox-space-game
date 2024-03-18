@@ -1,9 +1,21 @@
 using Sandbox;
+using Sandbox.Utility;
+using System;
+using static Sandbox.PhysicsContact;
 
 public sealed class GrappleBeam : Component
 {
 	[ConVar( "grapple_debug" )]
 	public static bool Debug { get; set; }
+	[ConVar( "grapple_pull_strength" )]
+	public static float PullStrength { get; set; } = 0.5f;
+	[ConVar( "grapple_pull_min_distance" )]
+	public static float PullMinDistance { get; set; } = 500f;
+	[ConVar( "grapple_pull_cross_velocity_min" )]
+	public static float CrossVelocityMin { get; set; } = 0f;
+	[ConVar( "gapple_pull_cross_velocity_max" )]
+	public static float CrossVelocityMax { get; set; } = 1000f;
+	
 
 	[Property] public SpringJoint Joint { get; set; }
 	[Property] public TagSet FilterWithAny { get; set; }
@@ -117,22 +129,38 @@ public sealed class GrappleBeam : Component
 		}
 
 		_currentTarget = target;
-		var distance = Transform.Position.Distance( target.Transform.Position );
-		var jointLength = distance;
-		if ( distance > 500f  )
-		{
-			jointLength *= 0.9f;
-		}
+		
+		var jointLength = GetJointLength( target );
 		Joint.Body = _currentTarget;
 		Joint.MinLength = 0f;
 		Joint.MaxLength = jointLength;
 		Joint.Enabled = true;
 		if ( Debug )
 		{
-			Log.Info( $"Grappled {target.Name}, distance {distance}, joint length {jointLength}" );
+			Log.Info( $"Grappled {target.Name}, distance {Transform.Position.Distance( target.Transform.Position)}, joint length {jointLength}" );
 		}
 		CreateParticleRope();
 		CreateLight();
+	}
+
+	private float GetJointLength( GameObject target )
+	{
+		var distance = Transform.Position.Distance( target.Transform.Position );
+
+		if ( distance < PullMinDistance )
+			return distance;
+
+		if ( !Components.TryGet<Rigidbody>( out var rb, FindMode.InAncestors | FindMode.EnabledInSelf ) )
+			return distance;
+
+		var targetDirection = Transform.Position.Direction( target.Transform.Position );
+		var dot = rb.Velocity.Normal.Dot( targetDirection );
+		var alignment = MathF.Abs( dot );
+		// Pull more strongly if our velocity would not lead us to or away from the target.
+		var pullAmount = 0.2f * (1f - alignment);
+		// Pull more strongly when our velocity is higher.
+		var velocityPullScale = rb.Velocity.Length.LerpInverse( CrossVelocityMin, CrossVelocityMax );
+		return distance - distance * pullAmount * velocityPullScale * PullStrength;
 	}
 
 	public void CreateParticleRope()
