@@ -35,6 +35,7 @@ public sealed class SaveManager : Component
 		Scene.GetSystem<WorldChunker>().World = ResourceLibrary.GetAll<WorldMap>()
 			.First( m => m.ResourceName == Career.Active.World );
 		ShipController.Respawn();
+		Scene.PhysicsWorld.Gravity = 0f;
 		_untilNextAutosave = AutosaveInterval;
 	}
 

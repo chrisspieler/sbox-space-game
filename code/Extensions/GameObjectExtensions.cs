@@ -80,13 +80,7 @@ public static class GameObjectExtensions
 
 	public static void DoDamage( this GameObject obj, DamageInfo damage )
 	{
-		var shield = obj.Components.GetInDescendantsOrSelf<Shield>();
-		if ( shield is not null && shield.CurrentHealth > 0f )
-		{
-			shield.OnDamage( damage );
-			return;
-		}
-		if ( !obj.Components.TryGet<Health>( out var health, FindMode.EnabledInSelfAndDescendants ) )
+		if ( !obj.Components.TryGet<Health>( out var health, FindMode.EnabledInSelf | FindMode.InAncestors ) )
 			return;
 
 		health.OnDamage( damage );
