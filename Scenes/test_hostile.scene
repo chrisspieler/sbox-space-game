@@ -45,6 +45,7 @@
     {
       "__guid": "a7378a4f-404d-4b13-abb6-4b7e3fb142d9",
       "Name": "Game",
+      "Tags": "no_chunk",
       "Enabled": true,
       "NetworkMode": 2,
       "Components": [
@@ -57,6 +58,11 @@
             "_type": "gameobject",
             "prefab": "prefabs/ship.prefab"
           }
+        },
+        {
+          "__type": "DebugDroneController",
+          "__guid": "62d31612-f58c-4600-9caa-ef4b99e1481b",
+          "__enabled": false
         }
       ]
     },
@@ -80,409 +86,81 @@
       "Tags": "target,enemy",
       "Enabled": true,
       "NetworkMode": 2,
+      "__Prefab": "prefabs/drones/mining_drone.prefab"
+    },
+    {
+      "__guid": "0a1122a1-5101-43d7-8946-55e076bd83bd",
+      "Name": "Mining Drone (1)",
+      "Position": "576,224,0",
+      "Tags": "target,enemy",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/drones/mining_drone.prefab"
+    },
+    {
+      "__guid": "6a5af867-0a6f-4fbc-9b55-0b8b95d0650a",
+      "Name": "Mining Drone (2)",
+      "Position": "640,-320,0.000002233483",
+      "Tags": "target,enemy",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/drones/mining_drone.prefab"
+    },
+    {
+      "__guid": "81f26fca-bcfb-4335-b97c-9f153c9ae123",
+      "Name": "Mining Drone (3)",
+      "Position": "832,-256,0.00001621836",
+      "Tags": "target,enemy",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/drones/mining_drone.prefab"
+    },
+    {
+      "__guid": "11fb0a59-ce97-425a-bfa9-86f80801f840",
+      "Name": "Mining Drone (4)",
+      "Position": "832,64,0.0000163747",
+      "Tags": "target,enemy",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/drones/mining_drone.prefab"
+    },
+    {
+      "__guid": "6beb5552-c466-4212-a333-af6f2a2afe38",
+      "Name": "Mining Drone (5)",
+      "Position": "896,288,-0.00003674605",
+      "Tags": "target,enemy",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/drones/mining_drone.prefab"
+    },
+    {
+      "__guid": "c1783786-4a52-45cc-9e15-c5e8d6eb6dd4",
+      "Name": "Mining Drone (6)",
+      "Position": "1152,-128,-0.00002114302",
+      "Tags": "target,enemy",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/drones/mining_drone.prefab"
+    },
+    {
+      "__guid": "9189c86b-5e24-4b36-a8c9-885a2b708ee1",
+      "Name": "Nav Plane",
+      "Tags": "nav_allow",
+      "Enabled": true,
+      "NetworkMode": 2,
       "Components": [
         {
-          "__type": "Health",
-          "__guid": "2d67b61a-c206-4426-ac58-86c3b1c04177",
-          "Body": {
-            "_type": "gameobject",
-            "go": "f60a8330-99e1-4f25-9974-f9d535a5b351"
-          },
-          "Bounce": {
-            "_type": "component",
-            "component_id": "177d6c8c-ba24-4b7a-b98f-27076e11b849",
-            "go": "e75ab9de-6298-42d9-9f9f-d48d192c3a4f",
-            "component_type": "Bouncy"
-          },
-          "CurrentHealth": 0,
-          "DamageFlashColor": "1,0,0,1",
-          "IsInvincible": false,
-          "MaxHealth": 100,
-          "OnKilled": {
-            "Version": 5,
-            "UserData": {
-              "Title": "On Killed",
-              "id": "2c69e129-5a0f-487c-bced-6b5b27b2abdc",
-              "ReferencedComponentTypes": []
-            },
-            "Variables": [],
-            "Nodes": [
-              {
-                "Id": 0,
-                "Type": "input"
-              },
-              {
-                "Id": 7,
-                "Type": "scene.ref",
-                "Properties": {
-                  "component": {
-                    "_type": "component",
-                    "component_id": "cad1bdeb-1633-4472-aec9-8584fd57ebc4",
-                    "go": "f60a8330-99e1-4f25-9974-f9d535a5b351",
-                    "component_type": "DebrisConverter"
-                  }
-                },
-                "UserData": {
-                  "Position": "320,-80"
-                }
-              },
-              {
-                "Id": 30,
-                "Type": "call",
-                "Properties": {
-                  "_type": "package.duccsoft.aluminum_acrobat/DebrisConverter",
-                  "_name": "ReleaseDebris",
-                  "_isStatic": false
-                },
-                "UserData": {
-                  "Position": "528,0"
-                }
-              },
-              {
-                "Id": 31,
-                "Type": "scene.instantiate",
-                "UserData": {
-                  "Position": "240,-0"
-                }
-              },
-              {
-                "Id": 33,
-                "Type": "scene.ref",
-                "Properties": {
-                  "gameobject": {
-                    "_type": "gameobject",
-                    "go": "e75ab9de-6298-42d9-9f9f-d48d192c3a4f"
-                  }
-                },
-                "UserData": {
-                  "Position": "-448,80"
-                }
-              },
-              {
-                "Id": 34,
-                "Type": "property.get",
-                "Properties": {
-                  "_type": "Sandbox.Game/Sandbox.GameObject",
-                  "_name": "Transform"
-                },
-                "UserData": {
-                  "Position": "-240,80"
-                }
-              },
-              {
-                "Id": 37,
-                "Type": "property.get",
-                "Properties": {
-                  "_type": "Sandbox.Game/Sandbox.GameTransform",
-                  "_name": "Position"
-                },
-                "UserData": {
-                  "Position": "-16,80"
-                }
-              },
-              {
-                "Id": 38,
-                "Type": "call",
-                "Properties": {
-                  "_type": "Sandbox.Game/Sandbox.GameObject",
-                  "_name": "Destroy",
-                  "_isStatic": false
-                },
-                "UserData": {
-                  "Position": "800,-0"
-                }
-              }
-            ],
-            "Links": [
-              {
-                "SrcId": 31,
-                "SrcName": "_signal",
-                "DstId": 30,
-                "DstName": "_signal"
-              },
-              {
-                "SrcId": 7,
-                "SrcName": "_result",
-                "DstId": 30,
-                "DstName": "_target"
-              },
-              {
-                "SrcId": 0,
-                "SrcName": "_signal",
-                "DstId": 31,
-                "DstName": "_signal"
-              },
-              {
-                "SrcId": 37,
-                "SrcName": "_result",
-                "DstId": 31,
-                "DstName": "position"
-              },
-              {
-                "Value": "prefabs/effects/ship_explosion.prefab",
-                "DstId": 31,
-                "DstName": "prefab"
-              },
-              {
-                "SrcId": 33,
-                "SrcName": "_result",
-                "DstId": 34,
-                "DstName": "_target"
-              },
-              {
-                "SrcId": 34,
-                "SrcName": "_result",
-                "DstId": 37,
-                "DstName": "_target"
-              },
-              {
-                "SrcId": 30,
-                "SrcName": "_signal",
-                "DstId": 38,
-                "DstName": "_signal"
-              },
-              {
-                "SrcId": 0,
-                "SrcName": "_target",
-                "DstId": 38,
-                "DstName": "_target"
-              }
-            ]
-          }
+          "__type": "PlaneCollider",
+          "__guid": "2ec6aa08-7647-45b9-a2c3-94b46def1456",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "5000,5000",
+          "Static": true
         },
         {
-          "__type": "Bouncy",
-          "__guid": "177d6c8c-ba24-4b7a-b98f-27076e11b849",
-          "AddedVelocity": 0,
-          "BouncedTags": "solid,shield",
-          "BounceFactor": 1,
-          "MinimumVelocity": 50,
-          "RehitDelay": 0.5
-        },
-        {
-          "__type": "HealthBarSpawner",
-          "__guid": "fcbb8d24-5cd9-4076-b17f-e54705caad42",
-          "HealthSource": {
-            "_type": "component",
-            "component_id": "2d67b61a-c206-4426-ac58-86c3b1c04177",
-            "go": "e75ab9de-6298-42d9-9f9f-d48d192c3a4f",
-            "component_type": "Health"
-          },
-          "Target": {
-            "_type": "gameobject",
-            "go": "e75ab9de-6298-42d9-9f9f-d48d192c3a4f"
-          }
-        },
-        {
-          "__type": "Rigidbody",
-          "__guid": "054b8c24-9f8d-45aa-b24d-e246a73a7598",
-          "AngularDamping": 0,
-          "Gravity": false,
-          "LinearDamping": 0,
-          "Locking": {
-            "Z": true
-          },
-          "MassOverride": 50,
-          "MotionEnabled": true,
-          "RigidbodyFlags": 0,
-          "StartAsleep": false
-        }
-      ],
-      "Children": [
-        {
-          "__guid": "f60a8330-99e1-4f25-9974-f9d535a5b351",
-          "Name": "Body",
-          "Position": "0,0,0",
-          "Tags": "solid",
-          "Enabled": true,
-          "NetworkMode": 2,
-          "Components": [
-            {
-              "__type": "ModelRenderer",
-              "__guid": "794929ae-3c19-40e9-9b68-5c762b9b4a02",
-              "BodyGroups": 18446744073709551615,
-              "MaterialOverride": "materials/dev/dev_metal_rough40.vmat",
-              "Model": "models/dev/sphere.vmdl",
-              "RenderType": "On",
-              "Tint": "1,1,1,1"
-            },
-            {
-              "__type": "SphereCollider",
-              "__guid": "78b7da5c-e8c7-48ef-8b02-1566d1420523",
-              "Center": "0,0,0",
-              "IsTrigger": false,
-              "Radius": 32,
-              "Static": false
-            },
-            {
-              "__type": "CollisionBubbler",
-              "__guid": "b8f08cc0-4b7d-4b0e-bc89-1c156e4df8d1"
-            },
-            {
-              "__type": "DebrisConverter",
-              "__guid": "cad1bdeb-1633-4472-aec9-8584fd57ebc4",
-              "Rigidbody": {
-                "_type": "component",
-                "component_id": "054b8c24-9f8d-45aa-b24d-e246a73a7598",
-                "go": "e75ab9de-6298-42d9-9f9f-d48d192c3a4f",
-                "component_type": "Rigidbody"
-              }
-            }
-          ],
-          "Children": [
-            {
-              "__guid": "efaf41fb-56f3-4a5d-840d-1d69e5694fdb",
-              "Name": "Light Top",
-              "Position": "0,0,32",
-              "Scale": "0.2,0.2,0.2",
-              "Tags": "break_debris",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "__guid": "242c0f11-e3d0-4520-b23f-2083ed55d0d7",
-                  "BodyGroups": 18446744073709551615,
-                  "MaterialOverride": "materials/dev/primary_white_emissive.vmat",
-                  "Model": "models/dev/sphere.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "SphereCollider",
-                  "__guid": "d9df4ad5-ef15-4985-aa98-ddfd7c14452c",
-                  "__enabled": false,
-                  "Center": "0,0,0",
-                  "IsTrigger": false,
-                  "Radius": 32,
-                  "Static": false
-                },
-                {
-                  "__type": "Rigidbody",
-                  "__guid": "1c5937e9-dcc1-421f-82dc-0a51cd5fd2ea",
-                  "__enabled": false,
-                  "AngularDamping": 0,
-                  "Gravity": false,
-                  "LinearDamping": 0,
-                  "Locking": {
-                    "Z": true
-                  },
-                  "MassOverride": 0,
-                  "MotionEnabled": true,
-                  "RigidbodyFlags": 0,
-                  "StartAsleep": false
-                }
-              ]
-            },
-            {
-              "__guid": "ca131184-da7d-4925-93da-950b9a18071a",
-              "Name": "Light Ring",
-              "Position": "0,0,0",
-              "Scale": "1.1,1.1,0.2",
-              "Tags": "break_debris",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "__guid": "fc45cee4-7418-42a2-ad50-3bfb359faf9b",
-                  "BodyGroups": 18446744073709551615,
-                  "MaterialOverride": "materials/dev/primary_white_emissive.vmat",
-                  "Model": "models/dev/sphere.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "SphereCollider",
-                  "__guid": "039cc38f-a61d-4dab-8257-ae6800d0903a",
-                  "__enabled": false,
-                  "Center": "0,0,0",
-                  "IsTrigger": false,
-                  "Radius": 32,
-                  "Static": false
-                },
-                {
-                  "__type": "Rigidbody",
-                  "__guid": "4b3fd964-8eef-43d3-9d43-47697d5aa824",
-                  "__enabled": false,
-                  "AngularDamping": 0,
-                  "Gravity": false,
-                  "LinearDamping": 0,
-                  "Locking": {
-                    "Z": true
-                  },
-                  "MassOverride": 0,
-                  "MotionEnabled": true,
-                  "RigidbodyFlags": 0,
-                  "StartAsleep": false
-                }
-              ]
-            },
-            {
-              "__guid": "cd606dd1-1e79-4162-8f30-8d72e142d942",
-              "Name": "Light Bottom",
-              "Position": "0,0,-32",
-              "Scale": "0.2,0.2,0.2",
-              "Tags": "break_debris",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "Components": [
-                {
-                  "__type": "ModelRenderer",
-                  "__guid": "3938d335-4e72-42fa-a4e7-66bdbcc7be2b",
-                  "BodyGroups": 18446744073709551615,
-                  "MaterialOverride": "materials/dev/primary_white_emissive.vmat",
-                  "Model": "models/dev/sphere.vmdl",
-                  "RenderType": "On",
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "SphereCollider",
-                  "__guid": "29844b27-2efa-4e5e-9386-e9d7ee9e273a",
-                  "__enabled": false,
-                  "Center": "0,0,0",
-                  "IsTrigger": false,
-                  "Radius": 32,
-                  "Static": false
-                },
-                {
-                  "__type": "Rigidbody",
-                  "__guid": "18bb315d-1f94-4d9d-9bc7-27eeabe89dfe",
-                  "__enabled": false,
-                  "AngularDamping": 0,
-                  "Gravity": false,
-                  "LinearDamping": 0,
-                  "Locking": {
-                    "Z": true
-                  },
-                  "MassOverride": 0,
-                  "MotionEnabled": true,
-                  "RigidbodyFlags": 0,
-                  "StartAsleep": false
-                }
-              ]
-            },
-            {
-              "__guid": "ec1250f6-039e-4b5b-870f-af640b0d0f05",
-              "Name": "Point Light",
-              "Position": "0,0,0",
-              "Tags": "light_point,light",
-              "Enabled": true,
-              "NetworkMode": 2,
-              "Components": [
-                {
-                  "__type": "PointLight",
-                  "__guid": "cfcd0f07-270a-43e9-bfe4-ae7c30237c97",
-                  "Attenuation": 1,
-                  "FogMode": "Enabled",
-                  "FogStrength": 1,
-                  "LightColor": "1,1,1,1",
-                  "Radius": 400,
-                  "Shadows": false
-                }
-              ]
-            }
-          ]
+          "__type": "NavPlane",
+          "__guid": "111bd35d-396d-4fbd-b2fd-ba84e05b0182",
+          "UpdateIntervalSeconds": 0.5
         }
       ]
     }
@@ -501,16 +179,16 @@
       "IncludeKeyframedBodies": true,
       "EditorAutoUpdate": true,
       "AgentHeight": 64,
-      "AgentRadius": 16,
-      "AgentStepSize": 18,
-      "AgentMaxSlope": 40,
+      "AgentRadius": 50,
+      "AgentStepSize": 0,
+      "AgentMaxSlope": 0,
       "ExcludedBodies": "",
-      "IncludedBodies": ""
+      "IncludedBodies": "nav_allow,nav_block"
     }
   },
   "Title": "test_hostile",
   "Description": "",
-  "LastSaved": "2024-03-18T14:17:15.6342828-06:00",
+  "LastSaved": "2024-03-19T13:24:04.1930547-06:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": []

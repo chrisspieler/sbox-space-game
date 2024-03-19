@@ -58,8 +58,12 @@ public sealed class DebrisConverter : Component
 				rb.Enabled = true;
 				rb.Velocity = Rigidbody.Velocity;
 				rb.Velocity += Vector3.Random.WithZ( 0f ) * 200f;
-				// Make sure the mass of each piece of ship debris is low enough that the ship can push it.
-				rb.PhysicsBody.Mass = Math.Min( rb.PhysicsBody.Mass, 100f );
+				// Not sure why this would ever be null, but I get NREs sometimes.
+				if ( rb.PhysicsBody is not null )
+				{
+					// Make sure the mass of each piece of ship debris is low enough that the ship can push it.
+					rb.PhysicsBody.Mass = Math.Min( rb.PhysicsBody.Mass, 100f );
+				}
 				rb.AngularVelocity += Vector3.Random * 3f;
 			}
 		}
