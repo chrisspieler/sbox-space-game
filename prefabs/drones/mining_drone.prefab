@@ -144,7 +144,7 @@
               "DstName": "position"
             },
             {
-              "Value": "prefabs/effects/ship_explosion.prefab",
+              "Value": "prefabs/effects/drone_explosion.prefab",
               "DstId": 31,
               "DstName": "prefab"
             },
