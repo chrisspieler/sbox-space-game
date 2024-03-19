@@ -2,6 +2,13 @@ using Sandbox;
 
 public sealed class Drone : Component
 {
+	public enum DroneState
+	{
+		Idle,
+		Busy,
+		Hostile
+	}
+
 	[Property] public Rigidbody Rigidbody { get; set; }
 	[Property] public GameObject NavTargetGameObject
 	{
@@ -13,14 +20,54 @@ public sealed class Drone : Component
 		}
 	}
 	private GameObject _navTargetGameObject;
+	[Property] public DroneState State 
+	{
+		get => _state;
+		set
+		{
+			if ( value != _state )
+			{
+				// TODO: Handle state transition.
+			}
+			_state = value;
+		}
+	}
+	private DroneState _state;
+	[Property] public Health Hull { get; set; }
 
 	public Target? NavTarget { get; set; }
 
 	private Vector3 _navDirection { get; set; }
 
+	protected override void OnStart()
+	{
+		if ( Hull is not null )
+		{
+			Hull.OnDamaged += OnDamaged;
+		}
+		GameObject.BreakFromPrefab();
+	}
+
+	protected override void OnValidate()
+	{
+		Rigidbody ??= Components.Get<Rigidbody>();
+		Hull ??= Components.Get<Health>();
+	}
+
 	protected override void OnUpdate()
 	{
-		UpdatePlan();
+		switch ( State )
+		{
+			case DroneState.Idle:
+				UpdateIdleState();
+				break;
+			case DroneState.Busy:
+				UpdateBusyState(); 
+				break;
+			case DroneState.Hostile:
+				UpdateHostileState(); 
+				break;
+		}
 		UpdateNavigation();
 	}
 
@@ -29,16 +76,45 @@ public sealed class Drone : Component
 		UpdateThruster( _navDirection, 300f, 0.1f );
 	}
 
-	private void UpdatePlan()
+	private void UpdateIdleState()
 	{
 		if ( NavTarget is not null )
 			return;
 
-		var player = ShipController.GetCurrent();
-		if ( player is null )
-			return;
+		var randomPoint = Scene.NavMesh.GetRandomPoint( Transform.Position, 5000f );
+		if ( randomPoint.HasValue )
+		{
+			NavTarget = Target.FromRelativePosition( randomPoint.Value );
+		}
+	}
 
-		NavTarget = new Target( player.GameObject );
+	private void UpdateBusyState()
+	{
+
+	}
+
+	private void UpdateHostileState()
+	{
+		var player = ShipController.GetCurrent();
+		// When the player dies, go back to business as usual.
+		if ( player is null )
+		{
+			State = DroneState.Idle;
+			return;
+		}
+
+		if ( NavTarget is null || NavTarget.Value.GameObject != player.GameObject )
+		{
+			NavTarget = new Target( player.GameObject );
+		}
+	}
+
+	private void OnDamaged( DamageInfo damage )
+	{
+		if ( damage.Attacker.Tags.Has( "player" ) )
+		{
+			State = DroneState.Hostile;
+		}
 	}
 
 	private void UpdateNavigation()
