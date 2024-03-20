@@ -54,7 +54,7 @@ public sealed class DroneSpawner : Component
 		{
 			Log.Info( $"Spawning drone in chunk {chunk} at position: {position}" );
 		}
-		return DronePrefab.Clone( position );
+		return DronePrefab.Clone( position.ToRelativePosition() );
 	}
 
 	[Button( "Force Spawn Many" )]
