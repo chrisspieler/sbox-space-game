@@ -7,6 +7,7 @@ public sealed class PostProcessingController : Component
 	[ConVar( "sharpen_intensity" )]
 	public static float SharpenIntensity { get; set; } = 1f;
 
+	[Property] public Highlight HighlightEffect { get; set; }
 	[Property] public Bloom Bloom { get; set; }
 	[Property] public float TargetBloom { get; set; } = 0.5f;
 	[Property] public Sharpen Sharpen { get; set; }
@@ -25,6 +26,7 @@ public sealed class PostProcessingController : Component
 
 	protected override void OnUpdate()
 	{
+		HighlightEffect.SetEnabled( AsteroidHighlight.GlobalStrength > 0f );
 		var bloomAmount = Bloom.Strength.LerpTo( TargetBloom, _realDeltaTime * 10f );
 		Bloom.Strength = bloomAmount * BloomIntensity;
 		var sharpenAmount = Sharpen.Scale.LerpTo( TargetSharpness, _realDeltaTime * 5f );

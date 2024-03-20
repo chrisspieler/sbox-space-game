@@ -91,6 +91,12 @@
           "go": "a40bb4ac-020a-41e6-b19c-044056082e27",
           "component_type": "Bloom"
         },
+        "HighlightEffect": {
+          "_type": "component",
+          "component_id": "06094e87-8a27-4592-92ec-5a40aab5d524",
+          "go": "a40bb4ac-020a-41e6-b19c-044056082e27",
+          "component_type": "Highlight"
+        },
         "Sharpen": {
           "_type": "component",
           "component_id": "ad610a80-ef3d-442b-b09c-b8d673e9b97c",
