@@ -49,6 +49,7 @@ public partial class WorldChunker
 			var formerTransform = go.Transform.World;
 			go.Parent = _worldChunks[chunk];
 			go.Transform.World = formerTransform;
+			go.Transform.ClearLerp();
 		}
 		else
 		{

@@ -64,6 +64,7 @@ public sealed class FloatingOriginSystem : GameObjectSystem
 				Gizmo.Draw.FollowText( $"({go.Name}) Shifted Origin: {offset}", go );
 			}
 			go.Transform.Position += offset;
+			go.Transform.ClearLerp();
 		}
 	}
 
