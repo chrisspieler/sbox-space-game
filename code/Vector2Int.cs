@@ -28,6 +28,9 @@ public struct Vector2Int : IEquatable<Vector2Int>
 	public int RectDistance( Vector2Int other )
 		=> Math.Abs( X - other.X ) + Math.Abs( Y - other.Y );
 
+	public float Distance( Vector2Int other )
+		=> (this - other).Length();
+
 	public Vector2Int Normalize()
 	{
 		if ( X == 0 && Y == 0 )

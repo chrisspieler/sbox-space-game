@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Sandbox;
 
 public sealed partial class WorldChunker : GameObjectSystem
@@ -9,7 +10,7 @@ public sealed partial class WorldChunker : GameObjectSystem
 	[ConVar("world_streaming_depth")]
 	public static int ChunkLoadDistance { get; set; } = 1;
 	[ConVar("world_streaming_max_loaded_chunks")]
-	public static int MaxLoadedChunks { get; set; } = 15;
+	public static int MaxLoadedChunks { get; set; } = 9;
 
 	[ConVar("world_streaming_debug")]
 	public static bool Debug { get; set; }
@@ -25,12 +26,8 @@ public sealed partial class WorldChunker : GameObjectSystem
 	public bool IsChunkLoaded( Vector2Int chunk ) => _worldChunks.ContainsKey( chunk );
 	public bool IsChunkNearby( Vector2Int chunk, Vector2Int originChunk )
 	{
-		var rectDistance = chunk.RectDistance( originChunk );
-
-		if ( rectDistance == 0 )
-			return true;
-
-		return rectDistance / 2 <= ChunkLoadDistance;
+		return Math.Abs( chunk.X - originChunk.X ) <= ChunkLoadDistance
+			&& Math.Abs( chunk.Y - originChunk.Y ) <= ChunkLoadDistance;
 	}
 
 	private void UpdateChunks( Vector2Int originChunk )
@@ -135,7 +132,7 @@ public sealed partial class WorldChunker : GameObjectSystem
 
 		var excess = _worldChunks.Count - MaxLoadedChunks;
 		var chunks = _chunkOrder.ToArray();
-		foreach( var chunk in chunks )
+		foreach ( var chunk in chunks )
 		{
 			if ( !IsChunkNearby( chunk, originChunk ) )
 			{
