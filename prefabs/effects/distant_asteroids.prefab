@@ -1,0 +1,51 @@
+{
+  "RootObject": {
+    "__guid": "bc16d4d6-cc2c-4c5c-b7fc-a81403a90dce",
+    "Name": "distant_asteroids",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "Components": [
+      {
+        "__type": "DistantAsteroidEffect",
+        "__guid": "4cbcf4b9-badc-4917-8d06-560c4fd62261",
+        "AsteroidMaterial": "materials/distant_asteroid.vmat",
+        "AsteroidModel": "models/rust_nature/rocks/rock_small_c.vmdl",
+        "AsteroidSpawnBounds": {
+          "Mins": "-2500,-2500,-200",
+          "Maxs": "2500,2500,200"
+        },
+        "ScaleCurve": {
+          "rangey": "1,20",
+          "frames": [
+            {
+              "in": -0.14925408,
+              "out": 0.14925408
+            },
+            {
+              "x": 0.9657738,
+              "y": 0.17579408,
+              "in": -0.27720782,
+              "out": 0.27720782
+            },
+            {
+              "x": 1,
+              "y": 1,
+              "in": -3.0909095,
+              "out": 3.0909095
+            }
+          ]
+        },
+        "Tint": "0,0,0,1"
+      }
+    ],
+    "Children": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": [
+    "rust.rock_small_c"
+  ]
+}

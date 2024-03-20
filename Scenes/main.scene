@@ -84,8 +84,8 @@
                 "Id": 2,
                 "Type": "property.get",
                 "Properties": {
-                  "_name": "PhysicsWorld",
-                  "_type": "Sandbox.Game/Sandbox.Scene"
+                  "_type": "Sandbox.Game/Sandbox.Scene",
+                  "_name": "PhysicsWorld"
                 },
                 "UserData": {
                   "Position": "64,64"
@@ -95,8 +95,8 @@
                 "Id": 3,
                 "Type": "property.set",
                 "Properties": {
-                  "_name": "Gravity",
-                  "_type": "Sandbox.Engine/Sandbox.PhysicsWorld"
+                  "_type": "Sandbox.Engine/Sandbox.PhysicsWorld",
+                  "_name": "Gravity"
                 },
                 "UserData": {
                   "Position": "352,0"
@@ -440,6 +440,14 @@
       "Enabled": true,
       "NetworkMode": 2,
       "__Prefab": "prefabs/nav_plane.prefab"
+    },
+    {
+      "__guid": "de9a545b-726c-41e2-aefe-b6da6d33c1c8",
+      "Name": "distant_asteroids",
+      "Position": "2500,2500,-5000",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/distant_asteroids.prefab"
     }
   ],
   "SceneProperties": {
@@ -465,7 +473,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-20T02:20:04.1348322-06:00",
+  "LastSaved": "2024-03-20T05:26:26.9973309-06:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
