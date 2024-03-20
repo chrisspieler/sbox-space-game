@@ -66,6 +66,14 @@ public sealed partial class WorldChunker : GameObjectSystem
 	}
 
 	/// <summary>
+	/// Given the coordinates of a chunk, returns the worldspace origin of the chunk.
+	/// </summary>
+	public static Vector3 ChunkToWorldAbsolute( Vector2Int chunk )
+	{
+		return chunk * ChunkSize;
+	}
+
+	/// <summary>
 	/// Given a relative world position, returns the chunk that contains it.
 	/// </summary>
 	public Vector2Int WorldToChunkRelative( Vector3 relativePos )
@@ -83,20 +91,17 @@ public sealed partial class WorldChunker : GameObjectSystem
 	}
 
 	/// <summary>
-	/// Returns the absolute position of the given chunk.
-	/// </summary>
-	public Vector3 ChunkToWorldAbsolute( Vector2Int chunk )
-	{
-		return ChunkToWorldRelative( chunk ).ToAbsolutePosition();
-	}
-
-	/// <summary>
 	/// Returns the origin-shifted position of the center of the given chunk.
 	/// </summary>
 	public Vector3 ChunkCenterToWorldRelative( Vector2Int chunk )
 	{
 		var chunkPos = ChunkToWorldRelative( chunk );
 		return chunkPos + new Vector3( 1, 1, 0 ) * ChunkSize / 2;
+	}
+
+	public static Vector3 ChunkCenterToWorldAbsolute( Vector2Int chunk )
+	{
+		return ( ChunkToWorldAbsolute( chunk ) + ChunkSize / 2f ).WithZ( 0f );
 	}
 
 	/// <summary>
