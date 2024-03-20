@@ -37,7 +37,20 @@ public sealed class Drone : Component
 	[Property] public Health Hull { get; set; }
 	[Property] public float PlayerDamageAlertRange { get; set; } = 2000f;
 
-	public Target? NavTarget { get; set; }
+	public Target? NavTarget 
+	{
+		get => _navTarget;
+		set
+		{
+			var hasChanged = _navTarget != value;
+			_navTarget = value;
+			if ( hasChanged && _navTarget is not null )
+			{
+
+			}
+		}
+	}
+	private Target? _navTarget;
 
 	private Vector3 _navDirection { get; set; }
 

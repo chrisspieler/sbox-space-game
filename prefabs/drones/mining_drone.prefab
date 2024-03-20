@@ -531,7 +531,7 @@
                 "FogMode": "Enabled",
                 "FogStrength": 1,
                 "LightColor": "1,1,1,1",
-                "Radius": 400,
+                "Radius": 800,
                 "Shadows": false
               }
             ]

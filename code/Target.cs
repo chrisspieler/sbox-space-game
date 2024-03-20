@@ -1,6 +1,7 @@
 ﻿using Sandbox;
+using System;
 
-public struct Target
+public struct Target : IEquatable<Target>
 {
 	public Target( GameObject go )
 	{
@@ -45,5 +46,47 @@ public struct Target
 	public static Target FromRelativePosition( Vector3 relativePos )
 	{
 		return new Target() { RelativePosition = relativePos };
+	}
+
+	public bool Equals( Target other )
+	{
+		if ( GameObject is not null || other.GameObject is not null )
+		{
+			return GameObject == other.GameObject;
+		}	
+		return AbsolutePosition == other.AbsolutePosition;
+	}
+
+	public static bool operator ==(Target t1, Target t2 )
+	{
+		return t1.Equals( t2 );
+	}
+	
+	public static bool operator !=(Target t1, Target t2 )
+	{
+		return !t1.Equals( t2 );
+	}
+
+	public override bool Equals( object obj )
+	{
+		return obj is Target target && Equals( target );
+	}
+
+	public override int GetHashCode()
+	{
+		if ( GameObject is not null )
+		{
+			return GameObject.GetHashCode();
+		}
+		return AbsolutePosition.GetHashCode();
+	}
+
+	public override string ToString()
+	{
+		if ( GameObject is not null )
+		{
+			return $"({GameObject.Name}) abs:{AbsolutePosition} rel:{RelativePosition}";
+		}
+		return $"abs:{AbsolutePosition} rel:{RelativePosition}";
 	}
 }

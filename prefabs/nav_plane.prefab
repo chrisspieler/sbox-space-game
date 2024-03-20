@@ -1,0 +1,36 @@
+{
+  "RootObject": {
+    "__guid": "87019b33-c795-4864-a764-421437440a62",
+    "Name": "nav_plane",
+    "Tags": "nav_allow,no_chunk",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "Components": [
+      {
+        "__type": "PlaneCollider",
+        "__guid": "305f656d-1f51-4f51-a00f-519d6d11e8f9",
+        "Center": "0,0,0",
+        "IsTrigger": false,
+        "Scale": "10000,10000",
+        "Static": true
+      },
+      {
+        "__type": "NavPlane",
+        "__guid": "08ddc934-1372-4bb2-8a5c-56d5152d3535",
+        "UpdateIntervalSeconds": 0.05
+      },
+      {
+        "__type": "Follower",
+        "__guid": "fc8749b8-d4f8-4fd9-a232-98617f53b6f4",
+        "FollowPlayer": true
+      }
+    ],
+    "Children": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": []
+}

@@ -143,26 +143,12 @@
       "__Prefab": "prefabs/drones/mining_drone.prefab"
     },
     {
-      "__guid": "9189c86b-5e24-4b36-a8c9-885a2b708ee1",
-      "Name": "Nav Plane",
+      "__guid": "a41c62e0-1bcc-44a7-9d53-19f995fb666c",
+      "Name": "nav_plane (1)",
       "Tags": "nav_allow",
       "Enabled": true,
       "NetworkMode": 2,
-      "Components": [
-        {
-          "__type": "PlaneCollider",
-          "__guid": "2ec6aa08-7647-45b9-a2c3-94b46def1456",
-          "Center": "0,0,0",
-          "IsTrigger": false,
-          "Scale": "5000,5000",
-          "Static": true
-        },
-        {
-          "__type": "NavPlane",
-          "__guid": "111bd35d-396d-4fbd-b2fd-ba84e05b0182",
-          "UpdateIntervalSeconds": 0.5
-        }
-      ]
+      "__Prefab": "prefabs/nav_plane.prefab"
     }
   ],
   "SceneProperties": {
@@ -188,7 +174,7 @@
   },
   "Title": "test_hostile",
   "Description": "",
-  "LastSaved": "2024-03-19T19:52:14.3277371-06:00",
+  "LastSaved": "2024-03-19T21:01:05.7719576-06:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": []
