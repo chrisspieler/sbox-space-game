@@ -432,6 +432,14 @@
           ]
         }
       ]
+    },
+    {
+      "__guid": "6d5b63b1-490d-4eeb-821b-135423d7b88a",
+      "Name": "nav_plane (1)",
+      "Tags": "nav_allow,no_chunk",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/nav_plane.prefab"
     }
   ],
   "SceneProperties": {
@@ -457,7 +465,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-16T13:26:20.800646-06:00",
+  "LastSaved": "2024-03-20T02:20:04.1348322-06:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [

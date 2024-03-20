@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "__guid": "87019b33-c795-4864-a764-421437440a62",
+    "__guid": "b5fa2426-fdfc-49fd-a737-4a18ffeb2cb2",
     "Name": "nav_plane",
     "Tags": "nav_allow,no_chunk",
     "Enabled": true,
@@ -8,7 +8,7 @@
     "Components": [
       {
         "__type": "PlaneCollider",
-        "__guid": "305f656d-1f51-4f51-a00f-519d6d11e8f9",
+        "__guid": "deaa8181-0cb4-44f2-a3e9-6f3feb4a0bc9",
         "Center": "0,0,0",
         "IsTrigger": false,
         "Scale": "10000,10000",
@@ -16,12 +16,12 @@
       },
       {
         "__type": "NavPlane",
-        "__guid": "08ddc934-1372-4bb2-8a5c-56d5152d3535",
-        "UpdateIntervalSeconds": 0.05
+        "__guid": "850b0b7a-568f-480c-a653-08e3eac01c7b",
+        "UpdateIntervalSeconds": 0.15
       },
       {
         "__type": "Follower",
-        "__guid": "fc8749b8-d4f8-4fd9-a232-98617f53b6f4",
+        "__guid": "c1314256-cf05-40be-b3c1-c0a6cf19bc6f",
         "FollowPlayer": true
       }
     ],
