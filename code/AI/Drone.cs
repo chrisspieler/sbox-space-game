@@ -1,4 +1,5 @@
 using Sandbox;
+using System.Linq;
 
 public sealed class Drone : Component
 {
@@ -34,6 +35,7 @@ public sealed class Drone : Component
 	}
 	private DroneState _state;
 	[Property] public Health Hull { get; set; }
+	[Property] public float PlayerDamageAlertRange { get; set; } = 2000f;
 
 	public Target? NavTarget { get; set; }
 
@@ -113,7 +115,7 @@ public sealed class Drone : Component
 	{
 		if ( damage.Attacker.Tags.Has( "player" ) )
 		{
-			State = DroneState.Hostile;
+			AlertNearby( Transform.Position, PlayerDamageAlertRange );
 		}
 	}
 
@@ -145,5 +147,19 @@ public sealed class Drone : Component
 	{
 		var targetVelocity = direction * maxSpeed;
 		Rigidbody.Velocity = Rigidbody.Velocity.WithAcceleration( targetVelocity, acceleration );
+	}
+
+	public static void AlertNearby( Vector3 position, float radius )
+	{
+		if ( Game.ActiveScene is null )
+			return;
+
+		var nearbyEnemies = Game.ActiveScene.FindInPhysics( new Sphere( position, radius ) )
+			.Where( go => go.Tags.Has( "enemy" ) );
+		foreach ( var enemy in nearbyEnemies )
+		{
+			var droneComponent = enemy.Components.Get<Drone>();
+			droneComponent.State = DroneState.Hostile;
+		}
 	}
 }

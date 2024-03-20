@@ -221,6 +221,7 @@
           "go": "e75ab9de-6298-42d9-9f9f-d48d192c3a4f",
           "component_type": "Health"
         },
+        "PlayerDamageAlertRange": 2000,
         "Rigidbody": {
           "_type": "component",
           "component_id": "054b8c24-9f8d-45aa-b24d-e246a73a7598",

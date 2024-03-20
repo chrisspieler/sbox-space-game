@@ -5,6 +5,8 @@ public sealed class Mineable : Component
 {
 	[ConVar( "mining_loot_scale" )]
 	public static float LootScale { get; set; } = 0.4f;
+	[ConVar( "mining_damage_alert_radius" )]
+	public static float DamageAlertRadius { get; set; } = 1500f;
 
 	[Property] public GameObject FractureEffect { get; set; }
 	[Property] public Health Health { get; set; }
@@ -31,6 +33,10 @@ public sealed class Mineable : Component
 		if ( _startingScale is null )
 		{
 			_startingScale = Transform.Scale;
+		}
+		if ( damage.Attacker.Tags.Has( "player" ) )
+		{
+			Drone.AlertNearby( Transform.Position, DamageAlertRadius );
 		}
 		// Figure out how much of the mineable has been chipped away.
 		var damageRatio = 1f - Health.CurrentHealth / Health.MaxHealth;
