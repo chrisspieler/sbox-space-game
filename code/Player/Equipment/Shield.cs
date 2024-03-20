@@ -85,7 +85,7 @@ public sealed class Shield : Component, Component.IDamageable, IHealth
 		var fadeTime = 0.8f;
 		var effect = new TintEffect
 		{
-			Tint = Color.Cyan,
+			Tint = Color.Cyan.WithAlpha( 0.05f ),
 			UntilFadeEnd = fadeTime,
 			BlendMode = ColorBlendMode.Normal,
 			EasingFunction = Easing.GetFunction( "ease-out" )

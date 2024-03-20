@@ -241,11 +241,11 @@
             {
               "__type": "Bouncy",
               "__guid": "70619270-35c7-4c50-86fd-819a8d01cd94",
-              "AddedVelocity": 20,
+              "AddedVelocity": 0,
               "BouncedTags": "solid",
               "BounceFactor": 1,
               "IgnoredTags": "player",
-              "MinimumVelocity": 5,
+              "MinimumVelocity": 0,
               "RehitDelay": 0.5
             },
             {
@@ -473,7 +473,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-20T05:26:26.9973309-06:00",
+  "LastSaved": "2024-03-20T14:22:19.4826428-06:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
