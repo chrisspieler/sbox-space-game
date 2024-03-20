@@ -8,7 +8,7 @@ public sealed class DroneLightManager : Component
 {
 	[Property] public Drone Controller { get; set; }
 	[Property] public List<ModelRenderer> Emissives { get; set; }
-	[Property] public List<DestructionEffect> LightDestructionEffects { get; set; }
+	[Property] public List<EffectSpawner> LightDestructionEffects { get; set; }
 	[Property] public List<Light> Lights { get; set; }
 
 	private float _colorSeed;
