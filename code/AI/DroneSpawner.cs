@@ -7,18 +7,42 @@ public sealed class DroneSpawner : Component
 {
 	[ConVar( "drone_spawn_debug" )]
 	public static bool Debug { get; set; } = false;
+	[ConVar( "drone_spawn_rate_limit" )]
+	public static int SpawnRateLimit { get; set; } = 1;
 
 	[Property] public GameObject DronePrefab { get; set; }
 	[Property] public int DroneCount { get; set; } = 15;
 	[Property] public bool SpawnOnStart { get; set; } = true;
+
+	private IEnumerator<GameObject> _spawnEnumerator;
 
 	protected override void OnStart()
 	{
 		DronePrefab ??= ResourceLibrary.Get<PrefabFile>( "prefabs/drones/mining_drone.prefab" ).GetPrefabScene();
 		if ( SpawnOnStart )
 		{
-			ForceSpawnMany();
+			BeginSpawnMany();
 		}
+	}
+
+	protected override void OnUpdate()
+	{
+		if ( _spawnEnumerator is null )
+			return;
+
+		for ( int i = 0; i < SpawnRateLimit; i++ )
+		{
+			if ( !_spawnEnumerator.MoveNext() )
+			{
+				_spawnEnumerator = null;
+				break;
+			}
+		}
+	}
+
+	public void BeginSpawnMany()
+	{
+		_spawnEnumerator = SpawnMany().GetEnumerator();
 	}
 
 	public GameObject SpawnOne()
