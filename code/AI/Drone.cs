@@ -88,7 +88,7 @@ public sealed class Drone : Component
 
 	protected override void OnFixedUpdate()
 	{
-		UpdateThruster( _navDirection, 300f, 0.1f );
+		UpdateThruster( _navDirection, 100f, 0.1f );
 	}
 
 	private void UpdateIdleState()

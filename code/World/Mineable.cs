@@ -6,7 +6,7 @@ public sealed class Mineable : Component
 	[ConVar( "mining_loot_scale" )]
 	public static float LootScale { get; set; } = 0.4f;
 	[ConVar( "mining_damage_alert_radius" )]
-	public static float DamageAlertRadius { get; set; } = 1500f;
+	public static float DamageAlertRadius { get; set; } = 350f;
 
 	[Property] public GameObject FractureEffect { get; set; }
 	[Property] public Health Health { get; set; }
