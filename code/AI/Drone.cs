@@ -36,6 +36,9 @@ public sealed class Drone : Component
 	private DroneState _state;
 	[Property] public Health Hull { get; set; }
 	[Property] public float PlayerDamageAlertRange { get; set; } = 2000f;
+	[Property] public DroneLightManager Lights { get; set; }
+	[Property] public DebrisConverter Debris { get; set; }
+	[Property] public GameObject ExplosionEffect { get; set; }
 
 	public Target? NavTarget 
 	{
@@ -59,6 +62,7 @@ public sealed class Drone : Component
 		if ( Hull is not null )
 		{
 			Hull.OnDamaged += OnDamaged;
+			Hull.OnKilled += OnKilled;
 		}
 		GameObject.BreakFromPrefab();
 	}
@@ -130,6 +134,15 @@ public sealed class Drone : Component
 		{
 			AlertNearby( Transform.Position, PlayerDamageAlertRange );
 		}
+	}
+
+	private void OnKilled( DamageInfo damage )
+	{
+		State = DroneState.Idle;
+		Lights?.UpdateLights();
+		Debris?.ReleaseDebris();
+		ExplosionEffect?.Clone( Transform.Position );
+		GameObject.Destroy();
 	}
 
 	private void UpdateNavigation()

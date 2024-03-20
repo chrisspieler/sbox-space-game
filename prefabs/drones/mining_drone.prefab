@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "__guid": "7abd1a2d-14c9-4ef8-8e39-5892f6aba49d",
+    "__guid": "8f3ba12e-fa15-4a7f-a9fd-8cc17fdf5b85",
     "Name": "mining_drone",
     "Tags": "target,enemy",
     "Enabled": true,
@@ -8,176 +8,25 @@
     "Components": [
       {
         "__type": "Health",
-        "__guid": "3fba9236-953d-4397-86f2-46c2b499d1d0",
+        "__guid": "45c62a24-9c5a-4843-9edd-1d5f266eafd6",
         "Body": {
           "_type": "gameobject",
-          "go": "89a0d2ec-ad47-4a6c-85ac-51538eeda7e3"
+          "go": "3b0012d0-850d-4e84-b8fe-fe47adff27a7"
         },
         "Bounce": {
           "_type": "component",
-          "component_id": "a64fff4a-e604-40d8-88b5-3b28bce7a45d",
-          "go": "7abd1a2d-14c9-4ef8-8e39-5892f6aba49d",
+          "component_id": "f189cd1c-f8ba-4341-96fa-c66d30590327",
+          "go": "8f3ba12e-fa15-4a7f-a9fd-8cc17fdf5b85",
           "component_type": "Bouncy"
         },
         "CurrentHealth": 0,
         "DamageFlashColor": "1,0,0,1",
         "IsInvincible": false,
-        "MaxHealth": 100,
-        "OnKilled": {
-          "Version": 5,
-          "UserData": {
-            "Title": "On Killed",
-            "id": "2c69e129-5a0f-487c-bced-6b5b27b2abdc",
-            "ReferencedComponentTypes": []
-          },
-          "Variables": [],
-          "Nodes": [
-            {
-              "Id": 0,
-              "Type": "input"
-            },
-            {
-              "Id": 7,
-              "Type": "scene.ref",
-              "Properties": {
-                "component": {
-                  "_type": "component",
-                  "component_id": "0d698001-7e94-4a8b-a309-3691c0cebe9c",
-                  "go": "c97b8dfa-54a9-4500-8382-0ef8a8a6658a",
-                  "component_type": "DebrisConverter"
-                }
-              },
-              "UserData": {
-                "Position": "320,-80"
-              }
-            },
-            {
-              "Id": 30,
-              "Type": "call",
-              "Properties": {
-                "_isStatic": false,
-                "_type": "package.duccsoft.aluminum_acrobat/DebrisConverter",
-                "_name": "ReleaseDebris"
-              },
-              "UserData": {
-                "Position": "528,0"
-              }
-            },
-            {
-              "Id": 31,
-              "Type": "scene.instantiate",
-              "UserData": {
-                "Position": "240,-0"
-              }
-            },
-            {
-              "Id": 33,
-              "Type": "scene.ref",
-              "Properties": {
-                "gameobject": {
-                  "_type": "gameobject",
-                  "go": "7abd1a2d-14c9-4ef8-8e39-5892f6aba49d"
-                }
-              },
-              "UserData": {
-                "Position": "-448,80"
-              }
-            },
-            {
-              "Id": 34,
-              "Type": "property.get",
-              "Properties": {
-                "_type": "Sandbox.Game/Sandbox.GameObject",
-                "_name": "Transform"
-              },
-              "UserData": {
-                "Position": "-240,80"
-              }
-            },
-            {
-              "Id": 37,
-              "Type": "property.get",
-              "Properties": {
-                "_type": "Sandbox.Game/Sandbox.GameTransform",
-                "_name": "Position"
-              },
-              "UserData": {
-                "Position": "-16,80"
-              }
-            },
-            {
-              "Id": 38,
-              "Type": "call",
-              "Properties": {
-                "_isStatic": false,
-                "_type": "Sandbox.Game/Sandbox.GameObject",
-                "_name": "Destroy"
-              },
-              "UserData": {
-                "Position": "800,-0"
-              }
-            }
-          ],
-          "Links": [
-            {
-              "SrcId": 31,
-              "SrcName": "_signal",
-              "DstId": 30,
-              "DstName": "_signal"
-            },
-            {
-              "SrcId": 7,
-              "SrcName": "_result",
-              "DstId": 30,
-              "DstName": "_target"
-            },
-            {
-              "SrcId": 0,
-              "SrcName": "_signal",
-              "DstId": 31,
-              "DstName": "_signal"
-            },
-            {
-              "SrcId": 37,
-              "SrcName": "_result",
-              "DstId": 31,
-              "DstName": "position"
-            },
-            {
-              "Value": "prefabs/effects/drone_explosion.prefab",
-              "DstId": 31,
-              "DstName": "prefab"
-            },
-            {
-              "SrcId": 33,
-              "SrcName": "_result",
-              "DstId": 34,
-              "DstName": "_target"
-            },
-            {
-              "SrcId": 34,
-              "SrcName": "_result",
-              "DstId": 37,
-              "DstName": "_target"
-            },
-            {
-              "SrcId": 30,
-              "SrcName": "_signal",
-              "DstId": 38,
-              "DstName": "_signal"
-            },
-            {
-              "SrcId": 0,
-              "SrcName": "_target",
-              "DstId": 38,
-              "DstName": "_target"
-            }
-          ]
-        }
+        "MaxHealth": 100
       },
       {
         "__type": "Bouncy",
-        "__guid": "a64fff4a-e604-40d8-88b5-3b28bce7a45d",
+        "__guid": "f189cd1c-f8ba-4341-96fa-c66d30590327",
         "AddedVelocity": 0,
         "BouncedTags": "solid,shield",
         "BounceFactor": 1,
@@ -186,21 +35,21 @@
       },
       {
         "__type": "HealthBarSpawner",
-        "__guid": "2887d87a-26c9-48e8-9b7d-ce2e1a003a5d",
+        "__guid": "33294efb-dd9d-4b3c-8563-b51246fe1c5d",
         "HealthSource": {
           "_type": "component",
-          "component_id": "3fba9236-953d-4397-86f2-46c2b499d1d0",
-          "go": "7abd1a2d-14c9-4ef8-8e39-5892f6aba49d",
+          "component_id": "45c62a24-9c5a-4843-9edd-1d5f266eafd6",
+          "go": "8f3ba12e-fa15-4a7f-a9fd-8cc17fdf5b85",
           "component_type": "Health"
         },
         "Target": {
           "_type": "gameobject",
-          "go": "7abd1a2d-14c9-4ef8-8e39-5892f6aba49d"
+          "go": "8f3ba12e-fa15-4a7f-a9fd-8cc17fdf5b85"
         }
       },
       {
         "__type": "Rigidbody",
-        "__guid": "c722949c-33b6-4fc7-991c-275109c1dcea",
+        "__guid": "bb33fe0e-07f4-4f9f-b0a0-3d5cf6a49b19",
         "AngularDamping": 0,
         "Gravity": false,
         "LinearDamping": 0,
@@ -214,84 +63,101 @@
       },
       {
         "__type": "Drone",
-        "__guid": "9ee2cb2d-5410-4cbe-aeb3-21946db7a27f",
+        "__guid": "765c519e-4169-491d-b461-5e995a061e9f",
+        "Debris": {
+          "_type": "component",
+          "component_id": "f0b996bb-776f-41ce-9546-fabcb7aaf1f9",
+          "go": "03072be5-a589-4c84-b19b-fd817ae85ff7",
+          "component_type": "DebrisConverter"
+        },
+        "ExplosionEffect": {
+          "_type": "gameobject",
+          "prefab": "prefabs/effects/drone_explosion.prefab"
+        },
         "Hull": {
           "_type": "component",
-          "component_id": "3fba9236-953d-4397-86f2-46c2b499d1d0",
-          "go": "7abd1a2d-14c9-4ef8-8e39-5892f6aba49d",
+          "component_id": "45c62a24-9c5a-4843-9edd-1d5f266eafd6",
+          "go": "8f3ba12e-fa15-4a7f-a9fd-8cc17fdf5b85",
           "component_type": "Health"
+        },
+        "Lights": {
+          "_type": "component",
+          "component_id": "942b9a99-6505-4fec-85a2-27647144b4bc",
+          "go": "8f3ba12e-fa15-4a7f-a9fd-8cc17fdf5b85",
+          "component_type": "DroneLightManager"
         },
         "PlayerDamageAlertRange": 2000,
         "Rigidbody": {
           "_type": "component",
-          "component_id": "c722949c-33b6-4fc7-991c-275109c1dcea",
-          "go": "7abd1a2d-14c9-4ef8-8e39-5892f6aba49d",
+          "component_id": "bb33fe0e-07f4-4f9f-b0a0-3d5cf6a49b19",
+          "go": "8f3ba12e-fa15-4a7f-a9fd-8cc17fdf5b85",
           "component_type": "Rigidbody"
         },
         "State": "Idle"
       },
       {
         "__type": "DroneLightManager",
-        "__guid": "1c8dcdb0-12da-4167-a55a-5a6eea31f799",
+        "__guid": "942b9a99-6505-4fec-85a2-27647144b4bc",
         "Controller": {
           "_type": "component",
-          "component_id": "9ee2cb2d-5410-4cbe-aeb3-21946db7a27f",
-          "go": "7abd1a2d-14c9-4ef8-8e39-5892f6aba49d",
+          "component_id": "765c519e-4169-491d-b461-5e995a061e9f",
+          "go": "8f3ba12e-fa15-4a7f-a9fd-8cc17fdf5b85",
           "component_type": "Drone"
         },
         "Emissives": [
           {
             "_type": "component",
-            "component_id": "d3bfbdee-c0a0-4fac-9bca-d4574a3a1aab",
-            "go": "1bf47441-8226-49e9-9e30-cddd5a456f08",
+            "component_id": "df44b500-f4f8-4ec1-a16b-429a4dd0d037",
+            "go": "e0785e2a-d647-46ab-b47b-6c391fb302ef",
             "component_type": "ModelRenderer"
           },
           {
             "_type": "component",
-            "component_id": "27ce6f79-6109-409e-885e-a1a6ee9fc282",
-            "go": "3f649f41-6dda-4db5-9373-b5d30be7df9d",
+            "component_id": "bb9292d5-6907-4116-8c93-cd9ef0abb42e",
+            "go": "b6685bfe-c9fc-43f7-9805-d18e55eaf99b",
             "component_type": "ModelRenderer"
           },
           {
             "_type": "component",
-            "component_id": "59d442d6-1291-474f-a8c9-92983599163c",
-            "go": "85d5793f-fb5d-4c67-80de-ac0bd0420a48",
+            "component_id": "faafed84-3fbd-4d49-a5c6-7fc1900625a6",
+            "go": "6feeffdb-e429-4bcf-8b00-6bfec8fc209b",
             "component_type": "ModelRenderer"
           }
         ],
         "LightDestructionEffects": [
           {
             "_type": "component",
-            "component_id": "fe0f492a-a8f1-4002-9898-cc002977ac76",
-            "go": "1bf47441-8226-49e9-9e30-cddd5a456f08",
+            "component_id": "00f9975b-0812-4561-aa3d-30c2045b5c9d",
+            "go": "e0785e2a-d647-46ab-b47b-6c391fb302ef",
             "component_type": "EffectSpawner"
           },
           {
             "_type": "component",
-            "component_id": "483e8e46-8201-4452-95fd-1222ea3ce19e",
-            "go": "3f649f41-6dda-4db5-9373-b5d30be7df9d",
+            "component_id": "a2cd8cca-d819-444a-935b-37f93bc594cc",
+            "go": "b6685bfe-c9fc-43f7-9805-d18e55eaf99b",
             "component_type": "EffectSpawner"
           },
           {
             "_type": "component",
-            "component_id": "f0357fa1-31c2-4b9c-afac-22cd3b6f47d9",
-            "go": "85d5793f-fb5d-4c67-80de-ac0bd0420a48",
+            "component_id": "ee89478c-53c8-493d-b5bd-f8b81696a03f",
+            "go": "6feeffdb-e429-4bcf-8b00-6bfec8fc209b",
             "component_type": "EffectSpawner"
           }
         ],
         "Lights": [
           {
             "_type": "component",
-            "component_id": "c8cc5534-215a-4971-bbcf-fc5bb5926c8a",
-            "go": "309d3f6d-4499-495a-96ab-4e8b6d82ac26",
+            "component_id": "71c83339-8e77-48fa-ab8b-20d265b70f96",
+            "go": "3dc8a004-5c5f-4f23-b2bc-8b64a8ac555b",
             "component_type": "PointLight"
           }
-        ]
+        ],
+        "ShouldUpdateLights": true
       }
     ],
     "Children": [
       {
-        "__guid": "c97b8dfa-54a9-4500-8382-0ef8a8a6658a",
+        "__guid": "03072be5-a589-4c84-b19b-fd817ae85ff7",
         "Name": "Body",
         "Tags": "solid",
         "Enabled": true,
@@ -299,25 +165,25 @@
         "Components": [
           {
             "__type": "DebrisConverter",
-            "__guid": "0d698001-7e94-4a8b-a309-3691c0cebe9c",
+            "__guid": "f0b996bb-776f-41ce-9546-fabcb7aaf1f9",
             "Rigidbody": {
               "_type": "component",
-              "component_id": "c722949c-33b6-4fc7-991c-275109c1dcea",
-              "go": "7abd1a2d-14c9-4ef8-8e39-5892f6aba49d",
+              "component_id": "bb33fe0e-07f4-4f9f-b0a0-3d5cf6a49b19",
+              "go": "8f3ba12e-fa15-4a7f-a9fd-8cc17fdf5b85",
               "component_type": "Rigidbody"
             }
           }
         ],
         "Children": [
           {
-            "__guid": "89a0d2ec-ad47-4a6c-85ac-51538eeda7e3",
+            "__guid": "3b0012d0-850d-4e84-b8fe-fe47adff27a7",
             "Name": "Orb",
             "Enabled": true,
             "NetworkMode": 2,
             "Components": [
               {
                 "__type": "ModelRenderer",
-                "__guid": "8459a4b2-3fb0-4a8c-a592-d789ace059d0",
+                "__guid": "081d6cdc-f3a3-4a79-83e1-786644d7a8c8",
                 "BodyGroups": 18446744073709551615,
                 "MaterialOverride": "materials/dev/dev_metal_rough40.vmat",
                 "Model": "models/dev/sphere.vmdl",
@@ -326,7 +192,7 @@
               },
               {
                 "__type": "SphereCollider",
-                "__guid": "4d76a518-b8fc-4c6f-9061-83fb0f4b9208",
+                "__guid": "a39b4fd8-ae5e-402f-804e-6667c1c1f531",
                 "Center": "0,0,0",
                 "IsTrigger": false,
                 "Radius": 32,
@@ -334,12 +200,12 @@
               },
               {
                 "__type": "CollisionBubbler",
-                "__guid": "cf88e1da-9f99-42a8-9c97-5d4dc76b346f"
+                "__guid": "e35e42ee-54cf-48a3-b07b-6df28813b45d"
               }
             ]
           },
           {
-            "__guid": "1bf47441-8226-49e9-9e30-cddd5a456f08",
+            "__guid": "e0785e2a-d647-46ab-b47b-6c391fb302ef",
             "Name": "Light Top",
             "Position": "0,0,32",
             "Scale": "0.2,0.2,0.2",
@@ -349,7 +215,7 @@
             "Components": [
               {
                 "__type": "ModelRenderer",
-                "__guid": "d3bfbdee-c0a0-4fac-9bca-d4574a3a1aab",
+                "__guid": "df44b500-f4f8-4ec1-a16b-429a4dd0d037",
                 "BodyGroups": 18446744073709551615,
                 "MaterialOverride": "materials/dev/primary_white_emissive.vmat",
                 "Model": "models/dev/sphere.vmdl",
@@ -358,7 +224,7 @@
               },
               {
                 "__type": "SphereCollider",
-                "__guid": "a80d2e81-bacf-4eb1-8337-a5068f2d6c65",
+                "__guid": "5ee99bcd-b8ed-4404-8ba4-aa391e9649e5",
                 "__enabled": false,
                 "Center": "0,0,0",
                 "IsTrigger": false,
@@ -367,7 +233,7 @@
               },
               {
                 "__type": "Rigidbody",
-                "__guid": "3dca6586-09ff-4e65-a1d4-17540b62e207",
+                "__guid": "9b57bf76-f78f-49a5-9931-27020b261bdc",
                 "__enabled": false,
                 "AngularDamping": 0,
                 "Gravity": false,
@@ -382,7 +248,7 @@
               },
               {
                 "__type": "EffectSpawner",
-                "__guid": "fe0f492a-a8f1-4002-9898-cc002977ac76",
+                "__guid": "00f9975b-0812-4561-aa3d-30c2045b5c9d",
                 "DestroyGameObjectAfterFire": true,
                 "EffectPrefab": {
                   "_type": "gameobject",
@@ -395,7 +261,7 @@
             ]
           },
           {
-            "__guid": "3f649f41-6dda-4db5-9373-b5d30be7df9d",
+            "__guid": "b6685bfe-c9fc-43f7-9805-d18e55eaf99b",
             "Name": "Light Ring",
             "Scale": "1.1,1.1,0.2",
             "Tags": "break_debris",
@@ -404,7 +270,7 @@
             "Components": [
               {
                 "__type": "ModelRenderer",
-                "__guid": "27ce6f79-6109-409e-885e-a1a6ee9fc282",
+                "__guid": "bb9292d5-6907-4116-8c93-cd9ef0abb42e",
                 "BodyGroups": 18446744073709551615,
                 "MaterialOverride": "materials/dev/primary_white_emissive.vmat",
                 "Model": "models/dev/sphere.vmdl",
@@ -413,7 +279,7 @@
               },
               {
                 "__type": "SphereCollider",
-                "__guid": "9abf24cc-592c-4512-b0a4-1d9e6f0d930b",
+                "__guid": "55958821-8a9d-47fa-adf7-91d54ce8c6d8",
                 "__enabled": false,
                 "Center": "0,0,0",
                 "IsTrigger": false,
@@ -422,7 +288,7 @@
               },
               {
                 "__type": "Rigidbody",
-                "__guid": "e021f1ae-f380-49f4-9724-d045b2c30a81",
+                "__guid": "c691ff4f-db0d-4ae6-8075-449724b4a283",
                 "__enabled": false,
                 "AngularDamping": 0,
                 "Gravity": false,
@@ -437,7 +303,7 @@
               },
               {
                 "__type": "EffectSpawner",
-                "__guid": "483e8e46-8201-4452-95fd-1222ea3ce19e",
+                "__guid": "a2cd8cca-d819-444a-935b-37f93bc594cc",
                 "DestroyGameObjectAfterFire": true,
                 "EffectPrefab": {
                   "_type": "gameobject",
@@ -450,7 +316,7 @@
             ]
           },
           {
-            "__guid": "85d5793f-fb5d-4c67-80de-ac0bd0420a48",
+            "__guid": "6feeffdb-e429-4bcf-8b00-6bfec8fc209b",
             "Name": "Light Bottom",
             "Position": "0,0,-32",
             "Scale": "0.2,0.2,0.2",
@@ -460,7 +326,7 @@
             "Components": [
               {
                 "__type": "ModelRenderer",
-                "__guid": "59d442d6-1291-474f-a8c9-92983599163c",
+                "__guid": "faafed84-3fbd-4d49-a5c6-7fc1900625a6",
                 "BodyGroups": 18446744073709551615,
                 "MaterialOverride": "materials/dev/primary_white_emissive.vmat",
                 "Model": "models/dev/sphere.vmdl",
@@ -469,7 +335,7 @@
               },
               {
                 "__type": "SphereCollider",
-                "__guid": "c658ad82-cb6e-4279-ba2e-812dd6d51fe9",
+                "__guid": "fb088804-0930-4c22-abf1-7b4616e4d4ba",
                 "__enabled": false,
                 "Center": "0,0,0",
                 "IsTrigger": false,
@@ -478,7 +344,7 @@
               },
               {
                 "__type": "Rigidbody",
-                "__guid": "ddcfa251-fc6b-4a72-92a5-d20a91ec4d2c",
+                "__guid": "026fde18-3e2a-4270-b637-36885ea3ad3a",
                 "__enabled": false,
                 "AngularDamping": 0,
                 "Gravity": false,
@@ -493,7 +359,7 @@
               },
               {
                 "__type": "EffectSpawner",
-                "__guid": "f0357fa1-31c2-4b9c-afac-22cd3b6f47d9",
+                "__guid": "ee89478c-53c8-493d-b5bd-f8b81696a03f",
                 "DestroyGameObjectAfterFire": true,
                 "EffectPrefab": {
                   "_type": "gameobject",
@@ -506,7 +372,7 @@
             ]
           },
           {
-            "__guid": "309d3f6d-4499-495a-96ab-4e8b6d82ac26",
+            "__guid": "3dc8a004-5c5f-4f23-b2bc-8b64a8ac555b",
             "Name": "Point Light",
             "Tags": "light_point,light",
             "Enabled": true,
@@ -514,7 +380,7 @@
             "Components": [
               {
                 "__type": "PointLight",
-                "__guid": "c8cc5534-215a-4971-bbcf-fc5bb5926c8a",
+                "__guid": "71c83339-8e77-48fa-ab8b-20d265b70f96",
                 "Attenuation": 1,
                 "FogMode": "Enabled",
                 "FogStrength": 1,

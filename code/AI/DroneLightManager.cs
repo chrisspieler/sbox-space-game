@@ -10,6 +10,7 @@ public sealed class DroneLightManager : Component
 	[Property] public List<ModelRenderer> Emissives { get; set; }
 	[Property] public List<EffectSpawner> LightDestructionEffects { get; set; }
 	[Property] public List<Light> Lights { get; set; }
+	[Property] public bool ShouldUpdateLights { get; set; } = true;
 
 	private float _colorSeed;
 
@@ -25,7 +26,15 @@ public sealed class DroneLightManager : Component
 
 	protected override void OnUpdate()
 	{
-		switch( Controller.State )
+		if ( ShouldUpdateLights )
+		{
+			UpdateLights();
+		}
+	}
+
+	public void UpdateLights()
+	{
+		switch ( Controller.State )
 		{
 			case Drone.DroneState.Idle:
 				UpdateIdleLight( 5f );
