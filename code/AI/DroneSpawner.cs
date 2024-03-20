@@ -8,7 +8,7 @@ public sealed class DroneSpawner : Component
 	[ConVar( "drone_spawn_debug" )]
 	public static bool Debug { get; set; } = false;
 	[ConVar( "drone_spawn_rate_limit" )]
-	public static int SpawnRateLimit { get; set; } = 1;
+	public static int SpawnRateLimit { get; set; } = 0;
 
 	[Property] public GameObject DronePrefab { get; set; }
 	[Property] public int DroneCount { get; set; } = 15;
