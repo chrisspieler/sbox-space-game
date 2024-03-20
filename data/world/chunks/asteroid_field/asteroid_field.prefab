@@ -1,18 +1,18 @@
 {
   "RootObject": {
-    "__guid": "0f08d18e-86a3-469d-8c93-7d6509a1abbb",
+    "__guid": "8de1d64b-11cc-43c9-b4ce-0724ecc42924",
     "Name": "asteroid_field",
     "Enabled": true,
     "NetworkMode": 2,
     "Components": [
       {
         "__type": "AsteroidSpawner",
-        "__guid": "cbf869a1-1cd4-4eb9-bdb1-cc633398775a"
+        "__guid": "932478d8-83e6-47d2-9b5c-87a91139a99e"
       },
       {
         "__type": "DroneSpawner",
-        "__guid": "bd412bbc-7f16-4c5e-a476-9c19486f7ab1",
-        "DroneCount": 8,
+        "__guid": "00bb01cd-4f77-4a2b-809d-e0d54b1edff9",
+        "DroneCount": 5,
         "DronePrefab": {
           "_type": "gameobject",
           "prefab": "prefabs/drones/mining_drone.prefab"
@@ -22,7 +22,7 @@
     ],
     "Children": [
       {
-        "__guid": "cd5a8b82-ac4a-49c8-bcf7-9d4d6f73ba50",
+        "__guid": "5c2c441c-3fc5-472f-acbe-b3bcc0293684",
         "Name": "ice_field",
         "Enabled": true,
         "NetworkMode": 2,
