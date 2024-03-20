@@ -18,7 +18,7 @@ public sealed class SpaceFloater : Component
 
 	protected override void OnStart()
 	{
-		Rigidbody ??= Components.GetOrCreate<Rigidbody>();
+		Rigidbody ??= Components.GetOrCreate<Rigidbody>( FindMode.EverythingInSelf );
 
 		Transform.Position = Transform.Position.WithZ( 0f );
 
@@ -32,14 +32,15 @@ public sealed class SpaceFloater : Component
 		}
 
 		SetHealthFromScale();
-
-		Rigidbody.PhysicsBody.Mass = MassOverride * Transform.Scale.Length;
-
 		SetVelocity();
 	}
 
 	protected override void OnFixedUpdate()
 	{
+		if ( Rigidbody.PhysicsBody is not null )
+		{
+			Rigidbody.PhysicsBody.Mass = MassOverride * Transform.Scale.Length;
+		}
 		if ( LockToPlane && Transform.Position.z != 0f )
 		{
 			Transform.Position = Transform.Position.WithZ( 0f );
