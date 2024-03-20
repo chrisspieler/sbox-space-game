@@ -99,6 +99,12 @@ public static class GameObjectExtensions
 		var helper = obj.Components.GetOrCreate<ParticleHelper>();
 		helper.ToggleEmit( shouldEmit );
 	}
+
+	public static void SetParticleTint( this GameObject obj, Color color )
+	{
+		var helper = obj.Components.GetOrCreate<ParticleHelper>();
+		helper.SetTint( color );
+	}
 	
 	public static TagSurface GetTagSurface( this GameObject gameObject )
 	{

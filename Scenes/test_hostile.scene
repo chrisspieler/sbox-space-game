@@ -83,7 +83,7 @@
       "__guid": "e75ab9de-6298-42d9-9f9f-d48d192c3a4f",
       "Name": "Mining Drone",
       "Position": "576,0,0",
-      "Tags": "target,enemy",
+      "Tags": "enemy,target",
       "Enabled": true,
       "NetworkMode": 2,
       "__Prefab": "prefabs/drones/mining_drone.prefab"
@@ -92,7 +92,7 @@
       "__guid": "0a1122a1-5101-43d7-8946-55e076bd83bd",
       "Name": "Mining Drone (1)",
       "Position": "576,224,0",
-      "Tags": "target,enemy",
+      "Tags": "enemy,target",
       "Enabled": true,
       "NetworkMode": 2,
       "__Prefab": "prefabs/drones/mining_drone.prefab"
@@ -101,7 +101,7 @@
       "__guid": "6a5af867-0a6f-4fbc-9b55-0b8b95d0650a",
       "Name": "Mining Drone (2)",
       "Position": "640,-320,0.000002233483",
-      "Tags": "target,enemy",
+      "Tags": "enemy,target",
       "Enabled": true,
       "NetworkMode": 2,
       "__Prefab": "prefabs/drones/mining_drone.prefab"
@@ -110,7 +110,7 @@
       "__guid": "81f26fca-bcfb-4335-b97c-9f153c9ae123",
       "Name": "Mining Drone (3)",
       "Position": "832,-256,0.00001621836",
-      "Tags": "target,enemy",
+      "Tags": "enemy,target",
       "Enabled": true,
       "NetworkMode": 2,
       "__Prefab": "prefabs/drones/mining_drone.prefab"
@@ -119,7 +119,7 @@
       "__guid": "11fb0a59-ce97-425a-bfa9-86f80801f840",
       "Name": "Mining Drone (4)",
       "Position": "832,64,0.0000163747",
-      "Tags": "target,enemy",
+      "Tags": "enemy,target",
       "Enabled": true,
       "NetworkMode": 2,
       "__Prefab": "prefabs/drones/mining_drone.prefab"
@@ -128,7 +128,7 @@
       "__guid": "6beb5552-c466-4212-a333-af6f2a2afe38",
       "Name": "Mining Drone (5)",
       "Position": "896,288,-0.00003674605",
-      "Tags": "target,enemy",
+      "Tags": "enemy,target",
       "Enabled": true,
       "NetworkMode": 2,
       "__Prefab": "prefabs/drones/mining_drone.prefab"
@@ -137,7 +137,7 @@
       "__guid": "c1783786-4a52-45cc-9e15-c5e8d6eb6dd4",
       "Name": "Mining Drone (6)",
       "Position": "1152,-128,-0.00002114302",
-      "Tags": "target,enemy",
+      "Tags": "enemy,target",
       "Enabled": true,
       "NetworkMode": 2,
       "__Prefab": "prefabs/drones/mining_drone.prefab"
@@ -188,7 +188,7 @@
   },
   "Title": "test_hostile",
   "Description": "",
-  "LastSaved": "2024-03-19T13:24:04.1930547-06:00",
+  "LastSaved": "2024-03-19T19:52:14.3277371-06:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": []

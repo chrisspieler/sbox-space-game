@@ -55,8 +55,8 @@
               "Id": 30,
               "Type": "call",
               "Properties": {
-                "_isStatic": false,
                 "_type": "package.duccsoft.aluminum_acrobat/DebrisConverter",
+                "_isStatic": false,
                 "_name": "ReleaseDebris"
               },
               "UserData": {
@@ -109,8 +109,8 @@
               "Id": 38,
               "Type": "call",
               "Properties": {
-                "_isStatic": false,
                 "_type": "Sandbox.Game/Sandbox.GameObject",
+                "_isStatic": false,
                 "_name": "Destroy"
               },
               "UserData": {
@@ -258,6 +258,26 @@
             "component_type": "ModelRenderer"
           }
         ],
+        "LightDestructionEffects": [
+          {
+            "_type": "component",
+            "component_id": "e031afdd-1fad-43ac-9255-842d2c6170da",
+            "go": "efaf41fb-56f3-4a5d-840d-1d69e5694fdb",
+            "component_type": "DestructionEffect"
+          },
+          {
+            "_type": "component",
+            "component_id": "fb97cd0a-1896-4d6e-90cf-980649fd35f3",
+            "go": "ca131184-da7d-4925-93da-950b9a18071a",
+            "component_type": "DestructionEffect"
+          },
+          {
+            "_type": "component",
+            "component_id": "0cba48bf-33c8-4ef2-bb0d-a41104eac654",
+            "go": "cd606dd1-1e79-4162-8f30-8d72e142d942",
+            "component_type": "DestructionEffect"
+          }
+        ],
         "Lights": [
           {
             "_type": "component",
@@ -288,6 +308,35 @@
           }
         ],
         "Children": [
+          {
+            "__guid": "3ee49cd7-9bcb-47d5-8e73-8f3875ab3db3",
+            "Name": "Orb",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "Components": [
+              {
+                "__type": "ModelRenderer",
+                "__guid": "b793d929-298b-4ed5-9c2f-8f6757114db2",
+                "BodyGroups": 18446744073709551615,
+                "MaterialOverride": "materials/dev/dev_metal_rough40.vmat",
+                "Model": "models/dev/sphere.vmdl",
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "SphereCollider",
+                "__guid": "78b7da5c-e8c7-48ef-8b02-1566d1420523",
+                "Center": "0,0,0",
+                "IsTrigger": false,
+                "Radius": 32,
+                "Static": false
+              },
+              {
+                "__type": "CollisionBubbler",
+                "__guid": "20606314-fdcd-4b26-8370-ed439f4ef8fd"
+              }
+            ]
+          },
           {
             "__guid": "efaf41fb-56f3-4a5d-840d-1d69e5694fdb",
             "Name": "Light Top",
@@ -329,35 +378,22 @@
                 "MotionEnabled": true,
                 "RigidbodyFlags": 0,
                 "StartAsleep": false
-              }
-            ]
-          },
-          {
-            "__guid": "3ee49cd7-9bcb-47d5-8e73-8f3875ab3db3",
-            "Name": "Orb",
-            "Enabled": true,
-            "NetworkMode": 2,
-            "Components": [
-              {
-                "__type": "ModelRenderer",
-                "__guid": "b793d929-298b-4ed5-9c2f-8f6757114db2",
-                "BodyGroups": 18446744073709551615,
-                "MaterialOverride": "materials/dev/dev_metal_rough40.vmat",
-                "Model": "models/dev/sphere.vmdl",
-                "RenderType": "On",
-                "Tint": "1,1,1,1"
               },
               {
-                "__type": "SphereCollider",
-                "__guid": "78b7da5c-e8c7-48ef-8b02-1566d1420523",
-                "Center": "0,0,0",
-                "IsTrigger": false,
-                "Radius": 32,
-                "Static": false
+                "__type": "SelfDestruct",
+                "__guid": "35cc998b-1666-4072-8198-938aa847a9db",
+                "__enabled": false,
+                "Delay": "1.00,5.00,1",
+                "EnableOnMakeDebris": true
               },
               {
-                "__type": "CollisionBubbler",
-                "__guid": "20606314-fdcd-4b26-8370-ed439f4ef8fd"
+                "__type": "DestructionEffect",
+                "__guid": "e031afdd-1fad-43ac-9255-842d2c6170da",
+                "EffectPrefab": {
+                  "_type": "gameobject",
+                  "prefab": "prefabs/effects/drone_light_break.prefab"
+                },
+                "ParticleTint": "0,0,0,0"
               }
             ]
           },
@@ -401,6 +437,22 @@
                 "MotionEnabled": true,
                 "RigidbodyFlags": 0,
                 "StartAsleep": false
+              },
+              {
+                "__type": "SelfDestruct",
+                "__guid": "a15811b7-9939-4725-bfae-113d6d16473e",
+                "__enabled": false,
+                "Delay": "1.00,5.00,1",
+                "EnableOnMakeDebris": true
+              },
+              {
+                "__type": "DestructionEffect",
+                "__guid": "fb97cd0a-1896-4d6e-90cf-980649fd35f3",
+                "EffectPrefab": {
+                  "_type": "gameobject",
+                  "prefab": "prefabs/effects/drone_light_break.prefab"
+                },
+                "ParticleTint": "0,0,0,0"
               }
             ]
           },
@@ -445,6 +497,22 @@
                 "MotionEnabled": true,
                 "RigidbodyFlags": 0,
                 "StartAsleep": false
+              },
+              {
+                "__type": "SelfDestruct",
+                "__guid": "b1c7088c-ecaa-46f6-b01d-c96142f0837e",
+                "__enabled": false,
+                "Delay": "1.00,5.00,1",
+                "EnableOnMakeDebris": true
+              },
+              {
+                "__type": "DestructionEffect",
+                "__guid": "0cba48bf-33c8-4ef2-bb0d-a41104eac654",
+                "EffectPrefab": {
+                  "_type": "gameobject",
+                  "prefab": "prefabs/effects/drone_light_break.prefab"
+                },
+                "ParticleTint": "0,0,0,0"
               }
             ]
           },

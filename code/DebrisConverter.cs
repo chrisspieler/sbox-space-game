@@ -48,7 +48,7 @@ public sealed class DebrisConverter : Component
 				collider.Enabled = true;
 			}
 
-			if ( debris.Components.TryGet<IDestructionListener>( out var listener ) )
+			if ( debris.Components.TryGet<IDestructionListener>( out var listener, FindMode.EverythingInSelf ) )
 			{
 				listener.OnMakeDebris();
 			}
