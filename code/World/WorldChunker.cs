@@ -70,7 +70,8 @@ public sealed partial class WorldChunker : GameObjectSystem
 	/// </summary>
 	public static Vector3 ChunkToWorldAbsolute( Vector2Int chunk )
 	{
-		return chunk * ChunkSize;
+		var chunkScaled = chunk * ChunkSize;
+		return new Vector3( chunkScaled.x, chunkScaled.y );
 	}
 
 	/// <summary>
@@ -86,7 +87,7 @@ public sealed partial class WorldChunker : GameObjectSystem
 	/// </summary>
 	public Vector3 ChunkToWorldRelative( Vector2Int chunk )
 	{
-		var absPosition = new Vector3( chunk.X * ChunkSize, chunk.Y * ChunkSize, 0f );
+		var absPosition = new Vector3( chunk.x * ChunkSize, chunk.y * ChunkSize, 0f );
 		return _originSystem.AbsoluteToRelative( absPosition );
 	}
 

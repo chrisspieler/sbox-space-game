@@ -26,8 +26,8 @@ public sealed partial class WorldChunker : GameObjectSystem
 	public bool IsChunkLoaded( Vector2Int chunk ) => _worldChunks.ContainsKey( chunk );
 	public bool IsChunkNearby( Vector2Int chunk, Vector2Int originChunk )
 	{
-		return Math.Abs( chunk.X - originChunk.X ) <= ChunkLoadDistance
-			&& Math.Abs( chunk.Y - originChunk.Y ) <= ChunkLoadDistance;
+		return Math.Abs( chunk.x - originChunk.x ) <= ChunkLoadDistance
+			&& Math.Abs( chunk.y - originChunk.y ) <= ChunkLoadDistance;
 	}
 
 	private void UpdateChunks( Vector2Int originChunk )
