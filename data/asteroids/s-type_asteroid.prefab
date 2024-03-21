@@ -1,14 +1,14 @@
 {
   "RootObject": {
-    "__guid": "2cd0c169-abb5-4213-9254-6c2b80875dad",
+    "__guid": "a6ad0806-24f2-41cd-9101-28ef40e948d6",
     "Name": "s-type_asteroid",
-    "Tags": "solid,target,asteroid",
+    "Tags": "target,asteroid",
     "Enabled": true,
     "NetworkMode": 2,
     "Components": [
       {
         "__type": "Rigidbody",
-        "__guid": "b4f8e3d0-0655-47e2-8063-1d34b90ef86f",
+        "__guid": "cc4363d8-f908-4a18-9294-5eaa97e00ab0",
         "__enabled": false,
         "AngularDamping": 0,
         "Gravity": false,
@@ -23,7 +23,7 @@
       },
       {
         "__type": "SpaceFloater",
-        "__guid": "e5186d1a-41ff-4932-96eb-2bc6674684ba",
+        "__guid": "00fe2cb0-7954-4618-a454-b046f176c988",
         "InitialAngularVelocity": "0,0,0",
         "InitialVelocity": "0,0,0",
         "LockToPlane": true,
@@ -36,8 +36,8 @@
         "RandomVelocityScale": 25,
         "Rigidbody": {
           "_type": "component",
-          "component_id": "b4f8e3d0-0655-47e2-8063-1d34b90ef86f",
-          "go": "2cd0c169-abb5-4213-9254-6c2b80875dad",
+          "component_id": "cc4363d8-f908-4a18-9294-5eaa97e00ab0",
+          "go": "a6ad0806-24f2-41cd-9101-28ef40e948d6",
           "component_type": "Rigidbody"
         },
         "ScaleCurve": {
@@ -64,7 +64,7 @@
       },
       {
         "__type": "Bouncy",
-        "__guid": "974cc2a3-9a64-4659-9e4e-3d8ccfcbe1d9",
+        "__guid": "83fa39a0-a40b-4dcd-b159-0c785270f1b6",
         "AddedVelocity": 0,
         "BouncedTags": "solid,shield",
         "BounceFactor": 0.05,
@@ -73,15 +73,15 @@
       },
       {
         "__type": "Health",
-        "__guid": "c255ab44-504c-49e7-b3b0-6cdae9224e88",
+        "__guid": "e8ecd99f-2011-42b0-a872-ccc27c347eb8",
         "Body": {
           "_type": "gameobject",
-          "go": "2cd0c169-abb5-4213-9254-6c2b80875dad"
+          "go": "a6ad0806-24f2-41cd-9101-28ef40e948d6"
         },
         "Bounce": {
           "_type": "component",
-          "component_id": "974cc2a3-9a64-4659-9e4e-3d8ccfcbe1d9",
-          "go": "2cd0c169-abb5-4213-9254-6c2b80875dad",
+          "component_id": "83fa39a0-a40b-4dcd-b159-0c785270f1b6",
+          "go": "a6ad0806-24f2-41cd-9101-28ef40e948d6",
           "component_type": "Bouncy"
         },
         "CurrentHealth": 0,
@@ -92,7 +92,7 @@
       },
       {
         "__type": "Mineable",
-        "__guid": "a75c13b1-0d11-420a-8df6-0620b05ea74f",
+        "__guid": "41bcf4fb-e2c8-4dbf-93c9-a23144e18819",
         "FractureEffect": {
           "_type": "gameobject",
           "prefab": "prefabs/effects/asteroid_fracture.prefab"
@@ -104,8 +104,8 @@
         },
         "Health": {
           "_type": "component",
-          "component_id": "c255ab44-504c-49e7-b3b0-6cdae9224e88",
-          "go": "2cd0c169-abb5-4213-9254-6c2b80875dad",
+          "component_id": "e8ecd99f-2011-42b0-a872-ccc27c347eb8",
+          "go": "a6ad0806-24f2-41cd-9101-28ef40e948d6",
           "component_type": "Health"
         },
         "ShrinkOnDamage": true,
@@ -113,32 +113,32 @@
       },
       {
         "__type": "HealthBarSpawner",
-        "__guid": "fe20a17b-fbc6-4198-b6f5-3bd123203de5",
+        "__guid": "358159bf-2c17-460a-a8c4-c3ff9cebe50f",
         "HealthSource": {
           "_type": "component",
-          "component_id": "c255ab44-504c-49e7-b3b0-6cdae9224e88",
-          "go": "2cd0c169-abb5-4213-9254-6c2b80875dad",
+          "component_id": "e8ecd99f-2011-42b0-a872-ccc27c347eb8",
+          "go": "a6ad0806-24f2-41cd-9101-28ef40e948d6",
           "component_type": "Health"
         },
         "Target": {
           "_type": "gameobject",
-          "go": "2cd0c169-abb5-4213-9254-6c2b80875dad"
+          "go": "a6ad0806-24f2-41cd-9101-28ef40e948d6"
         }
       },
       {
         "__type": "AsteroidHighlight",
-        "__guid": "5809683b-aa1b-4ce1-9f13-92a8df03a3bd",
+        "__guid": "b89c285d-f4a8-44ac-94a4-883b43f07e21",
         "Outline": {
           "_type": "component",
-          "component_id": "3d853e41-b1b7-4f83-b939-4e302d20859d",
-          "go": "2cd0c169-abb5-4213-9254-6c2b80875dad",
+          "component_id": "642eea56-c754-42f5-946e-0b63e04787d1",
+          "go": "a6ad0806-24f2-41cd-9101-28ef40e948d6",
           "component_type": "HighlightOutline"
         },
         "OutlineStrength": 1
       },
       {
         "__type": "HighlightOutline",
-        "__guid": "e7009e26-02b7-40e9-8082-b1337f54b649",
+        "__guid": "44ca2ee4-1a80-4b95-983c-ffd34fbd829f",
         "Color": "1,1,1,1",
         "InsideColor": "0,0,0,0",
         "InsideObscuredColor": "0,0,0,0",
@@ -147,16 +147,16 @@
       },
       {
         "__type": "NavBlocker",
-        "__guid": "0b75a3ce-956b-481d-a0ef-14ecab8d5fd0",
+        "__guid": "f1bb66ea-51cd-4091-890a-9031ee6d58aa",
         "Target": {
           "_type": "gameobject",
-          "go": "2cd0c169-abb5-4213-9254-6c2b80875dad"
+          "go": "a6ad0806-24f2-41cd-9101-28ef40e948d6"
         }
       }
     ],
     "Children": [
       {
-        "__guid": "dc84413b-e347-487a-aebf-7f9b24eb2fe5",
+        "__guid": "67960595-5a49-4a88-a5cf-8f409cadbbf5",
         "Name": "Model",
         "Scale": "0.3,0.3,0.3",
         "Enabled": true,
@@ -164,23 +164,15 @@
         "Components": [
           {
             "__type": "ModelRenderer",
-            "__guid": "1db2f1e9-eeb1-47c2-b0bc-5c8e969ef213",
+            "__guid": "26a3c482-3974-44e8-9a5b-3c844b8b1d77",
             "BodyGroups": 18446744073709551615,
             "Model": "models/rust_nature/rocks/rock_med_c.vmdl",
             "RenderType": "On",
             "Tint": "0.55018,0.64606,0.86977,1"
           },
           {
-            "__type": "ModelCollider",
-            "__guid": "84ea9a05-29ea-4943-b728-b63540fa7307",
-            "__enabled": false,
-            "IsTrigger": false,
-            "Model": "models/rust_nature/rocks/rock_med_c.vmdl",
-            "Static": false
-          },
-          {
             "__type": "SphereCollider",
-            "__guid": "3e32320f-5ce2-4d7c-9ebc-e411d9a703a3",
+            "__guid": "b3e8b2b1-c123-4157-865c-930bcebef152",
             "__enabled": false,
             "Center": "0,0,0",
             "IsTrigger": false,
@@ -189,44 +181,44 @@
           },
           {
             "__type": "ColliderLod",
-            "__guid": "d09b03f3-b627-4133-bc2b-0ac77b84db7d",
+            "__guid": "52b05ea0-50b1-40ca-a58c-8733754c348f",
             "HighDetail": [
               {
                 "_type": "component",
-                "component_id": "84ea9a05-29ea-4943-b728-b63540fa7307",
-                "go": "dc84413b-e347-487a-aebf-7f9b24eb2fe5",
-                "component_type": "ModelCollider"
+                "component_id": "eec207b0-b790-453c-b60a-8f31a0c1d4c7",
+                "go": "7abc39f7-299c-46e0-b8a4-6543cd2c2c2f",
+                "component_type": "SphereCollider"
               },
               {
                 "_type": "component",
-                "component_id": "40106973-dd94-4440-ae2b-e33bf68f609b",
-                "go": "76d37b34-b537-40fd-b502-f2269a2fc9f3",
-                "component_type": "SphereCollider"
+                "component_id": "bd6bd146-5303-4347-a937-be9ad8aa3575",
+                "go": "fec232a9-da1c-4837-a9be-aed25d275686",
+                "component_type": "ModelCollider"
               }
             ],
             "LowDetail": [
               {
                 "_type": "component",
-                "component_id": "3e32320f-5ce2-4d7c-9ebc-e411d9a703a3",
-                "go": "dc84413b-e347-487a-aebf-7f9b24eb2fe5",
+                "component_id": "b3e8b2b1-c123-4157-865c-930bcebef152",
+                "go": "67960595-5a49-4a88-a5cf-8f409cadbbf5",
                 "component_type": "SphereCollider"
               }
             ],
             "Rigidbody": {
               "_type": "component",
-              "component_id": "b4f8e3d0-0655-47e2-8063-1d34b90ef86f",
-              "go": "2cd0c169-abb5-4213-9254-6c2b80875dad",
+              "component_id": "cc4363d8-f908-4a18-9294-5eaa97e00ab0",
+              "go": "a6ad0806-24f2-41cd-9101-28ef40e948d6",
               "component_type": "Rigidbody"
             }
           },
           {
             "__type": "CollisionBubbler",
-            "__guid": "1dba5d4c-8c1c-487c-a13f-bb53feca0655"
+            "__guid": "dccca642-a17d-4bf2-a5a6-ce2d3eec890e"
           }
         ]
       },
       {
-        "__guid": "76d37b34-b537-40fd-b502-f2269a2fc9f3",
+        "__guid": "7abc39f7-299c-46e0-b8a4-6543cd2c2c2f",
         "Name": "Inner Collider",
         "Rotation": "0,-0.1604923,0,0.9870371",
         "Scale": "0.589434,0.7966302,1",
@@ -235,7 +227,7 @@
         "Components": [
           {
             "__type": "SphereCollider",
-            "__guid": "40106973-dd94-4440-ae2b-e33bf68f609b",
+            "__guid": "eec207b0-b790-453c-b60a-8f31a0c1d4c7",
             "__enabled": false,
             "Center": "0,0,0",
             "IsTrigger": false,
@@ -244,7 +236,25 @@
           },
           {
             "__type": "CollisionBubbler",
-            "__guid": "efcb6d37-804f-4d0e-b3df-c0fde1825237"
+            "__guid": "d3cbac2e-0577-4078-93d3-6cc3fba42921"
+          }
+        ]
+      },
+      {
+        "__guid": "fec232a9-da1c-4837-a9be-aed25d275686",
+        "Name": "Mesh Collider",
+        "Scale": "0.3,0.3,0.3",
+        "Tags": "mesh",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "ModelCollider",
+            "__guid": "bd6bd146-5303-4347-a937-be9ad8aa3575",
+            "__enabled": false,
+            "IsTrigger": false,
+            "Model": "models/rust_nature/rocks/rock_med_c.vmdl",
+            "Static": false
           }
         ]
       }

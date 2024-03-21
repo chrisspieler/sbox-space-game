@@ -1,0 +1,153 @@
+{
+  "__guid": "a5996a42-3f48-414d-b359-f3055ffc5384",
+  "GameObjects": [
+    {
+      "__guid": "61e4eaf2-2902-4f0e-aabc-12dafa494d15",
+      "Name": "Camera",
+      "Position": "0,0,2000",
+      "Rotation": "0,0.7071068,0,0.7071068",
+      "Tags": "maincamera",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "CameraComponent",
+          "__guid": "5d8a9c66-0cca-42ce-a319-b8c12cf4e85a",
+          "BackgroundColor": "0.33333,0.46275,0.52157,1",
+          "ClearFlags": "All",
+          "FieldOfView": 60,
+          "IsMainCamera": true,
+          "Orthographic": false,
+          "OrthographicHeight": 1204,
+          "Priority": 1,
+          "RenderExcludeTags": "",
+          "RenderTags": "",
+          "TargetEye": "None",
+          "Viewport": "0,0,1,1",
+          "ZFar": 10000,
+          "ZNear": 10
+        }
+      ]
+    },
+    {
+      "__guid": "d514d602-b6ca-4f16-9c7a-e80f13f220d9",
+      "Name": "c-type_asteroid",
+      "Position": "32,-32,43",
+      "Tags": "target,asteroid",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "data/asteroids/c-type_asteroid.prefab"
+    },
+    {
+      "__guid": "fc4ba68c-b6ea-46be-835c-35539ceb3817",
+      "Name": "c-type_asteroid (3)",
+      "Position": "-128,-32,43",
+      "Tags": "target,asteroid",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "data/asteroids/c-type_asteroid.prefab"
+    },
+    {
+      "__guid": "ed312960-fcdf-475b-bbc8-28e2dcb78c9a",
+      "Name": "c-type_asteroid (4)",
+      "Position": "-64,96,43",
+      "Tags": "target,asteroid",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "data/asteroids/c-type_asteroid.prefab"
+    },
+    {
+      "__guid": "2d7e4eaf-5d05-4a12-9c5a-25a1773b37ca",
+      "Name": "c-type_asteroid (5)",
+      "Position": "32,192,42.99997",
+      "Tags": "target,asteroid",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "data/asteroids/c-type_asteroid.prefab"
+    },
+    {
+      "__guid": "e92b2411-ce67-4e4c-ad2f-c151741b03d2",
+      "Name": "c-type_asteroid (6)",
+      "Position": "192,128,42.99994",
+      "Tags": "target,asteroid",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "data/asteroids/c-type_asteroid.prefab"
+    },
+    {
+      "__guid": "1a3eef99-53e8-48af-bb15-6e5280b7e1a0",
+      "Name": "c-type_asteroid (7)",
+      "Position": "128,-192,42.99994",
+      "Tags": "target,asteroid",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "data/asteroids/c-type_asteroid.prefab"
+    },
+    {
+      "__guid": "2c2ef4cc-8ef6-4e97-874f-f11bd5ca3ffb",
+      "Name": "c-type_asteroid (8)",
+      "Position": "-160,-256,42.99992",
+      "Tags": "target,asteroid",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "data/asteroids/c-type_asteroid.prefab"
+    },
+    {
+      "__guid": "ef9a9264-a03f-44ae-80ee-84e3143da4c2",
+      "Name": "c-type_asteroid (1)",
+      "Position": "256,0,43",
+      "Tags": "target,asteroid",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "data/asteroids/c-type_asteroid.prefab"
+    },
+    {
+      "__guid": "2a7b5b07-91ad-471c-a56d-567eeda11dfe",
+      "Name": "c-type_asteroid (2)",
+      "Position": "-352,-32,43",
+      "Tags": "target,asteroid",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "data/asteroids/c-type_asteroid.prefab"
+    },
+    {
+      "__guid": "5ccd11be-3e95-4c7a-b822-acca259dd62c",
+      "Name": "Origin",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "FloatingOriginPlayer",
+          "__guid": "79d26da2-eaba-4a2a-bb4b-a4c0f34edae7"
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "test_collision",
+  "Description": "",
+  "LastSaved": "2024-03-21T14:35:32.4203499-06:00",
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": []
+}

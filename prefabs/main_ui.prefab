@@ -76,7 +76,7 @@
         "__type": "MouseSelector",
         "__guid": "f7b1c06f-af14-49aa-a3b9-e25685924e20",
         "DeselectTime": 0.2,
-        "FilterWithAny": "solid",
+        "FilterWithAny": "solid,mesh",
         "FilterWithoutAny": "player"
       }
     ],
