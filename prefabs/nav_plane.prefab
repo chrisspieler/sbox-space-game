@@ -17,7 +17,7 @@
       {
         "__type": "NavPlane",
         "__guid": "850b0b7a-568f-480c-a653-08e3eac01c7b",
-        "UpdateIntervalSeconds": 0.15
+        "UpdateIntervalSeconds": 1
       },
       {
         "__type": "Follower",
