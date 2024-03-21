@@ -1,13 +1,14 @@
 {
   "RootObject": {
-    "Id": "fd63b27b-4df9-4d4f-b9ac-012fe4c91666",
+    "__guid": "b49be0a9-784d-4af7-9651-0493b90f9974",
     "Name": "thruster_fire",
-    "Position": "56.11745,0,0",
     "Tags": "particles",
     "Enabled": true,
+    "NetworkMode": 2,
     "Components": [
       {
         "__type": "ParticleEffect",
+        "__guid": "84ee59f2-b82c-4123-bd38-c6e4b59cb4c3",
         "Alpha": {
           "Type": "Curve",
           "CurveA": [
@@ -39,7 +40,6 @@
         },
         "Bumpiness": {},
         "Collision": false,
-        "CollisionIgnore": null,
         "CollisionRadius": 1,
         "Damping": {},
         "DieOnCollisionChance": {},
@@ -144,6 +144,7 @@
       },
       {
         "__type": "ParticleSpriteRenderer",
+        "__guid": "a702081d-78eb-4d9c-b936-761d203daa9c",
         "Additive": true,
         "BlurAmount": 0.2,
         "BlurOpacity": 0.6,
@@ -162,6 +163,7 @@
       },
       {
         "__type": "ParticleConeEmitter",
+        "__guid": "22fb3dc0-ad6d-436f-802a-ada3057d5692",
         "Burst": 0,
         "ConeAngle": 1.7,
         "ConeFar": 50,
@@ -172,18 +174,20 @@
         "InVolume": false,
         "Loop": true,
         "OnEdge": false,
-        "Rate": 50
+        "Rate": 25
       }
     ],
     "Children": [
       {
-        "Id": "b2a4081d-90fb-4af6-a3dc-03ce897c68b6",
+        "__guid": "9944dc32-45a9-4ab7-a508-80b46963bc98",
         "Name": "Point Light",
         "Tags": "light_point,light",
         "Enabled": true,
+        "NetworkMode": 2,
         "Components": [
           {
             "__type": "PointLight",
+            "__guid": "352979d3-f9b6-4aa4-86be-a9b37c9c1998",
             "Attenuation": 1,
             "FogMode": "Enabled",
             "FogStrength": 0.5,
@@ -198,6 +202,8 @@
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
   "__references": [
     "facepunch.flame001_side"
   ]

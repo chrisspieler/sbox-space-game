@@ -138,11 +138,6 @@ public sealed partial class ShipController
 			// For effects that use force, inherit velocity from the ship.
 			effect.ForceDirection = (effect.ForceDirection + Rigidbody.Velocity.Normal).Normal;
 			effect.ForceScale = effect.ForceScale.ConstantValue + Rigidbody.Velocity.Length;
-			effect.CollisionIgnore ??= new TagSet();
-			// Don't collide with released debris.
-			effect.CollisionIgnore.Add( "player" );
-			// Don't collide with the base shield.
-			effect.CollisionIgnore.Add( "player_shield" );
 		}
 	}
 }

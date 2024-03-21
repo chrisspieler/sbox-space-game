@@ -1,15 +1,19 @@
 {
   "RootObject": {
-    "Id": "b6d0aad0-b87a-490b-b768-c2074ea47f67",
+    "__guid": "c84b0e0d-5de4-4199-8265-a19bb9d10f12",
     "Name": "asteroid_fracture",
     "Enabled": true,
+    "NetworkMode": 2,
     "Components": [
       {
         "__type": "SelfDestruct",
-        "Delay": 5
+        "__guid": "1a0f75a8-c081-45d2-9bb0-a5139daaa27c",
+        "Delay": "5.00,5.00,0",
+        "EnableOnMakeDebris": false
       },
       {
         "__type": "BlastSource",
+        "__guid": "fc057acd-8d01-4541-9b33-749c20c4772d",
         "BlastOnEnable": true,
         "DestroyAfterBlast": true,
         "Force": 20000,
@@ -18,13 +22,15 @@
     ],
     "Children": [
       {
-        "Id": "2b91e635-50e8-459d-b361-dac818801f81",
+        "__guid": "e0675ff5-bfb1-484f-9f43-bca19072d117",
         "Name": "Sparks",
         "Tags": "particles",
         "Enabled": true,
+        "NetworkMode": 2,
         "Components": [
           {
             "__type": "ParticleEffect",
+            "__guid": "cf1d9f0e-fa76-4ebe-b146-879b604c7f22",
             "Alpha": {
               "Type": "Curve",
               "CurveA": [
@@ -51,7 +57,7 @@
               "Constants": "5,0,0,0"
             },
             "Bumpiness": {},
-            "Collision": true,
+            "Collision": false,
             "CollisionIgnore": "pickup",
             "CollisionRadius": 1,
             "Damping": {},
@@ -175,7 +181,7 @@
             "StartVelocity": {
               "Type": "Range",
               "Evaluation": "Particle",
-              "Constants": "500,600,0,0"
+              "Constants": "20,600,0,0"
             },
             "Stretch": {},
             "TimeScale": 1,
@@ -183,6 +189,7 @@
           },
           {
             "__type": "ParticleSpriteRenderer",
+            "__guid": "f5df85ee-cc3b-4c2d-88e0-1475caa9f854",
             "Additive": false,
             "BlurAmount": 0.35,
             "BlurOpacity": 0.91,
@@ -201,6 +208,7 @@
           },
           {
             "__type": "ParticleSphereEmitter",
+            "__guid": "201e11d1-6ddf-45d8-9e4d-5422b93d301b",
             "Burst": 300,
             "Delay": 0,
             "DestroyOnEnd": false,
@@ -214,13 +222,15 @@
         ]
       },
       {
-        "Id": "15a33651-6b5f-4a54-8f86-47ac3000b6d4",
+        "__guid": "b95806dd-ca07-451b-959c-5e1452bf5798",
         "Name": "Dust",
         "Tags": "particles",
         "Enabled": true,
+        "NetworkMode": 2,
         "Components": [
           {
             "__type": "ParticleEffect",
+            "__guid": "a1a83437-75b5-47b4-963a-c46fdaf9ce67",
             "Alpha": {
               "Type": "Curve",
               "CurveA": {
@@ -257,7 +267,6 @@
             },
             "Bumpiness": {},
             "Collision": false,
-            "CollisionIgnore": null,
             "CollisionRadius": 1,
             "Damping": {
               "Constants": "1,0,0,0"
@@ -360,6 +369,7 @@
           },
           {
             "__type": "ParticleSpriteRenderer",
+            "__guid": "a6771423-497f-40c7-849b-91d72ce5e881",
             "Additive": true,
             "BlurAmount": 0.5,
             "BlurOpacity": 0.91,
@@ -378,6 +388,7 @@
           },
           {
             "__type": "ParticleSphereEmitter",
+            "__guid": "0197c3d1-7f05-495b-9ef6-ae7ae34da6ef",
             "Burst": 30,
             "Delay": 0,
             "DestroyOnEnd": true,
@@ -391,18 +402,27 @@
         ]
       },
       {
-        "Id": "10144c70-fae3-4fad-a176-39c30a81a245",
+        "__guid": "50fbde36-5ff2-4301-96dc-1eaafbdba840",
         "Name": "Sound",
         "Position": "-63.55782,-441.5232,270.2263",
         "Enabled": true,
+        "NetworkMode": 2,
         "Components": [
           {
             "__type": "SoundPointComponent",
+            "__guid": "5fe6ca9e-0acc-4d6e-b412-3051eb1393a2",
+            "DistanceAttenuation": false,
+            "DistanceAttenuationOverride": false,
             "Force2d": false,
             "MaxRepeatTime": 1,
             "MinRepeatTime": 1,
+            "Occlusion": false,
+            "OcclusionOverride": false,
+            "OcclusionRadius": 32,
             "Pitch": 1,
             "PlayOnStart": true,
+            "ReflectionOverride": false,
+            "Reflections": false,
             "Repeat": false,
             "SoundEvent": "sounds/asteroid_fracture.sound",
             "SoundOverride": false,
@@ -416,5 +436,7 @@
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
   "__references": []
 }
