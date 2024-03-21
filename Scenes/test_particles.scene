@@ -1,0 +1,341 @@
+{
+  "__guid": "53d5c29a-995e-4dcf-afa6-e171ce9533c0",
+  "GameObjects": [
+    {
+      "__guid": "cd45ba1a-4de9-42b2-be8e-ff7408fbb7dd",
+      "Name": "ship_camera (1)",
+      "Position": "0,0,2000",
+      "Rotation": "0,0.7071068,0,0.7071068",
+      "Tags": "no_chunk,no_shift",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "CameraComponent",
+          "__guid": "bb849653-686b-4ef0-a694-bf9ea8181d59",
+          "BackgroundColor": "0.33333,0.46275,0.52157,1",
+          "ClearFlags": "All",
+          "FieldOfView": 90,
+          "IsMainCamera": true,
+          "Orthographic": false,
+          "OrthographicHeight": 1204,
+          "Priority": 1,
+          "RenderExcludeTags": "",
+          "RenderTags": "",
+          "TargetEye": "None",
+          "Viewport": "0,0,1,1",
+          "ZFar": 100000,
+          "ZNear": 10
+        },
+        {
+          "__type": "Bloom",
+          "__guid": "6ecf5c6a-7fb1-4008-ab81-f1073bc8dd18",
+          "BloomColor": {
+            "color": [
+              {
+                "c": "1,1,1,1"
+              },
+              {
+                "t": 1,
+                "c": "1,1,1,1"
+              }
+            ],
+            "alpha": []
+          },
+          "BloomCurve": [
+            {
+              "y": 0.5
+            },
+            {
+              "x": 1,
+              "y": 1
+            }
+          ],
+          "Mode": "Additive",
+          "Strength": 0.5,
+          "Threshold": 0.05,
+          "ThresholdWidth": 0.1
+        },
+        {
+          "__type": "ColorAdjustments",
+          "__guid": "676b072d-0b6e-41a7-b7e4-2e73be9e49f3",
+          "Brightness": 1.1,
+          "Contrast": 1.01,
+          "HueRotate": 0,
+          "Saturation": 1.1
+        },
+        {
+          "__type": "Highlight",
+          "__guid": "b531e920-53ae-4f30-87be-69645d3294d4"
+        },
+        {
+          "__type": "PostProcessingController",
+          "__guid": "f1bf350a-0f59-45aa-904c-5cb6a8c43a73",
+          "Bloom": {
+            "_type": "component",
+            "component_id": "6ecf5c6a-7fb1-4008-ab81-f1073bc8dd18",
+            "go": "cd45ba1a-4de9-42b2-be8e-ff7408fbb7dd",
+            "component_type": "Bloom"
+          },
+          "HighlightEffect": {
+            "_type": "component",
+            "component_id": "b531e920-53ae-4f30-87be-69645d3294d4",
+            "go": "cd45ba1a-4de9-42b2-be8e-ff7408fbb7dd",
+            "component_type": "Highlight"
+          },
+          "Sharpen": {
+            "_type": "component",
+            "component_id": "b20bad97-e66a-4df7-8ca7-b8b93427b774",
+            "go": "cd45ba1a-4de9-42b2-be8e-ff7408fbb7dd",
+            "component_type": "Sharpen"
+          },
+          "TargetBloom": 1,
+          "TargetSharpness": 0.05
+        },
+        {
+          "__type": "OriginShiftCamera",
+          "__guid": "8ec58501-77ec-479e-8f1b-af2bb6e02331",
+          "Camera": {
+            "_type": "component",
+            "component_id": "bb849653-686b-4ef0-a694-bf9ea8181d59",
+            "go": "cd45ba1a-4de9-42b2-be8e-ff7408fbb7dd",
+            "component_type": "CameraComponent"
+          },
+          "OriginShiftFreezeFrames": 0,
+          "RenderTags": "shift_visible"
+        },
+        {
+          "__type": "ScreenShake",
+          "__guid": "86c0907a-16df-4b3a-a2e6-3a717ce1ec04",
+          "BaseTrauma": 0,
+          "CombinedTrauma": 0,
+          "PitchShakeIntensity": 5,
+          "PitchShakeSpeed": 300,
+          "RollShakeIntensity": 5,
+          "RollShakeSpeed": 300,
+          "ShakeToggleCount": 0,
+          "Trauma": 0,
+          "TraumaDecayRate": 0.75,
+          "YawShakeIntensity": 5,
+          "YawShakeSpeed": 300
+        },
+        {
+          "__type": "OffsetCombiner",
+          "__guid": "d6ab697e-6693-4f70-81d0-da65cbc87beb"
+        },
+        {
+          "__type": "DeathCam",
+          "__guid": "a2736f22-7e70-43b3-9c06-0c312c107b24",
+          "__enabled": false,
+          "Distance": 40,
+          "LookbackDistance": 200,
+          "PositionLerpSpeed": {
+            "rangey": "0,20",
+            "frames": [
+              {
+                "y": 0.018085156,
+                "in": -0.06567136,
+                "out": 0.06567136
+              },
+              {
+                "x": 0.8979591,
+                "y": 0.4847844,
+                "in": -1.6221398,
+                "out": 1.6221398
+              },
+              {
+                "x": 1,
+                "y": 1,
+                "in": -9.076923,
+                "out": 9.076923
+              }
+            ]
+          },
+          "RotationLerpSpeed": {
+            "rangey": "0,20",
+            "frames": [
+              {
+                "y": 0.02074473
+              },
+              {
+                "x": 0.88839287,
+                "y": 0.45886433,
+                "in": -1.8266492,
+                "out": 1.8266492
+              },
+              {
+                "x": 1,
+                "y": 1,
+                "in": -6.3225813,
+                "out": 6.3225813
+              }
+            ]
+          }
+        },
+        {
+          "__type": "Sharpen",
+          "__guid": "b20bad97-e66a-4df7-8ca7-b8b93427b774",
+          "Scale": 0.05
+        }
+      ]
+    },
+    {
+      "__guid": "3ac4cb17-ba40-468f-a6f3-ef3e36e09c41",
+      "Name": "volumetric_fog (1)",
+      "Tags": "no_chunk,shift_visible",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/volumetric_fog.prefab"
+    },
+    {
+      "__guid": "2c668ca1-270f-4f0b-874d-07b92eb9b241",
+      "Name": "ambient_light",
+      "Tags": "light_directional,light,no_chunk",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/ambient_light.prefab"
+    },
+    {
+      "__guid": "ed3e4ecd-ed14-4c44-9d39-c3e36a430784",
+      "Name": "skybox (1)",
+      "Tags": "skybox,no_chunk,shift_visible",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/skybox.prefab"
+    },
+    {
+      "__guid": "d50542ed-2dac-46fa-8274-7f0b3a933f6e",
+      "Name": "laser_ablation",
+      "Position": "192,32,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "dbb1c12f-02f6-451e-b884-ec0d88d1a9bf",
+      "Name": "laser_ablation (1)",
+      "Position": "192,96,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "de6f1e66-7069-4930-9b19-8dfe01a7a45a",
+      "Name": "laser_ablation (2)",
+      "Position": "192,160,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "e91df56e-2f5c-4288-a009-e859254f3cf7",
+      "Name": "laser_ablation (3)",
+      "Position": "192,224,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "30d5057a-c9b5-4fca-8c15-1d4bf462efae",
+      "Name": "laser_ablation (4)",
+      "Position": "192,288,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "a8e1c86a-b994-413b-8387-030e30ea589d",
+      "Name": "laser_ablation (5)",
+      "Position": "192,352,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "67be5406-04d6-4baa-b4f1-6fbe61025ae1",
+      "Name": "laser_ablation (6)",
+      "Position": "192,416,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "c087c1ca-31bd-49cf-9a45-62829d45727f",
+      "Name": "laser_ablation (7)",
+      "Position": "192,480,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "b1c59ce2-46dc-4078-b03f-6c96d242185a",
+      "Name": "laser_ablation (8)",
+      "Position": "192,544,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "7e95454e-1a1d-420c-97c8-4a82b1ff5aaa",
+      "Name": "Cube",
+      "Position": "-160,288,0",
+      "Scale": "1,11.97823,3.283913",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "__guid": "476568f8-7a67-41c8-af6c-a2d43066099c",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/dev/box.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "BoxCollider",
+          "__guid": "22cb40f9-e64f-4c5a-b348-bc7ce1116955",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "50,50,50",
+          "Static": false
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "test_particles",
+  "Description": "",
+  "LastSaved": "2024-03-21T15:32:46.0919724-06:00",
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": []
+}

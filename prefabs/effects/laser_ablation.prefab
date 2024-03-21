@@ -1,17 +1,21 @@
 {
   "RootObject": {
-    "Id": "a2115e3e-ac97-4bd3-90be-b33777d742f6",
+    "__guid": "efcc6181-8055-4b82-81c9-2bb7f858fe3b",
     "Name": "laser_ablation",
     "Enabled": true,
+    "NetworkMode": 2,
     "Children": [
       {
-        "Id": "de88da05-803d-42e4-9c99-64e70423d40f",
+        "__guid": "5fe9a631-0a5c-4a06-8e32-e24a80df6ce0",
         "Name": "Sparks",
+        "Position": "32,0,0",
         "Tags": "particles",
         "Enabled": true,
+        "NetworkMode": 2,
         "Components": [
           {
             "__type": "ParticleEffect",
+            "__guid": "0f7dda30-1916-48cb-9f80-d176f3be9ff0",
             "Alpha": {
               "Type": "Curve",
               "CurveA": [
@@ -36,14 +40,14 @@
             "ApplyRotation": false,
             "ApplyShape": true,
             "Bounce": {
-              "Constants": "1,0,0,0"
+              "Constants": "1,0.15,0,0"
             },
             "Brightness": {
               "Constants": "20,0,0,0"
             },
             "Bumpiness": {},
             "Collision": false,
-            "CollisionIgnore": null,
+            "CollisionIgnore": "",
             "CollisionRadius": 1,
             "Damping": {},
             "DieOnCollisionChance": {},
@@ -57,22 +61,21 @@
             },
             "Gradient": {
               "Type": "Gradient",
-              "Evaluation": "Particle",
               "GradientA": {
                 "color": [
                   {
-                    "c": "1,0.99209,0.52558,1"
+                    "c": "1,1,1,1"
                   },
                   {
-                    "t": 0.20940171,
+                    "t": 0.08547009,
                     "c": "1,0.68333,0,1"
                   },
                   {
-                    "t": 0.3482906,
+                    "t": 0.41880342,
                     "c": "1,0.31667,0,1"
                   },
                   {
-                    "t": 0.8055556,
+                    "t": 1,
                     "c": "0.36279,0.09224,0.05062,1"
                   }
                 ],
@@ -140,7 +143,9 @@
             "SheetSequence": false,
             "Space": "World",
             "StartVelocity": {
-              "Constants": "300,200,0,0"
+              "Type": "Range",
+              "Evaluation": "Particle",
+              "Constants": "300,500,0,0"
             },
             "Stretch": {},
             "TimeScale": 1,
@@ -148,6 +153,7 @@
           },
           {
             "__type": "ParticleSpriteRenderer",
+            "__guid": "721a9fa7-a1c1-44a9-8df4-0871fbe0d404",
             "Additive": true,
             "BlurAmount": 0.39,
             "BlurOpacity": 0.59,
@@ -166,29 +172,32 @@
           },
           {
             "__type": "ParticleConeEmitter",
+            "__guid": "094d9040-374d-4319-992e-f01235df053f",
             "Burst": 5,
-            "ConeAngle": 45,
+            "ConeAngle": 20,
             "ConeFar": 100,
             "ConeNear": 0,
             "Delay": 0,
             "DestroyOnEnd": false,
-            "Duration": 0.2,
+            "Duration": 0.4,
             "InVolume": false,
             "Loop": true,
             "OnEdge": false,
-            "Rate": 30
+            "Rate": 15
           }
         ]
       },
       {
-        "Id": "3fb311ed-83b0-4f23-8d6e-47a313376eb2",
+        "__guid": "d9096dc5-2c7d-4ce8-8f2a-785d71a47672",
         "Name": "Fireball",
         "Position": "13.00308,0,0",
         "Tags": "particles",
         "Enabled": true,
+        "NetworkMode": 2,
         "Components": [
           {
             "__type": "ParticleEffect",
+            "__guid": "118848c1-615c-43c3-80de-564815148dc3",
             "Alpha": {
               "Type": "Curve",
               "CurveA": [
@@ -220,7 +229,6 @@
             },
             "Bumpiness": {},
             "Collision": false,
-            "CollisionIgnore": null,
             "CollisionRadius": 1,
             "Damping": {},
             "DieOnCollisionChance": {},
@@ -305,11 +313,9 @@
             },
             "SequenceId": {},
             "SequenceSpeed": {
-              "Constants": "1,0,0,0"
+              "Constants": "100,0,0,0"
             },
-            "SequenceTime": {
-              "Constants": "1,0,0,0"
-            },
+            "SequenceTime": {},
             "SheetSequence": false,
             "Space": "World",
             "StartVelocity": {
@@ -321,6 +327,7 @@
           },
           {
             "__type": "ParticleSpriteRenderer",
+            "__guid": "e348a5f9-f3c4-438f-92d7-df6c0e5eb8dc",
             "Additive": true,
             "BlurAmount": 0.17,
             "BlurOpacity": 0.91,
@@ -339,6 +346,7 @@
           },
           {
             "__type": "ParticleConeEmitter",
+            "__guid": "095e66a6-7f2b-4c31-bb17-35a39d85b73c",
             "Burst": 0,
             "ConeAngle": 45,
             "ConeFar": 10,
@@ -349,18 +357,20 @@
             "InVolume": false,
             "Loop": true,
             "OnEdge": false,
-            "Rate": 15
+            "Rate": 7
           }
         ]
       },
       {
-        "Id": "7a3bd35b-1cb9-4245-93a8-a8c93d9d1278",
+        "__guid": "81e20c5f-e4f0-4dd6-8553-00236861a7fa",
         "Name": "Smoke",
         "Tags": "particles",
         "Enabled": true,
+        "NetworkMode": 2,
         "Components": [
           {
             "__type": "ParticleEffect",
+            "__guid": "7e5bc447-fec7-4aff-85a2-23e85322551b",
             "Alpha": {
               "Type": "Curve",
               "CurveA": [
@@ -368,15 +378,15 @@
                   "y": 1
                 },
                 {
-                  "x": 0.7094623,
-                  "y": 0.6436169,
+                  "x": 0.12910517,
+                  "y": 0.5080773,
                   "in": 1.341308,
                   "out": -1.341308
                 },
                 {
                   "x": 1,
-                  "in": 1.312303,
-                  "out": -1.312303
+                  "in": 0.028985621,
+                  "out": -0.028985621
                 }
               ],
               "Constants": "1,0,0,0"
@@ -388,11 +398,10 @@
               "Constants": "1,0,0,0"
             },
             "Brightness": {
-              "Constants": "0.1,0,0,0"
+              "Constants": "0.3,0,0,0"
             },
             "Bumpiness": {},
             "Collision": false,
-            "CollisionIgnore": null,
             "CollisionRadius": 1,
             "Damping": {
               "Constants": "0.2,0,0,0"
@@ -433,7 +442,7 @@
             "Lifetime": {
               "Type": "Range",
               "Evaluation": "Particle",
-              "Constants": "1,3,0,0"
+              "Constants": "1,2,0,0"
             },
             "MaxParticles": 5000,
             "PerParticleTimeScale": {
@@ -449,23 +458,23 @@
             "Scale": {
               "Type": "Curve",
               "CurveA": {
-                "rangey": "0,200",
+                "rangey": "0,250",
                 "frames": [
                   {
-                    "in": -0.59999996,
-                    "out": 0.59999996
+                    "in": -0.12820517,
+                    "out": 0.12820517
                   },
                   {
-                    "x": 0.06896555,
-                    "y": 0.7898936,
-                    "in": -0.556529,
-                    "out": 0.556529
+                    "x": 0.497537,
+                    "y": 0.78723407,
+                    "in": -0.94719595,
+                    "out": 0.94719595
                   },
                   {
                     "x": 1,
                     "y": 1,
-                    "in": -0.071428366,
-                    "out": 0.071428366
+                    "in": -0.2333332,
+                    "out": 0.2333332
                   }
                 ]
               },
@@ -492,7 +501,7 @@
             "StartVelocity": {
               "Type": "Range",
               "Evaluation": "Particle",
-              "Constants": "50,200,0,0"
+              "Constants": "100,300,0,0"
             },
             "Stretch": {},
             "TimeScale": 1,
@@ -500,6 +509,7 @@
           },
           {
             "__type": "ParticleSpriteRenderer",
+            "__guid": "e792ac69-208f-41f1-89d6-f8ddac40a3eb",
             "Additive": true,
             "BlurAmount": 0.31,
             "BlurOpacity": 0.71,
@@ -518,6 +528,7 @@
           },
           {
             "__type": "ParticleConeEmitter",
+            "__guid": "3e3d0830-56c6-470f-8c76-8488609d5c07",
             "Burst": 0,
             "ConeAngle": 8.29,
             "ConeFar": 50,
@@ -528,18 +539,20 @@
             "InVolume": false,
             "Loop": true,
             "OnEdge": false,
-            "Rate": 50
+            "Rate": 25
           }
         ]
       },
       {
-        "Id": "813d6541-0c7a-457d-9127-fee6a77daf58",
+        "__guid": "88183fd3-29aa-4602-97b9-8a5985c9b0dc",
         "Name": "Point Light",
         "Tags": "light_point,light",
         "Enabled": true,
+        "NetworkMode": 2,
         "Components": [
           {
             "__type": "PointLight",
+            "__guid": "dde2325d-acef-413b-b8f8-cf6830a08b21",
             "Attenuation": 1,
             "FogMode": "WithoutShadows",
             "FogStrength": 0.5,
@@ -554,6 +567,8 @@
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
   "__references": [
     "facepunch.smoke001"
   ]

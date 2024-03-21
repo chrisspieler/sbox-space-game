@@ -48,6 +48,7 @@ public sealed class ImpactEffect : Component
 	private GameObject CreateEffectForSurface( TagSurface surface )
 	{
 		var effectGo = surface.ContinuousImpactEffect.GetPrefabScene().Clone();
+		effectGo.Tags.Add( "no_chunk" );
 		effectGo.Transform.Position = Transform.Position;
 		effectGo.Transform.Rotation = Transform.Rotation;
 		return effectGo;
@@ -67,7 +68,7 @@ public sealed class ImpactEffect : Component
 			light.Enabled = false;
 		}
 		var selfDestruct = _effectInstance.Components.Create<SelfDestruct>();
-		selfDestruct.Delay = 2f;
+		selfDestruct.Delay = 5f;
 		_effectInstance = null;
 	}
 }

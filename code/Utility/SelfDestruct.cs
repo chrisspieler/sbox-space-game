@@ -8,7 +8,7 @@ public sealed class SelfDestruct : Component, IDestructionListener
 
 	private TimeUntil _untilDestroy;
 
-	protected override void OnEnabled()
+	protected override void OnStart()
 	{
 		_untilDestroy = Delay.GetValue();
 	}
