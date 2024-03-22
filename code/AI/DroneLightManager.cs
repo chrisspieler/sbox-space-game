@@ -6,6 +6,9 @@ namespace Sandbox;
 
 public sealed class DroneLightManager : Component
 {
+	[ConVar( "drone_light_update_distance" )]
+	public static float UpdateDistance { get; set; } = 2500f;
+
 	[Property] public Drone Controller { get; set; }
 	[Property] public List<ModelRenderer> Emissives { get; set; }
 	[Property] public List<EffectSpawner> LightDestructionEffects { get; set; }
@@ -28,6 +31,10 @@ public sealed class DroneLightManager : Component
 	{
 		if ( ShouldUpdateLights )
 		{
+			var playerPos = FloatingOriginPlayer.Instance?.Transform?.Position 
+				?? Scene.Camera.Transform.Position;
+			if ( Transform.Position.Distance( playerPos ) > UpdateDistance )
+				return;
 			UpdateLights();
 		}
 	}
