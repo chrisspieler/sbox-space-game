@@ -17,11 +17,13 @@ public sealed partial class WorldChunker : GameObjectSystem
 	// Perhaps it should be calculated based on the chunk size.
 	private float _maxPosition { get; set; } = 1_000_000_000f;
 	private FloatingOriginSystem _originSystem { get; set; }
+	private RealTimeUntil _untilNextRehome;
 
 	public WorldChunker( Scene scene ) : base( scene )
 	{
 		Listen( Stage.UpdateBones, 0, DrawDebugInfo, "World Chunker Draw Debug Info" );
 		Listen( Stage.PhysicsStep, 1, OnUpdate, "World Chunker" );
+		_untilNextRehome = RehomeIntervalSeconds;
 	}
 
 	private void OnUpdate()
@@ -42,8 +44,10 @@ public sealed partial class WorldChunker : GameObjectSystem
 		}
 
 		UpdateChunks( WorldToChunkAbsolute( origin.AbsolutePosition ) );
-		if ( Rehoming )
+		if ( Rehoming && _untilNextRehome )
 		{
+			_untilNextRehome = RehomeIntervalSeconds;
+			Log.Info( "rehoming" );
 			RehomeDrifters();
 			RehomeOrphans();
 		}

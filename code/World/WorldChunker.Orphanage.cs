@@ -5,6 +5,8 @@ public partial class WorldChunker
 {
 	[ConVar( "world_streaming_rehome" )]
 	public static bool Rehoming { get; set; } = true;
+	[ConVar( "world_streaming_rehome_interval")]
+	public static float RehomeIntervalSeconds { get; set; } = 1f;
 
 	private void RehomeDrifters()
 	{
