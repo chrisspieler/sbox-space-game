@@ -1,20 +1,23 @@
 {
   "RootObject": {
-    "Id": "42831a87-e909-4bf6-99d9-686a5288cc95",
+    "__guid": "42831a87-e909-4bf6-99d9-686a5288cc95",
     "Name": "ice_field",
     "Enabled": true,
+    "NetworkMode": 2,
     "Children": [
       {
-        "Id": "0fd6345a-a603-4f7c-942f-54e6f005c006",
+        "__guid": "0fd6345a-a603-4f7c-942f-54e6f005c006",
         "Name": "Ice",
         "Position": "0,0,-2500",
         "Tags": "particles",
         "Enabled": true,
+        "NetworkMode": 2,
         "Components": [
           {
             "__type": "ParticleEffect",
+            "__guid": "74182414-c24d-48bf-a0f5-4f23cce18d30",
             "Alpha": {
-              "Type": "Curve",
+              "Type": "Range",
               "CurveA": [
                 {
                   "in": -4.0000024,
@@ -28,7 +31,7 @@
                   "x": 1
                 }
               ],
-              "Constants": "1,0,0,0"
+              "Constants": "0.2,0,0,0"
             },
             "ApplyColor": true,
             "ApplyRotation": true,
@@ -37,11 +40,10 @@
               "Constants": "1,0,0,0"
             },
             "Brightness": {
-              "Constants": "2,0,0,0"
+              "Constants": "1,0,0,0"
             },
             "Bumpiness": {},
             "Collision": false,
-            "CollisionIgnore": null,
             "CollisionRadius": 3,
             "Damping": {},
             "DieOnCollisionChance": {},
@@ -54,7 +56,6 @@
               "Constants": "1,0,0,0"
             },
             "Gradient": {
-              "Type": "Gradient",
               "Evaluation": "Particle",
               "GradientA": {
                 "color": [
@@ -86,13 +87,12 @@
                 ],
                 "alpha": []
               },
-              "ConstantA": "1,1,1,1",
-              "ConstantB": "0.10233,0.10233,0.10233,1"
+              "ConstantA": "1,1,1,1"
             },
             "Lifetime": {
               "Type": "Range",
               "Evaluation": "Particle",
-              "Constants": "5,8,0,0"
+              "Constants": "1,10,0,0"
             },
             "MaxParticles": 5000,
             "PerParticleTimeScale": {
@@ -106,12 +106,10 @@
               "Constants": "0,360,0,0"
             },
             "Scale": {
-              "Type": "Range",
-              "Evaluation": "Frame",
               "CurveA": [
                 {}
               ],
-              "Constants": "2,6,0,0"
+              "Constants": "10,6,0,0"
             },
             "SequenceId": {},
             "SequenceSpeed": {},
@@ -121,16 +119,15 @@
             "SheetSequence": false,
             "Space": "World",
             "StartVelocity": {
-              "Type": "Range",
-              "Evaluation": "Frame",
               "Constants": "5,5,0,0"
             },
             "Stretch": {},
             "TimeScale": 1,
-            "Tint": "0.73488,0.9514,1,1"
+            "Tint": "0.70698,0.94628,1,1"
           },
           {
             "__type": "ParticleSpriteRenderer",
+            "__guid": "aaa0f55c-9d57-4393-8ea5-068c6af779af",
             "Additive": false,
             "BlurAmount": 0.5,
             "BlurOpacity": 0.91,
@@ -149,6 +146,7 @@
           },
           {
             "__type": "ParticleBoxEmitter",
+            "__guid": "0f4e99d7-3c1d-4e70-8ac2-1ba8e2f8b7e5",
             "Burst": 0,
             "Delay": 0,
             "DestroyOnEnd": false,
@@ -165,5 +163,7 @@
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
   "__references": []
 }
