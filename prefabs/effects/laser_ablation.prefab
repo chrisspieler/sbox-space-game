@@ -1,12 +1,12 @@
 {
   "RootObject": {
-    "__guid": "efcc6181-8055-4b82-81c9-2bb7f858fe3b",
+    "__guid": "c22ea147-f49b-4f6d-8581-b28da75fd22c",
     "Name": "laser_ablation",
     "Enabled": true,
     "NetworkMode": 2,
     "Children": [
       {
-        "__guid": "5fe9a631-0a5c-4a06-8e32-e24a80df6ce0",
+        "__guid": "6c37bf42-18f7-4783-bf4b-d49b3c243b3f",
         "Name": "Sparks",
         "Position": "32,0,0",
         "Tags": "particles",
@@ -15,9 +15,9 @@
         "Components": [
           {
             "__type": "ParticleEffect",
-            "__guid": "0f7dda30-1916-48cb-9f80-d176f3be9ff0",
+            "__guid": "d4fd0e8e-5657-4469-a2d2-86e330a12825",
             "Alpha": {
-              "Type": "Curve",
+              "Type": "Range",
               "CurveA": [
                 {
                   "y": 1
@@ -96,7 +96,7 @@
             "Lifetime": {
               "Type": "Range",
               "Evaluation": "Particle",
-              "Constants": "1,2,0,0"
+              "Constants": "0,1,0,0"
             },
             "MaxParticles": 5000,
             "PerParticleTimeScale": {
@@ -110,7 +110,7 @@
               "Constants": "0,360,0,0"
             },
             "Scale": {
-              "Type": "Curve",
+              "Type": "Range",
               "CurveA": {
                 "rangey": "0,15",
                 "frames": [
@@ -131,7 +131,7 @@
                   }
                 ]
               },
-              "Constants": "1,0,0,0"
+              "Constants": "0,30,0,0"
             },
             "SequenceId": {},
             "SequenceSpeed": {
@@ -153,7 +153,7 @@
           },
           {
             "__type": "ParticleSpriteRenderer",
-            "__guid": "721a9fa7-a1c1-44a9-8df4-0871fbe0d404",
+            "__guid": "ddccdd0a-59e5-479d-a038-e540b85f095a",
             "Additive": true,
             "BlurAmount": 0.39,
             "BlurOpacity": 0.59,
@@ -172,7 +172,7 @@
           },
           {
             "__type": "ParticleConeEmitter",
-            "__guid": "094d9040-374d-4319-992e-f01235df053f",
+            "__guid": "ea1829b8-d23a-4909-91ad-748522e74204",
             "Burst": 5,
             "ConeAngle": 20,
             "ConeFar": 100,
@@ -188,7 +188,7 @@
         ]
       },
       {
-        "__guid": "d9096dc5-2c7d-4ce8-8f2a-785d71a47672",
+        "__guid": "02fb270b-2897-494e-8c72-5d7b0d0b9134",
         "Name": "Fireball",
         "Position": "13.00308,0,0",
         "Tags": "particles",
@@ -197,9 +197,9 @@
         "Components": [
           {
             "__type": "ParticleEffect",
-            "__guid": "118848c1-615c-43c3-80de-564815148dc3",
+            "__guid": "f95fa292-36d8-4f23-ad37-2cdc586ed493",
             "Alpha": {
-              "Type": "Curve",
+              "Type": "Range",
               "CurveA": [
                 {
                   "y": 1
@@ -293,7 +293,7 @@
               "Constants": "85,95,0,0"
             },
             "Scale": {
-              "Type": "Curve",
+              "Type": "Range",
               "CurveA": {
                 "rangey": "5,60",
                 "frames": [
@@ -309,7 +309,7 @@
                   }
                 ]
               },
-              "Constants": "1,0,0,0"
+              "Constants": "0,30,0,0"
             },
             "SequenceId": {},
             "SequenceSpeed": {
@@ -327,7 +327,7 @@
           },
           {
             "__type": "ParticleSpriteRenderer",
-            "__guid": "e348a5f9-f3c4-438f-92d7-df6c0e5eb8dc",
+            "__guid": "67dcba8b-5e3b-4427-9901-9b35deb8524c",
             "Additive": true,
             "BlurAmount": 0.17,
             "BlurOpacity": 0.91,
@@ -346,7 +346,7 @@
           },
           {
             "__type": "ParticleConeEmitter",
-            "__guid": "095e66a6-7f2b-4c31-bb17-35a39d85b73c",
+            "__guid": "5d5ad075-4381-4b0b-9fd0-7d565c37e052",
             "Burst": 0,
             "ConeAngle": 45,
             "ConeFar": 10,
@@ -362,7 +362,7 @@
         ]
       },
       {
-        "__guid": "81e20c5f-e4f0-4dd6-8553-00236861a7fa",
+        "__guid": "76ee9c95-4ee5-498e-89a9-53a149873754",
         "Name": "Smoke",
         "Tags": "particles",
         "Enabled": true,
@@ -370,9 +370,9 @@
         "Components": [
           {
             "__type": "ParticleEffect",
-            "__guid": "7e5bc447-fec7-4aff-85a2-23e85322551b",
+            "__guid": "8b074e11-007e-44ff-99ad-294a7b68fb5d",
             "Alpha": {
-              "Type": "Curve",
+              "Type": "Range",
               "CurveA": [
                 {
                   "y": 1
@@ -392,7 +392,7 @@
               "Constants": "1,0,0,0"
             },
             "ApplyColor": true,
-            "ApplyRotation": false,
+            "ApplyRotation": true,
             "ApplyShape": true,
             "Bounce": {
               "Constants": "1,0,0,0"
@@ -456,7 +456,7 @@
               "Constants": "0,360,0,0"
             },
             "Scale": {
-              "Type": "Curve",
+              "Type": "Range",
               "CurveA": {
                 "rangey": "0,250",
                 "frames": [
@@ -487,7 +487,7 @@
                   }
                 ]
               },
-              "Constants": "1,0,0,0"
+              "Constants": "0,250,0,0"
             },
             "SequenceId": {},
             "SequenceSpeed": {
@@ -509,13 +509,13 @@
           },
           {
             "__type": "ParticleSpriteRenderer",
-            "__guid": "e792ac69-208f-41f1-89d6-f8ddac40a3eb",
+            "__guid": "4a748dad-e5d3-4ff7-b1dc-e8abc604716e",
             "Additive": true,
             "BlurAmount": 0.31,
             "BlurOpacity": 0.71,
             "BlurSpacing": 0.33,
             "DepthFeather": 20,
-            "FaceVelocity": true,
+            "FaceVelocity": false,
             "FogStrength": 0,
             "LeadingTrail": true,
             "MotionBlur": false,
@@ -528,7 +528,7 @@
           },
           {
             "__type": "ParticleConeEmitter",
-            "__guid": "3e3d0830-56c6-470f-8c76-8488609d5c07",
+            "__guid": "0b6f1042-4419-4c02-bf41-14db80ccb8d3",
             "Burst": 0,
             "ConeAngle": 8.29,
             "ConeFar": 50,
@@ -544,7 +544,7 @@
         ]
       },
       {
-        "__guid": "88183fd3-29aa-4602-97b9-8a5985c9b0dc",
+        "__guid": "b9389f17-1afb-4642-ba41-ab52135a25fc",
         "Name": "Point Light",
         "Tags": "light_point,light",
         "Enabled": true,
@@ -552,7 +552,7 @@
         "Components": [
           {
             "__type": "PointLight",
-            "__guid": "dde2325d-acef-413b-b8f8-cf6830a08b21",
+            "__guid": "7494abf5-f4b9-4630-9097-f0ffdfd66453",
             "Attenuation": 1,
             "FogMode": "WithoutShadows",
             "FogStrength": 0.5,

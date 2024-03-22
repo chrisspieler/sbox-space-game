@@ -4,7 +4,7 @@
     {
       "__guid": "cd45ba1a-4de9-42b2-be8e-ff7408fbb7dd",
       "Name": "ship_camera (1)",
-      "Position": "0,0,2000",
+      "Position": "250,250,1000",
       "Rotation": "0,0.7071068,0,0.7071068",
       "Tags": "no_chunk,no_shift",
       "Enabled": true,
@@ -213,9 +213,279 @@
       "__Prefab": "prefabs/effects/laser_ablation.prefab"
     },
     {
+      "__guid": "1244e1d8-9527-4dab-8c15-d4d7221042cd",
+      "Name": "laser_ablation (72)",
+      "Position": "384,32,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "da462279-d859-4dd9-80cb-bca7ce90e086",
+      "Name": "laser_ablation (36)",
+      "Position": "288,32,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "b73a68bc-bf81-49bd-ae60-75c7efe30b67",
+      "Name": "laser_ablation (73)",
+      "Position": "480,32,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "5328998a-c685-497a-aca5-aae2d8bd8723",
+      "Name": "laser_ablation (26)",
+      "Position": "224,32,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "461e07ef-37bb-482d-b199-6f60ccc46b13",
+      "Name": "laser_ablation (74)",
+      "Position": "416,32,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "398e5ab7-6677-4767-8e55-e11f66d4ac30",
+      "Name": "laser_ablation (37)",
+      "Position": "320,32,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "dc43a1ff-6b7d-44b5-9b1f-388701f856eb",
+      "Name": "laser_ablation (75)",
+      "Position": "512,32,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "e6e85dc6-483f-4899-ada8-201d62adb34c",
+      "Name": "laser_ablation (17)",
+      "Position": "192,0,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "4ff21203-f56e-4a36-99c7-8e03f03c3840",
+      "Name": "laser_ablation (76)",
+      "Position": "384,0,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "af087f0b-90c0-43cf-a4b4-c5ce7dd7114c",
+      "Name": "laser_ablation (38)",
+      "Position": "288,0,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "ed828c9f-223f-48d9-a4a5-fef6c7169833",
+      "Name": "laser_ablation (77)",
+      "Position": "480,0,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "0504cea0-cc41-4541-ba4b-cdaaf40ba6bf",
+      "Name": "laser_ablation (25)",
+      "Position": "224,0,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "78f17198-115e-4c2b-93b1-0806eca61d94",
+      "Name": "laser_ablation (78)",
+      "Position": "416,0,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "7816d15f-730d-4df3-88fd-4167f18d4085",
+      "Name": "laser_ablation (39)",
+      "Position": "320,0,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "2bf7ceae-ca13-43b2-a16b-5df52fd20f4c",
+      "Name": "laser_ablation (79)",
+      "Position": "512,0,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
       "__guid": "dbb1c12f-02f6-451e-b884-ec0d88d1a9bf",
       "Name": "laser_ablation (1)",
       "Position": "192,96,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "0a6d3307-20de-42a7-87ac-3a0b81c106ba",
+      "Name": "laser_ablation (80)",
+      "Position": "384,96,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "cecda6dd-04f0-4b5d-aa36-062f40c39891",
+      "Name": "laser_ablation (40)",
+      "Position": "288,96,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "7f75250f-986b-4dbd-9183-a942cfb293f3",
+      "Name": "laser_ablation (81)",
+      "Position": "480,96,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "5241be8f-3477-4c4c-b574-f7cf2f1c6478",
+      "Name": "laser_ablation (24)",
+      "Position": "224,96,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "6be12eb5-c1d7-496a-af7d-2997ad7f8258",
+      "Name": "laser_ablation (82)",
+      "Position": "416,96,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "4f4d7d32-e115-4060-a7ec-73de45937b3d",
+      "Name": "laser_ablation (41)",
+      "Position": "320,96,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "fce74ca6-baeb-4027-944a-60ea607f2ddb",
+      "Name": "laser_ablation (83)",
+      "Position": "512,96,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "37483e52-d482-44ac-8f2c-deae61060506",
+      "Name": "laser_ablation (16)",
+      "Position": "192,64,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "4722b1a6-fa67-4eb7-8ca8-860b9b08620f",
+      "Name": "laser_ablation (84)",
+      "Position": "384,64,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "894b1d44-9217-400a-aca2-5f8c34a978e0",
+      "Name": "laser_ablation (42)",
+      "Position": "288,64,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "4fe1aa47-9313-423e-8c3c-152fb82210a0",
+      "Name": "laser_ablation (85)",
+      "Position": "480,64,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "edc9c36d-48ad-47e6-94a0-ceeea568de56",
+      "Name": "laser_ablation (23)",
+      "Position": "224,64,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "cd004efa-118c-4aec-8e32-7b1d70ced4e5",
+      "Name": "laser_ablation (86)",
+      "Position": "416,64,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "aaffc1a5-9d73-4600-a680-5080d4013d62",
+      "Name": "laser_ablation (43)",
+      "Position": "320,64,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "07c93f58-db60-4861-8b54-abde1f7ef978",
+      "Name": "laser_ablation (87)",
+      "Position": "512,64,2",
       "Rotation": "0,0,-1,0.0000001947072",
       "Enabled": true,
       "NetworkMode": 2,
@@ -231,9 +501,279 @@
       "__Prefab": "prefabs/effects/laser_ablation.prefab"
     },
     {
+      "__guid": "1451761d-3490-456b-beb1-9754528da9ae",
+      "Name": "laser_ablation (88)",
+      "Position": "384,160,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "ea55677a-0f32-4f25-8263-e58647d85c37",
+      "Name": "laser_ablation (44)",
+      "Position": "288,160,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "6bf8eb4e-a192-442a-bee4-7e20824ed275",
+      "Name": "laser_ablation (89)",
+      "Position": "480,160,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "8d465457-1958-48af-a53a-23fd4babc6c9",
+      "Name": "laser_ablation (22)",
+      "Position": "224,160,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "c3c6fa87-1dfc-4a11-99da-f8bd560480f4",
+      "Name": "laser_ablation (90)",
+      "Position": "416,160,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "073f3a48-e85b-4161-8891-3c4c21c1a3f6",
+      "Name": "laser_ablation (45)",
+      "Position": "320,160,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "96f4457b-d05c-4c92-843a-009c25c43e9b",
+      "Name": "laser_ablation (91)",
+      "Position": "512,160,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "9a093371-f8c0-4fb9-9a6f-eb6f36b9b545",
+      "Name": "laser_ablation (15)",
+      "Position": "192,128,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "3955ac1e-00d3-42a7-9a22-70a2f84644ad",
+      "Name": "laser_ablation (92)",
+      "Position": "384,128,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "8ee88534-a775-4bff-b924-c2b93af4b2db",
+      "Name": "laser_ablation (46)",
+      "Position": "288,128,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "30de864d-f586-41c2-a97e-bb7066565c45",
+      "Name": "laser_ablation (93)",
+      "Position": "480,128,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "e2c3ff25-32bd-4cc8-ae15-1122e917b2b1",
+      "Name": "laser_ablation (21)",
+      "Position": "224,128,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "e524549d-588e-4975-9ecb-0881759d0d51",
+      "Name": "laser_ablation (94)",
+      "Position": "416,128,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "ef26a230-03f1-4b3e-8bd4-e08403652cb1",
+      "Name": "laser_ablation (47)",
+      "Position": "320,128,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "602fab3e-bc7f-4bdd-bd4e-399dac99da21",
+      "Name": "laser_ablation (95)",
+      "Position": "512,128,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
       "__guid": "e91df56e-2f5c-4288-a009-e859254f3cf7",
       "Name": "laser_ablation (3)",
       "Position": "192,224,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "051c48e0-46f2-400e-80bf-467a94b2936b",
+      "Name": "laser_ablation (96)",
+      "Position": "384,224,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "440bc392-e7ba-4342-a98e-63cb9b9601ee",
+      "Name": "laser_ablation (48)",
+      "Position": "288,224,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "f22a35fc-b534-4045-89aa-0a17383bd6a9",
+      "Name": "laser_ablation (97)",
+      "Position": "480,224,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "74e1936c-1093-44a7-bdae-58dea72b9c6a",
+      "Name": "laser_ablation (20)",
+      "Position": "224,224,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "b32b9920-b7f4-45e1-9582-f55dd8bf43a1",
+      "Name": "laser_ablation (98)",
+      "Position": "416,224,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "4287a9e6-424d-445b-805d-7b30220f5db9",
+      "Name": "laser_ablation (49)",
+      "Position": "320,224,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "73e10f49-0181-4ab7-ac2a-20c7f56a45d3",
+      "Name": "laser_ablation (99)",
+      "Position": "512,224,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "de7dcd5a-dd54-4504-a6ee-bf55c0a67126",
+      "Name": "laser_ablation (14)",
+      "Position": "192,192,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "e1ad03e6-b4d2-4df3-8d67-0081453dc6f8",
+      "Name": "laser_ablation (100)",
+      "Position": "384,192,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "adb712c4-c1e8-4807-b16c-68d4d01711a4",
+      "Name": "laser_ablation (50)",
+      "Position": "288,192,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "b625c674-ac2e-43be-80e4-27676a30ba52",
+      "Name": "laser_ablation (101)",
+      "Position": "480,192,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "8caa6bc0-a71f-4d0c-99b7-65017b44cf97",
+      "Name": "laser_ablation (19)",
+      "Position": "224,192,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "211a425d-0853-4b73-a654-ba474978919f",
+      "Name": "laser_ablation (102)",
+      "Position": "416,192,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "f66cad76-2148-401b-afff-b575211a09b4",
+      "Name": "laser_ablation (51)",
+      "Position": "320,192,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "9f3db65d-ee08-4c46-8143-5d1fabf3f6e4",
+      "Name": "laser_ablation (103)",
+      "Position": "512,192,2",
       "Rotation": "0,0,-1,0.0000001947072",
       "Enabled": true,
       "NetworkMode": 2,
@@ -249,9 +789,279 @@
       "__Prefab": "prefabs/effects/laser_ablation.prefab"
     },
     {
+      "__guid": "769e7424-8b02-4597-b251-4f5ed512b949",
+      "Name": "laser_ablation (104)",
+      "Position": "384,288,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "7612bef2-2c96-4d6a-bfff-776748e1c9b2",
+      "Name": "laser_ablation (52)",
+      "Position": "288,288,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "0d3e42d7-7e8b-47a3-b977-d614f6089035",
+      "Name": "laser_ablation (105)",
+      "Position": "480,288,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "e043ea7a-d248-40b5-b253-2901708cc508",
+      "Name": "laser_ablation (18)",
+      "Position": "224,288,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "f658bfaa-b74a-4e3a-bc3b-ad67918138d1",
+      "Name": "laser_ablation (106)",
+      "Position": "416,288,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "d616a4a5-8c6b-4bac-8384-29cfa3e26081",
+      "Name": "laser_ablation (53)",
+      "Position": "320,288,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "b9174bf1-90ad-4e3b-b781-10443736dcf2",
+      "Name": "laser_ablation (107)",
+      "Position": "512,288,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "955501fe-bff4-446f-8392-14d000fc3d33",
+      "Name": "laser_ablation (13)",
+      "Position": "192,256,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "27dd1659-b017-44fb-80d0-c82b69d57ff8",
+      "Name": "laser_ablation (108)",
+      "Position": "384,256,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "139b9604-434c-4712-9311-c1ab96a585c9",
+      "Name": "laser_ablation (54)",
+      "Position": "288,256,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "0677fa80-9d46-4b10-8371-6fab70432e11",
+      "Name": "laser_ablation (109)",
+      "Position": "480,256,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "93bad2b1-aac5-47e1-8919-9b5405845f46",
+      "Name": "laser_ablation (27)",
+      "Position": "224,256,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "f5759644-351b-4585-ab2c-bd4e2e5dfa6f",
+      "Name": "laser_ablation (110)",
+      "Position": "416,256,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "79a2d0b4-0352-4a20-a1c3-c05519f53b1a",
+      "Name": "laser_ablation (55)",
+      "Position": "320,256,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "6d9aaf1d-fe80-4e2e-95e6-db5b8030ffc8",
+      "Name": "laser_ablation (111)",
+      "Position": "512,256,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
       "__guid": "a8e1c86a-b994-413b-8387-030e30ea589d",
       "Name": "laser_ablation (5)",
       "Position": "192,352,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "cf9206e1-eef9-4afa-a5f2-fb1414e5d82b",
+      "Name": "laser_ablation (112)",
+      "Position": "384,352,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "60f10a36-d161-483d-8433-446b2ad7e087",
+      "Name": "laser_ablation (56)",
+      "Position": "288,352,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "bc3120c6-4da4-457c-add6-828968ed2eb7",
+      "Name": "laser_ablation (113)",
+      "Position": "480,352,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "e5cc22f8-f943-48b0-9004-6c5b92016881",
+      "Name": "laser_ablation (28)",
+      "Position": "224,352,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "2098a747-c7af-44d4-b272-fdfc5bf26920",
+      "Name": "laser_ablation (114)",
+      "Position": "416,352,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "6b0d89ed-e724-4e52-9f03-28ce262c3187",
+      "Name": "laser_ablation (57)",
+      "Position": "320,352,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "7dd29c39-8b3a-4e55-8d11-5cd974366be7",
+      "Name": "laser_ablation (115)",
+      "Position": "512,352,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "04e17570-ea3a-4255-8c9e-913255f01db7",
+      "Name": "laser_ablation (12)",
+      "Position": "192,320,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "17b1fb17-8554-4a90-a2e4-1542ddbbcac7",
+      "Name": "laser_ablation (116)",
+      "Position": "384,320,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "2df5c9c4-24f5-475c-91c3-2fdca959f64e",
+      "Name": "laser_ablation (58)",
+      "Position": "288,320,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "3aa45b73-eed6-445c-a534-803462dda4c5",
+      "Name": "laser_ablation (117)",
+      "Position": "480,320,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "fbbae62d-8561-4948-965a-5ed043f1abf8",
+      "Name": "laser_ablation (29)",
+      "Position": "224,320,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "78fb9945-e912-4a4d-a351-2d880893f554",
+      "Name": "laser_ablation (118)",
+      "Position": "416,320,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "e402588e-1d9c-456d-ba31-421a9248d8d4",
+      "Name": "laser_ablation (59)",
+      "Position": "320,320,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "1e8600e6-80a1-4cc2-9a2e-f6b339aca267",
+      "Name": "laser_ablation (119)",
+      "Position": "512,320,2",
       "Rotation": "0,0,-1,0.0000001947072",
       "Enabled": true,
       "NetworkMode": 2,
@@ -267,6 +1077,141 @@
       "__Prefab": "prefabs/effects/laser_ablation.prefab"
     },
     {
+      "__guid": "a339ee4c-9b6d-46ea-92f8-74cdc114ddde",
+      "Name": "laser_ablation (120)",
+      "Position": "384,416,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "fdeba845-4778-423f-9d31-ee32361138db",
+      "Name": "laser_ablation (60)",
+      "Position": "288,416,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "b9d47c2f-1b91-4b40-ba70-2a2f69f717f5",
+      "Name": "laser_ablation (121)",
+      "Position": "480,416,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "be5572f5-de2f-4e32-8685-85a34a790a63",
+      "Name": "laser_ablation (30)",
+      "Position": "224,416,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "a2e574cc-6cc8-42e9-9681-a3f20a5ea635",
+      "Name": "laser_ablation (122)",
+      "Position": "416,416,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "dc369e0d-9e76-48ee-8459-7494a857970a",
+      "Name": "laser_ablation (61)",
+      "Position": "320,416,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "ccf19788-43df-42d6-a719-6bb5b4e9bed6",
+      "Name": "laser_ablation (123)",
+      "Position": "512,416,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "de397b70-37e9-4301-b452-c098787184e1",
+      "Name": "laser_ablation (11)",
+      "Position": "192,384,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "41f3b002-05a5-4602-85cb-201973b927fb",
+      "Name": "laser_ablation (124)",
+      "Position": "384,384,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "b3dce256-0207-4bbd-8dfb-75a72b321ffb",
+      "Name": "laser_ablation (62)",
+      "Position": "288,384,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "54c5fc1e-0b61-444e-a5a3-1bc44161f2e5",
+      "Name": "laser_ablation (125)",
+      "Position": "480,384,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "36a16dc0-a237-4fc4-8142-662cec8e2d88",
+      "Name": "laser_ablation (31)",
+      "Position": "224,384,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "e18fec20-215d-40c0-b3a4-c0a9278bcc45",
+      "Name": "laser_ablation (126)",
+      "Position": "416,384,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "5cfb9471-23ed-4350-bee5-84ff3ee8a1a2",
+      "Name": "laser_ablation (63)",
+      "Position": "320,384,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "e715eecb-da37-4c40-8250-b75dd557b62c",
+      "Name": "laser_ablation (127)",
+      "Position": "512,384,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
       "__guid": "c087c1ca-31bd-49cf-9a45-62829d45727f",
       "Name": "laser_ablation (7)",
       "Position": "192,480,2",
@@ -276,9 +1221,279 @@
       "__Prefab": "prefabs/effects/laser_ablation.prefab"
     },
     {
+      "__guid": "acbacd2e-078e-4915-871e-008bd29c87da",
+      "Name": "laser_ablation (128)",
+      "Position": "384,480,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "059f1476-458e-4499-8d7e-d4c70c5a7934",
+      "Name": "laser_ablation (64)",
+      "Position": "288,480,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "37b78bb4-2992-4aca-9863-1c863ca7a181",
+      "Name": "laser_ablation (129)",
+      "Position": "480,480,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "084dcab2-5036-4256-9565-8467fb7611cf",
+      "Name": "laser_ablation (32)",
+      "Position": "224,480,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "7b321407-8a4b-46a2-8885-c0168e15dfca",
+      "Name": "laser_ablation (130)",
+      "Position": "416,480,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "68cb5769-9750-46b4-b131-b20809faea3c",
+      "Name": "laser_ablation (65)",
+      "Position": "320,480,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "9ab3e60d-6340-439e-8ac1-20007b278457",
+      "Name": "laser_ablation (131)",
+      "Position": "512,480,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "9f6c94fe-9baf-401f-8c2f-646015b12f6b",
+      "Name": "laser_ablation (10)",
+      "Position": "192,448,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "ca051f52-fd0c-4d04-a1cc-bd0209d77df8",
+      "Name": "laser_ablation (132)",
+      "Position": "384,448,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "39808fc8-9bd2-40d7-b6ef-d242df0cd0eb",
+      "Name": "laser_ablation (66)",
+      "Position": "288,448,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "dccefff5-b8bf-4390-8a05-335e877c5e4f",
+      "Name": "laser_ablation (133)",
+      "Position": "480,448,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "c3e8cea7-0c91-4ab0-930a-f7b69bd5486d",
+      "Name": "laser_ablation (33)",
+      "Position": "224,448,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "44492b0b-93f9-43cf-8315-8bf1f72d7051",
+      "Name": "laser_ablation (134)",
+      "Position": "416,448,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "3cca9d89-936b-4ea0-9a8d-d6562aef24ed",
+      "Name": "laser_ablation (67)",
+      "Position": "320,448,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "b235efb3-9065-4b77-b9ef-a4f359a1e9a4",
+      "Name": "laser_ablation (135)",
+      "Position": "512,448,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
       "__guid": "b1c59ce2-46dc-4078-b03f-6c96d242185a",
       "Name": "laser_ablation (8)",
       "Position": "192,544,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "8302b766-9b66-46e1-9913-37e854c40330",
+      "Name": "laser_ablation (136)",
+      "Position": "384,544,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "b89220be-6b2c-4883-ac81-d910917c1ba6",
+      "Name": "laser_ablation (68)",
+      "Position": "288,544,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "cd2d0c67-ae8c-46d6-a1f0-09ebdf1948f4",
+      "Name": "laser_ablation (137)",
+      "Position": "480,544,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "41088ab9-7005-4ace-970a-2863b206f7e2",
+      "Name": "laser_ablation (34)",
+      "Position": "224,544,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "13769b7c-fa9b-42f8-8529-63818bc5d925",
+      "Name": "laser_ablation (138)",
+      "Position": "416,544,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "d818961b-50a9-44c0-b99d-644216b7346b",
+      "Name": "laser_ablation (69)",
+      "Position": "320,544,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "e44cf625-0fa9-402f-b9d5-62b172c5e613",
+      "Name": "laser_ablation (139)",
+      "Position": "512,544,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "b0a7a9bc-c29b-476f-a62c-356a11b342ab",
+      "Name": "laser_ablation (9)",
+      "Position": "192,512,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "af8e98af-ec26-424d-920d-d9f4953655fb",
+      "Name": "laser_ablation (140)",
+      "Position": "384,512,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "76eac126-e626-4fa3-873c-4e697a9b5a55",
+      "Name": "laser_ablation (70)",
+      "Position": "288,512,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "4b49eea8-0bcb-4b58-a84b-14ae3a062685",
+      "Name": "laser_ablation (141)",
+      "Position": "480,512,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "24ab62aa-bd46-4107-81c6-27b2afcc4ebd",
+      "Name": "laser_ablation (35)",
+      "Position": "224,512,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "22ab367b-21c3-43d0-94eb-4c375162bb01",
+      "Name": "laser_ablation (142)",
+      "Position": "416,512,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "1b474c26-fb08-4b8e-a1ed-6988c24c0551",
+      "Name": "laser_ablation (71)",
+      "Position": "320,512,2",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/laser_ablation.prefab"
+    },
+    {
+      "__guid": "511510da-01e1-41cc-b0b8-83a118aefa89",
+      "Name": "laser_ablation (143)",
+      "Position": "512,512,2",
       "Rotation": "0,0,-1,0.0000001947072",
       "Enabled": true,
       "NetworkMode": 2,
@@ -334,7 +1549,7 @@
   },
   "Title": "test_particles",
   "Description": "",
-  "LastSaved": "2024-03-21T15:32:46.0919724-06:00",
+  "LastSaved": "2024-03-21T19:30:14.7822424-06:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": []

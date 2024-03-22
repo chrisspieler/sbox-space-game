@@ -47,7 +47,6 @@ public sealed partial class WorldChunker : GameObjectSystem
 		if ( Rehoming && _untilNextRehome )
 		{
 			_untilNextRehome = RehomeIntervalSeconds;
-			Log.Info( "rehoming" );
 			RehomeDrifters();
 			RehomeOrphans();
 		}
