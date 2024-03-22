@@ -1,46 +1,56 @@
 {
-  "Id": "f936c624-d3dd-4c0d-b355-8aa6c68cabb8",
+  "__guid": "f936c624-d3dd-4c0d-b355-8aa6c68cabb8",
   "GameObjects": [
     {
-      "Id": "159fa8b7-756d-4d20-9e85-ddf80304115a",
+      "__guid": "159fa8b7-756d-4d20-9e85-ddf80304115a",
       "Name": "Screen UI (1)",
       "Tags": "no_chunk",
       "Enabled": true,
+      "NetworkMode": 2,
       "__Prefab": "prefabs/main_ui.prefab"
     },
     {
-      "Id": "ba0198bf-8265-4602-ade6-0daec2b7152d",
+      "__guid": "ba0198bf-8265-4602-ade6-0daec2b7152d",
       "Name": "Camera (1)",
       "Tags": "no_chunk,no_shift",
       "Enabled": true,
+      "NetworkMode": 2,
       "__Prefab": "prefabs/ship_camera.prefab"
     },
     {
-      "Id": "a7934737-830d-4913-9c57-306fa8db2414",
-      "Name": "Sun",
-      "Position": "149.995,149.995,-212.125",
-      "Rotation": "0,0.3826835,0,0.9238795",
-      "Tags": "light_directional,light,no_chunk",
+      "__guid": "e9f3a956-eec8-400e-88be-6175f6637b97",
+      "Name": "skybox (1)",
+      "Tags": "skybox,no_chunk,shift_visible",
       "Enabled": true,
-      "Components": [
-        {
-          "__type": "DirectionalLight",
-          "FogMode": "Enabled",
-          "FogStrength": 1,
-          "LightColor": "0.91373,0.98039,1,1",
-          "Shadows": true,
-          "SkyColor": "0.05882,0.07451,0.08235,1"
-        }
-      ]
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/skybox.prefab"
     },
     {
-      "Id": "0e2b1b15-5546-4238-9763-2307e689f1c1",
+      "__guid": "e9f0b47c-305e-4128-a072-49624266f12d",
+      "Name": "volumetric_fog (1)",
+      "Tags": "no_chunk,shift_visible",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/volumetric_fog.prefab"
+    },
+    {
+      "__guid": "e4c14303-bd4e-4ee6-b3e2-e91b66ef097a",
+      "Name": "ambient_light (1)",
+      "Tags": "light_directional,light,no_chunk",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/ambient_light.prefab"
+    },
+    {
+      "__guid": "0e2b1b15-5546-4238-9763-2307e689f1c1",
       "Name": "Game",
       "Tags": "no_chunk",
       "Enabled": true,
+      "NetworkMode": 2,
       "Components": [
         {
           "__type": "SaveManager",
+          "__guid": "8402ecf4-146c-4610-87c6-3691bce10bae",
           "AutosaveInterval": 0,
           "FallbackScenario": "data/scenarios/mining_test.scenario",
           "ShipPrefab": {
@@ -74,6 +84,8 @@
   },
   "Title": "test_mining",
   "Description": "",
-  "LastSaved": "2024-03-08T16:40:19.0863467-07:00",
+  "LastSaved": "2024-03-22T14:55:39.4085737-06:00",
+  "ResourceVersion": 1,
+  "__version": 1,
   "__references": []
 }
