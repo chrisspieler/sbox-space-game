@@ -10,6 +10,8 @@ public sealed class ColliderLod : Component
 	public static float DefaultLowDetailDistance { get; set; } = 2500f;
 	[ConVar( "collider_lod_disable_distance" )]
 	public static float DefaultCollisionDisableDistance { get; set; } = 3500f;
+	[ConVar( "collider_lod_update_interval" )]
+	public static float DefaultUpdateInterval { get; set; } = 0.5f;
 
 	[Property] public List<Collider> HighDetail { get; set; }
 	[Property] public List<Collider> LowDetail { get; set; }
@@ -17,9 +19,21 @@ public sealed class ColliderLod : Component
 	[Property] public GameObject Target { get; set; }
 	[Property] public float? LowDetailDistance { get; set; }
 	[Property] public float? CollisionDisableDistance { get; set; }
+	[Property] public float? UpdateInterval { get; set; }
+
+	private TimeUntil _nextDistanceCheck;
+
+	protected override void OnStart()
+	{
+		_nextDistanceCheck = UpdateInterval ?? DefaultUpdateInterval;
+	}
 
 	protected override void OnUpdate()
 	{
+		if ( !_nextDistanceCheck )
+			return;
+
+		_nextDistanceCheck = UpdateInterval ?? DefaultUpdateInterval;
 		Target = FloatingOriginPlayer.Instance?.GameObject ?? Scene.Camera?.GameObject;
 
 		if ( !HighDetail.Any() || !LowDetail.Any() || !Target.IsValid() )

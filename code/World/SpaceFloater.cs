@@ -41,9 +41,9 @@ public sealed class SpaceFloater : Component
 		{
 			Rigidbody.PhysicsBody.Mass = MassOverride * Transform.Scale.Length;
 		}
-		if ( LockToPlane && Transform.Position.z != 0f )
+		if ( LockToPlane && Transform.LocalPosition.z != 0f )
 		{
-			Transform.Position = Transform.Position.WithZ( 0f );
+			Transform.LocalPosition = Transform.LocalPosition.WithZ( 0f );
 		}
 	}
 
