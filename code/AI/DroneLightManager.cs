@@ -7,7 +7,7 @@ namespace Sandbox;
 public sealed class DroneLightManager : Component
 {
 	[ConVar( "drone_light_update_distance" )]
-	public static float UpdateDistance { get; set; } = 2500f;
+	public static float UpdateDistance { get; set; } = 4000f;
 
 	[Property] public Drone Controller { get; set; }
 	[Property] public List<ModelRenderer> Emissives { get; set; }

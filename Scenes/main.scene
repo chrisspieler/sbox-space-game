@@ -58,10 +58,10 @@
           "__type": "StartActionComponent",
           "__guid": "51c8a564-8ad1-4ce3-b971-25ca8ae9f219",
           "Action": {
-            "Version": 5,
+            "__version": 5,
+            "__guid": "22910874-7696-4951-a40f-18aa66aab2d6",
             "UserData": {
               "Title": "Action",
-              "id": "22910874-7696-4951-a40f-18aa66aab2d6",
               "ReferencedComponentTypes": []
             },
             "Variables": [],
@@ -473,7 +473,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-20T14:22:19.4826428-06:00",
+  "LastSaved": "2024-03-22T17:10:27.682124-06:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
