@@ -15,6 +15,7 @@ public sealed class SpaceFloater : Component
 	[Property] public float RandomAngularVelocityScale { get; set; } = 0.5f;
 	[Property] public Vector3 InitialAngularVelocity { get; set; }
 	[Property] public bool LockToPlane { get; set; } = true;
+	[Property] public NavBlocker NavBlock { get; set; }
 
 	protected override void OnStart()
 	{
@@ -33,6 +34,10 @@ public sealed class SpaceFloater : Component
 
 		SetHealthFromScale();
 		SetVelocity();
+		if ( NavBlock.IsValid() )
+		{
+			NavBlock.Enabled = true;
+		}
 	}
 
 	protected override void OnFixedUpdate()

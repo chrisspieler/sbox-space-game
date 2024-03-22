@@ -59,6 +59,14 @@
           }
         }
       ]
+    },
+    {
+      "__guid": "7f619282-1587-460d-beef-46d534b4d68d",
+      "Name": "nav_plane (1)",
+      "Tags": "nav_allow,no_chunk",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/nav_plane.prefab"
     }
   ],
   "SceneProperties": {
@@ -84,7 +92,7 @@
   },
   "Title": "test_mining",
   "Description": "",
-  "LastSaved": "2024-03-22T14:55:39.4085737-06:00",
+  "LastSaved": "2024-03-22T15:07:58.922981-06:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": []
