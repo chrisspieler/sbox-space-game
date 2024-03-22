@@ -10,7 +10,7 @@
         "__type": "SkyBox2D",
         "__guid": "9270b342-b69b-4d22-b448-1f4b2bfdc551",
         "SkyMaterial": "materials/starmap_8k/starmap_2020_8k.vmat",
-        "Tint": "0.03922,0.03922,0.03922,1"
+        "Tint": "0.05882,0.05882,0.05882,1"
       },
       {
         "__type": "SkyScroller",
