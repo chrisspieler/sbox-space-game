@@ -153,6 +153,9 @@ public sealed class ScreenManager : Component
 
 	public static void RemoveHealthBar( IHealth health )
 	{
+		if ( !Instance.IsValid() )
+			return;
+
 		if ( !Instance._activeHealthBars.ContainsKey( health ) )
 			return;
 
