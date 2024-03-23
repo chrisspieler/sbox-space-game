@@ -72,7 +72,6 @@ public sealed class Mineable : Component
 		for( int i = 0; i < pieceCount; i++ )
 		{
 			var pieceScale = scale / pieceCount;
-			Log.Info( $"Spawning fragment with scale {pieceScale}" );
 			SpawnFragment( pieceScale );
 		}
 	}
