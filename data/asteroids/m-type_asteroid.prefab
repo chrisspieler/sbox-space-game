@@ -213,6 +213,10 @@
             "IsTrigger": false,
             "Model": "models/asteroids/metallic/asteroid_m_1.vmdl",
             "Static": false
+          },
+          {
+            "__type": "CollisionBubbler",
+            "__guid": "ae65c547-90a8-437f-83e5-97a34eedc72f"
           }
         ]
       },

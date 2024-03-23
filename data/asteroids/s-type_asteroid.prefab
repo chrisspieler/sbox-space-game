@@ -230,6 +230,10 @@
             "IsTrigger": false,
             "Model": "models/asteroids/rocky/asteroid_s_1.vmdl",
             "Static": false
+          },
+          {
+            "__type": "CollisionBubbler",
+            "__guid": "3154e7e7-b492-4108-9d73-f53f9a6d1fb3"
           }
         ]
       }
