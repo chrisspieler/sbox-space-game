@@ -12,7 +12,7 @@
       {
         "__type": "DroneSpawner",
         "__guid": "729b7db0-2e03-4876-b37a-cc2db682e680",
-        "DroneCount": 5,
+        "DroneCount": 1,
         "DronePrefab": {
           "_type": "gameobject",
           "prefab": "prefabs/drones/mining_drone.prefab"
