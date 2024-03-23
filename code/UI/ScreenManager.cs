@@ -137,6 +137,9 @@ public sealed class ScreenManager : Component
 
 	public static void ShowHealthBar( IHealth health, GameObject target )
 	{
+		if ( !Instance.IsValid() )
+			return;
+
 		if ( Instance._activeHealthBars.ContainsKey( health ) )
 			return;
 

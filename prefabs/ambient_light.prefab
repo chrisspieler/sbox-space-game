@@ -1,21 +1,24 @@
 {
   "RootObject": {
-    "Id": "a1d13598-241c-4331-821c-82c377f1026e",
+    "__guid": "a1d13598-241c-4331-821c-82c377f1026e",
     "Name": "ambient_light",
     "Tags": "light_directional,light,no_chunk",
     "Enabled": true,
+    "NetworkMode": 2,
     "Children": [
       {
-        "Id": "299c65ed-55f4-49c1-a7bf-4829f25bd076",
+        "__guid": "299c65ed-55f4-49c1-a7bf-4829f25bd076",
         "Name": "Sun",
         "Rotation": "-0.3599802,0.3792589,0.4235398,0.7397236",
         "Enabled": true,
+        "NetworkMode": 2,
         "Components": [
           {
             "__type": "DirectionalLight",
+            "__guid": "0576bb9a-5a6e-4065-9013-2736d7818203",
             "FogMode": "Enabled",
             "FogStrength": 1,
-            "LightColor": "0.23922,0.23922,0.23922,1",
+            "LightColor": "0.36279,0.36279,0.36279,1",
             "Shadows": true,
             "SkyColor": "0.00392,0.00392,0.00392,1"
           }
@@ -26,5 +29,7 @@
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
   "__references": []
 }
