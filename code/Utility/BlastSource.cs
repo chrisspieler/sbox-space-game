@@ -4,13 +4,16 @@ using Sandbox;
 
 public sealed class BlastSource : Component
 {
-	[ConVar( "pickup_knockback_scale" )]
+	[ConVar( "pickup_blast_knockback_scale" )]
 	public static float PickupKnockbackScale { get; set; } = 0.05f;
-	[ConVar("player_knockback_scale")]
+	[ConVar("player_blast_knockback_scale")]
 	public static float PlayerKnockbackScale { get; set; } = 0.3f;
-	
+	[ConVar( "player_blast_damage_scale" )]
+	public static float PlayerDamageScale { get; set; } = 0.1f;
+
 	[Property] public float Force { get; set; } = 2000f;
 	[Property] public float Radius { get; set; } = 800f;
+	[Property] public float Damage { get; set; } = 0f;
 	[Property] public bool BlastOnEnable { get; set; } = true;
 	[Property] public bool DestroyAfterBlast { get; set; } = true;
 
@@ -27,6 +30,10 @@ public sealed class BlastSource : Component
 		foreach( var nearby in GetNearby() )
 		{
 			PropelObject( nearby );
+			if ( Damage > 0f )
+			{
+				DamageObject( nearby );
+			}
 		}
 
 		DoScreenShake();
@@ -59,6 +66,26 @@ public sealed class BlastSource : Component
 		var direction = (rb.Transform.Position - Transform.Position).Normal;
 		var impulse = Force * intensity * direction * GetForceScaleForObject( rb );
 		rb.ApplyImpulse( impulse );
+	}
+
+	private void DamageObject( Rigidbody rb )
+	{
+		var distance = rb.Transform.Position.Distance( Transform.Position );
+		var intensity = distance.LerpInverse( Radius, 0f );
+		var damageAmount = intensity * Damage;
+		if ( rb.Tags.Has( "player") )
+		{
+			damageAmount *= PlayerDamageScale;
+		}
+		var damageInfo = new DamageInfo()
+		{
+			Attacker = GameObject,
+			IsExplosion = true,
+			Position = rb.Transform.Position,
+			Weapon = GameObject,
+			Damage = damageAmount
+		};
+		rb.GameObject.DoDamage( damageInfo );
 	}
 
 	private static float GetForceScaleForObject( Rigidbody rb )

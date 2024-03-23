@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "__guid": "4f88b2bf-dd57-4b1f-aae8-a8553c8bae37",
+    "__guid": "af89bbc0-adb8-4ae3-b997-9997993d6dc8",
     "Name": "drone_explosion",
     "Tags": "no_chunk",
     "Enabled": true,
@@ -8,22 +8,23 @@
     "Components": [
       {
         "__type": "SelfDestruct",
-        "__guid": "77387cdd-688f-4251-8170-20e780cb5a3d",
+        "__guid": "9aaf1e3d-de09-4d56-8f9e-b9abcb8d3db8",
         "Delay": "5.00,5.00,0",
         "EnableOnMakeDebris": false
       },
       {
         "__type": "BlastSource",
-        "__guid": "c6db1782-a97a-43e3-8409-6433e98fbfaa",
+        "__guid": "85cca982-e425-4dde-af16-b05739b8db54",
         "BlastOnEnable": true,
+        "Damage": 150,
         "DestroyAfterBlast": true,
         "Force": 20000,
-        "Radius": 1500
+        "Radius": 300
       }
     ],
     "Children": [
       {
-        "__guid": "d57915f6-e45e-4655-8ae1-8f37542b3903",
+        "__guid": "eb840953-73ba-44e3-ab7e-73bf1b3b6104",
         "Name": "Burst",
         "Tags": "particles",
         "Enabled": true,
@@ -31,7 +32,7 @@
         "Components": [
           {
             "__type": "ParticleEffect",
-            "__guid": "0f68321e-b7a1-4ff9-8a57-5677f8c046e0",
+            "__guid": "c5ceb42c-5c52-4d71-a594-b848db21ce89",
             "Alpha": {
               "Type": "Curve",
               "CurveA": [
@@ -186,7 +187,7 @@
           },
           {
             "__type": "ParticleSpriteRenderer",
-            "__guid": "eba5d1e3-7480-4d11-9980-96f12c1149e3",
+            "__guid": "84d0555d-1fcf-4638-9427-b46e19f3935d",
             "Additive": false,
             "BlurAmount": 0.5,
             "BlurOpacity": 0.91,
@@ -205,7 +206,7 @@
           },
           {
             "__type": "ParticleSphereEmitter",
-            "__guid": "dc619159-7070-42d7-9a3d-202299a90a86",
+            "__guid": "bb88a725-dc6c-485b-8b94-363997372a76",
             "Burst": 300,
             "Delay": 0,
             "DestroyOnEnd": false,
@@ -219,7 +220,7 @@
         ]
       },
       {
-        "__guid": "7c833900-0d2c-497c-8756-4663f3e5e2f6",
+        "__guid": "8fd29761-2393-4218-ba02-4bf8b967f42f",
         "Name": "Point Light",
         "Tags": "light_point,light",
         "Enabled": true,
@@ -227,7 +228,7 @@
         "Components": [
           {
             "__type": "PointLight",
-            "__guid": "ffee9269-8b7c-4838-b893-96de8c729f21",
+            "__guid": "3923b791-4c72-48f3-9fd3-a0fddba1f54d",
             "Attenuation": 0.2,
             "FogMode": "Enabled",
             "FogStrength": 2,
@@ -237,14 +238,14 @@
           },
           {
             "__type": "SelfDestruct",
-            "__guid": "b6228e0d-ae8c-4220-9364-5a74da8b51fa",
+            "__guid": "ebea406c-15fb-4348-a87d-5849d1adf1d5",
             "Delay": "1.00,1.00,0",
             "EnableOnMakeDebris": false
           }
         ]
       },
       {
-        "__guid": "f1d3589e-550c-4f80-9486-c7745d62f0ee",
+        "__guid": "a9e3628f-c7dd-4dba-8086-33bacdffe50d",
         "Name": "Smoke",
         "Tags": "particles",
         "Enabled": true,
@@ -252,7 +253,7 @@
         "Components": [
           {
             "__type": "ParticleEffect",
-            "__guid": "ab19b6f4-e3c7-4698-85d4-00b3b7de7f05",
+            "__guid": "db6d9bb9-9271-4ade-a46c-58ffe59f56f0",
             "Alpha": {
               "Type": "Curve",
               "CurveA": [
@@ -394,7 +395,7 @@
           },
           {
             "__type": "ParticleSpriteRenderer",
-            "__guid": "9b01ad1d-752c-4316-9c08-6b9c7bc22c18",
+            "__guid": "1c45cbef-c22f-437f-ba3c-8bb28ea7a08b",
             "Additive": false,
             "BlurAmount": 0.5,
             "BlurOpacity": 0.91,
@@ -413,7 +414,7 @@
           },
           {
             "__type": "ParticleSphereEmitter",
-            "__guid": "75c59439-9b5a-45ca-8dec-3da269edd0c6",
+            "__guid": "74ccd18c-faac-481c-bf88-06abd25b5036",
             "Burst": 30,
             "Delay": 0,
             "DestroyOnEnd": true,
@@ -427,7 +428,7 @@
         ]
       },
       {
-        "__guid": "834cf0dd-ecfb-45b2-b710-a4ca05b5d0bd",
+        "__guid": "d8b0a672-0b89-4822-9268-caaf043b6c66",
         "Name": "Fire",
         "Tags": "particles",
         "Enabled": true,
@@ -435,7 +436,7 @@
         "Components": [
           {
             "__type": "ParticleEffect",
-            "__guid": "f4e0150e-a3ac-4cee-982f-35ea330efd49",
+            "__guid": "8c7f2151-ecfd-4d2c-9fbf-09d644048ce7",
             "Alpha": {
               "Type": "Curve",
               "CurveA": [
@@ -601,7 +602,7 @@
           },
           {
             "__type": "ParticleSpriteRenderer",
-            "__guid": "52f39e48-45e7-4e67-901f-326b0891e6e5",
+            "__guid": "199b1180-2b6d-4147-a711-f1da76571988",
             "Additive": false,
             "BlurAmount": 0.44,
             "BlurOpacity": 0.32,
@@ -620,7 +621,7 @@
           },
           {
             "__type": "ParticleSphereEmitter",
-            "__guid": "38b40e7a-965d-4417-8117-0a5f77724bb9",
+            "__guid": "9f54c664-05ed-44ac-814e-7afcc0be0c79",
             "Burst": 50,
             "Delay": 0,
             "DestroyOnEnd": true,
@@ -634,14 +635,14 @@
         ]
       },
       {
-        "__guid": "a942d6e1-8db2-4836-8003-0dd117fdca96",
+        "__guid": "371e5528-2d84-41c6-a5dc-92245116060d",
         "Name": "Sound",
         "Enabled": true,
         "NetworkMode": 2,
         "Components": [
           {
             "__type": "SoundPointComponent",
-            "__guid": "7eb93102-04cf-4212-9026-23e1e79695bb",
+            "__guid": "47b572b9-a8f5-484e-b2ae-9e23a904bc67",
             "DistanceAttenuation": false,
             "DistanceAttenuationOverride": false,
             "Force2d": false,
