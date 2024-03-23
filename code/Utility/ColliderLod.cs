@@ -11,7 +11,7 @@ public sealed class ColliderLod : Component
 	[ConVar( "collider_lod_disable_distance" )]
 	public static float DefaultCollisionDisableDistance { get; set; } = 3500f;
 	[ConVar( "collider_lod_update_interval" )]
-	public static float DefaultUpdateInterval { get; set; } = 0.5f;
+	public static float DefaultUpdateInterval { get; set; } = 0.25f;
 
 	[Property] public List<Collider> HighDetail { get; set; }
 	[Property] public List<Collider> LowDetail { get; set; }

@@ -186,7 +186,7 @@
             "__enabled": false,
             "Center": "0,0,0",
             "IsTrigger": false,
-            "Radius": 350,
+            "Radius": 160,
             "Static": false
           },
           {
