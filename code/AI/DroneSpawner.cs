@@ -8,6 +8,8 @@ public sealed class DroneSpawner : Component
 	public static bool Debug { get; set; } = false;
 	[ConVar( "drone_spawn_rate_limit" )]
 	public static int SpawnRateLimit { get; set; } = 1;
+	[ConVar( "drone_spawn_factor" )]
+	public static float SpawnFactor { get; set; } = 1f;
 
 	[Property] public GameObject DronePrefab { get; set; }
 	[Property] public int DroneCount { get; set; } = 15;
@@ -64,7 +66,8 @@ public sealed class DroneSpawner : Component
 
 	public IEnumerable<GameObject> SpawnMany()
 	{
-		for (int i = 0; i < DroneCount; i++)
+		var droneCount = (int)(DroneCount * SpawnFactor);
+		for (int i = 0; i < droneCount; i++)
 		{
 			yield return SpawnOne();
 		}
