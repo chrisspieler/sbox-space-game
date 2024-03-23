@@ -74,7 +74,7 @@
         "AddedVelocity": 0,
         "BouncedTags": "solid,shield",
         "BounceFactor": 0.05,
-        "MinimumVelocity": 50,
+        "MinimumVelocity": 0,
         "RehitDelay": 0.5
       },
       {

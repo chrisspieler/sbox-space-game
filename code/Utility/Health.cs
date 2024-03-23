@@ -70,7 +70,15 @@ public sealed class Health : Component, Component.IDamageable, IHealth
 		Body.ColorFlash( effect );
 		if ( DamageSound is not null )
 		{
-			Sound.Play( DamageSound, Transform.Position );
+			var hSnd = Sound.Play( DamageSound, Transform.Position );
+			var isPlayerInvolved = Tags.Has( "player" ) || damage.Attacker.Tags.Has( "player" );
+			// Attacks by and on the player should produce the most noticeable sounds.
+			// For everything else (e.g. asteroids hitting each other), turn down the volume.
+			if ( !isPlayerInvolved )
+			{
+				var intensity = damage.Damage.LerpInverse( 0f, MaxHealth / 2f );
+				hSnd.Volume = DamageSound.Volume.GetValue() * intensity;
+			}
 		}
 	}
 }
