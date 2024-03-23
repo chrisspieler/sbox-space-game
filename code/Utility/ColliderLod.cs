@@ -22,6 +22,8 @@ public sealed class ColliderLod : Component
 	[Property] public float? UpdateInterval { get; set; }
 
 	private TimeUntil _nextDistanceCheck;
+	private Vector3? _lastVelocity;
+	private Vector3? _lastAngularVelocity;
 
 	protected override void OnStart()
 	{
@@ -64,8 +66,8 @@ public sealed class ColliderLod : Component
 
 	private void UseHighLod()
 	{
-		Rigidbody.SetEnabled( true );
-		foreach( var lowDetail in LowDetail )
+		EnableRigidbody();
+		foreach ( var lowDetail in LowDetail )
 		{
 			lowDetail.Enabled = false;
 		}
@@ -77,7 +79,7 @@ public sealed class ColliderLod : Component
 
 	private void UseLowLod()
 	{
-		Rigidbody.SetEnabled( true );
+		EnableRigidbody();
 		foreach ( var highDetail in HighDetail )
 		{
 			highDetail.Enabled = false;
@@ -88,8 +90,23 @@ public sealed class ColliderLod : Component
 		}
 	}
 
+	private void EnableRigidbody()
+	{
+		if ( !Rigidbody.IsValid() || Rigidbody.Enabled )
+			return;
+
+		Rigidbody.Enabled = true;
+		Rigidbody.Velocity = _lastVelocity ?? Rigidbody.Velocity;
+		Rigidbody.AngularVelocity = _lastAngularVelocity ?? Rigidbody.AngularVelocity;
+	}
+
 	private void DisableCollision()
 	{
+		if ( Rigidbody.IsValid() && Rigidbody.Enabled )
+		{
+			_lastVelocity = Rigidbody.Velocity;
+			_lastAngularVelocity = Rigidbody.AngularVelocity;
+		}
 		Rigidbody.SetEnabled( false );
 		foreach ( var highDetail in HighDetail )
 		{
