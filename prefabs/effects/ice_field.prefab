@@ -31,7 +31,7 @@
                   "x": 1
                 }
               ],
-              "Constants": "0.2,0,0,0"
+              "Constants": "1,0,0,0"
             },
             "ApplyColor": true,
             "ApplyRotation": true,
@@ -40,7 +40,7 @@
               "Constants": "1,0,0,0"
             },
             "Brightness": {
-              "Constants": "1,0,0,0"
+              "Constants": "2,0,0,0"
             },
             "Bumpiness": {},
             "Collision": false,
@@ -87,14 +87,15 @@
                 ],
                 "alpha": []
               },
-              "ConstantA": "1,1,1,1"
+              "ConstantA": "1,1,1,1",
+              "ConstantB": "1,1,1,1"
             },
             "Lifetime": {
               "Type": "Range",
               "Evaluation": "Particle",
               "Constants": "1,10,0,0"
             },
-            "MaxParticles": 5000,
+            "MaxParticles": 1000,
             "PerParticleTimeScale": {
               "Constants": "1,0.4,0,0"
             },
@@ -123,7 +124,7 @@
             },
             "Stretch": {},
             "TimeScale": 1,
-            "Tint": "0.70698,0.94628,1,1"
+            "Tint": "0.43721,0.89682,1,1"
           },
           {
             "__type": "ParticleSpriteRenderer",
@@ -153,7 +154,7 @@
             "Duration": 10,
             "Loop": true,
             "OnEdge": false,
-            "Rate": 100,
+            "Rate": 50,
             "Size": "5000,5000,5000"
           }
         ]
