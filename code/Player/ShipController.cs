@@ -1,5 +1,6 @@
 using Sandbox;
 using Sandbox.Utility;
+using System;
 using System.Linq;
 
 public sealed partial class ShipController : Component
@@ -178,7 +179,21 @@ public sealed partial class ShipController : Component
 
 		_targetRotation = GetTargetRotation();
 		Rigidbody.PhysicsBody.SmoothRotate( _targetRotation, 1f / TurnSpeed, Time.Delta );
-		PartsContainer.Transform.Rotation = Rigidbody.PhysicsBody.Rotation;
+		// On top of the physics rotation, visually (but not physically) roll the ship when turning.
+		var roll = Rotation.FromRoll( GetTargetRoll( PartsContainer.Transform.Rotation.Roll() ) );
+		PartsContainer.Transform.Rotation = Rigidbody.PhysicsBody.Rotation * roll;
+	}
+
+	private float GetTargetRoll( float currentRoll )
+	{
+		var currentYaw = PartsContainer.Transform.Rotation.Yaw();
+		var desiredYaw = _targetRotation.Yaw();
+		var distance = desiredYaw - currentYaw;
+		var rollAmount = MathF.Abs( distance ).LerpInverse( 5f, 180f );
+		rollAmount %= 1f; // Don't thrash between 0 and 1 at the boundary between 180f and -180f
+		rollAmount *= MathF.Sign( distance ) * -1f; // Lean towards the direction of rotation
+		rollAmount *= 85f; 
+		return currentRoll.LerpTo( rollAmount, Time.Delta * 2.5f );
 	}
 
 	[ConVar("input_diagonal_key_grace")] 

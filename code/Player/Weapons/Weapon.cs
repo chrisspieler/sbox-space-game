@@ -80,7 +80,7 @@ public class Weapon : Component
 		{
 			var direction = (TargetPosition - instance.Transform.Position).Normal;
 			var yaw = Rotation.LookAt( direction ).Yaw();
-			instance.Transform.Rotation = ((Angles)instance.Transform.Rotation).WithYaw( yaw );
+			instance.Transform.Rotation = Rotation.FromAxis( Transform.Rotation.Up, yaw );
 		}
 	}
 
