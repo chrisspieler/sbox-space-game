@@ -7,7 +7,7 @@ public sealed class Thruster : Component
 	[ConVar( "thruster_turnaround_boost" )]
 	public static float TurnaroundBoost { get; set; } = 1.5f;
 	[ConVar( "thruster_impulse_force" )]
-	public static float ImpulseForce { get; set; } = 50f;
+	public static float ImpulseForce { get; set; } = 75f;
 
 	[Property] public List<GameObject> ThrusterGroup { get; set; }
 	[Property] public GameObject EffectPrefab { get; set; }

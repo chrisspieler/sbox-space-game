@@ -12,6 +12,14 @@ public sealed partial class ShipController : Component
 
 	[ConVar( "ship_spawn_invincibility_time" )]
 	public static float SpawnInvincibilitySeconds { get; set; } = 1f;
+	[ConVar( "ship_mass_default" )]
+	public static float DefaultMass { get; set; } = 50f;
+	[ConVar( "ship_mass_per_cargo" )]
+	public static float MassPerCargo { get; set; } = 15f;
+	[ConVar( "ship_mass_burdened_turn_speed_factor" )]
+	public static float BurdenedTurnSpeedFactor { get; set; } = 0.7f;
+	[ConVar( "ship_turn_roll" )]
+	public static float ShipTurnRoll { get; set; } = 85f;
 	[Property] public Rigidbody Rigidbody { get; set; }
 	[Property] public GameObject PartsContainer { get; set; }
 	[Property] public float TurnSpeed { get; set; } = 0.5f;
@@ -144,8 +152,10 @@ public sealed partial class ShipController : Component
 		}
 		if ( Rigidbody?.Enabled == true )
 		{
-			// Work around the ship gaining insane amounts of mass after its shield is struck.
-			Rigidbody.PhysicsBody.Mass = Rigidbody.MassOverride;
+			var cargoCount = Cargo.IsValid() ? Cargo.Count : 0;
+			var mass = DefaultMass + MassPerCargo * cargoCount;
+			Rigidbody.MassOverride = mass;
+			Rigidbody.PhysicsBody.Mass = mass;
 		}
 	}
 
@@ -178,10 +188,17 @@ public sealed partial class ShipController : Component
 			return;
 
 		_targetRotation = GetTargetRotation();
-		Rigidbody.PhysicsBody.SmoothRotate( _targetRotation, 1f / TurnSpeed, Time.Delta );
+		Rigidbody.PhysicsBody.SmoothRotate( _targetRotation, 1f / GetEffectiveTurnSpeed(), Time.Delta );
 		// On top of the physics rotation, visually (but not physically) roll the ship when turning.
 		var roll = Rotation.FromRoll( GetTargetRoll( PartsContainer.Transform.Rotation.Roll() ) );
 		PartsContainer.Transform.Rotation = Rigidbody.PhysicsBody.Rotation * roll;
+	}
+
+	private float GetEffectiveTurnSpeed()
+	{
+		var extraMass = Rigidbody.MassOverride - DefaultMass;
+		var cargoSlowdown = extraMass.Remap( 0f, DefaultMass, 1f, BurdenedTurnSpeedFactor );
+		return TurnSpeed * cargoSlowdown;
 	}
 
 	private float GetTargetRoll( float currentRoll )
@@ -192,7 +209,7 @@ public sealed partial class ShipController : Component
 		var rollAmount = MathF.Abs( distance ).LerpInverse( 5f, 180f );
 		rollAmount %= 1f; // Don't thrash between 0 and 1 at the boundary between 180f and -180f
 		rollAmount *= MathF.Sign( distance ) * -1f; // Lean towards the direction of rotation
-		rollAmount *= 85f; 
+		rollAmount *= ShipTurnRoll; 
 		return currentRoll.LerpTo( rollAmount, Time.Delta * 2.5f );
 	}
 
