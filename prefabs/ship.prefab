@@ -70,7 +70,7 @@
           "component_type": "Stabilizer"
         },
         "TargetRotation": "0,0,0,0",
-        "TurnSpeed": 1,
+        "TurnSpeed": 0.75,
         "UseTankControls": false,
         "WeaponPointLeft": {
           "_type": "gameobject",

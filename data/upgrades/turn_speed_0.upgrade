@@ -6,10 +6,10 @@
   "Thumbnail": "data/upgrades/turn_speed_0.vtex",
   "PrerequisiteUpgrade": "data/upgrades/main_thruster_0.upgrade",
   "OnApplyUpgrade": {
-    "Version": 5,
+    "__version": 5,
+    "__guid": "d1adf74d-4966-427f-8a8b-68d6329157ec",
     "UserData": {
       "Title": "On Apply Upgrade",
-      "id": "d1adf74d-4966-427f-8a8b-68d6329157ec",
       "ReferencedComponentTypes": []
     },
     "Variables": [],
@@ -34,7 +34,7 @@
         "DstName": "_signal"
       },
       {
-        "Value": 1.5,
+        "Value": 0.75,
         "DstId": 2,
         "DstName": "addSpeed"
       }

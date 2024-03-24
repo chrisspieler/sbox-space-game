@@ -6,6 +6,8 @@ public sealed class Thruster : Component
 {
 	[ConVar( "thruster_turnaround_boost" )]
 	public static float TurnaroundBoost { get; set; } = 1.5f;
+	[ConVar( "thruster_impulse_force" )]
+	public static float ImpulseForce { get; set; } = 50f;
 
 	[Property] public List<GameObject> ThrusterGroup { get; set; }
 	[Property] public GameObject EffectPrefab { get; set; }
@@ -40,7 +42,7 @@ public sealed class Thruster : Component
 
 		var force = Burn();
 		_wasFiringLastUpdate = force != 0f;
-		Controller.Rigidbody.Velocity += force * Time.Delta;
+		Controller.Rigidbody.ApplyImpulse( force * ImpulseForce * Time.Delta );
 		foreach( var ( thruster, effect ) in _effectInstances )
 		{
 			var alignment = GetAlignment( force, thruster );
