@@ -50,5 +50,6 @@ public sealed class EffectSpawner : Component, IDestructionListener
 		{
 			GameObject.Destroy();
 		}
+		Enabled = false;
 	}
 }

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-
 using Sandbox;
 
 public sealed class BlastSource : Component
@@ -30,6 +29,7 @@ public sealed class BlastSource : Component
 		foreach( var nearby in GetNearby() )
 		{
 			PropelObject( nearby );
+			
 			if ( Damage > 0f )
 			{
 				DamageObject( nearby );
@@ -44,22 +44,22 @@ public sealed class BlastSource : Component
 		}
 	}
 
-	private IEnumerable<Rigidbody> GetNearby()
+	private IEnumerable<GameObject> GetNearby()
 	{
-		var nearby = Scene.FindInPhysics( new Sphere( Transform.Position, Radius ) );
-		List<Rigidbody> hits = new();
-		foreach ( var hit in nearby )
-		{
-			var rb = hit.Components.GetInAncestorsOrSelf<Rigidbody>();
-			if ( rb.IsValid() && !hits.Contains( rb ) )
-			{
-				hits.Add( rb );
-			}
-		}
-		return hits;
+		return Scene.FindInPhysics( new Sphere( Transform.Position, Radius ) );
 	}
 
-	private void PropelObject( Rigidbody rb )
+	private void PropelObject( GameObject go )
+	{
+		var rb = go.Components.GetInAncestorsOrSelf<Rigidbody>();
+		if ( rb.IsValid() )
+		{
+			PropelRigidbody( rb );
+			return;
+		}
+	}
+
+	private void PropelRigidbody( Rigidbody rb )
 	{
 		var distance = rb.Transform.Position.Distance( Transform.Position );
 		var intensity = distance.LerpInverse( Radius, 0f );
@@ -68,12 +68,12 @@ public sealed class BlastSource : Component
 		rb.ApplyImpulse( impulse );
 	}
 
-	private void DamageObject( Rigidbody rb )
+	private void DamageObject( GameObject go )
 	{
-		var distance = rb.Transform.Position.Distance( Transform.Position );
+		var distance = go.Transform.Position.Distance( Transform.Position );
 		var intensity = distance.LerpInverse( Radius, 0f );
 		var damageAmount = intensity * Damage;
-		if ( rb.Tags.Has( "player") )
+		if ( go.Tags.Has( "player") )
 		{
 			damageAmount *= PlayerDamageScale;
 		}
@@ -81,11 +81,11 @@ public sealed class BlastSource : Component
 		{
 			Attacker = GameObject,
 			IsExplosion = true,
-			Position = rb.Transform.Position,
+			Position = go.Transform.Position,
 			Weapon = GameObject,
 			Damage = damageAmount
 		};
-		rb.GameObject.DoDamage( damageInfo );
+		go.DoDamage( damageInfo );
 	}
 
 	private static float GetForceScaleForObject( Rigidbody rb )

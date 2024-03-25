@@ -1,0 +1,940 @@
+{
+  "RootObject": {
+    "__guid": "d3455c10-dfb1-41be-8006-bf95e1d2a55e",
+    "Name": "clone_gibs",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "Children": [
+      {
+        "__guid": "61cb8ad5-63d7-4330-9720-ab11dcbd60b2",
+        "Name": "Clone Head",
+        "Position": "17.42237,0,0",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "Rigidbody",
+            "__guid": "739e828e-1d67-4eaa-a2f9-32bb3696ced3",
+            "AngularDamping": 0,
+            "Gravity": false,
+            "LinearDamping": 0,
+            "Locking": {
+              "Z": true
+            },
+            "MassOverride": 0,
+            "MotionEnabled": true,
+            "RigidbodyFlags": 0,
+            "StartAsleep": false
+          },
+          {
+            "__type": "VelocityOnStart",
+            "__guid": "8d2d597d-43fb-4e0a-9a83-4276a61750ec",
+            "AngularVelocityDirection": "0,0,0",
+            "AngularVelocityScale": 3,
+            "RandomizeAngularVelocity": true,
+            "RandomizeVelocity": true,
+            "Rigidbody": {
+              "_type": "component",
+              "component_id": "739e828e-1d67-4eaa-a2f9-32bb3696ced3",
+              "go": "61cb8ad5-63d7-4330-9720-ab11dcbd60b2",
+              "component_type": "Rigidbody"
+            },
+            "VelocityDirection": "0,0,0",
+            "VelocityScale": 15,
+            "ZPlaneOnly": true
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "21616190-6bd9-4d82-92e0-f6e31b82172a",
+            "Name": "Model",
+            "Position": "0,0,-60",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "Components": [
+              {
+                "__type": "ModelRenderer",
+                "__guid": "474f3c42-ce65-4f97-a171-da8b7c57788f",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/citizen_gibs/models/head_gib_cap.vmdl",
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "ModelCollider",
+                "__guid": "77506a1a-d8c4-4fa3-9af4-adcdfa912979",
+                "IsTrigger": false,
+                "Model": "models/citizen_gibs/models/head_gib_cap.vmdl",
+                "Static": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "4abe4ee0-dd0e-4b60-b581-eb5745083434",
+        "Name": "Clone Organ",
+        "Position": "4.163744,-13.65009,0.00002392386",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "Rigidbody",
+            "__guid": "63aafab5-48dd-491c-926b-8e5255f37626",
+            "AngularDamping": 0,
+            "Gravity": false,
+            "LinearDamping": 0,
+            "Locking": {
+              "Z": true
+            },
+            "MassOverride": 0,
+            "MotionEnabled": true,
+            "RigidbodyFlags": 0,
+            "StartAsleep": false
+          },
+          {
+            "__type": "VelocityOnStart",
+            "__guid": "c705a779-c32f-467b-96a3-92b7c4fda367",
+            "AngularVelocityDirection": "0,0,0",
+            "AngularVelocityScale": 3,
+            "RandomizeAngularVelocity": true,
+            "RandomizeVelocity": true,
+            "Rigidbody": {
+              "_type": "component",
+              "component_id": "63aafab5-48dd-491c-926b-8e5255f37626",
+              "go": "4abe4ee0-dd0e-4b60-b581-eb5745083434",
+              "component_type": "Rigidbody"
+            },
+            "VelocityDirection": "0,0,0",
+            "VelocityScale": 15,
+            "ZPlaneOnly": true
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "327fc5c9-d353-447e-bf86-ac6708b4e0a4",
+            "Name": "Model",
+            "Position": "0,0,-34.60488",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "Components": [
+              {
+                "__type": "ModelRenderer",
+                "__guid": "9919772f-42ec-435d-90ee-8dac01ea1c0f",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/citizen_gibs/models/organ_gib.vmdl",
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "ModelCollider",
+                "__guid": "2afa8f1e-e1e2-4d9b-9cf4-bfba413dd7e5",
+                "IsTrigger": false,
+                "Model": "models/citizen_gibs/models/organ_gib.vmdl",
+                "Static": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "76e4ec4c-566f-40e9-823f-19ffd8332008",
+        "Name": "Clone Organ (1)",
+        "Position": "4.288065,7.063488,0.00001918697",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "Rigidbody",
+            "__guid": "d843f683-cef6-4821-8320-fefd36678098",
+            "AngularDamping": 0,
+            "Gravity": false,
+            "LinearDamping": 0,
+            "Locking": {
+              "Z": true
+            },
+            "MassOverride": 0,
+            "MotionEnabled": true,
+            "RigidbodyFlags": 0,
+            "StartAsleep": false
+          },
+          {
+            "__type": "VelocityOnStart",
+            "__guid": "ce8b9a01-ba63-49f1-975c-a6ad0f280fec",
+            "AngularVelocityDirection": "0,0,0",
+            "AngularVelocityScale": 3,
+            "RandomizeAngularVelocity": true,
+            "RandomizeVelocity": true,
+            "Rigidbody": {
+              "_type": "component",
+              "component_id": "d843f683-cef6-4821-8320-fefd36678098",
+              "go": "76e4ec4c-566f-40e9-823f-19ffd8332008",
+              "component_type": "Rigidbody"
+            },
+            "VelocityDirection": "0,0,0",
+            "VelocityScale": 15,
+            "ZPlaneOnly": true
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "79af3e0d-8784-44cf-a54a-d99daba1741c",
+            "Name": "Model",
+            "Position": "0,0,-34.60488",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "Components": [
+              {
+                "__type": "ModelRenderer",
+                "__guid": "94f92ca9-069d-4b07-8f79-448566e8b256",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/citizen_gibs/models/organ_02_gib.vmdl",
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "ModelCollider",
+                "__guid": "ed4da6c7-95c6-4e8f-a325-9af8b45c6107",
+                "IsTrigger": false,
+                "Model": "models/citizen_gibs/models/organ_02_gib.vmdl",
+                "Static": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "9782ac53-4109-4daa-a309-9afff900f0a9",
+        "Name": "Clone Torso",
+        "Position": "-4.352167,0,0.00001918697",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "Rigidbody",
+            "__guid": "6e7d2af3-7c22-4b8e-81a5-cb5f18216663",
+            "AngularDamping": 0,
+            "Gravity": false,
+            "LinearDamping": 0,
+            "Locking": {
+              "Z": true
+            },
+            "MassOverride": 0,
+            "MotionEnabled": true,
+            "RigidbodyFlags": 0,
+            "StartAsleep": false
+          },
+          {
+            "__type": "VelocityOnStart",
+            "__guid": "9aaab821-f0a1-48ac-a57a-f8179856bead",
+            "AngularVelocityDirection": "0,0,0",
+            "AngularVelocityScale": 3,
+            "RandomizeAngularVelocity": true,
+            "RandomizeVelocity": true,
+            "Rigidbody": {
+              "_type": "component",
+              "component_id": "6e7d2af3-7c22-4b8e-81a5-cb5f18216663",
+              "go": "9782ac53-4109-4daa-a309-9afff900f0a9",
+              "component_type": "Rigidbody"
+            },
+            "VelocityDirection": "0,0,0",
+            "VelocityScale": 15,
+            "ZPlaneOnly": true
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "36eddd5a-1c80-4475-8c78-5ef372b9ea53",
+            "Name": "Model",
+            "Position": "0,0,-48.18602",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "Components": [
+              {
+                "__type": "ModelRenderer",
+                "__guid": "f31be6a0-516f-4476-bd88-42f11ade3ecb",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/citizen_gibs/models/torn_torso_gib.vmdl",
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "ModelCollider",
+                "__guid": "86cb7e0e-40f1-42f3-9640-e8a74cd70270",
+                "IsTrigger": false,
+                "Model": "models/citizen_gibs/models/torn_torso_gib.vmdl",
+                "Static": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "dc87fcfa-9306-4963-96aa-e6cb508a6d32",
+        "Name": "Clone Pelvis",
+        "Position": "-20.49015,0,0.00001918697",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "Rigidbody",
+            "__guid": "4e0349e0-b90d-4f7f-8d3d-d4eb1beef72c",
+            "AngularDamping": 0,
+            "Gravity": false,
+            "LinearDamping": 0,
+            "Locking": {
+              "Z": true
+            },
+            "MassOverride": 0,
+            "MotionEnabled": true,
+            "RigidbodyFlags": 0,
+            "StartAsleep": false
+          },
+          {
+            "__type": "VelocityOnStart",
+            "__guid": "aed0b589-7197-4314-b64a-bc5607fddf61",
+            "AngularVelocityDirection": "0,0,0",
+            "AngularVelocityScale": 3,
+            "RandomizeAngularVelocity": true,
+            "RandomizeVelocity": true,
+            "Rigidbody": {
+              "_type": "component",
+              "component_id": "4e0349e0-b90d-4f7f-8d3d-d4eb1beef72c",
+              "go": "dc87fcfa-9306-4963-96aa-e6cb508a6d32",
+              "component_type": "Rigidbody"
+            },
+            "VelocityDirection": "0,0,0",
+            "VelocityScale": 15,
+            "ZPlaneOnly": true
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "0ac39cde-f884-4c44-a422-4640711ce3ff",
+            "Name": "Model",
+            "Position": "0,0,-33.20414",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "Components": [
+              {
+                "__type": "ModelRenderer",
+                "__guid": "9a35050d-b4bd-4d44-a717-447eb015931d",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/citizen_gibs/models/pelvis_gib_cap.vmdl",
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "ModelCollider",
+                "__guid": "62af53af-817d-46b0-a812-bd8197933953",
+                "IsTrigger": false,
+                "Model": "models/citizen_gibs/models/pelvis_gib_cap.vmdl",
+                "Static": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "d721869d-8a09-4c6f-9685-5b25dd0e8707",
+        "Name": "Clone Left Leg",
+        "Position": "-30.11321,9.676142,0.00003983868",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "Rigidbody",
+            "__guid": "41942c81-9074-4c57-9b69-dbe98e3d307d",
+            "AngularDamping": 0,
+            "Gravity": false,
+            "LinearDamping": 0,
+            "Locking": {
+              "Z": true
+            },
+            "MassOverride": 0,
+            "MotionEnabled": true,
+            "RigidbodyFlags": 0,
+            "StartAsleep": false
+          },
+          {
+            "__type": "VelocityOnStart",
+            "__guid": "d3f28aec-f903-41f5-83ee-591a04b90f81",
+            "AngularVelocityDirection": "0,0,0",
+            "AngularVelocityScale": 3,
+            "RandomizeAngularVelocity": true,
+            "RandomizeVelocity": true,
+            "Rigidbody": {
+              "_type": "component",
+              "component_id": "41942c81-9074-4c57-9b69-dbe98e3d307d",
+              "go": "d721869d-8a09-4c6f-9685-5b25dd0e8707",
+              "component_type": "Rigidbody"
+            },
+            "VelocityDirection": "0,0,0",
+            "VelocityScale": 15,
+            "ZPlaneOnly": true
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "ba182734-820a-404e-8361-ffd16701f212",
+            "Name": "Model",
+            "Position": "0,-3.794581,-14.96996",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "Components": [
+              {
+                "__type": "ModelRenderer",
+                "__guid": "de387d2d-6c55-4f5c-b435-6aee846fc257",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/citizen_gibs/models/left_leg_gib_cap.vmdl",
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "ModelCollider",
+                "__guid": "a9755826-12e1-48d8-aa15-674a07d96cc0",
+                "IsTrigger": false,
+                "Model": "models/citizen_gibs/models/left_leg_gib_cap.vmdl",
+                "Static": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "94e040f3-728b-4ab4-a241-7b66a313e420",
+        "Name": "Clone Left Foot",
+        "Position": "-38.6274,14.20941,0.00004058537",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "Rigidbody",
+            "__guid": "08065278-f9a3-4b10-a5a9-3ef94a009694",
+            "AngularDamping": 0,
+            "Gravity": false,
+            "LinearDamping": 0,
+            "Locking": {
+              "Z": true
+            },
+            "MassOverride": 0,
+            "MotionEnabled": true,
+            "RigidbodyFlags": 0,
+            "StartAsleep": false
+          },
+          {
+            "__type": "VelocityOnStart",
+            "__guid": "142bb543-e827-4ea4-800d-f5eda2776424",
+            "AngularVelocityDirection": "0,0,0",
+            "AngularVelocityScale": 3,
+            "RandomizeAngularVelocity": true,
+            "RandomizeVelocity": true,
+            "Rigidbody": {
+              "_type": "component",
+              "component_id": "08065278-f9a3-4b10-a5a9-3ef94a009694",
+              "go": "94e040f3-728b-4ab4-a241-7b66a313e420",
+              "component_type": "Rigidbody"
+            },
+            "VelocityDirection": "0,0,0",
+            "VelocityScale": 15,
+            "ZPlaneOnly": true
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "a1342313-375c-4cae-9ecb-2cb70c03893b",
+            "Name": "Model",
+            "Position": "0,-4.394754,-2.295732",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "Components": [
+              {
+                "__type": "ModelRenderer",
+                "__guid": "5e268c43-ef09-4e55-ad2c-673bbe585f9d",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/citizen_gibs/models/left_foot_gib_cap.vmdl",
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "ModelCollider",
+                "__guid": "1118c031-8c4b-436a-abc6-9838f574e9fa",
+                "IsTrigger": false,
+                "Model": "models/citizen_gibs/models/left_foot_gib_cap.vmdl",
+                "Static": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "ddec315c-36c7-45a8-bb2c-0f778f78e01e",
+        "Name": "Clone Right Foot",
+        "Position": "-38.6274,-19.1363,0.00004058537",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "Rigidbody",
+            "__guid": "73473d23-3158-4686-bc4f-50424f055937",
+            "AngularDamping": 0,
+            "Gravity": false,
+            "LinearDamping": 0,
+            "Locking": {
+              "Z": true
+            },
+            "MassOverride": 0,
+            "MotionEnabled": true,
+            "RigidbodyFlags": 0,
+            "StartAsleep": false
+          },
+          {
+            "__type": "VelocityOnStart",
+            "__guid": "3801cf0a-439c-4e36-8d4b-de7d269d8a5e",
+            "AngularVelocityDirection": "0,0,0",
+            "AngularVelocityScale": 3,
+            "RandomizeAngularVelocity": true,
+            "RandomizeVelocity": true,
+            "Rigidbody": {
+              "_type": "component",
+              "component_id": "73473d23-3158-4686-bc4f-50424f055937",
+              "go": "ddec315c-36c7-45a8-bb2c-0f778f78e01e",
+              "component_type": "Rigidbody"
+            },
+            "VelocityDirection": "0,0,0",
+            "VelocityScale": 15,
+            "ZPlaneOnly": true
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "bd78456f-cfcf-488d-bfa4-c8dd3565f642",
+            "Name": "Model",
+            "Position": "0,4.763272,-2.295732",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "Components": [
+              {
+                "__type": "ModelRenderer",
+                "__guid": "be5d62b6-871f-4daf-a3ae-705e9c0da733",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/citizen_gibs/models/right_foot_gib_cap.vmdl",
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "ModelCollider",
+                "__guid": "d99882af-9a17-4420-afa5-b22334c07436",
+                "IsTrigger": false,
+                "Model": "models/citizen_gibs/models/right_foot_gib_cap.vmdl",
+                "Static": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "80385b58-bdab-4bde-8de4-aff04b7452a0",
+        "Name": "Clone Right Leg",
+        "Position": "-30.11321,-13.59913,0.00003983868",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "Rigidbody",
+            "__guid": "890805fc-3c77-412b-826d-58e5aaf99d79",
+            "AngularDamping": 0,
+            "Gravity": false,
+            "LinearDamping": 0,
+            "Locking": {
+              "Z": true
+            },
+            "MassOverride": 0,
+            "MotionEnabled": true,
+            "RigidbodyFlags": 0,
+            "StartAsleep": false
+          },
+          {
+            "__type": "VelocityOnStart",
+            "__guid": "2765eb7e-1f10-4b7b-9bd9-4d951fdc4498",
+            "AngularVelocityDirection": "0,0,0",
+            "AngularVelocityScale": 3,
+            "RandomizeAngularVelocity": true,
+            "RandomizeVelocity": true,
+            "Rigidbody": {
+              "_type": "component",
+              "component_id": "890805fc-3c77-412b-826d-58e5aaf99d79",
+              "go": "80385b58-bdab-4bde-8de4-aff04b7452a0",
+              "component_type": "Rigidbody"
+            },
+            "VelocityDirection": "0,0,0",
+            "VelocityScale": 15,
+            "ZPlaneOnly": true
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "eefbe62d-b6ff-4691-aa30-c5ba259b61b3",
+            "Name": "Model",
+            "Position": "0,4.722159,-14.96996",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "Components": [
+              {
+                "__type": "ModelRenderer",
+                "__guid": "1b0abf6e-b528-4355-a7e7-d3244870ae5f",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/citizen_gibs/models/right_leg_gib_cap.vmdl",
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "ModelCollider",
+                "__guid": "ffd71825-0795-41d3-977e-c3bc02249c74",
+                "IsTrigger": false,
+                "Model": "models/citizen_gibs/models/right_leg_gib_cap.vmdl",
+                "Static": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "d9097bb7-72e3-4331-895c-541eb26c8ad5",
+        "Name": "Clone Right Arm",
+        "Position": "-2.750319,-23.41103,0.00003983868",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "Rigidbody",
+            "__guid": "fdee8211-ac05-4011-9f34-285f46f7338d",
+            "AngularDamping": 0,
+            "Gravity": false,
+            "LinearDamping": 0,
+            "Locking": {
+              "Z": true
+            },
+            "MassOverride": 0,
+            "MotionEnabled": true,
+            "RigidbodyFlags": 0,
+            "StartAsleep": false
+          },
+          {
+            "__type": "VelocityOnStart",
+            "__guid": "14f73376-fa34-49b6-9e87-2cdbd4474e49",
+            "AngularVelocityDirection": "0,0,0",
+            "AngularVelocityScale": 3,
+            "RandomizeAngularVelocity": true,
+            "RandomizeVelocity": true,
+            "Rigidbody": {
+              "_type": "component",
+              "component_id": "fdee8211-ac05-4011-9f34-285f46f7338d",
+              "go": "d9097bb7-72e3-4331-895c-541eb26c8ad5",
+              "component_type": "Rigidbody"
+            },
+            "VelocityDirection": "0,0,0",
+            "VelocityScale": 15,
+            "ZPlaneOnly": true
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "c85a5221-33ac-4463-97ab-3fd93fc9652c",
+            "Name": "Model",
+            "Position": "-0.000003814697,13.83424,-44.76851",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "Components": [
+              {
+                "__type": "ModelRenderer",
+                "__guid": "9404ab44-7409-4041-a30f-e69e6620a833",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/citizen_gibs/models/right_arm_gib_cap.vmdl",
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "ModelCollider",
+                "__guid": "43e2d834-28e1-4581-9d30-296e4882d704",
+                "IsTrigger": false,
+                "Model": "models/citizen_gibs/models/right_arm_gib_cap.vmdl",
+                "Static": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "2545aba8-3c19-4bd4-b521-0d9faa4467ed",
+        "Name": "Clone Left Arm",
+        "Position": "-2.750319,18.56326,0.00003983868",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "Rigidbody",
+            "__guid": "21c48d4d-3169-4534-9684-4925ff6706e7",
+            "AngularDamping": 0,
+            "Gravity": false,
+            "LinearDamping": 0,
+            "Locking": {
+              "Z": true
+            },
+            "MassOverride": 0,
+            "MotionEnabled": true,
+            "RigidbodyFlags": 0,
+            "StartAsleep": false
+          },
+          {
+            "__type": "VelocityOnStart",
+            "__guid": "261d3537-8424-4c2d-a6ea-fc3e9caac08d",
+            "AngularVelocityDirection": "0,0,0",
+            "AngularVelocityScale": 3,
+            "RandomizeAngularVelocity": true,
+            "RandomizeVelocity": true,
+            "Rigidbody": {
+              "_type": "component",
+              "component_id": "21c48d4d-3169-4534-9684-4925ff6706e7",
+              "go": "2545aba8-3c19-4bd4-b521-0d9faa4467ed",
+              "component_type": "Rigidbody"
+            },
+            "VelocityDirection": "0,0,0",
+            "VelocityScale": 15,
+            "ZPlaneOnly": true
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "3165bd9b-abf8-4a1b-ab0a-1d1241e8cf3b",
+            "Name": "Model",
+            "Position": "-0.000003814697,-12.91317,-44.76851",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "Components": [
+              {
+                "__type": "ModelRenderer",
+                "__guid": "e9a31e6d-e769-49c4-82b8-79403b300133",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/citizen_gibs/models/left_arm_gib_cap.vmdl",
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "ModelCollider",
+                "__guid": "d77830e6-693a-4825-aa72-69e51d6c3641",
+                "IsTrigger": false,
+                "Model": "models/citizen_gibs/models/left_arm_gib_cap.vmdl",
+                "Static": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "7e8aee05-04c3-4f13-a4a5-7d3b698b6773",
+        "Name": "Clone Left Hand",
+        "Position": "-2.750319,32,0.00003983868",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "Rigidbody",
+            "__guid": "a2f68b7b-967f-4e63-bdb9-36e5b602cc24",
+            "AngularDamping": 0,
+            "Gravity": false,
+            "LinearDamping": 0,
+            "Locking": {
+              "Z": true
+            },
+            "MassOverride": 0,
+            "MotionEnabled": true,
+            "RigidbodyFlags": 0,
+            "StartAsleep": false
+          },
+          {
+            "__type": "VelocityOnStart",
+            "__guid": "b84ec3d4-83f7-4618-a6e8-371dbe56a2cd",
+            "AngularVelocityDirection": "0,0,0",
+            "AngularVelocityScale": 3,
+            "RandomizeAngularVelocity": true,
+            "RandomizeVelocity": true,
+            "Rigidbody": {
+              "_type": "component",
+              "component_id": "a2f68b7b-967f-4e63-bdb9-36e5b602cc24",
+              "go": "7e8aee05-04c3-4f13-a4a5-7d3b698b6773",
+              "component_type": "Rigidbody"
+            },
+            "VelocityDirection": "0,0,0",
+            "VelocityScale": 15,
+            "ZPlaneOnly": true
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "2d5e5739-c545-466b-9017-d031ea03e2bb",
+            "Name": "Model",
+            "Position": "-0.00001955032,-21.50103,-36.65955",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "Components": [
+              {
+                "__type": "ModelRenderer",
+                "__guid": "7a4f088a-9df1-42a3-9bc9-8bb8a4e53b4a",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/citizen_gibs/models/left_hand_gib_cap.vmdl",
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "ModelCollider",
+                "__guid": "294439f0-3c0e-45df-b2ce-889856897d03",
+                "IsTrigger": false,
+                "Model": "models/citizen_gibs/models/left_hand_gib_cap.vmdl",
+                "Static": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "cea21e5d-2bd8-4b77-a6c5-448f911bc5a7",
+        "Name": "Clone Right Hand",
+        "Position": "-2.750319,-33.89713,0.00003983868",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "Rigidbody",
+            "__guid": "495ea181-ad70-4a26-954d-ba4f75de4f30",
+            "AngularDamping": 0,
+            "Gravity": false,
+            "LinearDamping": 0,
+            "Locking": {
+              "Z": true
+            },
+            "MassOverride": 0,
+            "MotionEnabled": true,
+            "RigidbodyFlags": 0,
+            "StartAsleep": false
+          },
+          {
+            "__type": "VelocityOnStart",
+            "__guid": "d76ae22d-3bd1-4291-b116-a3ff52522717",
+            "AngularVelocityDirection": "0,0,0",
+            "AngularVelocityScale": 3,
+            "RandomizeAngularVelocity": true,
+            "RandomizeVelocity": true,
+            "Rigidbody": {
+              "_type": "component",
+              "component_id": "495ea181-ad70-4a26-954d-ba4f75de4f30",
+              "go": "cea21e5d-2bd8-4b77-a6c5-448f911bc5a7",
+              "component_type": "Rigidbody"
+            },
+            "VelocityDirection": "0,0,0",
+            "VelocityScale": 15,
+            "ZPlaneOnly": true
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "121b16be-a730-4b3f-af70-46ad2c4ff16a",
+            "Name": "Model",
+            "Position": "-0.000003814697,22.12103,-36.48184",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "Components": [
+              {
+                "__type": "ModelRenderer",
+                "__guid": "f56154ec-bfb0-47ee-b66f-772fc4632c0f",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/citizen_gibs/models/right_hand_gib_cap.vmdl",
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "ModelCollider",
+                "__guid": "01b062cf-f4d5-4f01-930a-377f0f5f7d65",
+                "IsTrigger": false,
+                "Model": "models/citizen_gibs/models/right_hand_gib_cap.vmdl",
+                "Static": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "64ff194e-8be5-4d87-b4e3-a578b96c18c4",
+        "Name": "Clone Organ (2)",
+        "Position": "-0.8801593,-17.53165,0.00001319687",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "Rigidbody",
+            "__guid": "abe6a100-0e06-4e96-891f-69101e30283f",
+            "AngularDamping": 0,
+            "Gravity": false,
+            "LinearDamping": 0,
+            "Locking": {
+              "Z": true
+            },
+            "MassOverride": 0,
+            "MotionEnabled": true,
+            "RigidbodyFlags": 0,
+            "StartAsleep": false
+          },
+          {
+            "__type": "VelocityOnStart",
+            "__guid": "5397fcc2-8f33-47e1-b824-f875a255dda8",
+            "AngularVelocityDirection": "0,0,0",
+            "AngularVelocityScale": 3,
+            "RandomizeAngularVelocity": true,
+            "RandomizeVelocity": true,
+            "Rigidbody": {
+              "_type": "component",
+              "component_id": "abe6a100-0e06-4e96-891f-69101e30283f",
+              "go": "64ff194e-8be5-4d87-b4e3-a578b96c18c4",
+              "component_type": "Rigidbody"
+            },
+            "VelocityDirection": "0,0,0",
+            "VelocityScale": 15,
+            "ZPlaneOnly": true
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "ba284334-8dce-4ac9-8455-6d0dac98c841",
+            "Name": "Model",
+            "Position": "0,0,-30.36661",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "Components": [
+              {
+                "__type": "ModelRenderer",
+                "__guid": "52b22e6a-cf41-41b1-bf2d-90927985bbc2",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/citizen_gibs/models/intestine_gib.vmdl",
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "ModelCollider",
+                "__guid": "8f6518af-b8b7-4c61-a3cd-b8e7a1fa9971",
+                "IsTrigger": false,
+                "Model": "models/citizen_gibs/models/intestine_gib.vmdl",
+                "Static": false
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": []
+}

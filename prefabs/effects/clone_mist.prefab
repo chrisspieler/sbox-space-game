@@ -1,0 +1,241 @@
+{
+  "RootObject": {
+    "__guid": "708e840d-ac33-46e5-9b81-78ebc17d28e8",
+    "Name": "clone_mist",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "Components": [
+      {
+        "__type": "EffectSpawner",
+        "__guid": "2ba4e744-f98f-4456-b91b-50a997ee3be1",
+        "DestroyGameObjectAfterFire": false,
+        "EffectPrefab": {
+          "_type": "gameobject",
+          "prefab": "prefabs/effects/clone_gibs.prefab"
+        },
+        "FireDelay": "0.00,1.00,0",
+        "FireOnEnabled": true,
+        "FireOnMakeDebris": false
+      },
+      {
+        "__type": "SelfDestruct",
+        "__guid": "f0b7f516-7d70-4435-b1a2-28626d24a729",
+        "Delay": "4.00,1.00,0",
+        "EnableOnMakeDebris": false
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "888b3ba3-228c-4d89-9515-29bf858db375",
+        "Name": "Burst",
+        "Tags": "particles",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "ParticleEffect",
+            "__guid": "29bd90fa-470b-43cd-b7c5-da77fa2150ae",
+            "Alpha": {
+              "Type": "Curve",
+              "CurveA": {
+                "rangey": "0,0.1",
+                "frames": [
+                  {
+                    "y": 1,
+                    "in": 1.6190474,
+                    "out": -1.6190474
+                  },
+                  {
+                    "x": 0.4732143,
+                    "y": 0.22513321,
+                    "in": 0.61147785,
+                    "out": -0.61147785
+                  },
+                  {
+                    "x": 1,
+                    "in": 0.24561419,
+                    "out": -0.24561419
+                  }
+                ]
+              },
+              "Constants": "1,0,0,0"
+            },
+            "ApplyColor": true,
+            "ApplyRotation": true,
+            "ApplyShape": true,
+            "Bounce": {
+              "Constants": "1,0,0,0"
+            },
+            "Brightness": {
+              "Constants": "2,0,0,0"
+            },
+            "Bumpiness": {},
+            "Collision": false,
+            "CollisionRadius": 1,
+            "Damping": {
+              "Constants": "3,0,0,0"
+            },
+            "DieOnCollisionChance": {},
+            "Force": false,
+            "ForceDirection": "0,0,-800",
+            "ForceScale": {
+              "Constants": "1,0,0,0"
+            },
+            "Friction": {
+              "Constants": "1,0,0,0"
+            },
+            "Gradient": {
+              "Type": "Range",
+              "Evaluation": "Particle",
+              "GradientA": {
+                "color": [
+                  {
+                    "t": 0.5,
+                    "c": "1,1,1,1"
+                  }
+                ],
+                "alpha": []
+              },
+              "GradientB": {
+                "color": [
+                  {
+                    "t": 0.5,
+                    "c": "1,1,1,1"
+                  }
+                ],
+                "alpha": []
+              },
+              "ConstantA": "1,1,1,1",
+              "ConstantB": "0.2186,0.01118,0.01118,1"
+            },
+            "Lifetime": {
+              "Type": "Range",
+              "Evaluation": "Particle",
+              "Constants": "1,1.5,0,0"
+            },
+            "MaxParticles": 5000,
+            "PerParticleTimeScale": {
+              "Constants": "1,0.4,0,0"
+            },
+            "PreWarm": 0,
+            "PushStrength": {},
+            "Roll": {
+              "Type": "Range",
+              "Evaluation": "Particle",
+              "Constants": "0,360,0,0"
+            },
+            "Scale": {
+              "Type": "Curve",
+              "CurveA": {
+                "rangey": "0,200",
+                "frames": [
+                  {
+                    "in": -9.333329,
+                    "out": 9.333329
+                  },
+                  {
+                    "x": 0.004977419,
+                    "y": 0.36702126,
+                    "in": -0.28728703,
+                    "out": 0.28728703
+                  },
+                  {
+                    "x": 1,
+                    "y": 1,
+                    "in": -0.22641492,
+                    "out": 0.22641492
+                  }
+                ]
+              },
+              "Constants": "400,600,0,0"
+            },
+            "SequenceId": {},
+            "SequenceSpeed": {
+              "Constants": "0.2,0,0,0"
+            },
+            "SequenceTime": {},
+            "SheetSequence": true,
+            "Space": "World",
+            "StartVelocity": {
+              "Type": "Range",
+              "Evaluation": "Particle",
+              "Constants": "100,300,0,0"
+            },
+            "Stretch": {},
+            "TimeScale": 1,
+            "Tint": "1,0,0,1"
+          },
+          {
+            "__type": "ParticleSpriteRenderer",
+            "__guid": "96775948-fa92-42d0-b949-4d0ae358cf36",
+            "Additive": false,
+            "BlurAmount": 0.5,
+            "BlurOpacity": 0.91,
+            "BlurSpacing": 0.73,
+            "DepthFeather": 0,
+            "FaceVelocity": false,
+            "FogStrength": 1,
+            "LeadingTrail": true,
+            "MotionBlur": false,
+            "Opaque": false,
+            "RotationOffset": 0,
+            "Scale": 1,
+            "Shadows": false,
+            "SortMode": "Unsorted",
+            "Texture": "particles/smoke/smoke002.vtex"
+          },
+          {
+            "__type": "ParticleSphereEmitter",
+            "__guid": "5b75dd6a-21ec-4d0c-acbb-a3550d2636f1",
+            "Burst": 100,
+            "Delay": 0,
+            "DestroyOnEnd": false,
+            "Duration": 4,
+            "Loop": true,
+            "OnEdge": false,
+            "Radius": 10,
+            "Rate": 0,
+            "Velocity": 100
+          }
+        ]
+      },
+      {
+        "__guid": "56538624-a9be-49a2-9900-80ba4b79d45c",
+        "Name": "Sound",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "SoundPointComponent",
+            "__guid": "85352a90-cc6a-46bb-9c10-1df684efb3d3",
+            "DistanceAttenuation": false,
+            "DistanceAttenuationOverride": false,
+            "Force2d": false,
+            "MaxRepeatTime": 1,
+            "MinRepeatTime": 1,
+            "Occlusion": false,
+            "OcclusionOverride": false,
+            "OcclusionRadius": 32,
+            "Pitch": 1,
+            "PlayOnStart": true,
+            "ReflectionOverride": false,
+            "Reflections": false,
+            "Repeat": false,
+            "SoundEvent": "sounds/clone_mist.sound",
+            "SoundOverride": false,
+            "StopOnNew": false,
+            "Volume": 1
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": [
+    "facepunch.smoke002"
+  ]
+}
