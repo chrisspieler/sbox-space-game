@@ -15,10 +15,6 @@ public partial class ShipController
 
 		// The deathcam will fight for control over the main camera, so get rid of it.
 		DeathCam.End();
-		foreach( var deathCamTarget in Game.ActiveScene.GetAllComponents<DeathCamTarget>() )
-		{
-			deathCamTarget.Destroy();
-		}
 		SpawnShip( GetSpawnTransform() );
 
 		Vector3 GetSpawnTransform()

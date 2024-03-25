@@ -1,0 +1,364 @@
+{
+  "__guid": "06f8fe34-a025-4238-b48e-deebf65a3f91",
+  "GameObjects": [
+    {
+      "__guid": "fd0f3901-a104-4d62-8b61-355f98a9a70b",
+      "Name": "volumetric_fog (1)",
+      "Tags": "no_chunk,shift_visible",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/volumetric_fog.prefab"
+    },
+    {
+      "__guid": "4be37bfc-67b3-417d-b36c-6df9e186739a",
+      "Name": "skybox (1)",
+      "Tags": "skybox,no_chunk,shift_visible",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/skybox.prefab"
+    },
+    {
+      "__guid": "345207fd-2535-493b-82f9-d74e8c330d7d",
+      "Name": "ship_camera (2)",
+      "Position": "0,0,300",
+      "Rotation": "0,0.7071068,0,0.7071068",
+      "Tags": "no_chunk,no_shift",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/ship_camera.prefab"
+    },
+    {
+      "__guid": "fb32d881-faaf-4664-9a2d-fbd278c66f0b",
+      "Name": "Ragdoll",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/test/ragdoll.prefab"
+    },
+    {
+      "__guid": "fc07c686-792e-4920-b013-d38f111364f0",
+      "Name": "Ragdoll (1)",
+      "Position": "-32,0,0",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/test/ragdoll.prefab"
+    },
+    {
+      "__guid": "98e97220-d195-4c38-941c-0e20ce95e959",
+      "Name": "Ragdoll (2)",
+      "Position": "32,0,0",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/test/ragdoll.prefab"
+    },
+    {
+      "__guid": "0be76751-1bd4-4bf2-a1ad-f6732ee68d2b",
+      "Name": "Ragdoll (3)",
+      "Position": "32,0,-96",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/test/ragdoll.prefab"
+    },
+    {
+      "__guid": "50c2942c-3679-4b4a-a48c-34ea1d19d2dd",
+      "Name": "Ragdoll (4)",
+      "Position": "0,0,-96",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/test/ragdoll.prefab"
+    },
+    {
+      "__guid": "a7f659b1-16af-44cd-933f-16b5a8af2d32",
+      "Name": "Ragdoll (5)",
+      "Position": "-32,0,-96",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/test/ragdoll.prefab"
+    },
+    {
+      "__guid": "e74043e2-3f85-4f19-8831-056a94064e1c",
+      "Name": "Ragdoll (6)",
+      "Position": "-32,-64,-96",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/test/ragdoll.prefab"
+    },
+    {
+      "__guid": "eeb68ece-b8b6-47fd-90c1-a814e1c47d50",
+      "Name": "Ragdoll (7)",
+      "Position": "32,-64,-96",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/test/ragdoll.prefab"
+    },
+    {
+      "__guid": "b68705a2-84bc-4051-b6d4-104b46dd81aa",
+      "Name": "Disable Gravity",
+      "Position": "180.6511,47.15775,979.9548",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "DisableGravity",
+          "__guid": "bdea1ed3-f2fa-4d6f-8e21-927e224bbe79"
+        }
+      ]
+    },
+    {
+      "__guid": "f58c44b7-194e-4c3b-8be1-8747b3b7338c",
+      "Name": "Plane",
+      "Position": "-0,0,100",
+      "Rotation": "0,1,0,0.0000001947072",
+      "Scale": "2,2,1",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "__guid": "28099558-f557-4c70-ae6e-73de6135beeb",
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": "materials/generic/metal_brushed.vmat",
+          "Model": "models/dev/plane.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "PlaneCollider",
+          "__guid": "539554d8-d01d-43d0-b2af-f84264ec3570",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "100,100",
+          "Static": true
+        }
+      ]
+    },
+    {
+      "__guid": "d22cbc14-50f9-486b-95f7-0d2051b0f17a",
+      "Name": "Plane (2)",
+      "Position": "0,0,-100",
+      "Rotation": "0,0.0000003894144,0,-1",
+      "Scale": "2,2,1",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "__guid": "0c7ffadc-7164-4bb8-8fc8-2338981fca73",
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": "materials/generic/metal_brushed.vmat",
+          "Model": "models/dev/plane.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "PlaneCollider",
+          "__guid": "2800969a-1df7-42a7-80a4-f0318d7991da",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "100,100",
+          "Static": true
+        }
+      ]
+    },
+    {
+      "__guid": "1d8227a8-23cd-495c-af67-1091a13ad853",
+      "Name": "Plane (1)",
+      "Position": "96,0,0",
+      "Rotation": "0,0.7071069,0,-0.7071066",
+      "Scale": "2,2,1",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "__guid": "883c8ec1-26a3-4019-8150-6071ccc7fe65",
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": "materials/generic/metal_brushed.vmat",
+          "Model": "models/dev/plane.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "PlaneCollider",
+          "__guid": "2797f50a-3f31-4db8-b0a2-dcc7d317626a",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "100,100",
+          "Static": true
+        }
+      ]
+    },
+    {
+      "__guid": "a7ceba35-e52a-4560-9e2a-623bf859ad7b",
+      "Name": "Plane (3)",
+      "Position": "-100,0,0",
+      "Rotation": "-0.7071069,0.00000006705523,-0.7071066,-0.00000006705523",
+      "Scale": "2,2,1",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "__guid": "3b4865f2-b446-477e-ad0e-26d63d855c7d",
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": "materials/generic/metal_brushed.vmat",
+          "Model": "models/dev/plane.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "PlaneCollider",
+          "__guid": "6644ceeb-d746-431a-818c-d8e2d3c34599",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "100,100",
+          "Static": true
+        }
+      ]
+    },
+    {
+      "__guid": "12b98e1b-c55d-41aa-8e70-31d67c55753a",
+      "Name": "Plane (4)",
+      "Position": "-0,-100,0.00001153616",
+      "Rotation": "-0.5000002,-0.4999999,-0.5,0.4999998",
+      "Scale": "2,2,1",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "__guid": "636a9d56-0c66-4bd6-80ef-a6cd381ae373",
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": "materials/generic/metal_brushed.vmat",
+          "Model": "models/dev/plane.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "PlaneCollider",
+          "__guid": "a9f9a7d7-77ad-4f8c-8a14-f2e41074adfc",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "100,100",
+          "Static": true
+        }
+      ]
+    },
+    {
+      "__guid": "f44d92ec-edee-481d-96fb-64dde220a8e9",
+      "Name": "Plane (5)",
+      "Position": "0,100,0.00001153616",
+      "Rotation": "0.4999998,-0.5000002,0.4999997,0.5000001",
+      "Scale": "2,2,1",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "__guid": "73a051c2-f3c0-45f2-b7e2-37945dd57d5d",
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": "materials/generic/metal_brushed.vmat",
+          "Model": "models/dev/plane.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "PlaneCollider",
+          "__guid": "9e7ce33a-3cd0-446a-a3d9-dbe090098d77",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "100,100",
+          "Static": true
+        }
+      ]
+    },
+    {
+      "__guid": "0d6c3b98-4980-4ce5-96f8-6ce043dad196",
+      "Name": "Point Light",
+      "Position": "64,64,-50",
+      "Tags": "light_point,light",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "PointLight",
+          "__guid": "2447579a-b61e-4749-9add-5798382c63a5",
+          "Attenuation": 1,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.02648,0.12742,0.15814,1",
+          "Radius": 400,
+          "Shadows": true
+        }
+      ]
+    },
+    {
+      "__guid": "45226297-fc04-4643-91b2-b5ef56bb83f9",
+      "Name": "Point Light (1)",
+      "Position": "32,-64,0",
+      "Tags": "light_point,light",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "PointLight",
+          "__guid": "d33b0725-0248-44f4-9941-e9c023901972",
+          "Attenuation": 1,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.01955,0.00337,0.06047,1",
+          "Radius": 400,
+          "Shadows": true
+        }
+      ]
+    },
+    {
+      "__guid": "bd4ae103-6c33-45ee-8b46-8a918f565278",
+      "Name": "Point Light (2)",
+      "Position": "-32,64,96",
+      "Tags": "light_point,light",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "PointLight",
+          "__guid": "cb5b7b0c-8c29-4f8d-9269-1f2cc66f0a9c",
+          "Attenuation": 1,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.01142,0.01512,0.05581,1",
+          "Radius": 400,
+          "Shadows": true
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "test_ragdoll",
+  "Description": "",
+  "LastSaved": "2024-03-24T20:25:26.4064618-06:00",
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": [
+    "facepunch.metal_brushed"
+  ]
+}

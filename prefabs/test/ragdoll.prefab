@@ -1,0 +1,67 @@
+{
+  "RootObject": {
+    "__guid": "fb32d881-faaf-4664-9a2d-fbd278c66f0b",
+    "Name": "ragdoll",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "Components": [
+      {
+        "__type": "SkinnedModelRenderer",
+        "__guid": "64832138-a19e-4ff9-bf13-47e0c4ddaedf",
+        "BodyGroups": 341,
+        "CreateBoneObjects": false,
+        "Model": "models/citizen/citizen.vmdl",
+        "RenderType": "On",
+        "Tint": "1,1,1,1"
+      },
+      {
+        "__type": "ModelPhysics",
+        "__guid": "4e1fc24b-4840-41e2-94ac-0c8b470b2bad",
+        "Locking": {},
+        "Model": "models/citizen/citizen.vmdl",
+        "Renderer": {
+          "_type": "component",
+          "component_id": "64832138-a19e-4ff9-bf13-47e0c4ddaedf",
+          "go": "fb32d881-faaf-4664-9a2d-fbd278c66f0b",
+          "component_type": "SkinnedModelRenderer"
+        },
+        "RigidbodyFlags": 0
+      },
+      {
+        "__type": "RagdollTwirler",
+        "__guid": "1ccf95c6-e305-4149-85f2-2096f200296c",
+        "__enabled": false,
+        "BaseVelocity": "0,0,0",
+        "Ragdoll": {
+          "_type": "component",
+          "component_id": "4e1fc24b-4840-41e2-94ac-0c8b470b2bad",
+          "go": "fb32d881-faaf-4664-9a2d-fbd278c66f0b",
+          "component_type": "ModelPhysics"
+        },
+        "TwirlOnStart": true,
+        "Wackiness": 10
+      },
+      {
+        "__type": "RagdollFlail",
+        "__guid": "940b0456-e372-4ef0-995f-1c6b8a07779c",
+        "NoiseIntensity": 25,
+        "RotateSpeed": 20
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "f8a23f0c-42e5-469a-ab1d-db0c1066b566",
+        "Name": "Object",
+        "Position": "21.60617,0,48.13224",
+        "Enabled": true,
+        "NetworkMode": 2
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": []
+}

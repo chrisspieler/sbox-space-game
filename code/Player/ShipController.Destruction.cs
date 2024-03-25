@@ -69,17 +69,10 @@ public sealed partial class ShipController
 		Meat.Enabled = true;
 		// To avoid being ejected by the base shield.
 		Meat.Tags.Add( "player" );
-		var renderer = Meat.Components.Get<SkinnedModelRenderer>();
-		// Don't know why, but sometimes the renderer is null.
-		if ( renderer?.SceneModel is not null )
-		{
-			// Stop animations so the meat does not blink.
-			renderer.SceneModel.UseAnimGraph = false;
-		}
-		var twirler = Meat.Components.Get<RagdollTwirler>();
-		twirler.BaseVelocity = Rigidbody.Velocity;
-		var deathCamTarget = Scene.GetAllComponents<DeathCamTarget>().FirstOrDefault();
-		DeathCam.Begin( deathCamTarget );
+		//var physics = Meat.Components.Get<ModelPhysics>();
+		//physics.PhysicsGroup.Velocity = Rigidbody.Velocity * 0.5f;
+		// Meat.Components.Create<FloatingOriginPlayer>();
+		DeathCam.Begin( Meat );
 		var fog = Scene.GetAllComponents<VolumetricFogVolume>().FirstOrDefault();
 		if ( fog is not null )
 		{

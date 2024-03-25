@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "__guid": "a40bb4ac-020a-41e6-b19c-044056082e27",
+    "__guid": "345207fd-2535-493b-82f9-d74e8c330d7d",
     "Name": "ship_camera",
     "Tags": "no_chunk,no_shift",
     "Enabled": true,
@@ -8,7 +8,7 @@
     "Components": [
       {
         "__type": "CameraComponent",
-        "__guid": "d6655a7b-60dc-4d4c-a693-575b2ebbbaae",
+        "__guid": "cf89deb0-de61-4663-9145-3922ac2ab194",
         "BackgroundColor": "0.33333,0.46275,0.52157,1",
         "ClearFlags": "All",
         "FieldOfView": 90,
@@ -25,11 +25,12 @@
       },
       {
         "__type": "ShipCamera",
-        "__guid": "93ebd6e1-fe33-415f-8579-2bf6464f934d",
+        "__guid": "11ab2edc-33c7-49e7-9141-845504f1e2bc",
+        "__enabled": false,
         "Combiner": {
           "_type": "component",
-          "component_id": "f6d4587e-7e42-4c24-976b-d35542ec636c",
-          "go": "a40bb4ac-020a-41e6-b19c-044056082e27",
+          "component_id": "eba104db-7cee-4309-a976-a0e6546b3d0d",
+          "go": "345207fd-2535-493b-82f9-d74e8c330d7d",
           "component_type": "OffsetCombiner"
         },
         "HighPitch": 88,
@@ -43,7 +44,7 @@
       },
       {
         "__type": "Bloom",
-        "__guid": "081ea4ae-6b68-4315-9f55-64f342ba5438",
+        "__guid": "a0997d52-13d1-4910-95f0-da14346867be",
         "BloomColor": {
           "color": [
             {
@@ -72,7 +73,7 @@
       },
       {
         "__type": "ColorAdjustments",
-        "__guid": "ea814665-004d-4539-a58f-9bf2c4c34cf5",
+        "__guid": "4cede54f-b039-426f-9083-55b356d664db",
         "Brightness": 1.1,
         "Contrast": 1.01,
         "HueRotate": 0,
@@ -80,27 +81,27 @@
       },
       {
         "__type": "Highlight",
-        "__guid": "06094e87-8a27-4592-92ec-5a40aab5d524"
+        "__guid": "c0ae274c-a85f-4d18-8fc2-8511498f3d8b"
       },
       {
         "__type": "PostProcessingController",
-        "__guid": "5dc34a40-83b0-4fd3-b583-9b65c4ec12d6",
+        "__guid": "c0d7a24c-214e-4af0-87b5-97f749a246dd",
         "Bloom": {
           "_type": "component",
-          "component_id": "081ea4ae-6b68-4315-9f55-64f342ba5438",
-          "go": "a40bb4ac-020a-41e6-b19c-044056082e27",
+          "component_id": "a0997d52-13d1-4910-95f0-da14346867be",
+          "go": "345207fd-2535-493b-82f9-d74e8c330d7d",
           "component_type": "Bloom"
         },
         "HighlightEffect": {
           "_type": "component",
-          "component_id": "06094e87-8a27-4592-92ec-5a40aab5d524",
-          "go": "a40bb4ac-020a-41e6-b19c-044056082e27",
+          "component_id": "c0ae274c-a85f-4d18-8fc2-8511498f3d8b",
+          "go": "345207fd-2535-493b-82f9-d74e8c330d7d",
           "component_type": "Highlight"
         },
         "Sharpen": {
           "_type": "component",
-          "component_id": "ad610a80-ef3d-442b-b09c-b8d673e9b97c",
-          "go": "a40bb4ac-020a-41e6-b19c-044056082e27",
+          "component_id": "1106a4f8-65f4-43a4-a5a3-294b96ab7870",
+          "go": "345207fd-2535-493b-82f9-d74e8c330d7d",
           "component_type": "Sharpen"
         },
         "TargetBloom": 1,
@@ -108,11 +109,11 @@
       },
       {
         "__type": "OriginShiftCamera",
-        "__guid": "90ba646a-430b-4bdf-9b7b-72a79f9f6b92",
+        "__guid": "512e9e56-51c3-4770-adbd-d87cb65402f0",
         "Camera": {
           "_type": "component",
-          "component_id": "d6655a7b-60dc-4d4c-a693-575b2ebbbaae",
-          "go": "a40bb4ac-020a-41e6-b19c-044056082e27",
+          "component_id": "cf89deb0-de61-4663-9145-3922ac2ab194",
+          "go": "345207fd-2535-493b-82f9-d74e8c330d7d",
           "component_type": "CameraComponent"
         },
         "OriginShiftFreezeFrames": 0,
@@ -120,7 +121,7 @@
       },
       {
         "__type": "ScreenShake",
-        "__guid": "55d467c8-b759-43f8-b3c5-f109c55f3b1f",
+        "__guid": "5855c4ba-6ee0-4705-b7ad-0b1f60a46ec4",
         "BaseTrauma": 0,
         "CombinedTrauma": 0,
         "PitchShakeIntensity": 5,
@@ -135,16 +136,15 @@
       },
       {
         "__type": "OffsetCombiner",
-        "__guid": "f6d4587e-7e42-4c24-976b-d35542ec636c"
+        "__guid": "eba104db-7cee-4309-a976-a0e6546b3d0d"
       },
       {
         "__type": "DeathCam",
-        "__guid": "dbddf37e-d630-42cb-b0d9-284385d24fe0",
+        "__guid": "f5b8afed-c1b7-44a4-9c16-a55b25adca43",
         "__enabled": false,
-        "Distance": 40,
-        "LookbackDistance": 200,
+        "Offset": "-100,0,0",
         "PositionLerpSpeed": {
-          "rangey": "0,20",
+          "rangey": "1,20",
           "frames": [
             {
               "y": 0.018085156,
@@ -153,7 +153,7 @@
             },
             {
               "x": 0.8979591,
-              "y": 0.4847844,
+              "y": 0.48478442,
               "in": -1.6221398,
               "out": 1.6221398
             },
@@ -166,14 +166,14 @@
           ]
         },
         "RotationLerpSpeed": {
-          "rangey": "0,20",
+          "rangey": "0,5",
           "frames": [
             {
               "y": 0.02074473
             },
             {
               "x": 0.88839287,
-              "y": 0.45886433,
+              "y": 0.4588643,
               "in": -1.8266492,
               "out": 1.8266492
             },
@@ -188,7 +188,7 @@
       },
       {
         "__type": "Sharpen",
-        "__guid": "ad610a80-ef3d-442b-b09c-b8d673e9b97c",
+        "__guid": "1106a4f8-65f4-43a4-a5a3-294b96ab7870",
         "Scale": 0.05
       }
     ],

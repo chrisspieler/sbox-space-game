@@ -3,11 +3,10 @@ using System.Linq;
 
 public sealed class DeathCam : Component, IBasisSource
 {
-	[Property] public DeathCamTarget Target { get; set; }
-	[Property] public float Distance { get; set; } = 40f;
+	[Property] public GameObject Target { get; set; }
+	[Property] public Vector3 Offset { get; set; } = Vector3.Backward * 300f;
 	[Property] public Curve PositionLerpSpeed { get; set; }
 	[Property] public Curve RotationLerpSpeed { get; set; }
-	[Property] public float LookbackDistance { get; set; } = 200f;
 
 	protected override void OnEnabled()
 	{
@@ -16,14 +15,12 @@ public sealed class DeathCam : Component, IBasisSource
 
 	public Transform GetBaseTransform( Transform lastTransform )
 	{
-		if ( Target is null )
+		if ( !Target.IsValid() )
 			return lastTransform;
 
-		var targetPosition = Target.Transform.Position + Target.Transform.World.Forward * Distance;
+		var targetPosition = Target.Transform.Position + Offset;
 		var distanceToTargetPosition = lastTransform.Position.Distance( targetPosition );
-		var targetRotation = distanceToTargetPosition > LookbackDistance
-			? Rotation.LookAt( (targetPosition - lastTransform.Position).Normal )
-			: Rotation.LookAt( Target.Transform.Rotation.Backward );
+		var targetRotation = Rotation.LookAt( (Target.Transform.Position - lastTransform.Position).Normal );
 		var posLerpSpeed = PositionLerpSpeed.Evaluate( MathX.LerpInverse( distanceToTargetPosition, 1000f, 0f ) );
 		var position = lastTransform.Position.LerpTo( targetPosition, Time.Delta * posLerpSpeed );
 		var rotLerpSpeed = RotationLerpSpeed.Evaluate( MathX.LerpInverse( distanceToTargetPosition, 1000f, 0f ) );
@@ -31,7 +28,7 @@ public sealed class DeathCam : Component, IBasisSource
 		return new Transform( position, rotation );
 	}
 
-	public static void Begin( DeathCamTarget target )
+	public static void Begin( GameObject target )
 	{
 		var deathCam = Game.ActiveScene?.Camera?.Components?.Get<DeathCam>( true );
 		if ( target is null || deathCam is null )
