@@ -13,7 +13,7 @@
     {
       "__guid": "335f2d73-8ea5-4f93-b26f-175909fb6e29",
       "Name": "Camera (1)",
-      "Tags": "no_shift,no_chunk",
+      "Tags": "no_chunk,no_shift",
       "Enabled": true,
       "NetworkMode": 2,
       "__Prefab": "prefabs/ship_camera.prefab"
@@ -84,8 +84,8 @@
                 "Id": 2,
                 "Type": "property.get",
                 "Properties": {
-                  "_type": "Sandbox.Game/Sandbox.Scene",
-                  "_name": "PhysicsWorld"
+                  "_name": "PhysicsWorld",
+                  "_type": "Sandbox.Game/Sandbox.Scene"
                 },
                 "UserData": {
                   "Position": "64,64"
@@ -95,8 +95,8 @@
                 "Id": 3,
                 "Type": "property.set",
                 "Properties": {
-                  "_type": "Sandbox.Engine/Sandbox.PhysicsWorld",
-                  "_name": "Gravity"
+                  "_name": "Gravity",
+                  "_type": "Sandbox.Engine/Sandbox.PhysicsWorld"
                 },
                 "UserData": {
                   "Position": "352,0"
@@ -244,7 +244,7 @@
               "AddedVelocity": 0,
               "BouncedTags": "solid",
               "BounceFactor": 1,
-              "IgnoredTags": "player",
+              "IgnoredTags": "player,ragdoll,hurtbox",
               "MinimumVelocity": 0,
               "RehitDelay": 0.5
             },
@@ -473,11 +473,11 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-22T17:10:27.682124-06:00",
+  "LastSaved": "2024-03-24T21:23:47.9641672-06:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
     "eurorp.aluminium_03",
-    "stardrive.rope_barrier_a"
+    "facepunch.metal_brushed"
   ]
 }

@@ -135,7 +135,7 @@ public sealed class MiningLaser : Weapon, IDestructionListener
 		var startPos = weapon.Tracer.Transform.Position.WithZ( 0f );
 		return Scene.Trace
 			.Ray( startPos, aimPos )
-			.WithTag( "player" )
+			.WithAllTags( "player", "ship")
 			.Run()
 			.Hit;
 	}

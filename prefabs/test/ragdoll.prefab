@@ -44,8 +44,14 @@
       {
         "__type": "RagdollFlail",
         "__guid": "940b0456-e372-4ef0-995f-1c6b8a07779c",
-        "NoiseIntensity": 25,
-        "RotateSpeed": 20
+        "NoiseIntensity": 10,
+        "Ragdoll": {
+          "_type": "component",
+          "component_id": "4e1fc24b-4840-41e2-94ac-0c8b470b2bad",
+          "go": "fb32d881-faaf-4664-9a2d-fbd278c66f0b",
+          "component_type": "ModelPhysics"
+        },
+        "RotateSpeed": 15
       }
     ],
     "Children": [

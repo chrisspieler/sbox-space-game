@@ -7,7 +7,7 @@ public sealed class Bouncy : Component, Component.ICollisionListener
 {
 	[Property] public Action<Collision> OnBounce { get; set; }
 
-	[Property] public float BounceFactor { get; set; } = 1f;
+	[Property] public float BounceFactor { get; set; } = 0f;
 	[Property] public TagSet BouncedTags { get; set; }
 	[Property] public TagSet IgnoredTags { get; set; }
 	[Property] public float AddedVelocity { get; set; } = 0f;
@@ -29,7 +29,7 @@ public sealed class Bouncy : Component, Component.ICollisionListener
 
 	public void OnCollisionStart( Collision other )
 	{
-		if ( !Active )
+		if ( !Active || BounceFactor <= 0f )
 			return;
 
 		if ( !CanBounceFrom( other.Other.GameObject ) )

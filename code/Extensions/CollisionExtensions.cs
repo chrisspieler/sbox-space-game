@@ -36,7 +36,7 @@ public static class CollisionExtensions
 		var damage = MathX.Lerp( 0f, DamageMax, speedFraction );
 		if ( DebugDamage )
 		{
-			Log.Info( $"{collision.Self.GameObject.Name} vs {collision.Other.GameObject.Name} damage {damage}, ship velocity: {ShipController.GetCurrent().Rigidbody.Velocity}, ship angular velocity: {ShipController.GetCurrent().Rigidbody.AngularVelocity.Length}, contact speed: {collision.Contact.Speed.Length}, normal speed {collision.Contact.NormalSpeed}" );
+			Log.Info( $"{collision.Self.GameObject.Name} vs {collision.Other.GameObject.Name} damage {damage}, contact speed: {collision.Contact.Speed.Length}, normal speed {collision.Contact.NormalSpeed}" );
 		}
 		return damage;
 	}

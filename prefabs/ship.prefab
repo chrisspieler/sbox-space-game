@@ -2,7 +2,7 @@
   "RootObject": {
     "__guid": "16d28222-1fa9-460e-89fe-a88ffdb23b6a",
     "Name": "ship",
-    "Tags": "no_chunk,player,ship",
+    "Tags": "no_chunk,player,ship,target",
     "Enabled": true,
     "NetworkMode": 2,
     "Components": [
@@ -1101,7 +1101,7 @@
         "Name": "Meat",
         "Position": "1.078623,86.68445,-25.02827",
         "Rotation": "0,0,0.7071067,0.7071068",
-        "Tags": "ragdoll",
+        "Tags": "ragdoll,target",
         "NetworkMode": 2,
         "Components": [
           {
@@ -1143,14 +1143,32 @@
           {
             "__type": "RagdollFlail",
             "__guid": "a60f1c9b-f12e-4178-8b18-eb61f4ba01cf",
-            "NoiseIntensity": 25,
+            "NoiseIntensity": 10,
             "Ragdoll": {
               "_type": "component",
               "component_id": "2cb01eaa-38d2-4c86-a740-7cd8194e861d",
               "go": "b22f3b4f-7a03-45b9-ac38-68aaae46ce50",
               "component_type": "ModelPhysics"
             },
-            "RotateSpeed": 20
+            "RotateSpeed": 15
+          },
+          {
+            "__type": "Health",
+            "__guid": "759d4883-ca44-4a21-9ada-8642c58045b2",
+            "Body": {
+              "_type": "gameobject",
+              "go": "b22f3b4f-7a03-45b9-ac38-68aaae46ce50"
+            },
+            "Bounce": {
+              "_type": "component",
+              "component_id": "4f6ee44b-e69d-4f30-98c2-c916ded83124",
+              "go": "74465b38-fa57-44e3-8cba-8a8840589ea1",
+              "component_type": "Bouncy"
+            },
+            "CurrentHealth": 0,
+            "DamageFlashColor": "1,0,0,1",
+            "IsInvincible": false,
+            "MaxHealth": 1
           }
         ],
         "Children": [
@@ -1916,6 +1934,35 @@
                     "Rotation": "0.0000008642673,0.0000007527318,0.7071055,-0.707108",
                     "Enabled": true,
                     "NetworkMode": 2
+                  }
+                ]
+              },
+              {
+                "__guid": "74465b38-fa57-44e3-8cba-8a8840589ea1",
+                "Name": "Hurtbox",
+                "Position": "-31.0736,-1.266564,-0.00009369227",
+                "Rotation": "0.4999993,0.4999994,0.5000004,0.5000008",
+                "Enabled": true,
+                "NetworkMode": 2,
+                "Components": [
+                  {
+                    "__type": "CapsuleCollider",
+                    "__guid": "089824a8-d931-43af-8b24-5a8e781b7f43",
+                    "__enabled": false,
+                    "End": "0,0,64",
+                    "IsTrigger": false,
+                    "Radius": 10,
+                    "Start": "0,0,32",
+                    "Static": false
+                  },
+                  {
+                    "__type": "Bouncy",
+                    "__guid": "4f6ee44b-e69d-4f30-98c2-c916ded83124",
+                    "AddedVelocity": 0,
+                    "BouncedTags": "solid",
+                    "BounceFactor": 0,
+                    "MinimumVelocity": 0,
+                    "RehitDelay": 0.5
                   }
                 ]
               }

@@ -15,17 +15,220 @@
       "Tags": "skybox,no_chunk,shift_visible",
       "Enabled": true,
       "NetworkMode": 2,
-      "__Prefab": "prefabs/skybox.prefab"
+      "Components": [
+        {
+          "__type": "SkyBox2D",
+          "__guid": "fcebba1e-fe70-4868-bf05-a0fdffb1f00f",
+          "SkyMaterial": "materials/starmap_8k/starmap_2020_8k.vmat",
+          "Tint": "0.05882,0.05882,0.05882,1"
+        },
+        {
+          "__type": "SkyScroller",
+          "__guid": "25e072c7-e5c9-496d-a20f-73c095379be3",
+          "ScrollFactor": 0.003
+        },
+        {
+          "__type": "Rotator",
+          "__guid": "76b26a41-b055-434e-ad07-e5cc2128faed",
+          "RotationPerSecond": "3,3,0"
+        }
+      ]
     },
     {
       "__guid": "345207fd-2535-493b-82f9-d74e8c330d7d",
       "Name": "ship_camera (2)",
-      "Position": "0,0,300",
+      "Position": "0,0,350",
       "Rotation": "0,0.7071068,0,0.7071068",
       "Tags": "no_chunk,no_shift",
       "Enabled": true,
       "NetworkMode": 2,
-      "__Prefab": "prefabs/ship_camera.prefab"
+      "Components": [
+        {
+          "__type": "CameraComponent",
+          "__guid": "9d706998-15bd-4f10-9136-8bc0abfb1221",
+          "BackgroundColor": "0.33333,0.46275,0.52157,1",
+          "ClearFlags": "All",
+          "FieldOfView": 40,
+          "IsMainCamera": true,
+          "Orthographic": false,
+          "OrthographicHeight": 1204,
+          "Priority": 1,
+          "RenderExcludeTags": "",
+          "RenderTags": "",
+          "TargetEye": "None",
+          "Viewport": "0,0,1,1",
+          "ZFar": 100000,
+          "ZNear": 10
+        },
+        {
+          "__type": "ShipCamera",
+          "__guid": "5f0716f8-5c2a-4e7d-a430-61d15f5f28f8",
+          "__enabled": false,
+          "Combiner": {
+            "_type": "component",
+            "component_id": "94977ba1-0d46-4cfc-8eeb-904271831d2c",
+            "go": "345207fd-2535-493b-82f9-d74e8c330d7d",
+            "component_type": "OffsetCombiner"
+          },
+          "HighPitch": 88,
+          "HighPosition": "-120,0,3000",
+          "LowPitch": 70,
+          "LowPosition": "-350,0,1000",
+          "PitchLerpSpeed": 1,
+          "PositionLerpSpeed": 1,
+          "TargetVelocityHighThreshold": 2500,
+          "TargetVelocityLowThreshold": 50
+        },
+        {
+          "__type": "Bloom",
+          "__guid": "c9be3345-2e97-4849-826d-0271069028ed",
+          "BloomColor": {
+            "color": [
+              {
+                "c": "1,1,1,1"
+              },
+              {
+                "t": 1,
+                "c": "1,1,1,1"
+              }
+            ],
+            "alpha": []
+          },
+          "BloomCurve": [
+            {
+              "y": 0.5
+            },
+            {
+              "x": 1,
+              "y": 1
+            }
+          ],
+          "Mode": "Additive",
+          "Strength": 0.5,
+          "Threshold": 0.05,
+          "ThresholdWidth": 0.1
+        },
+        {
+          "__type": "ColorAdjustments",
+          "__guid": "2c96916c-7b06-43d9-8677-aaf12fa5da27",
+          "Brightness": 1.1,
+          "Contrast": 1.01,
+          "HueRotate": 0,
+          "Saturation": 1.1
+        },
+        {
+          "__type": "Highlight",
+          "__guid": "1825cee8-aa1c-41b7-93ad-3a4c206e519b"
+        },
+        {
+          "__type": "PostProcessingController",
+          "__guid": "9799b774-ed84-4169-8eb9-d3b1cb9a77fa",
+          "Bloom": {
+            "_type": "component",
+            "component_id": "c9be3345-2e97-4849-826d-0271069028ed",
+            "go": "345207fd-2535-493b-82f9-d74e8c330d7d",
+            "component_type": "Bloom"
+          },
+          "HighlightEffect": {
+            "_type": "component",
+            "component_id": "1825cee8-aa1c-41b7-93ad-3a4c206e519b",
+            "go": "345207fd-2535-493b-82f9-d74e8c330d7d",
+            "component_type": "Highlight"
+          },
+          "Sharpen": {
+            "_type": "component",
+            "component_id": "e03c9b52-cb1a-4702-b54a-f0bf4073e306",
+            "go": "345207fd-2535-493b-82f9-d74e8c330d7d",
+            "component_type": "Sharpen"
+          },
+          "TargetBloom": 1,
+          "TargetSharpness": 0.05
+        },
+        {
+          "__type": "OriginShiftCamera",
+          "__guid": "3a8c0683-3c47-47ee-ad63-aee7f6c7037e",
+          "Camera": {
+            "_type": "component",
+            "component_id": "9d706998-15bd-4f10-9136-8bc0abfb1221",
+            "go": "345207fd-2535-493b-82f9-d74e8c330d7d",
+            "component_type": "CameraComponent"
+          },
+          "OriginShiftFreezeFrames": 0,
+          "RenderTags": "shift_visible"
+        },
+        {
+          "__type": "ScreenShake",
+          "__guid": "e04ddc66-0a81-43a4-8b8a-86df9f8f464f",
+          "BaseTrauma": 0,
+          "CombinedTrauma": 0,
+          "PitchShakeIntensity": 5,
+          "PitchShakeSpeed": 300,
+          "RollShakeIntensity": 5,
+          "RollShakeSpeed": 300,
+          "ShakeToggleCount": 0,
+          "Trauma": 0,
+          "TraumaDecayRate": 0.75,
+          "YawShakeIntensity": 5,
+          "YawShakeSpeed": 300
+        },
+        {
+          "__type": "OffsetCombiner",
+          "__guid": "94977ba1-0d46-4cfc-8eeb-904271831d2c"
+        },
+        {
+          "__type": "DeathCam",
+          "__guid": "c67076f7-fcaa-4071-ab91-c5cf2f5540d5",
+          "__enabled": false,
+          "Offset": "-100,0,0",
+          "PositionLerpSpeed": {
+            "rangey": "1,20",
+            "frames": [
+              {
+                "y": 0.018085156,
+                "in": -0.06567136,
+                "out": 0.06567136
+              },
+              {
+                "x": 0.8979591,
+                "y": 0.48478442,
+                "in": -1.6221398,
+                "out": 1.6221398
+              },
+              {
+                "x": 1,
+                "y": 1,
+                "in": -9.076923,
+                "out": 9.076923
+              }
+            ]
+          },
+          "RotationLerpSpeed": {
+            "rangey": "0,5",
+            "frames": [
+              {
+                "y": 0.02074473
+              },
+              {
+                "x": 0.88839287,
+                "y": 0.4588643,
+                "in": -1.8266492,
+                "out": 1.8266492
+              },
+              {
+                "x": 1,
+                "y": 1,
+                "in": -6.3225813,
+                "out": 6.3225813
+              }
+            ]
+          }
+        },
+        {
+          "__type": "Sharpen",
+          "__guid": "e03c9b52-cb1a-4702-b54a-f0bf4073e306",
+          "Scale": 0.05
+        }
+      ]
     },
     {
       "__guid": "fb32d881-faaf-4664-9a2d-fbd278c66f0b",
@@ -134,9 +337,9 @@
     {
       "__guid": "d22cbc14-50f9-486b-95f7-0d2051b0f17a",
       "Name": "Plane (2)",
-      "Position": "0,0,-100",
+      "Position": "0,-0,-100",
       "Rotation": "0,0.0000003894144,0,-1",
-      "Scale": "2,2,1",
+      "Scale": "1.2,1.2,1",
       "Enabled": true,
       "NetworkMode": 2,
       "Components": [
@@ -152,6 +355,61 @@
         {
           "__type": "PlaneCollider",
           "__guid": "2800969a-1df7-42a7-80a4-f0318d7991da",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "100,100",
+          "Static": true
+        }
+      ]
+    },
+    {
+      "__guid": "115b0cc2-cd2a-49c5-8f82-8de96bc9f121",
+      "Name": "Plane (7)",
+      "Position": "0,-0,-99",
+      "Rotation": "0,0.0000003894144,0,-1",
+      "Scale": "2,2,1",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "__guid": "4573494c-cb44-47c7-b517-7275dff46b23",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/dev/plane.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,0"
+        },
+        {
+          "__type": "PlaneCollider",
+          "__guid": "b0566c29-fa16-4340-9d60-53d0a38310f9",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "100,100",
+          "Static": true
+        }
+      ]
+    },
+    {
+      "__guid": "57564050-151c-4d0e-a69c-331713181481",
+      "Name": "Plane (6)",
+      "Position": "0,0,-101",
+      "Rotation": "-0,1,-0,-0.00000004371139",
+      "Scale": "1.2,1.2,1",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "__guid": "162b4658-9634-4ee5-9ca9-5b7a3f4bdc44",
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": "materials/generic/metal_brushed.vmat",
+          "Model": "models/dev/plane.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "PlaneCollider",
+          "__guid": "3b62b03a-d083-4dda-b485-cf22daa667d3",
           "Center": "0,0,0",
           "IsTrigger": false,
           "Scale": "100,100",
@@ -274,7 +532,7 @@
     {
       "__guid": "0d6c3b98-4980-4ce5-96f8-6ce043dad196",
       "Name": "Point Light",
-      "Position": "64,64,-50",
+      "Position": "64,64,32",
       "Tags": "light_point,light",
       "Enabled": true,
       "NetworkMode": 2,
@@ -282,11 +540,11 @@
         {
           "__type": "PointLight",
           "__guid": "2447579a-b61e-4749-9add-5798382c63a5",
-          "Attenuation": 1,
+          "Attenuation": 0.5,
           "FogMode": "Enabled",
           "FogStrength": 1,
           "LightColor": "0.02648,0.12742,0.15814,1",
-          "Radius": 400,
+          "Radius": 1000,
           "Shadows": true
         }
       ]
@@ -294,7 +552,7 @@
     {
       "__guid": "45226297-fc04-4643-91b2-b5ef56bb83f9",
       "Name": "Point Light (1)",
-      "Position": "32,-64,0",
+      "Position": "32,-64,64",
       "Tags": "light_point,light",
       "Enabled": true,
       "NetworkMode": 2,
@@ -302,11 +560,11 @@
         {
           "__type": "PointLight",
           "__guid": "d33b0725-0248-44f4-9941-e9c023901972",
-          "Attenuation": 1,
+          "Attenuation": 0.5,
           "FogMode": "Enabled",
           "FogStrength": 1,
           "LightColor": "0.01955,0.00337,0.06047,1",
-          "Radius": 400,
+          "Radius": 1000,
           "Shadows": true
         }
       ]
@@ -322,12 +580,89 @@
         {
           "__type": "PointLight",
           "__guid": "cb5b7b0c-8c29-4f8d-9269-1f2cc66f0a9c",
-          "Attenuation": 1,
+          "Attenuation": 0.5,
           "FogMode": "Enabled",
           "FogStrength": 1,
           "LightColor": "0.01142,0.01512,0.05581,1",
+          "Radius": 1000,
+          "Shadows": true
+        }
+      ]
+    },
+    {
+      "__guid": "3780aba3-cd05-483c-8f55-ed8c8142dbc2",
+      "Name": "Point Light",
+      "Position": "0,0,-256",
+      "Tags": "light_point,light",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "PointLight",
+          "__guid": "a0ad5e2b-c5e5-42cc-b179-410c4994c18b",
+          "Attenuation": 0.26,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
           "Radius": 400,
           "Shadows": true
+        }
+      ]
+    },
+    {
+      "__guid": "1abab565-1166-495d-977f-1119bd36ed47",
+      "Name": "Envmap Probe",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "EnvmapProbe",
+          "__guid": "31d4b2e8-6b4d-4ee9-83bb-fdd06c78342f",
+          "Bounds": {
+            "Mins": "-100,-100,-100",
+            "Maxs": "100,100,100"
+          },
+          "Feathering": 0.02,
+          "Projection": "Sphere",
+          "TintColor": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "2ea83988-4764-402b-8fb3-0a438b3ede33",
+      "Name": "Text",
+      "Position": "0,0,-98",
+      "Rotation": "0,0.7071068,0,0.7071068",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "TextRenderer",
+          "__guid": "3c4b788e-1dba-45cd-87d6-9b0c006d4c5c",
+          "Color": "1,1,1,1",
+          "FontFamily": "Zeroes 1",
+          "FontSize": 25.57,
+          "Scale": 0.3,
+          "Text": "SECRET CYBER SEX ROOM"
+        }
+      ]
+    },
+    {
+      "__guid": "36e37c93-fe75-4542-8009-079c4cd2c5d4",
+      "Name": "Text (1)",
+      "Position": "14.99866,0,-98",
+      "Rotation": "0,0.7071068,0,0.7071068",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "TextRenderer",
+          "__guid": "0f2aac87-ccb1-4ae5-931f-7d595249d7ad",
+          "Color": "1,1,1,1",
+          "FontFamily": "Poppins",
+          "FontSize": 25.57,
+          "Scale": 0.3,
+          "Text": "Welcome to the"
         }
       ]
     }
@@ -355,10 +690,11 @@
   },
   "Title": "test_ragdoll",
   "Description": "",
-  "LastSaved": "2024-03-24T20:25:26.4064618-06:00",
+  "LastSaved": "2024-03-25T00:44:19.9145975-06:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
-    "facepunch.metal_brushed"
+    "duccsoft.starmap_2020_8k",
+    "stardrive.rope_barrier_a"
   ]
 }

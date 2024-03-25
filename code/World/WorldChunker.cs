@@ -1,5 +1,4 @@
 using Sandbox;
-using System.Linq;
 
 public sealed partial class WorldChunker : GameObjectSystem
 {
@@ -40,7 +39,7 @@ public sealed partial class WorldChunker : GameObjectSystem
 
 		if ( IsPositionTooFar( origin.AbsolutePosition ) )
 		{
-			origin.AbsolutePosition = Vector3.Zero;
+			RagdollFlail.LoadTestMap();
 		}
 
 		UpdateChunks( WorldToChunkAbsolute( origin.AbsolutePosition ) );
