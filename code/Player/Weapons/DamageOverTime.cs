@@ -19,7 +19,7 @@ public sealed class DamageOverTime : Component
 			_target = value;
 			if ( oldValue != value )
 			{
-				_untilDamageTick += TickInterval - TickInterval * TickPhaseOffset;
+				_untilDamageTick = TickInterval - TickInterval * TickPhaseOffset;
 			}
 		}
 	}

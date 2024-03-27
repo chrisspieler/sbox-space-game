@@ -1,32 +1,20 @@
 {
   "RootObject": {
-    "__guid": "4ec0e63d-7cf5-40b6-8445-480d2d4cfe28",
-    "Name": "clone_mist",
+    "__guid": "37866723-da36-4c52-80a8-54a54ecf1d81",
+    "Name": "gib_mist",
     "Enabled": true,
     "NetworkMode": 2,
     "Components": [
       {
         "__type": "SelfDestruct",
-        "__guid": "6883f60e-9c64-449f-926f-b0f6ec3ac0d0",
-        "Delay": "2.00,1.00,0",
+        "__guid": "002fc9b5-4e10-48ad-b729-e821c5dea836",
+        "Delay": "1.50,1.00,0",
         "EnableOnMakeDebris": false
-      },
-      {
-        "__type": "EffectSpawner",
-        "__guid": "4ee4d86a-00ac-4fdd-ac3a-3a020c856cb5",
-        "DestroyGameObjectAfterFire": false,
-        "EffectPrefab": {
-          "_type": "gameobject",
-          "prefab": "prefabs/effects/clone_gibs.prefab"
-        },
-        "FireDelay": "0.00,1.00,0",
-        "FireOnEnabled": true,
-        "FireOnMakeDebris": false
       }
     ],
     "Children": [
       {
-        "__guid": "d5c02870-1ed2-4d82-b1cf-8af823ff65d8",
+        "__guid": "470c2fcd-ed7d-451f-989c-d6a1dddff489",
         "Name": "Burst",
         "Tags": "particles",
         "Enabled": true,
@@ -34,7 +22,7 @@
         "Components": [
           {
             "__type": "ParticleEffect",
-            "__guid": "4a8fd58c-7238-4c0c-8568-c0404214ae42",
+            "__guid": "49143ffc-f21d-42e5-be60-ba116c0de6e9",
             "Alpha": {
               "Type": "Curve",
               "CurveA": {
@@ -127,7 +115,7 @@
             "Scale": {
               "Type": "Curve",
               "CurveA": {
-                "rangey": "0,250",
+                "rangey": "0,200",
                 "frames": [
                   {
                     "in": -9.333329,
@@ -159,7 +147,7 @@
             "StartVelocity": {
               "Type": "Range",
               "Evaluation": "Particle",
-              "Constants": "150,350,0,0"
+              "Constants": "50,150,0,0"
             },
             "Stretch": {},
             "TimeScale": 1,
@@ -167,7 +155,7 @@
           },
           {
             "__type": "ParticleSpriteRenderer",
-            "__guid": "76f8cd0f-91d5-44e6-8bfd-201959e3d14c",
+            "__guid": "83b91fed-6e4a-4403-a5bf-9121e8742699",
             "Additive": false,
             "BlurAmount": 0.5,
             "BlurOpacity": 0.91,
@@ -186,11 +174,11 @@
           },
           {
             "__type": "ParticleSphereEmitter",
-            "__guid": "212da654-b3fb-48dc-9392-dabcd71a0110",
-            "Burst": 100,
+            "__guid": "1c03b610-8609-4acd-ba2d-1a1894ab1979",
+            "Burst": 25,
             "Delay": 0,
             "DestroyOnEnd": false,
-            "Duration": 2,
+            "Duration": 1.5,
             "Loop": true,
             "OnEdge": false,
             "Radius": 10,
@@ -200,14 +188,14 @@
         ]
       },
       {
-        "__guid": "e05fd4ff-ca72-41fd-8880-667e01fce604",
+        "__guid": "42500e23-e5f1-4a82-bfff-362eb1049f75",
         "Name": "Sound",
         "Enabled": true,
         "NetworkMode": 2,
         "Components": [
           {
             "__type": "SoundPointComponent",
-            "__guid": "185eba7a-2e15-4735-a991-8e3ebabc8a02",
+            "__guid": "5a6553ed-9c09-4c3f-9056-158c8780409b",
             "DistanceAttenuation": false,
             "DistanceAttenuationOverride": false,
             "Force2d": false,
@@ -221,7 +209,7 @@
             "ReflectionOverride": false,
             "Reflections": false,
             "Repeat": false,
-            "SoundEvent": "sounds/clone_mist.sound",
+            "SoundEvent": "sounds/clone_hit.sound",
             "SoundOverride": false,
             "StopOnNew": false,
             "Volume": 1

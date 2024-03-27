@@ -97,6 +97,17 @@ public sealed class BeamWeapon : Component
 		}
 	}
 	private GameObject _target;
+	[Property] public Vector3? TargetPositionOverride 
+	{
+		get => Tracer?.TargetPositionOverride;
+		set
+		{
+			if ( Tracer.IsValid() )
+			{
+				Tracer.TargetPositionOverride = value;
+			}
+		}
+	}
 
 	private SoundHandle _activeFiringSound;
 

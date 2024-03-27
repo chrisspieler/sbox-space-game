@@ -8,6 +8,7 @@ public sealed class BeamTrace : Component
 
 	[Property] public GameObject Source { get; set; }
 	[Property] public float Distance { get; set; } = 2000f;
+	[Property] public Vector3? TargetPositionOverride { get; set; }
 	[Property] public TagSet IncludeAny { get; set; }
 	[Property] public TagSet ExcludeAny { get; set; }
 
@@ -22,7 +23,8 @@ public sealed class BeamTrace : Component
 	{
 		Source ??= GameObject;
 		var startPos = Source.Transform.Position.WithZ( 0f );
-		var endPos = startPos + Source.Transform.Rotation.Forward * Distance;
+		var endPos = TargetPositionOverride
+			?? startPos + Source.Transform.Rotation.Forward * Distance;
 		return Scene.Trace
 			.Ray( startPos, endPos )
 			.WithAnyTags( IncludeAny )

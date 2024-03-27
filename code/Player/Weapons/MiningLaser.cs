@@ -120,12 +120,17 @@ public sealed class MiningLaser : Weapon, IDestructionListener
 		foreach( var weapon in WeaponInstances )
 		{
 			weapon.ShouldFire = !IsBlockedBySafety( weapon );
+			// If we're auto aiming, make sure the beam actually travels to the position we snap to.
+			// Otherwise, just assume the weapon is already aimed where we want it.
+			weapon.TargetPositionOverride = IsAutoAiming
+				? TargetPosition
+				: null;
 		}
 	}
 
 	private bool IsBlockedBySafety( BeamWeapon weapon )
 	{
-		var targetPos = TargetPosition ?? Scene.Camera.MouseToWorld();
+		var targetPos = TargetPosition;
 		return weapon.Tracer.Transform.Position.Distance( targetPos ) > 150f
 			&& WouldHitSelf( weapon, targetPos );
 	}

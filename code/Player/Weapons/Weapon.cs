@@ -15,7 +15,8 @@ public class Weapon : Component
 	[Property] public GameObject WeaponPrefab { get; set; }
 	[Property] public List<GameObject> PrefabInstances { get; set; } = new();
 
-	protected Vector3? TargetPosition { get; set; }
+	protected Vector3 TargetPosition { get; set; }
+	protected bool IsAutoAiming { get; set; }
 
 	public ShipController Ship { get; set; }
 
@@ -62,19 +63,22 @@ public class Weapon : Component
 	protected virtual void SwivelWeapons()
 	{
 		var targetGo = FindMouseOverTarget();
-		var TargetPosition = Scene.Camera.MouseToWorld();
+		TargetPosition = Scene.Camera.MouseToWorld();
 		if ( Debug )
 		{
-			using ( Gizmo.Scope( "Swivel Weapons", global::Transform.Zero ) )
-			{
-				Gizmo.Draw.Color = Color.Red;
-				Gizmo.Draw.IgnoreDepth = true;
-				Gizmo.Draw.LineSphere( TargetPosition, 10f );
-			}
+			using var _ = Gizmo.Scope( "Swivel Weapons", global::Transform.Zero );
+			Gizmo.Draw.Color = Color.Red;
+			Gizmo.Draw.IgnoreDepth = true;
+			Gizmo.Draw.LineSphere( TargetPosition, 10f );
 		}
 		if ( targetGo is null )
 		{
 			TargetPosition = AimAssist( TargetPosition );
+		}
+		else
+		{
+			// We've stopped using auto aiming since we're hovering over something now.
+			IsAutoAiming = false;
 		}
 		foreach( var instance in PrefabInstances )
 		{
@@ -102,8 +106,9 @@ public class Weapon : Component
 					return go.Tags.Has( AimAssistTargetTag )
 						&& go.Transform.Position.Distance( position ) <= AimAssistRadius;
 				});
+		IsAutoAiming = nearby.Any();
 		// If no target is nearby, just use the aim position.
-		if ( !nearby.Any() )
+		if ( !IsAutoAiming )
 			return position;
 		// If one or more targets are nearby, use the position of the nearest target.
 		var targetPosition = nearby
