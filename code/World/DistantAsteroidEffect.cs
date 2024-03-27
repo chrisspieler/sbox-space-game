@@ -29,7 +29,7 @@ public sealed class DistantAsteroidEffect : Component, IOriginShiftListener
 			asteroid.Rotation *= Rotation.FromPitch( 10f * _sinceLastUpdate * scaleSpeed );
 			asteroid.Position += Vector3.Right * 20f * _sinceLastUpdate;
 			asteroid.Update( _sinceLastUpdate );
-			var targetTint = asteroid.ColorTint.WithAlpha( 1f );
+			var targetTint = asteroid.ColorTint.WithAlpha( 255f );
 			asteroid.ColorTint = Color.Lerp( asteroid.ColorTint, targetTint, Time.Delta / 2f );
 		}
 		_sinceLastUpdate = 0f;

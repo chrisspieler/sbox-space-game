@@ -1,0 +1,25 @@
+{
+  "RootObject": {
+    "__guid": "0d5034cd-ac87-4cb7-9a4d-4577a4987810",
+    "Name": "distant_lights",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "Components": [
+      {
+        "__type": "LightField",
+        "__guid": "9c7af394-39a8-493c-ac8f-eb1ea3234a93",
+        "ColorNoiseScale": 0.0025,
+        "ColorValue": 0.05,
+        "LightCount": 10,
+        "Radius": 2500
+      }
+    ],
+    "Children": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": []
+}

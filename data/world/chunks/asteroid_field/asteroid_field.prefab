@@ -1,17 +1,17 @@
 {
   "RootObject": {
-    "__guid": "3fbdd9b9-68ad-4ef9-9b53-fc7704001cee",
+    "__guid": "74d58145-904d-43a2-b9f4-bcd2b8d5c806",
     "Name": "asteroid_field",
     "Enabled": true,
     "NetworkMode": 2,
     "Components": [
       {
         "__type": "AsteroidSpawner",
-        "__guid": "21789301-2176-4c4b-8ee8-dd75610bdf02"
+        "__guid": "9de17c08-8fa4-4eee-b1e6-b88ce5d97775"
       },
       {
         "__type": "DroneSpawner",
-        "__guid": "729b7db0-2e03-4876-b37a-cc2db682e680",
+        "__guid": "2eb8d5cb-1d46-4b29-adb5-dafb4db70a1e",
         "DroneCount": 1,
         "DronePrefab": {
           "_type": "gameobject",
@@ -22,19 +22,27 @@
     ],
     "Children": [
       {
-        "__guid": "cf145df5-32f2-460c-a365-cab77ff6b363",
+        "__guid": "2dac69bd-138d-47c7-b69f-20ceb9b1f90d",
         "Name": "ice_field",
         "Enabled": true,
         "NetworkMode": 2,
         "__Prefab": "prefabs/effects/ice_field.prefab"
       },
       {
-        "__guid": "bc16d4d6-cc2c-4c5c-b7fc-a81403a90dce",
+        "__guid": "5084eb8a-ba62-4be1-9739-d6f7768c8a11",
         "Name": "distant_asteroids",
-        "Position": "0,0,-5000",
+        "Position": "0,0,-2500",
         "Enabled": true,
         "NetworkMode": 2,
         "__Prefab": "prefabs/effects/distant_asteroids.prefab"
+      },
+      {
+        "__guid": "0d5034cd-ac87-4cb7-9a4d-4577a4987810",
+        "Name": "distant_lights (1)",
+        "Position": "0,0,-3000",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "__Prefab": "prefabs/effects/distant_lights.prefab"
       }
     ]
   },

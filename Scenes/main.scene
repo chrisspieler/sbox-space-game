@@ -444,10 +444,18 @@
     {
       "__guid": "de9a545b-726c-41e2-aefe-b6da6d33c1c8",
       "Name": "distant_asteroids",
-      "Position": "2500,2500,-5000",
+      "Position": "2500,2500,-2500",
       "Enabled": true,
       "NetworkMode": 2,
       "__Prefab": "prefabs/effects/distant_asteroids.prefab"
+    },
+    {
+      "__guid": "fc0f8c35-0599-4151-97ab-dbc74267604e",
+      "Name": "Distant Lights",
+      "Position": "2500,2500,-3000",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/effects/distant_lights.prefab"
     }
   ],
   "SceneProperties": {
@@ -473,7 +481,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-25T04:14:56.6272191-06:00",
+  "LastSaved": "2024-03-27T00:34:30.49555-06:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
