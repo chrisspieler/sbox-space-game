@@ -11,8 +11,8 @@
         "AsteroidMaterial": "materials/distant_asteroid.vmat",
         "AsteroidModel": "models/rust_nature/rocks/rock_small_c.vmdl",
         "AsteroidSpawnBounds": {
-          "Mins": "-2500,-2500,-200",
-          "Maxs": "2500,2500,200"
+          "Mins": "-2500,-2500,-5000",
+          "Maxs": "2500,2500,0"
         },
         "ScaleCurve": {
           "rangey": "1,20",

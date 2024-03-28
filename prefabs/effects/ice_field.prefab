@@ -31,7 +31,7 @@
                   "x": 1
                 }
               ],
-              "Constants": "1,0,0,0"
+              "Constants": "0.25,0,0,0"
             },
             "ApplyColor": true,
             "ApplyRotation": true,
@@ -124,7 +124,7 @@
             },
             "Stretch": {},
             "TimeScale": 1,
-            "Tint": "0.43721,0.89682,1,1"
+            "Tint": "0.67736,0.93325,0.9907,1"
           },
           {
             "__type": "ParticleSpriteRenderer",

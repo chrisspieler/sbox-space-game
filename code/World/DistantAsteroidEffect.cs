@@ -6,12 +6,15 @@ public sealed class DistantAsteroidEffect : Component, IOriginShiftListener
 {
 	[ConVar( "distant_asteroid_update_interval" )]
 	public static float UpdateIntervalSeconds { get; set; } = 0.25f;
+	[ConVar( "distant_asteroid_population_scale" )]
+	public static float PopulationScale { get; set; } = 1f;
 
 	[Property] public Model AsteroidModel { get; set; }
 	[Property] public Material AsteroidMaterial { get; set; }
 	[Property] public BBox AsteroidSpawnBounds { get; set; } = BBox.FromPositionAndSize( Vector3.Zero, ( Vector3.One * 5000f ).WithZ( 0f ) );
 	[Property] public Color Tint { get; set; } = Color.White;
 	[Property] public Curve ScaleCurve { get; set; }
+	[Property] public int TargetPopulation { get; set; } = 200;
 
 	private List<SceneModel> _asteroids = new();
 
@@ -56,7 +59,8 @@ public sealed class DistantAsteroidEffect : Component, IOriginShiftListener
 
 	private void CreateAsteroids()
 	{
-		for ( int i = 0; i < 50; i++ )
+		var asteroidCount = (int)(TargetPopulation * PopulationScale);
+		for ( int i = 0; i < asteroidCount; i++ )
 		{
 			var randomBboxPos = AsteroidSpawnBounds.RandomPointInside;
 			var randomPos = Transform.Position + randomBboxPos;
