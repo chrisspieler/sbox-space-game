@@ -60,12 +60,15 @@
 				</div>
 			</div>
 		</div>
-        <div class="category column">
-            <div class="header">DATA</div>
-            <div class="body column center-content">
-                <div class="button danger" onclick=@(() => _showModal = true)>WIPE SAVE DATA</div>
+        @if ( Scene.IsMainMenu() )
+        {
+            <div class="category column">
+                <div class="header">DATA</div>
+                <div class="body column center-content">
+                    <div class="button danger" onclick=@(() => _showModal = true)>WIPE SAVE DATA</div>
+                </div>
             </div>
-        </div>
+        }
 	</div>
     <div class="modal center-content @ModalClass">
         <div class="box column center-content">
