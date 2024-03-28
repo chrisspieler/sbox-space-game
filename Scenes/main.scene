@@ -41,7 +41,7 @@
       "__guid": "5006bd90-e749-4329-a52f-f676bfc80725",
       "Name": "Sun",
       "Position": "-200,0,0.0003515341",
-      "Tags": "light_directional,light,no_chunk",
+      "Tags": "no_chunk,light,light_directional",
       "Enabled": true,
       "NetworkMode": 2,
       "__Prefab": "prefabs/ambient_light.prefab"
@@ -84,8 +84,8 @@
                 "Id": 2,
                 "Type": "property.get",
                 "Properties": {
-                  "_type": "Sandbox.Game/Sandbox.Scene",
-                  "_name": "PhysicsWorld"
+                  "_name": "PhysicsWorld",
+                  "_type": "Sandbox.Game/Sandbox.Scene"
                 },
                 "UserData": {
                   "Position": "64,64"
@@ -95,8 +95,8 @@
                 "Id": 3,
                 "Type": "property.set",
                 "Properties": {
-                  "_type": "Sandbox.Engine/Sandbox.PhysicsWorld",
-                  "_name": "Gravity"
+                  "_name": "Gravity",
+                  "_type": "Sandbox.Engine/Sandbox.PhysicsWorld"
                 },
                 "UserData": {
                   "Position": "352,0"
@@ -262,7 +262,7 @@
               "BodyGroups": 18446744073709551615,
               "MaterialOverride": "materials/dev/primary_white_emissive_trans.vmat",
               "Model": "models/dev/sphere.vmdl",
-              "RenderType": "On",
+              "RenderType": "Off",
               "Tint": "0,1,1,0"
             }
           ]
@@ -481,7 +481,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-27T21:12:06.8001038-06:00",
+  "LastSaved": "2024-03-27T21:45:05.2839358-06:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
