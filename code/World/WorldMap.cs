@@ -14,9 +14,16 @@ public class WorldMap : GameResource
 
 		// For now, the difficulty of a chunk in the world is just its Manhattan distance from the origin.
 		var difficulty = cell.RectDistance( Vector2Int.Zero );
-		return RandomChunks
-			.Where( c => c.Difficulty <= difficulty )
-			.OrderByDescending( c => c.Difficulty )
-			.First();
+		var chunks = RandomChunks.Where( c => c.Difficulty <= difficulty );
+		if ( chunks.Any() )
+		{
+			chunks = chunks.OrderByDescending( c => c.Difficulty );
+		}
+		else
+		{
+			// If we cannot find an easy enough chunk, find the easiest chunk.
+			chunks = RandomChunks.OrderBy( c => c.Difficulty );
+		}
+		return chunks.First();
 	}
 }

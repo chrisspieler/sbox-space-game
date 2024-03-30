@@ -1,0 +1,9 @@
+{
+  "Name": "Empty",
+  "Prefab": "data/world/chunks/spawn_area/empty.prefab",
+  "Difficulty": 0,
+  "Asteroids": null,
+  "ResourceVersion": 0,
+  "__version": 0,
+  "__references": []
+}

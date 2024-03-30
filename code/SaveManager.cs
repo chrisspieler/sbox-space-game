@@ -32,7 +32,9 @@ public sealed class SaveManager : Component
 			Career.Active = FallbackScenario.ToCareer();
 		}
 		Log.Info( $"Loading world: {Career.Active.World}" );
-		Scene.GetSystem<WorldChunker>().World = ResourceLibrary.GetAll<WorldMap>()
+		var worldChunker = Scene.GetSystem<WorldChunker>();
+		worldChunker.Clear();
+		worldChunker.World = ResourceLibrary.GetAll<WorldMap>()
 			.First( m => m.ResourceName == Career.Active.World );
 		ShipController.Respawn();
 		Scene.PhysicsWorld.Gravity = 0f;

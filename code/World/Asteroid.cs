@@ -1,5 +1,6 @@
 ﻿using Sandbox;
 using Sandbox.Diagnostics;
+using System;
 using System.Linq;
 
 public sealed class Asteroid : Component
@@ -16,6 +17,8 @@ public sealed class Asteroid : Component
 		SetHealthFromScale();
 		ScaledMassOverride.Apply( GameObject, Data.MassPerScale );
 	}
+
+
 
 	private void SetTransform()
 	{
@@ -45,6 +48,14 @@ public sealed class Asteroid : Component
 		asteroidComponent.Data = data;
 		asteroidComponent.ScaleOverride = scaleOverride;
 		return go;
+	}
+
+	public static GameObject CreateRandom( Vector3 position, float? scaleOverride = null )
+	{
+		var asteroidTypes = ResourceLibrary.GetAll<AsteroidData>().ToList();
+		var asteroid = Create( Game.Random.FromList( asteroidTypes ), scaleOverride );
+		asteroid.Transform.Position = position;
+		return asteroid;
 	}
 
 	[ConCmd("asteroid_spawn")]

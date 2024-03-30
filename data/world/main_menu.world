@@ -1,0 +1,9 @@
+{
+  "OriginChunk": "data/world/chunks/spawn_area/empty.chunk",
+  "RandomChunks": [
+    "data/world/chunks/asteroid_field/asteroid_field_2.chunk"
+  ],
+  "ResourceVersion": 0,
+  "__version": 0,
+  "__references": []
+}

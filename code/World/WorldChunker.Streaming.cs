@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Sandbox;
 
 public sealed partial class WorldChunker : GameObjectSystem
@@ -38,6 +39,14 @@ public sealed partial class WorldChunker : GameObjectSystem
 			_previousOrigin = originChunk;
 		}
 		FreeExcessChunks( originChunk );
+	}
+
+	public void Clear()
+	{
+		foreach( var chunk in _worldChunks.Keys.ToList() )
+		{
+			UnloadChunk( chunk );
+		}
 	}
 
 	private void EnsureChunkContainer()

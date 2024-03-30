@@ -1,0 +1,31 @@
+{
+  "RootObject": {
+    "__guid": "4d73cc86-010a-4a48-abdb-10680eafaa89",
+    "Name": "empty",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "Children": [
+      {
+        "__guid": "906ba6f3-830e-4f28-8fa7-5b944e4a8a0f",
+        "Name": "ice_field",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "__Prefab": "prefabs/effects/ice_field.prefab"
+      },
+      {
+        "__guid": "b8f5b205-5e33-4ddd-962e-e0446d5a882b",
+        "Name": "distant_lights (1)",
+        "Position": "0,0,-3000",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "__Prefab": "prefabs/effects/distant_lights.prefab"
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": []
+}
