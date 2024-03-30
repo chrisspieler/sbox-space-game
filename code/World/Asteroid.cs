@@ -5,6 +5,7 @@ using System.Linq;
 public sealed class Asteroid : Component
 {
 	public AsteroidData Data { get; set; }
+	public float? ScaleOverride { get; set; }
 
 	protected override void OnStart()
 	{
@@ -19,7 +20,7 @@ public sealed class Asteroid : Component
 	private void SetTransform()
 	{
 		Transform.Rotation = Rotation.Random;
-		Transform.Scale = Data.ScaleCurve.Evaluate( Game.Random.Float() );
+		Transform.Scale = ScaleOverride ?? Data.ScaleCurve.Evaluate( Game.Random.Float() );
 	}
 
 	private void SetHealthFromScale()
@@ -36,12 +37,13 @@ public sealed class Asteroid : Component
 		modelGo.Parent = GameObject;
 	}
 
-	public static GameObject Create( AsteroidData data )
+	public static GameObject Create( AsteroidData data, float? scaleOverride = null )
 	{
 		var asteroidPrefab = ResourceLibrary.Get<PrefabFile>( "prefabs/asteroid_base.prefab" );
 		var go = asteroidPrefab.GetPrefabScene().Clone( new Transform(), null, true, data.Name );
 		var asteroidComponent = go.Components.Get<Asteroid>();
 		asteroidComponent.Data = data;
+		asteroidComponent.ScaleOverride = scaleOverride;
 		return go;
 	}
 
