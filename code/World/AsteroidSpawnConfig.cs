@@ -6,7 +6,7 @@ public class AsteroidSpawnConfig : GameResource
 {
 	public struct AsteroidType
 	{
-		public GameObject Prefab { get; set; }
+		public AsteroidData Data { get; set; }
 		public float Probability { get; set; }
 	}
 

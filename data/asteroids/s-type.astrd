@@ -1,0 +1,27 @@
+{
+  "Name": "S-Type Asteroid",
+  "ModelPrefabs": [
+    "data/asteroids/asteroid_s_1.prefab"
+  ],
+  "LootTable": "data/asteroids/s_type_loot.loot",
+  "ScaleCurve": {
+    "rangey": "3,6",
+    "frames": [
+      {},
+      {
+        "x": 0.95089287,
+        "y": 0.4345617
+      },
+      {
+        "x": 1,
+        "y": 1,
+        "in": -3.5555542,
+        "out": 3.5555542
+      }
+    ]
+  },
+  "MassPerScale": 40,
+  "ResourceVersion": 0,
+  "__version": 0,
+  "__references": []
+}

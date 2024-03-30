@@ -15,7 +15,7 @@ public sealed class AsteroidSpawner : Component
 	private WorldChunker _chunkSystem;
 	private FloatingOriginSystem _originSystem;
 	private List<(Vector3 position, float probability)> _spawnPoints = new();
-	private RandomChancer<GameObject> _asteroidProbabilities = new();
+	private RandomChancer<AsteroidData> _asteroidProbabilities = new();
 	private SpawnPoint _playerSpawn;
 
 	private IEnumerator<GameObject> _spawnEnumerator;
@@ -38,7 +38,7 @@ public sealed class AsteroidSpawner : Component
 
 		foreach ( var asteroidType in Config.AsteroidTypes )
 		{
-			_asteroidProbabilities.AddItem( asteroidType.Prefab, asteroidType.Probability );
+			_asteroidProbabilities.AddItem( asteroidType.Data, asteroidType.Probability );
 		}
 	}
 
@@ -65,8 +65,8 @@ public sealed class AsteroidSpawner : Component
 
 	public GameObject SpawnOne( Vector3 position)
 	{
-		var prefab = _asteroidProbabilities.GetNext();
-		var go = prefab.Clone();
+		var data = _asteroidProbabilities.GetNext();
+		var go = Asteroid.Create( data );
 		go.Parent = GameObject;
 		go.Transform.LocalPosition = position;
 		return go;

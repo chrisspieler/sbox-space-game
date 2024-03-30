@@ -1,17 +1,11 @@
 {
   "AsteroidTypes": [
     {
-      "Prefab": {
-        "_type": "gameobject",
-        "prefab": "data/asteroids/c-type_asteroid.prefab"
-      },
+      "Data": "data/asteroids/c-type.astrd",
       "Probability": 100
     },
     {
-      "Prefab": {
-        "_type": "gameobject",
-        "prefab": "data/asteroids/s-type_asteroid.prefab"
-      },
+      "Data": "data/asteroids/s-type.astrd",
       "Probability": 5
     }
   ],
@@ -19,5 +13,7 @@
   "NoiseScale": 0.01,
   "ProbabilityScale": 0.04,
   "ProbabilityBias": 0.01,
+  "ResourceVersion": 0,
+  "__version": 0,
   "__references": []
 }

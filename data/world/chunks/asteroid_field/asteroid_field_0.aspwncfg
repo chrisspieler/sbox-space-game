@@ -1,10 +1,7 @@
 {
   "AsteroidTypes": [
     {
-      "Prefab": {
-        "_type": "gameobject",
-        "prefab": "data/asteroids/c-type_asteroid.prefab"
-      },
+      "Data": "data/asteroids/c-type.astrd",
       "Probability": 100
     }
   ],

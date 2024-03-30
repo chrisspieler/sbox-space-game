@@ -27,6 +27,7 @@ public sealed class ColliderLod : Component
 
 	protected override void OnStart()
 	{
+		Rigidbody ??= Components.GetInAncestorsOrSelf<Rigidbody>();
 		_nextDistanceCheck = UpdateInterval ?? DefaultUpdateInterval;
 	}
 

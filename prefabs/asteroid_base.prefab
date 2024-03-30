@@ -1,0 +1,141 @@
+{
+  "RootObject": {
+    "__guid": "9666dd9b-8a90-4190-85b6-1b2530bff796",
+    "Name": "asteroid_base",
+    "Tags": "target,asteroid",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "Components": [
+      {
+        "__type": "Asteroid",
+        "__guid": "70efe277-b475-4ff4-b6bd-1d64abb12347"
+      },
+      {
+        "__type": "Rigidbody",
+        "__guid": "39ea763d-3fa2-4ce2-a111-a7f073710cbd",
+        "AngularDamping": 0,
+        "Gravity": false,
+        "LinearDamping": 0,
+        "Locking": {
+          "Z": true
+        },
+        "MassOverride": 0,
+        "MotionEnabled": true,
+        "RigidbodyFlags": 0,
+        "StartAsleep": false
+      },
+      {
+        "__type": "Health",
+        "__guid": "43572d5d-4147-4e05-a2b2-aa75bcb40cef",
+        "Body": {
+          "_type": "gameobject",
+          "go": "9666dd9b-8a90-4190-85b6-1b2530bff796"
+        },
+        "Bounce": {
+          "_type": "component",
+          "component_id": "54b03662-8c03-43bd-8a20-e494a6b1b500",
+          "go": "9666dd9b-8a90-4190-85b6-1b2530bff796",
+          "component_type": "Bouncy"
+        },
+        "CurrentHealth": 0,
+        "DamageFlashColor": "1,1,1,1",
+        "DamageSound": "sounds/asteroid_dig.sound",
+        "IsInvincible": false,
+        "MaxHealth": 100
+      },
+      {
+        "__type": "HealthBarSpawner",
+        "__guid": "96eed491-b466-4db8-8320-78961815c907",
+        "HealthSource": {
+          "_type": "component",
+          "component_id": "43572d5d-4147-4e05-a2b2-aa75bcb40cef",
+          "go": "9666dd9b-8a90-4190-85b6-1b2530bff796",
+          "component_type": "Health"
+        },
+        "Target": {
+          "_type": "gameobject",
+          "go": "9666dd9b-8a90-4190-85b6-1b2530bff796"
+        }
+      },
+      {
+        "__type": "Mineable",
+        "__guid": "c16186b7-a6a5-42c8-8c6e-b729adcb79c2",
+        "FractureEffect": {
+          "_type": "gameobject",
+          "prefab": "prefabs/effects/asteroid_fracture.prefab"
+        },
+        "Health": {
+          "_type": "component",
+          "component_id": "43572d5d-4147-4e05-a2b2-aa75bcb40cef",
+          "go": "9666dd9b-8a90-4190-85b6-1b2530bff796",
+          "component_type": "Health"
+        },
+        "ShrinkOnDamage": true,
+        "ShrinkRatio": 0.3
+      },
+      {
+        "__type": "Bouncy",
+        "__guid": "54b03662-8c03-43bd-8a20-e494a6b1b500",
+        "AddedVelocity": 0,
+        "BouncedTags": "solid,shield",
+        "BounceFactor": 0.5,
+        "MinimumVelocity": 0,
+        "RehitDelay": 0.5
+      },
+      {
+        "__type": "AsteroidHighlight",
+        "__guid": "a1e2f4a0-7586-48fd-8ef7-70aea463ff0f",
+        "Outline": {
+          "_type": "component",
+          "component_id": "d8c132f0-f543-4196-8577-45eb43395547",
+          "go": "9666dd9b-8a90-4190-85b6-1b2530bff796",
+          "component_type": "HighlightOutline"
+        },
+        "OutlineStrength": 1
+      },
+      {
+        "__type": "HighlightOutline",
+        "__guid": "d8c132f0-f543-4196-8577-45eb43395547",
+        "Color": "1,1,1,1",
+        "InsideColor": "0,0,0,0",
+        "InsideObscuredColor": "0,0,0,0",
+        "ObscuredColor": "0,0,0,0.4",
+        "Width": 0.25
+      },
+      {
+        "__type": "PlaneConstraint",
+        "__guid": "bf0b0880-1c3a-46dc-a071-7e11e225dee6",
+        "LockX": false,
+        "LockY": false,
+        "LockZ": true,
+        "UpdateType": "FixedUpdate",
+        "UseLocalPosition": true
+      },
+      {
+        "__type": "InitialVelocity",
+        "__guid": "07fc8ab7-bc6b-46a4-9bac-6ae459942506",
+        "AngularDirection": "1,0,0",
+        "AngularScale": "0.50,2.00,1",
+        "ApplyInitialAngularVelocity": true,
+        "ApplyInitialVelocity": true,
+        "RandomizeAngularDirection": true,
+        "RandomizeVelocityDirection": true,
+        "Rigidbody": {
+          "_type": "component",
+          "component_id": "39ea763d-3fa2-4ce2-a111-a7f073710cbd",
+          "go": "9666dd9b-8a90-4190-85b6-1b2530bff796",
+          "component_type": "Rigidbody"
+        },
+        "VelocityDirection": "1,0,0",
+        "VelocityScale": "5.00,30.00,1"
+      }
+    ],
+    "Children": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": []
+}

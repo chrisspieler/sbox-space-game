@@ -84,8 +84,8 @@
                 "Id": 2,
                 "Type": "property.get",
                 "Properties": {
-                  "_name": "PhysicsWorld",
-                  "_type": "Sandbox.Game/Sandbox.Scene"
+                  "_type": "Sandbox.Game/Sandbox.Scene",
+                  "_name": "PhysicsWorld"
                 },
                 "UserData": {
                   "Position": "64,64"
@@ -95,8 +95,8 @@
                 "Id": 3,
                 "Type": "property.set",
                 "Properties": {
-                  "_name": "Gravity",
-                  "_type": "Sandbox.Engine/Sandbox.PhysicsWorld"
+                  "_type": "Sandbox.Engine/Sandbox.PhysicsWorld",
+                  "_name": "Gravity"
                 },
                 "UserData": {
                   "Position": "352,0"
@@ -481,7 +481,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-27T21:45:05.2839358-06:00",
+  "LastSaved": "2024-03-30T09:39:17.8234384-06:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [

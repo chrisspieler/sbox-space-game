@@ -16,7 +16,7 @@
         if ( !firstTime )
             return;
 
-        ( GlyphTexture as Image ).Texture = Input.GetGlyph( GlyphData.ActionName );
+        ( GlyphTexture as Image ).Texture = Input.GetGlyph( GlyphData.ActionName, InputGlyphSize.Medium, false );
         
         StateHasChanged();
     }

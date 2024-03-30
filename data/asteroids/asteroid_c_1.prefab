@@ -1,0 +1,100 @@
+{
+  "RootObject": {
+    "__guid": "d6447b86-f124-475d-b0e8-22daf3923031",
+    "Name": "asteroid_c_1",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "Components": [
+      {
+        "__type": "ColliderLod",
+        "__guid": "d659efbf-8770-44c0-a5bc-889978f9494b",
+        "HighDetail": [
+          {
+            "_type": "component",
+            "component_id": "855b10fe-8359-4c46-b729-9156bca3f783",
+            "go": "fb3b5253-d131-4ce2-8827-189c8193c629",
+            "component_type": "ModelCollider"
+          }
+        ],
+        "LowDetail": [
+          {
+            "_type": "component",
+            "component_id": "dab5c3ac-5f3c-4dad-b630-c0e8eb987a90",
+            "go": "0c6ee26c-3e99-4e6a-a3d1-8a06b8a4ddc9",
+            "component_type": "SphereCollider"
+          }
+        ]
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "9a9ca173-4d35-4ffc-965c-a01658668720",
+        "Name": "Model",
+        "Scale": "0.6,0.6,0.6",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "ModelRenderer",
+            "__guid": "9c194400-2065-48e6-a72d-23dbdd6ad256",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/asteroids/rocky/asteroid_c_1.vmdl",
+            "RenderType": "On",
+            "Tint": "0.37209,0.37209,0.37209,1"
+          }
+        ]
+      },
+      {
+        "__guid": "0c6ee26c-3e99-4e6a-a3d1-8a06b8a4ddc9",
+        "Name": "Collider Low LOD",
+        "Scale": "0.6,0.6,0.6",
+        "Tags": "solid",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "SphereCollider",
+            "__guid": "dab5c3ac-5f3c-4dad-b630-c0e8eb987a90",
+            "__enabled": false,
+            "Center": "0,0,0",
+            "IsTrigger": false,
+            "Radius": 160,
+            "Static": false
+          },
+          {
+            "__type": "CollisionBubbler",
+            "__guid": "17cda456-111b-4533-bd32-54c9af4408cd"
+          }
+        ]
+      },
+      {
+        "__guid": "fb3b5253-d131-4ce2-8827-189c8193c629",
+        "Name": "Collider High LOD",
+        "Scale": "0.6,0.6,0.6",
+        "Tags": "solid",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "ModelCollider",
+            "__guid": "855b10fe-8359-4c46-b729-9156bca3f783",
+            "__enabled": false,
+            "IsTrigger": false,
+            "Model": "models/asteroids/rocky/asteroid_c_1.vmdl",
+            "Static": false
+          },
+          {
+            "__type": "CollisionBubbler",
+            "__guid": "949fbcce-eae9-4b79-a35b-f7865e068a54"
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": []
+}

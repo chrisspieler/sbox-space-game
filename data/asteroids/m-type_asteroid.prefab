@@ -23,22 +23,14 @@
       {
         "__type": "SpaceFloater",
         "__guid": "1b2ad264-0210-438a-85f9-af50f14b0469",
-        "InitialAngularVelocity": "0,0,0",
-        "InitialVelocity": "0,0,0",
-        "LockToPlane": true,
-        "MassOverride": 180,
         "NavBlock": {
           "_type": "component",
           "component_id": "259f5b05-e521-4a33-be7d-2c8c5b961770",
           "go": "ae69859e-ce09-4833-a7f3-779a88cb4b14",
           "component_type": "NavBlocker"
         },
-        "RandomAngularVelocityScale": 0.25,
-        "RandomizeAngularVelocity": true,
         "RandomizeRotation": true,
         "RandomizeScale": true,
-        "RandomizeVelocity": true,
-        "RandomVelocityScale": 25,
         "Rigidbody": {
           "_type": "component",
           "component_id": "2a258b4a-d1ca-4848-9fdd-90cb0181101c",

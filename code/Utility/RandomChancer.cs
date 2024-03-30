@@ -5,7 +5,7 @@ using System.Linq;
 
 public class RandomChancer<T> : IEnumerable<RandomChancer<T>.RandomItem>
 {
-	public class RandomItem
+	public struct RandomItem
 	{
 		public RandomItem( T item, float ratio )
 		{
@@ -21,6 +21,11 @@ public class RandomChancer<T> : IEnumerable<RandomChancer<T>.RandomItem>
 	private float _ratioSum => _ratios.Sum( p => p.Ratio );
 
 	public int Count => _ratios.Count;
+
+	public void AddItem( RandomItem item )
+	{
+		_ratios.Add( item );
+	}
 
 	public void AddItem( T item, float ratio )
 	{

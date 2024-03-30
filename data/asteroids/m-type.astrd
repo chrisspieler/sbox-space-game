@@ -1,0 +1,27 @@
+{
+  "Name": "M-Type Asteroid",
+  "ModelPrefabs": [
+    "data/asteroids/asteroid_m_1.prefab"
+  ],
+  "LootTable": "data/asteroids/m_type_loot.loot",
+  "ScaleCurve": {
+    "rangey": "1,6",
+    "frames": [
+      {},
+      {
+        "x": 0.97619045,
+        "y": 0.07917006
+      },
+      {
+        "x": 1,
+        "y": 1,
+        "in": -1.4444445,
+        "out": 1.4444445
+      }
+    ]
+  },
+  "MassPerScale": 40,
+  "ResourceVersion": 0,
+  "__version": 0,
+  "__references": []
+}
