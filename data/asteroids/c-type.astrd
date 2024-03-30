@@ -1,7 +1,9 @@
 {
   "Name": "C-Type Asteroid",
   "ModelPrefabs": [
-    "data/asteroids/asteroid_c_1.prefab"
+    "data/asteroids/asteroid_c_1.prefab",
+    "data/asteroids/asteroid_c_2.prefab",
+    "data/asteroids/asteroid_c_3.prefab"
   ],
   "LootTable": "data/asteroids/c_type_loot.loot",
   "ScaleCurve": {
@@ -12,14 +14,8 @@
         "out": 0.14705914
       },
       {
-        "x": 0.2559524,
-        "y": 0.069148935,
-        "in": -0.6530612,
-        "out": 0.6530612
-      },
-      {
-        "x": 0.94494045,
-        "y": 0.19680852,
+        "x": 0.9598214,
+        "y": 0.33776596,
         "in": -0.25531957,
         "out": 0.25531957
       },

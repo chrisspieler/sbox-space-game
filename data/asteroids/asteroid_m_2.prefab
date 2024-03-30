@@ -1,7 +1,7 @@
 {
   "RootObject": {
     "__guid": "62b75961-212d-40ef-a1ee-8d65d2768423",
-    "Name": "asteroid_m_1",
+    "Name": "asteroid_m_2",
     "Enabled": true,
     "NetworkMode": 2,
     "Components": [
@@ -38,7 +38,7 @@
             "__type": "ModelRenderer",
             "__guid": "5ae51de6-678f-4f7a-963f-34e069c5bbd2",
             "BodyGroups": 18446744073709551615,
-            "Model": "models/asteroids/metallic/asteroid_m_1.vmdl",
+            "Model": "models/asteroids/metallic/asteroid_m_2.vmdl",
             "RenderType": "On",
             "Tint": "0.83721,0.79515,0.73207,1"
           }
@@ -80,7 +80,7 @@
             "__guid": "1da6e146-6d8d-4ddc-a596-25d4ae61a818",
             "__enabled": false,
             "IsTrigger": false,
-            "Model": "models/asteroids/metallic/asteroid_m_1.vmdl",
+            "Model": "models/asteroids/metallic/asteroid_m_2.vmdl",
             "Static": false
           },
           {

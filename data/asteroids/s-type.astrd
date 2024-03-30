@@ -1,16 +1,18 @@
 {
   "Name": "S-Type Asteroid",
   "ModelPrefabs": [
-    "data/asteroids/asteroid_s_1.prefab"
+    "data/asteroids/asteroid_s_1.prefab",
+    "data/asteroids/asteroid_s_1.prefab",
+    "data/asteroids/asteroid_s_3.prefab"
   ],
   "LootTable": "data/asteroids/s_type_loot.loot",
   "ScaleCurve": {
-    "rangey": "3,6",
+    "rangey": "1.5,6",
     "frames": [
       {},
       {
-        "x": 0.95089287,
-        "y": 0.4345617
+        "x": 0.9717262,
+        "y": 0.65796596
       },
       {
         "x": 1,
