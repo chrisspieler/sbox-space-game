@@ -7,12 +7,12 @@
   ],
   "LootTable": "data/asteroids/m_type_loot.loot",
   "ScaleCurve": {
-    "rangey": "1,6",
+    "rangey": "2,6",
     "frames": [
       {},
       {
         "x": 0.9583333,
-        "y": 0.20151049
+        "y": 0.20151047
       },
       {
         "x": 1,
@@ -23,6 +23,7 @@
     ]
   },
   "MassPerScale": 40,
+  "LootScale": 3,
   "ResourceVersion": 0,
   "__version": 0,
   "__references": []

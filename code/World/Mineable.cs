@@ -4,7 +4,7 @@ using System;
 public sealed class Mineable : Component
 {
 	[ConVar( "mining_loot_scale" )]
-	public static float LootScale { get; set; } = 0.4f;
+	public static float GlobalLootScale { get; set; } = 0.4f;
 	[ConVar( "mining_damage_alert_radius" )]
 	public static float DamageAlertRadius { get; set; } = 350f;
 
@@ -68,7 +68,7 @@ public sealed class Mineable : Component
 
 		var lootFloat = Random.Shared.Float( 0.7f, 1.2f );
 		lootFloat *= Health.MaxHealth / 75f;
-		lootFloat *= LootScale;
+		lootFloat *= Asteroid.Data.LootScale * GlobalLootScale;
 		var lootCount = lootFloat.CeilToInt();
 		for ( int i = 0; i < lootCount; i++ )
 		{
