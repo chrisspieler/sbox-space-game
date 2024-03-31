@@ -47,6 +47,7 @@ public sealed partial class WorldChunker : GameObjectSystem
 		{
 			UnloadChunk( chunk );
 		}
+		_previousOrigin = new Vector2Int( -999 );
 	}
 
 	private void EnsureChunkContainer()
