@@ -23,7 +23,7 @@ public sealed class Beacon : Component
 			? _originSystem.Origin.GameObject
 			: Scene.Camera.GameObject; // If the player is dead, get distance from camera instead.
 		var distance = GameObject.GetAbsolutePosition().Distance( originObject.GetAbsolutePosition() );
-		return MathX.InchToMeter( distance );
+		return Metric.InchesToMeters( distance );
 	}
 
 	public static Beacon Create( Vector3 relativePosition, string name = "New Beacon", float destroyAfterSeconds = 0f )

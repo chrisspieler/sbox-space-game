@@ -49,8 +49,6 @@ public partial class Career
 	public Color LaserTintPreference { get; set; } = Color.Red;
 	public string LaserGradientPreference { get; set; } = "rainbow";
 
-	public float TotalPlayTime { get; set; }
-
 	public LaserGradient GetPreferredLaserGradient()
 	{
 		return ResourceLibrary.GetAll<LaserGradient>()
@@ -75,12 +73,6 @@ public partial class Career
 			.GetAllValues()
 			.Select( v => new SavedCargoValue() { Name = v.Cargo.ResourceName, Value = v.CurrentValue } )
 			.ToList();
-	}
-
-	public string GetPlayTimeString()
-	{
-		var time = TimeSpan.FromSeconds( TotalPlayTime );
-		return time.ToString( "hh\\:mm\\:ss" );
 	}
 
 	public IEnumerable<Upgrade> GetAvailableUpgrades()
