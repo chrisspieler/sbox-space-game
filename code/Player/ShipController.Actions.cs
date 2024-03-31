@@ -33,7 +33,7 @@ public partial class ShipController
 		}
 	}
 
-	[ConCmd("ship_teleport")]
+	[ConCmd("ship_teleport"), Cheat]
 	public static void Teleport( Vector3 position )
 	{
 		GetCurrent()?.GameObject?.SetAbsolutePosition( position.WithZ( 0f ) );

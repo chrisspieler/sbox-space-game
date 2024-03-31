@@ -5,7 +5,7 @@ namespace Sandbox.Debug
 {
 	public static class CargoCommands
 	{
-		[ConCmd("cargo_fill_random")]
+		[ConCmd("cargo_fill_random"), Cheat]
 		public static void FillCargoHold()
 		{
 			var ship = ShipController.GetCurrent();
@@ -21,7 +21,7 @@ namespace Sandbox.Debug
 			}
 		}
 
-		[ConCmd("cargo_fill")]
+		[ConCmd("cargo_fill"), Cheat]
 		public static void FillCargoHold( string cargoName )
 		{
 			var ship = ShipController.GetCurrent();

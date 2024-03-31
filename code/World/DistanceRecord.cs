@@ -1,4 +1,5 @@
 ﻿using Sandbox;
+using System.Numerics;
 
 public class DistanceRecord : GameObjectSystem
 {
@@ -37,12 +38,30 @@ public class DistanceRecord : GameObjectSystem
 		{
 			NewRecordPending = true;
 			Career.Active.FarthestDistance = currentDistance;
+			HandleTenKilometerSpeedrun();
 		}
 		if ( ShouldShowNewRecordMessage() )
 		{
 			var position = ShipController.GetCurrent().Transform.Position;
 			ShowNewRecordMessage( position );
 		}
+	}
+
+	private void HandleTenKilometerSpeedrun()
+	{
+		// If we haven't gone 10km or we've already called time on the 10km speedrun, don't do anything.
+		if ( Career.Active.FarthestDistance < 10_000f || Career.Active.TenKmSpeedrunTime.HasValue )
+			return;
+
+		Career.Active.TenKmSpeedrunTime = Career.Active.TotalPlayTime;
+		var message = $"10km Reached in {Career.Active.GetPlayTimeString()}";
+		var messagePos = ShipController.GetCurrent().Transform.Position;
+		ScreenManager.ShowTextPanel( message, messagePos, false, 5f );
+		if ( !CheatManager.HasCheated )
+		{
+			Sandbox.Services.Stats.SetValue( "speedrun-10km", Career.Active.TotalPlayTime );
+		}
+		SaveManager.SaveActiveCareer();
 	}
 
 	private bool ShouldShowNewRecordMessage()

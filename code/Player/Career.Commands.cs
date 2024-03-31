@@ -18,13 +18,13 @@ public partial class Career
 		}
 	}
 
-	[ConCmd( "add_money" )]
+	[ConCmd( "add_money" ), Cheat]
 	public static void AddMoneyCommand( int money )
 	{
 		Active?.AddMoney( money );
 	}
 
-	[ConCmd( "remove_money" )]
+	[ConCmd( "remove_money" ), Cheat]
 	public static void RemoveMoneyCommmand( int money )
 	{
 		Active?.RemoveMoney( money );

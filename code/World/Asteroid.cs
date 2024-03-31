@@ -58,7 +58,7 @@ public sealed class Asteroid : Component
 		return asteroid;
 	}
 
-	[ConCmd("asteroid_spawn")]
+	[ConCmd("asteroid_spawn"), Cheat]
 	public static void SpawnCommand()
 	{
 		if ( Game.ActiveScene is null || Game.ActiveScene.Camera is null )

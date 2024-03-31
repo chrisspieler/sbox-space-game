@@ -73,7 +73,7 @@ public sealed class DroneSpawner : Component
 		}
 	}
 
-	[ConCmd("drone_spawn")]
+	[ConCmd("drone_spawn"), Cheat]
 	public static void SpawnCommand()
 	{
 		if ( Game.ActiveScene is null || Game.ActiveScene.Camera is null )

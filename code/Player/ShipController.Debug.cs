@@ -6,7 +6,6 @@ public partial class ShipController
 	public static bool Debug { get; set; }
 	[ConVar("ship_debug_update_interval")]
 	public static float UpdateInterval { get; set; } = 0.15f;
-	[ConVar( "ship_god_mode" )]
 	public static bool GodMode 
 	{
 		get => _godMode;
@@ -21,6 +20,10 @@ public partial class ShipController
 		}
 	}
 	private static bool _godMode;
+
+	[ConCmd( "ship_god_mode" ), Cheat]
+	public static void GodModeCommand() => GodMode = !GodMode;
+
 
 
 	private TimeSince _lastUpdateTime = 0f;
@@ -64,6 +67,19 @@ public partial class ShipController
 			var startPos = arrowRay.Project( 200f );
 			var endPos = arrowRay.Project( 200f + force.Length / Time.Delta );
 			Gizmo.Draw.Arrow( startPos, endPos, 24, 12 );
+		}
+	}
+
+	[ConCmd("ship_collision_disable"), Cheat]
+	public static void DisableCollisionCommand()
+	{
+		var ship = GetCurrent();
+		if ( !ship.IsValid() )
+			return;
+
+		foreach( var collider in ship.Components.GetAll<Collider>( FindMode.EnabledInSelfAndDescendants ) )
+		{
+			collider.Enabled = false;
 		}
 	}
 }
