@@ -1,0 +1,338 @@
+{
+  "__guid": "63198f92-4866-4976-85c8-7defe4eb427f",
+  "GameObjects": [
+    {
+      "__guid": "9c3fceaa-1d6a-4d91-b4a3-8a866b3dcd2e",
+      "Name": "ambient_light (1)",
+      "Tags": "light_directional,light,no_chunk",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/ambient_light.prefab"
+    },
+    {
+      "__guid": "17996343-7f81-49de-8cef-2d432510e3f3",
+      "Name": "skybox (1)",
+      "Tags": "skybox,no_chunk,shift_visible",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "__Prefab": "prefabs/skybox.prefab"
+    },
+    {
+      "__guid": "a9998ef5-933c-484e-a738-c1cb5897b5da",
+      "Name": "volumetric_fog (2)",
+      "Tags": "no_chunk,shift_visible",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "VolumetricFogVolume",
+          "__guid": "13dd3da5-079b-4f10-826a-433410d1b43a",
+          "Bounds": {
+            "Mins": "-8000,-8000,-6000",
+            "Maxs": "8000,8000,6000"
+          },
+          "FalloffExponent": 3,
+          "Strength": 0.1
+        },
+        {
+          "__type": "Follower",
+          "__guid": "c896e116-9a5d-47aa-a34a-dd00805e70b6",
+          "FollowPlayer": true,
+          "Offset": "0,0,0"
+        },
+        {
+          "__type": "FogController",
+          "__guid": "4876dcb9-d84f-4046-9cd8-3b1ae4e790dd",
+          "Intensity": 0.072,
+          "Volume": {
+            "_type": "component",
+            "component_id": "13dd3da5-079b-4f10-826a-433410d1b43a",
+            "go": "a9998ef5-933c-484e-a738-c1cb5897b5da",
+            "component_type": "VolumetricFogVolume"
+          }
+        }
+      ]
+    },
+    {
+      "__guid": "e43a6c16-2533-4cb9-a505-98d9d047757c",
+      "Name": "ship_camera (2)",
+      "Position": "-200,0,1000",
+      "Rotation": "0,0.5735765,0,0.8191521",
+      "Tags": "no_chunk,no_shift",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "CameraComponent",
+          "__guid": "a8711863-6d4f-468c-a4cf-749477e2d9bf",
+          "BackgroundColor": "0.33333,0.46275,0.52157,1",
+          "ClearFlags": "All",
+          "FieldOfView": 90,
+          "IsMainCamera": true,
+          "Orthographic": false,
+          "OrthographicHeight": 1204,
+          "Priority": 1,
+          "RenderExcludeTags": "",
+          "RenderTags": "",
+          "TargetEye": "None",
+          "Viewport": "0,0,1,1",
+          "ZFar": 100000,
+          "ZNear": 10
+        },
+        {
+          "__type": "ShipCamera",
+          "__guid": "b1433412-54ff-408f-aa90-fa3eeecef01a",
+          "__enabled": false,
+          "Combiner": {
+            "_type": "component",
+            "component_id": "162f0984-f965-42c9-9b87-48f81505fb79",
+            "go": "e43a6c16-2533-4cb9-a505-98d9d047757c",
+            "component_type": "OffsetCombiner"
+          },
+          "HighPitch": 88,
+          "HighPosition": "-120,0,3000",
+          "LowPitch": 70,
+          "LowPosition": "-350,0,1000",
+          "PitchLerpSpeed": 1,
+          "PositionLerpSpeed": 1,
+          "TargetVelocityHighThreshold": 2500,
+          "TargetVelocityLowThreshold": 50
+        },
+        {
+          "__type": "Bloom",
+          "__guid": "34ec4b1b-8cd0-4297-8a2f-ce9c2d576b8d",
+          "BloomColor": {
+            "color": [
+              {
+                "c": "1,1,1,1"
+              },
+              {
+                "t": 1,
+                "c": "1,1,1,1"
+              }
+            ],
+            "alpha": []
+          },
+          "BloomCurve": [
+            {
+              "y": 0.5
+            },
+            {
+              "x": 1,
+              "y": 1
+            }
+          ],
+          "Mode": "Additive",
+          "Strength": 0.5,
+          "Threshold": 0.05,
+          "ThresholdWidth": 0.1
+        },
+        {
+          "__type": "ColorAdjustments",
+          "__guid": "5241867a-e56b-4113-bde4-e4ebf213b68b",
+          "Brightness": 1.1,
+          "Contrast": 1.01,
+          "HueRotate": 0,
+          "Saturation": 1.1
+        },
+        {
+          "__type": "Highlight",
+          "__guid": "1986dbbd-3a14-4b47-9496-d373bdd9a92d"
+        },
+        {
+          "__type": "PostProcessingController",
+          "__guid": "50a6f4d4-1d5e-4631-8436-f8115a81cddc",
+          "Bloom": {
+            "_type": "component",
+            "component_id": "34ec4b1b-8cd0-4297-8a2f-ce9c2d576b8d",
+            "go": "e43a6c16-2533-4cb9-a505-98d9d047757c",
+            "component_type": "Bloom"
+          },
+          "HighlightEffect": {
+            "_type": "component",
+            "component_id": "1986dbbd-3a14-4b47-9496-d373bdd9a92d",
+            "go": "e43a6c16-2533-4cb9-a505-98d9d047757c",
+            "component_type": "Highlight"
+          },
+          "Sharpen": {
+            "_type": "component",
+            "component_id": "8018e84e-e590-49db-91dd-90053c423c7f",
+            "go": "e43a6c16-2533-4cb9-a505-98d9d047757c",
+            "component_type": "Sharpen"
+          },
+          "TargetBloom": 1,
+          "TargetSharpness": 0.05
+        },
+        {
+          "__type": "OriginShiftCamera",
+          "__guid": "86896e7f-9aa1-4b9c-9e65-83f3706bf044",
+          "Camera": {
+            "_type": "component",
+            "component_id": "a8711863-6d4f-468c-a4cf-749477e2d9bf",
+            "go": "e43a6c16-2533-4cb9-a505-98d9d047757c",
+            "component_type": "CameraComponent"
+          },
+          "OriginShiftFreezeFrames": 0,
+          "RenderTags": "shift_visible"
+        },
+        {
+          "__type": "ScreenShake",
+          "__guid": "1cd9e6cf-17b5-4e4f-9b65-4c991d3b5a2a",
+          "BaseTrauma": 0,
+          "CombinedTrauma": 0,
+          "PitchShakeIntensity": 5,
+          "PitchShakeSpeed": 300,
+          "RollShakeIntensity": 5,
+          "RollShakeSpeed": 300,
+          "ShakeToggleCount": 0,
+          "Trauma": 0,
+          "TraumaDecayRate": 0.75,
+          "YawShakeIntensity": 5,
+          "YawShakeSpeed": 300
+        },
+        {
+          "__type": "OffsetCombiner",
+          "__guid": "162f0984-f965-42c9-9b87-48f81505fb79"
+        },
+        {
+          "__type": "DeathCam",
+          "__guid": "ab87cf32-1b2b-4896-a315-4b5792a9a49c",
+          "__enabled": false,
+          "Offset": "-100,0,0",
+          "PositionLerpSpeed": {
+            "rangey": "1,20",
+            "frames": [
+              {
+                "y": 0.018085156,
+                "in": -0.06567136,
+                "out": 0.06567136
+              },
+              {
+                "x": 0.8979591,
+                "y": 0.48478442,
+                "in": -1.6221398,
+                "out": 1.6221398
+              },
+              {
+                "x": 1,
+                "y": 1,
+                "in": -9.076923,
+                "out": 9.076923
+              }
+            ]
+          },
+          "RotationLerpSpeed": {
+            "rangey": "0,5",
+            "frames": [
+              {
+                "y": 0.02074473
+              },
+              {
+                "x": 0.88839287,
+                "y": 0.4588643,
+                "in": -1.8266492,
+                "out": 1.8266492
+              },
+              {
+                "x": 1,
+                "y": 1,
+                "in": -6.3225813,
+                "out": 6.3225813
+              }
+            ]
+          }
+        },
+        {
+          "__type": "Sharpen",
+          "__guid": "8018e84e-e590-49db-91dd-90053c423c7f",
+          "Scale": 0.05
+        },
+        {
+          "__type": "Follower",
+          "__guid": "3faf5fd3-0268-4dcf-868a-a2f85c5da1f8",
+          "FollowPlayer": true,
+          "Offset": "-200,0,1000"
+        }
+      ]
+    },
+    {
+      "__guid": "5bd9bd14-d0a2-4afc-b566-25d3377e84b8",
+      "Name": "Game",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "WorldLoader",
+          "__guid": "d557ad09-a21a-4c3c-bd2d-21a6ca98c5f6",
+          "World": "test_mining"
+        }
+      ]
+    },
+    {
+      "__guid": "2c3eb11e-5f26-48a7-ab29-59df964a4cde",
+      "Name": "Rope Gun",
+      "Tags": "no_chunk",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "Components": [
+        {
+          "__type": "RopeTester",
+          "__guid": "586b06fe-a021-4612-9f2d-9b852033c751",
+          "HookModel": "data/equipment/grapple_rope/grapple_rope_hook.vmdl",
+          "MoveSpeed": 500
+        },
+        {
+          "__type": "FloatingOriginPlayer",
+          "__guid": "eb5dfe59-5ccd-4320-821c-64b5f2da2281"
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "051f505f-5b98-4e05-a072-700feb851b31",
+          "Name": "Model",
+          "Position": "25,0,0",
+          "Scale": "1,0.3,0.3",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "__guid": "7bc23006-9798-432b-bc6b-7d8c1cecbd19",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "test_rope",
+  "Description": "",
+  "LastSaved": "2024-03-30T23:56:31.6518337-06:00",
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": []
+}
