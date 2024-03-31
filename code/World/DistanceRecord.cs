@@ -57,7 +57,7 @@ public class DistanceRecord : GameObjectSystem
 		var message = $"10km Reached in {Career.Active.GetPlayTimeString()}";
 		var messagePos = ShipController.GetCurrent().Transform.Position;
 		ScreenManager.ShowTextPanel( message, messagePos, false, 5f );
-		if ( !CheatManager.HasCheated )
+		if ( !CheatManager.HasCheated && Scene.IsMainGameplayScene() )
 		{
 			Sandbox.Services.Stats.SetValue( "speedrun-10km", Career.Active.TotalPlayTime );
 		}
@@ -79,6 +79,10 @@ public class DistanceRecord : GameObjectSystem
 		_lastRecordNotification = 0f;
 		var message = $"New Distance Record: { Metric.FormatDistance( Career.Active.FarthestDistance ) }";
 		ScreenManager.ShowTextPanel( message, position, false, 5f );
+		if ( !CheatManager.HasCheated && Scene.IsMainGameplayScene() )
+		{
+			Sandbox.Services.Stats.SetValue( "distance-farthest", Career.Active.FarthestDistance );
+		}
 		SaveManager.SaveActiveCareer();
 		NewRecordPending = false;
 	}

@@ -35,7 +35,7 @@ public sealed class Shop : Component, Component.ITriggerListener
 		if ( !ship.Cargo.RemoveItem( item ) )
 			return;
 
-		Career.AddMoneyCommand( GetValue( item ) );
+		Career.Active.AddMoney( GetValue( item ) );
 		_cargoValues.OnCargoSold( item );
 		Career.Active.UpdateCargoValues( _cargoValues );
 	}
@@ -96,7 +96,7 @@ public sealed class Shop : Component, Component.ITriggerListener
 		if ( !CanBuyUpgrade( ship, upgrade ) )
 			return;
 
-		Career.RemoveMoneyCommmand( upgrade.Cost );
+		Career.Active.RemoveMoney( upgrade.Cost );
 		Career.Active.AddUpgrade( upgrade );
 		SaveManager.SaveActiveCareer();
 	}

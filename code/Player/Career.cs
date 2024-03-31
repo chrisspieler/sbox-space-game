@@ -100,6 +100,11 @@ public partial class Career
 		if ( money < 0 )
 			return;
 
+		if ( !CheatManager.HasCheated && Game.ActiveScene.IsMainGameplayScene() )
+		{
+			Sandbox.Services.Stats.Increment( "credits-total", money );
+		}
+
 		Money += money;
 	}
 	public void RemoveMoney( int money )

@@ -138,6 +138,17 @@ public sealed class Drone : Component
 
 	private void OnKilled( DamageInfo damage )
 	{
+		if ( damage.Attacker.IsPlayer() )
+		{
+			if ( !CheatManager.HasCheated && Scene.IsMainGameplayScene() )
+			{
+				Sandbox.Services.Stats.Increment( "enemies-destroyed", 1 );
+			}
+			if ( Career.Active is not null )
+			{
+				Career.Active.EnemiesDestroyed++;
+			}
+		}
 		State = DroneState.Idle;
 		Lights?.UpdateLights();
 		Debris?.ReleaseDebris();

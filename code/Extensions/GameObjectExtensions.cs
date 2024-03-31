@@ -187,4 +187,12 @@ public static class GameObjectExtensions
 		var screenNormal = camera.PointToScreenNormal( cullPoint );
 		return screenNormal.x > 0f && screenNormal.x < 1f && screenNormal.y > 0f && screenNormal.y < 1f;
 	}
+
+	public static bool IsPlayer( this GameObject gameObject )
+	{
+		if ( !gameObject.IsValid() )
+			return false;
+
+		return gameObject.Components.Get<ShipController>() != null;
+	}
 }

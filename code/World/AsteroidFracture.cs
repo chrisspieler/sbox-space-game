@@ -13,7 +13,23 @@ public sealed class AsteroidFracture : Component
 	{
 		Health ??= Components.Get<Health>();
 		Asteroid ??= Components.Get<Asteroid>();
-		Health.OnKilled += _ => SpawnFracturePieces();
+		Health.OnKilled += OnKilled;
+	}
+
+	private void OnKilled( DamageInfo damage )
+	{
+		if ( damage.Attacker.IsPlayer() )
+		{
+			if ( !CheatManager.HasCheated && Scene.IsMainGameplayScene() )
+			{
+				Sandbox.Services.Stats.Increment( "asteroids-mined", 1 );
+			}
+			if ( Career.Active is not null )
+			{
+				Career.Active.AsteroidsMined++;
+			}
+		}
+		SpawnFracturePieces();
 	}
 
 	private void SpawnFracturePieces()

@@ -35,7 +35,8 @@ public sealed partial class ShipController
 		SpawnExplosion();
 		ScreenEffects.AddScreenShake( 1f );
 		Rigidbody.Velocity = Vector3.Zero;
-		Career.RemoveMoneyCommmand( Career.RespawnFee );
+		Career.Active.RemoveMoney( Career.RespawnFee );
+		UpdateExplosionStat();
 		SaveManager.SaveActiveCareer();
 		GameObject.Destroy();
 	}
@@ -131,6 +132,18 @@ public sealed partial class ShipController
 			// For effects that use force, inherit velocity from the ship.
 			effect.ForceDirection = (effect.ForceDirection + Rigidbody.Velocity.Normal).Normal;
 			effect.ForceScale = effect.ForceScale.ConstantValue + Rigidbody.Velocity.Length;
+		}
+	}
+
+	private void UpdateExplosionStat()
+	{
+		if ( !CheatManager.HasCheated && Scene.IsMainGameplayScene() )
+		{
+			Sandbox.Services.Stats.Increment( "ship-explosions", 1 );
+		}
+		if ( Career.Active is not null )
+		{
+			Career.Active.ShipExplosions++;
 		}
 	}
 }
