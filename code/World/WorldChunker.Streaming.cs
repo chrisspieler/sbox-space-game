@@ -174,6 +174,9 @@ public sealed partial class WorldChunker : GameObjectSystem
 				}
 				Gizmo.Draw.Color = color;
 				Gizmo.Draw.ScreenText( "■", chunkPos, "Consolas", 24, TextFlag.Left );
+				Gizmo.Draw.Color = Color.White;
+				var difficulty = chunk.ChebyshevDistance( Vector2Int.Zero );
+				Gizmo.Draw.ScreenText( difficulty.ToString(), chunkPos + new Vector2(5), "Consolas" );
 			}
 		}
 		foreach( var (coords, _) in _worldChunks )

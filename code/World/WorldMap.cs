@@ -12,8 +12,8 @@ public class WorldMap : GameResource
 		if ( cell == Vector2Int.Zero )
 			return OriginChunk;
 
-		// For now, the difficulty of a chunk in the world is just its Manhattan distance from the origin.
-		var difficulty = cell.RectDistance( Vector2Int.Zero );
+		// For now, the difficulty of a chunk in the world is just its chessboard distance from the origin.
+		var difficulty = cell.ChebyshevDistance( Vector2Int.Zero );
 		var chunks = RandomChunks.Where( c => c.Difficulty <= difficulty );
 		if ( chunks.Any() )
 		{

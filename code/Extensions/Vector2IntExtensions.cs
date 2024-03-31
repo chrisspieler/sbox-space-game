@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sandbox;
 
@@ -16,5 +12,8 @@ public static class Vector2IntExtensions
 	}
 
 	public static int RectDistance( this Vector2Int self, Vector2Int other )
-	=> Math.Abs( self.x - other.x ) + Math.Abs( self.y - other.y );
+		=> Math.Abs( self.x - other.x ) + Math.Abs( self.y - other.y );
+
+	public static int ChebyshevDistance( this Vector2Int self, Vector2Int other )
+		=> Math.Max( Math.Abs( self.x - other.x ), Math.Abs( self.y - other.y ) );
 }
