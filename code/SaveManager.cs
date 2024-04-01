@@ -36,6 +36,7 @@ public sealed class SaveManager : Component
 		worldChunker.Clear();
 		worldChunker.World = ResourceLibrary.GetAll<WorldMap>()
 			.First( m => m.ResourceName == Career.Active.World );
+		worldChunker.LoadChunkCache( Career.Active.ChunkDataToDictionary() );
 		ShipController.Respawn();
 		Scene.PhysicsWorld.Gravity = 0f;
 		_untilNextAutosave = AutosaveInterval;
@@ -60,6 +61,11 @@ public sealed class SaveManager : Component
 		if ( Career.Active is null || string.IsNullOrWhiteSpace( ActiveFileName) )
 			return;
 
+		if ( Game.ActiveScene is not null )
+		{
+			var chunker = Game.ActiveScene.GetSystem<WorldChunker>();
+			chunker.RefreshChunkCache();
+		}
 		SaveCareer( Career.Active, ActiveFileName );
 		Log.Info( $"Saved file: {ActiveFileName}" );
 	}

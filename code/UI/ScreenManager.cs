@@ -28,6 +28,7 @@ public sealed class ScreenManager : Component
 		if ( Input.EscapePressed )
 		{
 			ShowPauseMenu();
+			SaveManager.SaveActiveCareer();
 		}
 		GameObject.BreakFromPrefab();
 	}

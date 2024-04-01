@@ -2,7 +2,7 @@ using Sandbox;
 using System;
 using System.Threading.Tasks;
 
-public sealed class Pickup : Component, Component.ITriggerListener
+public sealed partial class Pickup : Component, Component.ITriggerListener
 {
 	[Property] public CargoItem Item { get; set; }
 	[Property] public bool DisablePickup { get; set; }

@@ -1,18 +1,19 @@
 {
   "RootObject": {
-    "Id": "80a75354-86aa-4e0c-a8b6-9073220040b8",
+    "__guid": "a2fdd7bf-9d97-407b-a170-174c4f0dc3b3",
     "Name": "pickup_base",
     "Tags": "light_point,light,pickup",
     "Enabled": true,
+    "NetworkMode": 2,
     "Components": [
       {
         "__type": "Pickup",
+        "__guid": "502b9ab6-4d60-4b40-8802-32cafcff09ee",
         "AnimationDuration": 0.4,
         "DisablePickup": false,
         "GetFailSound": "sounds/pickup_cargo_full.sound",
         "GetSuccessSound": "sounds/pickup_get.sound",
         "Item": "data/cargo/iron_ore.cargo",
-        "PickupEffectPrefab": null,
         "ScaleCurve": {
           "rangey": "0,2",
           "frames": [
@@ -54,6 +55,7 @@
       },
       {
         "__type": "PointLight",
+        "__guid": "d71c4938-b447-4201-b721-037039ca38a0",
         "Attenuation": 4,
         "FogMode": "Disabled",
         "FogStrength": 0,
@@ -63,23 +65,24 @@
       },
       {
         "__type": "HighlightOutline",
+        "__guid": "691a3152-76db-4d66-bdb3-001ae5a51007",
         "Color": "0,0,0,0.3",
         "InsideColor": "1,1,1,0",
         "InsideObscuredColor": "1,1,1,0",
-        "Material": null,
         "ObscuredColor": "1,1,1,0",
         "Width": 0.25
       },
       {
         "__type": "SphereCollider",
+        "__guid": "ed6dc20a-5d60-4b82-a566-7c4ce86003b5",
         "Center": "0,0,0",
         "IsTrigger": true,
         "Radius": 72,
-        "Static": false,
-        "Surface": null
+        "Static": false
       },
       {
         "__type": "Rigidbody",
+        "__guid": "90ed576e-b067-43b8-858a-afb8654b7f21",
         "AngularDamping": 0,
         "Gravity": false,
         "LinearDamping": 5,
@@ -89,24 +92,26 @@
           "Roll": true
         },
         "MassOverride": 1,
+        "MotionEnabled": true,
         "RigidbodyFlags": 0,
         "StartAsleep": false
       }
     ],
     "Children": [
       {
-        "Id": "9a16c80f-f886-4e5e-adb9-51256c000590",
+        "__guid": "294844b1-ab28-4859-8c2b-38f2f7115545",
         "Name": "Push Collider",
         "Tags": "player_allow",
         "Enabled": true,
+        "NetworkMode": 2,
         "Components": [
           {
             "__type": "SphereCollider",
+            "__guid": "1f18ee62-4d4e-45d9-b375-ad8b22405cfe",
             "Center": "0,0,0",
             "IsTrigger": false,
             "Radius": 64,
-            "Static": false,
-            "Surface": null
+            "Static": false
           }
         ]
       }
@@ -115,5 +120,7 @@
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
   "__references": []
 }

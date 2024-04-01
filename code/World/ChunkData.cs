@@ -8,7 +8,7 @@ public class ChunkData : GameResource
 	public int Difficulty { get; set; }
 	public AsteroidSpawnConfig Asteroids { get; set; }
 
-	public GameObject Spawn( Vector3 relativePosition )
+	public GameObject Generate( Vector3 relativePosition, bool firstTime )
 	{
 		var chunkGo = Prefab.GetPrefabScene().Clone( relativePosition );
 		chunkGo.BreakFromPrefab();

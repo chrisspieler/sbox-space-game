@@ -58,8 +58,10 @@ public partial class WorldChunker
 			var listeners = go.Components.GetAll<IWorldStreamingListener>( FindMode.EnabledInSelfAndDescendants );
 			foreach ( var listener in listeners )
 			{
-				listener.OnUnloaded();
+				listener.OnWorldUnload( wholeChunkUnloaded: false );
 			}
+			// When an object drifts in to an unloaded area, we don't automatically persist it, as the logic for
+			// determining in what chunk (if any) they belong should be handled by the IWorldStreamingListener.
 			go.Destroy();
 		}
 	}

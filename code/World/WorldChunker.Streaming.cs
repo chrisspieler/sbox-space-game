@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 using Sandbox;
 
 public sealed partial class WorldChunker : GameObjectSystem
@@ -19,6 +21,8 @@ public sealed partial class WorldChunker : GameObjectSystem
 
 	private readonly Dictionary<Vector2Int, GameObject> _worldChunks = new();
 	private readonly List<Vector2Int> _chunkOrder = new();
+
+	private Dictionary<Vector2Int, List<PersistedObjectData>> _chunkCache = new();
 
 	private Vector2Int _previousOrigin = new Vector2Int( -999 );
 
@@ -47,8 +51,11 @@ public sealed partial class WorldChunker : GameObjectSystem
 		{
 			UnloadChunk( chunk );
 		}
+		_chunkCache.Clear();
 		_previousOrigin = new Vector2Int( -999 );
 	}
+
+
 
 	private void EnsureChunkContainer()
 	{
@@ -65,20 +72,34 @@ public sealed partial class WorldChunker : GameObjectSystem
 		{
 			return chunk;
 		}
-		chunk = LoadChunkForCoordinates( chunkPos );
+		chunk = LoadChunkFromCoordinates( chunkPos, true );
 		return chunk;
 	}
 	private bool TryLoadChunkFromCache( Vector2Int chunkPos, out GameObject chunk )
 	{
-		// TODO: Cache loaded chunks instead of generating new ones every time.
-		chunk = null;
-		return false;
+		if ( !_chunkCache.ContainsKey( chunkPos ) )
+		{
+			chunk = null;
+			return false;
+		}
+
+		chunk = LoadChunkFromCoordinates( chunkPos, false );
+		foreach( var child in _chunkCache[chunkPos] )
+		{
+			var type = TypeLibrary.GetType<IPersistentObjectLoader>( child.Type );
+			var loader = (IPersistentObjectLoader)JsonSerializer.Deserialize( child.Data, type.TargetType );
+			var childGo = loader.Load( chunkPos );
+			if ( Debug ) { Log.Info( $"{chunkPos} load persisted {childGo.Name} at {childGo.Transform.Position}" ); }
+		}
+		_chunkCache.Remove( chunkPos );
+		return true;
 	}
 
-	private GameObject LoadChunkForCoordinates( Vector2Int chunkPos )
+	private GameObject LoadChunkFromCoordinates( Vector2Int chunkPos, bool firstTime )
 	{
 		var chunkData = World.GetChunkDataForCell( chunkPos );
-		return chunkData.Spawn( ChunkToWorldRelative( chunkPos ) );
+		var relativePos = ChunkToWorldRelative( chunkPos );
+		return chunkData.Generate( relativePos, firstTime );
 	}
 
 	private void LoadChunk( Vector2Int chunkPos )
@@ -106,20 +127,84 @@ public sealed partial class WorldChunker : GameObjectSystem
 
 	private void UnloadChunk( Vector2Int chunkPos )
 	{
-		if ( Debug ) { Log.Info( $"Unload chunk: {chunkPos}" ); }
-
 		if ( !_worldChunks.ContainsKey( chunkPos ) )
+		{
+			if ( Debug ) { Log.Info( $"Chunk not loaded: {chunkPos}" ); }
 			return;
+		}	
 
 		var chunk = _worldChunks[chunkPos];
+		if ( Debug ) { Log.Info( $"Unloading chunk with {chunk.Children.Count} children: {chunkPos}" ); }
+		CacheChunk( chunkPos, chunk );
 		var children = chunk.Children.ToArray();
 		foreach( var child in children )
 		{
+			UnloadGameObject( child );
 			child.DestroyImmediate();
 		}
 		chunk.Destroy();
 		_worldChunks.Remove( chunkPos );
 		_chunkOrder.Remove( chunkPos );
+
+		static void UnloadGameObject( GameObject go )
+		{
+			var listeners = go.Components.GetAll<IWorldStreamingListener>( FindMode.EnabledInSelfAndDescendants );
+			foreach ( var listener in listeners )
+			{
+				listener.OnWorldUnload( wholeChunkUnloaded: true );
+			}
+		}
+	}
+
+	/// <summary>
+	/// Overrides the in-memory chunk cache with the specified chunks. Used by the 
+	/// <see cref="SaveManager"/> to initialize the chunk cache on game start.
+	/// </summary>
+	public void LoadChunkCache( Dictionary<Vector2Int, List<PersistedObjectData>> chunkCache )
+	{
+		_chunkCache = chunkCache;
+	}
+
+	/// <summary>
+	/// Refreshes chunk cache entries for all loaded chunks. If a loaded chunk is never
+	/// unloaded over the course of the game, this is the only way that chunk's data might
+	/// be persisted.
+	/// </summary>
+	public void RefreshChunkCache()
+	{
+		foreach( var chunk in _worldChunks )
+		{
+			CacheChunk( chunk.Key, chunk.Value );
+		}
+	}
+
+	/// <summary>
+	/// Overwrites the chunk cache entry for the specified chunk.
+	/// </summary>
+	private void CacheChunk( Vector2Int chunkPos, GameObject chunk )
+	{
+		var children = new List<PersistedObjectData>();
+		foreach ( var child in chunk.Children )
+		{
+			if ( !child.Components.TryGet<IPersistentObject>( out var persistent ) )
+				continue;
+			if ( Debug ) { Log.Info( $"{chunkPos} persisting {child.Name} at {child.Transform.Position}" ); }
+			var loader = persistent.SaveData();
+			var type = loader.GetType();
+			var data = new PersistedObjectData()
+			{
+				Type = type.FullName,
+				Data = (JsonObject)JsonSerializer.SerializeToNode( loader, type )
+			};
+			children.Add( data );
+		}
+		_chunkCache[chunkPos] = children;
+		// Don't actually save the chunk cache to disk unless the currently loaded world
+		// is the one specified by the save file.
+		if ( Career.Active?.World == World.ResourceName )
+		{
+			Career.Active.SaveChunkData( chunkPos, children );
+		}
 	}
 
 	private void LoadSquare( Vector2Int origin, int diameter )
