@@ -5,15 +5,15 @@ public sealed class ScreenManager : Component
 {
 	public static ScreenManager Instance { get; private set; }
 
-	[Property] public PanelComponent RestartPanel { get; set; }
-	[Property] public PanelComponent HudPanel { get; set; }
-	[Property] public PanelComponent CursorPanel { get; set; }
-	[Property] public PanelComponent HoveredSelectionPanel { get; set; }
-	[Property] public PanelComponent ShopPanel { get; set; }
+	[Property] public RestartPanel RestartPanel { get; set; }
+	[Property] public HudPanel HudPanel { get; set; }
+	[Property] public CursorPanel CursorPanel { get; set; }
+	[Property] public SelectionPanel HoveredSelectionPanel { get; set; }
+	[Property] public ShopPanel ShopPanel { get; set; }
 	[Property] public GameObject BeaconContainer { get; set; }
 	[Property] public GameObject HealthBarContainer { get; set; }
 	[Property] public GameObject TextPanelContainer { get; set; }
-	[Property] public PanelComponent PauseMenuPanel { get; set; }
+	[Property] public PauseMenuPanel PauseMenuPanel { get; set; }
 	[Property] public QtDriveHudPanel QtDriveHud { get; set; }
 
 	private Dictionary<IHealth, GameObject> _activeHealthBars = new();
@@ -35,8 +35,7 @@ public sealed class ScreenManager : Component
 
 	public static void UpdateShip( ShipController ship )
 	{
-		var hudPanel = Instance.HudPanel as HudPanel;
-		hudPanel.UpdateShip( ship );
+		Instance.HudPanel.UpdateShip( ship );
 	}
 
 	public static void SetHudEnabled( bool enabled )
@@ -56,27 +55,23 @@ public sealed class ScreenManager : Component
 
 	public static GameObject GetHoveredSelection()
 	{
-		SelectionPanel panel = Instance.HoveredSelectionPanel as SelectionPanel;
-		return panel?.Target;
+		return Instance.HoveredSelectionPanel?.Target;
 	}
 
 	public static void AddSelectionGlyph( InputGlyphData glyphData )
 	{
-		SelectionPanel panel = Instance.HoveredSelectionPanel as SelectionPanel;
-		panel.AddGlyph( glyphData );
+		Instance.HoveredSelectionPanel.AddGlyph( glyphData );
 	}
 
 	public static void RemoveSelectionGlyph( string actionName )
 	{
-		SelectionPanel panel = Instance.HoveredSelectionPanel as SelectionPanel;
-		panel.RemoveGlyph( actionName );
+		Instance.HoveredSelectionPanel.RemoveGlyph( actionName );
 	}
 
 	public static void SetHoveredSelection( GameObject selection )
 	{
-		SelectionPanel panel = Instance.HoveredSelectionPanel as SelectionPanel;
-		panel.Target = selection;
-		panel.Enabled = selection.IsValid();
+		Instance.HoveredSelectionPanel.Target = selection;
+		Instance.HoveredSelectionPanel.Enabled = selection.IsValid();
 	}
 
 	public static bool IsShopOpen()
@@ -86,9 +81,8 @@ public sealed class ScreenManager : Component
 
 	public static void OpenShopPanel( Shop shop )
 	{
-		ShopPanel shopPanel = Instance.ShopPanel as ShopPanel;
-		shopPanel.Shop = shop;
-		shopPanel.Enabled = true;
+		Instance.ShopPanel.Shop = shop;
+		Instance.ShopPanel.Enabled = true;
 		ShipController.GetCurrent().IsInvincible = true;
 	}
 
@@ -179,7 +173,7 @@ public sealed class ScreenManager : Component
 
 	public static void ShowPauseMenu()
 	{
-		if ( !((PauseMenuPanel)Instance.PauseMenuPanel).CanShowPauseMenu() )
+		if ( !Instance.PauseMenuPanel.CanShowPauseMenu() )
 			return;
 
 		Instance.PauseMenuPanel.Enabled = true;
