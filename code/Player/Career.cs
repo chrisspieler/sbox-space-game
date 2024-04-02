@@ -105,7 +105,7 @@ public partial class Career
 		{
 			Sandbox.Services.Stats.Increment( "credits-total", money );
 		}
-
+		TotalCreditsEarned += money;
 		Money += money;
 	}
 	public void RemoveMoney( int money )

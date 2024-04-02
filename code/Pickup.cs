@@ -61,6 +61,12 @@ public sealed partial class Pickup : Component, Component.ITriggerListener
 		if ( !cargoHold.TryAddItem( Item ) )
 		{
 			ScreenManager.ShowTextPanel( $"CARGO HOLD FULL", Transform.Position + Vector3.Up * 200f, true );
+			// If the player has never before sold any cargo...
+			if ( Career.Active.TotalCreditsEarned == 0 )
+			{
+				// ...let them know that they can sell it.
+				ScreenManager.ShowTextPanel( $"SELL CARGO AT SHOP", Transform.Position + new Vector3( -50f, 0f, 200f ), true, duration: 3f );
+			}
 			Sound.Play( GetFailSound, Transform.Position );
 			return;
 		}
@@ -68,6 +74,14 @@ public sealed partial class Pickup : Component, Component.ITriggerListener
 		_triggered = true;
 		ScreenManager.ShowTextPanel( $"+1 {Item.Name}", Transform.Position + Vector3.Up * 200f, false );
 		Sound.Play( GetSuccessSound, Transform.Position );
+		if ( cargoHold.Count == cargoHold.MaxItems )
+		{
+			ScreenManager.ShowTextPanel( $"CARGO HOLD FULL", Transform.Position + new Vector3( -50f, 0f, 200f ), false, duration: 3f );
+			if ( Career.Active.TotalCreditsEarned == 0 )
+			{
+				ScreenManager.ShowTextPanel( $"SELL CARGO AT SHOP", Transform.Position + new Vector3( -100f, 0f, 200f ), false, duration: 3f );
+			}
+		}
 
 		if ( PickupEffectPrefab is not null )
 		{
