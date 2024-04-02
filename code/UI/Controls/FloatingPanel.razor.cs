@@ -27,22 +27,22 @@ public partial class FloatingPanel : Panel
 			Delete( true );
 			return;
 		}
-		var position = GetRelativePosition( Target );
+		var screenNormal = GetScreenNormal( Target );
 		if ( ConfineToScreen )
 		{
-			position = position.Clamp( ConfinementMargin, 1f - ConfinementMargin );
+			screenNormal = screenNormal.Clamp( ConfinementMargin, 1f - ConfinementMargin );
 		}
-		position += new Vector3( Offset );
-		Style.Top = Length.Percent( position.y * 100 );
-		Style.Left = Length.Percent( position.x * 100 );
+		screenNormal += new Vector3( Offset );
+		Style.Top = Length.Percent( screenNormal.y * 100 );
+		Style.Left = Length.Percent( screenNormal.x * 100 );
 		StateHasChanged();
 	}
 
-	private Vector3 GetRelativePosition( Target target )
+	private Vector3 GetScreenNormal( Target target )
 	{
 		if ( target.GameObject is null )
 		{
-			return target.RelativePosition;
+			return GetScreenNormal( target.RelativePosition );
 		}
 		var bounds = target.GameObject.GetBounds();
 		var targetPos = bounds.Size == 0f

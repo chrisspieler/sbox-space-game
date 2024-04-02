@@ -166,7 +166,7 @@ public sealed class ScreenManager : Component
 		textGo.Transform.Position = position;
 		var textComponent = textGo.Components.Create<TextPanel>();
 		textComponent.Text = text;
-		textComponent.TargetPosition = position;
+		textComponent.Target = position;
 		textComponent.IsAlert = isAlert;
 		textComponent.Lifetime = duration;
 	}

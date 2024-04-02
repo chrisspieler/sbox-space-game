@@ -2,35 +2,23 @@
 
 public partial class TextPanel : PanelComponent
 {
-	[Property] public Vector3 TargetPosition { get; set; }
+	[Property] public Target Target { get; set; }
 	[Property] public string Text { get; set; } = "Hello World!";
 	[Property] public float Lifetime { get; set; } = 1.5f;
 	[Property] public bool IsAlert { get; set; }
 
-	protected override int BuildHash() => System.HashCode.Combine( Text, TargetInstance, IsAlert );
+	protected override int BuildHash() => System.HashCode.Combine( Text, Target, IsAlert );
 
 	private string TextClass => IsAlert ? "alert" : "";
 	private float Opacity { get; set; } = 1f;
 	private TimeUntil _untilDestroy;
-	private GameObject TargetInstance { get; set; }
 
 	protected override void OnStart()
 	{
 		base.OnStart();
-
-		TargetInstance?.Destroy();
-		TargetInstance = new GameObject( true, "Text Panel Target" );
-		TargetInstance.Tags.Add( "no_chunk" );
-		TargetInstance.Transform.Position = TargetPosition;
 		StateHasChanged();
 
 		_untilDestroy = Lifetime;
-	}
-
-	protected override void OnDisabled()
-	{
-		TargetInstance?.Destroy();
-		TargetInstance = null;
 	}
 
 	protected override void OnUpdate()
