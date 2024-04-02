@@ -1,7 +1,8 @@
 using Sandbox;
 using System.Collections.Generic;
+using System.Net.WebSockets;
 
-public sealed class ScreenManager : Component
+public sealed partial class ScreenManager : Component
 {
 	public static ScreenManager Instance { get; private set; }
 
@@ -10,7 +11,6 @@ public sealed class ScreenManager : Component
 	[Property] public CursorPanel CursorPanel { get; set; }
 	[Property] public SelectionPanel HoveredSelectionPanel { get; set; }
 	[Property] public ShopPanel ShopPanel { get; set; }
-	[Property] public GameObject BeaconContainer { get; set; }
 	[Property] public GameObject HealthBarContainer { get; set; }
 	[Property] public GameObject TextPanelContainer { get; set; }
 	[Property] public PauseMenuPanel PauseMenuPanel { get; set; }
@@ -90,44 +90,6 @@ public sealed class ScreenManager : Component
 	{
 		Instance.ShopPanel.Enabled = false;
 		ShipController.GetCurrent().IsInvincible = ShipController.GodMode;
-	}
-
-	public static void SetBeaconVisibility( bool isVisible )
-	{
-		Instance.BeaconContainer.Enabled = isVisible;
-	}
-
-	public static void AddBeacon( Beacon beacon )
-	{
-		if ( GetBeacon( beacon ) is not null ) 
-			return;
-
-		var panelGo = new GameObject( true, $"Beacon Panel ({beacon?.Name ?? "null"})" );
-		panelGo.Parent = Instance.BeaconContainer;
-		var beaconPanel = panelGo.Components.Create<BeaconPanel>();
-		beaconPanel.Target = beacon;
-	}
-
-	public static void RemoveBeacon( Beacon beacon )
-	{
-		var existing = GetBeacon( beacon );
-		if ( existing is null )
-			return;
-
-		existing.GameObject.Destroy();
-	}
-
-	private static BeaconPanel GetBeacon( Beacon beacon )
-	{
-		foreach( var child in Instance.BeaconContainer.Children )
-		{
-			var panel = child.Components.Get<BeaconPanel>();
-			if ( panel.IsValid() && panel.Target == beacon )
-			{
-				return panel;
-			}
-		}
-		return null;
 	}
 
 	public static void ShowHealthBar( IHealth health, GameObject target )

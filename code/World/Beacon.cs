@@ -1,29 +1,25 @@
 using Sandbox;
 
-public sealed class Beacon : Component
+public sealed class Beacon : Component, IWorldStreamingListener
 {
 	[Property] public string Name { get; set; }
-
-	private FloatingOriginSystem _originSystem;
+	/// <summary>
+	/// A unique ID for this beacon. Used by <see cref="ScreenManager"/>.
+	/// </summary>
+	[Property] public string BeaconId { get; set; }
 
 	protected override void OnEnabled()
 	{
-		_originSystem = Scene.GetSystem<FloatingOriginSystem>();
+		// This beacon might already be on screen as a distant, position-targeting BeaconPanel.
+		// Now that this beacon has been streamed in as part of a GameObject, we should remove
+		// the existing BeaconPanel and replace it with a GameObject-targeting BeaconPanel.
+		ScreenManager.RemoveBeacon( this );
 		ScreenManager.AddBeacon( this );
 	}
 
 	protected override void OnDisabled()
 	{
 		ScreenManager.RemoveBeacon( this );
-	}
-
-	public float GetMetersFromOrigin()
-	{
-		var originObject = _originSystem.Origin.IsValid()
-			? _originSystem.Origin.GameObject
-			: Scene.Camera.GameObject; // If the player is dead, get distance from camera instead.
-		var distance = GameObject.GetAbsolutePosition().Distance( originObject.GetAbsolutePosition() );
-		return Metric.InchesToMeters( distance );
 	}
 
 	public static Beacon Create( Vector3 relativePosition, string name = "New Beacon", float destroyAfterSeconds = 0f )
@@ -38,5 +34,11 @@ public sealed class Beacon : Component
 			selfDestruct.Delay = destroyAfterSeconds;
 		}
 		return beacon;
+	}
+
+	public void OnWorldUnload( bool wholeChunkUnloaded )
+	{
+		ScreenManager.RemoveBeacon( this );
+		ScreenManager.AddBeacon( GameObject.Transform.Position, BeaconId, Name );
 	}
 }

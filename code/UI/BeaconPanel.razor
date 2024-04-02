@@ -3,9 +3,9 @@
 @inherits PanelComponent
 
 <root>
-	<FloatingPanel Target=@Target?.GameObject ConfineToScreen=@true ConfinementMargin=@(new Vector2( 0.04f, 0.03f ) )>
+	<FloatingPanel Target=@Target ConfineToScreen=@true ConfinementMargin=@(new Vector2( 0.04f, 0.03f ) )>
         <Body>
-            <p>@(Target?.Name ?? "null") @GetDistanceText()</p>
+            <p>@(Name ?? "null") @GetDistanceText()</p>
         </Body>
     </FloatingPanel>
 </root>

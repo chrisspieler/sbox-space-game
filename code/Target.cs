@@ -38,6 +38,20 @@ public struct Target : IEquatable<Target>, IValid
 		}
 	}
 
+	public float GetMetersFromOrigin()
+	{
+		var scene = Game.ActiveScene;
+		if ( scene is null )
+			return 0f;
+
+		var originSystem = scene.GetSystem<FloatingOriginSystem>();
+		var originObject = originSystem.Origin.IsValid()
+			? originSystem.Origin.GameObject
+			: scene.Camera.GameObject; // If the player is dead, get distance from camera instead.
+		var distance = GameObject.GetAbsolutePosition().Distance( originObject.GetAbsolutePosition() );
+		return Metric.InchesToMeters( distance );
+	}
+
 	/// <summary>
 	/// Returns true unless <see cref="GameObject"/> is set and is no longer valid.
 	/// </summary>

@@ -347,6 +347,7 @@
             {
               "__type": "Beacon",
               "__guid": "59544ab3-8b2d-4573-9aaf-504b696658f8",
+              "BeaconId": "shop0",
               "Name": "Shop"
             },
             {
@@ -481,7 +482,7 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-03-30T09:57:36.1467062-06:00",
+  "LastSaved": "2024-04-02T03:19:23.0036935-06:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
