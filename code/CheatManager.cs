@@ -20,6 +20,9 @@ public class CheatManager : GameObjectSystem
 		Gizmo.Draw.Color = Color.Yellow;
 		var position = new Vector2( Screen.Width / 2, 5f );
 		Gizmo.Draw.ScreenText( "CHEAT MODE ACTIVATED", position, "Poppins", 24, TextFlag.CenterTop );
+		Gizmo.Draw.Color = Color.Red;
+		position += Vector2.Up * 28f;
+		Gizmo.Draw.ScreenText( "Your game cannot be saved until the game is restarted.", position, "Poppins", 24, TextFlag.CenterTop );
 		Gizmo.Draw.Color = Color.White;
 		position += Vector2.Up * 28f;
 		Gizmo.Draw.ScreenText( "Stats and leaderboards will be disabled until the game is restarted.", position, "Poppins", 24, TextFlag.CenterTop );

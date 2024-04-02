@@ -61,6 +61,10 @@ public sealed class SaveManager : Component
 		if ( Career.Active is null || string.IsNullOrWhiteSpace( ActiveFileName) )
 			return;
 
+		// Don't save the game if cheats have been applied.
+		if ( CheatManager.HasCheated )
+			return;
+
 		if ( Game.ActiveScene is not null )
 		{
 			var chunker = Game.ActiveScene.GetSystem<WorldChunker>();
