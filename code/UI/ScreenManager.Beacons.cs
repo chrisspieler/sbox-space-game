@@ -20,7 +20,10 @@ public sealed partial class ScreenManager : Component
 	{
 		// No two beacons may share the same Id.
 		if ( GetBeacon( beaconId ) is not null )
+		{
+			Log.Info( $"Beacon already added: {beaconId}" );
 			return;
+		}
 
 		var panelGo = new GameObject( true, $"Beacon Panel ({name ?? "null"})" );
 		panelGo.Parent = Instance.BeaconContainer;
@@ -53,7 +56,7 @@ public sealed partial class ScreenManager : Component
 		if ( existing is null )
 			return;
 
-		existing.GameObject.Destroy();
+		existing.GameObject.DestroyImmediate();
 	}
 
 	/// <summary>
@@ -63,9 +66,16 @@ public sealed partial class ScreenManager : Component
 	public static void RemoveBeacon( Beacon beacon )
 	{
 		if ( !beacon.IsValid() )
+		{
+			Log.Info( "Beacon invalid" );
+			return;
+		}
+
+		var existing = GetBeacon( beacon );
+		if ( existing is null )
 			return;
 
-		RemoveBeacon( beacon.BeaconId );
+		existing.GameObject.DestroyImmediate();
 	}
 
 	/// <summary>
@@ -86,5 +96,16 @@ public sealed partial class ScreenManager : Component
 			}
 		}
 		return null;
+	}
+
+	private static BeaconPanel GetBeacon( Beacon beacon )
+	{
+		if ( !beacon.IsValid() )
+			return null;
+
+		var foundBeacon = GetBeacon( beacon.BeaconId );
+		return foundBeacon.Target.GameObject == beacon.GameObject
+			? foundBeacon
+			: null;
 	}
 }

@@ -38,7 +38,7 @@ public struct Target : IEquatable<Target>, IValid
 		}
 	}
 
-	public float GetMetersFromOrigin()
+	public float GetMetersFromFloatingOrigin()
 	{
 		var scene = Game.ActiveScene;
 		if ( scene is null )
@@ -48,7 +48,7 @@ public struct Target : IEquatable<Target>, IValid
 		var originObject = originSystem.Origin.IsValid()
 			? originSystem.Origin.GameObject
 			: scene.Camera.GameObject; // If the player is dead, get distance from camera instead.
-		var distance = GameObject.GetAbsolutePosition().Distance( originObject.GetAbsolutePosition() );
+		var distance = AbsolutePosition.Distance( originObject.GetAbsolutePosition() );
 		return Metric.InchesToMeters( distance );
 	}
 

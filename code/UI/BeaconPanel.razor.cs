@@ -16,7 +16,7 @@ public partial class BeaconPanel : PanelComponent
 		if ( !Target.IsValid() )
 			return string.Empty;
 
-		var metersFromPlayer = Target.GetMetersFromOrigin();
+		var metersFromPlayer = Target.GetMetersFromFloatingOrigin();
 		return Metric.FormatDistance( metersFromPlayer );
 	}
 }

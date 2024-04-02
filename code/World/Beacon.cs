@@ -13,7 +13,7 @@ public sealed class Beacon : Component, IWorldStreamingListener
 		// This beacon might already be on screen as a distant, position-targeting BeaconPanel.
 		// Now that this beacon has been streamed in as part of a GameObject, we should remove
 		// the existing BeaconPanel and replace it with a GameObject-targeting BeaconPanel.
-		ScreenManager.RemoveBeacon( this );
+		ScreenManager.RemoveBeacon( BeaconId );
 		ScreenManager.AddBeacon( this );
 	}
 
