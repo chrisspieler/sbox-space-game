@@ -1,19 +1,305 @@
 {
   "RootObject": {
-    "Id": "5de0e7a0-1d81-4819-bf1f-50823fc0937c",
-    "Name": "spawn_area",
+    "__guid": "5de0e7a0-1d81-4819-bf1f-50823fc0937c",
+    "Name": "home_base",
     "Enabled": true,
+    "NetworkMode": 2,
     "Children": [
       {
-        "Id": "ef60cabf-7812-4893-b0f4-ae9341222737",
+        "__guid": "ef60cabf-7812-4893-b0f4-ae9341222737",
         "Name": "ice_field",
         "Enabled": true,
+        "NetworkMode": 2,
         "__Prefab": "prefabs/effects/ice_field.prefab"
+      },
+      {
+        "__guid": "dd211483-f621-4cd1-94e8-ee2bbb971fa0",
+        "Name": "Store",
+        "Position": "2500,2500,-700",
+        "Scale": "20,20,20",
+        "Tags": "no_chunk",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "ModelRenderer",
+            "__guid": "979b1449-f809-495b-b5f9-3487c6fa145c",
+            "BodyGroups": 18446744073709551615,
+            "MaterialOverride": "materials/shared/metals/metal_aluminium_03.vmat",
+            "Model": "models/dev/box.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          },
+          {
+            "__type": "BoxCollider",
+            "__guid": "c630a2c7-c2ca-4231-a8d7-030b4b3d04c2",
+            "Center": "0,0,0",
+            "IsTrigger": false,
+            "Scale": "50,50,50",
+            "Static": true
+          }
+        ],
+        "Children": [
+          {
+            "__guid": "2411be28-db56-4ab1-aa8e-a83e0c22121b",
+            "Name": "Spawn Point",
+            "Position": "0,35,35",
+            "Rotation": "0,0,0.7071068,0.7071068",
+            "Scale": "0.05,0.05,0.05",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "Components": [
+              {
+                "__type": "SpawnPoint",
+                "__guid": "b4a407ad-ff58-4e25-b563-5c16be0c627c",
+                "Color": "0,0.11667,1,1"
+              }
+            ]
+          },
+          {
+            "__guid": "4263a958-7dde-4638-af18-b71926e967b9",
+            "Name": "Base Shield",
+            "Position": "0,0,19",
+            "Scale": "2,2,2",
+            "Tags": "player_allow,shield",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "Components": [
+              {
+                "__type": "Shield",
+                "__guid": "cefd4fbc-63f7-444b-ae89-709b9ace536d",
+                "Bounce": {
+                  "_type": "component",
+                  "component_id": "51a85e7b-15c9-455c-b7c7-5c844832b427",
+                  "go": "4263a958-7dde-4638-af18-b71926e967b9",
+                  "component_type": "Bouncy"
+                },
+                "BreakSound": "sounds/shield_break.sound",
+                "Collider": {
+                  "_type": "component",
+                  "component_id": "6e2433d0-7e0f-4b11-9b0e-961002b56628",
+                  "go": "4263a958-7dde-4638-af18-b71926e967b9",
+                  "component_type": "SphereCollider"
+                },
+                "CurrentHealth": 10000,
+                "HitSound": "sounds/shield_hit.sound",
+                "MaxHealth": 10000,
+                "RegenDelay": 0.1,
+                "RegenRate": 1000
+              },
+              {
+                "__type": "Bouncy",
+                "__guid": "51a85e7b-15c9-455c-b7c7-5c844832b427",
+                "AddedVelocity": 0,
+                "BouncedTags": "solid",
+                "BounceFactor": 1,
+                "IgnoredTags": "player,ragdoll,hurtbox",
+                "MinimumVelocity": 0,
+                "RehitDelay": 0.5
+              },
+              {
+                "__type": "SphereCollider",
+                "__guid": "6e2433d0-7e0f-4b11-9b0e-961002b56628",
+                "Center": "0,0,0",
+                "IsTrigger": false,
+                "Radius": 32,
+                "Static": true
+              },
+              {
+                "__type": "ModelRenderer",
+                "__guid": "339c4b0b-d3b8-41ad-ad8f-e782f48ef6c3",
+                "BodyGroups": 18446744073709551615,
+                "MaterialOverride": "materials/dev/primary_white_emissive_trans.vmat",
+                "Model": "models/dev/sphere.vmdl",
+                "RenderType": "Off",
+                "Tint": "0,1,1,0"
+              }
+            ]
+          },
+          {
+            "__guid": "2f8eddd3-0ab6-48b1-b169-8c550d02bec7",
+            "Name": "Point Light",
+            "Position": "0.9459351,16.34545,43.13551",
+            "Scale": "0.4,0.4,0.4",
+            "Tags": "light_point,light",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "Components": [
+              {
+                "__type": "PointLight",
+                "__guid": "8afc35b1-b1f0-455a-ba6f-313ac0d28f9e",
+                "Attenuation": 0.39,
+                "FogMode": "Enabled",
+                "FogStrength": 1,
+                "LightColor": "0.32102,0.5923,0.97209,1",
+                "Radius": 1000,
+                "Shadows": true
+              }
+            ]
+          },
+          {
+            "__guid": "820f4eb1-ef02-4297-8651-e9755741d5e2",
+            "Name": "Point Light",
+            "Position": "-16.0395,2.608923,43.13552",
+            "Scale": "0.4,0.4,0.4",
+            "Tags": "light_point,light",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "Components": [
+              {
+                "__type": "PointLight",
+                "__guid": "daf6be79-4997-4ae8-993b-fe9485b684a7",
+                "Attenuation": 0.39,
+                "FogMode": "Enabled",
+                "FogStrength": 1,
+                "LightColor": "0.32102,0.5923,0.97209,1",
+                "Radius": 1000,
+                "Shadows": true
+              }
+            ]
+          },
+          {
+            "__guid": "262ac741-c300-4189-8976-b7961d4092af",
+            "Name": "Shop",
+            "Position": "0,0,43.87252",
+            "Scale": "0.4,0.4,0.03312262",
+            "Tags": "solid",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "Components": [
+              {
+                "__type": "ModelRenderer",
+                "__guid": "9f13e2aa-4579-4bf4-b052-46c36301a7b3",
+                "BodyGroups": 18446744073709551615,
+                "MaterialOverride": "materials/generic/metal_brushed.vmat",
+                "Model": "models/dev/box.vmdl",
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "BoxCollider",
+                "__guid": "48fedb8d-d50a-4cd0-a1cb-5679acf170ca",
+                "Center": "0,0,-200",
+                "IsTrigger": true,
+                "Scale": "45,45,300",
+                "Static": true
+              },
+              {
+                "__type": "Shop",
+                "__guid": "a576b0dc-f186-4082-bc6d-6c9aba758ab6",
+                "EjectionVelocity": "1,0,0",
+                "Ejector": {
+                  "_type": "gameobject",
+                  "go": "3a6d9137-75ce-4f0b-a74b-ca06c5af2ef8"
+                }
+              },
+              {
+                "__type": "Beacon",
+                "__guid": "977760f9-9125-4def-ae59-dcbf02717495",
+                "BeaconId": "shop0",
+                "Name": "Shop"
+              },
+              {
+                "__type": "BoxCollider",
+                "__guid": "6a189200-8904-4400-8929-96545f8613ca",
+                "Center": "0,0,0",
+                "IsTrigger": false,
+                "Scale": "50,50,50",
+                "Static": true
+              }
+            ],
+            "Children": [
+              {
+                "__guid": "3a6d9137-75ce-4f0b-a74b-ca06c5af2ef8",
+                "Name": "Player Ejector",
+                "Position": "0.0002441406,47.25272,-250",
+                "Rotation": "0,0,0.7071068,0.7071068",
+                "Enabled": true,
+                "NetworkMode": 2
+              }
+            ]
+          },
+          {
+            "__guid": "38378039-aba5-4564-9a57-c09abc3d9b0c",
+            "Name": "Tutorial Text",
+            "Position": "25.4,35,25.4",
+            "Rotation": "0,0.7071068,0,0.7071068",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "Components": [
+              {
+                "__type": "TextRenderer",
+                "__guid": "0cbfddec-9f8f-4416-9023-908b66360659",
+                "Color": "1,1,1,1",
+                "FontFamily": "Zeroes 1",
+                "FontSize": 62.47,
+                "Scale": 0.05,
+                "Text": "WASD: Change direction\nSpace: Thrusters\nLeft-Click: Fire Mining Lasers\nHOLD SHIFT: Toggle turning mode"
+              }
+            ]
+          },
+          {
+            "__guid": "00ad3163-bd61-41ce-9f3d-fef5d69fde45",
+            "Name": "Shop Text",
+            "Position": "-0.2,15.8,25.4",
+            "Rotation": "0,0.7071068,0,0.7071068",
+            "Scale": "0.05,0.05,0.05",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "Components": [
+              {
+                "__type": "TextRenderer",
+                "__guid": "e55c51a9-52b9-4547-baf1-016294b0c2c1",
+                "Color": "1,0.98333,0,1",
+                "FontFamily": "Zeroes 1",
+                "FontSize": 128,
+                "Scale": 0.39,
+                "Text": "ENTER SHOP -\u003E"
+              }
+            ]
+          },
+          {
+            "__guid": "c95f6022-3233-4265-a6a1-2c5166f4dd1d",
+            "Name": "Replenish Zone",
+            "Position": "0,0,35",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "Components": [
+              {
+                "__type": "BoxCollider",
+                "__guid": "3f09d363-e47f-4c77-8b0d-7ee47291cb33",
+                "Center": "0,0,0",
+                "IsTrigger": true,
+                "Scale": "50,50,20",
+                "Static": true
+              },
+              {
+                "__type": "ReplenishZone",
+                "__guid": "89a77e37-67c7-4a16-bdf7-c8843d962aae",
+                "Refuel": true,
+                "Repair": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__guid": "f40aae03-6aa7-4e16-988f-a318cc5ae7a1",
+        "Name": "distant_lights (1)",
+        "Position": "0,0,-3000",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "__Prefab": "prefabs/effects/distant_lights.prefab"
       }
     ]
   },
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
-  "__references": []
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": [
+    "eurorp.aluminium_03",
+    "stardrive.rope_barrier_a"
+  ]
 }
