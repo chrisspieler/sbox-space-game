@@ -1,6 +1,7 @@
 ﻿using Sandbox.Razor;
 using Sandbox;
 using Sandbox.UI;
+using System;
 
 public partial class FloatingPanel : Panel
 {
@@ -55,19 +56,25 @@ public partial class FloatingPanel : Panel
 	{
 		var screenCenterWorldPos = Scene.Camera.ScreenNormalToWorld( 0.5f );
 
-		if ( worldPos.Distance( screenCenterWorldPos ) < 2000f )
-		{
-			return Scene.Camera.PointToScreenNormal( worldPos );
-		}
+		var screenNormal = Scene.Camera.PointToScreenNormal( worldPos );
+		var xInBounds = screenNormal.x > 0f && screenNormal.x < 1f;
+		var yInBounds = screenNormal.y > 0f && screenNormal.y < 1f;
+		if ( xInBounds && yInBounds )
+			return screenNormal;
+
 		// If the position we're trying to find is far from where the center of the screen
 		// intersects the world plane, then just make up something for the normal value.
 		var dir = (worldPos - screenCenterWorldPos).WithZ( 0f ).Normal;
 		// Worldspace x,y -> screenspace -y,-x
 		dir = new Vector2( -dir.y, -dir.x );
+		// On a scale from 0 - 1, how diagonal (not cardinal) is the direction from screen center to target?
+		var diagonality = MathF.Abs( MathF.Sin( dir.EulerAngles.yaw.DegreeToRadian() * 2 ) );
+		// A unit vector pointed in a perfectly diagonal direction has a length of 1 / sqrt(2), or 0.70710
+		// To compensate for this loss of length, we can scale the vector by sqrt(2), or 1.41421
+		const float sqrt2 = 1.41421f;
+		dir *= MathF.Max( 1f, sqrt2 * diagonality );
 		// Remap -1, 1 to 0, 1
-		dir += 1f;
-		dir /= 2f;
-		// TODO: Make the panel hug the corner of the screen instead of making a circle.
+		dir = ( dir + 1f ) / 2f;
 		return dir;
 	}
 }
