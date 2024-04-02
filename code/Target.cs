@@ -1,7 +1,7 @@
 ﻿using Sandbox;
 using System;
 
-public struct Target : IEquatable<Target>
+public struct Target : IEquatable<Target>, IValid
 {
 	public Target( GameObject go )
 	{
@@ -38,6 +38,11 @@ public struct Target : IEquatable<Target>
 		}
 	}
 
+	/// <summary>
+	/// Returns true unless <see cref="GameObject"/> is set and is no longer valid.
+	/// </summary>
+	public bool IsValid => GameObject is null || GameObject.IsValid();
+
 	public static Target FromAbsolutePosition( Vector3 absolutePos )
 	{
 		return new Target() { AbsolutePosition = absolutePos };
@@ -56,6 +61,12 @@ public struct Target : IEquatable<Target>
 		}	
 		return AbsolutePosition == other.AbsolutePosition;
 	}
+
+	public static implicit operator Target( Vector3 relativePos )
+		=> FromRelativePosition( relativePos );
+
+	public static implicit operator Target( GameObject gameObject )
+		=> new Target( gameObject );
 
 	public static bool operator ==(Target t1, Target t2 )
 	{
