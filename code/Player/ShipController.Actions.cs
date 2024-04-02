@@ -22,7 +22,7 @@ public partial class ShipController
 			var spawnPoint = Game.ActiveScene.GetAllComponents<SpawnPoint>().FirstOrDefault();
 			return spawnPoint.IsValid()
 				? spawnPoint.Transform.Position
-				: Vector3.Zero;
+				: Vector3.Zero.ToRelativePosition();
 		}
 
 		void SpawnShip( Vector3 spawnPosition )
