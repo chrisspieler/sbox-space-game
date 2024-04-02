@@ -22,10 +22,10 @@ public class CheatManager : GameObjectSystem
 		Gizmo.Draw.ScreenText( "CHEAT MODE ACTIVATED", position, "Poppins", 24, TextFlag.CenterTop );
 		Gizmo.Draw.Color = Color.Red;
 		position += Vector2.Up * 28f;
-		Gizmo.Draw.ScreenText( "Your game cannot be saved until the game is restarted.", position, "Poppins", 24, TextFlag.CenterTop );
+		Gizmo.Draw.ScreenText( "Saving is disabled until the game is restarted.", position, "Poppins", 24, TextFlag.CenterTop );
 		Gizmo.Draw.Color = Color.White;
 		position += Vector2.Up * 28f;
-		Gizmo.Draw.ScreenText( "Stats and leaderboards will be disabled until the game is restarted.", position, "Poppins", 24, TextFlag.CenterTop );
+		Gizmo.Draw.ScreenText( "Stats and leaderboards are disabled until the game is restarted.", position, "Poppins", 24, TextFlag.CenterTop );
 		position += Vector2.Up * 28f;
 		Gizmo.Draw.ScreenText( "ConVar to hide this message: show_cheat_message 0", position, "Consolas", 18, TextFlag.CenterTop );
 	}
