@@ -47,6 +47,19 @@ public static class GameObjectExtensions
 				.Distance( gameObject.Transform.Position );
 	}
 
+	/// <summary>
+	/// Returns the position of the specified <see cref="GameObject"/> relative to the 
+	/// chunk that contains it.
+	/// </summary>
+	public static Vector2 GetChunkLocalPosition( this GameObject gameObject )
+	{
+		if ( !gameObject.IsValid() )
+			return Vector2.Zero;
+
+		var chunkPos = WorldChunker.ChunkToWorldAbsolute( GetWorldChunk( gameObject ) );
+		return gameObject.Transform.Position - chunkPos;
+	}
+
 	public static Vector2Int GetWorldChunk( this GameObject gameObject )
 	{
 		if ( !gameObject.IsValid() )

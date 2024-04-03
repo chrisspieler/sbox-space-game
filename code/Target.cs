@@ -13,8 +13,10 @@ public struct Target : IEquatable<Target>, IValid
 	{
 		get
 		{
-			return GameObject?.GetAbsolutePosition()
-				?? _absolutePosition;
+			if ( GameObject.IsValid() )
+				return GameObject.GetAbsolutePosition();
+
+			return _absolutePosition;
 		}
 		set
 		{
@@ -28,8 +30,10 @@ public struct Target : IEquatable<Target>, IValid
 	{
 		get
 		{
-			return GameObject?.GetAbsolutePosition()
-				?? AbsolutePosition.ToRelativePosition();
+			if ( GameObject.IsValid() )
+				return GameObject.Transform.Position;
+
+			return AbsolutePosition.ToRelativePosition();
 		}
 		set
 		{

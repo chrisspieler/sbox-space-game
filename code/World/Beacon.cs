@@ -1,12 +1,13 @@
 using Sandbox;
 
-public sealed class Beacon : Component, IWorldStreamingListener
+public sealed partial class Beacon : Component, IWorldStreamingListener
 {
 	[Property] public string Name { get; set; }
 	/// <summary>
 	/// A unique ID for this beacon. Used by <see cref="ScreenManager"/>.
 	/// </summary>
 	[Property] public string BeaconId { get; set; }
+	[Property] public float DisappearRange { get; set; } = 0f;
 
 	protected override void OnEnabled()
 	{
@@ -22,17 +23,30 @@ public sealed class Beacon : Component, IWorldStreamingListener
 		ScreenManager.RemoveBeacon( this );
 	}
 
-	public static Beacon Create( Vector3 relativePosition, string name = "New Beacon", float destroyAfterSeconds = 0f )
+	protected override void OnUpdate()
+	{
+		if ( DisappearRange <= 0f )
+			return;
+
+		var ship = ShipController.GetCurrent();
+		if ( !ship.IsValid() )
+			return;
+
+		if ( ship.Transform.Position.Distance( Transform.Position ) < DisappearRange )
+		{
+			Destroy();
+		}
+	}
+
+	public static Beacon Create( Vector3 relativePosition, string name, string id, float disappearRange = 0f )
 	{
 		var beaconGo = new GameObject( true, name );
 		beaconGo.Transform.Position = relativePosition.WithZ( 0f );
-		var beacon = beaconGo.Components.Create<Beacon>();
+		var beacon = beaconGo.Components.Create<Beacon>( false );
 		beacon.Name = name;
-		if ( destroyAfterSeconds > 0f )
-		{
-			var selfDestruct = beaconGo.Components.Create<SelfDestruct>();
-			selfDestruct.Delay = destroyAfterSeconds;
-		}
+		beacon.BeaconId = id;
+		beacon.DisappearRange = disappearRange;
+		beacon.Enabled = true;
 		return beacon;
 	}
 

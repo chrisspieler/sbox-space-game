@@ -18,12 +18,7 @@ public sealed partial class ScreenManager : Component
 	/// <param name="name">A friendly name for the beacon, for display on-screen.</param>
 	public static void AddBeacon( Target target, string beaconId, string name )
 	{
-		// No two beacons may share the same Id.
-		if ( GetBeacon( beaconId ) is not null )
-		{
-			Log.Info( $"Beacon already added: {beaconId}" );
-			return;
-		}
+		RemoveBeacon( beaconId );
 
 		var panelGo = new GameObject( true, $"Beacon Panel ({name ?? "null"})" );
 		panelGo.Parent = Instance.BeaconContainer;
@@ -55,7 +50,6 @@ public sealed partial class ScreenManager : Component
 		var existing = GetBeacon( beaconId );
 		if ( existing is null )
 			return;
-
 		existing.GameObject.DestroyImmediate();
 	}
 
@@ -89,7 +83,7 @@ public sealed partial class ScreenManager : Component
 
 		foreach ( var child in Instance.BeaconContainer.Children )
 		{
-			var panel = child.Components.Get<BeaconPanel>();
+			var panel = child.Components.Get<BeaconPanel>( FindMode.EverythingInSelf );
 			if ( panel.IsValid() && panel.BeaconId == id )
 			{
 				return panel;
@@ -98,12 +92,19 @@ public sealed partial class ScreenManager : Component
 		return null;
 	}
 
+	/// <summary>
+	/// Returns the <see cref="BeaconPanel"/> that corresponds to the given <paramref name="beacon"/>, or
+	/// <c>null</c> if no such panel is found.
+	/// </summary>
 	private static BeaconPanel GetBeacon( Beacon beacon )
 	{
 		if ( !beacon.IsValid() )
 			return null;
 
 		var foundBeacon = GetBeacon( beacon.BeaconId );
+		if ( foundBeacon is null )
+			return null;
+
 		return foundBeacon.Target.GameObject == beacon.GameObject
 			? foundBeacon
 			: null;

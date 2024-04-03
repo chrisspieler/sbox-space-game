@@ -33,6 +33,7 @@ public sealed partial class ShipController
 		ReleaseSceneCamera();
 		HideHud();
 		SpawnExplosion();
+		CreateBeacon();
 		ScreenEffects.AddScreenShake( 1f );
 		Rigidbody.Velocity = Vector3.Zero;
 		Career.Active.RemoveMoney( Career.RespawnFee );
@@ -145,5 +146,10 @@ public sealed partial class ShipController
 		{
 			Career.Active.ShipExplosions++;
 		}
+	}
+
+	private void CreateBeacon()
+	{
+		Beacon.Create( Transform.Position, "SHIPWRECK", "player_shipwreck", 500f );
 	}
 }
