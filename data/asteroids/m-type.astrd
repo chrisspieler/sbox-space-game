@@ -23,7 +23,7 @@
     ]
   },
   "MassPerScale": 40,
-  "LootScale": 3,
+  "LootScale": 3.5,
   "ResourceVersion": 0,
   "__version": 0,
   "__references": []
