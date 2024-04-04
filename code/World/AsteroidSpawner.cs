@@ -106,6 +106,9 @@ public sealed class AsteroidSpawner : Component
 			// This is to prevent the player from getting telefragged on scene load.
 			if ( worldPosition.Distance( _playerSpawn.Transform.Position ) < 2500f )
 				return 0f;
+			// Don't spawn asteroids at the absolute world origin, as this is the fallback spawn point.
+			if ( worldPosition.ToAbsolutePosition().Length < 2000f )
+				return 0f;
 		}
 
 		worldPosition = _originSystem.RelativeToAbsolute( worldPosition );
