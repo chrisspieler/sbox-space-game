@@ -1,0 +1,62 @@
+﻿@import "../Styles/main.scss";
+
+CargoSellPanel {
+    flex-basis: 1;
+    flex-grow: 1;
+    border: 1px solid white;
+    background-color: #000C;
+
+    #cargoList {
+        overflow: scroll;
+    }
+
+    .cargo {
+        font-size: 1.5vh;
+        flex-shrink: 0;
+        border-bottom: 2px solid;
+        border-color: #FFFFFF07;
+
+        Image {
+            width: 5vw;
+            height: 5vw;
+            background-size: cover;
+        }
+
+        #mainColumn {
+            flex-grow: 1;
+        }
+
+        #sellBar {
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px 2px 0px 5px;
+            flex-grow: 1;
+        }
+
+        .sell-section {
+            justify-content: space-around;
+            align-items: center;
+            background-color: #FFFFFF03;
+            backdrop-filter: blur(20px);
+            flex-grow: 1;
+            height: 100%;
+        }
+
+        .button {
+            width: 8vh;
+            height: 3vh;
+            padding: 0.5vh;
+        }
+
+        .name {
+            font-size: 1.75vh;
+            margin: 5px;
+        }
+
+        .price {
+            align-items: center;
+            font-size: 1.5vh;
+            margin-top: 5px;
+        }
+    }
+}

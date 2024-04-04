@@ -1,0 +1,37 @@
+﻿@import "../Styles/main.scss";
+
+CargoPriceSummary {
+    font-size: 1.5vh;
+    text-align: center;
+
+    .info {
+        background-color: black;
+        padding: 1vh;
+        color: #FFFC;
+    }
+
+    #valueList {
+        text-shadow: 1px 1px 2px black;
+
+
+        .cargo-value {
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(20px);
+            padding: 0px 5px 0px 5px;
+
+            &:nth-child(odd) {
+                background-color: #FFFFFF03;
+            }
+
+            &:nth-child(even) {
+                background-color: #FFFFFF07;
+            }
+        }
+
+        Image {
+            width: 3vh;
+            height: 3vh;
+        }
+    }
+}

@@ -7,70 +7,10 @@
 <root class="column">
     <div id="mainPanel">
         <div id="leftPanel" class="column">
-            <div id="cargoValuePanel" class="column">
-                <div class="header center-content">CARGO PRICES</div>
-                <div class="info center-content">Rarer asteroids yield more valuable metals. Keep exploring!</div>
-                <div id="valueList" class="column">
-                    @foreach (var value in GetAllCargoValues().OrderBy( c => c.CurrentValue ) )
-                    {
-                        <div class="cargo-value">
-                            <Image Texture=@value.Cargo.InventoryIcon/>
-                            <p class="name">@value.Cargo.Name</p>
-                            <p class="price">@value.CurrentValue CR</p>
-                        </div>
-                    }
-                </div>
-            </div>
-            <div id="sellPanel" class="column">
-                <div id="sellTitle" class="center-content header">SELL CARGO</div>
-                <div id="cargoList" class="column">
-                    @foreach( var (item, count) in GetShipCargoGrouped())
-                    {
-                        <div class="cargo">
-                            <Image Texture=@item.InventoryIcon/>
-                            <div id="mainColumn" class="column">
-                                <h3 class="name center-content">@item.Name X @count</h3>
-                                <div id="sellBar">
-                                    <p>SELL: </p>
-                                    <div class="sell-section">
-                                        <div id="sellButton" class="button" onclick=@(() => SellCargo( item ) )>
-                                            <p>1</p>
-                                        </div>
-                                        <p class="price">@GetCargoValue( item, 1 ) CR</p>
-                                    </div>
-                                    <vr/>
-                                    <div class="sell-section">
-                                        <div id="sellAllButton" class="button" onclick=@(() => SellAllCargo( item ) )>
-                                            <p>ALL</p>
-                                        </div>
-                                        <p class="price">@(GetCargoValue(item, count)) CR</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    }
-                </div>
-            </div>
+            <CargoPriceSummary Shop=@Shop/>
+            <CargoSellPanel Shop=@Shop/>
         </div>
-        <div id="buyPanel" class="column">
-            <div id="buyTitle" class="center-content header">BUY EQUIPMENT</div>
-            @foreach( var upgrade in _availableUpgrades)
-            {
-                <div class="upgrade">
-                    <Image Texture=@upgrade.Thumbnail/>
-                    <div id="infoColumn" class="column center-content">
-                        <h3 class="name center-content">@upgrade.Name</h3>
-                        <p class="description">@upgrade.FunctionText</p>
-                        <p class="flavor">@upgrade.FlavorText</p>
-                    </div>
-                    <div id="buyColumn" class="column center-content">
-                        <h2 class="price @(CanAfford(upgrade) ? "" : "insufficient")">@upgrade.Cost CR</h2>
-                        <div id="buyButton" class="button center-content @(CanAfford(upgrade) ? "" : "disabled")" onclick=@(() => BuyUpgrade( upgrade ))>BUY</div>
-                    </div>
-                </div>
-            }
-            <!--TODO: List all of the cool things you can buy.-->
-        </div>
+        <EquipmentBuyPanel Shop=@Shop/>
     </div>
     <div id="bottomBar">
         <p id="creditsDisplay">@(Career.Active.Money) CREDITS</p>

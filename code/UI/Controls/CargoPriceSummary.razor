@@ -1,0 +1,23 @@
+﻿@using System.Linq;
+@using Sandbox.UI;
+@inherits Panel
+@attribute [StyleSheet]
+
+<root class="column">
+    <div class="header center-content">CARGO PRICES</div>
+    <div class="info center-content">Rarer asteroids yield more valuable metals. Keep exploring!</div>
+    <div id="valueList" class="column">
+        @foreach (var value in GetAllCargoValues().OrderBy( c => c.CurrentValue ) )
+        {
+            <div class="cargo-value">
+                <Image Texture=@value.Cargo.InventoryIcon/>
+                <p class="name">@value.Cargo.Name</p>
+                <p class="price">@value.CurrentValue CR</p>
+            </div>
+        }
+    </div>
+</root>
+
+@code {
+
+}

@@ -1,0 +1,38 @@
+﻿@using Sandbox.UI;
+@inherits Panel;
+@attribute [StyleSheet]
+
+<root class="column">
+    <div id="sellTitle" class="center-content header">SELL CARGO</div>
+    <div id="cargoList" class="column">
+        @foreach( var (item, count) in GetShipCargoGrouped())
+        {
+            <div class="cargo">
+                <Image Texture=@item.InventoryIcon/>
+                <div id="mainColumn" class="column">
+                    <h3 class="name center-content">@item.Name X @count</h3>
+                    <div id="sellBar">
+                        <p>SELL: </p>
+                        <div class="sell-section">
+                            <div id="sellButton" class="button" onclick=@(() => SellCargo( item ) )>
+                                <p>1</p>
+                            </div>
+                            <p class="price">@GetCargoValue( item, 1 ) CR</p>
+                        </div>
+                        <vr/>
+                        <div class="sell-section">
+                            <div id="sellAllButton" class="button" onclick=@(() => SellAllCargo( item ) )>
+                                <p>ALL</p>
+                            </div>
+                            <p class="price">@(GetCargoValue(item, count)) CR</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</root>
+
+@code {
+
+}
