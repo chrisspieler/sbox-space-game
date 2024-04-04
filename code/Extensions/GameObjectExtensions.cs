@@ -57,7 +57,7 @@ public static class GameObjectExtensions
 			return Vector2.Zero;
 
 		var chunkPos = WorldChunker.ChunkToWorldAbsolute( GetWorldChunk( gameObject ) );
-		return gameObject.Transform.Position - chunkPos;
+		return gameObject.Transform.Position.ToAbsolutePosition() - chunkPos;
 	}
 
 	public static Vector2Int GetWorldChunk( this GameObject gameObject )
