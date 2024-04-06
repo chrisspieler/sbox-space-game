@@ -1,10 +1,10 @@
 {
   "Name": "Iron Ore",
   "Description": "Heavy and abundant.",
-  "MinValue": 1,
+  "MinValue": 4,
   "BaseValue": 8,
   "MaxValue": 20,
-  "ValueDecreaseOnSale": 2,
+  "ValueDecreaseOnSale": 1,
   "OtherSalesUntilValueIncrease": 1,
   "ValueIncreaseAmount": 2,
   "PickupPrefab": "data/cargo/iron_ore_pickup.prefab",

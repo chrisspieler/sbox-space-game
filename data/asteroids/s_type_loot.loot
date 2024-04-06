@@ -10,11 +10,15 @@
     },
     {
       "Item": "data/cargo/cobalt_ore.cargo",
-      "Probability": 20
+      "Probability": 5
     },
     {
       "Item": "data/cargo/platinum_ore.cargo",
-      "Probability": 1
+      "Probability": 2
+    },
+    {
+      "Item": "data/cargo/magnesium_ore.cargo",
+      "Probability": 20
     }
   ],
   "ResourceVersion": 0,

@@ -1,0 +1,118 @@
+{
+  "RootObject": {
+    "__guid": "6edf7987-2346-4a17-b0c2-0d38d805b645",
+    "Name": "magnesium_ore",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "Children": [
+      {
+        "__guid": "82b46f18-85e7-4f0f-9a4b-735fdbd3aa92",
+        "Name": "Sphere",
+        "Position": "-1.307979,-5.876732,31.98684",
+        "Rotation": "-0.2411944,0.9704768,0.00000004696229,0.0000001889588",
+        "Scale": "4,4,8",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "ModelRenderer",
+            "__guid": "b957e9aa-1e56-45b9-bb75-42574ea7f842",
+            "BodyGroups": 18446744073709551615,
+            "MaterialOverride": "materials/dev/dev_metal_rough70.vmat",
+            "Model": "models/props/rock_scatter/rock_scatter_pile_02.vmdl",
+            "RenderType": "On",
+            "Tint": "0.79535,0.79535,0.79535,1"
+          }
+        ]
+      },
+      {
+        "__guid": "b51208b7-38c2-4f0c-9d20-04656c2078e8",
+        "Name": "Sphere (3)",
+        "Position": "0,0,10.4922",
+        "Scale": "5,5,11.39668",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "ModelRenderer",
+            "__guid": "bc133c69-c873-4392-86ce-186031e6a7c8",
+            "BodyGroups": 18446744073709551615,
+            "MaterialOverride": "materials/dev/dev_metal_rough70.vmat",
+            "Model": "models/props/candles/candle_scatter_02.vmdl",
+            "RenderType": "On",
+            "Tint": "0.79535,0.79535,0.79535,1"
+          }
+        ]
+      },
+      {
+        "__guid": "5c889cb5-02a5-47e7-ac6d-c30c279ada86",
+        "Name": "Sphere (4)",
+        "Position": "-16.58304,6.326982,10.49206",
+        "Rotation": "0,0,-0.8098284,0.5866668",
+        "Scale": "5,5,11.39668",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "ModelRenderer",
+            "__guid": "8e850faf-7787-4515-a448-0230a128d5fe",
+            "BodyGroups": 18446744073709551615,
+            "MaterialOverride": "materials/dev/dev_metal_rough70.vmat",
+            "Model": "models/props/candles/candle_scatter_02.vmdl",
+            "RenderType": "On",
+            "Tint": "0.79535,0.79535,0.79535,1"
+          }
+        ]
+      },
+      {
+        "__guid": "2953b97e-9d0d-4147-b26c-b27cb68813b6",
+        "Name": "Sphere (5)",
+        "Position": "-3.129555,-5.956413,10.49205",
+        "Rotation": "0,0,-0.4759441,-0.8794756",
+        "Scale": "5,5,11.39668",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "ModelRenderer",
+            "__guid": "bc972cbd-7842-4e0b-82c2-04e8cd31acc4",
+            "BodyGroups": 18446744073709551615,
+            "MaterialOverride": "materials/dev/dev_metal_rough70.vmat",
+            "Model": "models/props/candles/candle_scatter_02.vmdl",
+            "RenderType": "On",
+            "Tint": "0.79535,0.79535,0.79535,1"
+          }
+        ]
+      },
+      {
+        "__guid": "0c168e54-1f44-4220-b11c-64acf3585263",
+        "Name": "Sphere (2)",
+        "Position": "0.5548887,17.47638,14.1173",
+        "Rotation": "0.8345402,-0.550947,-0.000000162491,-0.0000001072733",
+        "Scale": "3,3,5",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "ModelRenderer",
+            "__guid": "7cd7ec77-b17d-4395-9d9c-77dcc52a8ba0",
+            "BodyGroups": 18446744073709551615,
+            "MaterialOverride": "materials/dev/dev_metal_rough70.vmat",
+            "Model": "models/props/rock_scatter/rock_scatter_pile_02.vmdl",
+            "RenderType": "On",
+            "Tint": "0.79535,0.79535,0.79535,1"
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
+  "__references": [
+    "facepunch.rock_scatter_pile_02",
+    "fpopium.candle_scatter_02"
+  ]
+}

@@ -62,7 +62,9 @@ public partial class Career
 
 	public CargoValues GetCargoValues()
 	{
-		if ( !ShopCargoValues.Any() )
+		// Generate fresh cargo values if the save file contains none,
+		// or if the save file doesn't yet have the new "magneisium_ore" cargo.
+		if ( !ShopCargoValues.Any( c => c.Name == "magnesium_ore" ) )
 		{
 			var defaultValues = ResourceLibrary.GetAll<CargoItem>()
 				.Select( c => new CargoValue( c, c.BaseValue ) );

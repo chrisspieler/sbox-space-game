@@ -1,0 +1,15 @@
+{
+  "Name": "Magnesium Ore",
+  "Description": "",
+  "MinValue": 6,
+  "BaseValue": 15,
+  "MaxValue": 35,
+  "ValueDecreaseOnSale": 5,
+  "OtherSalesUntilValueIncrease": 1,
+  "ValueIncreaseAmount": 1,
+  "PickupPrefab": "data/cargo/magnesium_ore.prefab",
+  "InventoryIcon": "data/cargo/magnesium_ore.vtex",
+  "ResourceVersion": 0,
+  "__version": 0,
+  "__references": []
+}

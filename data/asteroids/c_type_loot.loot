@@ -6,8 +6,14 @@
     },
     {
       "Item": "data/cargo/nickel_ore.cargo",
+      "Probability": 3
+    },
+    {
+      "Item": "data/cargo/magnesium_ore.cargo",
       "Probability": 2
     }
   ],
+  "ResourceVersion": 0,
+  "__version": 0,
   "__references": []
 }

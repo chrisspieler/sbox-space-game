@@ -19,6 +19,10 @@
     {
       "Item": "data/cargo/platinum_ore.cargo",
       "Probability": 20
+    },
+    {
+      "Item": "data/cargo/magnesium_ore.cargo",
+      "Probability": 20
     }
   ],
   "ResourceVersion": 0,

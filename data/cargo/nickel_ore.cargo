@@ -1,7 +1,7 @@
 {
   "Name": "Nickel Ore",
   "Description": "",
-  "MinValue": 2,
+  "MinValue": 4,
   "BaseValue": 12,
   "MaxValue": 35,
   "ValueDecreaseOnSale": 2,
