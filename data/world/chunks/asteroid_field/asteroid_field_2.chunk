@@ -1,7 +1,7 @@
 {
   "Name": "Asteroid Field",
   "Prefab": "data/world/chunks/asteroid_field/asteroid_field.prefab",
-  "Difficulty": 4,
+  "Difficulty": 3,
   "Asteroids": "data/world/chunks/asteroid_field/asteroid_field_2.aspwncfg",
   "ResourceVersion": 0,
   "__version": 0,

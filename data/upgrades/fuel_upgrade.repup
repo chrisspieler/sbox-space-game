@@ -1,6 +1,6 @@
 {
   "Name": "Fuel Capacity",
-  "FunctionText": "Increases fuel tank capacity by 10% of its initial capacity",
+  "FunctionText": "Increases fuel tank capacity by 25% of its initial capacity",
   "Thumbnail": "data/upgrades/fuel_1_thumbnail.vtex",
   "EquipmentPrereqs": [
     "data/upgrades/fuel_0.upgrade"

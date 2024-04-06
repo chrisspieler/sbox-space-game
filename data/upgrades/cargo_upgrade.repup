@@ -69,7 +69,7 @@
         "DstName": "a"
       },
       {
-        "Value": 250,
+        "Value": 50,
         "DstId": 3,
         "DstName": "b"
       }
