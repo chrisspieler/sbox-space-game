@@ -1,0 +1,116 @@
+{
+  "Name": "Fuel Capacity",
+  "FunctionText": "Increases fuel tank capacity by 10% of its initial capacity",
+  "Thumbnail": "data/upgrades/fuel_1_thumbnail.vtex",
+  "EquipmentPrereqs": [
+    "data/upgrades/fuel_0.upgrade"
+  ],
+  "MaxLevel": 16,
+  "GetCost": {
+    "__version": 5,
+    "__guid": "2318e7a1-850c-40fc-995e-726558ce9c5d",
+    "UserData": {
+      "Title": "Get Cost",
+      "ReferencedComponentTypes": []
+    },
+    "Variables": [],
+    "Nodes": [
+      {
+        "Id": 0,
+        "Type": "input",
+        "UserData": {
+          "Position": "-64,112"
+        }
+      },
+      {
+        "Id": 1,
+        "Type": "output",
+        "UserData": {
+          "Position": "480,112"
+        }
+      },
+      {
+        "Id": 3,
+        "Type": "op.multiply",
+        "UserData": {
+          "Position": "128,128"
+        }
+      },
+      {
+        "Id": 4,
+        "Type": "op.add",
+        "UserData": {
+          "Position": "288,160"
+        }
+      }
+    ],
+    "Links": [
+      {
+        "SrcId": 4,
+        "SrcName": "_result",
+        "DstId": 1,
+        "DstName": "_result"
+      },
+      {
+        "SrcId": 0,
+        "SrcName": "currentLevel",
+        "DstId": 3,
+        "DstName": "a"
+      },
+      {
+        "Value": 15,
+        "DstId": 3,
+        "DstName": "b"
+      },
+      {
+        "SrcId": 3,
+        "SrcName": "_result",
+        "DstId": 4,
+        "DstName": "a"
+      },
+      {
+        "Value": 60,
+        "DstId": 4,
+        "DstName": "b"
+      }
+    ]
+  },
+  "OnIncreaseLevel": {
+    "__version": 5,
+    "__guid": "8b3c468b-1937-417b-9fed-244d2b32b467",
+    "UserData": {
+      "Title": "On Increase Level",
+      "ReferencedComponentTypes": []
+    },
+    "Variables": [],
+    "Nodes": [
+      {
+        "Id": 0,
+        "Type": "input"
+      },
+      {
+        "Id": 1,
+        "Type": "ship.equipment.fuel.capacity.add",
+        "UserData": {
+          "Position": "224,0"
+        }
+      }
+    ],
+    "Links": [
+      {
+        "SrcId": 0,
+        "SrcName": "_signal",
+        "DstId": 1,
+        "DstName": "_signal"
+      },
+      {
+        "Value": 5,
+        "DstId": 1,
+        "DstName": "fuel"
+      }
+    ]
+  },
+  "ResourceVersion": 0,
+  "__version": 0,
+  "__references": []
+}

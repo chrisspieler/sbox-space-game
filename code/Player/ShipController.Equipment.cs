@@ -57,21 +57,46 @@ public partial class ShipController
 		if ( !QtDrive.IsValid() ) QtDrive = Components.GetInDescendantsOrSelf<QtDrive>( true );
 	}
 
-	private void ApplyAllUpgrades()
+	private void AddCareerEquipment()
 	{
-		var allUpgrades = ResourceLibrary.GetAll<Upgrade>();
+		var allEquipment = ResourceLibrary.GetAll<Upgrade>();
 		var removedAny = false;
-		foreach ( var upgradeResName in Career.Active.Upgrades.ToList() )
+		foreach ( var equipmentResName in Career.Active.Upgrades.ToList() )
 		{
-			var upgrade = allUpgrades.FirstOrDefault( u => u.ResourceName == upgradeResName );
-			if ( upgrade is null )
+			var equipment = allEquipment.FirstOrDefault( u => u.ResourceName == equipmentResName );
+			if ( equipment is null )
 			{
-				Log.Info( $"Cannot find Upgrade by resource name: {upgradeResName}" );
-				Career.Active.Upgrades.Remove( upgradeResName );
+				Log.Info( $"Cannot find equipment by resource name: {equipmentResName}" );
+				Career.Active.Upgrades.Remove( equipmentResName );
 				removedAny = true;
 				continue;
 			}
-			upgrade.OnApplyUpgrade( this );
+			equipment.OnApplyUpgrade( this );
+		}
+		if ( removedAny )
+		{
+			SaveManager.SaveActiveCareer();
+		}
+	}
+
+	private void AddCareerUpgrades()
+	{
+		var allUpgrades = ResourceLibrary.GetAll<RepeatableUpgrade>();
+		var removedAny = false;
+		foreach( var upgradeState in Career.Active.RepeatableUpgrades.ToList() )
+		{
+			var upgrade = allUpgrades.FirstOrDefault( u => u.ResourceName == upgradeState.Name );
+			if ( upgrade is null )
+			{
+				Log.Info( $"Cannot find upgrade by resource name: {upgradeState.Name}" );
+				Career.Active.RemoveUpgrade( upgrade );
+				removedAny = true;
+				continue;
+			}
+			for ( var i = 0; i < upgradeState.Level; i++ )
+			{
+				upgrade.OnIncreaseLevel?.Invoke( i );
+			}
 		}
 		if ( removedAny )
 		{

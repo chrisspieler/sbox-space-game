@@ -2,11 +2,11 @@
 
 namespace Sandbox;
 
-[GameResource("Ship Upgrade", "upgrade", "An upgrade that may be applied to the ship.", Icon = "upgrade")]
+[GameResource("Ship Equipment", "upgrade", "A piece of ship equipment.", Icon = "construction")]
 public class Upgrade : GameResource
 {
-	[ConVar( "upgrade_show_all" )]
-	public static bool ShowAllUpgrades { get; set; }
+	[ConVar( "equipment_show_all" )]
+	public static bool ShowAllEquipment { get; set; }
 
 	public string Name { get; set; }
 	public string FlavorText { get; set; }

@@ -1,0 +1,116 @@
+{
+  "Name": "Turn Speed",
+  "FunctionText": "Increases turning speed by 5% of the initial value",
+  "Thumbnail": "data/upgrades/turn_speed_0.vtex",
+  "EquipmentPrereqs": [
+    "data/upgrades/main_thruster_0.upgrade"
+  ],
+  "MaxLevel": 16,
+  "GetCost": {
+    "__version": 5,
+    "__guid": "6a53b2d5-2349-4f3f-aedd-99e245e8ad65",
+    "UserData": {
+      "Title": "Get Cost",
+      "ReferencedComponentTypes": []
+    },
+    "Variables": [],
+    "Nodes": [
+      {
+        "Id": 0,
+        "Type": "input",
+        "UserData": {
+          "Position": "-0,80"
+        }
+      },
+      {
+        "Id": 1,
+        "Type": "output",
+        "UserData": {
+          "Position": "496,80"
+        }
+      },
+      {
+        "Id": 2,
+        "Type": "op.multiply",
+        "UserData": {
+          "Position": "176,80"
+        }
+      },
+      {
+        "Id": 3,
+        "Type": "op.add",
+        "UserData": {
+          "Position": "320,80"
+        }
+      }
+    ],
+    "Links": [
+      {
+        "SrcId": 3,
+        "SrcName": "_result",
+        "DstId": 1,
+        "DstName": "_result"
+      },
+      {
+        "SrcId": 0,
+        "SrcName": "currentLevel",
+        "DstId": 2,
+        "DstName": "a"
+      },
+      {
+        "Value": 10,
+        "DstId": 2,
+        "DstName": "b"
+      },
+      {
+        "SrcId": 2,
+        "SrcName": "_result",
+        "DstId": 3,
+        "DstName": "a"
+      },
+      {
+        "Value": 5,
+        "DstId": 3,
+        "DstName": "b"
+      }
+    ]
+  },
+  "OnIncreaseLevel": {
+    "__version": 5,
+    "__guid": "365560f7-6baa-4f3d-a058-e4ef4248d4aa",
+    "UserData": {
+      "Title": "On Increase Level",
+      "ReferencedComponentTypes": []
+    },
+    "Variables": [],
+    "Nodes": [
+      {
+        "Id": 0,
+        "Type": "input"
+      },
+      {
+        "Id": 2,
+        "Type": "ship.equipment.thrusters.turn.speed.add",
+        "UserData": {
+          "Position": "224,-0"
+        }
+      }
+    ],
+    "Links": [
+      {
+        "SrcId": 0,
+        "SrcName": "_signal",
+        "DstId": 2,
+        "DstName": "_signal"
+      },
+      {
+        "Value": 0.0375,
+        "DstId": 2,
+        "DstName": "addSpeed"
+      }
+    ]
+  },
+  "ResourceVersion": 0,
+  "__version": 0,
+  "__references": []
+}

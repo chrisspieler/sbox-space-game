@@ -87,7 +87,8 @@ public sealed partial class ShipController : Component
 		SetFogFollowTarget();
 		FindEquipmentInChildren();
 		FindWeaponsInChildren();
-		ApplyAllUpgrades();
+		AddCareerEquipment();
+		AddCareerUpgrades();
 		UpdateLaserColor();
 		AddTemporaryInvincibility( SpawnInvincibilitySeconds );
 		GameObject.BreakFromPrefab();

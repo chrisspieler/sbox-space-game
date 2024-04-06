@@ -31,6 +31,17 @@
             }
         }
 
+        &.selected {
+            background-color: #FFFF;
+            border: 1px solid #0005;
+
+            &:not(:active) {
+                text-shadow: 1px 1px 2px black;
+            }
+
+            pointer-events: none;
+        }
+
         &:active {
             transform: scale( 0.98 );
             background-color: #EEE;

@@ -1,0 +1,119 @@
+{
+  "Name": "Mining Laser Damage",
+  "FunctionText": "Increases damage per tick by 10% of the initial value",
+  "Thumbnail": "data/upgrades/laser_2_thumbnail.vtex",
+  "EquipmentPrereqs": [],
+  "MaxLevel": 16,
+  "GetCost": {
+    "__version": 5,
+    "__guid": "b290c3b5-b17b-4d39-8a0f-6fd1da070044",
+    "UserData": {
+      "Title": "Get Cost",
+      "ReferencedComponentTypes": []
+    },
+    "Variables": [],
+    "Nodes": [
+      {
+        "Id": 0,
+        "Type": "input",
+        "UserData": {
+          "Position": "-96,0"
+        }
+      },
+      {
+        "Id": 1,
+        "Type": "output",
+        "UserData": {
+          "Position": "400,0"
+        }
+      },
+      {
+        "Id": 2,
+        "Type": "op.multiply",
+        "UserData": {
+          "Position": "80,0"
+        }
+      },
+      {
+        "Id": 3,
+        "Type": "op.add",
+        "UserData": {
+          "Position": "240,-0"
+        }
+      }
+    ],
+    "Links": [
+      {
+        "SrcId": 3,
+        "SrcName": "_result",
+        "DstId": 1,
+        "DstName": "_result"
+      },
+      {
+        "SrcId": 0,
+        "SrcName": "currentLevel",
+        "DstId": 2,
+        "DstName": "a"
+      },
+      {
+        "Value": 20,
+        "DstId": 2,
+        "DstName": "b"
+      },
+      {
+        "SrcId": 2,
+        "SrcName": "_result",
+        "DstId": 3,
+        "DstName": "a"
+      },
+      {
+        "Value": 20,
+        "DstId": 3,
+        "DstName": "b"
+      }
+    ]
+  },
+  "OnIncreaseLevel": {
+    "__version": 5,
+    "__guid": "6aa1d321-ab1d-4e59-9916-9de759126c38",
+    "UserData": {
+      "Title": "On Increase Level",
+      "ReferencedComponentTypes": []
+    },
+    "Variables": [],
+    "Nodes": [
+      {
+        "Id": 0,
+        "Type": "input"
+      },
+      {
+        "Id": 1,
+        "Type": "ship.weapons.laser.power.add",
+        "UserData": {
+          "Position": "224,-0"
+        }
+      }
+    ],
+    "Links": [
+      {
+        "SrcId": 0,
+        "SrcName": "_signal",
+        "DstId": 1,
+        "DstName": "_signal"
+      },
+      {
+        "Value": 0.5,
+        "DstId": 1,
+        "DstName": "tickDamageOffset"
+      },
+      {
+        "Value": 0,
+        "DstId": 1,
+        "DstName": "tickIntervalOffset"
+      }
+    ]
+  },
+  "ResourceVersion": 0,
+  "__version": 0,
+  "__references": []
+}

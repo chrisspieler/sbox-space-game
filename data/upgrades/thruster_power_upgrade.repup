@@ -1,0 +1,116 @@
+{
+  "Name": "Main Thruster Power",
+  "FunctionText": "Increases thrust by 5% of the initial value",
+  "Thumbnail": "data/upgrades/main_thruster_1_thumbnail.vtex",
+  "EquipmentPrereqs": [
+    "data/upgrades/main_thruster_0.upgrade"
+  ],
+  "MaxLevel": 16,
+  "GetCost": {
+    "__version": 5,
+    "__guid": "4f34c991-14ce-410e-8ded-6c2ef77418bc",
+    "UserData": {
+      "Title": "Get Cost",
+      "ReferencedComponentTypes": []
+    },
+    "Variables": [],
+    "Nodes": [
+      {
+        "Id": 0,
+        "Type": "input",
+        "UserData": {
+          "Position": "0,64"
+        }
+      },
+      {
+        "Id": 1,
+        "Type": "output",
+        "UserData": {
+          "Position": "480,64"
+        }
+      },
+      {
+        "Id": 4,
+        "Type": "op.multiply",
+        "UserData": {
+          "Position": "176,64"
+        }
+      },
+      {
+        "Id": 5,
+        "Type": "op.add",
+        "UserData": {
+          "Position": "336,64"
+        }
+      }
+    ],
+    "Links": [
+      {
+        "SrcId": 5,
+        "SrcName": "_result",
+        "DstId": 1,
+        "DstName": "_result"
+      },
+      {
+        "SrcId": 0,
+        "SrcName": "currentLevel",
+        "DstId": 4,
+        "DstName": "a"
+      },
+      {
+        "Value": 25,
+        "DstId": 4,
+        "DstName": "b"
+      },
+      {
+        "SrcId": 4,
+        "SrcName": "_result",
+        "DstId": 5,
+        "DstName": "a"
+      },
+      {
+        "Value": 15,
+        "DstId": 5,
+        "DstName": "b"
+      }
+    ]
+  },
+  "OnIncreaseLevel": {
+    "__version": 5,
+    "__guid": "13eb6454-dc43-42bb-a22c-25fde675cc08",
+    "UserData": {
+      "Title": "On Increase Level",
+      "ReferencedComponentTypes": []
+    },
+    "Variables": [],
+    "Nodes": [
+      {
+        "Id": 0,
+        "Type": "input"
+      },
+      {
+        "Id": 1,
+        "Type": "ship.equipment.thrusters.main.power.add",
+        "UserData": {
+          "Position": "240,0"
+        }
+      }
+    ],
+    "Links": [
+      {
+        "SrcId": 0,
+        "SrcName": "_signal",
+        "DstId": 1,
+        "DstName": "_signal"
+      },
+      {
+        "Value": 7.5,
+        "DstId": 1,
+        "DstName": "power"
+      }
+    ]
+  },
+  "ResourceVersion": 0,
+  "__version": 0,
+  "__references": []
+}

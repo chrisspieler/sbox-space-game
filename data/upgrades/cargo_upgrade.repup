@@ -1,0 +1,116 @@
+{
+  "Name": "Cargo Capacity",
+  "FunctionText": "Increases cargo hold capacity by 1",
+  "Thumbnail": "data/upgrades/cargo_1_thumbnail.vtex",
+  "EquipmentPrereqs": [
+    "data/upgrades/cargo_0.upgrade"
+  ],
+  "MaxLevel": 8,
+  "GetCost": {
+    "__version": 5,
+    "__guid": "84c27561-a861-4c36-93ea-c833ecb5e560",
+    "UserData": {
+      "Title": "Get Cost",
+      "ReferencedComponentTypes": []
+    },
+    "Variables": [],
+    "Nodes": [
+      {
+        "Id": 0,
+        "Type": "input",
+        "UserData": {
+          "Position": "-192,-0"
+        }
+      },
+      {
+        "Id": 1,
+        "Type": "output",
+        "UserData": {
+          "Position": "352,-0"
+        }
+      },
+      {
+        "Id": 2,
+        "Type": "op.multiply",
+        "UserData": {
+          "Position": "-0,-0"
+        }
+      },
+      {
+        "Id": 3,
+        "Type": "op.add",
+        "UserData": {
+          "Position": "176,0"
+        }
+      }
+    ],
+    "Links": [
+      {
+        "SrcId": 3,
+        "SrcName": "_result",
+        "DstId": 1,
+        "DstName": "_result"
+      },
+      {
+        "SrcId": 0,
+        "SrcName": "currentLevel",
+        "DstId": 2,
+        "DstName": "a"
+      },
+      {
+        "Value": 50,
+        "DstId": 2,
+        "DstName": "b"
+      },
+      {
+        "SrcId": 2,
+        "SrcName": "_result",
+        "DstId": 3,
+        "DstName": "a"
+      },
+      {
+        "Value": 250,
+        "DstId": 3,
+        "DstName": "b"
+      }
+    ]
+  },
+  "OnIncreaseLevel": {
+    "__version": 5,
+    "__guid": "cdee28d8-82d7-4dca-96cf-3f5411b9669c",
+    "UserData": {
+      "Title": "On Increase Level",
+      "ReferencedComponentTypes": []
+    },
+    "Variables": [],
+    "Nodes": [
+      {
+        "Id": 0,
+        "Type": "input"
+      },
+      {
+        "Id": 1,
+        "Type": "ship.equipment.cargo.capacity.add",
+        "UserData": {
+          "Position": "208,0"
+        }
+      }
+    ],
+    "Links": [
+      {
+        "SrcId": 0,
+        "SrcName": "_signal",
+        "DstId": 1,
+        "DstName": "_signal"
+      },
+      {
+        "Value": 1,
+        "DstId": 1,
+        "DstName": "slots"
+      }
+    ]
+  },
+  "ResourceVersion": 0,
+  "__version": 0,
+  "__references": []
+}

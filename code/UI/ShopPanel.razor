@@ -10,7 +10,20 @@
             <CargoPriceSummary Shop=@Shop/>
             <CargoSellPanel Shop=@Shop/>
         </div>
-        <EquipmentBuyPanel Shop=@Shop/>
+        <div id="rightPanel" class="column">
+            <div class="tab-nav">
+                <div class="button tab-item @_upgradesButtonClass" onclick=@(() => _upgradesSelected = true)>Upgrades</div>
+                <div class="button tab-item @_equipmentButtonClass" onclick=@(() => _upgradesSelected = false)>Equipment</div>
+            </div>
+            @if ( _upgradesSelected)
+            {
+                <UpgradeBuyPanel Shop=@Shop/>
+            }
+            else
+            {
+                <EquipmentBuyPanel Shop=@Shop/>
+            }
+        </div>
     </div>
     <div id="bottomBar">
         <p id="creditsDisplay">@(Career.Active.Money) CREDITS</p>
@@ -21,5 +34,8 @@
 
 @code
 {
-
+    // TODO: Make a proper tab control instead of doing all this here.
+    private string _upgradesButtonClass => _upgradesSelected ? "selected" : "";
+    private string _equipmentButtonClass => _upgradesSelected ? "" : "selected";
+    private bool _upgradesSelected = true;
 }

@@ -2,14 +2,14 @@
   "Name": "Quantum Translation Drive",
   "FlavorText": "Great for phasing through or dodging obstacles.",
   "FunctionText": "Tap MOUSE3 to toggle on/off. Press WASD to change your ship\u0027s position.",
-  "Cost": 300,
+  "Cost": 500,
   "Thumbnail": "data/upgrades/qt_drive_0_thumbnail.vtex",
   "PrerequisiteUpgrade": null,
   "OnApplyUpgrade": {
-    "Version": 5,
+    "__version": 5,
+    "__guid": "a82af54b-a1e6-4345-8e2b-acaaca2b9948",
     "UserData": {
-      "Title": "On Apply Upgrade",
-      "id": "a82af54b-a1e6-4345-8e2b-acaaca2b9948"
+      "Title": "On Apply Upgrade"
     },
     "Variables": [],
     "Nodes": [

@@ -19,7 +19,7 @@ public class RepeatableUpgrade : GameResource
 	public string FunctionText { get; set; }
 	public Texture Thumbnail { get; set; }
 	public List<Upgrade> EquipmentPrereqs { get; set; }
-	public int MaxLevel { get; set; } = 15;
+	public int MaxLevel { get; set; } = 16;
 	public LevelCostCalculation GetCost { get; set; }
 	public LevelIncreaseAction OnIncreaseLevel { get; set; }
 }

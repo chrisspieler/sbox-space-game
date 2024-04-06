@@ -7,7 +7,7 @@ public partial class EquipmentBuyPanel : Panel
 {
 	public Shop Shop { get; set; }
 
-	private List<Upgrade> _availableUpgrades = new();
+	private List<Upgrade> _availableEquipment = new();
 
 	private bool CanAfford( Upgrade upgrade ) => Career.Active.HasMoney( upgrade.Cost );
 
@@ -21,22 +21,22 @@ public partial class EquipmentBuyPanel : Panel
 		{
 			return;
 		}
-		FetchAvailableUpgrades();
+		FetchAvailableEquipment();
 	}
 
-	private void FetchAvailableUpgrades()
+	private void FetchAvailableEquipment()
 	{
-		_availableUpgrades = Career.Active
-			.GetAvailableUpgrades()
+		_availableEquipment = Career.Active
+			.GetAvailableEquipment()
 			.OrderBy( u => u.Cost )
 			.ToList();
 		StateHasChanged();
 	}
 
-	private void BuyUpgrade( Upgrade upgrade )
+	private void BuyEquipment( Upgrade upgrade )
 	{
-		Shop.BuyUpgrade( ShipController.GetCurrent(), upgrade );
-		FetchAvailableUpgrades();
+		Shop.BuyEquipment( ShipController.GetCurrent(), upgrade );
+		FetchAvailableEquipment();
 		StateHasChanged();
 	}
 }

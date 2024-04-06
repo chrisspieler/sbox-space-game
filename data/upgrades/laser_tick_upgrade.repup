@@ -1,0 +1,118 @@
+{
+  "Name": "Mining Laser Tick Rate",
+  "FunctionText": "Reduces damage interval by 0.02 seconds",
+  "Thumbnail": "data/upgrades/laser_1_thumbnail.vtex",
+  "EquipmentPrereqs": [],
+  "MaxLevel": 16,
+  "GetCost": {
+    "__version": 5,
+    "__guid": "8e289118-3f29-4864-a53c-b176e3bc717c",
+    "UserData": {
+      "Title": "Get Cost",
+      "ReferencedComponentTypes": []
+    },
+    "Variables": [],
+    "Nodes": [
+      {
+        "Id": 0,
+        "Type": "input",
+        "UserData": {
+          "Position": "-96,112"
+        }
+      },
+      {
+        "Id": 1,
+        "Type": "output",
+        "UserData": {
+          "Position": "448,112"
+        }
+      },
+      {
+        "Id": 3,
+        "Type": "op.multiply",
+        "UserData": {
+          "Position": "96,112"
+        }
+      },
+      {
+        "Id": 4,
+        "Type": "op.add",
+        "UserData": {
+          "Position": "272,112"
+        }
+      }
+    ],
+    "Links": [
+      {
+        "SrcId": 4,
+        "SrcName": "_result",
+        "DstId": 1,
+        "DstName": "_result"
+      },
+      {
+        "SrcId": 0,
+        "SrcName": "currentLevel",
+        "DstId": 3,
+        "DstName": "a"
+      },
+      {
+        "Value": 30,
+        "DstId": 3,
+        "DstName": "b"
+      },
+      {
+        "SrcId": 3,
+        "SrcName": "_result",
+        "DstId": 4,
+        "DstName": "a"
+      },
+      {
+        "Value": 10,
+        "DstId": 4,
+        "DstName": "b"
+      }
+    ]
+  },
+  "OnIncreaseLevel": {
+    "__version": 5,
+    "__guid": "6e5ed357-0a57-4e6a-90f2-ed13a3157045",
+    "UserData": {
+      "Title": "On Increase Level"
+    },
+    "Variables": [],
+    "Nodes": [
+      {
+        "Id": 0,
+        "Type": "input"
+      },
+      {
+        "Id": 1,
+        "Type": "ship.weapons.laser.power.add",
+        "UserData": {
+          "Position": "224,-0"
+        }
+      }
+    ],
+    "Links": [
+      {
+        "SrcId": 0,
+        "SrcName": "_signal",
+        "DstId": 1,
+        "DstName": "_signal"
+      },
+      {
+        "Value": 0,
+        "DstId": 1,
+        "DstName": "tickDamageOffset"
+      },
+      {
+        "Value": -0.02,
+        "DstId": 1,
+        "DstName": "tickIntervalOffset"
+      }
+    ]
+  },
+  "ResourceVersion": 0,
+  "__version": 0,
+  "__references": []
+}

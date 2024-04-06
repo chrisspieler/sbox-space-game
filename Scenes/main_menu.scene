@@ -66,6 +66,8 @@
               "__guid": "322230a8-c1d2-4ebd-b957-6117981ab662",
               "CareerInProgress": {
                 "Upgrades": [],
+                "RepeatableUpgrades": [],
+                "ChunkData": [],
                 "ShopCargoValues": [],
                 "World": "default",
                 "LaserTintPreference": "1,0,0,1",
@@ -271,7 +273,7 @@
           "Name": "volumetric_fog (1)",
           "Position": "1778.536,2059.053,1220.866",
           "Rotation": "-0.612267,0.01847582,0.7798026,0.1292122",
-          "Tags": "no_chunk,shift_visible",
+          "Tags": "shift_visible",
           "Enabled": true,
           "NetworkMode": 2,
           "__Prefab": "prefabs/volumetric_fog.prefab"
@@ -2965,7 +2967,7 @@
   },
   "Title": "main_menu",
   "Description": "",
-  "LastSaved": "2024-03-30T22:40:57.5370484-06:00",
+  "LastSaved": "2024-04-06T08:25:09.2737717-06:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [

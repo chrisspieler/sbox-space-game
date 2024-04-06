@@ -83,21 +83,43 @@ public sealed class Shop : Component, Component.ITriggerListener
 		ship.Enabled = true;
 	}
 
-	public bool CanBuyUpgrade( ShipController ship, Upgrade upgrade )
+	public bool CanBuyEquipment( ShipController ship, Upgrade equipment )
 	{
 		return ship.IsValid()
-			&& !Career.Active.HasUpgrade( upgrade )
-			&& Career.Active.IsUpgradeAvailable( upgrade )
-			&& Career.Active.HasMoney( upgrade.Cost );
+			&& !Career.Active.HasEquipment( equipment )
+			&& Career.Active.IsEquipmentAvailable( equipment )
+			&& Career.Active.HasMoney( equipment.Cost );
 	}
 
-	public void BuyUpgrade( ShipController ship, Upgrade upgrade )
+	public void BuyEquipment( ShipController ship, Upgrade equipment )
+	{
+		if ( !CanBuyEquipment( ship, equipment ) )
+			return;
+
+		Career.Active.RemoveMoney( equipment.Cost );
+		Career.Active.AddEquipment( equipment );
+		SaveManager.SaveActiveCareer();
+	}
+
+	public bool CanBuyUpgrade( ShipController ship, RepeatableUpgrade upgrade )
+	{
+		return ship.IsValid()
+			&& Career.Active.GetUpgradeLevel( upgrade ) < upgrade.MaxLevel
+			&& Career.Active.IsUpgradeAvailable( upgrade )
+			&& Career.Active.HasMoney( Career.Active.GetUpgradeCost( upgrade ) );
+	}
+
+	public void BuyUpgrade( ShipController ship, RepeatableUpgrade upgrade )
 	{
 		if ( !CanBuyUpgrade( ship, upgrade ) )
 			return;
 
-		Career.Active.RemoveMoney( upgrade.Cost );
-		Career.Active.AddUpgrade( upgrade );
+		var nextLevel = Career.Active.GetUpgradeLevel( upgrade ) + 1;
+		if ( nextLevel > upgrade.MaxLevel )
+			return;
+
+		Career.Active.RemoveMoney( Career.Active.GetUpgradeCost( upgrade ) );
+		Career.Active.SetUpgradeLevel( upgrade, nextLevel );
 		SaveManager.SaveActiveCareer();
 	}
 }

@@ -2,14 +2,14 @@
   "Name": "Stabilizer",
   "FlavorText": "If you feel your left hand always squiggling over WASD, it may be time to buy this.",
   "FunctionText": "Press R to match the velocity of a highlighted object",
-  "Cost": 75,
+  "Cost": 100,
   "Thumbnail": "data/upgrades/stabilizer_0.vtex",
   "PrerequisiteUpgrade": "data/upgrades/main_thruster_0.upgrade",
   "OnApplyUpgrade": {
-    "Version": 5,
+    "__version": 5,
+    "__guid": "2e1629ec-3cd8-4ad7-9fde-28ce989fe7c5",
     "UserData": {
       "Title": "On Apply Upgrade",
-      "id": "2e1629ec-3cd8-4ad7-9fde-28ce989fe7c5",
       "ReferencedComponentTypes": []
     },
     "Variables": [],
@@ -53,5 +53,8 @@
       }
     ]
   },
+  "Hidden": false,
+  "ResourceVersion": 0,
+  "__version": 0,
   "__references": []
 }

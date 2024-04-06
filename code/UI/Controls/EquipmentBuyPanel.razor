@@ -4,7 +4,7 @@
 
 <root class="column">
     <div id="buyTitle" class="center-content header">BUY EQUIPMENT</div>
-    @foreach( var upgrade in _availableUpgrades)
+    @foreach( var upgrade in _availableEquipment)
     {
         <div class="upgrade">
             <Image Texture=@upgrade.Thumbnail/>
@@ -15,7 +15,7 @@
             </div>
             <div id="buyColumn" class="column center-content">
                 <h2 class="price @(CanAfford(upgrade) ? "" : "insufficient")">@upgrade.Cost CR</h2>
-                <div id="buyButton" class="button center-content @(CanAfford(upgrade) ? "" : "disabled")" onclick=@(() => BuyUpgrade( upgrade ))>BUY</div>
+                <div id="buyButton" class="button center-content @(CanAfford(upgrade) ? "" : "disabled")" onclick=@(() => BuyEquipment( upgrade ))>BUY</div>
             </div>
         </div>
     }

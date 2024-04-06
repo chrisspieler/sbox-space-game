@@ -22,7 +22,7 @@ public class Scenario : GameResource
 		};
 		foreach ( var upgrade in Upgrades )
 		{
-			career.AddUpgrade( upgrade );
+			career.AddEquipment( upgrade );
 		}
 		career.World = World.ResourceName;
 		return career;

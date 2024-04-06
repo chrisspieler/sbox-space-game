@@ -1,0 +1,68 @@
+﻿@import "../Styles/main.scss";
+
+UpgradeBuyPanel {
+    flex-grow: 1;
+    border: 1px solid white;
+    border-top: none;
+    overflow: scroll;
+
+    .upgrade {
+        flex-shrink: 0;
+        border: 1px solid #FFFFFF03;
+        width: 100%;
+        height: 15vh;
+        background: linear-gradient( 0deg, #000F, #000F 15%, #0005 50% );
+
+        Image {
+            height: 15vh;
+            width: 15vh;
+        }
+
+        #centerColumn {
+            flex-grow: 1;
+            font-family: Poppins;
+            font-size: 2vh;
+
+            .name {
+                font-size: 2.5vh;
+            }
+        }
+
+        #buyColumn {
+            min-width: 10%;
+            position: absolute;
+            right: 1.5vh;
+            top: 25%;
+
+            .price {
+                font-size: 1.5vh;
+                margin: 5px;
+            }
+
+            .button {
+                height: 5vh;
+                width: 5vw;
+                font-size: 2vh;
+            }
+        }
+    }
+
+    .tick {
+        height: 5vh;
+        width: 2vh;
+        border: 0.75px solid white;
+        border-radius: 0.5vh;
+        margin: 0.2vh;
+        padding: 2px;
+
+        * {
+            width: 100%;
+            height: 100%;
+            border-radius: 2px;
+        }
+
+        .fill {
+            background-color: white;
+        }
+    }
+}

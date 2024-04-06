@@ -1,0 +1,42 @@
+﻿@using Sandbox.UI;
+@inherits Panel;
+@attribute [StyleSheet]
+
+<root class="column">
+    <div id="buyTitle" class="center-content header">BUY UPGRADES</div>
+    @foreach( var upgrade in _availableUpgrades)
+    {
+        <div class="upgrade">
+            <Image Texture=@upgrade.Thumbnail/>
+            <div id="centerColumn" class="column center-content">
+                <h3 class="name center-content">@upgrade.Name</h3>
+                <p class="description">@upgrade.FunctionText</p>
+                <div>
+                    @{
+                        int currentLevel = Career.Active.GetUpgradeLevel(upgrade);
+                        @for (int i = 0; i < upgrade.MaxLevel; i++)
+                        {
+                            var fillClass = currentLevel >= i + 1
+                                ? "fill"
+                                : "";
+                            <div class="tick center-content">
+                                <div class="@fillClass"/>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+            @if ( Career.Active.GetUpgradeLevel( upgrade ) < upgrade.MaxLevel )
+            {
+                <div id="buyColumn" class="column center-content">
+                    <h2 class="price @(CanAfford(upgrade) ? "" : "insufficient")">@Career.Active.GetUpgradeCost( upgrade ) CR</h2>
+                    <div id="buyButton" class="button center-content @(CanAfford(upgrade) ? "" : "disabled")" onclick=@(() => BuyUpgrade( upgrade ))>BUY</div>
+                </div>
+            }
+        </div>
+    }
+</root>
+
+@code {
+
+}

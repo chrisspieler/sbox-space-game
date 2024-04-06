@@ -3,7 +3,7 @@
 EquipmentBuyPanel {
     flex-grow: 1;
     border: 1px solid white;
-    margin: 5px 5px 0px 25px;
+    border-top: none;
     overflow: scroll;
 
     .upgrade {

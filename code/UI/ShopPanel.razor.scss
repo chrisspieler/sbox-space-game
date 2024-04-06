@@ -68,6 +68,23 @@ ShopPanel {
 		justify-content: space-between;
 	}
 
+	#rightPanel {
+		flex-grow: 1;
+		margin-left: 20px;
+
+		.tab-nav {
+			width: 100%;
+		}
+
+		.tab-item {
+			flex-grow: 1;
+			font-size: 3vh;
+			border-bottom: none;
+			border-color: white;
+			text-stroke: 3px #0008;
+		}
+	}
+
 	.header {
 		background-color: white;
 		color: black;
