@@ -1,19 +1,39 @@
 {
   "RootObject": {
-    "__guid": "40e3f5e3-de35-4fef-8e8b-d4a014b5e6eb",
+    "__guid": "4131c1a3-8d7f-4ced-b1e5-1e6576d2f4f4",
     "Name": "home_base",
     "Enabled": true,
     "NetworkMode": 2,
     "Children": [
       {
-        "__guid": "3b140b8f-61bf-4bba-a657-e002d661be79",
+        "__guid": "10df75c1-5942-4150-9493-171ca6664c13",
+        "Name": "Tutorial Text",
+        "Position": "512,0,-192.0002",
+        "Rotation": "0,0.7071068,0,0.7071068",
+        "Scale": "20,20,20",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "TextRenderer",
+            "__guid": "bee7af98-1d2a-4f3b-8943-df13b9e65163",
+            "Color": "1,1,1,1",
+            "FontFamily": "Zeroes 1",
+            "FontSize": 62.47,
+            "Scale": 0.05,
+            "Text": "WASD: Change direction\nSpace: Thrusters\nLeft-Click: Fire Mining Lasers\nHOLD SHIFT: Toggle turning mode"
+          }
+        ]
+      },
+      {
+        "__guid": "7cc0e0ad-28fb-47d6-b26e-05811190265f",
         "Name": "ice_field",
         "Enabled": true,
         "NetworkMode": 2,
         "__Prefab": "prefabs/effects/ice_field.prefab"
       },
       {
-        "__guid": "2b695bf3-e537-440e-85e0-efdc6b721adf",
+        "__guid": "3f7ab64a-d375-4178-bd06-7d43b488138a",
         "Name": "Store",
         "Position": "2500,2500,-700",
         "Scale": "20,20,20",
@@ -23,7 +43,7 @@
         "Components": [
           {
             "__type": "ModelRenderer",
-            "__guid": "42bd0129-6df8-4b1d-95fe-122fd5bf51fc",
+            "__guid": "28614a96-47e0-4750-a913-3fb58cdc9967",
             "BodyGroups": 18446744073709551615,
             "MaterialOverride": "materials/shared/metals/metal_aluminium_03.vmat",
             "Model": "models/dev/box.vmdl",
@@ -32,7 +52,7 @@
           },
           {
             "__type": "BoxCollider",
-            "__guid": "faeff7af-f8b2-473f-8229-20e574ead389",
+            "__guid": "1a3e5abc-b38a-4459-a627-7e586b4a046a",
             "Center": "0,0,0",
             "IsTrigger": false,
             "Scale": "50,50,50",
@@ -41,7 +61,7 @@
         ],
         "Children": [
           {
-            "__guid": "28f1e081-ebbe-43b9-b85f-d4d5f08ff917",
+            "__guid": "998761fe-6386-4c47-96b8-22fccd7edcab",
             "Name": "Spawn Point",
             "Position": "0,35,35",
             "Rotation": "0,0,0.7071068,0.7071068",
@@ -51,13 +71,13 @@
             "Components": [
               {
                 "__type": "SpawnPoint",
-                "__guid": "92f3b09a-afa6-4a8a-a107-c1a0b12169a9",
+                "__guid": "5203699e-f5c7-49e8-b244-b8157c0dec0d",
                 "Color": "0,0.11667,1,1"
               }
             ]
           },
           {
-            "__guid": "91d892cc-821e-4378-a63a-915451e10c12",
+            "__guid": "fb5a1239-a228-4520-993a-48c1b71ade23",
             "Name": "Base Shield",
             "Position": "0,0,19",
             "Scale": "2,2,2",
@@ -67,18 +87,18 @@
             "Components": [
               {
                 "__type": "Shield",
-                "__guid": "19ada18e-cbbe-4bea-a3e2-3c068c346c3a",
+                "__guid": "df68f171-80fe-4d9a-99d0-57f9a963710b",
                 "Bounce": {
                   "_type": "component",
-                  "component_id": "3b1246ac-deb6-41c4-bb1e-a2379ced96e3",
-                  "go": "91d892cc-821e-4378-a63a-915451e10c12",
+                  "component_id": "c73ca05f-98ca-4ae5-92c5-d26b7d1c4d4e",
+                  "go": "fb5a1239-a228-4520-993a-48c1b71ade23",
                   "component_type": "Bouncy"
                 },
                 "BreakSound": "sounds/shield_break.sound",
                 "Collider": {
                   "_type": "component",
-                  "component_id": "7877ec24-f20c-482d-8731-64232ddebac4",
-                  "go": "91d892cc-821e-4378-a63a-915451e10c12",
+                  "component_id": "d27a241f-3f2f-4a75-a828-476528add803",
+                  "go": "fb5a1239-a228-4520-993a-48c1b71ade23",
                   "component_type": "SphereCollider"
                 },
                 "CurrentHealth": 10000,
@@ -89,7 +109,7 @@
               },
               {
                 "__type": "Bouncy",
-                "__guid": "3b1246ac-deb6-41c4-bb1e-a2379ced96e3",
+                "__guid": "c73ca05f-98ca-4ae5-92c5-d26b7d1c4d4e",
                 "AddedVelocity": 0,
                 "BouncedTags": "solid",
                 "BounceFactor": 1,
@@ -99,7 +119,7 @@
               },
               {
                 "__type": "SphereCollider",
-                "__guid": "7877ec24-f20c-482d-8731-64232ddebac4",
+                "__guid": "d27a241f-3f2f-4a75-a828-476528add803",
                 "Center": "0,0,0",
                 "IsTrigger": false,
                 "Radius": 32,
@@ -107,7 +127,7 @@
               },
               {
                 "__type": "ModelRenderer",
-                "__guid": "77ff0d1d-940f-4afe-a0f3-94cacb4ed32c",
+                "__guid": "9dcce905-a95f-4674-84d6-1d3c0d32b9c0",
                 "BodyGroups": 18446744073709551615,
                 "MaterialOverride": "materials/dev/primary_white_emissive_trans.vmat",
                 "Model": "models/dev/sphere.vmdl",
@@ -117,7 +137,7 @@
             ]
           },
           {
-            "__guid": "615e5c60-0afa-4b62-80c9-752e390e8e86",
+            "__guid": "6c9064e0-5f4a-4747-aee5-8496d3701e88",
             "Name": "Point Light",
             "Position": "0.9459351,16.34545,43.13551",
             "Scale": "0.4,0.4,0.4",
@@ -127,7 +147,7 @@
             "Components": [
               {
                 "__type": "PointLight",
-                "__guid": "cca22613-b864-4fab-918d-9cc6e44108d8",
+                "__guid": "2410cb2c-f0a3-491f-b6b0-aa4b13cbbdd5",
                 "Attenuation": 0.39,
                 "FogMode": "Enabled",
                 "FogStrength": 1,
@@ -138,7 +158,7 @@
             ]
           },
           {
-            "__guid": "e8477fa9-17a5-4806-b368-696d6ce738cd",
+            "__guid": "46d0c2ef-ac10-4201-bb30-4c11a6c0530a",
             "Name": "Point Light",
             "Position": "-16.0395,2.608923,43.13552",
             "Scale": "0.4,0.4,0.4",
@@ -148,7 +168,7 @@
             "Components": [
               {
                 "__type": "PointLight",
-                "__guid": "a9b5b8ee-b419-45d0-8a7d-37cc55770fdd",
+                "__guid": "3fd65e58-6403-4092-92ae-dac3cfaecfad",
                 "Attenuation": 0.39,
                 "FogMode": "Enabled",
                 "FogStrength": 1,
@@ -159,7 +179,7 @@
             ]
           },
           {
-            "__guid": "29d4fcc6-83fb-4af9-8370-48cc99b4ce74",
+            "__guid": "76f2936d-8a9e-4a95-9a8b-203b8b06beed",
             "Name": "Shop",
             "Position": "0,0,43.87252",
             "Scale": "0.4,0.4,0.03312262",
@@ -169,7 +189,7 @@
             "Components": [
               {
                 "__type": "ModelRenderer",
-                "__guid": "770e6b70-3b40-466e-b38c-132b6c0cd4da",
+                "__guid": "e29da3e8-0b04-44af-8b62-8650c70a588b",
                 "BodyGroups": 18446744073709551615,
                 "MaterialOverride": "materials/generic/metal_brushed.vmat",
                 "Model": "models/dev/box.vmdl",
@@ -178,7 +198,7 @@
               },
               {
                 "__type": "BoxCollider",
-                "__guid": "cef774d0-40d2-4173-a26c-4ff6e7c8e3d9",
+                "__guid": "8f0c8751-2520-4058-b982-31b9b203e13f",
                 "Center": "0,0,-200",
                 "IsTrigger": true,
                 "Scale": "45,45,300",
@@ -186,16 +206,16 @@
               },
               {
                 "__type": "Shop",
-                "__guid": "d2042a1e-1a33-4c41-9055-e50ffaff8204",
+                "__guid": "1074489a-e7df-4fcf-8274-88e7d2160700",
                 "EjectionVelocity": "1,0,0",
                 "Ejector": {
                   "_type": "gameobject",
-                  "go": "40669ee2-aa4d-402a-862c-54c95e5046b0"
+                  "go": "e80a4c62-105e-4736-accf-70921f7690a3"
                 }
               },
               {
                 "__type": "BoxCollider",
-                "__guid": "98b1bbc8-ca0c-4c14-ac67-679b62cd5def",
+                "__guid": "3a79dd91-d849-4175-8e67-e9986eaa840b",
                 "Center": "0,0,0",
                 "IsTrigger": false,
                 "Scale": "50,50,50",
@@ -204,7 +224,7 @@
             ],
             "Children": [
               {
-                "__guid": "40669ee2-aa4d-402a-862c-54c95e5046b0",
+                "__guid": "e80a4c62-105e-4736-accf-70921f7690a3",
                 "Name": "Player Ejector",
                 "Position": "0.0002441406,47.25272,-250",
                 "Rotation": "0,0,0.7071068,0.7071068",
@@ -214,26 +234,7 @@
             ]
           },
           {
-            "__guid": "69ea7419-ecb1-47da-ab1d-b0c587cbabef",
-            "Name": "Tutorial Text",
-            "Position": "25.4,35,25.4",
-            "Rotation": "0,0.7071068,0,0.7071068",
-            "Enabled": true,
-            "NetworkMode": 2,
-            "Components": [
-              {
-                "__type": "TextRenderer",
-                "__guid": "1b355e93-7f66-4232-8d14-7bbb726febe3",
-                "Color": "1,1,1,1",
-                "FontFamily": "Zeroes 1",
-                "FontSize": 62.47,
-                "Scale": 0.05,
-                "Text": "WASD: Change direction\nSpace: Thrusters\nLeft-Click: Fire Mining Lasers\nHOLD SHIFT: Toggle turning mode"
-              }
-            ]
-          },
-          {
-            "__guid": "fd243ebf-6509-4612-9dff-d80d1a673a4a",
+            "__guid": "bbe3df78-8d4b-4e79-bc45-453df5fb1f4d",
             "Name": "Shop Text",
             "Position": "-0.2,15.8,25.4",
             "Rotation": "0,0.7071068,0,0.7071068",
@@ -243,7 +244,7 @@
             "Components": [
               {
                 "__type": "TextRenderer",
-                "__guid": "e93813f7-7bb4-41c4-87b1-7f2177eb5a93",
+                "__guid": "f3dedb0b-e4b5-4bec-a8b4-9475990e2c2f",
                 "Color": "1,0.98333,0,1",
                 "FontFamily": "Zeroes 1",
                 "FontSize": 128,
@@ -253,7 +254,7 @@
             ]
           },
           {
-            "__guid": "d3d70188-7e1b-4d3a-928b-40fcedd8b6e8",
+            "__guid": "63276538-4020-4695-823d-5eaef3fcadae",
             "Name": "Replenish Zone",
             "Position": "0,0,35",
             "Enabled": true,
@@ -261,7 +262,7 @@
             "Components": [
               {
                 "__type": "BoxCollider",
-                "__guid": "de27739f-3d1b-431b-a254-70d632fa6a1d",
+                "__guid": "2f1b4ed0-e9af-4bf5-ad93-1d7bc925ff17",
                 "Center": "0,0,0",
                 "IsTrigger": true,
                 "Scale": "50,50,20",
@@ -269,7 +270,7 @@
               },
               {
                 "__type": "ReplenishZone",
-                "__guid": "85f7e4c9-0728-4775-8c64-20d2dfc3e8e2",
+                "__guid": "c5e71452-dc28-42d2-9084-246e718e6a9e",
                 "Refuel": true,
                 "Repair": true
               }
@@ -278,7 +279,7 @@
         ]
       },
       {
-        "__guid": "5ef4af93-82c7-46fe-a71d-7a163fb744df",
+        "__guid": "7776fc8f-cd27-4b47-b851-2c4bf414e869",
         "Name": "distant_lights (1)",
         "Position": "0,0,-3000",
         "Enabled": true,
@@ -286,7 +287,7 @@
         "__Prefab": "prefabs/effects/distant_lights.prefab"
       },
       {
-        "__guid": "7cdecc08-91ba-4bc9-b807-87a50a1f5151",
+        "__guid": "ca47437b-b798-4937-b892-2c86fb4c49c6",
         "Name": "Shop Beacon",
         "Position": "2500,2500,0",
         "Enabled": true,
@@ -294,7 +295,7 @@
         "Components": [
           {
             "__type": "Beacon",
-            "__guid": "3473f627-b106-4592-bbb4-930c688a15df",
+            "__guid": "7ead9d87-e1f5-4ada-936b-40ac8467adb5",
             "BeaconId": "shop0",
             "DisappearRange": 0,
             "Name": "Shop"
