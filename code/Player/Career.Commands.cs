@@ -14,7 +14,7 @@ public partial class Career
 		foreach ( var upgradeResName in Active.Upgrades )
 		{
 			var upgrade = allUpgrades.FirstOrDefault( u => u.ResourceName == upgradeResName );
-			Log.Info( $"\t{upgradeResName}: {upgrade.Name}" );
+			Log.Info( $"\t{upgradeResName}: {upgrade?.Name ?? "Missing Upgrade"}" );
 		}
 	}
 
