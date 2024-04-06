@@ -1,21 +1,22 @@
 {
   "RootObject": {
-    "Id": "d06e3a30-adfa-4442-b2c8-b4f36e5423f1",
+    "__guid": "d06e3a30-adfa-4442-b2c8-b4f36e5423f1",
     "Name": "platinum_ore_pickup",
     "Enabled": true,
+    "NetworkMode": 2,
     "Children": [
       {
-        "Id": "09518390-e59e-420a-a394-343a9dc86ec0",
+        "__guid": "09518390-e59e-420a-a394-343a9dc86ec0",
         "Name": "Sphere (1)",
         "Position": "0,3.696516,0",
         "Scale": "0.2,0.2,0.2",
         "Enabled": true,
+        "NetworkMode": 2,
         "Components": [
           {
             "__type": "ModelRenderer",
+            "__guid": "0a482294-a669-473d-8447-7bc049824c55",
             "BodyGroups": 18446744073709551615,
-            "MaterialGroup": null,
-            "MaterialOverride": null,
             "Model": "models/rust_nature/rocks/rock_cliff_a.vmdl",
             "RenderType": "On",
             "Tint": "0.14884,0.14884,0.14884,1"
@@ -23,49 +24,21 @@
         ]
       },
       {
-        "Id": "9c9035d9-22c2-4b66-a2aa-c3ea871aa23d",
+        "__guid": "9c9035d9-22c2-4b66-a2aa-c3ea871aa23d",
         "Name": "Sphere (2)",
         "Position": "0,3.696516,7.644561",
         "Scale": "0.1929824,0.1929824,0.1929824",
         "Enabled": true,
+        "NetworkMode": 2,
         "Components": [
           {
             "__type": "ModelRenderer",
+            "__guid": "146a94e0-2626-4c18-a561-7d7d119d297b",
             "BodyGroups": 18446744073709551615,
-            "MaterialGroup": null,
             "MaterialOverride": "materials/dev/dev_metal_rough50.vmat",
             "Model": "models/rust_nature/rocks/rock_cliff_a.vmdl",
             "RenderType": "On",
             "Tint": "1,1,1,1"
-          }
-        ]
-      },
-      {
-        "Id": "d1a86941-ffab-4077-87c7-b4796d94e10d",
-        "Name": "Point Light (1)",
-        "Position": "-3.971298,215.3373,73.97128",
-        "Tags": "light_point,light",
-        "Enabled": true,
-        "Components": [
-          {
-            "__type": "PointLight",
-            "Attenuation": 1,
-            "FogMode": "Enabled",
-            "FogStrength": 1,
-            "LightColor": "0.91373,0.98039,1,1",
-            "Radius": 400,
-            "Shadows": true
-          },
-          {
-            "__type": "EnvmapProbe",
-            "Bounds": {
-              "Mins": "-512,-512,-512",
-              "Maxs": "512,512,512"
-            },
-            "Feathering": 0.02,
-            "Projection": "Sphere",
-            "Texture": "textures/cubemaps/default2.vtex",
-            "TintColor": "1,1,1,1"
           }
         ]
       }
@@ -74,6 +47,8 @@
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__version": 1,
   "__references": [
     "rust.rock_cliff_a"
   ]
