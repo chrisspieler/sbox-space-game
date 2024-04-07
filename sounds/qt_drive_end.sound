@@ -1,6 +1,6 @@
 {
   "UI": false,
-  "Volume": "15.00,1.00,0",
+  "Volume": "7.50,1.00,0",
   "Pitch": "2.00,1.00,0",
   "Decibels": 70,
   "SelectionMode": "Random",
@@ -13,5 +13,7 @@
   "Transmission": false,
   "OcclusionRadius": 64,
   "DistanceAttenuation": true,
+  "ResourceVersion": 0,
+  "__version": 0,
   "__references": []
 }
