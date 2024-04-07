@@ -7,7 +7,8 @@
     "data/upgrades/stabilizer_0.upgrade",
     "data/upgrades/shield_0.upgrade",
     "data/upgrades/grapple_hook.upgrade",
-    "data/upgrades/qt_drive_0.upgrade"
+    "data/upgrades/qt_drive_0.upgrade",
+    "data/upgrades/fuel_0.upgrade"
   ],
   "World": "data/world/default.world",
   "Hidden": true,

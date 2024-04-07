@@ -5,7 +5,8 @@
   "Upgrades": [
     "data/upgrades/jettison.upgrade",
     "data/upgrades/stabilizer_0.upgrade",
-    "data/upgrades/shield_0.upgrade"
+    "data/upgrades/shield_0.upgrade",
+    "data/upgrades/fuel_0.upgrade"
   ],
   "World": "data/world/test_weapons.world",
   "Hidden": true,

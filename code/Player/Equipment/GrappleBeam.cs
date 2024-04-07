@@ -24,6 +24,7 @@ public sealed class GrappleBeam : Component
 	[Property] public SoundEvent AttachSound { get; set; }
 	[Property] public GameObject GrapplePoint { get; set; }
 	[Property] public GameObject CurrentTarget => _currentTarget;
+	[Property] public float RetractSpeed { get; set; } = 250f;
 
 	public bool IsSlack
 	{
@@ -83,6 +84,11 @@ public sealed class GrappleBeam : Component
 				Connect( mouseSelector.Hovered );
 			}
 		}
+
+		if ( Input.Down( "grapple" ) )
+		{
+			Retract();
+		}
 	}
 
 	protected override void OnDestroy()
@@ -141,6 +147,17 @@ public sealed class GrappleBeam : Component
 		}
 		CreateParticleRope();
 		CreateLight();
+	}
+
+	private void Retract()
+	{
+		if ( !CurrentTarget.IsValid() )
+			return;
+
+		var distance = Transform.Position.Distance( CurrentTarget.Transform.Position );
+		var retractFactor = distance.LerpInverse( 200f, 1000f );
+		Joint.MaxLength -= RetractSpeed * retractFactor * Time.Delta;
+		Joint.MaxLength = MathF.Max( 0, Joint.MaxLength );
 	}
 
 	private float GetJointLength( GameObject target )
