@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using Sandbox;
 
 public partial class Career
@@ -48,6 +49,7 @@ public partial class Career
 	}
 	private int _money;
 
+	[JsonPropertyOrder(9)]
 	public List<SavedCargoValue> ShopCargoValues { get; set; } = new();
 	public string World { get; set; } = "default";
 	public LaserStyle LaserStylePreference { get; set; } = LaserStyle.Tinted;

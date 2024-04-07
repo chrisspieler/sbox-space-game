@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 
 public partial class Career
 {
+	[JsonPropertyOrder(10)]
 	public List<PersistedChunkData> ChunkData { get; set; } = new();
 
 	public Dictionary<Vector2Int, List<PersistedObjectData>> ChunkDataToDictionary()
