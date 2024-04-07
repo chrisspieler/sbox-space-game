@@ -29,4 +29,24 @@ public partial class Career
 	{
 		Active?.RemoveMoney( money );
 	}
+
+	[ConCmd( "add_all_upgrades"), Cheat]
+	public static void AddAllUpgradesCommand()
+	{
+		Active?.AddAllUpgrades();
+	}
+
+	public void AddAllUpgrades()
+	{
+		var allEquipment = ResourceLibrary.GetAll<Upgrade>();
+		foreach( var equipment in allEquipment )
+		{
+			AddEquipment( equipment );
+		}
+		var allUpgrades = ResourceLibrary.GetAll<RepeatableUpgrade>();
+		foreach( var upgrade in allUpgrades )
+		{
+			SetUpgradeLevel( upgrade, upgrade.MaxLevel );
+		}
+	}
 }
