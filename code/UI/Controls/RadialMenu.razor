@@ -1,0 +1,38 @@
+﻿@using Sandbox;
+@using Sandbox.UI;
+@using System;
+@using System.Collections.Generic;
+@using Sandbox.Utility;
+
+@inherits Panel
+@attribute [StyleSheet]
+
+<root class="radial-menu @GetRootClass()">
+    <div class="center @(string.IsNullOrEmpty( Name ) ? "hidden" : string.Empty)">
+        <img @ref="Arrow" src="ui/img/radial_arrow.png" class="arrow" />
+        
+        <div class="info">
+            <label class="name">@Name</label>
+            <label class="description">@Description</label>
+
+            @if ( !string.IsNullOrEmpty( Subtitle ) )
+            {
+                <label class="subtitle">@Subtitle</label>                
+            }
+        </div>
+    </div>
+
+    <div @ref="ItemContainer" class="items">
+        @foreach ( var item in Items )
+        {
+            <RadialMenuItem Item=@item></RadialMenuItem>
+        }
+    </div>
+
+    <div @ref="Dot" class="dot"></div>
+</root>
+
+@code
+{
+    
+}

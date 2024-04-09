@@ -33,27 +33,30 @@
         {
           "Name": "Forward",
           "KeyboardCode": "W",
+          "GamepadCode": "None",
           "GroupName": "Movement"
         },
         {
           "Name": "Backward",
           "KeyboardCode": "S",
+          "GamepadCode": "None",
           "GroupName": "Movement"
         },
         {
           "Name": "Left",
           "KeyboardCode": "A",
+          "GamepadCode": "None",
           "GroupName": "Movement"
         },
         {
           "Name": "Right",
           "KeyboardCode": "D",
+          "GamepadCode": "None",
           "GroupName": "Movement"
         },
         {
           "Name": "Thrust",
           "KeyboardCode": "space",
-          "GamepadCode": "A",
           "GroupName": "Movement"
         },
         {
@@ -101,36 +104,43 @@
         {
           "Name": "Slot4",
           "KeyboardCode": "4",
+          "GamepadCode": "None",
           "GroupName": "Inventory"
         },
         {
           "Name": "Slot5",
           "KeyboardCode": "5",
+          "GamepadCode": "None",
           "GroupName": "Inventory"
         },
         {
           "Name": "Slot6",
           "KeyboardCode": "6",
+          "GamepadCode": "None",
           "GroupName": "Inventory"
         },
         {
           "Name": "Slot7",
           "KeyboardCode": "7",
+          "GamepadCode": "None",
           "GroupName": "Inventory"
         },
         {
           "Name": "Slot8",
           "KeyboardCode": "8",
+          "GamepadCode": "None",
           "GroupName": "Inventory"
         },
         {
           "Name": "Slot9",
           "KeyboardCode": "9",
+          "GamepadCode": "None",
           "GroupName": "Inventory"
         },
         {
           "Name": "Slot0",
           "KeyboardCode": "0",
+          "GamepadCode": "None",
           "GroupName": "Inventory"
         },
         {
@@ -154,11 +164,13 @@
         {
           "Name": "Voice",
           "KeyboardCode": "v",
+          "GamepadCode": "None",
           "GroupName": "Other"
         },
         {
           "Name": "Drop",
           "KeyboardCode": "g",
+          "GamepadCode": "None",
           "GroupName": "Other"
         },
         {
@@ -174,7 +186,7 @@
           "GroupName": "Other"
         },
         {
-          "Name": "Menu",
+          "Name": "quick_menu",
           "KeyboardCode": "Q",
           "GamepadCode": "SwitchRightMenu",
           "GroupName": "Other"
@@ -182,24 +194,29 @@
         {
           "Name": "Chat",
           "KeyboardCode": "enter",
+          "GamepadCode": "None",
           "GroupName": "Other"
         },
         {
           "Name": "Tank_Toggle",
           "KeyboardCode": "SHIFT",
+          "GamepadCode": "None",
           "GroupName": "Actions"
         },
         {
           "Name": "qt_drive",
           "KeyboardCode": "MOUSE3",
+          "GamepadCode": "None",
           "GroupName": "Actions"
         },
         {
           "Name": "pause",
           "KeyboardCode": "P",
+          "GamepadCode": "None",
           "GroupName": "Debug"
         }
-      ]
+      ],
+      "__guid": "27adbf86-80e3-4ecd-b1e2-213ae15b6667"
     },
     "MapStartupScene": null,
     "LaunchMode": "Normal"

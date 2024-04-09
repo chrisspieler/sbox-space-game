@@ -7,7 +7,7 @@
     "NetworkMode": 2,
     "Components": [
       {
-        "__type": "ScreenPanel",
+        "__type": "Sandbox.ScreenPanel",
         "__guid": "61509036-0c3f-42ba-9f7f-a7ef0385f2a8",
         "AutoScreenScale": true,
         "Opacity": 1,
@@ -240,6 +240,18 @@
             "__type": "QtDriveHudPanel",
             "__guid": "5ecf539b-3c5e-4f27-8c0d-411fd26b51cf",
             "__enabled": false
+          }
+        ]
+      },
+      {
+        "__guid": "22ebdb7e-3e40-46cd-b861-cc9a6ef9bafc",
+        "Name": "Quick Menu",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "Components": [
+          {
+            "__type": "QuickMenuPanel",
+            "__guid": "e847307e-51c2-49d8-a86c-843e00e2d734"
           }
         ]
       }
