@@ -5,11 +5,7 @@
   "Ident": "aluminum_acrobat",
   "Tags": null,
   "Schema": 1,
-  "HasAssets": true,
-  "AssetsPath": "",
   "Resources": "*",
-  "HasCode": true,
-  "CodePath": "/code/",
   "PackageReferences": [],
   "EditorReferences": null,
   "Metadata": {
@@ -218,7 +214,6 @@
       ],
       "__guid": "27adbf86-80e3-4ecd-b1e2-213ae15b6667"
     },
-    "MapStartupScene": null,
     "LaunchMode": "Normal"
   }
 }
