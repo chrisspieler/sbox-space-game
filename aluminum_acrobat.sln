@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "actiongraph", "C:\Program F
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "aluminum_acrobat", "Code\aluminum_acrobat.csproj", "{D3ED856D-43CD-4B12-3CB5-D7592265F67C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{7E84B5F6-56F9-A3B2-F215-7A71616B85A2}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Addons", "Addons", "{7E84B5F6-56F9-A3B2-F215-7A71616B85A2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{91C47821-78DC-6EB2-D97E-14E2D5EF1C9F}"
 EndProject

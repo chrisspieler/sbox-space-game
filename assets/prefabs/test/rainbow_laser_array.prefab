@@ -4,6 +4,7 @@
     "Name": "rainbow_laser_array",
     "Enabled": true,
     "NetworkMode": 2,
+    "NetworkInterpolation": true,
     "Children": [
       {
         "__guid": "bd47aaf1-5cd9-415c-a7e1-4d5a0231ca19",
@@ -12,11 +13,12 @@
         "Tags": "no_chunk",
         "Enabled": true,
         "NetworkMode": 2,
+        "NetworkInterpolation": true,
         "Components": [
           {
-            "__type": "LaserBeam",
+            "__type": "Sandbox.LaserBeam",
             "__guid": "d3b06e88-da96-4406-b6c4-69d1bf0e5823",
-            "ParticleAsset": "particles/laser_beam.vpcf",
+            "ParticleAsset": "particles/laserline.vpcf",
             "Target": {
               "_type": "gameobject",
               "go": "30d7bb69-6f29-45b1-9794-14c1191ad53a"
@@ -30,7 +32,8 @@
             "Name": "Target",
             "Position": "3072,0,0",
             "Enabled": true,
-            "NetworkMode": 2
+            "NetworkMode": 2,
+            "NetworkInterpolation": true
           }
         ]
       },
@@ -41,11 +44,12 @@
         "Tags": "no_chunk",
         "Enabled": true,
         "NetworkMode": 2,
+        "NetworkInterpolation": true,
         "Components": [
           {
-            "__type": "LaserBeam",
+            "__type": "Sandbox.LaserBeam",
             "__guid": "a1e5de31-5a1c-47b1-a91d-633082227eff",
-            "ParticleAsset": "particles/laser_beam.vpcf",
+            "ParticleAsset": "particles/laserline.vpcf",
             "Target": {
               "_type": "gameobject",
               "go": "434fdc95-b857-40d6-847d-33c1c96a3f12"
@@ -59,7 +63,8 @@
             "Name": "Target",
             "Position": "3072,0,0",
             "Enabled": true,
-            "NetworkMode": 2
+            "NetworkMode": 2,
+            "NetworkInterpolation": true
           }
         ]
       },
@@ -70,11 +75,12 @@
         "Tags": "no_chunk",
         "Enabled": true,
         "NetworkMode": 2,
+        "NetworkInterpolation": true,
         "Components": [
           {
-            "__type": "LaserBeam",
+            "__type": "Sandbox.LaserBeam",
             "__guid": "3add78d4-d93f-47ed-99a8-ef097bbbab61",
-            "ParticleAsset": "particles/laser_beam.vpcf",
+            "ParticleAsset": "particles/laserline.vpcf",
             "Target": {
               "_type": "gameobject",
               "go": "872f35da-27d4-4a43-b70a-65985c1dd7e8"
@@ -88,7 +94,8 @@
             "Name": "Target",
             "Position": "3072,0,0",
             "Enabled": true,
-            "NetworkMode": 2
+            "NetworkMode": 2,
+            "NetworkInterpolation": true
           }
         ]
       },
@@ -99,11 +106,12 @@
         "Tags": "no_chunk",
         "Enabled": true,
         "NetworkMode": 2,
+        "NetworkInterpolation": true,
         "Components": [
           {
-            "__type": "LaserBeam",
+            "__type": "Sandbox.LaserBeam",
             "__guid": "bfac941d-1551-467b-82b4-8e632a9ac971",
-            "ParticleAsset": "particles/laser_beam.vpcf",
+            "ParticleAsset": "particles/laserline.vpcf",
             "Target": {
               "_type": "gameobject",
               "go": "4e5e678f-d5b5-49e9-aea2-62211c90b44b"
@@ -117,7 +125,8 @@
             "Name": "Target",
             "Position": "3072,0,0",
             "Enabled": true,
-            "NetworkMode": 2
+            "NetworkMode": 2,
+            "NetworkInterpolation": true
           }
         ]
       },
@@ -128,11 +137,12 @@
         "Tags": "no_chunk",
         "Enabled": true,
         "NetworkMode": 2,
+        "NetworkInterpolation": true,
         "Components": [
           {
-            "__type": "LaserBeam",
+            "__type": "Sandbox.LaserBeam",
             "__guid": "aafafe45-582a-4587-8baa-d3da040cdee3",
-            "ParticleAsset": "particles/laser_beam.vpcf",
+            "ParticleAsset": "particles/laserline.vpcf",
             "Target": {
               "_type": "gameobject",
               "go": "be505696-1895-4824-b647-fb2de9d25fd5"
@@ -146,7 +156,8 @@
             "Name": "Target",
             "Position": "3072,0,0",
             "Enabled": true,
-            "NetworkMode": 2
+            "NetworkMode": 2,
+            "NetworkInterpolation": true
           }
         ]
       },
@@ -157,11 +168,12 @@
         "Tags": "no_chunk",
         "Enabled": true,
         "NetworkMode": 2,
+        "NetworkInterpolation": true,
         "Components": [
           {
-            "__type": "LaserBeam",
+            "__type": "Sandbox.LaserBeam",
             "__guid": "ae5020b3-81cd-49d1-a17d-135efbf527f3",
-            "ParticleAsset": "particles/laser_beam.vpcf",
+            "ParticleAsset": "particles/laserline.vpcf",
             "Target": {
               "_type": "gameobject",
               "go": "603bb707-d9ef-475e-8d15-78d794b334c4"
@@ -175,7 +187,8 @@
             "Name": "Target",
             "Position": "3072,0,0",
             "Enabled": true,
-            "NetworkMode": 2
+            "NetworkMode": 2,
+            "NetworkInterpolation": true
           }
         ]
       },
@@ -185,11 +198,12 @@
         "Tags": "no_chunk",
         "Enabled": true,
         "NetworkMode": 2,
+        "NetworkInterpolation": true,
         "Components": [
           {
-            "__type": "LaserBeam",
+            "__type": "Sandbox.LaserBeam",
             "__guid": "accd87d4-a118-4271-bc69-6da0d182160c",
-            "ParticleAsset": "particles/laser_beam.vpcf",
+            "ParticleAsset": "particles/laserline.vpcf",
             "Target": {
               "_type": "gameobject",
               "go": "250aed53-3167-4709-ad14-3e569a2b7bf5"
@@ -203,7 +217,8 @@
             "Name": "Target",
             "Position": "3072,0,0",
             "Enabled": true,
-            "NetworkMode": 2
+            "NetworkMode": 2,
+            "NetworkInterpolation": true
           }
         ]
       }

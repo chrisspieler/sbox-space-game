@@ -7,6 +7,7 @@
       "Tags": "no_chunk",
       "Enabled": true,
       "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "__Prefab": "prefabs/main_ui.prefab"
     },
     {
@@ -15,6 +16,7 @@
       "Tags": "no_chunk,no_shift",
       "Enabled": true,
       "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "__Prefab": "prefabs/ship_camera.prefab"
     },
     {
@@ -23,6 +25,7 @@
       "Tags": "skybox,no_chunk,shift_visible",
       "Enabled": true,
       "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "__Prefab": "prefabs/skybox.prefab"
     },
     {
@@ -31,6 +34,7 @@
       "Tags": "no_chunk,shift_visible",
       "Enabled": true,
       "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "__Prefab": "prefabs/volumetric_fog.prefab"
     },
     {
@@ -39,6 +43,7 @@
       "Tags": "light_directional,light,no_chunk",
       "Enabled": true,
       "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "__Prefab": "prefabs/ambient_light.prefab"
     },
     {
@@ -47,6 +52,7 @@
       "Tags": "no_chunk",
       "Enabled": true,
       "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "Components": [
         {
           "__type": "SaveManager",
@@ -59,13 +65,13 @@
           }
         },
         {
-          "__type": "StartActionComponent",
+          "__type": "Sandbox.ActionGraphs.StartActionComponent",
           "__guid": "a15f949f-805c-4530-817e-ef9857c82683",
           "Action": {
-            "Version": 5,
+            "__version": 6,
+            "__guid": "7b9866c4-46b2-4818-a789-e6ddc524f5cf",
             "UserData": {
               "Title": "Action",
-              "id": "7b9866c4-46b2-4818-a789-e6ddc524f5cf",
               "ReferencedComponentTypes": []
             },
             "Variables": [],
@@ -76,7 +82,7 @@
               },
               {
                 "Id": 1,
-                "Type": "property.get",
+                "Type": "property",
                 "Properties": {
                   "_type": "Sandbox.Game/Sandbox.GameObject",
                   "_name": "Scene"
@@ -87,7 +93,7 @@
               },
               {
                 "Id": 2,
-                "Type": "property.get",
+                "Type": "property",
                 "Properties": {
                   "_type": "Sandbox.Game/Sandbox.Scene",
                   "_name": "PhysicsWorld"
@@ -98,7 +104,7 @@
               },
               {
                 "Id": 4,
-                "Type": "property.set",
+                "Type": "property",
                 "Properties": {
                   "_type": "Sandbox.Engine/Sandbox.PhysicsWorld",
                   "_name": "Gravity"
@@ -149,9 +155,10 @@
       "Tags": "no_chunk",
       "Enabled": true,
       "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "Components": [
         {
-          "__type": "SpawnPoint",
+          "__type": "Sandbox.SpawnPoint",
           "__guid": "1f7dca4e-a58e-470b-bffa-6a00868edf44",
           "Color": "0.8902,0.31765,0.05098,1"
         }
@@ -164,6 +171,7 @@
       "Tags": "no_chunk",
       "Enabled": true,
       "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "Children": [
         {
           "__guid": "19bee129-d060-4b3b-9920-81d1a5c7a8e2",
@@ -172,9 +180,10 @@
           "Rotation": "0,0.7071068,0,0.7071068",
           "Enabled": true,
           "NetworkMode": 2,
+          "NetworkInterpolation": true,
           "Components": [
             {
-              "__type": "TextRenderer",
+              "__type": "Sandbox.TextRenderer",
               "__guid": "5793d1b9-f264-40fb-8190-7c25843c88b7",
               "Color": "1,1,1,1",
               "FontFamily": "Zeroes 1",
@@ -192,9 +201,10 @@
           "Tags": "solid",
           "Enabled": true,
           "NetworkMode": 2,
+          "NetworkInterpolation": true,
           "Components": [
             {
-              "__type": "ModelRenderer",
+              "__type": "Sandbox.ModelRenderer",
               "__guid": "26525496-ba80-4764-92a0-017304e81d52",
               "BodyGroups": 18446744073709551615,
               "MaterialOverride": "materials/dev/dev_metal_rough40.vmat",
@@ -203,7 +213,7 @@
               "Tint": "1,1,1,1"
             },
             {
-              "__type": "BoxCollider",
+              "__type": "Sandbox.BoxCollider",
               "__guid": "bb6fa6fc-16e4-4086-a3cd-ac8b0d483846",
               "Center": "0,0,0",
               "IsTrigger": false,
@@ -220,9 +230,10 @@
           "Tags": "solid",
           "Enabled": true,
           "NetworkMode": 2,
+          "NetworkInterpolation": true,
           "Components": [
             {
-              "__type": "ModelRenderer",
+              "__type": "Sandbox.ModelRenderer",
               "__guid": "40e27e66-5077-46bc-8a99-6091c5c366d6",
               "BodyGroups": 18446744073709551615,
               "MaterialOverride": "materials/dev/dev_metal_rough40.vmat",
@@ -231,7 +242,7 @@
               "Tint": "1,1,1,1"
             },
             {
-              "__type": "BoxCollider",
+              "__type": "Sandbox.BoxCollider",
               "__guid": "fcf49e2b-881f-481a-b38c-cc17677624b3",
               "Center": "0,0,0",
               "IsTrigger": false,
@@ -249,9 +260,10 @@
           "Tags": "solid",
           "Enabled": true,
           "NetworkMode": 2,
+          "NetworkInterpolation": true,
           "Components": [
             {
-              "__type": "ModelRenderer",
+              "__type": "Sandbox.ModelRenderer",
               "__guid": "32efe01a-2794-4fff-b8c1-54cd5477bb43",
               "BodyGroups": 18446744073709551615,
               "MaterialOverride": "materials/dev/dev_metal_rough40.vmat",
@@ -260,7 +272,7 @@
               "Tint": "1,1,1,1"
             },
             {
-              "__type": "BoxCollider",
+              "__type": "Sandbox.BoxCollider",
               "__guid": "9e756d7b-f821-45ad-9898-1e5c53c7a9bf",
               "Center": "0,0,0",
               "IsTrigger": false,
@@ -278,9 +290,10 @@
           "Tags": "solid",
           "Enabled": true,
           "NetworkMode": 2,
+          "NetworkInterpolation": true,
           "Components": [
             {
-              "__type": "ModelRenderer",
+              "__type": "Sandbox.ModelRenderer",
               "__guid": "d93fbbdf-1dd9-4b68-aa87-095d4855cad3",
               "BodyGroups": 18446744073709551615,
               "MaterialOverride": "materials/dev/dev_metal_rough40.vmat",
@@ -289,7 +302,7 @@
               "Tint": "1,1,1,1"
             },
             {
-              "__type": "BoxCollider",
+              "__type": "Sandbox.BoxCollider",
               "__guid": "9dececc2-9848-4950-b39a-17afa29d78e7",
               "Center": "0,0,0",
               "IsTrigger": false,
@@ -307,9 +320,10 @@
           "Tags": "solid",
           "Enabled": true,
           "NetworkMode": 2,
+          "NetworkInterpolation": true,
           "Components": [
             {
-              "__type": "ModelRenderer",
+              "__type": "Sandbox.ModelRenderer",
               "__guid": "981eeaae-f44f-4e76-9f80-55009aac1d14",
               "BodyGroups": 18446744073709551615,
               "MaterialOverride": "materials/dev/dev_nonmetal_rough10.vmat",
@@ -318,7 +332,7 @@
               "Tint": "1,1,1,1"
             },
             {
-              "__type": "BoxCollider",
+              "__type": "Sandbox.BoxCollider",
               "__guid": "4a3b2344-1adb-4173-b07d-b9876a9bc961",
               "Center": "0,0,0",
               "IsTrigger": false,
@@ -346,6 +360,7 @@
           "Position": "761.9234,438.8114,0",
           "Enabled": true,
           "NetworkMode": 2,
+          "NetworkInterpolation": true,
           "Components": [
             {
               "__type": "BeamWeapon",
@@ -381,10 +396,12 @@
                 "go": "8e341974-da7f-47ae-bc94-4f1419df6a07",
                 "component_type": "ImpactEffect"
               },
-              "LaserBrightnessCurve": {
-                "rangex": "0,0",
-                "rangey": "0,0"
-              },
+              "LaserBrightnessCurve": [
+                {
+                  "x": 0.5,
+                  "y": 0.5
+                }
+              ],
               "LaserDistance": 625.15625,
               "LaserEffect": {
                 "_type": "component",
@@ -393,7 +410,7 @@
                 "component_type": "LaserBeam"
               },
               "LaserPower": 0.42857143,
-              "LaserTint": "0.03333,0,1,1",
+              "LaserTint": "0.01666,0,0.5,1",
               "MaxDamage": 20,
               "MinDamage": 2.5,
               "ShouldFire": true,
@@ -441,9 +458,10 @@
               "Scale": "1,0.2,0.2",
               "Enabled": true,
               "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
-                  "__type": "ModelRenderer",
+                  "__type": "Sandbox.ModelRenderer",
                   "__guid": "4216deb5-6666-4f25-8e0d-779ff2f3dd86",
                   "BodyGroups": 18446744073709551615,
                   "Model": "models/dev/box.vmdl",
@@ -458,17 +476,18 @@
               "Position": "0,0,0",
               "Enabled": true,
               "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
-                  "__type": "LaserBeam",
+                  "__type": "Sandbox.LaserBeam",
                   "__guid": "01edb1ad-5c86-408a-a6c7-3e2258c8e317",
                   "__enabled": false,
-                  "ParticleAsset": "particles/laser_beam.vpcf",
+                  "ParticleAsset": "particles/laserline.vpcf",
                   "Target": {
                     "_type": "gameobject",
                     "go": "8e341974-da7f-47ae-bc94-4f1419df6a07"
                   },
-                  "Tint": "0.03333,0,1,1"
+                  "Tint": "0.01666,0,0.5,1"
                 }
               ]
             },
@@ -478,6 +497,7 @@
               "Position": "0,0,0",
               "Enabled": true,
               "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
                   "__type": "ImpactEffect",
@@ -496,6 +516,7 @@
       "Tags": "no_chunk",
       "Enabled": true,
       "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "Children": [
         {
           "__guid": "c0c825d0-f61e-4816-834c-990c817720d5",
@@ -504,9 +525,10 @@
           "Rotation": "0,0.7071068,0,0.7071068",
           "Enabled": true,
           "NetworkMode": 2,
+          "NetworkInterpolation": true,
           "Components": [
             {
-              "__type": "TextRenderer",
+              "__type": "Sandbox.TextRenderer",
               "__guid": "24fc826e-a78d-47f4-b40d-3b02bade7494",
               "Color": "1,1,1,1",
               "FontFamily": "Zeroes 1",
@@ -523,6 +545,7 @@
           "Rotation": "0,-0,-0.7071068,0.7071068",
           "Enabled": true,
           "NetworkMode": 2,
+          "NetworkInterpolation": true,
           "Components": [
             {
               "__type": "Timer",
@@ -530,10 +553,10 @@
               "IntervalSeconds": 0.5,
               "InvokeOnStart": false,
               "OnDing": {
-                "Version": 5,
+                "__version": 6,
+                "__guid": "c84fd65a-74de-4b4c-b699-c209f9749dc2",
                 "UserData": {
                   "Title": "On Ding",
-                  "id": "c84fd65a-74de-4b4c-b699-c209f9749dc2",
                   "ReferencedComponentTypes": []
                 },
                 "Variables": [],
@@ -580,6 +603,7 @@
                     "Properties": {
                       "component": {
                         "_type": "component",
+                        "component_id": "86c9e96c-245a-4e47-9247-0d5ff221f99e",
                         "go": "e883bb31-d06a-4aa1-bb32-1796724e715b",
                         "component_type": "ImpactEffect"
                       }
@@ -590,7 +614,7 @@
                   },
                   {
                     "Id": 11,
-                    "Type": "property.set",
+                    "Type": "property",
                     "Properties": {
                       "_type": "package.duccsoft.aluminum_acrobat/ImpactEffect",
                       "_name": "Target"
@@ -656,7 +680,23 @@
                     "DstId": 11,
                     "DstName": "_value"
                   }
-                ]
+                ],
+                "Defaults": {
+                  "$6.gameobject": {
+                    "_type": "gameobject",
+                    "go": "e883bb31-d06a-4aa1-bb32-1796724e715b"
+                  },
+                  "$10.component": {
+                    "_type": "component",
+                    "component_id": "86c9e96c-245a-4e47-9247-0d5ff221f99e",
+                    "go": "e883bb31-d06a-4aa1-bb32-1796724e715b",
+                    "component_type": "ImpactEffect"
+                  },
+                  "$13.gameobject": {
+                    "_type": "gameobject",
+                    "go": "1d239a03-8fb2-4c1d-a757-cd47f0582442"
+                  }
+                }
               }
             }
           ],
@@ -668,9 +708,10 @@
               "Tags": "solid",
               "Enabled": true,
               "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
-                  "__type": "ModelRenderer",
+                  "__type": "Sandbox.ModelRenderer",
                   "__guid": "eaed2cca-ad64-4e8f-a16f-85cf49a38c3f",
                   "BodyGroups": 18446744073709551615,
                   "MaterialOverride": "materials/dev/dev_metal_rough40.vmat",
@@ -685,7 +726,7 @@
                   "Frequency": "0,1,0"
                 },
                 {
-                  "__type": "BoxCollider",
+                  "__type": "Sandbox.BoxCollider",
                   "__guid": "9be834ee-0ecf-42bf-baf3-a6d2987dc2a6",
                   "Center": "0,0,0",
                   "IsTrigger": false,
@@ -701,6 +742,7 @@
                   "Rotation": "0,0,1,-0.00000004371139",
                   "Enabled": true,
                   "NetworkMode": 2,
+                  "NetworkInterpolation": true,
                   "Components": [
                     {
                       "__type": "ImpactEffect",
@@ -723,6 +765,7 @@
           "Rotation": "0,0,0.7071068,0.7071068",
           "Enabled": true,
           "NetworkMode": 2,
+          "NetworkInterpolation": true,
           "Components": [
             {
               "__type": "Timer",
@@ -730,10 +773,10 @@
               "IntervalSeconds": 0.5,
               "InvokeOnStart": false,
               "OnDing": {
-                "Version": 5,
+                "__version": 6,
+                "__guid": "3a0b48f2-a7f8-4b72-8dce-c91a080b4bcf",
                 "UserData": {
                   "Title": "On Ding",
-                  "id": "3a0b48f2-a7f8-4b72-8dce-c91a080b4bcf",
                   "ReferencedComponentTypes": []
                 },
                 "Variables": [],
@@ -773,6 +816,7 @@
                     "Properties": {
                       "component": {
                         "_type": "component",
+                        "component_id": "de14f273-72e3-471e-bac2-29d6d70c580b",
                         "go": "6b7224a2-b7a1-4296-8afe-5d907a01805f",
                         "component_type": "ImpactEffect"
                       }
@@ -783,7 +827,7 @@
                   },
                   {
                     "Id": 7,
-                    "Type": "property.set",
+                    "Type": "property",
                     "Properties": {
                       "_type": "package.duccsoft.aluminum_acrobat/ImpactEffect",
                       "_name": "Target"
@@ -856,7 +900,23 @@
                     "DstId": 10,
                     "DstName": "condition"
                   }
-                ]
+                ],
+                "Defaults": {
+                  "$2.gameobject": {
+                    "_type": "gameobject",
+                    "go": "6b7224a2-b7a1-4296-8afe-5d907a01805f"
+                  },
+                  "$6.component": {
+                    "_type": "component",
+                    "component_id": "de14f273-72e3-471e-bac2-29d6d70c580b",
+                    "go": "6b7224a2-b7a1-4296-8afe-5d907a01805f",
+                    "component_type": "ImpactEffect"
+                  },
+                  "$9.gameobject": {
+                    "_type": "gameobject",
+                    "go": "4a768feb-86c3-4084-8825-bdfb5011040b"
+                  }
+                }
               }
             }
           ],
@@ -868,9 +928,10 @@
               "Tags": "shield,solid",
               "Enabled": true,
               "NetworkMode": 2,
+              "NetworkInterpolation": true,
               "Components": [
                 {
-                  "__type": "ModelRenderer",
+                  "__type": "Sandbox.ModelRenderer",
                   "__guid": "619f7d5b-19bb-40b2-9fe1-b9c21e14b2cf",
                   "BodyGroups": 18446744073709551615,
                   "MaterialOverride": "materials/dev/primary_white_emissive.vmat",
@@ -885,7 +946,7 @@
                   "Frequency": "0,1,0"
                 },
                 {
-                  "__type": "SphereCollider",
+                  "__type": "Sandbox.SphereCollider",
                   "__guid": "89355dc6-af21-454a-8870-32e6b3b90738",
                   "Center": "0,0,0",
                   "IsTrigger": false,
@@ -901,6 +962,7 @@
                   "Rotation": "0,0,1,-0.00000004371139",
                   "Enabled": true,
                   "NetworkMode": 2,
+                  "NetworkInterpolation": true,
                   "Components": [
                     {
                       "__type": "ImpactEffect",
@@ -924,14 +986,15 @@
       "Position": "320,256,0",
       "Enabled": true,
       "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "__Prefab": "prefabs/test/rainbow_laser_array.prefab"
     }
   ],
   "SceneProperties": {
     "FixedUpdateFrequency": 50,
-    "Lerping": true,
     "MaxFixedUpdates": 5,
     "NetworkFrequency": 30,
+    "NetworkInterpolation": true,
     "ThreadedAnimation": true,
     "TimeScale": 1,
     "UseFixedUpdate": true,
@@ -950,7 +1013,7 @@
   },
   "Title": "test_mining",
   "Description": "",
-  "LastSaved": "2024-03-14T15:23:40.3580555-06:00",
+  "LastSaved": "2024-05-03T02:17:35.0300242-06:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": []

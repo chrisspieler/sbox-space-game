@@ -55,7 +55,8 @@ public sealed class LaserBeam : Component
 		{
 			var light = new SceneLight( Scene.SceneWorld )
 			{
-				Radius = 400f,
+				Radius = MathX.Remap( i, 0, LaserLightCount, 400f, 20f ),
+				QuadraticAttenuation = 5f,
 				ShadowsEnabled = false
 			};
 			_lights.Add( light );
