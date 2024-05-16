@@ -1,18 +1,20 @@
 {
   "RootObject": {
-    "__guid": "d60af2d9-5d8b-42b6-a364-28ec8c1e339e",
+    "__guid": "a8ff71ec-e44b-4dc0-81b4-cb0d14ff8062",
+    "Flags": 0,
     "Name": "asteroid_base",
     "Tags": "target,asteroid",
     "Enabled": true,
     "NetworkMode": 2,
+    "NetworkInterpolation": true,
     "Components": [
       {
         "__type": "Asteroid",
-        "__guid": "214a1602-d020-4e3b-86b5-37ba74090506"
+        "__guid": "dae4df69-fd5d-4903-9069-6788ecb5be64"
       },
       {
-        "__type": "Rigidbody",
-        "__guid": "36872f14-ec56-41c0-a35b-c741701b2c61",
+        "__type": "Sandbox.Rigidbody",
+        "__guid": "6f4e02e2-549b-4be9-b62c-e423f785d535",
         "AngularDamping": 0,
         "Gravity": false,
         "LinearDamping": 0,
@@ -21,20 +23,20 @@
         },
         "MassOverride": 0,
         "MotionEnabled": true,
-        "RigidbodyFlags": 0,
+        "RigidbodyFlags": "DisableCollisionSounds",
         "StartAsleep": false
       },
       {
         "__type": "Health",
-        "__guid": "3bff8d77-5252-4ba8-b25d-374315ce9e74",
+        "__guid": "63377789-c32a-4bc3-9eea-35101b02e027",
         "Body": {
           "_type": "gameobject",
-          "go": "d60af2d9-5d8b-42b6-a364-28ec8c1e339e"
+          "go": "a8ff71ec-e44b-4dc0-81b4-cb0d14ff8062"
         },
         "Bounce": {
           "_type": "component",
-          "component_id": "83ebab58-e210-4cd8-a8cb-bd283b10fbcc",
-          "go": "d60af2d9-5d8b-42b6-a364-28ec8c1e339e",
+          "component_id": "71f2a2ea-c437-4bd0-9916-4c6c1cbb505f",
+          "go": "a8ff71ec-e44b-4dc0-81b4-cb0d14ff8062",
           "component_type": "Bouncy"
         },
         "CurrentHealth": 0,
@@ -45,29 +47,29 @@
       },
       {
         "__type": "HealthBarSpawner",
-        "__guid": "5d324e77-01e9-4e60-86a5-3b65a8f235f3",
+        "__guid": "df25c148-235a-4289-a9dd-b1e0923479b5",
         "HealthSource": {
           "_type": "component",
-          "component_id": "3bff8d77-5252-4ba8-b25d-374315ce9e74",
-          "go": "d60af2d9-5d8b-42b6-a364-28ec8c1e339e",
+          "component_id": "63377789-c32a-4bc3-9eea-35101b02e027",
+          "go": "a8ff71ec-e44b-4dc0-81b4-cb0d14ff8062",
           "component_type": "Health"
         },
         "Target": {
           "_type": "gameobject",
-          "go": "d60af2d9-5d8b-42b6-a364-28ec8c1e339e"
+          "go": "a8ff71ec-e44b-4dc0-81b4-cb0d14ff8062"
         }
       },
       {
         "__type": "Mineable",
-        "__guid": "a369184d-66e3-485e-b09a-4883caeaed35",
+        "__guid": "7691f653-5e5a-429c-8876-18fa014d186d",
         "BreakEffect": {
           "_type": "gameobject",
           "prefab": "prefabs/effects/asteroid_fracture.prefab"
         },
         "Health": {
           "_type": "component",
-          "component_id": "3bff8d77-5252-4ba8-b25d-374315ce9e74",
-          "go": "d60af2d9-5d8b-42b6-a364-28ec8c1e339e",
+          "component_id": "63377789-c32a-4bc3-9eea-35101b02e027",
+          "go": "a8ff71ec-e44b-4dc0-81b4-cb0d14ff8062",
           "component_type": "Health"
         },
         "ShrinkOnDamage": true,
@@ -75,7 +77,7 @@
       },
       {
         "__type": "Bouncy",
-        "__guid": "83ebab58-e210-4cd8-a8cb-bd283b10fbcc",
+        "__guid": "71f2a2ea-c437-4bd0-9916-4c6c1cbb505f",
         "AddedVelocity": 0,
         "BouncedTags": "solid,shield",
         "BounceFactor": 0.5,
@@ -84,18 +86,18 @@
       },
       {
         "__type": "AsteroidHighlight",
-        "__guid": "15379f14-ec11-427e-8207-2970eb2f06e4",
+        "__guid": "98ccdda6-f796-402c-bdb4-1211ac3b5f30",
         "Outline": {
           "_type": "component",
-          "component_id": "ad7456d3-926e-4901-8fa5-d8236160c1cb",
-          "go": "d60af2d9-5d8b-42b6-a364-28ec8c1e339e",
+          "component_id": "60203a0b-eec5-4d96-8ef5-b22bfec51918",
+          "go": "a8ff71ec-e44b-4dc0-81b4-cb0d14ff8062",
           "component_type": "HighlightOutline"
         },
         "OutlineStrength": 1
       },
       {
-        "__type": "HighlightOutline",
-        "__guid": "ad7456d3-926e-4901-8fa5-d8236160c1cb",
+        "__type": "Sandbox.HighlightOutline",
+        "__guid": "60203a0b-eec5-4d96-8ef5-b22bfec51918",
         "Color": "1,1,1,1",
         "InsideColor": "0,0,0,0",
         "InsideObscuredColor": "0,0,0,0",
@@ -104,7 +106,7 @@
       },
       {
         "__type": "PlaneConstraint",
-        "__guid": "14582881-de9d-44b5-ba9e-50f23a31fcc2",
+        "__guid": "d75064cb-685c-4d75-9493-74f960421c07",
         "LockX": false,
         "LockY": false,
         "LockZ": true,
@@ -113,7 +115,7 @@
       },
       {
         "__type": "InitialVelocity",
-        "__guid": "b3d9dd77-db98-4526-b285-ade70cad70a5",
+        "__guid": "ad883394-7c34-4cb2-80e0-6f9923c0c787",
         "AngularDirection": "1,0,0",
         "AngularScale": "0.10,0.75,1",
         "ApplyInitialAngularVelocity": true,
@@ -122,8 +124,8 @@
         "RandomizeVelocityDirection": true,
         "Rigidbody": {
           "_type": "component",
-          "component_id": "36872f14-ec56-41c0-a35b-c741701b2c61",
-          "go": "d60af2d9-5d8b-42b6-a364-28ec8c1e339e",
+          "component_id": "6f4e02e2-549b-4be9-b62c-e423f785d535",
+          "go": "a8ff71ec-e44b-4dc0-81b4-cb0d14ff8062",
           "component_type": "Rigidbody"
         },
         "VelocityDirection": "1,0,0",
@@ -131,7 +133,7 @@
       },
       {
         "__type": "AsteroidFracture",
-        "__guid": "c7268fe4-fc1e-430e-a475-95f8ddcf2368"
+        "__guid": "0cf2cb88-1f7a-4da9-842a-82fb204b234c"
       }
     ],
     "Children": []
