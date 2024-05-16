@@ -120,6 +120,7 @@ public sealed partial class ShipController
 			return;
 
 		var go = ExplosionPrefab.Clone( Transform.Position );
+		go.Transform.ClearInterpolation();
 		go.Name = $"{GameObject.Name} Explosion";
 		go.Tags.Add( "no_chunk" );
 		var particleEffects = go.Components.GetAll<ParticleEffect>( FindMode.EnabledInSelfAndDescendants );
