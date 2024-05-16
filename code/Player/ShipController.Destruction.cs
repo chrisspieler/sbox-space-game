@@ -122,8 +122,6 @@ public sealed partial class ShipController
 		var go = ExplosionPrefab.Clone( Transform.Position );
 		go.Name = $"{GameObject.Name} Explosion";
 		go.Tags.Add( "no_chunk" );
-		var mover = go.Components.Create<MoveOnSpawn>();
-		mover.AbsolutePosition = GameObject.GetAbsolutePosition();
 		var particleEffects = go.Components.GetAll<ParticleEffect>( FindMode.EnabledInSelfAndDescendants );
 		foreach( var effect in particleEffects )
 		{
