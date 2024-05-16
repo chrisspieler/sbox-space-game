@@ -71,9 +71,6 @@ public sealed partial class ShipController
 		Meat.Enabled = true;
 		// To avoid being ejected by the base shield.
 		Meat.Tags.Add( "player" );
-		//var physics = Meat.Components.Get<ModelPhysics>();
-		//physics.PhysicsGroup.Velocity = Rigidbody.Velocity * 0.5f;
-		// Meat.Components.Create<FloatingOriginPlayer>();
 		DeathCam.Begin( Meat );
 		var fog = Scene.GetAllComponents<VolumetricFogVolume>().FirstOrDefault();
 		if ( fog is not null )

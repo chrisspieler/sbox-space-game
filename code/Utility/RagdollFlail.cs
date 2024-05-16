@@ -38,6 +38,8 @@ public sealed class RagdollFlail : Component
 			// caused by flailing beyond the limits of a joint. 
 			body.AngularDamping = 5f;
 		}
+		// Set face_override to "surprise"
+		Ragdoll.Renderer.SceneModel.SetAnimParameter( "face_override", 3 );
 	}
 
 	protected override void OnFixedUpdate()
