@@ -41,7 +41,9 @@ public class ChunkData : GameResource
 	{
 		// TODO: Add a DroneData GameResource that can override the drone count.
 		var drones = Difficulty - 1;
-		var spawner = chunkGo.Components.GetOrCreate<DroneSpawner>();
+		var spawner = chunkGo.Components.Get<DroneSpawner>();
+		if ( !spawner.IsValid() )
+			return;
 		spawner.DroneCount = drones;
 		spawner.BeginSpawnMany();
 	}

@@ -50,12 +50,12 @@ public sealed class DroneSpawner : Component
 	{
 		var chunk = GameObject.GetWorldChunk();
 		var bounds = chunk.GetChunkWorldBoundsAbsolute();
-		var position = bounds.RandomPointInside;
+		var position = bounds.RandomPointInside.ToRelativePosition();
 		if ( Debug )
 		{
-			Log.Info( $"Spawning drone in chunk {chunk} at position: {position}" );
+			Log.Info( $"({GameObject.Name} {Transform.Position}): Spawning drone in chunk {chunk} at position: {position}" );
 		}
-		return DronePrefab.Clone( position.ToRelativePosition() );
+		return DronePrefab.Clone( position );
 	}
 
 	[Button( "Force Spawn Many" )]

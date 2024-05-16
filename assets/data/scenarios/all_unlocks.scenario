@@ -12,7 +12,6 @@
   ],
   "World": "data/world/default.world",
   "Hidden": true,
-  "ResourceVersion": 0,
   "__version": 0,
   "__references": []
 }
