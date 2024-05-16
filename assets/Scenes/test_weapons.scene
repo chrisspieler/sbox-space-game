@@ -3,6 +3,7 @@
   "GameObjects": [
     {
       "__guid": "159fa8b7-756d-4d20-9e85-ddf80304115a",
+      "Flags": 0,
       "Name": "Screen UI (1)",
       "Tags": "no_chunk",
       "Enabled": true,
@@ -12,6 +13,7 @@
     },
     {
       "__guid": "ba0198bf-8265-4602-ade6-0daec2b7152d",
+      "Flags": 0,
       "Name": "Camera (1)",
       "Tags": "no_chunk,no_shift",
       "Enabled": true,
@@ -21,6 +23,7 @@
     },
     {
       "__guid": "6e280a95-3bff-4413-b769-9a42f43456eb",
+      "Flags": 0,
       "Name": "Skybox",
       "Tags": "skybox,no_chunk,shift_visible",
       "Enabled": true,
@@ -30,6 +33,7 @@
     },
     {
       "__guid": "3b8df8bb-537b-4aef-a4d6-46a2fe916ca3",
+      "Flags": 0,
       "Name": "Fog Volume (1)",
       "Tags": "no_chunk,shift_visible",
       "Enabled": true,
@@ -39,6 +43,7 @@
     },
     {
       "__guid": "a1d13598-241c-4331-821c-82c377f1026e",
+      "Flags": 0,
       "Name": "Sun (1)",
       "Tags": "light_directional,light,no_chunk",
       "Enabled": true,
@@ -48,6 +53,7 @@
     },
     {
       "__guid": "0e2b1b15-5546-4238-9763-2307e689f1c1",
+      "Flags": 0,
       "Name": "Game",
       "Tags": "no_chunk",
       "Enabled": true,
@@ -68,7 +74,7 @@
           "__type": "Sandbox.ActionGraphs.StartActionComponent",
           "__guid": "a15f949f-805c-4530-817e-ef9857c82683",
           "Action": {
-            "__version": 6,
+            "__version": 7,
             "__guid": "7b9866c4-46b2-4818-a789-e6ddc524f5cf",
             "UserData": {
               "Title": "Action",
@@ -151,6 +157,7 @@
     },
     {
       "__guid": "44b788a5-ec95-4e15-a360-e8cca0909c6e",
+      "Flags": 0,
       "Name": "Spawn Point",
       "Tags": "no_chunk",
       "Enabled": true,
@@ -166,6 +173,7 @@
     },
     {
       "__guid": "507015c6-ffea-49cd-b221-703209783fdf",
+      "Flags": 0,
       "Name": "Laser Damage Test",
       "Position": "6.076622,329.1886,0",
       "Tags": "no_chunk",
@@ -175,6 +183,7 @@
       "Children": [
         {
           "__guid": "19bee129-d060-4b3b-9920-81d1a5c7a8e2",
+          "Flags": 0,
           "Name": "Text",
           "Position": "251.6568,438.8114,0",
           "Rotation": "0,0.7071068,0,0.7071068",
@@ -195,6 +204,7 @@
         },
         {
           "__guid": "a7864775-84d0-40e8-9514-6fe17db2d9b9",
+          "Flags": 0,
           "Name": "Model",
           "Position": "761.9234,182.8114,0",
           "Scale": "10,0.5,1",
@@ -224,6 +234,7 @@
         },
         {
           "__guid": "5ef6d918-e8d0-4a02-afdd-78b0497adebb",
+          "Flags": 0,
           "Name": "Model",
           "Position": "761.9234,694.8114,0",
           "Scale": "10,0.5,1",
@@ -253,6 +264,7 @@
         },
         {
           "__guid": "a34ed213-6482-4115-8a52-3c62f330c1b1",
+          "Flags": 0,
           "Name": "Model",
           "Position": "505.9234,630.8113,0.00001341293",
           "Rotation": "0,0,0.7071067,0.7071068",
@@ -283,6 +295,7 @@
         },
         {
           "__guid": "6e7ae0e2-934c-476b-9729-22cc3caeca99",
+          "Flags": 0,
           "Name": "Model",
           "Position": "505.9232,246.8113,0.00001341293",
           "Rotation": "0,0,0.7071067,0.7071068",
@@ -313,6 +326,7 @@
         },
         {
           "__guid": "7a278bee-c6d3-4b6d-9efd-c863885a56ab",
+          "Flags": 0,
           "Name": "Model",
           "Position": "1017.924,438.8112,0.00001341293",
           "Rotation": "0,0,0.7071067,0.7071068",
@@ -356,6 +370,7 @@
         },
         {
           "__guid": "c2a8b699-23cc-4aed-9c62-2f57456de0c7",
+          "Flags": 0,
           "Name": "Laser",
           "Position": "761.9234,438.8114,0",
           "Enabled": true,
@@ -453,6 +468,7 @@
           "Children": [
             {
               "__guid": "d80e4e65-1c3e-483b-bd80-c4a0dd8f9581",
+              "Flags": 0,
               "Name": "Housing",
               "Position": "0,0,0",
               "Scale": "1,0.2,0.2",
@@ -472,6 +488,7 @@
             },
             {
               "__guid": "c1abeb13-bdc2-49dc-909c-d64ceca4b932",
+              "Flags": 0,
               "Name": "Laser Beam",
               "Position": "0,0,0",
               "Enabled": true,
@@ -493,6 +510,7 @@
             },
             {
               "__guid": "8e341974-da7f-47ae-bc94-4f1419df6a07",
+              "Flags": 0,
               "Name": "Impact",
               "Position": "0,0,0",
               "Enabled": true,
@@ -511,6 +529,7 @@
     },
     {
       "__guid": "b192ffe5-bd3a-429f-a9cf-453e889c93e0",
+      "Flags": 0,
       "Name": "Laser Damage Effects Test",
       "Position": "256,-960,0",
       "Tags": "no_chunk",
@@ -520,6 +539,7 @@
       "Children": [
         {
           "__guid": "c0c825d0-f61e-4816-834c-990c817720d5",
+          "Flags": 0,
           "Name": "Text",
           "Position": "0,0,0",
           "Rotation": "0,0.7071068,0,0.7071068",
@@ -540,6 +560,7 @@
         },
         {
           "__guid": "7612e154-9b48-4bda-a553-4e5a7623fddf",
+          "Flags": 0,
           "Name": "Hull",
           "Position": "383.9999,127.9999,0",
           "Rotation": "0,-0,-0.7071068,0.7071068",
@@ -553,7 +574,7 @@
               "IntervalSeconds": 0.5,
               "InvokeOnStart": false,
               "OnDing": {
-                "__version": 6,
+                "__version": 7,
                 "__guid": "c84fd65a-74de-4b4c-b699-c209f9749dc2",
                 "UserData": {
                   "Title": "On Ding",
@@ -703,6 +724,7 @@
           "Children": [
             {
               "__guid": "1d239a03-8fb2-4c1d-a757-cd47f0582442",
+              "Flags": 0,
               "Name": "Model",
               "Position": "0,0,0",
               "Tags": "solid",
@@ -737,6 +759,7 @@
               "Children": [
                 {
                   "__guid": "e883bb31-d06a-4aa1-bb32-1796724e715b",
+                  "Flags": 0,
                   "Name": "Impact",
                   "Position": "-26.04974,0,0.000001586851",
                   "Rotation": "0,0,1,-0.00000004371139",
@@ -760,6 +783,7 @@
         },
         {
           "__guid": "639597ff-3d5a-499b-8dea-cd81690f1c07",
+          "Flags": 0,
           "Name": "Shield",
           "Position": "384,-128,0",
           "Rotation": "0,0,0.7071068,0.7071068",
@@ -773,7 +797,7 @@
               "IntervalSeconds": 0.5,
               "InvokeOnStart": false,
               "OnDing": {
-                "__version": 6,
+                "__version": 7,
                 "__guid": "3a0b48f2-a7f8-4b72-8dce-c91a080b4bcf",
                 "UserData": {
                   "Title": "On Ding",
@@ -923,6 +947,7 @@
           "Children": [
             {
               "__guid": "4a768feb-86c3-4084-8825-bdfb5011040b",
+              "Flags": 0,
               "Name": "Model",
               "Position": "0,0,0",
               "Tags": "shield,solid",
@@ -957,6 +982,7 @@
               "Children": [
                 {
                   "__guid": "6b7224a2-b7a1-4296-8afe-5d907a01805f",
+                  "Flags": 0,
                   "Name": "Impact",
                   "Position": "-26.04974,0,0.000001586851",
                   "Rotation": "0,0,1,-0.00000004371139",
@@ -982,6 +1008,7 @@
     },
     {
       "__guid": "7bd365f6-5435-49b7-a9c2-250fdf9d18d8",
+      "Flags": 0,
       "Name": "Rainbow Lasers",
       "Position": "320,256,0",
       "Enabled": true,
@@ -1013,7 +1040,7 @@
   },
   "Title": "test_mining",
   "Description": "",
-  "LastSaved": "2024-05-03T02:17:35.0300242-06:00",
+  "LastSaved": "2024-05-16T11:39:59.8029345-06:00",
   "ResourceVersion": 1,
   "__version": 1,
   "__references": []

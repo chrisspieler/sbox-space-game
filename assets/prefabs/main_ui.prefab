@@ -1,10 +1,12 @@
 {
   "RootObject": {
     "__guid": "0a3105b7-d645-4200-93c9-b57b4133cc6a",
+    "Flags": 0,
     "Name": "main_ui",
     "Tags": "no_chunk",
     "Enabled": true,
     "NetworkMode": 2,
+    "NetworkInterpolation": true,
     "Components": [
       {
         "__type": "Sandbox.ScreenPanel",
@@ -83,9 +85,11 @@
     "Children": [
       {
         "__guid": "b8c346f0-faad-462c-bdad-1fdd1801e747",
+        "Flags": 0,
         "Name": "Hud",
         "Enabled": true,
         "NetworkMode": 2,
+        "NetworkInterpolation": true,
         "Components": [
           {
             "__type": "HudPanel",
@@ -98,15 +102,19 @@
       },
       {
         "__guid": "2b94c0d1-7d24-48bc-944c-3578a252c988",
+        "Flags": 0,
         "Name": "Health Bar Container",
         "Enabled": true,
-        "NetworkMode": 2
+        "NetworkMode": 2,
+        "NetworkInterpolation": true
       },
       {
         "__guid": "279df759-c7fd-4122-9fee-f69cccae0af0",
+        "Flags": 0,
         "Name": "Cursor",
         "Enabled": true,
         "NetworkMode": 2,
+        "NetworkInterpolation": true,
         "Components": [
           {
             "__type": "CursorPanel",
@@ -117,9 +125,11 @@
       },
       {
         "__guid": "f9f94a44-d995-4551-9bb6-a0b2107d5610",
+        "Flags": 0,
         "Name": "Shop Screen",
         "Enabled": true,
         "NetworkMode": 2,
+        "NetworkInterpolation": true,
         "Components": [
           {
             "__type": "ShopPanel",
@@ -130,9 +140,11 @@
       },
       {
         "__guid": "8d08a576-e21b-4e68-9a8b-33fe08fd6191",
+        "Flags": 0,
         "Name": "Hovered Selection",
         "Enabled": true,
         "NetworkMode": 2,
+        "NetworkInterpolation": true,
         "Components": [
           {
             "__type": "SelectionPanel",
@@ -145,9 +157,11 @@
       },
       {
         "__guid": "231cb05f-5d34-4930-addf-bfe5060a2afc",
+        "Flags": 0,
         "Name": "Restart Screen",
         "Enabled": true,
         "NetworkMode": 2,
+        "NetworkInterpolation": true,
         "Components": [
           {
             "__type": "RestartPanel",
@@ -161,21 +175,27 @@
       },
       {
         "__guid": "aac41955-0da3-4198-a83a-db4bb8a72110",
+        "Flags": 0,
         "Name": "Beacon Container",
         "Enabled": true,
-        "NetworkMode": 2
+        "NetworkMode": 2,
+        "NetworkInterpolation": true
       },
       {
         "__guid": "e31c5314-d6f3-495f-a2cb-d5277124c565",
+        "Flags": 0,
         "Name": "Text Panel Container",
         "Enabled": true,
-        "NetworkMode": 2
+        "NetworkMode": 2,
+        "NetworkInterpolation": true
       },
       {
         "__guid": "e1deb9c4-2308-431f-9ca2-ae89e3b69007",
+        "Flags": 0,
         "Name": "Pause Menu",
         "Enabled": true,
         "NetworkMode": 2,
+        "NetworkInterpolation": true,
         "Components": [
           {
             "__type": "PauseMenuPanel",
@@ -193,9 +213,11 @@
       },
       {
         "__guid": "80dbbd04-a8a5-4866-94e7-433a6140e307",
+        "Flags": 0,
         "Name": "Settings Menu",
         "Enabled": true,
         "NetworkMode": 2,
+        "NetworkInterpolation": true,
         "Components": [
           {
             "__type": "SettingsMenuPanel",
@@ -218,9 +240,11 @@
       },
       {
         "__guid": "1400ac8a-9f9c-45f9-9bc6-9dff58741404",
+        "Flags": 0,
         "Name": "Control Style Menu",
         "Enabled": true,
         "NetworkMode": 2,
+        "NetworkInterpolation": true,
         "Components": [
           {
             "__type": "ControlStyleChoicePanel",
@@ -231,10 +255,12 @@
       },
       {
         "__guid": "930c9ec7-0b39-4fc7-8b9a-361f6872aebc",
+        "Flags": 0,
         "Name": "QT Drive Hud",
         "Position": "141.5697,135.2242,-172.6073",
         "Enabled": true,
         "NetworkMode": 2,
+        "NetworkInterpolation": true,
         "Components": [
           {
             "__type": "QtDriveHudPanel",
@@ -245,13 +271,16 @@
       },
       {
         "__guid": "22ebdb7e-3e40-46cd-b861-cc9a6ef9bafc",
+        "Flags": 0,
         "Name": "Quick Menu",
         "Enabled": true,
         "NetworkMode": 2,
+        "NetworkInterpolation": true,
         "Components": [
           {
             "__type": "QuickMenuPanel",
-            "__guid": "e847307e-51c2-49d8-a86c-843e00e2d734"
+            "__guid": "e847307e-51c2-49d8-a86c-843e00e2d734",
+            "__enabled": false
           }
         ]
       }

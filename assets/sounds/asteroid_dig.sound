@@ -1,15 +1,20 @@
 {
   "UI": false,
-  "Volume": "8.00,1.00,0",
-  "Pitch": "0.70,1.00,1",
+  "Volume": "15.00,1.00,0",
+  "Pitch": "0.70,0.80,1",
   "Decibels": 70,
   "SelectionMode": "RandomExclusive",
   "Sounds": [
-    "sounds/asteroid_hit.vsnd"
+    "sounds/physics/phys-impact-stone-1.vsnd",
+    "sounds/physics/phys-impact-stone-2.vsnd",
+    "sounds/physics/phys-impact-stone-3.vsnd",
+    "sounds/physics/phys-impact-stone-4.vsnd"
   ],
   "Occlusion": false,
-  "Reflections": false,
+  "AirAbsorption": true,
+  "Transmission": true,
   "OcclusionRadius": 64,
   "DistanceAttenuation": true,
+  "__version": 0,
   "__references": []
 }

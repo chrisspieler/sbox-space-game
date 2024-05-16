@@ -1,6 +1,6 @@
 {
   "UI": false,
-  "Volume": "10.00,1.00,0",
+  "Volume": "5.00,1.00,0",
   "Pitch": "0.70,1.00,0",
   "Decibels": 90,
   "SelectionMode": "Random",
@@ -8,8 +8,10 @@
     "data/weapons/mining_laser/laser_loop.vsnd"
   ],
   "Occlusion": false,
-  "Reflections": false,
+  "AirAbsorption": true,
+  "Transmission": true,
   "OcclusionRadius": 64,
   "DistanceAttenuation": true,
+  "__version": 0,
   "__references": []
 }

@@ -1,17 +1,20 @@
 {
   "UI": false,
-  "Volume": "5.00,1.00,0",
-  "Pitch": "0.60,0.75,1",
+  "Volume": "20.00,1.00,0",
+  "Pitch": "0.75,0.85,1",
   "Decibels": 70,
   "SelectionMode": "Random",
   "Sounds": [
-    "sounds/physics/breaking/break_concrete_01.vsnd",
-    "sounds/physics/breaking/break_concrete_02.vsnd",
-    "sounds/physics/breaking/break_concrete_03.vsnd"
+    "sounds/impacts/buildings/stone_gib-1.vsnd",
+    "sounds/impacts/buildings/stone_gib-2.vsnd",
+    "sounds/impacts/buildings/stone_gib-3.vsnd",
+    "sounds/impacts/buildings/stone_gib-4.vsnd"
   ],
   "Occlusion": false,
-  "Reflections": false,
+  "AirAbsorption": true,
+  "Transmission": true,
   "OcclusionRadius": 64,
   "DistanceAttenuation": true,
+  "__version": 0,
   "__references": []
 }
