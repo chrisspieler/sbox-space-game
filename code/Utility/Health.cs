@@ -71,7 +71,8 @@ public sealed class Health : Component, Component.IDamageable, IHealth
 		if ( DamageSound is not null )
 		{
 			var hSnd = Sound.Play( DamageSound, Transform.Position );
-			var isPlayerInvolved = Tags.Has( "player" ) || damage.Attacker.Tags.Has( "player" );
+			var attackerIsPlayer = damage.Attacker?.Tags?.Has( "player" ) == true;
+			var isPlayerInvolved = Tags.Has( "player" ) || attackerIsPlayer;
 			// Attacks by and on the player should produce the most noticeable sounds.
 			// For everything else (e.g. asteroids hitting each other), turn down the volume.
 			if ( !isPlayerInvolved )
