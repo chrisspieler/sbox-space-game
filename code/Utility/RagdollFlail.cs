@@ -14,6 +14,7 @@ public sealed class RagdollFlail : Component
 	[Property, RequireComponent] public ModelPhysics Ragdoll { get; set; }
 	[Property, Range(1, 100, 1)] public float NoiseIntensity { get; set; } = 30f;
 	[Property, Range( 1, 100, 1 )] public float RotateSpeed { get; set; } = 20f;
+	[Property, Range( 1, 100 )] public float EnthiccenmentFactor { get; set; } = 20f;
 
 	private float _individualSeed;
 	private PhysicsBody _leftUpperArm;
@@ -26,18 +27,14 @@ public sealed class RagdollFlail : Component
 	protected override void OnStart()
 	{
 		_individualSeed = Random.Shared.Next( 0, 2500 );
-		_leftUpperArm = Ragdoll.PhysicsGroup.GetBody( "arm_upper_L" );
-		_rightUpperArm = Ragdoll.PhysicsGroup.GetBody( "arm_upper_R" );
-		_leftLowerArm = Ragdoll.PhysicsGroup.GetBody( "arm_lower_L" );
-		_rightLowerArm = Ragdoll.PhysicsGroup.GetBody( "arm_lower_R" );
-		_leftShin = Ragdoll.PhysicsGroup.GetBody( "leg_lower_L" );
-		_rightShin = Ragdoll.PhysicsGroup.GetBody( "leg_lower_R" );
+		AssignFlailingBodies();
 		foreach ( var body in Ragdoll.PhysicsGroup.Bodies )
 		{
 			// Apply angular damping to counteract the massive amounts of speen
 			// caused by flailing beyond the limits of a joint. 
 			body.AngularDamping = 5f;
 		}
+		Enthiccen();
 		// Set face_override to "surprise"
 		Ragdoll.Renderer.SceneModel.SetAnimParameter( "face_override", 3 );
 	}
@@ -50,6 +47,24 @@ public sealed class RagdollFlail : Component
 		FlailBody( _rightLowerArm, -40f, 40f, 5 );
 		FlailBody( _leftShin, -90f, -30f, 3 );
 		FlailBody( _rightShin, -90f, -30f, 5 );
+	}
+
+	private void AssignFlailingBodies()
+	{
+		_leftUpperArm = Ragdoll.PhysicsGroup.GetBody( "arm_upper_L" );
+		_rightUpperArm = Ragdoll.PhysicsGroup.GetBody( "arm_upper_R" );
+		_leftLowerArm = Ragdoll.PhysicsGroup.GetBody( "arm_lower_L" );
+		_rightLowerArm = Ragdoll.PhysicsGroup.GetBody( "arm_lower_R" );
+		_leftShin = Ragdoll.PhysicsGroup.GetBody( "leg_lower_L" );
+		_rightShin = Ragdoll.PhysicsGroup.GetBody( "leg_lower_R" );
+	}
+
+	private void Enthiccen()
+	{
+		var pelvis = Ragdoll.PhysicsGroup.GetBody( "pelvis" );
+		pelvis.Mass *= EnthiccenmentFactor;
+		var chest = Ragdoll.PhysicsGroup.GetBody( "spine_2" );
+		chest.Mass *= EnthiccenmentFactor;
 	}
 
 	private void FlailBody( PhysicsBody body, float min, float max, int offset )
