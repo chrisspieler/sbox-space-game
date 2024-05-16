@@ -13,7 +13,7 @@ public sealed class DroneSpawner : Component
 
 	[Property] public GameObject DronePrefab { get; set; }
 	[Property] public int DroneCount { get; set; } = 15;
-	[Property] public bool SpawnOnStart { get; set; } = true;
+	[Property] public bool SpawnOnStart { get; set; } = false;
 
 	private IEnumerator<GameObject> _spawnEnumerator;
 
@@ -82,6 +82,7 @@ public sealed class DroneSpawner : Component
 		var worldPos = Game.ActiveScene.Camera.ScreenNormalToWorld( 0.5f );
 		var spawnerGo = new GameObject( true, "Drone Spawner" );
 		spawnerGo.Transform.Position = worldPos;
-		spawnerGo.Components.Create<DroneSpawner>();
+		var spawner = spawnerGo.Components.Create<DroneSpawner>();
+		spawner.BeginSpawnMany();
 	}
 }

@@ -14,6 +14,7 @@ public class ChunkData : GameResource
 		chunkGo.BreakFromPrefab();
 		SetChunkData( chunkGo );
 		SpawnAsteroids( chunkGo );
+		SpawnDrones( chunkGo );
 		return chunkGo;
 	}
 
@@ -33,6 +34,15 @@ public class ChunkData : GameResource
 
 		var spawner = chunkGo.Components.GetOrCreate<AsteroidSpawner>();
 		spawner.Config = Asteroids;
+		spawner.BeginSpawnMany();
+	}
+
+	private void SpawnDrones( GameObject chunkGo )
+	{
+		// TODO: Add a DroneData GameResource that can override the drone count.
+		var drones = Difficulty - 1;
+		var spawner = chunkGo.Components.GetOrCreate<DroneSpawner>();
+		spawner.DroneCount = drones;
 		spawner.BeginSpawnMany();
 	}
 }

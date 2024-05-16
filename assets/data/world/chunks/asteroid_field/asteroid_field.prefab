@@ -1,47 +1,55 @@
 {
   "RootObject": {
-    "__guid": "59b7e5cb-f6d8-4d56-a5dc-3d1fb65af596",
+    "__guid": "c149d284-e61a-4054-acc4-731a496dc38b",
+    "Flags": 0,
     "Name": "asteroid_field",
     "Enabled": true,
     "NetworkMode": 2,
+    "NetworkInterpolation": true,
     "Components": [
       {
         "__type": "AsteroidSpawner",
-        "__guid": "a9ec1819-15b4-4587-a5f3-fc87feb15109"
+        "__guid": "447999b0-92e1-42e2-8fc7-9f693e7ea03f"
       },
       {
         "__type": "DroneSpawner",
-        "__guid": "1c5e731e-c2c4-4f24-acf3-ac734f1edbd9",
+        "__guid": "9349515e-0f00-4206-ad5f-3689b3b1420c",
         "DroneCount": 1,
         "DronePrefab": {
           "_type": "gameobject",
           "prefab": "prefabs/drones/mining_drone.prefab"
         },
-        "SpawnOnStart": true
+        "SpawnOnStart": false
       }
     ],
     "Children": [
       {
-        "__guid": "d340e7fe-5887-4284-9a2f-4d068ede1612",
+        "__guid": "20366081-9ec8-49b5-86f5-41a9bb2ce2f1",
+        "Flags": 0,
         "Name": "ice_field",
         "Enabled": true,
         "NetworkMode": 2,
+        "NetworkInterpolation": true,
         "__Prefab": "prefabs/effects/ice_field.prefab"
       },
       {
-        "__guid": "f7439330-1053-442f-b8af-cb778d6c3913",
+        "__guid": "c00a7886-11a3-4f13-ae53-495365c9980c",
+        "Flags": 0,
         "Name": "distant_asteroids",
         "Position": "0,0,-2000",
         "Enabled": true,
         "NetworkMode": 2,
+        "NetworkInterpolation": true,
         "__Prefab": "prefabs/effects/distant_asteroids.prefab"
       },
       {
-        "__guid": "688f337e-a63b-4fcb-a97a-987a8a2713ab",
+        "__guid": "9d586fda-ee80-47a5-84be-9c304cef9d3d",
+        "Flags": 0,
         "Name": "distant_lights (1)",
         "Position": "0,0,-3000",
         "Enabled": true,
         "NetworkMode": 2,
+        "NetworkInterpolation": true,
         "__Prefab": "prefabs/effects/distant_lights.prefab"
       }
     ]
