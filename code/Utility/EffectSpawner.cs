@@ -41,6 +41,7 @@ public sealed class EffectSpawner : Component, IDestructionListener
 			return;
 
 		var effectGo = EffectPrefab.Clone( Transform.World );
+		effectGo.Transform.ClearInterpolation();
 		effectGo.Tags.Add( "no_chunk" );
 		if ( ParticleTint.HasValue )
 		{

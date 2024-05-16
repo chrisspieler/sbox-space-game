@@ -56,9 +56,8 @@ public sealed class Mineable : Component
 		if ( BreakEffect is null )
 			return;
 
-		var effectGo = BreakEffect.Clone( damage.Position );
-		var mover = effectGo.Components.Create<MoveOnSpawn>();
-		mover.AbsolutePosition = damage.Position.ToAbsolutePosition();
+		var effectGo = BreakEffect.Clone( Transform.Position );
+		effectGo.Transform.ClearInterpolation();
 	}
 
 	private void SpawnBreakLoot()
