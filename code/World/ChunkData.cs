@@ -12,6 +12,7 @@ public class ChunkData : GameResource
 	{
 		var chunkGo = Prefab.GetPrefabScene().Clone( relativePosition );
 		chunkGo.BreakFromPrefab();
+		chunkGo.Transform.ClearInterpolation();
 		SetChunkData( chunkGo );
 		SpawnAsteroids( chunkGo );
 		SpawnDrones( chunkGo );

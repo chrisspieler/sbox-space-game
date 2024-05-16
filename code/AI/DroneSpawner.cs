@@ -53,7 +53,7 @@ public sealed class DroneSpawner : Component
 		var position = bounds.RandomPointInside.ToRelativePosition();
 		if ( Debug )
 		{
-			Log.Info( $"({GameObject.Name} {Transform.Position}): Spawning drone in chunk {chunk} at position: {position}" );
+			Log.Info( $"({GameObject.Name} {GameObject.Transform.Position}): Spawning drone in chunk {chunk} at position: {position}" );
 		}
 		return DronePrefab.Clone( position );
 	}
