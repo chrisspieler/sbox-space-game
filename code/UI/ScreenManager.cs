@@ -138,7 +138,13 @@ public sealed partial class ScreenManager : Component
 		if ( !Instance.PauseMenuPanel.CanShowPauseMenu() )
 			return;
 
+		Input.EscapePressed = false;
 		Instance.PauseMenuPanel.Enabled = true;
+	}
+
+	public static bool IsPaused()
+	{
+		return Instance.PauseMenuPanel.Enabled;
 	}
 
 	public static void SetQtHudVisibility( bool visible )

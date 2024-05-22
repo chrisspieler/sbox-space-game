@@ -25,15 +25,16 @@ public partial class PauseMenuPanel : PanelComponent
 	{
 		base.OnUpdate();
 
-		if ( Panel.Children.Any() && Input.EscapePressed )
+		if ( Input.EscapePressed )
 		{
+			Input.EscapePressed = false;
 			Resume();
 		}
 	}
 
 	public bool CanShowPauseMenu()
 	{
-		return !SettingsPanel.Enabled;
+		return !ScreenManager.IsPaused() && !SettingsPanel.Enabled && !ScreenManager.IsShopOpen();
 	}
 
 	private void Resume()

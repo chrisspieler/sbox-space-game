@@ -18,6 +18,7 @@ public partial class SettingsMenuPanel : PanelComponent
 
 		if ( Input.EscapePressed && !ControlStyleMenu.Enabled )
 		{
+			Input.EscapePressed = false;
 			_showModal = false;
 			Back();
 		}

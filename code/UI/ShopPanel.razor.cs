@@ -8,6 +8,7 @@ public partial class ShopPanel : PanelComponent
 	{
 		if ( Input.EscapePressed || !ShipController.GetCurrent().IsValid() )
 		{
+			Input.EscapePressed = false;
 			Exit();
 			return;
 		}
