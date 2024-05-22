@@ -1,13 +1,15 @@
 {
   "RootObject": {
     "__guid": "345207fd-2535-493b-82f9-d74e8c330d7d",
+    "Flags": 0,
     "Name": "ship_camera",
     "Tags": "no_chunk,no_shift",
     "Enabled": true,
     "NetworkMode": 2,
+    "NetworkInterpolation": true,
     "Components": [
       {
-        "__type": "CameraComponent",
+        "__type": "Sandbox.CameraComponent",
         "__guid": "cf89deb0-de61-4663-9145-3922ac2ab194",
         "BackgroundColor": "0.33333,0.46275,0.52157,1",
         "ClearFlags": "All",
@@ -43,7 +45,7 @@
         "TargetVelocityLowThreshold": 50
       },
       {
-        "__type": "Bloom",
+        "__type": "Sandbox.Bloom",
         "__guid": "a0997d52-13d1-4910-95f0-da14346867be",
         "BloomColor": {
           "color": [
@@ -72,7 +74,7 @@
         "ThresholdWidth": 0.1
       },
       {
-        "__type": "ColorAdjustments",
+        "__type": "Sandbox.ColorAdjustments",
         "__guid": "4cede54f-b039-426f-9083-55b356d664db",
         "Brightness": 1.1,
         "Contrast": 1.01,
@@ -80,7 +82,7 @@
         "Saturation": 1.1
       },
       {
-        "__type": "Highlight",
+        "__type": "Sandbox.Highlight",
         "__guid": "c0ae274c-a85f-4d18-8fc2-8511498f3d8b"
       },
       {
@@ -187,9 +189,15 @@
         }
       },
       {
-        "__type": "Sharpen",
+        "__type": "Sandbox.Sharpen",
         "__guid": "1106a4f8-65f4-43a4-a5a3-294b96ab7870",
         "Scale": 0.05
+      },
+      {
+        "__type": "Sandbox.VolumetricFogParameterConfig",
+        "__guid": "ddfae0f2-9ff3-4e1c-8acb-1932cffde3f6",
+        "ContinuousMode": false,
+        "ForceNoClipmaps": false
       }
     ],
     "Children": []
@@ -198,6 +206,6 @@
   "MenuPath": null,
   "MenuIcon": null,
   "ResourceVersion": 1,
-  "__version": 1,
-  "__references": []
+  "__references": [],
+  "__version": 1
 }
