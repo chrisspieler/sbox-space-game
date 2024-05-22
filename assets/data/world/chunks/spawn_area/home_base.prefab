@@ -1,22 +1,26 @@
 {
   "RootObject": {
-    "__guid": "4131c1a3-8d7f-4ced-b1e5-1e6576d2f4f4",
+    "__guid": "2ea754ab-ff85-42af-9234-7c00fc56ac51",
+    "Flags": 0,
     "Name": "home_base",
     "Enabled": true,
     "NetworkMode": 2,
+    "NetworkInterpolation": true,
     "Children": [
       {
-        "__guid": "10df75c1-5942-4150-9493-171ca6664c13",
+        "__guid": "02e755e3-a1db-47e4-ab22-569fb561c6d1",
+        "Flags": 0,
         "Name": "Tutorial Text",
         "Position": "512,0,-192.0002",
         "Rotation": "0,0.7071068,0,0.7071068",
         "Scale": "20,20,20",
         "Enabled": true,
         "NetworkMode": 2,
+        "NetworkInterpolation": true,
         "Components": [
           {
-            "__type": "TextRenderer",
-            "__guid": "bee7af98-1d2a-4f3b-8943-df13b9e65163",
+            "__type": "Sandbox.TextRenderer",
+            "__guid": "32c7b28a-a0ab-4d7c-961b-2770ecf6bb92",
             "Color": "1,1,1,1",
             "FontFamily": "Zeroes 1",
             "FontSize": 62.47,
@@ -26,24 +30,28 @@
         ]
       },
       {
-        "__guid": "7cc0e0ad-28fb-47d6-b26e-05811190265f",
+        "__guid": "bafd2d12-4f03-4196-82f1-626ced5b5bfb",
+        "Flags": 0,
         "Name": "ice_field",
         "Enabled": true,
         "NetworkMode": 2,
+        "NetworkInterpolation": true,
         "__Prefab": "prefabs/effects/ice_field.prefab"
       },
       {
-        "__guid": "3f7ab64a-d375-4178-bd06-7d43b488138a",
+        "__guid": "120f1732-7f52-4214-87fc-a54c340d6bc1",
+        "Flags": 0,
         "Name": "Store",
         "Position": "2500,2500,-700",
         "Scale": "20,20,20",
         "Tags": "no_chunk",
         "Enabled": true,
         "NetworkMode": 2,
+        "NetworkInterpolation": true,
         "Components": [
           {
-            "__type": "ModelRenderer",
-            "__guid": "28614a96-47e0-4750-a913-3fb58cdc9967",
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "81b56137-1dc0-4233-b377-dec0e23c8582",
             "BodyGroups": 18446744073709551615,
             "MaterialOverride": "materials/shared/metals/metal_aluminium_03.vmat",
             "Model": "models/dev/box.vmdl",
@@ -51,54 +59,58 @@
             "Tint": "1,1,1,1"
           },
           {
-            "__type": "BoxCollider",
-            "__guid": "1a3e5abc-b38a-4459-a627-7e586b4a046a",
+            "__type": "Sandbox.BoxCollider",
+            "__guid": "bd6f085d-29a2-47e5-b7d1-75cb15f00b8f",
             "Center": "0,0,0",
             "IsTrigger": false,
             "Scale": "50,50,50",
-            "Static": true
+            "Static": false
           }
         ],
         "Children": [
           {
-            "__guid": "998761fe-6386-4c47-96b8-22fccd7edcab",
+            "__guid": "56d83e19-7f12-4439-9f4c-2e8e63224f3d",
+            "Flags": 0,
             "Name": "Spawn Point",
             "Position": "0,35,35",
             "Rotation": "0,0,0.7071068,0.7071068",
             "Scale": "0.05,0.05,0.05",
             "Enabled": true,
             "NetworkMode": 2,
+            "NetworkInterpolation": true,
             "Components": [
               {
-                "__type": "SpawnPoint",
-                "__guid": "5203699e-f5c7-49e8-b244-b8157c0dec0d",
+                "__type": "Sandbox.SpawnPoint",
+                "__guid": "4c8df366-23a9-497a-abc3-44121df0f0e6",
                 "Color": "0,0.11667,1,1"
               }
             ]
           },
           {
-            "__guid": "fb5a1239-a228-4520-993a-48c1b71ade23",
+            "__guid": "9f21d926-df92-402a-9166-15c17a845ed3",
+            "Flags": 0,
             "Name": "Base Shield",
             "Position": "0,0,19",
             "Scale": "2,2,2",
             "Tags": "player_allow,shield",
             "Enabled": true,
             "NetworkMode": 2,
+            "NetworkInterpolation": true,
             "Components": [
               {
                 "__type": "Shield",
-                "__guid": "df68f171-80fe-4d9a-99d0-57f9a963710b",
+                "__guid": "ba60aa5d-f647-462e-bcdb-3abbb9794e48",
                 "Bounce": {
                   "_type": "component",
-                  "component_id": "c73ca05f-98ca-4ae5-92c5-d26b7d1c4d4e",
-                  "go": "fb5a1239-a228-4520-993a-48c1b71ade23",
+                  "component_id": "8aa87f24-7899-43ef-ae89-5a6d69fd1c11",
+                  "go": "9f21d926-df92-402a-9166-15c17a845ed3",
                   "component_type": "Bouncy"
                 },
                 "BreakSound": "sounds/shield_break.sound",
                 "Collider": {
                   "_type": "component",
-                  "component_id": "d27a241f-3f2f-4a75-a828-476528add803",
-                  "go": "fb5a1239-a228-4520-993a-48c1b71ade23",
+                  "component_id": "9dfcaf1e-0cec-45ef-b1c6-38228c237a25",
+                  "go": "9f21d926-df92-402a-9166-15c17a845ed3",
                   "component_type": "SphereCollider"
                 },
                 "CurrentHealth": 10000,
@@ -109,7 +121,7 @@
               },
               {
                 "__type": "Bouncy",
-                "__guid": "c73ca05f-98ca-4ae5-92c5-d26b7d1c4d4e",
+                "__guid": "8aa87f24-7899-43ef-ae89-5a6d69fd1c11",
                 "AddedVelocity": 0,
                 "BouncedTags": "solid",
                 "BounceFactor": 1,
@@ -118,16 +130,16 @@
                 "RehitDelay": 0.5
               },
               {
-                "__type": "SphereCollider",
-                "__guid": "d27a241f-3f2f-4a75-a828-476528add803",
+                "__type": "Sandbox.SphereCollider",
+                "__guid": "9dfcaf1e-0cec-45ef-b1c6-38228c237a25",
                 "Center": "0,0,0",
                 "IsTrigger": false,
                 "Radius": 32,
                 "Static": true
               },
               {
-                "__type": "ModelRenderer",
-                "__guid": "9dcce905-a95f-4674-84d6-1d3c0d32b9c0",
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "8c5eae6e-32f4-4e18-949b-07ada5c0d3a8",
                 "BodyGroups": 18446744073709551615,
                 "MaterialOverride": "materials/dev/primary_white_emissive_trans.vmat",
                 "Model": "models/dev/sphere.vmdl",
@@ -137,17 +149,19 @@
             ]
           },
           {
-            "__guid": "6c9064e0-5f4a-4747-aee5-8496d3701e88",
+            "__guid": "c86d619e-d6e5-4e5c-96a8-86dd911b21e3",
+            "Flags": 0,
             "Name": "Point Light",
             "Position": "0.9459351,16.34545,43.13551",
             "Scale": "0.4,0.4,0.4",
             "Tags": "light_point,light",
             "Enabled": true,
             "NetworkMode": 2,
+            "NetworkInterpolation": true,
             "Components": [
               {
-                "__type": "PointLight",
-                "__guid": "2410cb2c-f0a3-491f-b6b0-aa4b13cbbdd5",
+                "__type": "Sandbox.PointLight",
+                "__guid": "25f7669f-d541-4947-8830-3c797b3be64b",
                 "Attenuation": 0.39,
                 "FogMode": "Enabled",
                 "FogStrength": 1,
@@ -158,17 +172,19 @@
             ]
           },
           {
-            "__guid": "46d0c2ef-ac10-4201-bb30-4c11a6c0530a",
+            "__guid": "96737318-ce01-41c5-9ea2-1d65289ed272",
+            "Flags": 0,
             "Name": "Point Light",
             "Position": "-16.0395,2.608923,43.13552",
             "Scale": "0.4,0.4,0.4",
             "Tags": "light_point,light",
             "Enabled": true,
             "NetworkMode": 2,
+            "NetworkInterpolation": true,
             "Components": [
               {
-                "__type": "PointLight",
-                "__guid": "3fd65e58-6403-4092-92ae-dac3cfaecfad",
+                "__type": "Sandbox.PointLight",
+                "__guid": "1b8cc6f2-0deb-42f8-ba74-57293d5cd33f",
                 "Attenuation": 0.39,
                 "FogMode": "Enabled",
                 "FogStrength": 1,
@@ -179,17 +195,19 @@
             ]
           },
           {
-            "__guid": "76f2936d-8a9e-4a95-9a8b-203b8b06beed",
+            "__guid": "42ca62b2-abf4-4d75-bf08-23259d0c044d",
+            "Flags": 0,
             "Name": "Shop",
             "Position": "0,0,43.87252",
             "Scale": "0.4,0.4,0.03312262",
             "Tags": "solid",
             "Enabled": true,
             "NetworkMode": 2,
+            "NetworkInterpolation": true,
             "Components": [
               {
-                "__type": "ModelRenderer",
-                "__guid": "e29da3e8-0b04-44af-8b62-8650c70a588b",
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "83ef70f6-c968-4872-bc2e-162616da4e80",
                 "BodyGroups": 18446744073709551615,
                 "MaterialOverride": "materials/generic/metal_brushed.vmat",
                 "Model": "models/dev/box.vmdl",
@@ -197,54 +215,58 @@
                 "Tint": "1,1,1,1"
               },
               {
-                "__type": "BoxCollider",
-                "__guid": "8f0c8751-2520-4058-b982-31b9b203e13f",
+                "__type": "Sandbox.BoxCollider",
+                "__guid": "009585a3-45fb-488f-8d55-156f875043a6",
                 "Center": "0,0,-200",
                 "IsTrigger": true,
                 "Scale": "45,45,300",
-                "Static": true
+                "Static": false
               },
               {
                 "__type": "Shop",
-                "__guid": "1074489a-e7df-4fcf-8274-88e7d2160700",
+                "__guid": "d6f4ef92-0c01-4b30-8043-b40c7279e336",
                 "EjectionVelocity": "1,0,0",
                 "Ejector": {
                   "_type": "gameobject",
-                  "go": "e80a4c62-105e-4736-accf-70921f7690a3"
+                  "go": "af030556-da9c-41a5-bb11-8a033ce0117f"
                 }
               },
               {
-                "__type": "BoxCollider",
-                "__guid": "3a79dd91-d849-4175-8e67-e9986eaa840b",
+                "__type": "Sandbox.BoxCollider",
+                "__guid": "9930b886-29b5-45f9-b855-2bb246abaeed",
                 "Center": "0,0,0",
                 "IsTrigger": false,
                 "Scale": "50,50,50",
-                "Static": true
+                "Static": false
               }
             ],
             "Children": [
               {
-                "__guid": "e80a4c62-105e-4736-accf-70921f7690a3",
+                "__guid": "af030556-da9c-41a5-bb11-8a033ce0117f",
+                "Flags": 0,
                 "Name": "Player Ejector",
                 "Position": "0.0002441406,47.25272,-250",
                 "Rotation": "0,0,0.7071068,0.7071068",
                 "Enabled": true,
-                "NetworkMode": 2
+                "NetworkMode": 2,
+                "NetworkInterpolation": true
               }
             ]
           },
           {
-            "__guid": "bbe3df78-8d4b-4e79-bc45-453df5fb1f4d",
+            "__guid": "6ce71fa9-277e-4144-b55f-4ab86ba33c27",
+            "Flags": 0,
             "Name": "Shop Text",
             "Position": "-0.2,15.8,25.4",
             "Rotation": "0,0.7071068,0,0.7071068",
             "Scale": "0.05,0.05,0.05",
             "Enabled": true,
             "NetworkMode": 2,
+            "NetworkInterpolation": true,
             "Components": [
               {
-                "__type": "TextRenderer",
-                "__guid": "f3dedb0b-e4b5-4bec-a8b4-9475990e2c2f",
+                "__type": "Sandbox.TextRenderer",
+                "__guid": "95cc775e-2d1b-4ae8-8557-ee6041cc3a46",
                 "Color": "1,0.98333,0,1",
                 "FontFamily": "Zeroes 1",
                 "FontSize": 128,
@@ -254,23 +276,25 @@
             ]
           },
           {
-            "__guid": "63276538-4020-4695-823d-5eaef3fcadae",
+            "__guid": "e1e82224-ab42-4dab-88dc-f99ad2261c42",
+            "Flags": 0,
             "Name": "Replenish Zone",
             "Position": "0,0,35",
             "Enabled": true,
             "NetworkMode": 2,
+            "NetworkInterpolation": true,
             "Components": [
               {
-                "__type": "BoxCollider",
-                "__guid": "2f1b4ed0-e9af-4bf5-ad93-1d7bc925ff17",
+                "__type": "Sandbox.BoxCollider",
+                "__guid": "aee2fb42-d3e7-4299-9aa1-1aa773ce07fc",
                 "Center": "0,0,0",
                 "IsTrigger": true,
                 "Scale": "50,50,20",
-                "Static": true
+                "Static": false
               },
               {
                 "__type": "ReplenishZone",
-                "__guid": "c5e71452-dc28-42d2-9084-246e718e6a9e",
+                "__guid": "d98245ea-95f5-47e6-891e-3b21bbdc0d4a",
                 "Refuel": true,
                 "Repair": true
               }
@@ -279,23 +303,27 @@
         ]
       },
       {
-        "__guid": "7776fc8f-cd27-4b47-b851-2c4bf414e869",
+        "__guid": "0501e357-9de0-49c6-92df-771d50d5aa0d",
+        "Flags": 0,
         "Name": "distant_lights (1)",
         "Position": "0,0,-3000",
         "Enabled": true,
         "NetworkMode": 2,
+        "NetworkInterpolation": true,
         "__Prefab": "prefabs/effects/distant_lights.prefab"
       },
       {
-        "__guid": "ca47437b-b798-4937-b892-2c86fb4c49c6",
+        "__guid": "cca67c98-3a5b-45b2-9e35-3e938997bafb",
+        "Flags": 0,
         "Name": "Shop Beacon",
         "Position": "2500,2500,0",
         "Enabled": true,
         "NetworkMode": 2,
+        "NetworkInterpolation": true,
         "Components": [
           {
             "__type": "Beacon",
-            "__guid": "7ead9d87-e1f5-4ada-936b-40ac8467adb5",
+            "__guid": "3c85f8fa-4a64-44bc-a5dc-866064a7b8e6",
             "BeaconId": "shop0",
             "DisappearRange": 0,
             "Name": "Shop"
@@ -308,9 +336,9 @@
   "MenuPath": null,
   "MenuIcon": null,
   "ResourceVersion": 1,
-  "__version": 1,
   "__references": [
     "eurorp.aluminium_03",
     "stardrive.rope_barrier_a"
-  ]
+  ],
+  "__version": 1
 }
