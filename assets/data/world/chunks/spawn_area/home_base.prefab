@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "__guid": "2ea754ab-ff85-42af-9234-7c00fc56ac51",
+    "__guid": "e3958b20-89c1-4c30-a7e1-29c8c12a0cd4",
     "Flags": 0,
     "Name": "home_base",
     "Enabled": true,
@@ -8,7 +8,7 @@
     "NetworkInterpolation": true,
     "Children": [
       {
-        "__guid": "02e755e3-a1db-47e4-ab22-569fb561c6d1",
+        "__guid": "8da50a9b-65e6-489c-8d7a-a9e331523a90",
         "Flags": 0,
         "Name": "Tutorial Text",
         "Position": "512,0,-192.0002",
@@ -20,7 +20,7 @@
         "Components": [
           {
             "__type": "Sandbox.TextRenderer",
-            "__guid": "32c7b28a-a0ab-4d7c-961b-2770ecf6bb92",
+            "__guid": "ed7ae7b0-f0a3-41da-b13a-f33ebe3eb389",
             "Color": "1,1,1,1",
             "FontFamily": "Zeroes 1",
             "FontSize": 62.47,
@@ -30,7 +30,7 @@
         ]
       },
       {
-        "__guid": "bafd2d12-4f03-4196-82f1-626ced5b5bfb",
+        "__guid": "b92a55c7-b240-443d-ab1c-28123f41f49a",
         "Flags": 0,
         "Name": "ice_field",
         "Enabled": true,
@@ -39,19 +39,255 @@
         "__Prefab": "prefabs/effects/ice_field.prefab"
       },
       {
-        "__guid": "120f1732-7f52-4214-87fc-a54c340d6bc1",
+        "__guid": "32350adc-fb94-4faa-afd1-0f9dafcfc6cb",
+        "Flags": 0,
+        "Name": "Store Toggler",
+        "Position": "2500,2500,-700",
+        "Scale": "20,20,20",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.OriginShiftAction",
+            "__guid": "5be2f6aa-a266-4155-8153-0f813f974ed2",
+            "OnAfterOriginShifted": {
+              "__version": 7,
+              "__guid": "77ed71eb-070b-4d4f-a87c-9ee4067322b1",
+              "UserData": {
+                "Title": "On After Origin Shifted",
+                "ReferencedComponentTypes": []
+              },
+              "Variables": [],
+              "Nodes": [
+                {
+                  "Id": 0,
+                  "Type": "input",
+                  "UserData": {
+                    "Position": "-192,-0"
+                  }
+                },
+                {
+                  "Id": 2,
+                  "Type": "scene.ref",
+                  "Properties": {
+                    "gameobject": {
+                      "_type": "gameobject",
+                      "go": "2dd70d22-be7f-441f-ba9e-92be34c97b11"
+                    }
+                  },
+                  "UserData": {
+                    "Position": "16,128"
+                  }
+                },
+                {
+                  "Id": 3,
+                  "Type": "property",
+                  "Properties": {
+                    "_name": "Enabled",
+                    "_type": "Sandbox.GameObject"
+                  },
+                  "UserData": {
+                    "Position": "256,0"
+                  }
+                },
+                {
+                  "Id": 6,
+                  "Type": "property",
+                  "Properties": {
+                    "_name": "Enabled",
+                    "_type": "Sandbox.GameObject"
+                  },
+                  "UserData": {
+                    "Position": "480,-0"
+                  }
+                }
+              ],
+              "Links": [
+                {
+                  "SrcId": 0,
+                  "SrcName": "_signal",
+                  "DstId": 3,
+                  "DstName": "_signal"
+                },
+                {
+                  "SrcId": 2,
+                  "SrcName": "_result",
+                  "DstId": 3,
+                  "DstName": "_target"
+                },
+                {
+                  "Value": false,
+                  "DstId": 3,
+                  "DstName": "_value"
+                },
+                {
+                  "SrcId": 3,
+                  "SrcName": "_signal",
+                  "DstId": 6,
+                  "DstName": "_signal"
+                },
+                {
+                  "SrcId": 2,
+                  "SrcName": "_result",
+                  "DstId": 6,
+                  "DstName": "_target"
+                },
+                {
+                  "Value": true,
+                  "DstId": 6,
+                  "DstName": "_value"
+                }
+              ],
+              "Defaults": {
+                "$2.gameobject": {
+                  "_type": "gameobject",
+                  "go": "2dd70d22-be7f-441f-ba9e-92be34c97b11"
+                }
+              }
+            },
+            "OnComponentStart": {
+              "__version": 7,
+              "__guid": "2a443c17-a78f-4e7b-9c03-798a55a317cf",
+              "UserData": {
+                "Title": "On Component Start",
+                "ReferencedComponentTypes": []
+              },
+              "Variables": [],
+              "Nodes": [
+                {
+                  "Id": 1,
+                  "Type": "input",
+                  "UserData": {
+                    "Position": "-96,128"
+                  }
+                },
+                {
+                  "Id": 2,
+                  "Type": "scene.ref",
+                  "Properties": {
+                    "gameobject": {
+                      "_type": "gameobject",
+                      "go": "2dd70d22-be7f-441f-ba9e-92be34c97b11"
+                    }
+                  },
+                  "UserData": {
+                    "Position": "-80,224"
+                  }
+                },
+                {
+                  "Id": 3,
+                  "Type": "property",
+                  "Properties": {
+                    "_type": "Sandbox.GameObject",
+                    "_name": "Enabled"
+                  },
+                  "UserData": {
+                    "Position": "272,128"
+                  }
+                },
+                {
+                  "Id": 4,
+                  "Type": "time.delay",
+                  "UserData": {
+                    "Position": "112,128"
+                  }
+                },
+                {
+                  "Id": 5,
+                  "Type": "property",
+                  "Properties": {
+                    "_name": "Enabled",
+                    "_type": "Sandbox.GameObject"
+                  },
+                  "UserData": {
+                    "Position": "512,128"
+                  }
+                },
+                {
+                  "Id": 6,
+                  "Type": "nop",
+                  "UserData": {
+                    "Position": "400,272"
+                  }
+                }
+              ],
+              "Links": [
+                {
+                  "SrcId": 4,
+                  "SrcName": "_signal",
+                  "DstId": 3,
+                  "DstName": "_signal"
+                },
+                {
+                  "SrcId": 2,
+                  "SrcName": "_result",
+                  "DstId": 3,
+                  "DstName": "_target"
+                },
+                {
+                  "Value": false,
+                  "DstId": 3,
+                  "DstName": "_value"
+                },
+                {
+                  "SrcId": 1,
+                  "SrcName": "_signal",
+                  "DstId": 4,
+                  "DstName": "_signal"
+                },
+                {
+                  "Value": 0.25,
+                  "DstId": 4,
+                  "DstName": "seconds"
+                },
+                {
+                  "SrcId": 3,
+                  "SrcName": "_signal",
+                  "DstId": 5,
+                  "DstName": "_signal"
+                },
+                {
+                  "SrcId": 6,
+                  "SrcName": "out",
+                  "DstId": 5,
+                  "DstName": "_target"
+                },
+                {
+                  "Value": true,
+                  "DstId": 5,
+                  "DstName": "_value"
+                },
+                {
+                  "SrcId": 2,
+                  "SrcName": "_result",
+                  "DstId": 6,
+                  "DstName": "in"
+                }
+              ],
+              "Defaults": {
+                "$2.gameobject": {
+                  "_type": "gameobject",
+                  "go": "2dd70d22-be7f-441f-ba9e-92be34c97b11"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "__guid": "2dd70d22-be7f-441f-ba9e-92be34c97b11",
         "Flags": 0,
         "Name": "Store",
         "Position": "2500,2500,-700",
         "Scale": "20,20,20",
-        "Tags": "no_chunk",
         "Enabled": true,
         "NetworkMode": 2,
         "NetworkInterpolation": true,
         "Components": [
           {
             "__type": "Sandbox.ModelRenderer",
-            "__guid": "81b56137-1dc0-4233-b377-dec0e23c8582",
+            "__guid": "a5397e80-2e76-46f3-8c90-4057d9bc4e2d",
             "BodyGroups": 18446744073709551615,
             "MaterialOverride": "materials/shared/metals/metal_aluminium_03.vmat",
             "Model": "models/dev/box.vmdl",
@@ -60,7 +296,7 @@
           },
           {
             "__type": "Sandbox.BoxCollider",
-            "__guid": "bd6f085d-29a2-47e5-b7d1-75cb15f00b8f",
+            "__guid": "e66fa724-5d9b-4756-82cc-52f1f44aaaa2",
             "Center": "0,0,0",
             "IsTrigger": false,
             "Scale": "50,50,50",
@@ -69,7 +305,7 @@
         ],
         "Children": [
           {
-            "__guid": "56d83e19-7f12-4439-9f4c-2e8e63224f3d",
+            "__guid": "bac5025f-7a32-44ba-babd-1d986d0da5d0",
             "Flags": 0,
             "Name": "Spawn Point",
             "Position": "0,35,35",
@@ -81,13 +317,13 @@
             "Components": [
               {
                 "__type": "Sandbox.SpawnPoint",
-                "__guid": "4c8df366-23a9-497a-abc3-44121df0f0e6",
+                "__guid": "c69db7fb-2a01-4282-99c5-88be7e3f08e3",
                 "Color": "0,0.11667,1,1"
               }
             ]
           },
           {
-            "__guid": "9f21d926-df92-402a-9166-15c17a845ed3",
+            "__guid": "5e0f39e2-d93f-4dfe-b65c-d3f51911d58c",
             "Flags": 0,
             "Name": "Base Shield",
             "Position": "0,0,19",
@@ -99,18 +335,18 @@
             "Components": [
               {
                 "__type": "Shield",
-                "__guid": "ba60aa5d-f647-462e-bcdb-3abbb9794e48",
+                "__guid": "6baba087-2ccd-47cf-ad06-e07776ff50f3",
                 "Bounce": {
                   "_type": "component",
-                  "component_id": "8aa87f24-7899-43ef-ae89-5a6d69fd1c11",
-                  "go": "9f21d926-df92-402a-9166-15c17a845ed3",
+                  "component_id": "665322df-8271-4053-8fb0-aa3921595301",
+                  "go": "5e0f39e2-d93f-4dfe-b65c-d3f51911d58c",
                   "component_type": "Bouncy"
                 },
                 "BreakSound": "sounds/shield_break.sound",
                 "Collider": {
                   "_type": "component",
-                  "component_id": "9dfcaf1e-0cec-45ef-b1c6-38228c237a25",
-                  "go": "9f21d926-df92-402a-9166-15c17a845ed3",
+                  "component_id": "ab0976fb-5a9f-4527-93f2-6a25f24db041",
+                  "go": "5e0f39e2-d93f-4dfe-b65c-d3f51911d58c",
                   "component_type": "SphereCollider"
                 },
                 "CurrentHealth": 10000,
@@ -121,7 +357,7 @@
               },
               {
                 "__type": "Bouncy",
-                "__guid": "8aa87f24-7899-43ef-ae89-5a6d69fd1c11",
+                "__guid": "665322df-8271-4053-8fb0-aa3921595301",
                 "AddedVelocity": 0,
                 "BouncedTags": "solid",
                 "BounceFactor": 1,
@@ -131,7 +367,7 @@
               },
               {
                 "__type": "Sandbox.SphereCollider",
-                "__guid": "9dfcaf1e-0cec-45ef-b1c6-38228c237a25",
+                "__guid": "ab0976fb-5a9f-4527-93f2-6a25f24db041",
                 "Center": "0,0,0",
                 "IsTrigger": false,
                 "Radius": 32,
@@ -139,7 +375,7 @@
               },
               {
                 "__type": "Sandbox.ModelRenderer",
-                "__guid": "8c5eae6e-32f4-4e18-949b-07ada5c0d3a8",
+                "__guid": "ff8be131-e7fb-4f76-8b44-f6d242e2d6ff",
                 "BodyGroups": 18446744073709551615,
                 "MaterialOverride": "materials/dev/primary_white_emissive_trans.vmat",
                 "Model": "models/dev/sphere.vmdl",
@@ -149,7 +385,7 @@
             ]
           },
           {
-            "__guid": "c86d619e-d6e5-4e5c-96a8-86dd911b21e3",
+            "__guid": "2fd33d21-459e-4167-826b-d92983dd9f45",
             "Flags": 0,
             "Name": "Point Light",
             "Position": "0.9459351,16.34545,43.13551",
@@ -161,7 +397,7 @@
             "Components": [
               {
                 "__type": "Sandbox.PointLight",
-                "__guid": "25f7669f-d541-4947-8830-3c797b3be64b",
+                "__guid": "818085ea-9fbb-4e05-8114-1ed6551b5d90",
                 "Attenuation": 0.39,
                 "FogMode": "Enabled",
                 "FogStrength": 1,
@@ -172,7 +408,7 @@
             ]
           },
           {
-            "__guid": "96737318-ce01-41c5-9ea2-1d65289ed272",
+            "__guid": "f9535e14-8e44-4b44-889e-6a188d674690",
             "Flags": 0,
             "Name": "Point Light",
             "Position": "-16.0395,2.608923,43.13552",
@@ -184,7 +420,7 @@
             "Components": [
               {
                 "__type": "Sandbox.PointLight",
-                "__guid": "1b8cc6f2-0deb-42f8-ba74-57293d5cd33f",
+                "__guid": "ac023810-1018-4ea2-85f6-4d5836f7bed7",
                 "Attenuation": 0.39,
                 "FogMode": "Enabled",
                 "FogStrength": 1,
@@ -195,7 +431,7 @@
             ]
           },
           {
-            "__guid": "42ca62b2-abf4-4d75-bf08-23259d0c044d",
+            "__guid": "16979e70-6c88-4f9b-8554-9063d9e0927c",
             "Flags": 0,
             "Name": "Shop",
             "Position": "0,0,43.87252",
@@ -207,7 +443,7 @@
             "Components": [
               {
                 "__type": "Sandbox.ModelRenderer",
-                "__guid": "83ef70f6-c968-4872-bc2e-162616da4e80",
+                "__guid": "69c65aa3-3b0d-4f91-93bd-ccfc6fc9c4d8",
                 "BodyGroups": 18446744073709551615,
                 "MaterialOverride": "materials/generic/metal_brushed.vmat",
                 "Model": "models/dev/box.vmdl",
@@ -216,7 +452,7 @@
               },
               {
                 "__type": "Sandbox.BoxCollider",
-                "__guid": "009585a3-45fb-488f-8d55-156f875043a6",
+                "__guid": "cb246176-a61d-4a7c-9f27-be4027817ead",
                 "Center": "0,0,-200",
                 "IsTrigger": true,
                 "Scale": "45,45,300",
@@ -224,16 +460,16 @@
               },
               {
                 "__type": "Shop",
-                "__guid": "d6f4ef92-0c01-4b30-8043-b40c7279e336",
+                "__guid": "58a6549c-dc5f-4138-a8d3-675c841974a1",
                 "EjectionVelocity": "1,0,0",
                 "Ejector": {
                   "_type": "gameobject",
-                  "go": "af030556-da9c-41a5-bb11-8a033ce0117f"
+                  "go": "8fb5720d-352b-4ded-a6a1-7b76870ec9c7"
                 }
               },
               {
                 "__type": "Sandbox.BoxCollider",
-                "__guid": "9930b886-29b5-45f9-b855-2bb246abaeed",
+                "__guid": "398593dd-d1e7-4c21-9a22-cc21f7ad96a1",
                 "Center": "0,0,0",
                 "IsTrigger": false,
                 "Scale": "50,50,50",
@@ -242,7 +478,7 @@
             ],
             "Children": [
               {
-                "__guid": "af030556-da9c-41a5-bb11-8a033ce0117f",
+                "__guid": "8fb5720d-352b-4ded-a6a1-7b76870ec9c7",
                 "Flags": 0,
                 "Name": "Player Ejector",
                 "Position": "0.0002441406,47.25272,-250",
@@ -254,7 +490,7 @@
             ]
           },
           {
-            "__guid": "6ce71fa9-277e-4144-b55f-4ab86ba33c27",
+            "__guid": "5ff78a26-e245-4d0b-a347-1126ef6d1b89",
             "Flags": 0,
             "Name": "Shop Text",
             "Position": "-0.2,15.8,25.4",
@@ -266,7 +502,7 @@
             "Components": [
               {
                 "__type": "Sandbox.TextRenderer",
-                "__guid": "95cc775e-2d1b-4ae8-8557-ee6041cc3a46",
+                "__guid": "f47c7fa7-1628-4c4d-ac9c-55f81cd9a134",
                 "Color": "1,0.98333,0,1",
                 "FontFamily": "Zeroes 1",
                 "FontSize": 128,
@@ -276,7 +512,7 @@
             ]
           },
           {
-            "__guid": "e1e82224-ab42-4dab-88dc-f99ad2261c42",
+            "__guid": "2d535cdc-2eb3-4456-ace5-96c20f529934",
             "Flags": 0,
             "Name": "Replenish Zone",
             "Position": "0,0,35",
@@ -286,7 +522,7 @@
             "Components": [
               {
                 "__type": "Sandbox.BoxCollider",
-                "__guid": "aee2fb42-d3e7-4299-9aa1-1aa773ce07fc",
+                "__guid": "cb8ac90b-5fbe-458d-8b46-c2bb500fa1c6",
                 "Center": "0,0,0",
                 "IsTrigger": true,
                 "Scale": "50,50,20",
@@ -294,7 +530,7 @@
               },
               {
                 "__type": "ReplenishZone",
-                "__guid": "d98245ea-95f5-47e6-891e-3b21bbdc0d4a",
+                "__guid": "a382d35f-0dfe-4d25-8441-e462dcf6725f",
                 "Refuel": true,
                 "Repair": true
               }
@@ -303,7 +539,7 @@
         ]
       },
       {
-        "__guid": "0501e357-9de0-49c6-92df-771d50d5aa0d",
+        "__guid": "36ac72a6-b6c6-4b63-bb57-13de80847596",
         "Flags": 0,
         "Name": "distant_lights (1)",
         "Position": "0,0,-3000",
@@ -313,7 +549,7 @@
         "__Prefab": "prefabs/effects/distant_lights.prefab"
       },
       {
-        "__guid": "cca67c98-3a5b-45b2-9e35-3e938997bafb",
+        "__guid": "8f8f97e8-6c29-4b9a-8846-034f2b4860b3",
         "Flags": 0,
         "Name": "Shop Beacon",
         "Position": "2500,2500,0",
@@ -323,7 +559,7 @@
         "Components": [
           {
             "__type": "Beacon",
-            "__guid": "3c85f8fa-4a64-44bc-a5dc-866064a7b8e6",
+            "__guid": "0be2322b-9891-40d7-8357-945d5aa40a6f",
             "BeaconId": "shop0",
             "DisappearRange": 0,
             "Name": "Shop"

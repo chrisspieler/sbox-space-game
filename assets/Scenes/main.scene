@@ -3,62 +3,74 @@
   "GameObjects": [
     {
       "__guid": "0a3105b7-d645-4200-93c9-b57b4133cc6a",
+      "Flags": 0,
       "Name": "Screen UI",
       "Position": "200,0,0.0003515341",
       "Tags": "no_chunk",
       "Enabled": true,
       "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "__Prefab": "prefabs/main_ui.prefab"
     },
     {
       "__guid": "335f2d73-8ea5-4f93-b26f-175909fb6e29",
+      "Flags": 0,
       "Name": "Camera (1)",
       "Tags": "no_chunk,no_shift",
       "Enabled": true,
       "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "__Prefab": "prefabs/ship_camera.prefab"
     },
     {
       "__guid": "50985c72-fec4-48cf-bd58-355bbd47aec5",
+      "Flags": 0,
       "Name": "Skybox",
       "Position": "-100,0,0.0003515341",
       "Rotation": "-0.08349869,0.06517375,0.005472793,0.9943593",
       "Tags": "shift_visible,no_chunk,skybox",
       "Enabled": true,
       "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "__Prefab": "prefabs/skybox.prefab"
     },
     {
       "__guid": "5a204e98-b86c-4727-accc-d522082427fd",
+      "Flags": 0,
       "Name": "Fog Volume",
       "Position": "2500,3200,0.00006103516",
       "Tags": "no_chunk,shift_visible",
       "Enabled": true,
       "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "__Prefab": "prefabs/volumetric_fog.prefab"
     },
     {
       "__guid": "5006bd90-e749-4329-a52f-f676bfc80725",
+      "Flags": 0,
       "Name": "Sun",
       "Position": "-200,0,0.0003515341",
       "Tags": "no_chunk,light,light_directional",
       "Enabled": true,
       "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "__Prefab": "prefabs/ambient_light.prefab"
     },
     {
       "__guid": "1a6ffc42-c514-40bc-bb30-80d4d56b021a",
+      "Flags": 0,
       "Name": "Game",
       "Position": "100,0,0",
       "Tags": "no_chunk",
       "Enabled": true,
       "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "Components": [
         {
-          "__type": "StartActionComponent",
+          "__type": "Sandbox.ActionGraphs.StartActionComponent",
           "__guid": "51c8a564-8ad1-4ce3-b971-25ca8ae9f219",
           "Action": {
-            "__version": 5,
+            "__version": 7,
             "__guid": "22910874-7696-4951-a40f-18aa66aab2d6",
             "UserData": {
               "Title": "Action",
@@ -72,7 +84,7 @@
               },
               {
                 "Id": 1,
-                "Type": "property.get",
+                "Type": "property",
                 "Properties": {
                   "_name": "Scene"
                 },
@@ -82,7 +94,7 @@
               },
               {
                 "Id": 2,
-                "Type": "property.get",
+                "Type": "property",
                 "Properties": {
                   "_type": "Sandbox.Game/Sandbox.Scene",
                   "_name": "PhysicsWorld"
@@ -93,7 +105,7 @@
               },
               {
                 "Id": 3,
-                "Type": "property.set",
+                "Type": "property",
                 "Properties": {
                   "_type": "Sandbox.Engine/Sandbox.PhysicsWorld",
                   "_name": "Gravity"
@@ -150,13 +162,15 @@
       "Children": [
         {
           "__guid": "c322191f-b390-4df7-923f-69357d93aa22",
+          "Flags": 0,
           "Name": "Debug",
           "Position": "0,0,0.0003515341",
           "Enabled": true,
           "NetworkMode": 2,
+          "NetworkInterpolation": true,
           "Components": [
             {
-              "__type": "GizmoDrawComponent",
+              "__type": "Sandbox.GizmoDrawComponent",
               "__guid": "a97a6273-a390-465e-a4e8-8741ec77a26a"
             }
           ]
@@ -165,18 +179,20 @@
     },
     {
       "__guid": "6d5b63b1-490d-4eeb-821b-135423d7b88a",
+      "Flags": 0,
       "Name": "nav_plane (1)",
       "Tags": "nav_allow,no_chunk",
       "Enabled": true,
       "NetworkMode": 2,
+      "NetworkInterpolation": true,
       "__Prefab": "prefabs/nav_plane.prefab"
     }
   ],
   "SceneProperties": {
     "FixedUpdateFrequency": 50,
-    "Lerping": true,
     "MaxFixedUpdates": 5,
     "NetworkFrequency": 60,
+    "NetworkInterpolation": true,
     "ThreadedAnimation": true,
     "TimeScale": 1,
     "UseFixedUpdate": true,
@@ -195,8 +211,8 @@
   },
   "Title": "main",
   "Description": "",
-  "LastSaved": "2024-04-02T05:07:35.4733623-06:00",
+  "LastSaved": "2024-05-22T18:23:01.8736239-06:00",
   "ResourceVersion": 1,
-  "__version": 1,
-  "__references": []
+  "__references": [],
+  "__version": 1
 }
