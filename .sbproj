@@ -5,6 +5,7 @@
   "Ident": "aluminum_acrobat",
   "Tags": null,
   "Schema": 1,
+  "IncludeSourceFiles": false,
   "Resources": "*",
   "PackageReferences": [],
   "EditorReferences": null,

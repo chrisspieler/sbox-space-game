@@ -56,7 +56,7 @@ PS
 	{
 		float fresnel = Fresnel( i, g_FresnelBias, g_FresnelScale, g_FresnelPower );
 		// Highlight fades with distance from camera.
-		float depth = ( 1 - Depth::GetNormalized( i.vPositionSs ) ) * 1.5;
+		float depth = Depth::GetNormalized( i.vPositionSs ) * 1.5;
 		float4 highlight = float4( 1, 1, 0.8, 0 ) * g_FresnelBrightness;
 		// Get the fully highlighted color...
 		float4 o = lerp( c, highlight, depth );
