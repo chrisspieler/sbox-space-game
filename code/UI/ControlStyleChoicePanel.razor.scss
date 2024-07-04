@@ -25,6 +25,7 @@ ControlStyleChoicePanel {
 		flex-grow: 1;
 
 		.video {
+			position: relative;
 			width: 30vw;
 			height: 60vh;
 			flex-direction: column;

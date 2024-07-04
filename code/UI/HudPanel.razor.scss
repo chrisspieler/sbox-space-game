@@ -7,6 +7,8 @@ HudPanel
 	height: 100%;
 	color: white;
 	font-family: 'UAV OSD Sans Mono';
+	flex-direction: column;
+	justify-content: flex-end;
 
 	#cargoBar {
 		position: absolute;
@@ -38,9 +40,9 @@ HudPanel
 	}
 
 	#bottomBars {
-		position: absolute;
-		bottom: 5%;
 		width: 100%;
+		margin-bottom: 55px;
+		padding: 0px 100px;
 		justify-content: space-between;
 
 		FillBar {
