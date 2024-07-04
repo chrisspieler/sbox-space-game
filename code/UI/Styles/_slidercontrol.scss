@@ -1,0 +1,71 @@
+﻿$primary: red !default;
+$primary-alt: white !default;
+
+.slidercontrol {
+    flex-direction: row;
+    min-width: 50px;
+    position: relative;
+    flex-shrink: 0;
+    flex-direction: row;
+    pointer-events: all;
+    cursor: pointer;
+    gap: 8px;
+    flex-grow: 1;
+    align-items: center;
+
+    > .inner {
+        flex-direction: column;
+        flex-shrink: 1;
+        flex-grow: 1;
+        min-height: 32px;
+
+        > .values {
+            color: $primary;
+        }
+
+        > .track {
+            background-color: rgba( $primary, 0.2 );
+            height: 10px;
+            margin: 10px 18px;
+            position: relative;
+
+            > .track-active {
+                background-color: $primary;
+            }
+
+            > .thumb {
+                background-color: $primary;
+                position: relative;
+                width: 22px;
+                height: 22px;
+                box-shadow: 2px 2px 20px #0002;
+            }
+        }
+    }
+
+    > .entry {
+        width: 50px;
+        flex-shrink: 0;
+        flex-grow: 0;
+
+        > textentry {
+            text-align: right;
+            width: 100%;
+            border-radius: 4px;
+            padding: 0;
+            min-height: 0px;
+
+            > .content-label {
+                padding: 0 4px;
+            }
+        }
+    }
+
+    &:active {
+        > .inner > .track > .thumb {
+            width: 22px;
+            height: 22px;
+            background-color: #fff;
+        }
+    }
+}

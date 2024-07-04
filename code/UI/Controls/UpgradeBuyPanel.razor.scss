@@ -7,6 +7,7 @@ UpgradeBuyPanel {
     overflow: scroll;
 
     .upgrade {
+        position: relative;
         flex-shrink: 0;
         border: 1px solid #FFFFFF03;
         width: 100%;
