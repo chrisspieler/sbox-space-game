@@ -9,7 +9,8 @@
       "Enabled": true,
       "NetworkMode": 2,
       "NetworkInterpolation": true,
-      "__Prefab": "prefabs/ambient_light.prefab"
+      "__Prefab": "prefabs/ambient_light.prefab",
+      "__PrefabVariables": {}
     },
     {
       "__guid": "a06aeadc-85a8-4c2f-90d2-bc36aeed3bdc",
@@ -19,7 +20,8 @@
       "Enabled": true,
       "NetworkMode": 2,
       "NetworkInterpolation": true,
-      "__Prefab": "prefabs/skybox.prefab"
+      "__Prefab": "prefabs/skybox.prefab",
+      "__PrefabVariables": {}
     },
     {
       "__guid": "2ac5b830-9251-4536-ae6b-cb611e38ac21",
@@ -233,12 +235,6 @@
           "ThresholdWidth": 0.1
         },
         {
-          "__type": "Sandbox.MotionBlur",
-          "__guid": "41da40d1-ac8b-4e2e-b54c-5253ac843bbd",
-          "Samples": 16,
-          "Scale": 0.05
-        },
-        {
           "__type": "Sandbox.SphereCollider",
           "__guid": "009cc307-4762-4c59-aee4-e1b561b636f4",
           "Center": "0,0,0",
@@ -296,7 +292,8 @@
           "Enabled": true,
           "NetworkMode": 2,
           "NetworkInterpolation": true,
-          "__Prefab": "prefabs/volumetric_fog.prefab"
+          "__Prefab": "prefabs/volumetric_fog.prefab",
+          "__PrefabVariables": {}
         }
       ]
     },
@@ -1263,6 +1260,7 @@
               "__guid": "3c5fa61d-b154-4ec6-a81e-4f44c7e15df2",
               "Locking": {},
               "Model": "models/citizen/citizen.vmdl",
+              "MotionEnabled": true,
               "Renderer": {
                 "_type": "component",
                 "component_id": "4ef83ee5-3a20-4a0c-a67d-a858c0e31fba",
@@ -1278,7 +1276,8 @@
               "CreateBoneObjects": true,
               "Model": "models/citizen/citizen.vmdl",
               "RenderType": "On",
-              "Tint": "1,1,1,1"
+              "Tint": "1,1,1,1",
+              "UseAnimGraph": true
             },
             {
               "__type": "MeatDresser",
@@ -2532,7 +2531,8 @@
           "Position": "-139.0696,127.4908,25.12378",
           "NetworkMode": 2,
           "NetworkInterpolation": true,
-          "__Prefab": "prefabs/effects/ship_explosion.prefab"
+          "__Prefab": "prefabs/effects/ship_explosion.prefab",
+          "__PrefabVariables": {}
         }
       ]
     },
@@ -3274,14 +3274,13 @@
   },
   "Title": "main_menu",
   "Description": "",
-  "LastSaved": "2024-05-16T14:13:20.8931813-06:00",
   "ResourceVersion": 1,
-  "__version": 1,
   "__references": [
     "facepunch.airduct_a_panel_32x32",
     "facepunch.airduct_a_panel_48x16",
     "facepunch.airduct_a_panel_48x32",
     "facepunch.airduct_a_panel_b_48x32",
     "facepunch.smoke002"
-  ]
+  ],
+  "__version": 1
 }
