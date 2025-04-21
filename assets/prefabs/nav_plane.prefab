@@ -1,36 +1,89 @@
 {
   "RootObject": {
     "__guid": "b5fa2426-fdfc-49fd-a737-4a18ffeb2cb2",
+    "Flags": 0,
     "Name": "nav_plane",
     "Tags": "nav_allow,no_chunk",
     "Enabled": true,
-    "NetworkMode": 2,
     "Components": [
       {
-        "__type": "PlaneCollider",
+        "__type": "Sandbox.PlaneCollider",
         "__guid": "deaa8181-0cb4-44f2-a3e9-6f3feb4a0bc9",
         "Center": "0,0,0",
+        "Friction": null,
         "IsTrigger": false,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "OnObjectTriggerEnter": null,
+        "OnObjectTriggerExit": null,
+        "OnTriggerEnter": null,
+        "OnTriggerExit": null,
         "Scale": "10000,10000",
-        "Static": true
+        "Static": true,
+        "Surface": null,
+        "SurfaceVelocity": "0,0,0"
       },
       {
         "__type": "NavPlane",
         "__guid": "850b0b7a-568f-480c-a653-08e3eac01c7b",
+        "Diameter": 10000,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
         "UpdateIntervalSeconds": 1
       },
       {
         "__type": "Follower",
         "__guid": "c1314256-cf05-40be-b3c1-c0a6cf19bc6f",
-        "FollowPlayer": true
+        "FollowPlayer": true,
+        "Offset": "0,0,0",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "Target": null
       }
     ],
-    "Children": []
+    "Children": [],
+    "__variables": [],
+    "__properties": {
+      "FixedUpdateFrequency": 50,
+      "MaxFixedUpdates": 5,
+      "NetworkFrequency": 30,
+      "NetworkInterpolation": true,
+      "PhysicsSubSteps": 1,
+      "ThreadedAnimation": true,
+      "TimeScale": 1,
+      "UseFixedUpdate": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": true,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": ""
+      }
+    }
   },
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
+  "DontBreakAsTemplate": false,
   "ResourceVersion": 1,
-  "__version": 1,
-  "__references": []
+  "__references": [],
+  "__version": 1
 }
