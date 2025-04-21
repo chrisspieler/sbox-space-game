@@ -24,8 +24,7 @@
           "Title": "main",
           "Version": null
         }
-      ],
-      "Children": []
+      ]
     },
     {
       "__guid": "0a3105b7-d645-4200-93c9-b57b4133cc6a",
@@ -161,7 +160,7 @@
                 "DstName": "_target"
               },
               {
-                "Id": 6,
+                "Id": 4,
                 "Value": "0,0,0",
                 "DstId": 3,
                 "DstName": "_value"
@@ -210,8 +209,7 @@
               "OnComponentStart": null,
               "OnComponentUpdate": null
             }
-          ],
-          "Children": []
+          ]
         }
       ]
     },
@@ -220,15 +218,19 @@
       "Flags": 0,
       "Name": "nav_plane (1)",
       "Tags": "nav_allow,no_chunk",
-      "Enabled": true,
       "__Prefab": "prefabs/nav_plane.prefab",
       "__PrefabVariables": {}
     }
   ],
   "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
     "NetworkInterpolation": true,
+    "PhysicsSubSteps": 1,
+    "ThreadedAnimation": true,
     "TimeScale": 1,
-    "WantsSystemScene": true,
+    "UseFixedUpdate": true,
     "Metadata": {
       "Title": "main"
     },
