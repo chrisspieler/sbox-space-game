@@ -48,7 +48,7 @@ public sealed class Thruster : Component
 			var alignment = GetAlignment( force, thruster );
 			if ( force.IsNearZeroLength || alignment < 0.5f )
 			{
-				_thrusterLoopSoundHandle?.Stop( 0.1f );
+				_thrusterLoopSoundHandle?.Stop();
 				effect.Enabled = false;
 				continue;
 			}
@@ -99,7 +99,7 @@ public sealed class Thruster : Component
 
 		if ( StartSound is not null && !_wasFiringLastUpdate )
 		{
-			_thrusterStartSoundHandle?.Stop( 0.1f );
+			_thrusterStartSoundHandle?.Stop();
 			_thrusterStartSoundHandle = Sound.Play( StartSound, Transform.Position );
 		}
 		return GetForce();
@@ -145,7 +145,7 @@ public sealed class Thruster : Component
 			effect.Destroy();
 		}
 		_effectInstances.Clear();
-		_thrusterLoopSoundHandle?.Stop( 0.1f );
+		_thrusterLoopSoundHandle?.Stop();
 	}
 
 	protected override void OnDisabled()

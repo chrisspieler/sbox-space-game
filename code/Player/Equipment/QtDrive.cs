@@ -36,7 +36,7 @@ public sealed class QtDrive : Component
 
 	protected override void OnDisabled()
 	{
-		_loopSoundHandle.Stop( 0.3f );
+		_loopSoundHandle.Stop();
 	}
 
 	protected override void OnStart()

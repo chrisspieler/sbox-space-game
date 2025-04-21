@@ -231,7 +231,7 @@ public sealed class BeamWeapon : Component
 
 	private void StopFiringSound()
 	{
-		_activeFiringSound?.Stop( 0.1f );
+		_activeFiringSound?.Stop();
 		_activeFiringSound = null;
 	}
 	

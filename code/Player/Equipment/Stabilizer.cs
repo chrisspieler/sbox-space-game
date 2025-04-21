@@ -64,7 +64,7 @@ public sealed class Stabilizer : Component
 
 	protected override void OnDisabled()
 	{
-		_loopSoundHandle?.Stop( 0.1f );
+		_loopSoundHandle?.Stop();
 	}
 
 	private bool CanMatchTarget( Rigidbody rb )
@@ -88,7 +88,7 @@ public sealed class Stabilizer : Component
 	{
 		if ( !VelocityMatchTarget.IsValid() )
 		{
-			_loopSoundHandle?.Stop( 0.1f );
+			_loopSoundHandle?.Stop();
 			return;
 		}
 		if ( _loopSoundHandle?.IsPlaying != true )
