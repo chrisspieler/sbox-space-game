@@ -1956,7 +1956,7 @@
             "__type": "MeatDresser",
             "__guid": "b6048fb5-023b-42f0-87fd-e42dfd3eae7f",
             "Clothes": [
-              "models/citizen_clothes/full_outfit/scifi_trooper_armour/scifi_trooper_armour_yellow.clothing",
+              "models/citizen_clothes/full_outfit/medieval_armour/medieval_armour.clothing",
               "models/citizen_clothes/hat/scifi_trooper_helmet/scifi_trooper_helmet.clothing"
             ],
             "Model": {
