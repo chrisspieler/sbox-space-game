@@ -3276,11 +3276,11 @@
   "Description": "",
   "ResourceVersion": 1,
   "__references": [
-    "facepunch.airduct_a_panel_32x32",
-    "facepunch.airduct_a_panel_48x16",
-    "facepunch.airduct_a_panel_48x32",
-    "facepunch.airduct_a_panel_b_48x32",
-    "facepunch.smoke002"
+    "facepunch.airduct_a_panel_32x32#93875",
+    "facepunch.airduct_a_panel_48x16#93874",
+    "facepunch.airduct_a_panel_48x32#93872",
+    "facepunch.airduct_a_panel_b_48x32#93867",
+    "facepunch.smoke002#45286"
   ],
   "__version": 1
 }

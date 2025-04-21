@@ -46,6 +46,6 @@
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
-    "rust.rock_small_c"
+    "rust.rock_small_c#25130"
   ]
 }

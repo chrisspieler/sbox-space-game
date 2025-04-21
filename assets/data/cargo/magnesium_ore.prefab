@@ -112,7 +112,7 @@
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
-    "facepunch.rock_scatter_pile_02",
-    "fpopium.candle_scatter_02"
+    "facepunch.rock_scatter_pile_02#47202",
+    "fpopium.candle_scatter_02#55107"
   ]
 }

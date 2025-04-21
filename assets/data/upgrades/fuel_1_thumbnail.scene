@@ -116,7 +116,7 @@
   "Description": "",
   "LastSaved": "2024-03-10T15:16:18.4016553-06:00",
   "__references": [
-    "facepunch.industrial_shelving_01",
-    "rust.fuel_tank_b_600"
+    "facepunch.industrial_shelving_01#43527",
+    "rust.fuel_tank_b_600#25175"
   ]
 }

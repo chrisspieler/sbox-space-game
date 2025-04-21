@@ -583,6 +583,6 @@
   "ResourceVersion": 1,
   "__version": 1,
   "__references": [
-    "facepunch.smoke001"
+    "facepunch.smoke001#45285"
   ]
 }

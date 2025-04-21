@@ -48,7 +48,7 @@
   "MenuPath": null,
   "MenuIcon": null,
   "__references": [
-    "eurorp.aluminium_03",
-    "rust.rock_med_b"
+    "eurorp.aluminium_03#15539",
+    "rust.rock_med_b#25125"
   ]
 }

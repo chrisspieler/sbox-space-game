@@ -251,9 +251,9 @@
   "Description": "",
   "LastSaved": "2024-03-10T15:54:22.7087348-06:00",
   "__references": [
-    "facepunch.industrial_shelving_01",
-    "facepunch.metal_beam_a_128",
-    "facepunch.metal_beam_stairs_a_64",
-    "facepunch.wooden_crate"
+    "facepunch.industrial_shelving_01#43527",
+    "facepunch.metal_beam_a_128#33741",
+    "facepunch.metal_beam_stairs_a_64#33743",
+    "facepunch.wooden_crate#29138"
   ]
 }

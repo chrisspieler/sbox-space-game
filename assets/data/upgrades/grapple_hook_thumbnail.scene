@@ -2382,11 +2382,11 @@
   "Description": "",
   "LastSaved": "2024-03-12T14:16:53.3728899-06:00",
   "__references": [
-    "facepunch.airduct_a_panel_32x32",
-    "facepunch.airduct_a_panel_48x16",
-    "facepunch.airduct_a_panel_48x32",
-    "facepunch.airduct_a_panel_b_48x32",
-    "facepunch.glass_opaque_a",
-    "rust.rock_med_b"
+    "facepunch.airduct_a_panel_32x32#93875",
+    "facepunch.airduct_a_panel_48x16#93874",
+    "facepunch.airduct_a_panel_48x32#93872",
+    "facepunch.airduct_a_panel_b_48x32#93867",
+    "facepunch.glass_opaque_a#19951",
+    "rust.rock_med_b#25125"
   ]
 }

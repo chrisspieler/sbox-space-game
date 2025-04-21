@@ -313,7 +313,7 @@
   "MenuPath": null,
   "MenuIcon": null,
   "__references": [
-    "facepunch.flame001_above",
-    "vidya.shape-circle"
+    "facepunch.flame001_above#45283",
+    "vidya.shape-circle#45503"
   ]
 }

@@ -507,7 +507,7 @@
                 "FontFamily": "Zeroes 1",
                 "FontSize": 128,
                 "Scale": 0.39,
-                "Text": "ENTER SHOP -\u003E"
+                "Text": "ENTER SHOP ->"
               }
             ]
           },
@@ -573,8 +573,8 @@
   "MenuIcon": null,
   "ResourceVersion": 1,
   "__references": [
-    "eurorp.aluminium_03",
-    "stardrive.rope_barrier_a"
+    "eurorp.aluminium_03#15539",
+    "stardrive.rope_barrier_a#26473"
   ],
   "__version": 1
 }
