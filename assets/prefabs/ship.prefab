@@ -5,12 +5,16 @@
     "Name": "ship",
     "Tags": "no_chunk,player,ship",
     "Enabled": true,
-    "NetworkMode": 2,
-    "NetworkInterpolation": true,
     "Components": [
       {
         "__type": "FloatingOriginPlayer",
-        "__guid": "962f9b8e-8d04-4855-bb5a-8755cac60213"
+        "__guid": "962f9b8e-8d04-4855-bb5a-8755cac60213",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
       },
       {
         "__type": "Sandbox.Rigidbody",
@@ -19,18 +23,31 @@
         "Gravity": false,
         "LinearDamping": 0,
         "Locking": {
+          "X": false,
+          "Y": false,
           "Z": true,
           "Pitch": true,
+          "Yaw": false,
           "Roll": true
         },
+        "MassCenterOverride": "0,0,0",
         "MassOverride": 50,
         "MotionEnabled": true,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "OverrideMassCenter": false,
         "RigidbodyFlags": 0,
         "StartAsleep": false
       },
       {
         "__type": "ShipController",
         "__guid": "a319ac70-ba8a-47b6-9356-f39513079677",
+        "ActiveWeapon": null,
+        "Cargo": null,
         "Debris": {
           "_type": "component",
           "component_id": "05a6c6be-4df9-4e20-8668-eb95ceb70623",
@@ -42,29 +59,43 @@
           "prefab": "prefabs/effects/ship_explosion.prefab"
         },
         "FacingDirection": "0,0,0",
+        "Fuel": null,
         "Grapple": {
           "_type": "component",
           "component_id": "83795520-c3ed-4b96-908c-d7c3aacd892d",
           "go": "8f3d0340-5acb-4031-bde3-339ea795e9e5",
           "component_type": "GrappleBeam"
         },
+        "Hull": null,
         "IsInvincible": false,
+        "Jettison": null,
+        "Laser": null,
         "MainThrusterForce": "0,0,0",
+        "MainThrusters": null,
         "Meat": {
           "_type": "gameobject",
           "go": "840eb2b9-9bef-41e9-a58f-68ea174bab82"
         },
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
         "PartsContainer": {
           "_type": "gameobject",
           "go": "01f79ba7-9e6b-4e6b-a40c-5d7b592974b5"
         },
+        "QtDrive": null,
         "RetrorocketForce": "0,0,0",
+        "Retrorockets": null,
         "Rigidbody": {
           "_type": "component",
           "component_id": "694f73ed-cf5f-4512-a50b-27414c32ec40",
           "go": "1393d37c-cb2b-4fb9-b36a-46d811093c3b",
           "component_type": "Rigidbody"
         },
+        "Shield": null,
         "Stabilizer": {
           "_type": "component",
           "component_id": "c9c7dde0-b591-48f2-9221-9e39c8074f86",
@@ -87,13 +118,33 @@
         "__type": "Sandbox.SpringJoint",
         "__guid": "f1c69657-612c-4169-aca5-b5be5dc5b317",
         "__enabled": false,
+        "Attachment": "Auto",
+        "Body": null,
         "BreakForce": 0,
         "BreakTorque": 0,
         "Damping": 0.2,
         "EnableCollision": true,
         "Frequency": 2,
+        "LocalFrame1": {
+          "Position": "0,0,0",
+          "Scale": "0,0,0",
+          "Rotation": "0,0,0,0"
+        },
+        "LocalFrame2": {
+          "Position": "0,0,0",
+          "Scale": "0,0,0",
+          "Rotation": "0,0,0,0"
+        },
         "MaxLength": 300,
-        "MinLength": 0
+        "MinLength": 0,
+        "OnBreak": null,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "StartBroken": false
       },
       {
         "__type": "Sandbox.HighlightOutline",
@@ -101,7 +152,14 @@
         "Color": "1,1,1,0",
         "InsideColor": "0,0,0,0",
         "InsideObscuredColor": "0,0,0,0.2",
+        "Material": null,
         "ObscuredColor": "0,0,0,0.4",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
         "Width": 0.25
       },
       {
@@ -122,6 +180,14 @@
         "DamageSound": "sounds/ship_impact.sound",
         "IsInvincible": false,
         "MaxHealth": 100,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "OnDamaged": null,
+        "OnKilled": null,
         "Shield": {
           "_type": "component",
           "component_id": "b8f0402d-a7f1-49a2-a49e-ff255ed6d352",
@@ -137,12 +203,16 @@
         "Name": "Parts",
         "Rotation": "0,0,0.7071068,0.7071068",
         "Enabled": true,
-        "NetworkMode": 2,
-        "NetworkInterpolation": true,
         "Components": [
           {
             "__type": "DebrisConverter",
             "__guid": "05a6c6be-4df9-4e20-8668-eb95ceb70623",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
             "Rigidbody": {
               "_type": "component",
               "component_id": "694f73ed-cf5f-4512-a50b-27414c32ec40",
@@ -160,15 +230,27 @@
             "Scale": "3,1.2,1.07",
             "Tags": "break_debris",
             "Enabled": true,
-            "NetworkMode": 2,
-            "NetworkInterpolation": true,
             "Components": [
               {
                 "__type": "Sandbox.ModelRenderer",
                 "__guid": "8792517a-252b-4eec-8a49-cbf7f6d1cf5a",
                 "BodyGroups": 18446744073709551615,
+                "CreateAttachments": false,
+                "MaterialGroup": null,
                 "MaterialOverride": "materials/dev/dev_metal_rough60.vmat",
                 "Model": "models/dev/box.vmdl",
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
                 "RenderType": "On",
                 "Tint": "0.2,0.19608,0.21176,1"
               },
@@ -177,9 +259,22 @@
                 "__guid": "e276460a-cbac-4ee2-8036-2d7a1ed667cc",
                 "__enabled": false,
                 "Center": "0,0,0",
+                "Friction": null,
                 "IsTrigger": false,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "OnObjectTriggerEnter": null,
+                "OnObjectTriggerExit": null,
+                "OnTriggerEnter": null,
+                "OnTriggerExit": null,
                 "Scale": "50,50,50",
-                "Static": false
+                "Static": false,
+                "Surface": null,
+                "SurfaceVelocity": "0,0,0"
               },
               {
                 "__type": "Sandbox.Rigidbody",
@@ -189,11 +284,24 @@
                 "Gravity": false,
                 "LinearDamping": 0,
                 "Locking": {
-                  "Z": true
+                  "X": false,
+                  "Y": false,
+                  "Z": true,
+                  "Pitch": false,
+                  "Yaw": false,
+                  "Roll": false
                 },
+                "MassCenterOverride": "0,0,0",
                 "MassOverride": 0,
                 "MotionEnabled": true,
-                "RigidbodyFlags": 0,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "OverrideMassCenter": false,
+                "RigidbodyFlags": "DisableCollisionSounds",
                 "StartAsleep": false
               }
             ],
@@ -205,9 +313,7 @@
                 "Position": "24.5808,0.000008492942,0.1546392",
                 "Scale": "1,0.012,0.004890075",
                 "Tags": "equipment",
-                "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true
+                "Enabled": true
               },
               {
                 "__guid": "d53469b3-3d56-48cf-a65d-9b7ba27c1c62",
@@ -218,14 +324,27 @@
                 "Scale": "0.6272329,2.613088,1.078818",
                 "Tags": "break_child",
                 "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true,
                 "Components": [
                   {
                     "__type": "Sandbox.ModelRenderer",
                     "__guid": "f1591137-b3de-4898-8c8f-c96a59786e16",
                     "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
                     "Model": "models/sbox_props/airducts/airduct_a_panel_b_48x32.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
                     "RenderType": "On",
                     "Tint": "1,1,1,1"
                   }
@@ -240,14 +359,27 @@
                 "Scale": "0.6238388,2.602213,1.078818",
                 "Tags": "break_child",
                 "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true,
                 "Components": [
                   {
                     "__type": "Sandbox.ModelRenderer",
                     "__guid": "d74c2061-6e09-440d-9702-c10268482b32",
                     "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
                     "Model": "models/sbox_props/airducts/airduct_a_panel_48x32.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
                     "RenderType": "On",
                     "Tint": "1,1,1,1"
                   }
@@ -262,14 +394,27 @@
                 "Scale": "1.110509,2.599926,1.078819",
                 "Tags": "break_child",
                 "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true,
                 "Components": [
                   {
                     "__type": "Sandbox.ModelRenderer",
                     "__guid": "4fdd1be0-b7fa-43bd-8045-1c51ccfc5fba",
                     "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
                     "Model": "models/sbox_props/airducts/airduct_a_panel_48x16.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
                     "RenderType": "On",
                     "Tint": "1,1,1,1"
                   }
@@ -284,14 +429,27 @@
                 "Scale": "0.5527735,1.561759,1.078819",
                 "Tags": "break_child",
                 "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true,
                 "Components": [
                   {
                     "__type": "Sandbox.ModelRenderer",
                     "__guid": "5abd553a-48b3-4c78-a0d1-8d7226f156ce",
                     "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
                     "Model": "models/sbox_props/airducts/airduct_a_panel_32x32.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
                     "RenderType": "On",
                     "Tint": "1,1,1,1"
                   }
@@ -306,14 +464,27 @@
                 "Scale": "0.5622033,1.561759,1.078819",
                 "Tags": "break_child",
                 "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true,
                 "Components": [
                   {
                     "__type": "Sandbox.ModelRenderer",
                     "__guid": "4889a123-873e-4a58-9e44-3e8622b9e9f4",
                     "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
                     "Model": "models/sbox_props/airducts/airduct_a_panel_32x32.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
                     "RenderType": "On",
                     "Tint": "1,1,1,1"
                   }
@@ -328,14 +499,27 @@
                 "Scale": "1.099827,2.600693,1.078819",
                 "Tags": "break_child",
                 "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true,
                 "Components": [
                   {
                     "__type": "Sandbox.ModelRenderer",
                     "__guid": "1168cf94-6b6d-4761-a509-e38f3ecb86e7",
                     "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
                     "Model": "models/sbox_props/airducts/airduct_a_panel_48x16.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
                     "RenderType": "On",
                     "Tint": "1,1,1,1"
                   }
@@ -351,15 +535,27 @@
             "Scale": "1.98426,1,0.7594082",
             "Tags": "break_debris",
             "Enabled": true,
-            "NetworkMode": 2,
-            "NetworkInterpolation": true,
             "Components": [
               {
                 "__type": "Sandbox.ModelRenderer",
                 "__guid": "fdd79adb-7453-4a63-94d8-0c7266f9657c",
                 "BodyGroups": 18446744073709551615,
+                "CreateAttachments": false,
+                "MaterialGroup": null,
                 "MaterialOverride": "materials/dev/dev_metal_rough60.vmat",
                 "Model": "models/dev/box.vmdl",
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
                 "RenderType": "On",
                 "Tint": "0.2,0.19608,0.21176,1"
               },
@@ -368,9 +564,22 @@
                 "__guid": "495e0d4f-556f-4e2c-9778-abf34490ad74",
                 "__enabled": false,
                 "Center": "0,0,0",
+                "Friction": null,
                 "IsTrigger": false,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "OnObjectTriggerEnter": null,
+                "OnObjectTriggerExit": null,
+                "OnTriggerEnter": null,
+                "OnTriggerExit": null,
                 "Scale": "50,50,50",
-                "Static": false
+                "Static": false,
+                "Surface": null,
+                "SurfaceVelocity": "0,0,0"
               },
               {
                 "__type": "Sandbox.Rigidbody",
@@ -380,11 +589,24 @@
                 "Gravity": false,
                 "LinearDamping": 0,
                 "Locking": {
-                  "Z": true
+                  "X": false,
+                  "Y": false,
+                  "Z": true,
+                  "Pitch": false,
+                  "Yaw": false,
+                  "Roll": false
                 },
+                "MassCenterOverride": "0,0,0",
                 "MassOverride": 0,
                 "MotionEnabled": true,
-                "RigidbodyFlags": 0,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "OverrideMassCenter": false,
+                "RigidbodyFlags": "DisableCollisionSounds",
                 "StartAsleep": false
               }
             ],
@@ -398,14 +620,27 @@
                 "Scale": "0.7861729,2.069245,1.032295",
                 "Tags": "break_child",
                 "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true,
                 "Components": [
                   {
                     "__type": "Sandbox.ModelRenderer",
                     "__guid": "040efe59-f8eb-4de1-9cf2-3aac79fac85e",
                     "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
                     "Model": "models/sbox_props/airducts/airduct_a_panel_48x32.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
                     "RenderType": "On",
                     "Tint": "0.2,0.19608,0.21176,1"
                   }
@@ -420,14 +655,27 @@
                 "Scale": "0.7841341,2.073926,1.078818",
                 "Tags": "break_child",
                 "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true,
                 "Components": [
                   {
                     "__type": "Sandbox.ModelRenderer",
                     "__guid": "48b88297-cc05-461b-afd9-309dbcf3414d",
                     "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
                     "Model": "models/sbox_props/airducts/airduct_a_panel_48x32.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
                     "RenderType": "On",
                     "Tint": "0.2,0.19608,0.21176,1"
                   }
@@ -442,14 +690,27 @@
                 "Scale": "1.188732,2.063484,1.078819",
                 "Tags": "break_child",
                 "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true,
                 "Components": [
                   {
                     "__type": "Sandbox.ModelRenderer",
                     "__guid": "9467ff14-d5a1-4148-a5af-3da2b3cb9f31",
                     "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
                     "Model": "models/sbox_props/airducts/airduct_a_panel_48x16.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
                     "RenderType": "On",
                     "Tint": "0.2,0.19608,0.21176,1"
                   }
@@ -464,14 +725,27 @@
                 "Scale": "0.5962434,1.561759,1.078819",
                 "Tags": "break_child",
                 "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true,
                 "Components": [
                   {
                     "__type": "Sandbox.ModelRenderer",
                     "__guid": "44bdcdfd-29d0-4cc7-9952-3abeec64c7d2",
                     "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
                     "Model": "models/sbox_props/airducts/airduct_a_panel_32x32.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
                     "RenderType": "On",
                     "Tint": "0.2,0.19608,0.21176,1"
                   }
@@ -486,14 +760,27 @@
                 "Scale": "0.6018363,1.561759,1.078819",
                 "Tags": "break_child",
                 "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true,
                 "Components": [
                   {
                     "__type": "Sandbox.ModelRenderer",
                     "__guid": "886da09b-a94c-4bd2-88dc-24329d43c889",
                     "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
                     "Model": "models/sbox_props/airducts/airduct_a_panel_32x32.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
                     "RenderType": "On",
                     "Tint": "0.2,0.19608,0.21176,1"
                   }
@@ -508,14 +795,27 @@
                 "Scale": "1.195234,2.06557,1.141477",
                 "Tags": "break_child",
                 "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true,
                 "Components": [
                   {
                     "__type": "Sandbox.ModelRenderer",
                     "__guid": "62a8865b-1a63-4932-a5d0-e6e734c004bc",
                     "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
                     "Model": "models/sbox_props/airducts/airduct_a_panel_48x16.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
                     "RenderType": "On",
                     "Tint": "0.2,0.19608,0.21176,1"
                   }
@@ -531,15 +831,27 @@
             "Scale": "3.690156,1.929722,0.9269406",
             "Tags": "break_debris",
             "Enabled": true,
-            "NetworkMode": 2,
-            "NetworkInterpolation": true,
             "Components": [
               {
                 "__type": "Sandbox.ModelRenderer",
                 "__guid": "f499aca1-9a7d-45ee-8bdf-17224a462173",
                 "BodyGroups": 18446744073709551615,
+                "CreateAttachments": false,
+                "MaterialGroup": null,
                 "MaterialOverride": "materials/dev/dev_metal_rough60.vmat",
                 "Model": "models/dev/box.vmdl",
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
                 "RenderType": "On",
                 "Tint": "0.2,0.19608,0.21176,1"
               },
@@ -548,9 +860,22 @@
                 "__guid": "2f7bf239-38b2-4308-8492-83ace8ff75c6",
                 "__enabled": false,
                 "Center": "0,0,0",
+                "Friction": null,
                 "IsTrigger": false,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "OnObjectTriggerEnter": null,
+                "OnObjectTriggerExit": null,
+                "OnTriggerEnter": null,
+                "OnTriggerExit": null,
                 "Scale": "50,50,50",
-                "Static": false
+                "Static": false,
+                "Surface": null,
+                "SurfaceVelocity": "0,0,0"
               },
               {
                 "__type": "Sandbox.Rigidbody",
@@ -560,11 +885,24 @@
                 "Gravity": false,
                 "LinearDamping": 0,
                 "Locking": {
-                  "Z": true
+                  "X": false,
+                  "Y": false,
+                  "Z": true,
+                  "Pitch": false,
+                  "Yaw": false,
+                  "Roll": false
                 },
+                "MassCenterOverride": "0,0,0",
                 "MassOverride": 0,
                 "MotionEnabled": true,
-                "RigidbodyFlags": 0,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "OverrideMassCenter": false,
+                "RigidbodyFlags": "DisableCollisionSounds",
                 "StartAsleep": false
               }
             ],
@@ -577,8 +915,6 @@
                 "Scale": "0.015,0.025,0.05",
                 "Tags": "light_point,light",
                 "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true,
                 "Components": [
                   {
                     "__type": "Sandbox.PointLight",
@@ -587,6 +923,12 @@
                     "FogMode": "Enabled",
                     "FogStrength": 1,
                     "LightColor": "0.46793,0.64767,0.95814,1",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
                     "Radius": 1000,
                     "Shadows": false
                   },
@@ -598,11 +940,24 @@
                     "Gravity": false,
                     "LinearDamping": 0,
                     "Locking": {
-                      "Z": true
+                      "X": false,
+                      "Y": false,
+                      "Z": true,
+                      "Pitch": false,
+                      "Yaw": false,
+                      "Roll": false
                     },
+                    "MassCenterOverride": "0,0,0",
                     "MassOverride": 50,
                     "MotionEnabled": true,
-                    "RigidbodyFlags": 0,
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "OverrideMassCenter": false,
+                    "RigidbodyFlags": "DisableCollisionSounds",
                     "StartAsleep": false
                   },
                   {
@@ -610,16 +965,43 @@
                     "__guid": "9623f10e-14f5-4608-84ff-c068e22d3e28",
                     "__enabled": false,
                     "Center": "0,0,0",
+                    "Friction": null,
                     "IsTrigger": false,
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "OnObjectTriggerEnter": null,
+                    "OnObjectTriggerExit": null,
+                    "OnTriggerEnter": null,
+                    "OnTriggerExit": null,
                     "Radius": 1,
-                    "Static": false
+                    "Static": false,
+                    "Surface": null,
+                    "SurfaceVelocity": "0,0,0"
                   },
                   {
                     "__type": "Sandbox.ModelRenderer",
                     "__guid": "c2920598-bee2-4ef9-8fa9-b2ec02b7b477",
                     "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
                     "MaterialOverride": "materials/dev/primary_white_emissive.vmat",
                     "Model": "models/dev/sphere.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
                     "RenderType": "On",
                     "Tint": "0.06977,0.89147,1,1"
                   }
@@ -633,8 +1015,6 @@
                 "Scale": "0.015,0.025,0.05",
                 "Tags": "light_point,light",
                 "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true,
                 "Components": [
                   {
                     "__type": "Sandbox.PointLight",
@@ -643,6 +1023,12 @@
                     "FogMode": "Enabled",
                     "FogStrength": 1,
                     "LightColor": "0.46793,0.64767,0.95814,1",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
                     "Radius": 1000,
                     "Shadows": false
                   },
@@ -654,11 +1040,24 @@
                     "Gravity": false,
                     "LinearDamping": 0,
                     "Locking": {
-                      "Z": true
+                      "X": false,
+                      "Y": false,
+                      "Z": true,
+                      "Pitch": false,
+                      "Yaw": false,
+                      "Roll": false
                     },
+                    "MassCenterOverride": "0,0,0",
                     "MassOverride": 50,
                     "MotionEnabled": true,
-                    "RigidbodyFlags": 0,
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "OverrideMassCenter": false,
+                    "RigidbodyFlags": "DisableCollisionSounds",
                     "StartAsleep": false
                   },
                   {
@@ -666,16 +1065,43 @@
                     "__guid": "96c3ccd7-e8c9-4cc6-b4cc-972df02b9ab1",
                     "__enabled": false,
                     "Center": "0,0,0",
+                    "Friction": null,
                     "IsTrigger": false,
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "OnObjectTriggerEnter": null,
+                    "OnObjectTriggerExit": null,
+                    "OnTriggerEnter": null,
+                    "OnTriggerExit": null,
                     "Radius": 1,
-                    "Static": false
+                    "Static": false,
+                    "Surface": null,
+                    "SurfaceVelocity": "0,0,0"
                   },
                   {
                     "__type": "Sandbox.ModelRenderer",
                     "__guid": "64744120-db66-41c3-b71e-24af44ae8242",
                     "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
                     "MaterialOverride": "materials/dev/primary_white_emissive.vmat",
                     "Model": "models/dev/sphere.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
                     "RenderType": "On",
                     "Tint": "0.06977,0.89147,1,1"
                   }
@@ -689,8 +1115,6 @@
                 "Scale": "0.015,0.025,0.05",
                 "Tags": "light_point,light",
                 "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true,
                 "Components": [
                   {
                     "__type": "Sandbox.PointLight",
@@ -699,6 +1123,12 @@
                     "FogMode": "Enabled",
                     "FogStrength": 1,
                     "LightColor": "0.46793,0.64767,0.95814,1",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
                     "Radius": 1000,
                     "Shadows": false
                   },
@@ -710,11 +1140,24 @@
                     "Gravity": false,
                     "LinearDamping": 0,
                     "Locking": {
-                      "Z": true
+                      "X": false,
+                      "Y": false,
+                      "Z": true,
+                      "Pitch": false,
+                      "Yaw": false,
+                      "Roll": false
                     },
+                    "MassCenterOverride": "0,0,0",
                     "MassOverride": 50,
                     "MotionEnabled": true,
-                    "RigidbodyFlags": 0,
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "OverrideMassCenter": false,
+                    "RigidbodyFlags": "DisableCollisionSounds",
                     "StartAsleep": false
                   },
                   {
@@ -722,16 +1165,43 @@
                     "__guid": "ce8a3e46-3f4f-4dab-bc77-cb76c21091b6",
                     "__enabled": false,
                     "Center": "0,0,0",
+                    "Friction": null,
                     "IsTrigger": false,
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "OnObjectTriggerEnter": null,
+                    "OnObjectTriggerExit": null,
+                    "OnTriggerEnter": null,
+                    "OnTriggerExit": null,
                     "Radius": 1,
-                    "Static": false
+                    "Static": false,
+                    "Surface": null,
+                    "SurfaceVelocity": "0,0,0"
                   },
                   {
                     "__type": "Sandbox.ModelRenderer",
                     "__guid": "6726dde0-957b-410e-bb5e-50d1382c9e1c",
                     "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
                     "MaterialOverride": "materials/dev/primary_white_emissive.vmat",
                     "Model": "models/dev/sphere.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
                     "RenderType": "On",
                     "Tint": "0.06977,0.89147,1,1"
                   }
@@ -745,8 +1215,6 @@
                 "Scale": "0.015,0.025,0.05",
                 "Tags": "light_point,light",
                 "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true,
                 "Components": [
                   {
                     "__type": "Sandbox.PointLight",
@@ -755,6 +1223,12 @@
                     "FogMode": "Enabled",
                     "FogStrength": 1,
                     "LightColor": "0.46793,0.64767,0.95814,1",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
                     "Radius": 1000,
                     "Shadows": false
                   },
@@ -766,11 +1240,24 @@
                     "Gravity": false,
                     "LinearDamping": 0,
                     "Locking": {
-                      "Z": true
+                      "X": false,
+                      "Y": false,
+                      "Z": true,
+                      "Pitch": false,
+                      "Yaw": false,
+                      "Roll": false
                     },
+                    "MassCenterOverride": "0,0,0",
                     "MassOverride": 50,
                     "MotionEnabled": true,
-                    "RigidbodyFlags": 0,
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "OverrideMassCenter": false,
+                    "RigidbodyFlags": "DisableCollisionSounds",
                     "StartAsleep": false
                   },
                   {
@@ -778,16 +1265,43 @@
                     "__guid": "371e51f1-f1e8-497f-bd78-2ce75610507e",
                     "__enabled": false,
                     "Center": "0,0,0",
+                    "Friction": null,
                     "IsTrigger": false,
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "OnObjectTriggerEnter": null,
+                    "OnObjectTriggerExit": null,
+                    "OnTriggerEnter": null,
+                    "OnTriggerExit": null,
                     "Radius": 1,
-                    "Static": false
+                    "Static": false,
+                    "Surface": null,
+                    "SurfaceVelocity": "0,0,0"
                   },
                   {
                     "__type": "Sandbox.ModelRenderer",
                     "__guid": "abd54284-4113-4b6e-9c1b-1bc980985436",
                     "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
                     "MaterialOverride": "materials/dev/primary_white_emissive.vmat",
                     "Model": "models/dev/sphere.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
                     "RenderType": "On",
                     "Tint": "0.06977,0.89147,1,1"
                   }
@@ -802,14 +1316,27 @@
                 "Scale": "0.8193424,1.993609,1.078818",
                 "Tags": "break_child",
                 "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true,
                 "Components": [
                   {
                     "__type": "Sandbox.ModelRenderer",
                     "__guid": "0accd4a6-90c9-44b6-89c6-5a1fc15a02c2",
                     "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
                     "Model": "models/sbox_props/airducts/airduct_a_panel_b_48x32.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
                     "RenderType": "On",
                     "Tint": "0.14365,0.15142,0.18605,1"
                   }
@@ -824,14 +1351,27 @@
                 "Scale": "0.8193424,1.993609,1.078818",
                 "Tags": "break_child",
                 "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true,
                 "Components": [
                   {
                     "__type": "Sandbox.ModelRenderer",
                     "__guid": "709098d1-50ed-4ea7-8f02-d154880c978c",
                     "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
                     "Model": "models/sbox_props/airducts/airduct_a_panel_48x32.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
                     "RenderType": "On",
                     "Tint": "0.14365,0.15142,0.18605,1"
                   }
@@ -846,14 +1386,27 @@
                 "Scale": "0.7822994,2.000192,1.078819",
                 "Tags": "break_child",
                 "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true,
                 "Components": [
                   {
                     "__type": "Sandbox.ModelRenderer",
                     "__guid": "50f2043e-d0a7-4f97-bcea-c9143445aab1",
                     "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
                     "Model": "models/sbox_props/airducts/airduct_a_panel_48x16.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
                     "RenderType": "On",
                     "Tint": "0.14365,0.15142,0.18605,1"
                   }
@@ -868,14 +1421,27 @@
                 "Scale": "0.3940465,1.561759,1.078819",
                 "Tags": "break_child",
                 "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true,
                 "Components": [
                   {
                     "__type": "Sandbox.ModelRenderer",
                     "__guid": "730b7f97-2be1-4909-a27d-069e888be852",
                     "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
                     "Model": "models/sbox_props/airducts/airduct_a_panel_32x32.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
                     "RenderType": "On",
                     "Tint": "0.14365,0.15142,0.18605,1"
                   }
@@ -890,14 +1456,27 @@
                 "Scale": "0.3940465,1.561759,1.078819",
                 "Tags": "break_child",
                 "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true,
                 "Components": [
                   {
                     "__type": "Sandbox.ModelRenderer",
                     "__guid": "46262ac9-191e-44a5-86dd-29f6df40fda9",
                     "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
                     "Model": "models/sbox_props/airducts/airduct_a_panel_32x32.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
                     "RenderType": "On",
                     "Tint": "0.14365,0.15142,0.18605,1"
                   }
@@ -912,14 +1491,27 @@
                 "Scale": "0.7822994,2.000192,1.078819",
                 "Tags": "break_child",
                 "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true,
                 "Components": [
                   {
                     "__type": "Sandbox.ModelRenderer",
                     "__guid": "6604ad3c-33b3-4384-92b4-afb115460145",
                     "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
                     "Model": "models/sbox_props/airducts/airduct_a_panel_48x16.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
                     "RenderType": "On",
                     "Tint": "0.14365,0.15142,0.18605,1"
                   }
@@ -930,9 +1522,7 @@
                 "Flags": 0,
                 "Name": "Ejection Source",
                 "Position": "21.07763,0.00005176639,60",
-                "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true
+                "Enabled": true
               },
               {
                 "__guid": "805cf004-234f-4546-996d-2fc153ca7235",
@@ -940,9 +1530,7 @@
                 "Name": "Grapple Point",
                 "Position": "-0.3625858,-0.00001850483,25.32066",
                 "Scale": "0.2709913,0.5182094,1.078818",
-                "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true
+                "Enabled": true
               }
             ]
           },
@@ -954,15 +1542,27 @@
             "Scale": "0.366,3,0.21",
             "Tags": "break_debris",
             "Enabled": true,
-            "NetworkMode": 2,
-            "NetworkInterpolation": true,
             "Components": [
               {
                 "__type": "Sandbox.ModelRenderer",
                 "__guid": "307620b5-a35d-4ceb-9ef3-ff0bfc5dce2c",
                 "BodyGroups": 18446744073709551615,
+                "CreateAttachments": false,
+                "MaterialGroup": null,
                 "MaterialOverride": "materials/dev/dev_metal_rough60.vmat",
                 "Model": "models/dev/box.vmdl",
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
                 "RenderType": "On",
                 "Tint": "0.2,0.19608,0.21176,1"
               },
@@ -971,9 +1571,22 @@
                 "__guid": "2f762f35-100e-4370-874b-6a784ca7c93d",
                 "__enabled": false,
                 "Center": "0,0,0",
+                "Friction": null,
                 "IsTrigger": false,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "OnObjectTriggerEnter": null,
+                "OnObjectTriggerExit": null,
+                "OnTriggerEnter": null,
+                "OnTriggerExit": null,
                 "Scale": "50,50,50",
-                "Static": false
+                "Static": false,
+                "Surface": null,
+                "SurfaceVelocity": "0,0,0"
               },
               {
                 "__type": "Sandbox.Rigidbody",
@@ -983,11 +1596,24 @@
                 "Gravity": false,
                 "LinearDamping": 0,
                 "Locking": {
-                  "Z": true
+                  "X": false,
+                  "Y": false,
+                  "Z": true,
+                  "Pitch": false,
+                  "Yaw": false,
+                  "Roll": false
                 },
+                "MassCenterOverride": "0,0,0",
                 "MassOverride": 0,
                 "MotionEnabled": true,
-                "RigidbodyFlags": 0,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "OverrideMassCenter": false,
+                "RigidbodyFlags": "DisableCollisionSounds",
                 "StartAsleep": false
               }
             ]
@@ -1000,15 +1626,27 @@
             "Scale": "2.5,0.6,0.3",
             "Tags": "break_debris",
             "Enabled": true,
-            "NetworkMode": 2,
-            "NetworkInterpolation": true,
             "Components": [
               {
                 "__type": "Sandbox.ModelRenderer",
                 "__guid": "9a856f0a-03a2-45e9-995a-811b41a9e6fc",
                 "BodyGroups": 18446744073709551615,
+                "CreateAttachments": false,
+                "MaterialGroup": null,
                 "MaterialOverride": "materials/dev/dev_metal_rough60.vmat",
                 "Model": "models/dev/box.vmdl",
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
                 "RenderType": "On",
                 "Tint": "0.46512,0.44132,0.44132,1"
               },
@@ -1017,9 +1655,22 @@
                 "__guid": "e3f8cdc5-65a8-425a-b227-8f075f1ac752",
                 "__enabled": false,
                 "Center": "0,0,0",
+                "Friction": null,
                 "IsTrigger": false,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "OnObjectTriggerEnter": null,
+                "OnObjectTriggerExit": null,
+                "OnTriggerEnter": null,
+                "OnTriggerExit": null,
                 "Scale": "50,50,50",
-                "Static": false
+                "Static": false,
+                "Surface": null,
+                "SurfaceVelocity": "0,0,0"
               },
               {
                 "__type": "Sandbox.Rigidbody",
@@ -1029,11 +1680,24 @@
                 "Gravity": false,
                 "LinearDamping": 0,
                 "Locking": {
-                  "Z": true
+                  "X": false,
+                  "Y": false,
+                  "Z": true,
+                  "Pitch": false,
+                  "Yaw": false,
+                  "Roll": false
                 },
+                "MassCenterOverride": "0,0,0",
                 "MassOverride": 0,
                 "MotionEnabled": true,
-                "RigidbodyFlags": 0,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "OverrideMassCenter": false,
+                "RigidbodyFlags": "DisableCollisionSounds",
                 "StartAsleep": false
               }
             ],
@@ -1045,9 +1709,7 @@
                 "Position": "-27.48664,0,0",
                 "Rotation": "-0.00000005470048,0.00000001637869,-1,-0.0000006397578",
                 "Tags": "equipment",
-                "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true
+                "Enabled": true
               },
               {
                 "__guid": "ec96c71b-219d-446c-9e3e-be3068b0fcf8",
@@ -1057,18 +1719,14 @@
                 "Rotation": "0.00000004807746,-0.00000003368148,0.707107,0.7071065",
                 "Scale": "1,0.2,0.15",
                 "Tags": "equipment",
-                "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true
+                "Enabled": true
               },
               {
                 "__guid": "b3a680dd-fb6e-4d4e-ad3b-cc386b636df0",
                 "Flags": 0,
                 "Name": "Weapon Left",
                 "Position": "20,0.00001609484,24",
-                "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true
+                "Enabled": true
               }
             ]
           },
@@ -1080,15 +1738,27 @@
             "Scale": "2.5,0.6,0.3",
             "Tags": "break_debris",
             "Enabled": true,
-            "NetworkMode": 2,
-            "NetworkInterpolation": true,
             "Components": [
               {
                 "__type": "Sandbox.ModelRenderer",
                 "__guid": "27521831-ea2a-4b71-b6cc-67bdde8d4b4c",
                 "BodyGroups": 18446744073709551615,
+                "CreateAttachments": false,
+                "MaterialGroup": null,
                 "MaterialOverride": "materials/dev/dev_metal_rough60.vmat",
                 "Model": "models/dev/box.vmdl",
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
                 "RenderType": "On",
                 "Tint": "0.46512,0.44132,0.44132,1"
               },
@@ -1097,9 +1767,22 @@
                 "__guid": "b69855ca-1e54-498f-8cd5-f93c9da0b99e",
                 "__enabled": false,
                 "Center": "0,0,0",
+                "Friction": null,
                 "IsTrigger": false,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "OnObjectTriggerEnter": null,
+                "OnObjectTriggerExit": null,
+                "OnTriggerEnter": null,
+                "OnTriggerExit": null,
                 "Scale": "50,50,50",
-                "Static": false
+                "Static": false,
+                "Surface": null,
+                "SurfaceVelocity": "0,0,0"
               },
               {
                 "__type": "Sandbox.Rigidbody",
@@ -1109,11 +1792,24 @@
                 "Gravity": false,
                 "LinearDamping": 0,
                 "Locking": {
-                  "Z": true
+                  "X": false,
+                  "Y": false,
+                  "Z": true,
+                  "Pitch": false,
+                  "Yaw": false,
+                  "Roll": false
                 },
+                "MassCenterOverride": "0,0,0",
                 "MassOverride": 0,
                 "MotionEnabled": true,
-                "RigidbodyFlags": 0,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "OverrideMassCenter": false,
+                "RigidbodyFlags": "DisableCollisionSounds",
                 "StartAsleep": false
               }
             ],
@@ -1126,9 +1822,7 @@
                 "Rotation": "-0.00000005470048,0.00000001637869,-1,-0.0000006397578",
                 "Scale": "1,0.04,0.0225",
                 "Tags": "equipment",
-                "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true
+                "Enabled": true
               },
               {
                 "__guid": "d28c2e44-1e4a-4162-ab37-56b2444ad555",
@@ -1138,18 +1832,14 @@
                 "Rotation": "-0.00000003368153,-0.00000004807748,-0.707107,0.7071065",
                 "Scale": "1,0.008,0.003375",
                 "Tags": "equipment",
-                "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true
+                "Enabled": true
               },
               {
                 "__guid": "66dd22a4-157f-4a53-951c-70ced21136ac",
                 "Flags": 0,
                 "Name": "Weapon Right",
                 "Position": "19.99999,0,24",
-                "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true
+                "Enabled": true
               }
             ]
           },
@@ -1160,15 +1850,27 @@
             "Position": "48.90004,0.00003497603,34.51328",
             "Scale": "0.75,0.75,0.75",
             "Enabled": true,
-            "NetworkMode": 2,
-            "NetworkInterpolation": true,
             "Components": [
               {
                 "__type": "Sandbox.ModelRenderer",
                 "__guid": "25ce5f64-9300-4cc4-9623-3d4c221d9d1a",
                 "BodyGroups": 18446744073709551615,
+                "CreateAttachments": false,
+                "MaterialGroup": null,
                 "MaterialOverride": "materials/glass/glass_opaque_a.vmat",
                 "Model": "models/dev/sphere.vmdl",
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
                 "RenderType": "On",
                 "Tint": "0.0133,0.0116,0.03721,1"
               }
@@ -1183,23 +1885,65 @@
         "Position": "1.078623,86.68445,-25.02827",
         "Rotation": "0,0,0.7071067,0.7071068",
         "Tags": "ragdoll",
-        "NetworkMode": 2,
-        "NetworkInterpolation": true,
         "Components": [
           {
             "__type": "Sandbox.SkinnedModelRenderer",
             "__guid": "745474b0-151d-4720-ab26-8b92016a585a",
+            "AnimationGraph": null,
             "BodyGroups": 341,
+            "BoneMergeTarget": null,
+            "CreateAttachments": false,
             "CreateBoneObjects": true,
+            "MaterialGroup": null,
+            "MaterialOverride": null,
             "Model": "models/citizen/citizen.vmdl",
+            "Morphs": {},
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Parameters": {
+              "bools": {},
+              "ints": {},
+              "floats": {},
+              "vectors": {},
+              "rotations": {}
+            },
+            "PlaybackRate": 1,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
             "RenderType": "On",
-            "Tint": "1,1,1,1"
+            "Sequence": {
+              "Name": null
+            },
+            "Tint": "1,1,1,1",
+            "UseAnimGraph": true
           },
           {
             "__type": "Sandbox.ModelPhysics",
             "__guid": "55603bb6-2bc6-441f-a7a7-8277d3e1f2ac",
-            "Locking": {},
+            "Locking": {
+              "X": false,
+              "Y": false,
+              "Z": false,
+              "Pitch": false,
+              "Yaw": false,
+              "Roll": false
+            },
             "Model": "models/citizen/citizen.vmdl",
+            "MotionEnabled": true,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
             "Renderer": {
               "_type": "component",
               "component_id": "745474b0-151d-4720-ab26-8b92016a585a",
@@ -1220,13 +1964,25 @@
               "component_id": "745474b0-151d-4720-ab26-8b92016a585a",
               "go": "840eb2b9-9bef-41e9-a58f-68ea174bab82",
               "component_type": "SkinnedModelRenderer"
-            }
+            },
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null
           },
           {
             "__type": "RagdollFlail",
             "__guid": "0c6fbd68-3fe6-4034-9535-1a3afee77fcc",
             "EnthiccenmentFactor": 15,
             "NoiseIntensity": 1,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
             "Ragdoll": {
               "_type": "component",
               "component_id": "55603bb6-2bc6-441f-a7a7-8277d3e1f2ac",
@@ -1252,11 +2008,21 @@
             "DamageFlashColor": "1,0,0,1",
             "DamageSound": "sounds/clone_hit.sound",
             "IsInvincible": false,
-            "MaxHealth": 5
+            "MaxHealth": 5,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "OnDamaged": null,
+            "OnKilled": null,
+            "Shield": null
           },
           {
             "__type": "Mineable",
             "__guid": "e394d013-74b4-4a96-991a-0a07bcfbad3c",
+            "Asteroid": null,
             "BreakEffect": {
               "_type": "gameobject",
               "prefab": "prefabs/effects/clone_mist.prefab"
@@ -1267,6 +2033,12 @@
               "go": "840eb2b9-9bef-41e9-a58f-68ea174bab82",
               "component_type": "Health"
             },
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
             "ShrinkOnDamage": false,
             "ShrinkRatio": 0.3
           },
@@ -1276,150 +2048,130 @@
             "AddedVelocity": 0,
             "BouncedTags": "solid,shield",
             "BounceFactor": 0.1,
+            "IgnoredTags": null,
             "MinimumVelocity": 0,
+            "OnBounce": null,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
             "RehitDelay": 0.5
           }
         ],
         "Children": [
           {
             "__guid": "cff64ef9-1e45-4195-b109-c0ac3739664a",
-            "Flags": 0,
+            "Flags": 4,
             "Name": "pelvis",
             "Position": "1.266579,0.000014907,31.0736",
             "Rotation": "-0.4999993,-0.4999994,-0.5000004,0.5000009",
             "Enabled": true,
-            "NetworkMode": 2,
-            "NetworkInterpolation": true,
             "Children": [
               {
                 "__guid": "671e10b5-a1ea-4619-bde7-5d00f520a366",
-                "Flags": 0,
+                "Flags": 4,
                 "Name": "spine_0",
                 "Position": "3.921827,-0.002450906,-0.0001164233",
                 "Rotation": "0.0002581775,-0.0000002980232,-0.00005638599,1",
                 "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true,
                 "Children": [
                   {
                     "__guid": "03833b22-a911-4a76-9e38-5adf9301d673",
-                    "Flags": 0,
+                    "Flags": 4,
                     "Name": "spine_1",
                     "Position": "5.610419,0.00001205987,0.00004611755",
                     "Rotation": "-0.0003969371,0.0000002086163,0.0002739578,0.9999999",
                     "Enabled": true,
-                    "NetworkMode": 2,
-                    "NetworkInterpolation": true,
                     "Children": [
                       {
                         "__guid": "5dd2713f-c055-496c-a842-5065689c3d5f",
-                        "Flags": 0,
+                        "Flags": 4,
                         "Name": "spine_2",
                         "Position": "5.610454,0.00001262757,0.00004026673",
                         "Rotation": "0.0002120435,-0.00025253,0.00009104609,0.9999998",
                         "Enabled": true,
-                        "NetworkMode": 2,
-                        "NetworkInterpolation": true,
                         "Children": [
                           {
                             "__guid": "b2095c57-b8a4-4468-8a44-2da5993fc910",
-                            "Flags": 0,
+                            "Flags": 4,
                             "Name": "neck_0",
                             "Position": "5.820023,-0.09348471,-0.002971248",
                             "Rotation": "-0.00008219201,0.0002511621,-0.01994135,0.9998013",
                             "Enabled": true,
-                            "NetworkMode": 2,
-                            "NetworkInterpolation": true,
                             "Children": [
                               {
                                 "__guid": "04b6ef8e-0db9-4413-a5d6-e95561f832fc",
-                                "Flags": 0,
+                                "Flags": 4,
                                 "Name": "head",
                                 "Position": "4.510835,-0.0007653086,-0.00001881735",
                                 "Rotation": "0.0000001192093,-0.00000007450581,0.01963393,0.9998072",
                                 "Enabled": true,
-                                "NetworkMode": 2,
-                                "NetworkInterpolation": true,
                                 "Children": [
                                   {
                                     "__guid": "bda8f797-e2a2-4e27-ad42-15621f2442f7",
-                                    "Flags": 0,
+                                    "Flags": 4,
                                     "Name": "eye_L",
                                     "Position": "6.908867,5.140468,3.234677",
                                     "Rotation": "0.707108,0.7071056,0.000003546476,-0.000004142523",
-                                    "Enabled": true,
-                                    "NetworkMode": 2,
-                                    "NetworkInterpolation": true
+                                    "Enabled": true
                                   },
                                   {
                                     "__guid": "3a0bcd2c-71d0-45eb-aae0-9fa7e0b70eaf",
-                                    "Flags": 0,
+                                    "Flags": 4,
                                     "Name": "eye_R",
                                     "Position": "6.908857,5.140499,-3.234588",
                                     "Rotation": "0.707108,0.7071056,0.000003546476,-0.000004142523",
-                                    "Enabled": true,
-                                    "NetworkMode": 2,
-                                    "NetworkInterpolation": true
+                                    "Enabled": true
                                   },
                                   {
                                     "__guid": "fa3050ee-e770-42fb-94f3-11e4ecd8b3aa",
-                                    "Flags": 0,
+                                    "Flags": 4,
                                     "Name": "face_lid_lower_R",
                                     "Position": "6.90882,5.140456,-3.234579",
                                     "Rotation": "-0.3386922,0.9305476,-0.1307779,-0.04759902",
-                                    "Enabled": true,
-                                    "NetworkMode": 2,
-                                    "NetworkInterpolation": true
+                                    "Enabled": true
                                   },
                                   {
                                     "__guid": "b2be6a31-ab49-4512-b944-ffe25d7ae72f",
-                                    "Flags": 0,
+                                    "Flags": 4,
                                     "Name": "face_lid_lower_L",
                                     "Position": "6.908894,5.140468,3.234687",
                                     "Rotation": "-0.3386919,0.9305471,0.1307825,0.04760027",
-                                    "Enabled": true,
-                                    "NetworkMode": 2,
-                                    "NetworkInterpolation": true
+                                    "Enabled": true
                                   },
                                   {
                                     "__guid": "f7fcdae5-aeaa-4d22-b06b-948bc0d1479f",
-                                    "Flags": 0,
+                                    "Flags": 4,
                                     "Name": "face_lid_upper_L",
                                     "Position": "6.908883,5.140452,3.234683",
                                     "Rotation": "0.8974878,0.4185046,0.0588173,-0.1261354",
-                                    "Enabled": true,
-                                    "NetworkMode": 2,
-                                    "NetworkInterpolation": true
+                                    "Enabled": true
                                   },
                                   {
                                     "__guid": "d4ffbf1b-388d-4026-a2ef-cf3e0c1c44f1",
-                                    "Flags": 0,
+                                    "Flags": 4,
                                     "Name": "face_lid_upper_R",
                                     "Position": "6.908873,5.140514,-3.23458",
                                     "Rotation": "0.8974884,0.4185047,-0.05881572,0.1261318",
-                                    "Enabled": true,
-                                    "NetworkMode": 2,
-                                    "NetworkInterpolation": true
+                                    "Enabled": true
                                   },
                                   {
                                     "__guid": "71a9a3f5-95a5-44fd-a448-9b48f13f0cd7",
-                                    "Flags": 0,
+                                    "Flags": 4,
                                     "Name": "ear_R",
                                     "Position": "5.621446,-0.4154313,-5.929165",
                                     "Rotation": "-0.04624289,0.6935211,-0.1379467,0.7055924",
-                                    "Enabled": true,
-                                    "NetworkMode": 2,
-                                    "NetworkInterpolation": true
+                                    "Enabled": true
                                   },
                                   {
                                     "__guid": "6ae0f265-0e11-4776-a018-7488e2497bf9",
-                                    "Flags": 0,
+                                    "Flags": 4,
                                     "Name": "ear_L",
                                     "Position": "5.621477,-0.4155166,5.929075",
                                     "Rotation": "0.705593,-0.1379533,0.6935187,-0.0462511",
-                                    "Enabled": true,
-                                    "NetworkMode": 2,
-                                    "NetworkInterpolation": true
+                                    "Enabled": true
                                   }
                                 ]
                               }
@@ -1427,83 +2179,67 @@
                           },
                           {
                             "__guid": "446187c8-09d9-4946-8168-d907ee23bea0",
-                            "Flags": 0,
+                            "Flags": 4,
                             "Name": "clavicle_L",
                             "Position": "4.038117,0.2752102,1.103954",
                             "Rotation": "-0.08115554,0.6811197,0.08690508,-0.7224524",
                             "Enabled": true,
-                            "NetworkMode": 2,
-                            "NetworkInterpolation": true,
                             "Children": [
                               {
                                 "__guid": "2e54faa2-90b8-4f2e-be9b-263f00ef74bf",
-                                "Flags": 0,
+                                "Flags": 4,
                                 "Name": "arm_upper_L",
                                 "Position": "6.218333,0.00002153357,0.00004798172",
                                 "Rotation": "-0.02770682,-0.3880895,0.068267,0.9186721",
                                 "Enabled": true,
-                                "NetworkMode": 2,
-                                "NetworkInterpolation": true,
                                 "Children": [
                                   {
                                     "__guid": "2d6b931f-6daa-46a1-8e05-6635068e6bd1",
-                                    "Flags": 0,
+                                    "Flags": 4,
                                     "Name": "arm_lower_L",
                                     "Position": "10.04519,0.00001782178,-0.00004720685",
                                     "Rotation": "0.00000008195639,0.0000004768372,0.1484236,0.9889237",
                                     "Enabled": true,
-                                    "NetworkMode": 2,
-                                    "NetworkInterpolation": true,
                                     "Children": [
                                       {
                                         "__guid": "5340e01b-2ad5-4c56-9c0d-6c047133197a",
-                                        "Flags": 0,
+                                        "Flags": 4,
                                         "Name": "hand_L",
                                         "Position": "7.706676,-0.0000008344645,-0.00007581706",
                                         "Rotation": "0.09163112,-0.03309625,0.03967814,0.9944518",
                                         "Enabled": true,
-                                        "NetworkMode": 2,
-                                        "NetworkInterpolation": true,
                                         "Children": [
                                           {
                                             "__guid": "b7c192b6-a1bf-4833-9084-b7c9d2a03a38",
-                                            "Flags": 0,
+                                            "Flags": 4,
                                             "Name": "hold_L",
                                             "Position": "5.361057,0.621725,3.394402",
                                             "Rotation": "-0.695892,-0.170415,-0.392899,0.5764749",
-                                            "Enabled": true,
-                                            "NetworkMode": 2,
-                                            "NetworkInterpolation": true
+                                            "Enabled": true
                                           },
                                           {
                                             "__guid": "7cf66b6a-45d3-4d26-8d0b-7a101c69cd36",
-                                            "Flags": 0,
+                                            "Flags": 4,
                                             "Name": "finger_thumb_0_L",
                                             "Position": "1.127921,1.648613,0.8667787",
                                             "Rotation": "0.5684277,0.1216941,0.4117243,0.7018287",
                                             "Enabled": true,
-                                            "NetworkMode": 2,
-                                            "NetworkInterpolation": true,
                                             "Children": [
                                               {
                                                 "__guid": "be0f91f7-fdab-4d38-855d-85e23ea5578b",
-                                                "Flags": 0,
+                                                "Flags": 4,
                                                 "Name": "finger_thumb_1_L",
                                                 "Position": "1.906556,-0.00002589821,-0.0000528097",
                                                 "Rotation": "-0.0000006835908,-0.1627616,0.00000429526,0.9866654",
                                                 "Enabled": true,
-                                                "NetworkMode": 2,
-                                                "NetworkInterpolation": true,
                                                 "Children": [
                                                   {
                                                     "__guid": "1b6f7894-b617-4732-8844-3183f61ee3fc",
-                                                    "Flags": 0,
+                                                    "Flags": 4,
                                                     "Name": "finger_thumb_2_L",
                                                     "Position": "2.136302,-0.00004160403,-0.00009620186",
                                                     "Rotation": "0.0000002365559,-0.08419366,-0.00000005587935,0.9964492",
-                                                    "Enabled": true,
-                                                    "NetworkMode": 2,
-                                                    "NetworkInterpolation": true
+                                                    "Enabled": true
                                                   }
                                                 ]
                                               }
@@ -1511,43 +2247,35 @@
                                           },
                                           {
                                             "__guid": "51353348-4b61-45ed-a6c8-bdb0b60b1c17",
-                                            "Flags": 0,
+                                            "Flags": 4,
                                             "Name": "finger_index_meta_L",
                                             "Position": "2.075288,1.204093,0.3774712",
                                             "Rotation": "0.06037849,0.04580588,0.1049121,0.9915894",
                                             "Enabled": true,
-                                            "NetworkMode": 2,
-                                            "NetworkInterpolation": true,
                                             "Children": [
                                               {
                                                 "__guid": "8a50bbeb-82d2-4b75-8488-e8ae38f0e113",
-                                                "Flags": 0,
+                                                "Flags": 4,
                                                 "Name": "finger_index_0_L",
                                                 "Position": "3.068909,-0.00002920626,-0.0001146793",
                                                 "Rotation": "-0.003392883,-0.2652391,-0.06862514,0.9617313",
                                                 "Enabled": true,
-                                                "NetworkMode": 2,
-                                                "NetworkInterpolation": true,
                                                 "Children": [
                                                   {
                                                     "__guid": "c27d6b27-424b-42f5-9a66-5123f61f07c1",
-                                                    "Flags": 0,
+                                                    "Flags": 4,
                                                     "Name": "finger_index_1_L",
                                                     "Position": "2.283286,-0.000002592801,-0.0001486539",
                                                     "Rotation": "-0.000001147389,-0.2335206,0.000002995133,0.972352",
                                                     "Enabled": true,
-                                                    "NetworkMode": 2,
-                                                    "NetworkInterpolation": true,
                                                     "Children": [
                                                       {
                                                         "__guid": "a49e20a4-e4cd-4d30-ad5e-c47133842095",
-                                                        "Flags": 0,
+                                                        "Flags": 4,
                                                         "Name": "finger_index_2_L",
                                                         "Position": "1.594391,-0.00005319712,-0.0001749507",
                                                         "Rotation": "-0.000004708767,-0.01375908,0.000002577901,0.9999053",
-                                                        "Enabled": true,
-                                                        "NetworkMode": 2,
-                                                        "NetworkInterpolation": true
+                                                        "Enabled": true
                                                       }
                                                     ]
                                                   }
@@ -1557,43 +2285,35 @@
                                           },
                                           {
                                             "__guid": "83dd2ba9-9537-4946-8db6-8353d04fa411",
-                                            "Flags": 0,
+                                            "Flags": 4,
                                             "Name": "finger_middle_meta_L",
                                             "Position": "2.100664,-0.1590749,0.2858061",
                                             "Rotation": "0.008967817,0.03486498,-0.01934979,0.9991644",
                                             "Enabled": true,
-                                            "NetworkMode": 2,
-                                            "NetworkInterpolation": true,
                                             "Children": [
                                               {
                                                 "__guid": "7fc2076f-92e0-4983-9160-60697f3e6f3c",
-                                                "Flags": 0,
+                                                "Flags": 4,
                                                 "Name": "finger_middle_0_L",
                                                 "Position": "2.999223,-0.00002789496,-0.0000954866",
                                                 "Rotation": "0.0008723736,-0.2335085,0.001296833,0.9723535",
                                                 "Enabled": true,
-                                                "NetworkMode": 2,
-                                                "NetworkInterpolation": true,
                                                 "Children": [
                                                   {
                                                     "__guid": "0ae1d59d-e304-4062-951f-cb264a172276",
-                                                    "Flags": 0,
+                                                    "Flags": 4,
                                                     "Name": "finger_middle_1_L",
                                                     "Position": "2.560945,-0.000004440545,-0.0001165866",
                                                     "Rotation": "-0.00000448525,-0.2322974,0.00004120171,0.9726448",
                                                     "Enabled": true,
-                                                    "NetworkMode": 2,
-                                                    "NetworkInterpolation": true,
                                                     "Children": [
                                                       {
                                                         "__guid": "942c64c4-d557-450a-b4fb-0e18ff554192",
-                                                        "Flags": 0,
+                                                        "Flags": 4,
                                                         "Name": "finger_middle_2_L",
                                                         "Position": "1.683011,-0.00002333521,-0.0001651504",
                                                         "Rotation": "-0.00001375377,-0.04821892,-0.00003319979,0.9988368",
-                                                        "Enabled": true,
-                                                        "NetworkMode": 2,
-                                                        "NetworkInterpolation": true
+                                                        "Enabled": true
                                                       }
                                                     ]
                                                   }
@@ -1603,43 +2323,35 @@
                                           },
                                           {
                                             "__guid": "02e3d478-3bbc-4714-8d89-a38604b10658",
-                                            "Flags": 0,
+                                            "Flags": 4,
                                             "Name": "finger_ring_meta_L",
                                             "Position": "2.104887,-1.444503,0.2232266",
                                             "Rotation": "-0.0637652,-0.02919635,-0.1306908,0.9889396",
                                             "Enabled": true,
-                                            "NetworkMode": 2,
-                                            "NetworkInterpolation": true,
                                             "Children": [
                                               {
                                                 "__guid": "44bc84dc-260f-472a-a76e-7d016264a346",
-                                                "Flags": 0,
+                                                "Flags": 4,
                                                 "Name": "finger_ring_0_L",
                                                 "Position": "2.824281,-0.00002622603,-0.0001461505",
                                                 "Rotation": "0.004531592,-0.1855573,0.05619834,0.9810146",
                                                 "Enabled": true,
-                                                "NetworkMode": 2,
-                                                "NetworkInterpolation": true,
                                                 "Children": [
                                                   {
                                                     "__guid": "cee67be6-8172-457d-9713-2accac1dfcb9",
-                                                    "Flags": 0,
+                                                    "Flags": 4,
                                                     "Name": "finger_ring_1_L",
                                                     "Position": "2.197991,-0.000006228682,-0.0001497864",
                                                     "Rotation": "-0.00004595518,-0.256609,-0.00006531179,0.966515",
                                                     "Enabled": true,
-                                                    "NetworkMode": 2,
-                                                    "NetworkInterpolation": true,
                                                     "Children": [
                                                       {
                                                         "__guid": "73a4a40d-15f4-457e-b59f-f5f941e99ac2",
-                                                        "Flags": 0,
+                                                        "Flags": 4,
                                                         "Name": "finger_ring_2_L",
                                                         "Position": "1.535341,-0.00002342461,-0.0001716017",
                                                         "Rotation": "-0.00001232326,-0.0503881,0.000008910894,0.9987299",
-                                                        "Enabled": true,
-                                                        "NetworkMode": 2,
-                                                        "NetworkInterpolation": true
+                                                        "Enabled": true
                                                       }
                                                     ]
                                                   }
@@ -1649,63 +2361,48 @@
                                           },
                                           {
                                             "__guid": "57a47a84-77f3-457e-b09b-a9e1b822791d",
-                                            "Flags": 0,
+                                            "Flags": 4,
                                             "Name": "hand_R_to_L_ikrule",
                                             "Position": "-28.15185,11.30968,27.26416",
                                             "Rotation": "-0.2772722,-0.6901741,-0.00000005960464,0.6684158",
-                                            "Enabled": true,
-                                            "NetworkMode": 2,
-                                            "NetworkInterpolation": true
+                                            "Enabled": true
                                           }
                                         ]
                                       },
                                       {
                                         "__guid": "2e582c54-81ec-450d-a65a-5b24611acd69",
-                                        "Flags": 0,
+                                        "Flags": 4,
                                         "Name": "arm_lower_L_twist0",
-                                        "Position": "0,0,0",
-                                        "Enabled": true,
-                                        "NetworkMode": 2,
-                                        "NetworkInterpolation": true
+                                        "Enabled": true
                                       },
                                       {
                                         "__guid": "79a2e2da-d26c-4b8d-8617-aa5127356397",
-                                        "Flags": 0,
+                                        "Flags": 4,
                                         "Name": "arm_lower_L_twist1",
                                         "Position": "3.853339,-0.000003397463,-0.00006842609",
-                                        "Enabled": true,
-                                        "NetworkMode": 2,
-                                        "NetworkInterpolation": true
+                                        "Enabled": true
                                       },
                                       {
                                         "__guid": "28f9b57e-09b3-49fd-af75-a5a6627ad709",
-                                        "Flags": 0,
+                                        "Flags": 4,
                                         "Name": "arm_elbow_helper_L",
-                                        "Position": "0,0,0",
                                         "Rotation": "0.0000003278255,-0.00000005960464,-0.7577646,0.6525283",
-                                        "Enabled": true,
-                                        "NetworkMode": 2,
-                                        "NetworkInterpolation": true
+                                        "Enabled": true
                                       }
                                     ]
                                   },
                                   {
                                     "__guid": "23006b6f-8371-40e7-88f4-b42814eeb24a",
-                                    "Flags": 0,
+                                    "Flags": 4,
                                     "Name": "arm_upper_L_twist0",
-                                    "Position": "0,0,0",
-                                    "Enabled": true,
-                                    "NetworkMode": 2,
-                                    "NetworkInterpolation": true
+                                    "Enabled": true
                                   },
                                   {
                                     "__guid": "a89a6a7b-0af0-46f4-9deb-a54bf4107824",
-                                    "Flags": 0,
+                                    "Flags": 4,
                                     "Name": "arm_upper_L_twist1",
                                     "Position": "5.022607,0.00001373886,-0.00002741812",
-                                    "Enabled": true,
-                                    "NetworkMode": 2,
-                                    "NetworkInterpolation": true
+                                    "Enabled": true
                                   }
                                 ]
                               }
@@ -1713,83 +2410,67 @@
                           },
                           {
                             "__guid": "d457ca80-f0f1-4a55-af35-487893c28b12",
-                            "Flags": 0,
+                            "Flags": 4,
                             "Name": "clavicle_R",
                             "Position": "4.036986,0.2748702,-1.108165",
                             "Rotation": "-0.08130813,0.6814712,-0.08696639,0.7220964",
                             "Enabled": true,
-                            "NetworkMode": 2,
-                            "NetworkInterpolation": true,
                             "Children": [
                               {
                                 "__guid": "c538924d-6706-4182-be7e-5ac847e544f1",
-                                "Flags": 0,
+                                "Flags": 4,
                                 "Name": "arm_upper_R",
                                 "Position": "6.218291,0.000001346692,-0.00006744264",
                                 "Rotation": "0.02770649,0.3880894,0.06826841,0.9186718",
                                 "Enabled": true,
-                                "NetworkMode": 2,
-                                "NetworkInterpolation": true,
                                 "Children": [
                                   {
                                     "__guid": "97eb460e-f033-499c-956a-91fa6ddd4fff",
-                                    "Flags": 0,
+                                    "Flags": 4,
                                     "Name": "arm_lower_R",
                                     "Position": "10.04517,0.00001907348,-0.00005578993",
                                     "Rotation": "-0.000000007450581,0.0000002086163,0.1484233,0.988924",
                                     "Enabled": true,
-                                    "NetworkMode": 2,
-                                    "NetworkInterpolation": true,
                                     "Children": [
                                       {
                                         "__guid": "e11f7ed7-7111-422d-8454-b8b6bc5ccf2f",
-                                        "Flags": 0,
+                                        "Flags": 4,
                                         "Name": "hand_R",
                                         "Position": "7.706653,0.00002896785,-0.00004291534",
                                         "Rotation": "-0.09163143,0.03309621,0.03967846,0.9944515",
                                         "Enabled": true,
-                                        "NetworkMode": 2,
-                                        "NetworkInterpolation": true,
                                         "Children": [
                                           {
                                             "__guid": "0427cd6c-8ef1-406d-920c-e55099c23dba",
-                                            "Flags": 0,
+                                            "Flags": 4,
                                             "Name": "hold_R",
                                             "Position": "5.361083,0.6219049,-3.394506",
                                             "Rotation": "-0.5764739,0.3928987,0.1704145,0.6958929",
-                                            "Enabled": true,
-                                            "NetworkMode": 2,
-                                            "NetworkInterpolation": true
+                                            "Enabled": true
                                           },
                                           {
                                             "__guid": "4440f42f-4f2d-44d8-8959-4bbc57bad63e",
-                                            "Flags": 0,
+                                            "Flags": 4,
                                             "Name": "finger_thumb_0_R",
                                             "Position": "1.127925,1.64868,-0.8668854",
                                             "Rotation": "-0.5684254,-0.1216944,0.4117283,0.7018281",
                                             "Enabled": true,
-                                            "NetworkMode": 2,
-                                            "NetworkInterpolation": true,
                                             "Children": [
                                               {
                                                 "__guid": "15fdc184-faf8-4c13-96c4-6f319be1f77b",
-                                                "Flags": 0,
+                                                "Flags": 4,
                                                 "Name": "finger_thumb_1_R",
                                                 "Position": "1.906576,0.00001120567,-0.00004982946",
                                                 "Rotation": "0.000001496635,0.1627604,-0.000003710389,0.9866656",
                                                 "Enabled": true,
-                                                "NetworkMode": 2,
-                                                "NetworkInterpolation": true,
                                                 "Children": [
                                                   {
                                                     "__guid": "f3aa2264-7fb5-4e61-8f2e-f240f8ef086b",
-                                                    "Flags": 0,
+                                                    "Flags": 4,
                                                     "Name": "finger_thumb_2_R",
                                                     "Position": "2.136316,0.00003784893,-0.00007480379",
                                                     "Rotation": "0.0000001108274,0.08420044,0.0000005476177,0.9964489",
-                                                    "Enabled": true,
-                                                    "NetworkMode": 2,
-                                                    "NetworkInterpolation": true
+                                                    "Enabled": true
                                                   }
                                                 ]
                                               }
@@ -1797,43 +2478,35 @@
                                           },
                                           {
                                             "__guid": "b415eda1-d09b-4239-8c9b-814f83fedf9d",
-                                            "Flags": 0,
+                                            "Flags": 4,
                                             "Name": "finger_index_meta_R",
                                             "Position": "2.075281,1.204135,-0.377599",
                                             "Rotation": "-0.06037769,-0.04580306,0.1049159,0.9915891",
                                             "Enabled": true,
-                                            "NetworkMode": 2,
-                                            "NetworkInterpolation": true,
                                             "Children": [
                                               {
                                                 "__guid": "709cbffc-6ad5-46a3-89cb-5e96c8661c2b",
-                                                "Flags": 0,
+                                                "Flags": 4,
                                                 "Name": "finger_index_0_R",
                                                 "Position": "3.0689,0.00003388524,-0.00002193451",
                                                 "Rotation": "0.003392495,0.2652348,-0.06862299,0.9617328",
                                                 "Enabled": true,
-                                                "NetworkMode": 2,
-                                                "NetworkInterpolation": true,
                                                 "Children": [
                                                   {
                                                     "__guid": "37e8dbf1-095c-4dd3-ac5b-b466927dcaaf",
-                                                    "Flags": 0,
+                                                    "Flags": 4,
                                                     "Name": "finger_index_1_R",
                                                     "Position": "2.283286,0.00002479553,-0.0000487566",
                                                     "Rotation": "0.00000269711,0.2335185,-0.000001698732,0.9723523",
                                                     "Enabled": true,
-                                                    "NetworkMode": 2,
-                                                    "NetworkInterpolation": true,
                                                     "Children": [
                                                       {
                                                         "__guid": "49a4fca2-ab25-4ae4-a587-9d7512936f87",
-                                                        "Flags": 0,
+                                                        "Flags": 4,
                                                         "Name": "finger_index_2_R",
                                                         "Position": "1.594426,0.000083521,-0.0001018178",
                                                         "Rotation": "0.000004723668,0.01376474,0.000000461936,0.9999053",
-                                                        "Enabled": true,
-                                                        "NetworkMode": 2,
-                                                        "NetworkInterpolation": true
+                                                        "Enabled": true
                                                       }
                                                     ]
                                                   }
@@ -1843,43 +2516,35 @@
                                           },
                                           {
                                             "__guid": "61be4c3b-f687-4d54-b14f-ac5f44760dbc",
-                                            "Flags": 0,
+                                            "Flags": 4,
                                             "Name": "finger_middle_meta_R",
                                             "Position": "2.10065,-0.1590454,-0.2859256",
                                             "Rotation": "-0.008967884,-0.03486183,-0.01934614,0.9991645",
                                             "Enabled": true,
-                                            "NetworkMode": 2,
-                                            "NetworkInterpolation": true,
                                             "Children": [
                                               {
                                                 "__guid": "3b938b5e-3ee7-470a-805b-1dd51722a9d5",
-                                                "Flags": 0,
+                                                "Flags": 4,
                                                 "Name": "finger_middle_0_R",
                                                 "Position": "2.99923,0.00005543231,-0.0000231266",
                                                 "Rotation": "-0.0008731633,0.2335047,0.001300193,0.9723544",
                                                 "Enabled": true,
-                                                "NetworkMode": 2,
-                                                "NetworkInterpolation": true,
                                                 "Children": [
                                                   {
                                                     "__guid": "87812990-0296-41c7-869f-0446e6270b77",
-                                                    "Flags": 0,
+                                                    "Flags": 4,
                                                     "Name": "finger_middle_1_R",
                                                     "Position": "2.560969,0.00003612041,-0.00004577636",
                                                     "Rotation": "0.00000590086,0.2322945,0.00003755093,0.9726455",
                                                     "Enabled": true,
-                                                    "NetworkMode": 2,
-                                                    "NetworkInterpolation": true,
                                                     "Children": [
                                                       {
                                                         "__guid": "36f89edc-0a0d-4f81-8a97-6ae5d1681dc0",
-                                                        "Flags": 0,
+                                                        "Flags": 4,
                                                         "Name": "finger_middle_2_R",
                                                         "Position": "1.683009,0.00006365775,-0.0001051044",
                                                         "Rotation": "0.00001385808,0.04822429,-0.00003586709,0.9988365",
-                                                        "Enabled": true,
-                                                        "NetworkMode": 2,
-                                                        "NetworkInterpolation": true
+                                                        "Enabled": true
                                                       }
                                                     ]
                                                   }
@@ -1889,43 +2554,35 @@
                                           },
                                           {
                                             "__guid": "a275a9a9-6b1c-4f6b-aaa0-f33176b3c4fe",
-                                            "Flags": 0,
+                                            "Flags": 4,
                                             "Name": "finger_ring_meta_R",
                                             "Position": "2.104868,-1.444471,-0.2233291",
                                             "Rotation": "0.06376478,0.02919935,-0.1306878,0.9889398",
                                             "Enabled": true,
-                                            "NetworkMode": 2,
-                                            "NetworkInterpolation": true,
                                             "Children": [
                                               {
                                                 "__guid": "b0ec2d96-b2fe-415e-afc3-f87c89039205",
-                                                "Flags": 0,
+                                                "Flags": 4,
                                                 "Name": "finger_ring_0_R",
                                                 "Position": "2.824279,0.00006484983,-0.00001585483",
                                                 "Rotation": "-0.004531913,0.185554,0.05620129,0.9810151",
                                                 "Enabled": true,
-                                                "NetworkMode": 2,
-                                                "NetworkInterpolation": true,
                                                 "Children": [
                                                   {
                                                     "__guid": "2aa0e319-d10b-4e6e-af34-a4fdc54806f8",
-                                                    "Flags": 0,
+                                                    "Flags": 4,
                                                     "Name": "finger_ring_1_R",
                                                     "Position": "2.198022,0.00003519654,-0.00004959106",
                                                     "Rotation": "0.00004526973,0.2566069,-0.00006808341,0.9665158",
                                                     "Enabled": true,
-                                                    "NetworkMode": 2,
-                                                    "NetworkInterpolation": true,
                                                     "Children": [
                                                       {
                                                         "__guid": "da2706f4-508e-487e-8432-f53ccc4c49ae",
-                                                        "Flags": 0,
+                                                        "Flags": 4,
                                                         "Name": "finger_ring_2_R",
                                                         "Position": "1.535354,0.00007978082,-0.0001110733",
                                                         "Rotation": "0.00001196563,0.05039282,0.000008478761,0.9987294",
-                                                        "Enabled": true,
-                                                        "NetworkMode": 2,
-                                                        "NetworkInterpolation": true
+                                                        "Enabled": true
                                                       }
                                                     ]
                                                   }
@@ -1935,43 +2592,34 @@
                                           },
                                           {
                                             "__guid": "b537296c-421b-4a9c-914b-cc04fac94ec4",
-                                            "Flags": 0,
+                                            "Flags": 4,
                                             "Name": "hand_L_to_R_ikrule",
                                             "Position": "-28.15178,11.30986,-27.2643",
                                             "Rotation": "0.2772729,0.6901737,0.0000003874302,0.6684158",
-                                            "Enabled": true,
-                                            "NetworkMode": 2,
-                                            "NetworkInterpolation": true
+                                            "Enabled": true
                                           }
                                         ]
                                       },
                                       {
                                         "__guid": "778b890e-7dda-4c8c-b7ab-eaf9f2823483",
-                                        "Flags": 0,
+                                        "Flags": 4,
                                         "Name": "arm_lower_R_twist1",
                                         "Position": "3.85332,0.0000257492,-0.00005805492",
-                                        "Enabled": true,
-                                        "NetworkMode": 2,
-                                        "NetworkInterpolation": true
+                                        "Enabled": true
                                       },
                                       {
                                         "__guid": "7a15841f-cca8-4edb-9531-3207facf6921",
-                                        "Flags": 0,
+                                        "Flags": 4,
                                         "Name": "arm_lower_R_twist0",
-                                        "Position": "0,0,0",
                                         "Enabled": true,
-                                        "NetworkMode": 2,
-                                        "NetworkInterpolation": true,
                                         "Children": [
                                           {
                                             "__guid": "c9527642-a03f-4c5e-bea7-5b1de004bc7a",
-                                            "Flags": 0,
+                                            "Flags": 4,
                                             "Name": "arm_elbow_helper_R",
                                             "Position": "-0.00001638277,0.00005106141,-0.0001017449",
                                             "Rotation": "0.0000008791685,-0.0000001788139,-0.757768,0.6525243",
-                                            "Enabled": true,
-                                            "NetworkMode": 2,
-                                            "NetworkInterpolation": true
+                                            "Enabled": true
                                           }
                                         ]
                                       }
@@ -1979,21 +2627,16 @@
                                   },
                                   {
                                     "__guid": "9c0b4bf3-a0c1-4062-8c57-a8a643b44e30",
-                                    "Flags": 0,
+                                    "Flags": 4,
                                     "Name": "arm_upper_R_twist0",
-                                    "Position": "0,0,0",
-                                    "Enabled": true,
-                                    "NetworkMode": 2,
-                                    "NetworkInterpolation": true
+                                    "Enabled": true
                                   },
                                   {
                                     "__guid": "acaa8fa1-f3c7-4ed2-924f-ef8e932d9660",
-                                    "Flags": 0,
+                                    "Flags": 4,
                                     "Name": "arm_upper_R_twist1",
                                     "Position": "5.02259,0.0000218749,-0.00004673003",
-                                    "Enabled": true,
-                                    "NetworkMode": 2,
-                                    "NetworkInterpolation": true
+                                    "Enabled": true
                                   }
                                 ]
                               }
@@ -2001,13 +2644,11 @@
                           },
                           {
                             "__guid": "328a73a4-56e6-4a46-b6f7-081065ea560f",
-                            "Flags": 0,
+                            "Flags": 4,
                             "Name": "neck_clothing",
                             "Position": "5.820023,-0.09348471,-0.002971248",
                             "Rotation": "-0.00008219201,0.0002511621,-0.01994135,0.9998013",
-                            "Enabled": true,
-                            "NetworkMode": 2,
-                            "NetworkInterpolation": true
+                            "Enabled": true
                           }
                         ]
                       }
@@ -2017,206 +2658,158 @@
               },
               {
                 "__guid": "5936528d-2a78-4820-a453-dcc1545a6ed9",
-                "Flags": 0,
+                "Flags": 4,
                 "Name": "leg_upper_R",
                 "Position": "-0.2881533,-0.4264475,-4.427378",
                 "Rotation": "-0.000001549721,1,0.0000001788139,-0.000000923872",
                 "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true,
                 "Children": [
                   {
                     "__guid": "2e36cee2-ec2f-4d2b-b238-d8e61d8a8da3",
-                    "Flags": 0,
+                    "Flags": 4,
                     "Name": "leg_lower_R",
                     "Position": "14.47037,-0.0000169144,0.000003652385",
                     "Rotation": "-0.000001296401,0.00000005960464,-0.01828089,0.9998329",
                     "Enabled": true,
-                    "NetworkMode": 2,
-                    "NetworkInterpolation": true,
                     "Children": [
                       {
                         "__guid": "e7c0ce37-29d5-47ef-bb51-bb1b3bb1e59f",
-                        "Flags": 0,
+                        "Flags": 4,
                         "Name": "ankle_R",
                         "Position": "12.51552,0.000008851291,-0.0000002457892",
                         "Rotation": "0.0000006258488,-0.000001043081,0.3914976,0.9201791",
                         "Enabled": true,
-                        "NetworkMode": 2,
-                        "NetworkInterpolation": true,
                         "Children": [
                           {
                             "__guid": "33f18f36-3710-47ac-ab5f-ec6a7fd5313c",
-                            "Flags": 0,
+                            "Flags": 4,
                             "Name": "ball_R",
                             "Position": "4.429124,0.00000166893,0.000002941089",
                             "Rotation": "-0.0000005032103,0.000001505017,0.3907284,0.920506",
-                            "Enabled": true,
-                            "NetworkMode": 2,
-                            "NetworkInterpolation": true
+                            "Enabled": true
                           }
                         ]
                       },
                       {
                         "__guid": "e96b982c-eac8-49bd-8997-9805c0cf7cbc",
-                        "Flags": 0,
+                        "Flags": 4,
                         "Name": "leg_lower_R_twist1",
                         "Position": "6.257761,0.000004410744,-0.00000465285",
-                        "Enabled": true,
-                        "NetworkMode": 2,
-                        "NetworkInterpolation": true
+                        "Enabled": true
                       },
                       {
                         "__guid": "cce1d764-9049-4178-8343-83946e2c957f",
-                        "Flags": 0,
+                        "Flags": 4,
                         "Name": "leg_lower_R_twist0",
-                        "Position": "0,0,0",
-                        "Enabled": true,
-                        "NetworkMode": 2,
-                        "NetworkInterpolation": true
+                        "Enabled": true
                       },
                       {
                         "__guid": "a2ca9caf-d443-4537-b44a-4d6a6b21aa42",
-                        "Flags": 0,
+                        "Flags": 4,
                         "Name": "leg_knee_helper_R",
-                        "Position": "0,0,0",
                         "Rotation": "0.0000009241048,-0.000001251698,0.7135268,0.7006278",
-                        "Enabled": true,
-                        "NetworkMode": 2,
-                        "NetworkInterpolation": true
+                        "Enabled": true
                       }
                     ]
                   },
                   {
                     "__guid": "686e6bfe-e499-4a86-905b-46ece9b3c134",
-                    "Flags": 0,
+                    "Flags": 4,
                     "Name": "leg_upper_R_twist1",
                     "Position": "7.235195,0.00002587512,-0.00001200201",
-                    "Enabled": true,
-                    "NetworkMode": 2,
-                    "NetworkInterpolation": true
+                    "Enabled": true
                   },
                   {
                     "__guid": "43c242a0-06be-460a-be47-3a6079a9dfcf",
-                    "Flags": 0,
+                    "Flags": 4,
                     "Name": "leg_upper_R_twist0",
-                    "Position": "0,0,0",
                     "Rotation": "-0.00000002980232,-0.00000008940697,0.000003069639,1",
-                    "Enabled": true,
-                    "NetworkMode": 2,
-                    "NetworkInterpolation": true
+                    "Enabled": true
                   },
                   {
                     "__guid": "319b97c1-be4e-4bc2-ae79-54bf66b14a57",
-                    "Flags": 0,
+                    "Flags": 4,
                     "Name": "leg_glute_helper_R",
-                    "Position": "0,0,0",
                     "Rotation": "0.0000009834766,0.0000005739178,0.7071053,-0.7071084",
-                    "Enabled": true,
-                    "NetworkMode": 2,
-                    "NetworkInterpolation": true
+                    "Enabled": true
                   }
                 ]
               },
               {
                 "__guid": "6b8e93f8-a4f9-4266-bb7c-0dc8562d6087",
-                "Flags": 0,
+                "Flags": 4,
                 "Name": "leg_upper_L",
                 "Position": "-0.2881297,-0.4264346,4.427379",
                 "Rotation": "-0.000001549721,1,0.0000001788139,-0.000001162291",
                 "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true,
                 "Children": [
                   {
                     "__guid": "51340ee9-34b0-42d2-9007-7fd9d4dee6f7",
-                    "Flags": 0,
+                    "Flags": 4,
                     "Name": "leg_lower_L",
                     "Position": "14.47037,-0.00004786321,-0.00002196374",
                     "Rotation": "-0.000003010035,-0.0000004768372,-0.01828232,0.9998329",
                     "Enabled": true,
-                    "NetworkMode": 2,
-                    "NetworkInterpolation": true,
                     "Children": [
                       {
                         "__guid": "fc9d96fd-eb80-4265-88aa-54e472af99c2",
-                        "Flags": 0,
+                        "Flags": 4,
                         "Name": "ankle_L",
                         "Position": "12.51552,0.000005930663,-0.0000109741",
                         "Rotation": "0.000003263354,-0.0000009387732,0.3914973,0.9201792",
                         "Enabled": true,
-                        "NetworkMode": 2,
-                        "NetworkInterpolation": true,
                         "Children": [
                           {
                             "__guid": "a35a2754-a13d-42e1-b042-b861ad6018fd",
-                            "Flags": 0,
+                            "Flags": 4,
                             "Name": "ball_L",
                             "Position": "4.429117,0.000002145767,-0.00001101125",
                             "Rotation": "-0.0000004862416,0.000001206994,0.3907294,0.9205056",
-                            "Enabled": true,
-                            "NetworkMode": 2,
-                            "NetworkInterpolation": true
+                            "Enabled": true
                           }
                         ]
                       },
                       {
                         "__guid": "69e68d90-aa73-43fe-afd5-d7080b8fae31",
-                        "Flags": 0,
+                        "Flags": 4,
                         "Name": "leg_lower_L_twist1",
                         "Position": "6.257759,0.000006690622,-0.00001168592",
-                        "Enabled": true,
-                        "NetworkMode": 2,
-                        "NetworkInterpolation": true
+                        "Enabled": true
                       },
                       {
                         "__guid": "1bcd73c7-10aa-4b3d-a00c-1f15c99646b8",
-                        "Flags": 0,
+                        "Flags": 4,
                         "Name": "leg_lower_L_twist0",
-                        "Position": "0,0,0",
-                        "Enabled": true,
-                        "NetworkMode": 2,
-                        "NetworkInterpolation": true
+                        "Enabled": true
                       },
                       {
                         "__guid": "9814abd4-6f21-4b47-809c-c0ae93b8d03d",
-                        "Flags": 0,
+                        "Flags": 4,
                         "Name": "leg_knee_helper_L",
-                        "Position": "0,0,0",
                         "Rotation": "-0.00000301376,-0.000001609325,0.7135276,0.700627",
-                        "Enabled": true,
-                        "NetworkMode": 2,
-                        "NetworkInterpolation": true
+                        "Enabled": true
                       }
                     ]
                   },
                   {
                     "__guid": "c3c7e820-9f67-4898-8764-455fec9ecde9",
-                    "Flags": 0,
+                    "Flags": 4,
                     "Name": "leg_upper_L_twist1",
                     "Position": "7.235189,0.00001803007,-0.000006213439",
-                    "Enabled": true,
-                    "NetworkMode": 2,
-                    "NetworkInterpolation": true
+                    "Enabled": true
                   },
                   {
                     "__guid": "23a9819c-4815-444c-a99c-79420aaeeae2",
-                    "Flags": 0,
+                    "Flags": 4,
                     "Name": "leg_upper_L_twist0",
-                    "Position": "0,0,0",
-                    "Enabled": true,
-                    "NetworkMode": 2,
-                    "NetworkInterpolation": true
+                    "Enabled": true
                   },
                   {
                     "__guid": "52a88afa-5501-4d8a-8d4c-cd6d8aa36952",
-                    "Flags": 0,
+                    "Flags": 4,
                     "Name": "leg_glute_helper_L",
-                    "Position": "0,0,0",
                     "Rotation": "0.0000008642673,0.0000007527318,0.7071055,-0.707108",
-                    "Enabled": true,
-                    "NetworkMode": 2,
-                    "NetworkInterpolation": true
+                    "Enabled": true
                   }
                 ]
               }
@@ -2224,81 +2817,65 @@
           },
           {
             "__guid": "72ce2f6e-2c4e-48f0-a546-e11e0075cdbe",
-            "Flags": 0,
+            "Flags": 4,
             "Name": "root_IK",
             "Position": "1.266571,0.000007196501,0",
             "Enabled": true,
-            "NetworkMode": 2,
-            "NetworkInterpolation": true,
             "Children": [
               {
                 "__guid": "c4e11a73-d58a-4046-8ce0-bc4ebfef613f",
-                "Flags": 0,
+                "Flags": 4,
                 "Name": "hand_R_IK_target",
                 "Position": "0.6939831,-20.39473,39.24799",
                 "Rotation": "0.2871271,0.2142481,-0.5281312,0.7698917",
-                "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true
+                "Enabled": true
               },
               {
                 "__guid": "5f30c6ff-309e-4d5d-bccc-f8e4033fe9d0",
-                "Flags": 0,
+                "Flags": 4,
                 "Name": "hand_L_IK_target",
                 "Position": "0.6941189,20.3947,39.24792",
                 "Rotation": "0.7698929,0.5281296,-0.2142482,0.2871266",
-                "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true
+                "Enabled": true
               },
               {
                 "__guid": "93e022c2-f37e-4542-975a-097f7ea602c0",
-                "Flags": 0,
+                "Flags": 4,
                 "Name": "aim_matrix_02a",
                 "Position": "4.638932,-0.0000008343607,9.8425",
                 "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true,
                 "Children": [
                   {
                     "__guid": "32d8900f-5fc5-43d7-8c41-592228edd06f",
-                    "Flags": 0,
+                    "Flags": 4,
                     "Name": "aim_matrix_02b",
                     "Position": "3.936996,-0.0000004822498,-0.0000009533733",
-                    "Enabled": true,
-                    "NetworkMode": 2,
-                    "NetworkInterpolation": true
+                    "Enabled": true
                   }
                 ]
               },
               {
                 "__guid": "766df86b-b6e5-4ee8-a268-135c00aed613",
-                "Flags": 0,
+                "Flags": 4,
                 "Name": "aim_matrix_01",
                 "Position": "4.638932,-0.0000008343607,11.811",
-                "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true
+                "Enabled": true
               },
               {
                 "__guid": "9cacafcd-f629-40f8-a81a-1bcc19047ae8",
-                "Flags": 0,
+                "Flags": 4,
                 "Name": "foot_R_IK_target",
                 "Position": "-0.8840643,-4.427395,3.807913",
                 "Rotation": "0.6508947,0.2762884,-0.2762876,0.6508964",
-                "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true
+                "Enabled": true
               },
               {
                 "__guid": "56d8300b-2f47-43e6-96f8-d46bf63f052b",
-                "Flags": 0,
+                "Flags": 4,
                 "Name": "foot_L_IK_target",
                 "Position": "-0.8840935,4.427404,3.807923",
                 "Rotation": "0.650896,0.276287,-0.2762895,0.6508948",
-                "Enabled": true,
-                "NetworkMode": 2,
-                "NetworkInterpolation": true
+                "Enabled": true
               }
             ]
           }
@@ -2310,8 +2887,6 @@
         "Name": "Equipment",
         "Tags": "equipment",
         "Enabled": true,
-        "NetworkMode": 2,
-        "NetworkInterpolation": true,
         "Children": [
           {
             "__guid": "ad105f00-3281-454e-a0bd-53fbadaac178",
@@ -2321,16 +2896,27 @@
             "Scale": "2.7,1.44,2.033",
             "Tags": "solid",
             "Enabled": true,
-            "NetworkMode": 2,
-            "NetworkInterpolation": true,
             "Components": [
               {
                 "__type": "Sandbox.SphereCollider",
                 "__guid": "6826667a-1e44-44d6-bc64-bd747f287244",
                 "Center": "0,0,0",
+                "Friction": null,
                 "IsTrigger": false,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "OnObjectTriggerEnter": null,
+                "OnObjectTriggerExit": null,
+                "OnTriggerEnter": null,
+                "OnTriggerExit": null,
                 "Radius": 32,
-                "Static": false
+                "Static": false,
+                "Surface": null,
+                "SurfaceVelocity": "0,0,0"
               },
               {
                 "__type": "Bouncy",
@@ -2338,7 +2924,15 @@
                 "AddedVelocity": 0,
                 "BouncedTags": "solid",
                 "BounceFactor": 0.2,
+                "IgnoredTags": null,
                 "MinimumVelocity": 0,
+                "OnBounce": null,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
                 "RehitDelay": 0.5
               }
             ]
@@ -2348,8 +2942,6 @@
             "Flags": 0,
             "Name": "Thrusters",
             "Enabled": true,
-            "NetworkMode": 2,
-            "NetworkInterpolation": true,
             "Components": [
               {
                 "__type": "Thruster",
@@ -2367,6 +2959,12 @@
                 "FuelConsumptionPerSecond": 0.5,
                 "LifetimeScale": 0.5,
                 "LoopSound": "sounds/thruster_loop.sound",
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
                 "Power": 0,
                 "Retrorocket": false,
                 "ShouldFire": false,
@@ -2389,8 +2987,6 @@
             "Flags": 0,
             "Name": "Retrorockets",
             "Enabled": true,
-            "NetworkMode": 2,
-            "NetworkInterpolation": true,
             "Components": [
               {
                 "__type": "Thruster",
@@ -2407,9 +3003,17 @@
                 },
                 "FuelConsumptionPerSecond": 0.05,
                 "LifetimeScale": 0.1,
+                "LoopSound": null,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
                 "Power": 0,
                 "Retrorocket": true,
                 "ShouldFire": false,
+                "StartSound": null,
                 "ThrusterGroup": [
                   {
                     "_type": "gameobject",
@@ -2432,15 +3036,19 @@
             "Flags": 0,
             "Name": "Fuel Tank",
             "Enabled": true,
-            "NetworkMode": 2,
-            "NetworkInterpolation": true,
             "Components": [
               {
                 "__type": "FuelTank",
                 "__guid": "962fa675-3bf1-4b3f-8c64-1bfe08e30154",
                 "CurrentAmount": 0,
                 "LowFuelAlarmSound": "sounds/fuel_alert.sound",
-                "MaxCapacity": 0
+                "MaxCapacity": 0,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null
               }
             ]
           },
@@ -2449,14 +3057,18 @@
             "Flags": 0,
             "Name": "Cargo Hold",
             "Enabled": true,
-            "NetworkMode": 2,
-            "NetworkInterpolation": true,
             "Components": [
               {
                 "__type": "CargoHold",
                 "__guid": "767f395a-27c1-486d-8ab8-5c1000b67e0f",
                 "Items": [],
-                "MaxItems": 0
+                "MaxItems": 0,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null
               }
             ]
           },
@@ -2465,8 +3077,6 @@
             "Flags": 0,
             "Name": "Jettison",
             "Enabled": true,
-            "NetworkMode": 2,
-            "NetworkInterpolation": true,
             "Components": [
               {
                 "__type": "Jettison",
@@ -2488,6 +3098,12 @@
                   "go": "821ab2e4-c3ab-4275-8ef7-e05afc41f01e",
                   "component_type": "CargoHold"
                 },
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
                 "PickupPrefab": {
                   "_type": "gameobject",
                   "prefab": "prefabs/pickup_base.prefab"
@@ -2508,8 +3124,6 @@
             "Scale": "5,5.0004,4.306737",
             "Tags": "player_allow,shield",
             "Enabled": true,
-            "NetworkMode": 2,
-            "NetworkInterpolation": true,
             "Components": [
               {
                 "__type": "Shield",
@@ -2522,19 +3136,43 @@
                   "component_type": "Bouncy"
                 },
                 "BreakSound": "sounds/shield_break.sound",
+                "Collider": null,
+                "Controller": null,
                 "CurrentHealth": 0,
                 "HitSound": "sounds/shield_hit.sound",
                 "MaxHealth": 0,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "OnDamaged": null,
                 "RegenDelay": 0,
-                "RegenRate": 0
+                "RegenRate": 0,
+                "Renderer": null
               },
               {
                 "__type": "Sandbox.ModelRenderer",
                 "__guid": "dbeed1f1-f617-4020-b892-d35d6c0a2c16",
                 "__enabled": false,
                 "BodyGroups": 18446744073709551615,
+                "CreateAttachments": false,
+                "MaterialGroup": null,
                 "MaterialOverride": "materials/dev/primary_white_emissive_trans.vmat",
                 "Model": "models/dev/sphere.vmdl",
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
                 "RenderType": "Off",
                 "Tint": "0,1,1,0"
               },
@@ -2545,7 +3183,15 @@
                 "AddedVelocity": 0,
                 "BouncedTags": "solid",
                 "BounceFactor": 0.9,
+                "IgnoredTags": null,
                 "MinimumVelocity": 0,
+                "OnBounce": null,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
                 "RehitDelay": 0.5
               }
             ]
@@ -2555,14 +3201,18 @@
             "Flags": 0,
             "Name": "Stabilizer",
             "Enabled": true,
-            "NetworkMode": 2,
-            "NetworkInterpolation": true,
             "Components": [
               {
                 "__type": "Stabilizer",
                 "__guid": "c9c7dde0-b591-48f2-9221-9e39c8074f86",
                 "__enabled": false,
                 "LoopSound": "sounds/retrorocket_loop.sound",
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
                 "Rigidbody": {
                   "_type": "component",
                   "component_id": "694f73ed-cf5f-4512-a50b-27414c32ec40",
@@ -2571,7 +3221,8 @@
                 },
                 "StabilizerPower": 100,
                 "VelocityMatchedThreshold": 3,
-                "VelocityMatchMaxDistance": 2000
+                "VelocityMatchMaxDistance": 2000,
+                "VelocityMatchTarget": null
               }
             ]
           },
@@ -2580,8 +3231,6 @@
             "Flags": 0,
             "Name": "Grapple",
             "Enabled": true,
-            "NetworkMode": 2,
-            "NetworkInterpolation": true,
             "Components": [
               {
                 "__type": "GrappleBeam",
@@ -2589,6 +3238,7 @@
                 "__enabled": false,
                 "AttachSound": "sounds/grapple_attach.sound",
                 "BeamAsset": "particles/slack_rope.vpcf",
+                "CurrentTarget": null,
                 "FilterWithAny": "target",
                 "GrapplePoint": {
                   "_type": "gameobject",
@@ -2600,6 +3250,13 @@
                   "go": "1393d37c-cb2b-4fb9-b36a-46d811093c3b",
                   "component_type": "SpringJoint"
                 },
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
+                "Particles": null,
                 "RetractSpeed": 250
               }
             ]
@@ -2609,8 +3266,6 @@
             "Flags": 0,
             "Name": "QT Drive",
             "Enabled": true,
-            "NetworkMode": 2,
-            "NetworkInterpolation": true,
             "Components": [
               {
                 "__type": "QtDrive",
@@ -2626,6 +3281,12 @@
                 "LoopSound": "sounds/qt_drive_loop.sound",
                 "MaxCharge": 100,
                 "MinUsableCharge": 20,
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
                 "TranslationSpeed": 400
               }
             ]
@@ -2637,21 +3298,24 @@
         "Flags": 0,
         "Name": "Weapons",
         "Enabled": true,
-        "NetworkMode": 2,
-        "NetworkInterpolation": true,
         "Children": [
           {
             "__guid": "21ace3ca-56e8-4bdc-b0ec-15acd7d0504c",
             "Flags": 0,
             "Name": "Mining Laser",
             "Enabled": true,
-            "NetworkMode": 2,
-            "NetworkInterpolation": true,
             "Components": [
               {
                 "__type": "MiningLaser",
                 "__guid": "cbbcb6f5-5ee3-4e9a-a525-75082ca5dc3d",
+                "Gradient": null,
                 "LaserTint": "0,0,0,0",
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null,
                 "PrefabInstances": [],
                 "ShouldFire": false,
                 "TickDamage": 0,
@@ -2666,18 +3330,43 @@
           }
         ]
       }
-    ]
+    ],
+    "__variables": [],
+    "__properties": {
+      "FixedUpdateFrequency": 50,
+      "MaxFixedUpdates": 5,
+      "NetworkFrequency": 30,
+      "NetworkInterpolation": true,
+      "PhysicsSubSteps": 1,
+      "ThreadedAnimation": true,
+      "TimeScale": 1,
+      "UseFixedUpdate": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": true,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": ""
+      }
+    }
   },
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
+  "DontBreakAsTemplate": false,
   "ResourceVersion": 1,
-  "__version": 1,
   "__references": [
     "facepunch.airduct_a_panel_32x32#93875",
     "facepunch.airduct_a_panel_48x16#93874",
     "facepunch.airduct_a_panel_48x32#93872",
     "facepunch.airduct_a_panel_b_48x32#93867",
     "facepunch.glass_opaque_a#19951"
-  ]
+  ],
+  "__version": 1
 }
