@@ -5,8 +5,6 @@ namespace Sandbox;
 
 public sealed class LaserBeam : Component
 {
-	[ConVar( "laser_light_count" )]
-	public static int LaserLightCount { get; set; } = 10;
 	[ConVar( "laser_light_brightness_scale" )]
 	public static float BrightnessScale { get; set; } = 1f;
 
@@ -15,7 +13,7 @@ public sealed class LaserBeam : Component
 	[Property] public ParticleSystem ParticleAsset { get; set; }
 	[Property] public LegacyParticleSystem ParticleInstance { get; set; }
 
-	private readonly List<SceneLight> _lights = new();
+	private SceneLight _laserLight;
 
 	protected override void OnStart()
 	{
@@ -51,41 +49,34 @@ public sealed class LaserBeam : Component
 	private void CreateLights()
 	{
 		DestroyLights();
-		for ( int i = 0; i < LaserLightCount; i++ )
+		_laserLight = new SceneLight( Scene.SceneWorld )
 		{
-			var light = new SceneLight( Scene.SceneWorld )
-			{
-				Radius = MathX.Remap( i, 0, LaserLightCount, 400f, 20f ),
-				QuadraticAttenuation = 5f,
-				ShadowsEnabled = false
-			};
-			_lights.Add( light );
-		}
+			QuadraticAttenuation = 0.1f,
+			FogLighting = SceneLight.FogLightingMode.Dynamic,
+			ShadowsEnabled = false,
+			Shape = SceneLight.LightShape.Rectangle
+		};
 		UpdateLights();
 	}
 
 	private void UpdateLights()
 	{
-		for ( int i = 0; i < _lights.Count; i++ )
-		{
-			if ( Target.IsValid() )
-			{
-				var position = i / (float)LaserLightCount;
-				_lights[i].Position = Transform.Position.LerpTo( Target.Transform.Position, position );
-			}
-			var distance = Transform.Position.Distance( _lights[i].Position );
-			var attenuation = Easing.EaseIn( distance.LerpInverse( 0, 2000f ) );
-			_lights[i].LightColor = Tint.ToHsv().WithValue( 0.5f * BrightnessScale * ( 1f - attenuation ) );
-		}
+		var lightLength = Target.IsValid() 
+			? WorldPosition.Distance( Target.WorldPosition )
+			: 400f;
+		_laserLight.Radius = lightLength * 2f;
+		_laserLight.FogStrength = 0.3f;
+		_laserLight.QuadraticAttenuation = 0.1f;
+		_laserLight.Position = WorldPosition;
+		_laserLight.Rotation = WorldRotation;
+		_laserLight.ShapeSize = new Vector2( 1, lightLength );
+		_laserLight.LightColor = Tint.ToHsv().WithValue( 0.5f * BrightnessScale );
 	}
 
 	private void DestroyLights()
 	{
-		foreach( var light in _lights.ToArray() )
-		{
-			light.Delete();
-		}
-		_lights.Clear();
+		_laserLight?.Delete();
+		_laserLight = null;
 	}
 
 	private void SetControlPoints()
