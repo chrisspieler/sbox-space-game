@@ -56,12 +56,9 @@ public sealed class GrappleBeam : Component
 			_realDeltaTime = 0f;
 			return;
 		}
-		
 
-		if ( _light.IsValid() && CurrentTarget.IsValid() )
-		{
-			_light.Position = Joint.Transform.Position.LerpTo( _currentTarget.Transform.Position, 0.5f );
-		}
+		UpdateLight();
+		
 		var mouseSelector = MouseSelector.Instance;
 		var isHoveringValidTarget = mouseSelector.Hovered?.Tags?.Has( "target" ) == true;
 		var oldTarget = CurrentTarget;
@@ -222,6 +219,22 @@ public sealed class GrappleBeam : Component
 		Particles.Enabled = false;
 	}
 
+	private void UpdateLight()
+	{
+		if ( !_light.IsValid() || !_currentTarget.IsValid() )
+			return;
+
+		var startPos = Joint.IsValid() ? Joint.WorldPosition : WorldPosition;
+		var endPos = _currentTarget.WorldPosition;
+		var lightLength = startPos.Distance( endPos ); 
+		_light.Radius = lightLength * 2f;
+		_light.ShapeSize = new Vector2( 1, lightLength );
+		_light.FogStrength = 0.3f;
+		_light.QuadraticAttenuation = 0.1f;
+		_light.Position = startPos.LerpTo( endPos, 0.5f );
+		_light.Rotation = Rotation.LookAt( endPos - startPos );
+	}
+
 	private void CreateLight()
 	{
 		if ( _light.IsValid() )
@@ -229,10 +242,16 @@ public sealed class GrappleBeam : Component
 			_light.Delete();
 		}
 
-		_light = new SceneLight( Scene.SceneWorld );
-		_light.ShadowsEnabled = false;
-		_light.LightColor = Color.Cyan;
-		_light.Radius = 2000f;
+		_light = new SceneLight( Scene.SceneWorld )
+		{
+			QuadraticAttenuation = 0.1f,
+			FogStrength = 0.3f,
+			FogLighting = SceneLight.FogLightingMode.Dynamic,
+			ShadowsEnabled = false,
+			LightColor = Color.Cyan,
+			Radius = 200f,
+			Shape = SceneLight.LightShape.Rectangle
+		};
 	}
 
 	private void DestroyLight()
