@@ -16,8 +16,6 @@ public sealed class PostProcessingController : Component
 	public static PostProcessingController Instance { get; private set; }
 	public static PostProcessingController GetCurrent() => Instance;
 
-	private RealTimeSince _realDeltaTime;
-
 	protected override void OnAwake()
 	{
 		Instance = this;
@@ -27,10 +25,9 @@ public sealed class PostProcessingController : Component
 	protected override void OnUpdate()
 	{
 		HighlightEffect.SetEnabled( AsteroidHighlight.GlobalStrength > 0f );
-		var bloomAmount = Bloom.Strength.LerpTo( TargetBloom, _realDeltaTime * 10f );
+		var bloomAmount = Bloom.Strength.LerpTo( TargetBloom, RealTime.Delta * 10f );
 		Bloom.Strength = bloomAmount * BloomIntensity;
-		var sharpenAmount = Sharpen.Scale.LerpTo( TargetSharpness, _realDeltaTime * 5f );
+		var sharpenAmount = Sharpen.Scale.LerpTo( TargetSharpness, RealTime.Delta * 5f );
 		Sharpen.Scale = sharpenAmount * SharpenIntensity;
-		_realDeltaTime = 0f;
 	}
 }

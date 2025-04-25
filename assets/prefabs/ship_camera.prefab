@@ -5,8 +5,6 @@
     "Name": "ship_camera",
     "Tags": "no_chunk,no_shift",
     "Enabled": true,
-    "NetworkMode": 2,
-    "NetworkInterpolation": true,
     "Components": [
       {
         "__type": "Sandbox.CameraComponent",
@@ -14,7 +12,14 @@
         "BackgroundColor": "0.33333,0.46275,0.52157,1",
         "ClearFlags": "All",
         "FieldOfView": 90,
+        "FovAxis": "Horizontal",
         "IsMainCamera": true,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
         "Orthographic": false,
         "OrthographicHeight": 1204,
         "Priority": 1,
@@ -39,51 +44,44 @@
         "HighPosition": "-120,0,3000",
         "LowPitch": 70,
         "LowPosition": "-350,0,1000",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
         "PitchLerpSpeed": 1,
         "PositionLerpSpeed": 1,
+        "Target": null,
         "TargetVelocityHighThreshold": 2500,
         "TargetVelocityLowThreshold": 50
       },
       {
         "__type": "Sandbox.Bloom",
         "__guid": "a0997d52-13d1-4910-95f0-da14346867be",
-        "BloomColor": {
-          "color": [
-            {
-              "c": "1,1,1,1"
-            },
-            {
-              "t": 1,
-              "c": "1,1,1,1"
-            }
-          ],
-          "alpha": []
-        },
-        "BloomCurve": [
-          {
-            "y": 0.5
-          },
-          {
-            "x": 1,
-            "y": 1
-          }
-        ],
+        "__version": 1,
+        "Gamma": 1.55,
         "Mode": "Additive",
-        "Strength": 0.5,
-        "Threshold": 0.05,
-        "ThresholdWidth": 0.1
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "Strength": 5,
+        "Threshold": 1.5,
+        "Tint": "1,1,1,1"
       },
       {
-        "__type": "Sandbox.ColorAdjustments",
-        "__guid": "4cede54f-b039-426f-9083-55b356d664db",
-        "Brightness": 1.1,
-        "Contrast": 1.01,
-        "HueRotate": 0,
-        "Saturation": 1.1
-      },
-      {
-        "__type": "Sandbox.Highlight",
-        "__guid": "c0ae274c-a85f-4d18-8fc2-8511498f3d8b"
+        "__type": "Sandbox.Sharpen",
+        "__guid": "1106a4f8-65f4-43a4-a5a3-294b96ab7870",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "Scale": 0.05
       },
       {
         "__type": "PostProcessingController",
@@ -100,14 +98,62 @@
           "go": "345207fd-2535-493b-82f9-d74e8c330d7d",
           "component_type": "Highlight"
         },
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
         "Sharpen": {
           "_type": "component",
           "component_id": "1106a4f8-65f4-43a4-a5a3-294b96ab7870",
           "go": "345207fd-2535-493b-82f9-d74e8c330d7d",
           "component_type": "Sharpen"
         },
-        "TargetBloom": 1,
+        "TargetBloom": 5,
         "TargetSharpness": 0.05
+      },
+      {
+        "__type": "Sandbox.ColorAdjustments",
+        "__guid": "4cede54f-b039-426f-9083-55b356d664db",
+        "Brightness": 1.2,
+        "Contrast": 1.0075,
+        "HueRotate": 0,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "Saturation": 1.25
+      },
+      {
+        "__type": "Sandbox.Highlight",
+        "__guid": "c0ae274c-a85f-4d18-8fc2-8511498f3d8b",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
+      },
+      {
+        "__type": "Sandbox.Tonemapping",
+        "__guid": "dfca1d73-2c34-43b8-93b5-f3f451f31359",
+        "__version": 3,
+        "AutoExposureEnabled": true,
+        "ExposureCompensation": 0,
+        "ExposureMethod": "RGB",
+        "MaximumExposure": 3,
+        "MinimumExposure": 1,
+        "Mode": "ACES",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "Rate": 1
       },
       {
         "__type": "OriginShiftCamera",
@@ -118,6 +164,13 @@
           "go": "345207fd-2535-493b-82f9-d74e8c330d7d",
           "component_type": "CameraComponent"
         },
+        "ExcludeTags": null,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
         "OriginShiftFreezeFrames": 0,
         "RenderTags": "shift_visible"
       },
@@ -126,6 +179,12 @@
         "__guid": "5855c4ba-6ee0-4705-b7ad-0b1f60a46ec4",
         "BaseTrauma": 0,
         "CombinedTrauma": 0,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
         "PitchShakeIntensity": 5,
         "PitchShakeSpeed": 300,
         "RollShakeIntensity": 5,
@@ -138,32 +197,48 @@
       },
       {
         "__type": "OffsetCombiner",
-        "__guid": "eba104db-7cee-4309-a976-a0e6546b3d0d"
+        "__guid": "eba104db-7cee-4309-a976-a0e6546b3d0d",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
       },
       {
         "__type": "DeathCam",
         "__guid": "f5b8afed-c1b7-44a4-9c16-a55b25adca43",
         "__enabled": false,
         "Offset": "-100,0,0",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
         "PositionLerpSpeed": {
           "rangey": "1,20",
           "frames": [
             {
+              "x": 0,
               "y": 0.018085156,
               "in": -0.06567136,
-              "out": 0.06567136
+              "out": 0.06567136,
+              "mode": "Mirrored"
             },
             {
               "x": 0.8979591,
               "y": 0.48478442,
               "in": -1.6221398,
-              "out": 1.6221398
+              "out": 1.6221398,
+              "mode": "Mirrored"
             },
             {
               "x": 1,
               "y": 1,
               "in": -9.076923,
-              "out": 9.076923
+              "out": 9.076923,
+              "mode": "Mirrored"
             }
           ]
         },
@@ -171,40 +246,113 @@
           "rangey": "0,5",
           "frames": [
             {
-              "y": 0.02074473
+              "x": 0,
+              "y": 0.02074473,
+              "in": 0,
+              "out": 0,
+              "mode": "Mirrored"
             },
             {
               "x": 0.88839287,
               "y": 0.4588643,
               "in": -1.8266492,
-              "out": 1.8266492
+              "out": 1.8266492,
+              "mode": "Mirrored"
             },
             {
               "x": 1,
               "y": 1,
               "in": -6.3225813,
-              "out": 6.3225813
+              "out": 6.3225813,
+              "mode": "Mirrored"
             }
           ]
-        }
-      },
-      {
-        "__type": "Sandbox.Sharpen",
-        "__guid": "1106a4f8-65f4-43a4-a5a3-294b96ab7870",
-        "Scale": 0.05
+        },
+        "Target": null
       },
       {
         "__type": "Sandbox.VolumetricFogParameterConfig",
         "__guid": "ddfae0f2-9ff3-4e1c-8acb-1932cffde3f6",
+        "Anisotropy": null,
         "ContinuousMode": false,
-        "ForceNoClipmaps": false
+        "DrawDistance": null,
+        "FadeInEnd": 1500,
+        "FadeInStart": null,
+        "ForceNoClipmaps": false,
+        "IndirectStrength": null,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "Scattering": null
+      },
+      {
+        "__type": "Sandbox.DepthOfField",
+        "__guid": "79cfb7dc-c6a3-4ed1-988b-87c243f5c1c8",
+        "__enabled": false,
+        "BackBlur": true,
+        "BlurSize": 30,
+        "FocalDistance": 300,
+        "FocusRange": 100,
+        "FrontBlur": false,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "QualityLevel": "High"
+      },
+      {
+        "__type": "Sandbox.AmbientOcclusion",
+        "__guid": "07b7f288-bf84-49aa-9fe7-68d46bb583c6",
+        "__version": 1,
+        "DenoiseMode": "Spatial",
+        "FalloffRange": 0.2,
+        "Intensity": 1,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "Quality": "High",
+        "Radius": 512,
+        "ThinCompensation": 0
       }
     ],
-    "Children": []
+    "Children": [],
+    "__variables": [],
+    "__properties": {
+      "FixedUpdateFrequency": 50,
+      "MaxFixedUpdates": 5,
+      "NetworkFrequency": 30,
+      "NetworkInterpolation": true,
+      "PhysicsSubSteps": 1,
+      "ThreadedAnimation": true,
+      "TimeScale": 1,
+      "UseFixedUpdate": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": true,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": ""
+      }
+    }
   },
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
+  "DontBreakAsTemplate": false,
   "ResourceVersion": 1,
   "__references": [],
   "__version": 1
